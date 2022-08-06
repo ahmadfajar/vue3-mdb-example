@@ -1,11 +1,12 @@
 <template>
   <div class="container-xl">
-    <img
-      alt="Vue logo"
-      src="./assets/logo.png"
-      class="mb-3"
-    >
-    <DemoIcon />
+    <div class="text-center">
+      <img
+        alt="Vue logo"
+        src="./assets/logo.png"
+        class="mb-3"/>
+    </div>
+    <DemoIcon/>
   </div>
 </template>
 
@@ -26,7 +27,6 @@ export default defineComponent({
   font-family: Avenir, Roboto, "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
   margin-top: 20px;
 }
