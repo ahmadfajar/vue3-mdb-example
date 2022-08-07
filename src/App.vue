@@ -6,28 +6,30 @@
         src="./assets/logo.png"
         class="mb-3"/>
     </div>
-    <DemoIcon/>
+    <DemoCard/>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import DemoIcon from '@/components/Icon/DemoIcon.vue'
+// import DemoIcon from '@/components/Icon/DemoIcon.vue'
+import DemoCard from '@/components/Card/DemoCard.vue'
 
 export default defineComponent({
   name: 'App',
   components: {
-    DemoIcon
+    DemoCard
   }
 })
 </script>
 
-<style>
+<style lang="scss">
 #app {
   font-family: Avenir, Roboto, "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
   margin-top: 20px;
+  padding-bottom: 30px;
 }
 </style>

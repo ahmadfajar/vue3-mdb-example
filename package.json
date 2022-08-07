@@ -24,6 +24,8 @@
     "@vue/cli-service": "~5.0.0",
     "@vue/eslint-config-standard": "^8.0.1",
     "@vue/eslint-config-typescript": "^11.0.0",
+    "bootstrap": "^5.2.0",
+    "compass-mixins": "^0.12.12",
     "eslint": "^8.21.0",
     "eslint-plugin-import": "^2.25.3",
     "eslint-plugin-node": "^11.1.0",
