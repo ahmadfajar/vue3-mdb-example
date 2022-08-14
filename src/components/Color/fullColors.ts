@@ -11,7 +11,7 @@ export const fullColors = {
     'darken-1': '#e53935',
     'darken-2': '#d32f2f',
     'darken-3': '#c62828',
-    'darken-4': '#b71c1c',
+    'darken-4': '#a51616',
     'accent-1': '#ff8a80',
     'accent-2': '#ff5252',
     'accent-3': '#e03333',
