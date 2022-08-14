@@ -1,35 +1,124 @@
 <template>
-  <div class="container-xl">
-    <div class="text-center">
+  <aside class="side-drawer shadow-lg">
+    <div class="text-center mb-3">
       <img
         alt="Vue logo"
         src="./assets/logo.png"
-        class="mb-3"/>
+        style="width: 128px"/>
     </div>
-    <DemoCard/>
+    <div class="drawer-body px-2">
+      <ul class="side-nav-menu">
+        <li class="link-nav-item">
+          <RouterLink to="/components/avatar">
+            Avatar
+          </RouterLink>
+        </li>
+        <li class="link-nav-item">
+          <RouterLink to="/components/badge">
+            Badge
+          </RouterLink>
+        </li>
+        <li class="link-nav-item">
+          <RouterLink to="/components/card">
+            Card
+          </RouterLink>
+        </li>
+        <li class="link-nav-item">
+          <RouterLink to="/components/icon">
+            Icon
+          </RouterLink>
+        </li>
+        <BsDivider/>
+        <li class="link-nav-item">
+          <RouterLink to="/reference/color">
+            Color Variants
+          </RouterLink>
+        </li>
+      </ul>
+    </div>
+  </aside>
+  <div class="body-content">
+    <RouterView v-slot="{ Component }">
+      <Transition name="fade" mode="out-in">
+        <component :is="Component"/>
+      </Transition>
+    </RouterView>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
-// import DemoIcon from '@/components/Icon/DemoIcon.vue'
-import DemoCard from '@/components/Card/DemoCard.vue'
-
-export default defineComponent({
-  name: 'App',
-  components: {
-    DemoCard
-  }
-})
 </script>
 
 <style lang="scss">
 #app {
-  font-family: Avenir, Roboto, "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
-  margin-top: 20px;
-  padding-bottom: 30px;
+  overflow: hidden;
+  max-width: 100%;
+
+  .side-drawer {
+    left: 0;
+    top: 0;
+    bottom: 0;
+    position: fixed;
+    width: 300px;
+
+    > .drawer-body {
+      width: auto;
+      overflow-y: auto;
+
+      .side-nav-menu {
+        list-style: none;
+        padding-left: 0;
+
+        > .link-nav-item {
+          padding: .25rem 0;
+
+          > a {
+            color: inherit;
+            display: block;
+            text-decoration: none;
+            padding: .5rem .75rem;
+
+            &.router-link-active {
+              background-color: var(--bs-gray-300);
+              border-radius: var(--bs-border-radius-pill);
+              color: var(--bs-primary);
+              font-weight: 500;
+            }
+          }
+        }
+      }
+    }
+  }
+  .body-content {
+    margin-left: 300px;
+    padding-bottom: 2rem;
+    position: relative;
+    width: auto;
+
+    .demo-wrapper {
+      padding-top: 2rem;
+
+      @media (min-width: 1200px) {
+        max-width: 1080px;
+      }
+
+      @media (max-width: 1480px) {
+        padding-left: 2rem;
+      }
+    }
+  }
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
 }
 </style>
