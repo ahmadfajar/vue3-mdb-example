@@ -4,14 +4,14 @@ export const fullColors = {
   red: {
     'lighten-5': '#ffebee',
     'lighten-4': '#ffcdd2',
-    'lighten-3': '#ef9a9a',
-    'lighten-2': '#e57373',
-    'lighten-1': '#ef5350',
+    'lighten-3': '#ffada7',
+    'lighten-2': '#ff887f',
+    'lighten-1': '#ff6155',
     base: themeColors.red,
     'darken-1': '#e53935',
     'darken-2': '#d32f2f',
-    'darken-3': '#c62828',
-    'darken-4': '#a51616',
+    'darken-3': '#b12121',
+    'darken-4': '#951313',
     'accent-1': '#ff8a80',
     'accent-2': '#ff5252',
     'accent-3': '#e03333',
@@ -56,14 +56,14 @@ export const fullColors = {
     'lighten-2': '#9575cd',
     'lighten-1': '#7e57c2',
     base: themeColors['deep-purple'],
-    'darken-1': '#5e35b1',
-    'darken-2': '#512da8',
-    'darken-3': '#4527a0',
-    'darken-4': '#311b92',
+    'darken-1': '#5b32a7',
+    'darken-2': '#50269b',
+    'darken-3': '#3e1985',
+    'darken-4': '#300c72',
     'accent-1': '#b388ff',
     'accent-2': '#8f67ff',
     'accent-3': '#7846ff',
-    'accent-4': '#6200ea'
+    'accent-4': '#5402c5'
   },
   indigo: {
     'lighten-5': '#e8eaf6',
@@ -74,7 +74,7 @@ export const fullColors = {
     base: themeColors.indigo,
     'darken-1': '#3949ab',
     'darken-2': '#303f9f',
-    'darken-3': '#283593',
+    'darken-3': '#232f89',
     'darken-4': '#1a237e',
     'accent-1': '#8c9eff',
     'accent-2': '#6770eb',
@@ -90,7 +90,7 @@ export const fullColors = {
     base: themeColors.blue,
     'darken-1': '#1e88e5',
     'darken-2': '#1976d2',
-    'darken-3': '#1565c0',
+    'darken-3': '#125db3',
     'darken-4': '#0d47a1',
     'accent-1': '#82b1ff',
     'accent-2': '#448aff',
@@ -106,7 +106,7 @@ export const fullColors = {
     base: themeColors['light-blue'],
     'darken-1': '#039be5',
     'darken-2': '#0288d1',
-    'darken-3': '#0277bd',
+    'darken-3': '#006daf',
     'darken-4': '#01579b',
     'accent-1': '#80d8ff',
     'accent-2': '#40c4ff',
@@ -122,7 +122,7 @@ export const fullColors = {
     base: themeColors.cyan,
     'darken-1': '#00acc1',
     'darken-2': '#0097a7',
-    'darken-3': '#00838f',
+    'darken-3': '#007985',
     'darken-4': '#006064',
     'accent-1': '#84ffff',
     'accent-2': '#18ffff',
@@ -138,7 +138,7 @@ export const fullColors = {
     base: themeColors.teal,
     'darken-1': '#00897b',
     'darken-2': '#00796b',
-    'darken-3': '#00695c',
+    'darken-3': '#016055',
     'darken-4': '#004d40',
     'accent-1': '#a7ffeb',
     'accent-2': '#64f9dd',
@@ -170,7 +170,7 @@ export const fullColors = {
     base: themeColors['light-green'],
     'darken-1': '#7cb342',
     'darken-2': '#689f38',
-    'darken-3': '#558b2f',
+    'darken-3': '#4f832b',
     'darken-4': '#406823',
     'accent-1': '#ccff90',
     'accent-2': '#a7e75c',
@@ -186,7 +186,7 @@ export const fullColors = {
     base: themeColors.lime,
     'darken-1': '#bbcb21',
     'darken-2': '#a4b501',
-    'darken-3': '#8d9b02',
+    'darken-3': '#879502',
     'darken-4': '#6f7a00',
     'accent-1': '#f4ff81',
     'accent-2': '#dae75b',
@@ -232,10 +232,10 @@ export const fullColors = {
     'lighten-2': '#ffb74d',
     'lighten-1': '#ffa726',
     base: themeColors.orange,
-    'darken-1': '#fb8c00',
-    'darken-2': '#f57c00',
-    'darken-3': '#ef6c00',
-    'darken-4': '#c9560c',
+    'darken-1': '#f38801',
+    'darken-2': '#e77602',
+    'darken-3': '#d15e00',
+    'darken-4': '#a74404',
     'accent-1': '#ffd180',
     'accent-2': '#ffab40',
     'accent-3': '#ff9100',
@@ -248,10 +248,10 @@ export const fullColors = {
     'lighten-2': '#ff8a65',
     'lighten-1': '#ff7043',
     base: themeColors['deep-orange'],
-    'darken-1': '#ec4410',
-    'darken-2': '#dc3b09',
-    'darken-3': '#ca380b',
-    'darken-4': '#af2b03',
+    'darken-1': '#e74613',
+    'darken-2': '#d93400',
+    'darken-3': '#c12e00',
+    'darken-4': '#a52700',
     'accent-1': '#ff9e80',
     'accent-2': '#ff6e40',
     'accent-3': '#ff3d00',
@@ -304,5 +304,46 @@ export const fullColors = {
     'darken-2': '#616161',
     'darken-3': '#424242',
     'darken-4': '#212121'
+  }
+}
+
+export function useFullColorClasses (base: string, prop: string) {
+  return {
+    [`bg-${base}`]: true,
+    [prop]: prop !== 'base',
+    'text-white':
+      ![
+        'lighten-5',
+        'lighten-4',
+        'lighten-3',
+        'lighten-2',
+        'lighten-1',
+        'accent-1',
+        'accent-2',
+        'accent-3'
+      ].includes(prop) &&
+      !(['lime', 'amber'].includes(base) && prop === 'base') &&
+      !(base === 'yellow' && prop !== 'darken-4'),
+    'text-black':
+      [
+        'lighten-5',
+        'lighten-4',
+        'lighten-3',
+        'lighten-2',
+        'lighten-1',
+        'accent-1',
+        'accent-2',
+        'accent-3'
+      ].includes(prop) ||
+      (['lime', 'amber'].includes(base) && prop === 'base') ||
+      (base === 'yellow' && prop !== 'darken-4')
+  }
+}
+
+export function useFullColorName (base: string, prop: string): string {
+  if (prop === 'base') {
+    return base
+  } else {
+    return `${base} ${prop}`
   }
 }

@@ -9,7 +9,7 @@ export const themeColors = {
   'deep-orange': '#ff5722',
   orange: '#ff9800',
   amber: '#ffc107',
-  yellow: '#ffeb3b',
+  yellow: '#ffe822',
   brown: '#795548',
   lime: '#cddc39',
   'light-green': '#8bc34a',
@@ -24,7 +24,7 @@ export const themeColors = {
   indigo: '#3f51b5',
   'mdb-color': '#45526e',
   purple: '#9c27b0',
-  'deep-purple': '#673ab7',
+  'deep-purple': '#6f42c1',
   pink: '#F65A83',
   red: '#f44336',
   unique: '#880e4f',
@@ -98,4 +98,36 @@ export const materialColors = {
     'unique-color': '#385870',
     'unique-color-dark': '#1c2331'
   }
+}
+
+export function useBootstrapColorClasses (name: string) {
+  return {
+    ['bg-' + name]: true,
+    'text-black': ['lime', 'yellow', 'amber', 'white', 'light', 'light-grey'].includes(name),
+    'text-white': !['lime', 'yellow', 'amber', 'white', 'light', 'light-grey'].includes(name)
+  }
+}
+
+export function useGrayColorClasses (name: string) {
+  return {
+    [`bg-grey-${name}`]: true,
+    'text-black': ['100', '200', '300', '400', '500'].includes(name),
+    'text-white': !['100', '200', '300', '400', '500'].includes(name)
+  }
+}
+
+export function useMaterialColorInfo (color: object) {
+  const keys = Object.keys(color)
+  const values = Object.values(color)
+
+  return [
+    {
+      color: keys[0],
+      value: values[0]
+    },
+    {
+      color: keys[1],
+      value: values[1]
+    }
+  ]
 }
