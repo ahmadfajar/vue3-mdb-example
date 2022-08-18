@@ -23,6 +23,10 @@ const navigations = [{
   component: viewResolver('Icon/DemoIcon'),
   meta: { title: 'Demo Icon' }
 }, {
+  path: '/components/ripple',
+  component: viewResolver('Animation/DemoRipple'),
+  meta: { title: 'Demo Ripple' }
+}, {
   path: '/reference/color',
   component: viewResolver('Color/DemoColor'),
   meta: { title: 'Color Variants' }

@@ -28,6 +28,11 @@
             Icon
           </RouterLink>
         </li>
+        <li class="link-nav-item">
+          <RouterLink to="/components/ripple">
+            Ripple
+          </RouterLink>
+        </li>
         <BsDivider/>
         <li class="link-nav-item">
           <RouterLink to="/reference/color">
@@ -39,7 +44,7 @@
   </aside>
   <div class="body-content">
     <RouterView v-slot="{ Component }">
-      <Transition name="fade" mode="out-in">
+      <Transition name="ffade" mode="out-in">
         <component :is="Component"/>
       </Transition>
     </RouterView>
@@ -112,13 +117,13 @@
   }
 }
 
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.3s ease;
+.ffade-enter-active,
+.ffade-leave-active {
+  transition: opacity 0.2s ease;
 }
 
-.fade-enter-from,
-.fade-leave-to {
+.ffade-enter-from,
+.ffade-leave-to {
   opacity: 0;
 }
 </style>
