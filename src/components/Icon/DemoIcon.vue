@@ -83,6 +83,14 @@
     </div>
     <div class="row row-cols-xl-5 row-cols-md-4 row-cols-sm-2 mt-3">
       <div class="col">
+        <div class="d-flex justify-content-center bg-light" style="height: 80px">
+          <BsIconSpinner
+            :pulse="isPulse"
+            :spin="isSpin"
+            size="52"/>
+        </div>
+      </div>
+      <div class="col">
         <div class="p-2 bg-light">
           <BsIcon
             icon="home"
