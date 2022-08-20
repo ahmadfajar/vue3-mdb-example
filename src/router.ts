@@ -23,6 +23,18 @@ const navigations = [{
   component: viewResolver('Icon/DemoIcon'),
   meta: { title: 'Demo Icon' }
 }, {
+  path: '/components/mask-loader',
+  component: viewResolver('Progress/DemoMaskLoader'),
+  meta: { title: 'Demo Mask Loader' }
+}, {
+  path: '/components/progress',
+  component: viewResolver('Progress/DemoProgress'),
+  meta: { title: 'Demo Progress Control' }
+}, {
+  path: '/components/progress-bar',
+  component: viewResolver('Progress/DemoProgressBar'),
+  meta: { title: 'Demo Progress Bar' }
+}, {
   path: '/components/ripple',
   component: viewResolver('Animation/DemoRipple'),
   meta: { title: 'Demo Ripple' }

@@ -1,8 +1,8 @@
 export const themeColors = {
   default: '#2bbbad',
   primary: '#0d6efd',
-  info: '#0dcaf0',
   secondary: '#6c757d',
+  info: '#0dcaf0',
   success: '#198754',
   warning: '#ffbb33',
   danger: '#dc3545',
@@ -22,14 +22,14 @@ export const themeColors = {
   blue: '#2196f3',
   'dark-blue': '#0d47a1',
   indigo: '#3f51b5',
-  'mdb-color': '#45526e',
-  purple: '#9c27b0',
   'deep-purple': '#6f42c1',
+  purple: '#9c27b0',
   pink: '#F65A83',
   red: '#f44336',
   unique: '#880e4f',
-  dark: '#212121',
+  'mdb-color': '#45526e',
   'blue-grey': '#607d8b',
+  dark: '#212121',
   grey: '#9e9e9e',
   'light-grey': '#e0e0e0',
   light: '#f8f9fa',
@@ -86,13 +86,13 @@ export const materialColors = {
     'elegant-color': '#2e2e2e',
     'elegant-color-dark': themeColors.dark
   },
-  'special-color': {
-    'special-color': '#37474f',
-    'special-color-dark': '#263238'
-  },
   'stylish-color': {
     'stylish-color': '#4b515d',
     'stylish-color-dark': '#2d333e'
+  },
+  'special-color': {
+    'special-color': '#37474f',
+    'special-color-dark': '#263238'
   },
   'unique-color': {
     'unique-color': '#385870',

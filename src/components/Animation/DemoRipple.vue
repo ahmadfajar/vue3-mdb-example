@@ -25,7 +25,7 @@
     </h2>
     <BsDivider/>
     <div class="position-relative d-flex justify-content-center mt-4 py-5">
-      <button class="btn btn-primary" @click="showOverlay = !showOverlay">
+      <button class="btn btn-success" @click="showOverlay = !showOverlay">
         Show Overlay
       </button>
       <BsOverlay :show="showOverlay" @click="hideOverlay"/>

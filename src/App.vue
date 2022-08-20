@@ -29,6 +29,21 @@
           </RouterLink>
         </li>
         <li class="link-nav-item">
+          <RouterLink to="/components/mask-loader">
+            Mask Loader
+          </RouterLink>
+        </li>
+        <li class="link-nav-item">
+          <RouterLink to="/components/progress">
+            Progress Control
+          </RouterLink>
+        </li>
+        <li class="link-nav-item">
+          <RouterLink to="/components/progress-bar">
+            Progress Bar
+          </RouterLink>
+        </li>
+        <li class="link-nav-item">
           <RouterLink to="/components/ripple">
             Ripple
           </RouterLink>
