@@ -13,11 +13,11 @@
           </BsCardBody>
           <BsMaskLoader v-model:show="showLinear1"/>
         </BsCard>
-        <button
-          class="btn btn-primary mt-3"
+        <BsButton
+          color="default-color mt-3"
           @click="showLinear1 = !showLinear1">
           Toggle Loader
-        </button>
+        </BsButton>
       </div>
       <div class="col-md-6 mb-4">
         <BsCard shadow>
@@ -31,11 +31,11 @@
             v-model:show="showProgress1"
             variant="progress"/>
         </BsCard>
-        <button
-          class="btn btn-primary mt-3"
+        <BsButton
+          color="default-color mt-3"
           @click="showProgress1 = !showProgress1">
           Toggle Loader
-        </button>
+        </BsButton>
       </div>
       <div class="col-md-6 mb-4 mb-md-0">
         <BsCard shadow>
@@ -49,11 +49,11 @@
             v-model:show="showSpinner1"
             variant="spinner"/>
         </BsCard>
-        <button
-          class="btn btn-primary mt-3"
+        <BsButton
+          color="default-color mt-3"
           @click="showSpinner1 = !showSpinner1">
           Toggle Loader
-        </button>
+        </BsButton>
       </div>
       <div class="col-md-6 mb-4 mb-md-0">
         <BsCard shadow>
@@ -67,11 +67,11 @@
             v-model:show="showGrow1"
             variant="grow"/>
         </BsCard>
-        <button
-          class="btn btn-primary mt-3"
+        <BsButton
+          color="default-color mt-3"
           @click="showGrow1 = !showGrow1">
           Toggle Loader
-        </button>
+        </BsButton>
       </div>
     </div>
     <h2 class="mt-5">
@@ -94,11 +94,11 @@
             spinner-diameter="60"
             spinner-thickness="8"/>
         </BsCard>
-        <button
-          class="btn btn-primary mt-3"
+        <BsButton
+          color="default-color mt-3"
           @click="showLinear2 = !showLinear2">
           Toggle Loader
-        </button>
+        </BsButton>
       </div>
       <div class="col-md-6 mb-4">
         <BsCard shadow>
@@ -116,11 +116,11 @@
             spinner-diameter="60"
             spinner-thickness="8"/>
         </BsCard>
-        <button
-          class="btn btn-primary mt-3"
+        <BsButton
+          color="default-color mt-3"
           @click="showProgress2 = !showProgress2">
           Toggle Loader
-        </button>
+        </BsButton>
       </div>
       <div class="col-md-6 mb-4 mb-md-0">
         <BsCard shadow>
@@ -137,11 +137,11 @@
             spinner-color="purple"
             spinner-diameter="60"/>
         </BsCard>
-        <button
-          class="btn btn-primary mt-3"
+        <BsButton
+          color="default-color mt-3"
           @click="showSpinner2 = !showSpinner2">
           Toggle Loader
-        </button>
+        </BsButton>
       </div>
       <div class="col-md-6 mb-4 mb-md-0">
         <BsCard shadow>
@@ -155,14 +155,14 @@
             v-model:show="showGrow2"
             variant="grow"
             overlay-color="#064E40"
-            spinner-color="deep-purple"
+            spinner-color="red"
             spinner-diameter="60"/>
         </BsCard>
-        <button
-          class="btn btn-primary mt-3"
+        <BsButton
+          color="default-color mt-3"
           @click="showGrow2 = !showGrow2">
           Toggle Loader
-        </button>
+        </BsButton>
       </div>
     </div>
   </div>

@@ -1,6 +1,8 @@
 <template>
   <div class="demo-wrapper container-lg mx-auto">
-    <BsCardContent type="subtitle" class="mb-4">
+    <h2>Overview</h2>
+    <BsDivider/>
+    <BsCardContent type="subtitle" class="my-4">
       What are you drinking?
     </BsCardContent>
     <div class="row mb-3">
@@ -10,8 +12,7 @@
       <div class="col-md">
         <BsToggleButton
           v-model="selectedDrink"
-          :items="drinks">
-        </BsToggleButton>
+          :items="drinks"/>
       </div>
     </div>
     <div class="row mb-3">
@@ -23,8 +24,7 @@
           v-model="selectedDrink"
           :items="drinks"
           color="default-color"
-          readonly>
-        </BsToggleButton>
+          readonly/>
       </div>
     </div>
     <div class="row">
@@ -35,8 +35,70 @@
         <BsToggleButton
           v-model="selectedDrink"
           :items="drinks"
-          disabled>
-        </BsToggleButton>
+          disabled/>
+      </div>
+    </div>
+    <h2 class="mt-5">
+      Multiple Selection
+    </h2>
+    <BsDivider/>
+    <BsCardContent type="subtitle" class="my-4">
+      What is your favorites drink?
+    </BsCardContent>
+    <div class="row mb-3">
+      <label class="col-md-3 col-xl-2 col-form-label">
+        My favorites are
+      </label>
+      <div class="col-md">
+        <BsToggleButton
+          v-model="favoriteDrinks"
+          :items="drinks"
+          color="default-color"
+          multiple/>
+      </div>
+    </div>
+    <h2 class="mt-5">
+      Toggle Styles
+    </h2>
+    <BsDivider/>
+    <BsCardContent type="subtitle" class="my-4">
+      How is the weather today?
+    </BsCardContent>
+    <div class="row mb-3">
+      <label class="col-md-3 col-xl-2 col-form-label">
+        Raised style
+      </label>
+      <div class="col-md">
+        <BsToggleButton
+          v-model="selectedWeather"
+          :items="weathers"
+          color="primary"
+          raised/>
+      </div>
+    </div>
+    <div class="row mb-3">
+      <label class="col-md-3 col-xl-2 col-form-label">
+        Outlined style
+      </label>
+      <div class="col-md">
+        <BsToggleButton
+          v-model="selectedWeather"
+          :items="weathers"
+          color="indigo"
+          icon-position="right"
+          outlined/>
+      </div>
+    </div>
+    <div class="row">
+      <label class="col-md-3 col-xl-2 col-form-label">
+        Flat style
+      </label>
+      <div class="col-md">
+        <BsToggleButton
+          v-model="selectedWeather"
+          :items="weathers"
+          color="red"
+          flat/>
       </div>
     </div>
   </div>
@@ -56,7 +118,26 @@ const drinks = [{
   label: 'Beer'
 }]
 
+const weathers = [{
+  value: 'sunny',
+  label: 'Sunny',
+  icon: 'wb_sunny',
+  iconSize: 26
+}, {
+  value: 'rain',
+  label: 'Rain',
+  icon: 'wb_cloudy',
+  iconSize: 26
+}, {
+  value: 'heavy-rain',
+  label: 'Heavy Rain',
+  icon: 'thunderstorm',
+  iconSize: 26
+}]
+
 const selectedDrink = ref<string | null>(null)
+const favoriteDrinks = ref<Array<string>>([])
+const selectedWeather = ref<string | null>(null)
 </script>
 
 <style scoped>
