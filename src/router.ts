@@ -5,7 +5,11 @@ const viewResolver = (name: string) => require('./components/' + name).default
 
 const navigations = [{
   path: '/',
-  redirect: '/components/avatar'
+  redirect: '/components/alert'
+}, {
+  path: '/components/alert',
+  component: viewResolver('Alert/DemoAlert'),
+  meta: { title: 'Demo Alert' }
 }, {
   path: '/components/avatar',
   component: viewResolver('Avatar/DemoAvatar'),

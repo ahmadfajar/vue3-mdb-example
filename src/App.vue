@@ -9,6 +9,11 @@
     <div class="drawer-body px-2">
       <ul class="side-nav-menu">
         <li class="link-nav-item">
+          <RouterLink to="/components/alert">
+            Alert
+          </RouterLink>
+        </li>
+        <li class="link-nav-item">
           <RouterLink to="/components/avatar">
             Avatar
           </RouterLink>

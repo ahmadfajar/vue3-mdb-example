@@ -1,5 +1,6 @@
 import { createApp } from 'vue'
 import { BsAnimationPlugin } from '../../vue-mdbootstrap/src/components/Animation'
+import { BsAlertPlugin } from '../../vue-mdbootstrap/src/components/Alert'
 import { BsAvatarPlugin } from '../../vue-mdbootstrap/src/components/Avatar'
 import { BsBadgePlugin } from '../../vue-mdbootstrap/src/components/Badge'
 import { BsBasicCmpPlugin } from '../../vue-mdbootstrap/src/components/Basic'
@@ -12,6 +13,7 @@ import App from './App.vue'
 
 createApp(App)
   .use(BsAnimationPlugin)
+  .use(BsAlertPlugin)
   .use(BsAvatarPlugin)
   .use(BsBadgePlugin)
   .use(BsBasicCmpPlugin)
