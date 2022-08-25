@@ -116,7 +116,7 @@
       </div>
       <div class="col">
         <div class="p-2 bg-light">
-          <BsIconToggle
+          <BsToggleIcon
             icon="lock_outlined"
             toggle-icon="lock"
             size="64"

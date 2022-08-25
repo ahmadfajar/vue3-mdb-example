@@ -19,6 +19,16 @@
           </RouterLink>
         </li>
         <li class="link-nav-item">
+          <RouterLink to="/components/button">
+            Button
+          </RouterLink>
+        </li>
+        <li class="link-nav-item">
+          <RouterLink to="/components/button-toggle">
+            Toggle Button
+          </RouterLink>
+        </li>
+        <li class="link-nav-item">
           <RouterLink to="/components/card">
             Card
           </RouterLink>

@@ -15,6 +15,14 @@ const navigations = [{
   component: viewResolver('Badge/DemoBadge'),
   meta: { title: 'Demo Badge' }
 }, {
+  path: '/components/button',
+  component: viewResolver('Button/DemoButton'),
+  meta: { title: 'Demo Button' }
+}, {
+  path: '/components/button-toggle',
+  component: viewResolver('Button/DemoToggleButton'),
+  meta: { title: 'Demo Toggle Button' }
+}, {
   path: '/components/card',
   component: viewResolver('Card/DemoCard'),
   meta: { title: 'Demo Card' }

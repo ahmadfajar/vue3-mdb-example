@@ -14,12 +14,12 @@
     </h2>
     <BsDivider/>
     <div class="mt-3">
-      <button class="btn btn-primary">
+      <BsButton color="primary">
         Notifications
         <BsBadge variant="light" class="ms-2">
           9
         </BsBadge>
-      </button>
+      </BsButton>
     </div>
     <h2 class="mt-5">
       Contextual Variation
