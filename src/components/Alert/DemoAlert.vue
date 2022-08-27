@@ -208,7 +208,7 @@
 </template>
 
 <script lang="ts" setup>
-import { useCreateSvgComponent } from '../../../../vue-mdbootstrap/src/components/Icon/mixins/SvgApi'
+import { useCreateSvgComponent } from '../../../../vue-mdbootstrap/src/components/Icon/mixins/svgApi'
 import { computed, ref, watch } from 'vue'
 
 const content = 'Aww yeah, you successfully read this alert message. This is an example how to construct'

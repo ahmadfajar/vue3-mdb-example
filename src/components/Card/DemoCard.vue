@@ -163,8 +163,8 @@
       </div>
       <div class="col mb-3 mb-md-0">
         <BsCard
+          :rounded="false"
           class="bg-indigo text-white"
-          flat
           shadow>
           <BsCardHeader>Card with bg-indigo</BsCardHeader>
           <BsCardBody>
@@ -178,8 +178,8 @@
       </div>
       <div class="col">
         <BsCard
+          :rounded="false"
           class="bg-unique text-white"
-          flat
           shadow>
           <BsCardHeader>Card with bg-unique</BsCardHeader>
           <BsCardBody>
