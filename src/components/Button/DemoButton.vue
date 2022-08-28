@@ -426,6 +426,8 @@
 </template>
 
 <script lang="ts" setup>
+import { toTitleCase } from '@/sharedApi'
+
 const iconXs = 16
 const iconSm = 22
 // const iconMd = 24
@@ -437,15 +439,6 @@ const variants = [
   'warning-color-dark', 'blue-green-color', 'blue-green-color-dark', 'stylish-color',
   'stylish-color-dark', 'special-color', 'special-color-dark', 'unique-color', 'unique-color-dark'
 ]
-
-function toTitleCase (text: string) {
-  return text.toLowerCase()
-    .split('-')
-    .map(function (word: string) {
-      return word.replace(word[0], word[0].toUpperCase())
-    }).join(' ')
-}
-
 </script>
 
 <style scoped>
