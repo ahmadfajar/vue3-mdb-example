@@ -268,73 +268,73 @@
     </h2>
     <BsDivider/>
     <div class="mt-3">
-      <bs-chip
+      <BsChip
         color="primary"
         img-src="https://vue-mdbootstrap.fajarconsultant.com/img/1.jpg"
         size="sm">
         Small Chip
-      </bs-chip>
-      <bs-chip
+      </BsChip>
+      <BsChip
         color="success"
         img-src="https://vue-mdbootstrap.fajarconsultant.com/img/1.jpg">
         Normal Chip
-      </bs-chip>
-      <bs-chip
+      </BsChip>
+      <BsChip
         color="danger"
         img-src="https://vue-mdbootstrap.fajarconsultant.com/img/1.jpg"
         size="lg">
         Large Chip
-      </bs-chip>
+      </BsChip>
     </div>
     <div class="mt-3">
-      <bs-chip
+      <BsChip
         color="primary"
         img-src="https://vue-mdbootstrap.fajarconsultant.com/img/1.jpg"
         size="sm"
         img-circle
         pill>
         Small Chip
-      </bs-chip>
-      <bs-chip
+      </BsChip>
+      <BsChip
         color="success"
         img-src="https://vue-mdbootstrap.fajarconsultant.com/img/1.jpg"
         img-circle
         pill>
         Normal Chip
-      </bs-chip>
-      <bs-chip
+      </BsChip>
+      <BsChip
         color="danger"
         img-src="https://vue-mdbootstrap.fajarconsultant.com/img/1.jpg"
         size="lg"
         img-circle
         pill>
         Large Chip
-      </bs-chip>
+      </BsChip>
     </div>
     <div class="mt-3">
-      <bs-chip
+      <BsChip
         color="primary"
         img-src="https://vue-mdbootstrap.fajarconsultant.com/img/1.jpg"
         size="sm"
         outlined>
         Small Chip
-      </bs-chip>
-      <bs-chip
+      </BsChip>
+      <BsChip
         color="success"
         img-src="https://vue-mdbootstrap.fajarconsultant.com/img/1.jpg"
         outlined>
         Normal Chip
-      </bs-chip>
-      <bs-chip
+      </BsChip>
+      <BsChip
         color="danger"
         img-src="https://vue-mdbootstrap.fajarconsultant.com/img/1.jpg"
         size="lg"
         outlined>
         Large Chip
-      </bs-chip>
+      </BsChip>
     </div>
     <div class="mt-3">
-      <bs-chip
+      <BsChip
         color="primary"
         img-src="https://vue-mdbootstrap.fajarconsultant.com/img/1.jpg"
         size="sm"
@@ -342,16 +342,16 @@
         outlined
         pill>
         Small Chip
-      </bs-chip>
-      <bs-chip
+      </BsChip>
+      <BsChip
         color="success"
         img-src="https://vue-mdbootstrap.fajarconsultant.com/img/1.jpg"
         img-circle
         outlined
         pill>
         Normal Chip
-      </bs-chip>
-      <bs-chip
+      </BsChip>
+      <BsChip
         color="danger"
         img-src="https://vue-mdbootstrap.fajarconsultant.com/img/1.jpg"
         size="lg"
@@ -359,36 +359,36 @@
         outlined
         pill>
         Large Chip
-      </bs-chip>
+      </BsChip>
     </div>
     <h4 class="mt-4">
       Adjusting Avatar Size
     </h4>
     <BsDivider/>
     <div class="mt-3">
-      <bs-chip
+      <BsChip
         :img-padding="false"
         color="primary"
         img-src="https://vue-mdbootstrap.fajarconsultant.com/img/2.jpg"
         size="sm">
         Small Chip
-      </bs-chip>
-      <bs-chip
+      </BsChip>
+      <BsChip
         :img-padding="false"
         color="success"
         img-src="https://vue-mdbootstrap.fajarconsultant.com/img/2.jpg">
         Normal Chip
-      </bs-chip>
-      <bs-chip
+      </BsChip>
+      <BsChip
         :img-padding="false"
         color="danger"
         img-src="https://vue-mdbootstrap.fajarconsultant.com/img/2.jpg"
         size="lg">
         Large Chip
-      </bs-chip>
+      </BsChip>
     </div>
     <div class="mt-3">
-      <bs-chip
+      <BsChip
         :img-padding="false"
         color="primary"
         img-src="https://vue-mdbootstrap.fajarconsultant.com/img/2.jpg"
@@ -396,16 +396,16 @@
         img-circle
         pill>
         Small Chip
-      </bs-chip>
-      <bs-chip
+      </BsChip>
+      <BsChip
         :img-padding="false"
         color="success"
         img-src="https://vue-mdbootstrap.fajarconsultant.com/img/2.jpg"
         img-circle
         pill>
         Normal Chip
-      </bs-chip>
-      <bs-chip
+      </BsChip>
+      <BsChip
         :img-padding="false"
         color="danger"
         img-src="https://vue-mdbootstrap.fajarconsultant.com/img/2.jpg"
@@ -413,35 +413,35 @@
         img-circle
         pill>
         Large Chip
-      </bs-chip>
+      </BsChip>
     </div>
     <div class="mt-3">
-      <bs-chip
+      <BsChip
         :img-padding="false"
         color="primary"
         img-src="https://vue-mdbootstrap.fajarconsultant.com/img/2.jpg"
         size="sm"
         outlined>
         Small Chip
-      </bs-chip>
-      <bs-chip
+      </BsChip>
+      <BsChip
         :img-padding="false"
         color="success"
         img-src="https://vue-mdbootstrap.fajarconsultant.com/img/2.jpg"
         outlined>
         Normal Chip
-      </bs-chip>
-      <bs-chip
+      </BsChip>
+      <BsChip
         :img-padding="false"
         color="danger"
         img-src="https://vue-mdbootstrap.fajarconsultant.com/img/2.jpg"
         size="lg"
         outlined>
         Large Chip
-      </bs-chip>
+      </BsChip>
     </div>
     <div class="mt-3">
-      <bs-chip
+      <BsChip
         :img-padding="false"
         color="primary"
         img-src="https://vue-mdbootstrap.fajarconsultant.com/img/2.jpg"
@@ -450,8 +450,8 @@
         outlined
         pill>
         Small Chip
-      </bs-chip>
-      <bs-chip
+      </BsChip>
+      <BsChip
         :img-padding="false"
         color="success"
         img-src="https://vue-mdbootstrap.fajarconsultant.com/img/2.jpg"
@@ -459,8 +459,8 @@
         outlined
         pill>
         Normal Chip
-      </bs-chip>
-      <bs-chip
+      </BsChip>
+      <BsChip
         :img-padding="false"
         color="danger"
         img-src="https://vue-mdbootstrap.fajarconsultant.com/img/2.jpg"
@@ -469,73 +469,73 @@
         outlined
         pill>
         Large Chip
-      </bs-chip>
+      </BsChip>
     </div>
     <h2 class="mt-5">
       Dismissible Chip
     </h2>
     <BsDivider/>
     <div class="mt-3">
-      <bs-chip
+      <BsChip
         dismissible
         size="sm">
         small Chip
-      </bs-chip>
-      <bs-chip color="primary" dismissible>
+      </BsChip>
+      <BsChip color="primary" dismissible>
         Normal Chip
-      </bs-chip>
-      <bs-chip
+      </BsChip>
+      <BsChip
         color="success"
         dismissible
         size="lg">
         Large Chip
-      </bs-chip>
+      </BsChip>
     </div>
     <div class="mt-3">
-      <bs-chip
+      <BsChip
         size="sm"
         dismissible
         outlined>
         small Chip
-      </bs-chip>
-      <bs-chip
+      </BsChip>
+      <BsChip
         color="primary"
         dismissible
         outlined>
         Normal Chip
-      </bs-chip>
-      <bs-chip
+      </BsChip>
+      <BsChip
         color="success"
         size="lg"
         dismissible
         outlined>
         Large Chip
-      </bs-chip>
+      </BsChip>
     </div>
     <div class="mt-3">
-      <bs-chip
+      <BsChip
         color="purple"
         size="sm"
         dismissible
         outlined
         pill>
         small Chip
-      </bs-chip>
-      <bs-chip
+      </BsChip>
+      <BsChip
         color="unique"
         dismissible
         outlined
         pill>
         Normal Chip
-      </bs-chip>
-      <bs-chip
+      </BsChip>
+      <BsChip
         color="default-color"
         size="lg"
         dismissible
         outlined
         pill>
         Large Chip
-      </bs-chip>
+      </BsChip>
     </div>
     <h4 class="mt-4">
       Controlling Dismissible Chip
@@ -548,13 +548,13 @@
         @click="toggleChip">
         {{ showDismissibleChip ? 'Hide' : 'Show' }} Chip
       </bs-button>
-      <bs-chip
+      <BsChip
         v-model="showDismissibleChip"
         color="dark-blue"
         dismissible
         outlined>
         Dismissible Chip
-      </bs-chip>
+      </BsChip>
     </div>
   </div>
 </template>
