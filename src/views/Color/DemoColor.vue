@@ -18,7 +18,7 @@
 </template>
 
 <script lang="ts" setup>
-import ColorPalette from '@/components/Color/ColorPalette'
+import ColorPalette from '@/views/Color/ColorPalette'
 
 </script>
 

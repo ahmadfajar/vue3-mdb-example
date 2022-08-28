@@ -1,7 +1,7 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-const viewResolver = (name: string) => require('./components/' + name).default
+const viewResolver = (name: string) => require('./views/' + name).default
 
 const navigations = [{
   path: '/',

@@ -1,4 +1,4 @@
-import { themeColors } from '@/components/Color/themeColors'
+import { themeColors } from '@/views/Color/themeColors'
 
 export const fullColors = {
   red: {
