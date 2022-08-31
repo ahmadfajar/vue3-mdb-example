@@ -65,7 +65,7 @@
             <bs-chip-group
               v-model="selectedAmenities1"
               :items="amenities"
-              active-class="md-chip-orange"
+              active-class="md-chip-default-color"
               checked-icon
               column/>
           </bs-card-body>
@@ -77,7 +77,7 @@
             <bs-chip-group
               v-model="selectedNeighborhoods1"
               :items="neighborhoods"
-              color="default-color"
+              color="primary"
               checked-icon
               column
               outlined/>
@@ -98,7 +98,7 @@
             <bs-chip-group
               v-model="selectedAmenities2"
               :items="amenities2"
-              active-class="md-chip-orange"
+              active-class="md-chip-deep-purple active"
               checked-icon
               column/>
           </bs-card-body>
@@ -110,7 +110,7 @@
             <bs-chip-group
               v-model="selectedNeighborhoods2"
               :items="neighborhoods2"
-              color="default-color"
+              color="purple"
               checked-icon
               column
               img-circle
