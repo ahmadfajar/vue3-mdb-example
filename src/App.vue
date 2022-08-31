@@ -44,6 +44,11 @@
           </RouterLink>
         </li>
         <li class="link-nav-item">
+          <RouterLink to="/components/chip-group">
+            Chip Group
+          </RouterLink>
+        </li>
+        <li class="link-nav-item">
           <RouterLink to="/components/icon">
             Icon
           </RouterLink>

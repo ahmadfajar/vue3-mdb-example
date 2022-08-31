@@ -35,6 +35,10 @@ const navigations = [{
   component: viewResolver('Chip/DemoChip'),
   meta: { title: 'Demo Chip' }
 }, {
+  path: '/components/chip-group',
+  component: viewResolver('Chip/DemoChipGroup'),
+  meta: { title: 'Demo Chip Group' }
+}, {
   path: '/components/icon',
   component: viewResolver('Icon/DemoIcon'),
   meta: { title: 'Demo Icon' }
