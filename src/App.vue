@@ -124,7 +124,7 @@
             color: inherit;
             display: block;
             text-decoration: none;
-            padding: .5rem .75rem;
+            padding: .5rem 1rem;
 
             &.router-link-active {
               background-color: var(--bs-gray-300);
