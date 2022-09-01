@@ -29,6 +29,15 @@ export function newShade (hexColor: string, magnitude: number) {
   }
 }
 
+export function hexToRgb (hexColor: string) {
+  const color = hexColor.replace('#', '')
+  const r = parseInt(color.substring(0, 2), 16)
+  const g = parseInt(color.substring(2, 4), 16)
+  const b = parseInt(color.substring(4, 6), 16)
+
+  return `rgb(${r},${g},${b})`
+}
+
 export function getLightnessOfRGB (rgbString: string): number {
   // First convert to an array of integers by removing the whitespace, taking the 3rd char to the 2nd last then splitting by ','
   const rgbIntArray = (rgbString.replace(/ /g, '').slice(4, -1).split(',').map(e => parseInt(e)))
@@ -39,15 +48,6 @@ export function getLightnessOfRGB (rgbString: string): number {
 
   // Return the average divided by 255
   return (highest + lowest) / 2 / 255
-}
-
-export function hexToRgb (hexColor: string) {
-  const color = hexColor.replace('#', '')
-  const r = parseInt(color.substring(0, 2), 16)
-  const g = parseInt(color.substring(2, 4), 16)
-  const b = parseInt(color.substring(4, 6), 16)
-
-  return `rgb(${r},${g},${b})`
 }
 
 export function IconBullhorn (props: Record<string, unknown>) {

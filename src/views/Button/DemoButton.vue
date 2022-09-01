@@ -1,19 +1,17 @@
 <template>
   <div class="demo-wrapper container-lg mx-auto">
     <h2>Overview</h2>
-    <BsDivider/>
-    <div class="mt-4">
+    <DemoBlock class="mt-4">
       <template v-for="btn in variants.slice(0, 19)" :key="btn">
         <BsButton :color="btn" class="mb-3">
           {{ toTitleCase(btn) }}
         </BsButton>
       </template>
-    </div>
+    </DemoBlock>
     <h2 class="mt-5">
       Rounded Style (Bootstrap Button)
     </h2>
-    <BsDivider/>
-    <div class="mt-4">
+    <DemoBlock class="mt-4">
       <template v-for="btn in variants.slice(0, 19)" :key="btn">
         <BsButton
           :color="btn"
@@ -23,12 +21,11 @@
           {{ toTitleCase(btn) }}
         </BsButton>
       </template>
-    </div>
+    </DemoBlock>
     <h2 class="mt-5">
       Rectangle Style
     </h2>
-    <BsDivider/>
-    <div class="mt-4">
+    <DemoBlock class="mt-4">
       <template v-for="btn in variants.slice(0, 19)" :key="btn">
         <BsButton
           :color="btn"
@@ -37,12 +34,11 @@
           {{ toTitleCase(btn) }}
         </BsButton>
       </template>
-    </div>
+    </DemoBlock>
     <h2 class="mt-5">
       Raised Style (Elevated Button)
     </h2>
-    <BsDivider/>
-    <div class="mt-4">
+    <DemoBlock class="mt-4">
       <template v-for="btn in variants.slice(0, 19)" :key="btn">
         <BsButton
           :color="btn"
@@ -51,12 +47,11 @@
           {{ toTitleCase(btn) }}
         </BsButton>
       </template>
-    </div>
+    </DemoBlock>
     <h2 class="mt-5">
       Outline Style (Outlined Button)
     </h2>
-    <BsDivider/>
-    <div class="mt-4">
+    <DemoBlock class="mt-4">
       <template v-for="btn in variants" :key="btn">
         <BsButton
           :color="btn"
@@ -65,12 +60,11 @@
           {{ toTitleCase(btn) }}
         </BsButton>
       </template>
-    </div>
+    </DemoBlock>
     <h2 class="mt-5">
       Flat Style (Text Button)
     </h2>
-    <BsDivider/>
-    <div class="mt-4">
+    <DemoBlock class="mt-4">
       <template v-for="btn in variants" :key="btn">
         <BsButton
           :color="btn"
@@ -79,12 +73,11 @@
           {{ toTitleCase(btn) }}
         </BsButton>
       </template>
-    </div>
+    </DemoBlock>
     <h2 class="mt-5">
       Button Size
     </h2>
-    <BsDivider/>
-    <div class="mt-4">
+    <DemoBlock class="mt-4">
       <div class="row align-items-center">
         <div class="col">
           <BsButton class="mb-3" size="xs">
@@ -153,12 +146,11 @@
           </BsButton>
         </div>
       </div>
-    </div>
+    </DemoBlock>
     <h2 class="mt-5">
       Icon Inside Button
     </h2>
-    <BsDivider/>
-    <div class="mt-4">
+    <DemoBlock class="mt-4">
       <div class="row text-center">
         <div class="col-12 col-sm-6 col-xl-3 mb-3">
           <BsButton
@@ -274,159 +266,162 @@
           </BsButton>
         </div>
       </div>
-    </div>
+    </DemoBlock>
     <h4 class="mt-4">
       Button Icon
     </h4>
-    <BsDivider/>
-    <div class="mt-4">
-      <BsButton
-        :icon-size="iconXs"
-        class="me-4"
-        icon="shopping_cart"
-        mode="icon"
-        size="xs"/>
-      <BsButton
-        :icon-size="iconSm"
-        class="me-4"
-        icon="shopping_cart"
-        mode="icon"
-        size="sm"/>
-      <BsButton
-        mode="icon"
-        class="me-4"
-        icon="shopping_cart"/>
-      <BsButton
-        :icon-size="iconLg"
-        icon="shopping_cart"
-        mode="icon"
-        size="lg"/>
-    </div>
-    <div class="mt-4">
-      <BsButton
-        :icon-size="iconXs"
-        class="me-4"
-        color="primary"
-        icon="rotate_right"
-        icon-spin
-        mode="icon"
-        size="xs"/>
-      <BsButton
-        :icon-size="iconSm"
-        class="me-4"
-        color="primary"
-        icon="rotate_right"
-        icon-spin
-        mode="icon"
-        size="sm"/>
-      <BsButton
-        mode="icon"
-        class="me-4"
-        color="primary"
-        icon="rotate_right"
-        icon-spin/>
-      <BsButton
-        :icon-size="iconLg"
-        color="primary"
-        icon="rotate_right"
-        icon-spin
-        mode="icon"
-        size="lg"/>
-    </div>
-    <div class="mt-4">
-      <BsButton
-        :icon-size="iconXs"
-        class="me-4"
-        color="success"
-        icon="rotate_right"
-        icon-pulse
-        mode="icon"
-        size="xs"/>
-      <BsButton
-        :icon-size="iconSm"
-        class="me-4"
-        color="success"
-        icon="rotate_right"
-        icon-pulse
-        mode="icon"
-        size="sm"/>
-      <BsButton
-        mode="icon"
-        class="me-4"
-        color="success"
-        icon="rotate_right"
-        icon-pulse/>
-      <BsButton
-        :icon-size="iconLg"
-        color="success"
-        icon="rotate_right"
-        icon-pulse
-        mode="icon"
-        size="lg"/>
-    </div>
-    <div class="mt-4">
-      <BsButton
-        mode="icon"
-        class="me-4"
-        color="danger">
-        <template #icon>
-          <BsIconSpinner size="22" spin/>
-        </template>
-      </BsButton>
-      <BsButton
-        mode="icon"
-        color="danger"
-        icon-position="right">
-        <template #icon>
-          <BsIconSpinner size="22" pulse/>
-        </template>
-      </BsButton>
-    </div>
+    <DemoBlock class="mt-4">
+      <div>
+        <BsButton
+          :icon-size="iconXs"
+          class="me-4"
+          icon="shopping_cart"
+          mode="icon"
+          size="xs"/>
+        <BsButton
+          :icon-size="iconSm"
+          class="me-4"
+          icon="shopping_cart"
+          mode="icon"
+          size="sm"/>
+        <BsButton
+          mode="icon"
+          class="me-4"
+          icon="shopping_cart"/>
+        <BsButton
+          :icon-size="iconLg"
+          icon="shopping_cart"
+          mode="icon"
+          size="lg"/>
+      </div>
+      <div class="mt-3">
+        <BsButton
+          :icon-size="iconXs"
+          class="me-4"
+          color="primary"
+          icon="rotate_right"
+          icon-spin
+          mode="icon"
+          size="xs"/>
+        <BsButton
+          :icon-size="iconSm"
+          class="me-4"
+          color="primary"
+          icon="rotate_right"
+          icon-spin
+          mode="icon"
+          size="sm"/>
+        <BsButton
+          mode="icon"
+          class="me-4"
+          color="primary"
+          icon="rotate_right"
+          icon-spin/>
+        <BsButton
+          :icon-size="iconLg"
+          color="primary"
+          icon="rotate_right"
+          icon-spin
+          mode="icon"
+          size="lg"/>
+      </div>
+      <div class="mt-3">
+        <BsButton
+          :icon-size="iconXs"
+          class="me-4"
+          color="success"
+          icon="rotate_right"
+          icon-pulse
+          mode="icon"
+          size="xs"/>
+        <BsButton
+          :icon-size="iconSm"
+          class="me-4"
+          color="success"
+          icon="rotate_right"
+          icon-pulse
+          mode="icon"
+          size="sm"/>
+        <BsButton
+          mode="icon"
+          class="me-4"
+          color="success"
+          icon="rotate_right"
+          icon-pulse/>
+        <BsButton
+          :icon-size="iconLg"
+          color="success"
+          icon="rotate_right"
+          icon-pulse
+          mode="icon"
+          size="lg"/>
+      </div>
+      <div class="mt-3">
+        <BsButton
+          mode="icon"
+          class="me-4"
+          color="danger">
+          <template #icon>
+            <BsIconSpinner size="22" spin/>
+          </template>
+        </BsButton>
+        <BsButton
+          mode="icon"
+          color="danger"
+          icon-position="right">
+          <template #icon>
+            <BsIconSpinner size="22" pulse/>
+          </template>
+        </BsButton>
+      </div>
+    </DemoBlock>
     <h4 class="mt-5">
       Transparent Button
     </h4>
-    <BsDivider/>
-    <div class="mt-4">
-      <div class="row text-center">
-        <div class="col-6 col-lg-3 bg-indigo p-3">
-          <BsButton
-            :pill="false"
-            rounded
-            transparent>
-            Button
-          </BsButton>
-        </div>
-        <div class="col-6 col-lg-3 bg-deep-purple p-3">
-          <BsButton
-            :pill="false"
-            rounded
-            transparent>
-            Button
-          </BsButton>
-        </div>
-        <div class="col-6 col-lg-3 bg-red p-3">
-          <BsButton
-            :pill="false"
-            rounded
-            transparent>
-            Button
-          </BsButton>
-        </div>
-        <div class="col-6 col-lg-3 bg-orange p-3">
-          <BsButton
-            :pill="false"
-            rounded
-            transparent>
-            Button
-          </BsButton>
+    <DemoBlock class="mt-4">
+      <div class="mx-3">
+        <div class="row text-center">
+          <div class="col-6 col-lg-3 bg-indigo p-3">
+            <BsButton
+              :pill="false"
+              rounded
+              transparent>
+              Button
+            </BsButton>
+          </div>
+          <div class="col-6 col-lg-3 bg-deep-purple p-3">
+            <BsButton
+              :pill="false"
+              rounded
+              transparent>
+              Button
+            </BsButton>
+          </div>
+          <div class="col-6 col-lg-3 bg-red p-3">
+            <BsButton
+              :pill="false"
+              rounded
+              transparent>
+              Button
+            </BsButton>
+          </div>
+          <div class="col-6 col-lg-3 bg-orange p-3">
+            <BsButton
+              :pill="false"
+              rounded
+              transparent>
+              Button
+            </BsButton>
+          </div>
         </div>
       </div>
-    </div>
+    </DemoBlock>
   </div>
 </template>
 
 <script lang="ts" setup>
 import { toTitleCase } from '@/sharedApi'
+import DemoBlock from '@/DemoBlock.vue'
 
 const iconXs = 16
 const iconSm = 22
