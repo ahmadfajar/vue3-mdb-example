@@ -3,7 +3,7 @@
     <h2>Overview</h2>
     <BsDivider/>
     <div class="mt-4">
-      <template v-for="color in variants" :key="color">
+      <template v-for="color in colorVariants" :key="color">
         <BsChip
           :color="color"
           class="mb-3"
@@ -17,7 +17,7 @@
     </h4>
     <BsDivider/>
     <div class="mt-4">
-      <template v-for="color in variants" :key="color">
+      <template v-for="color in colorVariants" :key="color">
         <BsChip
           :color="color"
           class="mb-3"
@@ -32,7 +32,7 @@
     </h4>
     <BsDivider/>
     <div class="mt-4">
-      <template v-for="color in variants" :key="color">
+      <template v-for="color in colorVariants" :key="color">
         <BsChip
           :color="color"
           href="#/components/chip"
@@ -62,7 +62,7 @@
       </BsChip>
     </div>
     <div class="mt-2">
-      <template v-for="color in variants.slice(0, 9)" :key="color">
+      <template v-for="color in colorVariants.slice(0, 10)" :key="color">
         <BsChip
           :color="color"
           href="#/components/chip"
@@ -73,7 +73,7 @@
       </template>
     </div>
     <div>
-      <template v-for="color in variants.slice(0, 9)" :key="color">
+      <template v-for="color in colorVariants.slice(0, 10)" :key="color">
         <BsChip
           :color="color"
           class="mb-3"
@@ -561,20 +561,13 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-import { IconBullhorn, toTitleCase } from '@/sharedApi'
+import { colorVariants, IconBullhorn, toTitleCase } from '@/sharedApi'
 
 const chipDefaultActive = ref(false)
 const chipPrimaryActive = ref(false)
 const chipSuccessActive = ref(false)
 const chipDangerActive = ref(false)
 const showDismissibleChip = ref(true)
-
-const variants = [
-  'default', 'primary', 'secondary', 'success', 'danger', 'warning', 'info', 'light-grey', 'light', 'dark',
-  'pink', 'indigo', 'purple', 'default-color', 'default-color-dark', 'primary-color-dark', 'secondary-color',
-  'secondary-color-dark', 'info-color-dark', 'success-color-dark', 'danger-color-dark',
-  'warning-color-dark', 'unique', 'unique-color'
-]
 
 function toggleChip () {
   showDismissibleChip.value = !showDismissibleChip.value

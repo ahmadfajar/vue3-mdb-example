@@ -31,6 +31,10 @@ const navigations = [{
   component: viewResolver('Card/DemoCard'),
   meta: { title: 'Demo Card' }
 }, {
+  path: '/components/checkbox',
+  component: viewResolver('Checkbox/DemoCheckbox'),
+  meta: { title: 'Demo Checkbox' }
+}, {
   path: '/components/chip',
   component: viewResolver('Chip/DemoChip'),
   meta: { title: 'Demo Chip' }

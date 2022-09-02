@@ -6,6 +6,7 @@ import { BsBadgePlugin } from '../../vue-mdbootstrap/src/components/Badge'
 import { BsBasicCmpPlugin } from '../../vue-mdbootstrap/src/components/Basic'
 import { BsButtonPlugin } from '../../vue-mdbootstrap/src/components/Button'
 import { BsCardPlugin } from '../../vue-mdbootstrap/src/components/Card'
+import { BsCheckboxPlugin } from '../../vue-mdbootstrap/src/components/Checkbox'
 import { BsChipPlugin } from '../../vue-mdbootstrap/src/components/Chip'
 import { BsIconPlugin } from '../../vue-mdbootstrap/src/components/Icon'
 import { BsProgressPlugin } from '../../vue-mdbootstrap/src/components/Progress'
@@ -20,6 +21,7 @@ createApp(App)
   .use(BsBasicCmpPlugin)
   .use(BsButtonPlugin)
   .use(BsCardPlugin)
+  .use(BsCheckboxPlugin)
   .use(BsChipPlugin)
   .use(BsIconPlugin)
   .use(BsProgressPlugin)

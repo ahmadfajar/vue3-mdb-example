@@ -4,7 +4,7 @@
     <DemoBlock class="mt-4">
       <div class="row row-cols-1 row-cols-md-2">
         <div class="col mb-3">
-          <BsCard shadow>
+          <BsCard class="text-dark" shadow>
             <BsCardBody>
               <BsCardContent type="title">
                 Card Title
@@ -20,7 +20,7 @@
           </BsCard>
         </div>
         <div class="col mb-3">
-          <BsCard shadow>
+          <BsCard class="text-dark" shadow>
             <BsCardHeader>Card Header</BsCardHeader>
             <BsCardBody>
               <BsCardContent>{{ quickText }}</BsCardContent>
@@ -32,7 +32,7 @@
           </BsCard>
         </div>
         <div class="col mb-3 mb-md-0">
-          <BsCard shadow>
+          <BsCard class="text-dark" shadow>
             <BsImageHolder
               class="card-img-top fs-1 md-fw-light"
               placeholder-text="Image"
@@ -46,7 +46,7 @@
           </BsCard>
         </div>
         <div class="col">
-          <BsCard shadow>
+          <BsCard class="text-dark" shadow>
             <div class="row g-0">
               <div class="col-md-4">
                 <BsImageHolder
@@ -80,6 +80,7 @@
       <div class="row row-cols-1 row-cols-md-2">
         <div class="col mb-3 mb-md-4">
           <BsCard
+            class="text-dark"
             img-top-src="https://picsum.photos/id/29/600/300.jpg"
             img-top-alt="Image Top"
             shadow>
@@ -108,6 +109,7 @@
         </div>
         <div class="col mb-3 mb-md-0">
           <BsCard
+            class="text-dark"
             img-bottom-src="https://picsum.photos/id/425/600/300.jpg"
             img-bottom-alt="Image Bottom"
             shadow>
@@ -198,10 +200,9 @@
     <h2 class="mt-5">
       Card Group
     </h2>
-    <BsDivider/>
     <DemoBlock class="mt-4">
       <div class="card-group">
-        <BsCard>
+        <BsCard class="text-dark">
           <BsImageHolder
             class="card-img-top fs-2 md-fw-light"
             placeholder-text="Image Caption"
@@ -216,7 +217,7 @@
             </BsCardContent>
           </BsCardBody>
         </BsCard>
-        <BsCard>
+        <BsCard class="text-dark">
           <BsImageHolder
             class="card-img-top fs-2 md-fw-light"
             placeholder-text="Image Caption"
@@ -231,7 +232,7 @@
             </BsCardContent>
           </BsCardBody>
         </BsCard>
-        <BsCard>
+        <BsCard class="text-dark">
           <BsImageHolder
             class="card-img-top fs-2 md-fw-light"
             placeholder-text="Image Caption"
@@ -253,15 +254,6 @@
 
 <script lang="ts" setup>
 import DemoBlock from '@/DemoBlock.vue'
-// import {
-//   BsCard,
-//   BsCardBody,
-//   BsCardContent,
-//   BsCardFooter,
-//   BsCardHeader,
-//   BsCardMedia
-// } from '../../../../vue-mdbootstrap/src/components/Card'
-// import BsImageHolder from '../../../../vue-mdbootstrap/src/components/Basic/BsImageHolder'
 
 const quickText = 'Some quick example text to build on the card title and make up the bulk of the card\'s content.'
 const smallText = 'Last updated 3 mins ago'

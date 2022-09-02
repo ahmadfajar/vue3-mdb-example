@@ -39,6 +39,11 @@
           </RouterLink>
         </li>
         <li class="link-nav-item">
+          <RouterLink to="/components/checkbox">
+            Checkbox
+          </RouterLink>
+        </li>
+        <li class="link-nav-item">
           <RouterLink to="/components/chip">
             Chip
           </RouterLink>

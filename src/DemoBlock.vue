@@ -12,7 +12,7 @@
           icon="invert_colors"
           mode="icon"
           flat
-          @click="invertBgColor"/>
+          @click="darkenOrLighten"/>
       </div>
     </div>
     <div class="demo-block-content" :style="styles">
@@ -23,31 +23,19 @@
 
 <script lang="ts" setup>
 import { reactive, ref, watch } from 'vue'
-import { newShade } from '@/sharedApi'
+import { getTextColor, newShade } from '@/sharedApi'
 
 const initial = ref('#e9ecef')
-const styles = reactive({ backgroundColor: initial.value })
+const styles = reactive({ backgroundColor: initial.value, color: '#212121' })
 const step = ref(-10)
-// const btnColor = ref('dark')
 
 watch(
   () => initial.value,
   (value) => {
     styles.backgroundColor = value
-    // nextTick().then(() => {
-    //   const lightness = getLightnessOfRGB(hexToRgb(value))
-    //   btnColor.value = (lightness < 0.65) ? 'light text-light-grey' : 'dark'
-    // })
+    styles.color = getTextColor(value)
   }
 )
-
-// watch(
-//   () => styles.backgroundColor,
-//   (value) => {
-//     const lightness = getLightnessOfRGB(hexToRgb(value))
-//     btnColor.value = (lightness < 0.75) ? 'light text-light-grey' : 'dark'
-//   }
-// )
 
 // const changeBgColor = () => {
 //   const input = document.getElementById('t-color')
@@ -56,7 +44,7 @@ watch(
 //   }
 // }
 
-const invertBgColor = () => {
+const darkenOrLighten = () => {
   if (styles.backgroundColor === '#ffffff' || styles.backgroundColor === '#000000') {
     styles.backgroundColor = initial.value
     return

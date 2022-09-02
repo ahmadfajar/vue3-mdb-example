@@ -1,5 +1,12 @@
 import { useCreateSvgComponent } from '../../vue-mdbootstrap/src/components/Icon/mixins/svgApi'
 
+export const colorVariants = [
+  'default', 'primary', 'secondary', 'success', 'danger', 'warning', 'info', 'light', 'light-grey', 'grey', 'dark',
+  'deep-orange', 'pink', 'indigo', 'purple', 'default-color', 'default-color-dark', 'primary-color-dark',
+  'secondary-color', 'secondary-color-dark', 'info-color-dark', 'success-color-dark', 'danger-color-dark',
+  'warning-color-dark', 'unique', 'unique-color'
+]
+
 export function toTitleCase (text: string) {
   return text.toLowerCase()
     .split('-')
@@ -27,6 +34,17 @@ export function newShade (hexColor: string, magnitude: number) {
   } else {
     return hexColor
   }
+}
+
+export function getTextColor (bgColor: string): string {
+  const hex = bgColor.replace('#', '')
+  const color = parseInt(hex, 16)
+  const r = (color >>> 16) & 0xff
+  const g = (color >>> 8) & 0xff
+  const b = color & 0xff
+  const yiq = (r * 299 + g * 587 + b * 114) / 1000
+
+  return yiq >= 128 ? '#000' : '#fff'
 }
 
 export function hexToRgb (hexColor: string) {
