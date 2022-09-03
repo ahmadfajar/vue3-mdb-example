@@ -59,6 +59,10 @@ const navigations = [{
   component: viewResolver('Progress/DemoProgressBar'),
   meta: { title: 'Demo Progress Bar' }
 }, {
+  path: '/components/radio',
+  component: viewResolver('Radio/DemoRadio'),
+  meta: { title: 'Demo Radio' }
+}, {
   path: '/components/ripple',
   component: viewResolver('Animation/DemoRipple'),
   meta: { title: 'Demo Ripple' }

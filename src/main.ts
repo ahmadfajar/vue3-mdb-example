@@ -10,6 +10,7 @@ import { BsCheckboxPlugin } from '../../vue-mdbootstrap/src/components/Checkbox'
 import { BsChipPlugin } from '../../vue-mdbootstrap/src/components/Chip'
 import { BsIconPlugin } from '../../vue-mdbootstrap/src/components/Icon'
 import { BsProgressPlugin } from '../../vue-mdbootstrap/src/components/Progress'
+import { BsRadioPlugin } from '../../vue-mdbootstrap/src/components/Radio'
 import router from '@/router'
 import App from './App.vue'
 
@@ -25,5 +26,6 @@ createApp(App)
   .use(BsChipPlugin)
   .use(BsIconPlugin)
   .use(BsProgressPlugin)
+  .use(BsRadioPlugin)
   .use(router)
   .mount('#app')

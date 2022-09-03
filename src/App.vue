@@ -74,6 +74,11 @@
           </RouterLink>
         </li>
         <li class="link-nav-item">
+          <RouterLink to="/components/radio">
+            Radio
+          </RouterLink>
+        </li>
+        <li class="link-nav-item">
           <RouterLink to="/components/ripple">
             Ripple
           </RouterLink>
