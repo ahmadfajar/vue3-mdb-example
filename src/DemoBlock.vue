@@ -33,10 +33,14 @@ watch(
   () => initial.value,
   (value) => {
     styles.backgroundColor = value
+  }
+)
+watch(
+  () => styles.backgroundColor,
+  (value) => {
     styles.color = getTextColor(value)
   }
 )
-
 // const changeBgColor = () => {
 //   const input = document.getElementById('t-color')
 //   if (input) {

@@ -18,6 +18,41 @@
         Value: <b>{{ checkbox1 }}</b>
       </p>
     </DemoBlock>
+    <h2 class="mt-5">
+      Checkbox Group
+    </h2>
+    <DemoBlock class="mt-4">
+      <bs-checkbox-group
+        class="g-2"
+        v-model="selectedFavoriteColors"
+        :items="favoriteColors">
+        <label class="col-12">Field Label</label>
+      </bs-checkbox-group>
+      <div class="mt-2">
+        Values: <b>{{ selectedFavoriteColors }}</b>
+      </div>
+      <bs-divider class="my-3"/>
+      <bs-checkbox-group v-model="selectedFavoriteFruits" :items="favoriteFruits">
+        <label class="col-md-3 col-lg-2 col-form-label">Field Label</label>
+      </bs-checkbox-group>
+      <div class="mt-2">
+        Values: <b>{{ selectedFavoriteFruits }}</b>
+      </div>
+    </DemoBlock>
+    <h2 class="mt-5">
+      Multi Column
+    </h2>
+    <DemoBlock class="mt-4">
+      <bs-checkbox-group
+        v-model="selectedItems"
+        :items="dummyItems"
+        :column="3">
+        <label class="col-md-2 col-form-label">Multi Column</label>
+      </bs-checkbox-group>
+      <div class="mt-2">
+        Values: <b>{{ selectedItems }}</b>
+      </div>
+    </DemoBlock>
   </div>
 </template>
 
@@ -27,7 +62,29 @@ import { colorVariants } from '@/sharedApi'
 import DemoBlock from '@/DemoBlock.vue'
 
 const checkbox1 = ref('accepted')
-
+const selectedFavoriteColors = ref([])
+const selectedFavoriteFruits = ref([])
+const favoriteColors = [
+  { value: 'red', label: 'Red', color: 'red' },
+  { value: 'green', label: 'Green', color: 'green' },
+  { value: 'blue', label: 'Blue', color: 'blue' }
+]
+const favoriteFruits = [
+  { value: 'Orange', label: 'Orange' },
+  { value: 'Apple', label: 'Apple' },
+  { value: 'Pineapple', label: 'Pineapple' },
+  { value: 'Grape', label: 'Grape' }
+  // { value: 'Coconut', label: 'Coconut' }
+]
+const selectedItems = ref([])
+const dummyItems = [
+  { value: 1, label: 'Item 1', color: 'default-color' },
+  { value: 2, label: 'Item 2', color: 'blue' },
+  { value: 3, label: 'Item 3', color: 'pink' },
+  { value: 4, label: 'Item 4', color: 'primary-color-dark' },
+  { value: 5, label: 'Item 5', color: 'success' },
+  { value: 6, label: 'Item 6', color: 'orange' }
+]
 </script>
 
 <style scoped>
