@@ -6,16 +6,16 @@
         <template v-for="color in colorVariants" :key="color">
           <div class="col mb-2">
             <BsCheckbox
-              v-model="checkbox1"
+              v-model="checkbox"
               :color="color"
-              value="accepted">
+              :value="color">
               I accept the use of color: <span class="fw-semibold">{{ color }}</span>
             </BsCheckbox>
           </div>
         </template>
       </div>
       <p class="mt-2">
-        Value: <b>{{ checkbox1 }}</b>
+        Value: <b>{{ checkbox }}</b>
       </p>
     </DemoBlock>
     <h2 class="mt-5">
@@ -61,7 +61,7 @@ import { ref } from 'vue'
 import { colorVariants } from '@/sharedApi'
 import DemoBlock from '@/DemoBlock.vue'
 
-const checkbox1 = ref('accepted')
+const checkbox = ref()
 const selectedFavoriteColors = ref([])
 const selectedFavoriteFruits = ref([])
 const favoriteColors = [

@@ -26,7 +26,7 @@ import { reactive, ref, watch } from 'vue'
 import { getTextColor, newShade } from '@/sharedApi'
 
 const initial = ref('#e9ecef')
-const styles = reactive({ backgroundColor: initial.value, color: '#212121' })
+const styles = reactive<Record<string, string>>({ backgroundColor: initial.value, color: '#212121' })
 const step = ref(-10)
 
 watch(
@@ -38,7 +38,13 @@ watch(
 watch(
   () => styles.backgroundColor,
   (value) => {
-    styles.color = getTextColor(value)
+    const textColor = getTextColor(value)
+    styles.color = textColor
+    if (textColor.startsWith('#fff')) {
+      styles['--md-field-active-indicator'] = 'var(--md-field-accent-indicator)'
+    } else {
+      styles['--md-field-active-indicator'] = 'var(--md-field-primary-indicator)'
+    }
   }
 )
 // const changeBgColor = () => {

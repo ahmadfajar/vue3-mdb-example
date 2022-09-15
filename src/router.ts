@@ -67,6 +67,10 @@ const navigations = [{
   component: viewResolver('Animation/DemoRipple'),
   meta: { title: 'Demo Ripple' }
 }, {
+  path: '/components/text-field',
+  component: viewResolver('Field/DemoTextField'),
+  meta: { title: 'Demo TextField' }
+}, {
   path: '/reference/color',
   component: viewResolver('Color/DemoColor'),
   meta: { title: 'Color Variants' }

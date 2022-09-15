@@ -8,6 +8,7 @@ import { BsButtonPlugin } from '../../vue-mdbootstrap/src/components/Button'
 import { BsCardPlugin } from '../../vue-mdbootstrap/src/components/Card'
 import { BsCheckboxPlugin } from '../../vue-mdbootstrap/src/components/Checkbox'
 import { BsChipPlugin } from '../../vue-mdbootstrap/src/components/Chip'
+import { BsFieldPlugin } from '../../vue-mdbootstrap/src/components/Field'
 import { BsIconPlugin } from '../../vue-mdbootstrap/src/components/Icon'
 import { BsProgressPlugin } from '../../vue-mdbootstrap/src/components/Progress'
 import { BsRadioPlugin } from '../../vue-mdbootstrap/src/components/Radio'
@@ -24,6 +25,7 @@ createApp(App)
   .use(BsCardPlugin)
   .use(BsCheckboxPlugin)
   .use(BsChipPlugin)
+  .use(BsFieldPlugin)
   .use(BsIconPlugin)
   .use(BsProgressPlugin)
   .use(BsRadioPlugin)
