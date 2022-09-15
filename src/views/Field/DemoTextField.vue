@@ -384,6 +384,36 @@
         </datalist>
       </div>
     </DemoBlock>
+    <h4 class="mt-5">
+      Classic Form Field Styles
+    </h4>
+    <DemoBlock class="mt-4">
+      <div class="row justify-content-center">
+        <div class="col-lg-11 col-xl-10">
+          <bs-text-field
+            v-model="fieldValue"
+            class="mb-3"
+            clear-button>
+            <label class="pt-4 col-md-4 col-xl-2 col-form-label">Full Name</label>
+          </bs-text-field>
+          <bs-text-field type="password" class="mb-3">
+            <label class="pt-4 col-md-4 col-xl-2 col-form-label">Password</label>
+          </bs-text-field>
+          <bs-text-field
+            v-model="fieldValue"
+            class="mb-3"
+            readonly>
+            <label class="pt-4 col-md-4 col-xl-2 col-form-label">State Readonly</label>
+          </bs-text-field>
+          <bs-text-field
+            v-model="fieldValue"
+            class="mb-3"
+            disabled>
+            <label class="pt-4 col-md-4 col-xl-2 col-form-label">State Disabled</label>
+          </bs-text-field>
+        </div>
+      </div>
+    </DemoBlock>
   </div>
 </template>
 
@@ -393,6 +423,7 @@ import DemoBlock from '@/DemoBlock.vue'
 
 const sizes = ['Small', 'Medium', 'Large', 'Extra Large']
 const textValue = ref('Grocery delivery')
+const fieldValue = ref('Sandra Adam')
 </script>
 
 <style scoped>
