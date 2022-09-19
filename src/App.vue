@@ -89,8 +89,12 @@
               Text Field
             </RouterLink>
           </li>
-          <BsDivider/>
           <li class="link-nav-item">
+            <RouterLink to="/components/text-area">
+              TextArea Field
+            </RouterLink>
+          </li>
+          <li class="link-nav-item border-top">
             <RouterLink to="/reference/color">
               Color Variants
             </RouterLink>
