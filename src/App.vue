@@ -15,6 +15,11 @@
             </RouterLink>
           </li>
           <li class="link-nav-item">
+            <RouterLink to="/components/appbar">
+              AppBar
+            </RouterLink>
+          </li>
+          <li class="link-nav-item">
             <RouterLink to="/components/avatar">
               Avatar
             </RouterLink>

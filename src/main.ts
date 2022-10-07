@@ -1,6 +1,7 @@
 import { createApp } from 'vue'
 import { BsAnimationPlugin } from '../../vue-mdbootstrap/src/components/Animation'
 import { BsAlertPlugin } from '../../vue-mdbootstrap/src/components/Alert'
+import { BsAppbarPlugin } from '../../vue-mdbootstrap/src/components/Appbar'
 import { BsAvatarPlugin } from '../../vue-mdbootstrap/src/components/Avatar'
 import { BsBadgePlugin } from '../../vue-mdbootstrap/src/components/Badge'
 import { BsBasicCmpPlugin } from '../../vue-mdbootstrap/src/components/Basic'
@@ -8,6 +9,7 @@ import { BsButtonPlugin } from '../../vue-mdbootstrap/src/components/Button'
 import { BsCardPlugin } from '../../vue-mdbootstrap/src/components/Card'
 import { BsCheckboxPlugin } from '../../vue-mdbootstrap/src/components/Checkbox'
 import { BsChipPlugin } from '../../vue-mdbootstrap/src/components/Chip'
+import { BsContainerPlugin } from '../../vue-mdbootstrap/src/components/Container'
 import { BsFieldPlugin } from '../../vue-mdbootstrap/src/components/Field'
 import { BsIconPlugin } from '../../vue-mdbootstrap/src/components/Icon'
 import { BsProgressPlugin } from '../../vue-mdbootstrap/src/components/Progress'
@@ -18,6 +20,7 @@ import App from './App.vue'
 createApp(App)
   .use(BsAnimationPlugin)
   .use(BsAlertPlugin)
+  .use(BsAppbarPlugin)
   .use(BsAvatarPlugin)
   .use(BsBadgePlugin)
   .use(BsBasicCmpPlugin)
@@ -25,6 +28,7 @@ createApp(App)
   .use(BsCardPlugin)
   .use(BsCheckboxPlugin)
   .use(BsChipPlugin)
+  .use(BsContainerPlugin)
   .use(BsFieldPlugin)
   .use(BsIconPlugin)
   .use(BsProgressPlugin)

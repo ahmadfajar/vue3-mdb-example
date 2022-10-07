@@ -11,6 +11,10 @@ const navigations = [{
   component: viewResolver('Alert/DemoAlert'),
   meta: { title: 'Demo Alert' }
 }, {
+  path: '/components/appbar',
+  component: viewResolver('Appbar/DemoAppbar'),
+  meta: { title: 'Demo AppBar' }
+}, {
   path: '/components/avatar',
   component: viewResolver('Avatar/DemoAvatar'),
   meta: { title: 'Demo Avatar' }
