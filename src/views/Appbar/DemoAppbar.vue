@@ -1,13 +1,15 @@
 <template>
   <div class="demo-wrapper container-lg mx-auto">
     <h2>Overview</h2>
-    <bs-appbar shadow>
+    <BsDivider/>
+    <bs-appbar class="mt-4" shadow>
       <bs-appbar-title title="Page Title"/>
     </bs-appbar>
     <h2 class="mt-5">
       Use with Button
     </h2>
-    <bs-appbar class="bg-indigo" shadow>
+    <BsDivider/>
+    <bs-appbar class="bg-indigo mt-4" shadow>
       <bs-button
         color="light"
         mode="icon"
