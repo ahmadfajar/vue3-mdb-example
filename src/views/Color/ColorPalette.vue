@@ -7,7 +7,7 @@
         class="col-md-6 col-xl-4 mb-4">
         <div :class="useBootstrapColorClasses(key)" class="d-flex p-3 md-shadow-1">
           <span class="flex-grow-1">{{ key }}</span>
-          <span class="opacity-50">{{ value.toUpperCase() }}</span>
+          <span class="opacity-50 small">{{ value.toUpperCase() }}</span>
         </div>
       </div>
     </div>
@@ -19,7 +19,7 @@
           :class="useGrayColorClasses(key)"
           class="p-3 d-flex">
           <span class="flex-grow-1">grey-{{ key }}</span>
-          <span class="opacity-50">{{ value.toUpperCase() }}</span>
+          <span class="opacity-50 small">{{ value.toUpperCase() }}</span>
         </div>
       </div>
     </div>
@@ -34,7 +34,7 @@
           :class="useFullColorClasses(key, prop)"
           class="p-3 d-flex">
           <span class="flex-grow-1">{{ useFullColorName(key, prop) }}</span>
-          <span class="opacity-50">{{ value.toUpperCase() }}</span>
+          <span class="opacity-50 small">{{ value.toUpperCase() }}</span>
         </div>
       </div>
     </div>
@@ -47,13 +47,17 @@
           :class="['bg-' + useMaterialColorInfo(item)[0].color]"
           class="docs-color-block text-white">
           <div>{{ useMaterialColorInfo(item)[0].color }}</div>
-          <div>{{ useMaterialColorInfo(item)[0].value.toUpperCase() }}</div>
+          <div class="opacity-50">
+            {{ useMaterialColorInfo(item)[0].value.toUpperCase() }}
+          </div>
         </div>
         <div
           :class="['bg-' + useMaterialColorInfo(item)[1].color]"
           class="md-shadow-1 docs-color-block text-white">
           <div>{{ useMaterialColorInfo(item)[1].color }}</div>
-          <div>{{ useMaterialColorInfo(item)[1].value.toUpperCase() }}</div>
+          <div class="opacity-50">
+            {{ useMaterialColorInfo(item)[1].value.toUpperCase() }}
+          </div>
         </div>
       </div>
     </div>

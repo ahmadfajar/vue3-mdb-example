@@ -2,43 +2,43 @@
   <div class="demo-wrapper container-lg mx-auto">
     <h2>Overview</h2>
     <BsDivider/>
-    <bs-appbar class="mt-4" shadow>
-      <bs-appbar-title title="Page Title"/>
-    </bs-appbar>
+    <BsAppbar class="mt-4" shadow>
+      <BsAppbarTitle title="Page Title"/>
+    </BsAppbar>
     <h2 class="mt-5">
       Use with Button
     </h2>
     <BsDivider/>
-    <bs-appbar class="bg-indigo mt-4" shadow>
-      <bs-button
+    <BsAppbar class="bg-indigo mt-4" shadow>
+      <BsButton
         color="light"
         mode="icon"
         flat>
-        <bs-icon icon="menu"/>
-      </bs-button>
-      <bs-appbar-title class="text-white">
+        <BsIcon icon="menu"/>
+      </BsButton>
+      <BsAppbarTitle class="text-white">
         Page Title
-      </bs-appbar-title>
-      <bs-spacer/>
-      <bs-appbar-items>
-        <bs-button
+      </BsAppbarTitle>
+      <BsSpacer/>
+      <BsAppbarItems>
+        <BsButton
           mode="icon"
           icon="search"
           color="light"
           flat/>
-        <bs-button
+        <BsButton
           mode="icon"
           icon="notifications"
           color="light"
           flat/>
-        <bs-button
+        <BsButton
           mode="icon"
           color="light"
           flat>
-          <bs-icon icon="more_vert"/>
-        </bs-button>
-      </bs-appbar-items>
-    </bs-appbar>
+          <BsIcon icon="more_vert"/>
+        </BsButton>
+      </BsAppbarItems>
+    </BsAppbar>
   </div>
 </template>
 

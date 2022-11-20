@@ -71,6 +71,10 @@ const navigations = [{
   component: viewResolver('Animation/DemoRipple'),
   meta: { title: 'Demo Ripple' }
 }, {
+  path: '/components/side-drawer',
+  component: viewResolver('Drawer/DemoSideDrawer'),
+  meta: { title: 'Demo SideDrawer' }
+}, {
   path: '/components/text-field',
   component: viewResolver('Field/DemoTextField'),
   meta: { title: 'Demo TextField' }

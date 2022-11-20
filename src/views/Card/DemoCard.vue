@@ -50,7 +50,7 @@
             <div class="row g-0">
               <div class="col-md-4">
                 <BsImageHolder
-                  class="rounded-start fs-2 md-fw-light"
+                  class="card-img-start fs-2 md-fw-light"
                   placeholder-text="Image"
                   y-pos="55%"/>
               </div>

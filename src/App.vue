@@ -1,5 +1,5 @@
 <template>
-  <aside class="side-drawer shadow-lg">
+  <aside class="side-drawer shadow-lg d-none d-xl-block">
     <div class="side-drawer-inner">
       <div class="text-center mb-3">
         <img
@@ -90,6 +90,11 @@
             </RouterLink>
           </li>
           <li class="link-nav-item">
+            <RouterLink to="/components/side-drawer">
+              SideDrawer
+            </RouterLink>
+          </li>
+          <li class="link-nav-item">
             <RouterLink to="/components/text-field">
               Text Field
             </RouterLink>
@@ -173,10 +178,13 @@
     }
   }
   .body-content {
-    margin-left: 300px;
     padding-bottom: 2rem;
     position: relative;
     width: auto;
+
+    @media (min-width: 1200px) {
+      margin-left: 300px;
+    }
 
     .demo-wrapper {
       padding-top: 2rem;
