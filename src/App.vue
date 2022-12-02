@@ -95,6 +95,11 @@
             </RouterLink>
           </li>
           <li class="link-nav-item">
+            <RouterLink to="/components/tabs">
+              Tabs
+            </RouterLink>
+          </li>
+          <li class="link-nav-item">
             <RouterLink to="/components/text-field">
               Text Field
             </RouterLink>
@@ -193,7 +198,7 @@
         max-width: 1080px;
       }
 
-      @media (max-width: 1480px) {
+      @media (min-width: 1480px) {
         padding-left: 2rem;
       }
     }

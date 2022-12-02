@@ -15,6 +15,7 @@ import { BsFieldPlugin } from '../../vue-mdbootstrap/src/components/Field'
 import { BsIconPlugin } from '../../vue-mdbootstrap/src/components/Icon'
 import { BsProgressPlugin } from '../../vue-mdbootstrap/src/components/Progress'
 import { BsRadioPlugin } from '../../vue-mdbootstrap/src/components/Radio'
+import { BsTabsPlugin } from '../../vue-mdbootstrap/src/components/Tabs'
 import router from '@/router'
 import App from './App.vue'
 
@@ -30,10 +31,11 @@ createApp(App)
   .use(BsCheckboxPlugin)
   .use(BsChipPlugin)
   .use(BsContainerPlugin)
+  .use(BsDrawerPlugin)
   .use(BsFieldPlugin)
   .use(BsIconPlugin)
   .use(BsProgressPlugin)
   .use(BsRadioPlugin)
-  .use(BsDrawerPlugin)
+  .use(BsTabsPlugin)
   .use(router)
   .mount('#app')

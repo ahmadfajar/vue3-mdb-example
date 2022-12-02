@@ -4,10 +4,7 @@
     <BsDivider/>
     <div class="demo-block-content bg-grey-200 rounded mt-3">
       <BsAppContainer>
-        <BsSideDrawer
-          :open="openSideBar1"
-          shadow
-          @open="toggleSideBar1">
+        <BsSideDrawer v-model:open="openSideBar1" shadow>
           <div class="p-3">
             <img
               src="https://vue-mdbootstrap.fajarconsultant.com/img/kitty-1.jpg"
@@ -61,10 +58,9 @@
     <div class="demo-block-content bg-grey-200 rounded mt-3">
       <BsAppContainer>
         <BsSideDrawer
-          :open="openSideBar2"
+          v-model:open="openSideBar2"
           position="right"
-          shadow
-          @open="toggleSideBar2">
+          shadow>
           <div class="p-3">
             <img
               src="https://vue-mdbootstrap.fajarconsultant.com/img/kitty-1.jpg"
@@ -211,10 +207,7 @@
               flat/>
           </BsAppbarItems>
         </BsAppbar>
-        <BsSideDrawer
-          :open="openSideBar3"
-          class="border-end"
-          @open="toggleSideBar3">
+        <BsSideDrawer v-model:open="openSideBar3" class="border-end">
           <div class="p-3">
             <img
               src="https://vue-mdbootstrap.fajarconsultant.com/img/kitty-1.jpg"
@@ -283,10 +276,9 @@
           </BsAppbarItems>
         </BsAppbar>
         <BsSideDrawer
-          :open="openSideBar4"
+          v-model:open="openSideBar4"
           class="border-end"
-          clipped
-          @open="toggleSideBar4">
+          clipped>
           <div class="p-3">
             <img
               src="https://vue-mdbootstrap.fajarconsultant.com/img/kitty-1.jpg"
@@ -356,7 +348,7 @@ function toggleSideBar4 (value: boolean) {
 </script>
 
 <style lang="scss">
-.nav {
+.md-side-drawer-inner .nav {
   --bs-nav-link-padding-x: 0.5rem;
 }
 </style>

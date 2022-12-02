@@ -1,19 +1,13 @@
 import { useCreateSvgComponent } from '../../vue-mdbootstrap/src/components/Icon/mixins/svgApi'
 
+export { toTitleCase } from '../../vue-mdbootstrap/src/mixins/StringHelper'
+
 export const colorVariants = [
   'default', 'primary', 'secondary', 'success', 'danger', 'warning', 'info', 'light', 'light-grey', 'grey', 'dark',
   'deep-orange', 'pink', 'indigo', 'purple', 'default-color', 'default-color-dark', 'primary-color-dark',
   'secondary-color', 'secondary-color-dark', 'info-color-dark', 'success-color-dark', 'danger-color-dark',
   'warning-color-dark', 'unique', 'unique-color'
 ]
-
-export function toTitleCase (text: string) {
-  return text.toLowerCase()
-    .split('-')
-    .map(function (word: string) {
-      return word.replace(word[0], word[0].toUpperCase())
-    }).join(' ')
-}
 
 export function newShade (hexColor: string, magnitude: number) {
   const hex = hexColor.replace('#', '')

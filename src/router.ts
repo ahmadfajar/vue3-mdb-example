@@ -75,6 +75,10 @@ const navigations = [{
   component: viewResolver('Drawer/DemoSideDrawer'),
   meta: { title: 'Demo SideDrawer' }
 }, {
+  path: '/components/tabs',
+  component: viewResolver('Tabs/DemoTabs'),
+  meta: { title: 'Demo Tabs' }
+}, {
   path: '/components/text-field',
   component: viewResolver('Field/DemoTextField'),
   meta: { title: 'Demo TextField' }
