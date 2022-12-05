@@ -13,6 +13,7 @@ import { BsChipPlugin } from '../../vue-mdbootstrap/src/components/Chip'
 import { BsDrawerPlugin } from '../../vue-mdbootstrap/src/components/Drawer'
 import { BsFieldPlugin } from '../../vue-mdbootstrap/src/components/Field'
 import { BsIconPlugin } from '../../vue-mdbootstrap/src/components/Icon'
+import { BsListViewPlugin } from '../../vue-mdbootstrap/src/components/ListView'
 import { BsProgressPlugin } from '../../vue-mdbootstrap/src/components/Progress'
 import { BsRadioPlugin } from '../../vue-mdbootstrap/src/components/Radio'
 import { BsTabsPlugin } from '../../vue-mdbootstrap/src/components/Tabs'
@@ -34,6 +35,7 @@ createApp(App)
   .use(BsDrawerPlugin)
   .use(BsFieldPlugin)
   .use(BsIconPlugin)
+  .use(BsListViewPlugin)
   .use(BsProgressPlugin)
   .use(BsRadioPlugin)
   .use(BsTabsPlugin)

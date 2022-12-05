@@ -65,6 +65,11 @@
             </RouterLink>
           </li>
           <li class="link-nav-item">
+            <RouterLink to="/components/list-tile">
+              List Tile
+            </RouterLink>
+          </li>
+          <li class="link-nav-item">
             <RouterLink to="/components/mask-loader">
               Mask Loader
             </RouterLink>
@@ -193,6 +198,10 @@
 
     .demo-wrapper {
       padding-top: 2rem;
+
+      .h4, h4 {
+        font-weight: normal;
+      }
 
       @media (min-width: 1200px) {
         max-width: 1080px;

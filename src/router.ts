@@ -11,6 +11,10 @@ const navigations = [{
   component: viewResolver('Alert/DemoAlert'),
   meta: { title: 'Demo Alert' }
 }, {
+  path: '/components/ripple',
+  component: viewResolver('Animation/DemoRipple'),
+  meta: { title: 'Demo Ripple' }
+}, {
   path: '/components/appbar',
   component: viewResolver('Appbar/DemoAppbar'),
   meta: { title: 'Demo AppBar' }
@@ -47,9 +51,25 @@ const navigations = [{
   component: viewResolver('Chip/DemoChipGroup'),
   meta: { title: 'Demo Chip Group' }
 }, {
+  path: '/components/side-drawer',
+  component: viewResolver('Drawer/DemoSideDrawer'),
+  meta: { title: 'Demo SideDrawer' }
+}, {
+  path: '/components/text-field',
+  component: viewResolver('Field/DemoTextField'),
+  meta: { title: 'Demo TextField' }
+}, {
+  path: '/components/text-area',
+  component: viewResolver('Field/DemoTextArea'),
+  meta: { title: 'Demo TextArea Field' }
+}, {
   path: '/components/icon',
   component: viewResolver('Icon/DemoIcon'),
   meta: { title: 'Demo Icon' }
+}, {
+  path: '/components/list-tile',
+  component: viewResolver('ListView/DemoListTile'),
+  meta: { title: 'Demo List Tile' }
 }, {
   path: '/components/mask-loader',
   component: viewResolver('Progress/DemoMaskLoader'),
@@ -67,25 +87,9 @@ const navigations = [{
   component: viewResolver('Radio/DemoRadio'),
   meta: { title: 'Demo Radio' }
 }, {
-  path: '/components/ripple',
-  component: viewResolver('Animation/DemoRipple'),
-  meta: { title: 'Demo Ripple' }
-}, {
-  path: '/components/side-drawer',
-  component: viewResolver('Drawer/DemoSideDrawer'),
-  meta: { title: 'Demo SideDrawer' }
-}, {
   path: '/components/tabs',
   component: viewResolver('Tabs/DemoTabs'),
   meta: { title: 'Demo Tabs' }
-}, {
-  path: '/components/text-field',
-  component: viewResolver('Field/DemoTextField'),
-  meta: { title: 'Demo TextField' }
-}, {
-  path: '/components/text-area',
-  component: viewResolver('Field/DemoTextArea'),
-  meta: { title: 'Demo TextArea Field' }
 }, {
   path: '/reference/color',
   component: viewResolver('Color/DemoColor'),
