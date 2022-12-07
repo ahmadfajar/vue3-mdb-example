@@ -4,7 +4,7 @@
     <BsDivider/>
     <div class="demo-block-content bg-grey-200 rounded mt-3">
       <BsAppContainer>
-        <BsSideDrawer v-model:open="openSideBar1" shadow>
+        <BsSideDrawer v-model:open="openSideDrawer1" shadow>
           <div class="p-3">
             <img
               src="https://vue-mdbootstrap.fajarconsultant.com/img/kitty-1.jpg"
@@ -44,7 +44,7 @@
           style="height: 250px"
           app>
           <div class="container-fluid d-flex justify-content-center align-items-center">
-            <BsButton @click="toggleSideBar1(!openSideBar1)">
+            <BsButton @click="toggleSideDrawer1(!openSideDrawer1)">
               TOGGLE
             </BsButton>
           </div>
@@ -58,7 +58,7 @@
     <div class="demo-block-content bg-grey-200 rounded mt-3">
       <BsAppContainer>
         <BsSideDrawer
-          v-model:open="openSideBar2"
+          v-model:open="openSideDrawer2"
           position="right"
           shadow>
           <div class="p-3">
@@ -100,7 +100,7 @@
           style="height: 250px"
           app>
           <div class="container-fluid d-flex justify-content-center align-items-center">
-            <BsButton @click="toggleSideBar2(!openSideBar2)">
+            <BsButton @click="toggleSideDrawer2(!openSideDrawer2)">
               TOGGLE
             </BsButton>
           </div>
@@ -113,17 +113,17 @@
     <BsDivider/>
     <div class="demo-block-content bg-grey-200 rounded mt-3">
       <BsAppContainer>
-        <BsSideDrawer :mini="miniSideBar1">
+        <BsSideDrawer :mini="miniSideDrawer1">
           <div class="d-flex flex-row p-2" style="width: 250px">
             <img
               src="https://vue-mdbootstrap.fajarconsultant.com/img/kitty-1.jpg"
               alt="image"
               style="width: 40px; height: 40px"
               class="rounded-circle md-link"
-              @click="miniSideBar1 = false"/>
+              @click="miniSideDrawer1 = false"/>
             <transition name="fade">
               <div
-                v-if="!miniSideBar1"
+                v-if="!miniSideDrawer1"
                 class="h5 mb-0 ps-3 d-flex align-items-center flex-fill">
                 Kitty Doe
               </div>
@@ -133,7 +133,7 @@
               icon="chevron_left"
               mode="icon"
               flat
-              @click="miniSideBar1 = true"/>
+              @click="miniSideDrawer1 = true"/>
           </div>
           <BsDivider/>
           <div class="p-2">
@@ -142,7 +142,7 @@
                 <a href="#" class="nav-link d-flex active">
                   <BsIcon icon="home_outlined"/>
                   <transition name="fade">
-                    <span v-if="!miniSideBar1" class="ps-3">Home</span>
+                    <span v-if="!miniSideDrawer1" class="ps-3">Home</span>
                   </transition>
                 </a>
               </li>
@@ -150,7 +150,7 @@
                 <a href="#" class="nav-link d-flex">
                   <BsIcon icon="view_list_outlined"/>
                   <transition name="fade">
-                    <span v-if="!miniSideBar1" class="ps-3">Orders</span>
+                    <span v-if="!miniSideDrawer1" class="ps-3">Orders</span>
                   </transition>
                 </a>
               </li>
@@ -158,7 +158,7 @@
                 <a href="#" class="nav-link d-flex">
                   <BsIcon icon="redeem_outlined"/>
                   <transition name="fade">
-                    <span v-if="!miniSideBar1" class="ps-3">Products</span>
+                    <span v-if="!miniSideDrawer1" class="ps-3">Products</span>
                   </transition>
                 </a>
               </li>
@@ -166,7 +166,7 @@
                 <a href="#" class="nav-link d-flex">
                   <BsIcon icon="account_circle_outlined"/>
                   <transition name="fade">
-                    <span v-if="!miniSideBar1" class="ps-3">Customers</span>
+                    <span v-if="!miniSideDrawer1" class="ps-3">Customers</span>
                   </transition>
                 </a>
               </li>
@@ -191,7 +191,7 @@
             icon="menu"
             mode="icon"
             flat
-            @click="toggleSideBar3(!openSideBar3)"/>
+            @click="toggleSideDrawer3(!openSideDrawer3)"/>
           <BsAppbarTitle title="Page Title"/>
           <BsSpacer/>
           <BsAppbarItems>
@@ -207,7 +207,7 @@
               flat/>
           </BsAppbarItems>
         </BsAppbar>
-        <BsSideDrawer v-model:open="openSideBar3" class="border-end">
+        <BsSideDrawer v-model:open="openSideDrawer3" class="border-end">
           <div class="p-3">
             <img
               src="https://vue-mdbootstrap.fajarconsultant.com/img/kitty-1.jpg"
@@ -259,7 +259,7 @@
             icon="menu"
             mode="icon"
             flat
-            @click="toggleSideBar4(!openSideBar4)"/>
+            @click="toggleSideDrawer4(!openSideDrawer4)"/>
           <BsAppbarTitle title="Page Title"/>
           <BsSpacer/>
           <BsAppbarItems>
@@ -276,7 +276,7 @@
           </BsAppbarItems>
         </BsAppbar>
         <BsSideDrawer
-          v-model:open="openSideBar4"
+          v-model:open="openSideDrawer4"
           class="border-end"
           clipped>
           <div class="p-3">
@@ -324,26 +324,26 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
 
-const openSideBar1 = ref(true)
-const openSideBar2 = ref(true)
-const openSideBar3 = ref(true)
-const openSideBar4 = ref(true)
-const miniSideBar1 = ref(true)
+const openSideDrawer1 = ref(true)
+const openSideDrawer2 = ref(true)
+const openSideDrawer3 = ref(true)
+const openSideDrawer4 = ref(true)
+const miniSideDrawer1 = ref(true)
 
-function toggleSideBar1 (value: boolean) {
-  openSideBar1.value = value
+function toggleSideDrawer1 (value: boolean) {
+  openSideDrawer1.value = value
 }
 
-function toggleSideBar2 (value: boolean) {
-  openSideBar2.value = value
+function toggleSideDrawer2 (value: boolean) {
+  openSideDrawer2.value = value
 }
 
-function toggleSideBar3 (value: boolean) {
-  openSideBar3.value = value
+function toggleSideDrawer3 (value: boolean) {
+  openSideDrawer3.value = value
 }
 
-function toggleSideBar4 (value: boolean) {
-  openSideBar4.value = value
+function toggleSideDrawer4 (value: boolean) {
+  openSideDrawer4.value = value
 }
 </script>
 

@@ -68,8 +68,8 @@
     </h4>
     <BsAppContainer>
       <div class="demo-block-content bg-grey-200 rounded-4 mt-3">
-        <BsCard shadow>
-          <BsAppbar class="bg-pink darken-2 rounded-top">
+        <BsCard class="rounded-sm" shadow>
+          <BsAppbar class="bg-pink darken-2">
             <BsButton
               mode="icon"
               color="light"
@@ -108,8 +108,8 @@
     </h4>
     <BsAppContainer>
       <div class="demo-block-content bg-grey-200 rounded-4 mt-3">
-        <BsCard shadow>
-          <BsAppbar class="bg-default-color-dark rounded-top">
+        <BsCard class="rounded-sm" shadow>
+          <BsAppbar class="bg-default-color-dark">
             <BsButton
               mode="icon"
               color="light"
@@ -149,8 +149,11 @@
     <BsDivider/>
     <BsAppContainer>
       <div class="demo-block-content bg-grey-200 rounded-4 mt-3">
-        <BsCard style="min-height: 600px" shadow>
-          <BsAppbar class="bg-default-color-dark rounded-top">
+        <BsCard
+          class="rounded-sm"
+          style="min-height: 600px"
+          shadow>
+          <BsAppbar class="bg-default-color-dark">
             <BsButton
               mode="icon"
               color="light"

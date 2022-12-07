@@ -136,6 +136,8 @@
 </script>
 
 <style lang="scss">
+@import "~compass-mixins/lib/compass/css3";
+
 #app {
   font-family: "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -187,6 +189,7 @@
       }
     }
   }
+
   .body-content {
     padding-bottom: 2rem;
     position: relative;
@@ -200,7 +203,9 @@
       padding-top: 2rem;
 
       .h4, h4 {
-        font-weight: normal;
+        &:not(.card-title) {
+          font-weight: normal;
+        }
       }
 
       @media (min-width: 1200px) {
@@ -210,6 +215,25 @@
       @media (min-width: 1480px) {
         padding-left: 2rem;
       }
+    }
+  }
+}
+
+.demo-wrapper {
+  .card {
+    &.mobi-card {
+      --bs-card-border-radius: .375rem;
+      --bs-card-inner-border-radius: calc(.375rem - 1px);
+      max-width: 400px;
+    }
+
+    &.rounded-sm {
+      --bs-card-border-radius: .375rem;
+      --bs-card-inner-border-radius: calc(.375rem - 1px);
+    }
+
+    > .md-appbar:first-child {
+      @include border-top-radius(var(--bs-card-border-radius));
     }
   }
 }
