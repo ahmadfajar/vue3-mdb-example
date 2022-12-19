@@ -71,6 +71,10 @@ const navigations = [{
   component: viewResolver('ListView/DemoListTile'),
   meta: { title: 'Demo List Tile' }
 }, {
+  path: '/components/list-nav',
+  component: viewResolver('ListView/DemoListNav'),
+  meta: { title: 'Demo List Nav' }
+}, {
   path: '/components/mask-loader',
   component: viewResolver('Progress/DemoMaskLoader'),
   meta: { title: 'Demo Mask Loader' }

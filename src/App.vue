@@ -65,6 +65,11 @@
             </RouterLink>
           </li>
           <li class="link-nav-item">
+            <RouterLink to="/components/list-nav">
+              List Nav
+            </RouterLink>
+          </li>
+          <li class="link-nav-item">
             <RouterLink to="/components/list-tile">
               List Tile
             </RouterLink>

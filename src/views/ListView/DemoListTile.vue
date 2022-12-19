@@ -142,7 +142,7 @@
           <BsListView>
             <BsSubheader>Summer Recipes</BsSubheader>
             <template v-for="(item, index) in listItems2" :key="item.title">
-              <BsListTile navigable>
+              <BsListTile navigable :disabled="index === 2">
                 <BsListTileLeading
                   :img-src="item.avatar"
                   :size="{height: 56, width: 85}"/>
