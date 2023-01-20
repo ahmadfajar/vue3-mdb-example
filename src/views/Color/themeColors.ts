@@ -1,4 +1,4 @@
-export const themeColors = {
+export const themeColors:Record<string, string> = {
   default: '#2bbbad',
   primary: '#0d6efd',
   secondary: '#6c757d',
@@ -18,7 +18,7 @@ export const themeColors = {
   'blue-green': '#064e40',
   teal: '#009688',
   cyan: '#00bcd4',
-  'light-blue': '#03a9f4',
+  'light-blue': '#4fc3f7',
   blue: '#2196f3',
   'dark-blue': '#0d47a1',
   indigo: '#3f51b5',
@@ -103,8 +103,8 @@ export const materialColors = {
 export function useBootstrapColorClasses (name: string) {
   return {
     ['bg-' + name]: true,
-    'text-black': ['lime', 'yellow', 'amber', 'white', 'light', 'light-grey'].includes(name),
-    'text-white': !['lime', 'yellow', 'amber', 'white', 'light', 'light-grey'].includes(name)
+    'text-black': ['lime', 'yellow', 'amber', 'white', 'light', 'light-grey', 'light-blue'].includes(name),
+    'text-white': !['lime', 'yellow', 'amber', 'white', 'light', 'light-grey', 'light-blue'].includes(name)
   }
 }
 

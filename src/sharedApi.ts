@@ -30,36 +30,30 @@ export function newShade (hexColor: string, magnitude: number) {
   }
 }
 
-export function getTextColor (bgColor: string): string {
-  const hex = bgColor.replace('#', '')
-  const color = parseInt(hex, 16)
-  const r = (color >>> 16) & 0xff
-  const g = (color >>> 8) & 0xff
-  const b = color & 0xff
-  const yiq = (r * 299 + g * 587 + b * 114) / 1000
-
-  return yiq >= 128 ? '#000' : '#fff'
-}
-
-export function hexToRgb (hexColor: string) {
+export function toRgb (hexColor: string): number[] {
   const color = hexColor.replace('#', '')
   const r = parseInt(color.substring(0, 2), 16)
   const g = parseInt(color.substring(2, 4), 16)
   const b = parseInt(color.substring(4, 6), 16)
 
-  return `rgb(${r},${g},${b})`
+  return [r, g, b]
 }
 
-export function getLightnessOfRGB (rgbString: string): number {
-  // First convert to an array of integers by removing the whitespace, taking the 3rd char to the 2nd last then splitting by ','
-  const rgbIntArray = (rgbString.replace(/ /g, '').slice(4, -1).split(',').map(e => parseInt(e)))
+export function brightness (hexColor: string): number {
+  const rgb = toRgb(hexColor)
+  return ((rgb[0] * 299) + (rgb[1] * 587) + (rgb[2] * 114)) / 1000
+}
 
-  // Get the highest and lowest out of red green and blue
-  const highest = Math.max(...rgbIntArray)
-  const lowest = Math.min(...rgbIntArray)
+export function getTextColor (bgColor: string): string {
+  // const hex = bgColor.replace('#', '')
+  // const color = parseInt(hex, 16)
+  // const r = (color >>> 16) & 0xff
+  // const g = (color >>> 8) & 0xff
+  // const b = color & 0xff
+  // const yiq = (r * 299 + g * 587 + b * 114) / 1000
+  const yiq = brightness(bgColor)
 
-  // Return the average divided by 255
-  return (highest + lowest) / 2 / 255
+  return yiq >= 170 ? '#000' : '#fff'
 }
 
 export function IconBullhorn (props: Record<string, unknown>) {

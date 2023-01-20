@@ -7,6 +7,9 @@ module.exports = defineConfig({
   configureWebpack: {
     resolve: {
       symlinks: false,
+      fallback: {
+        fs: false
+      },
       alias: {
         vue: path.resolve('./node_modules/vue')
       }

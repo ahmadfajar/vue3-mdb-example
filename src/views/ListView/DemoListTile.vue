@@ -323,7 +323,7 @@
               </BsListTileContent>
             </BsListTile>
             <BsListTile navigable>
-              <BsListTileLeading icon="collections_bookmark"/>
+              <BsListTileLeading icon="bookmarks"/>
               <BsListTileContent>
                 <BsListTileTitle>Important</BsListTileTitle>
               </BsListTileContent>
@@ -424,7 +424,7 @@
               </BsListTileContent>
             </BsListTile>
             <BsListTile navigable>
-              <BsListTileLeading icon="collections_bookmark"/>
+              <BsListTileLeading icon="bookmarks"/>
               <BsListTileContent>
                 <BsListTileTitle>Important</BsListTileTitle>
               </BsListTileContent>
