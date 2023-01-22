@@ -9,7 +9,7 @@
       </template>
     </DemoBlock>
     <h2 class="mt-5">
-      Rounded Style (Bootstrap Button)
+      Rounded Style
     </h2>
     <DemoBlock class="mt-4">
       <template v-for="btn in variants.slice(0, 19)" :key="btn">

@@ -1,143 +1,97 @@
 <template>
-  <aside class="side-drawer shadow-lg d-none d-xl-block">
-    <div class="side-drawer-inner">
-      <div class="text-center mb-3">
+  <BsAppContainer class="bg-mdb-color" viewport-height>
+    <BsAppbar
+      class="bg-mdb-color"
+      clipped-left
+      fixed-top>
+      <BsButton
+        color="light"
+        icon="menu"
+        mode="icon"
+        flat
+        @click="toggleSideDrawer(!openSideDrawer)"/>
+      <BsAppbarTitle
+        :title="$route.meta.title"
+        class="text-white"/>
+    </BsAppbar>
+    <BsSideDrawer
+      v-model:open="openSideDrawer"
+      color="mdb-color"
+      fixed-layout>
+      <div class="text-center mb-2">
         <img
           alt="Vue logo"
-          src="./assets/logo.png"
-          style="width: 128px"/>
+          src="./assets/vue-mdb.png"
+          style="width: 96px"/>
       </div>
-      <div class="drawer-body px-2">
-        <ul class="side-nav-menu">
-          <li class="link-nav-item">
-            <RouterLink to="/components/alert">
-              Alert
-            </RouterLink>
-          </li>
-          <li class="link-nav-item">
-            <RouterLink to="/components/appbar">
-              AppBar
-            </RouterLink>
-          </li>
-          <li class="link-nav-item">
-            <RouterLink to="/components/avatar">
-              Avatar
-            </RouterLink>
-          </li>
-          <li class="link-nav-item">
-            <RouterLink to="/components/badge">
-              Badge
-            </RouterLink>
-          </li>
-          <li class="link-nav-item">
-            <RouterLink to="/components/button">
-              Button
-            </RouterLink>
-          </li>
-          <li class="link-nav-item">
-            <RouterLink to="/components/button-toggle">
-              Toggle Button
-            </RouterLink>
-          </li>
-          <li class="link-nav-item">
-            <RouterLink to="/components/card">
-              Card
-            </RouterLink>
-          </li>
-          <li class="link-nav-item">
-            <RouterLink to="/components/checkbox">
-              Checkbox
-            </RouterLink>
-          </li>
-          <li class="link-nav-item">
-            <RouterLink to="/components/chip">
-              Chip
-            </RouterLink>
-          </li>
-          <li class="link-nav-item">
-            <RouterLink to="/components/chip-group">
-              Chip Group
-            </RouterLink>
-          </li>
-          <li class="link-nav-item">
-            <RouterLink to="/components/icon">
-              Icon
-            </RouterLink>
-          </li>
-          <li class="link-nav-item">
-            <RouterLink to="/components/list-nav">
-              List Nav
-            </RouterLink>
-          </li>
-          <li class="link-nav-item">
-            <RouterLink to="/components/list-tile">
-              List Tile
-            </RouterLink>
-          </li>
-          <li class="link-nav-item">
-            <RouterLink to="/components/mask-loader">
-              Mask Loader
-            </RouterLink>
-          </li>
-          <li class="link-nav-item">
-            <RouterLink to="/components/progress">
-              Progress Control
-            </RouterLink>
-          </li>
-          <li class="link-nav-item">
-            <RouterLink to="/components/progress-bar">
-              Progress Bar
-            </RouterLink>
-          </li>
-          <li class="link-nav-item">
-            <RouterLink to="/components/radio">
-              Radio
-            </RouterLink>
-          </li>
-          <li class="link-nav-item">
-            <RouterLink to="/components/ripple">
-              Ripple
-            </RouterLink>
-          </li>
-          <li class="link-nav-item">
-            <RouterLink to="/components/side-drawer">
-              SideDrawer
-            </RouterLink>
-          </li>
-          <li class="link-nav-item">
-            <RouterLink to="/components/tabs">
-              Tabs
-            </RouterLink>
-          </li>
-          <li class="link-nav-item">
-            <RouterLink to="/components/text-field">
-              Text Field
-            </RouterLink>
-          </li>
-          <li class="link-nav-item">
-            <RouterLink to="/components/text-area">
-              TextArea Field
-            </RouterLink>
-          </li>
-          <li class="link-nav-item border-top">
-            <RouterLink to="/reference/color">
-              Color Variants
-            </RouterLink>
-          </li>
-        </ul>
+      <BsDivider dark/>
+      <BsListView
+        color="mdb-color"
+        item-border-variant="left"
+        item-rounded
+        space-around="both">
+        <BsListNav>
+          <BsListNavItem
+            v-for="navItem in routeNavA"
+            :key="navItem.label"
+            :path="navItem.path"
+            :disabled="navItem.disabled"
+            :label="navItem.label"/>
+        </BsListNav>
+        <BsDivider class="my-2"/>
+        <BsListNav>
+          <BsListNavItem
+            v-for="navItem in routeNavB"
+            :key="navItem.label"
+            :path="navItem.path"
+            :disabled="navItem.disabled"
+            :label="navItem.label"/>
+        </BsListNav>
+      </BsListView>
+    </BsSideDrawer>
+    <div v-if="openSideDrawer" class="side-decoration"></div>
+    <BsContainer app>
+      <div :class="classNames">
+        <RouterView v-slot="{ Component }">
+          <Transition name="fastFade" mode="out-in">
+            <component :is="Component"/>
+          </Transition>
+        </RouterView>
       </div>
-    </div>
-  </aside>
-  <div class="body-content">
-    <RouterView v-slot="{ Component }">
-      <Transition name="ffade" mode="out-in">
-        <component :is="Component"/>
-      </Transition>
-    </RouterView>
-  </div>
+    </BsContainer>
+  </BsAppContainer>
 </template>
 
-<script lang="ts">
+<script lang="ts" setup>
+import { computed, ref } from 'vue'
+import { INavigationMenu, menuNavs } from '@/navigation'
+
+const openSideDrawer = ref(true)
+
+const classNames = computed(() => ({
+  'body-content': true,
+  open: openSideDrawer.value === true
+}))
+
+function toggleSideDrawer (value: boolean) {
+  openSideDrawer.value = value
+}
+
+function compareFn (a: INavigationMenu, b: INavigationMenu) {
+  const labelA = a.label.toUpperCase()
+  const labelB = b.label.toUpperCase()
+  if (labelA < labelB) {
+    return -1
+  }
+  if (labelA > labelB) {
+    return 1
+  }
+  // label is equal
+  return 0
+}
+
+const routeNavA = menuNavs.filter(it => it.group === 'Group A').sort(compareFn)
+const routeNavB = menuNavs.filter(it => it.group === 'Group B').sort(compareFn)
 </script>
 
 <style lang="scss">
@@ -150,62 +104,34 @@
   max-width: 100%;
   max-height: 100vh;
 
-  .side-drawer {
-    left: 0;
-    top: 0;
-    bottom: 0;
+  .side-decoration {
+    background-color: #fff;
     position: fixed;
-    width: 300px;
-    max-height: 100vh;
+    top: 64px;
+    bottom: 0;
+    z-index: 1020;
 
-    > .side-drawer-inner {
-      position: relative;
-      height: 100%;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-
-      > .drawer-body {
-        width: auto;
-        overflow-y: auto;
-
-        .side-nav-menu {
-          list-style: none;
-          padding-left: 0;
-
-          > .link-nav-item {
-            padding: .25rem 0;
-
-            > a {
-              color: inherit;
-              display: block;
-              text-decoration: none;
-              padding: .5rem 1rem;
-
-              &.router-link-active {
-                background-color: var(--bs-gray-300);
-                border-radius: var(--bs-border-radius-pill);
-                color: var(--bs-primary);
-                font-weight: 500;
-              }
-            }
-          }
-        }
-      }
+    @media (min-width: 992px) {
+      @include border-top-left-radius(36px);
+      left: 250px;
+      width: 38px;
     }
   }
 
   .body-content {
+    background-color: white;
     padding-bottom: 2rem;
     position: relative;
-    width: auto;
+    width: 100%;
 
-    @media (min-width: 1200px) {
-      margin-left: 300px;
+    @media (min-width: 992px) {
+      &.open {
+        margin-left: 38px;
+      }
     }
 
     .demo-wrapper {
-      padding-top: 2rem;
+      padding-top: 3rem;
 
       .h4, h4 {
         &:not(.card-title) {
@@ -243,13 +169,13 @@
   }
 }
 
-.ffade-enter-active,
-.ffade-leave-active {
+.fastFade-enter-active,
+.fastFade-leave-active {
   transition: opacity 0.2s ease;
 }
 
-.ffade-enter-from,
-.ffade-leave-to {
+.fastFade-enter-from,
+.fastFade-leave-to {
   opacity: 0;
 }
 </style>

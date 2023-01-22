@@ -415,8 +415,8 @@
           <BsListView
             :item-rounded="itemStyle === 'rounded'"
             :item-rounded-pill="itemStyle === 'pill'"
-            :item-border-variant="itemBorderVariant === 'none' ? undefined : itemBorderVariant"
-            :space-around="spaceAround === 'none' ? undefined : spaceAround">
+            :item-border-variant="getItemBorderVariant"
+            :space-around="getSpaceAround">
             <BsListTile navigable>
               <BsListTileLeading icon="inbox"/>
               <BsListTileContent>
@@ -509,7 +509,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 
 const spaceAroundTypes = [
   { label: 'None', value: 'none' },
@@ -534,6 +534,12 @@ const itemStyles = [
   { label: 'Rounded-Pill', value: 'pill' }
 ]
 const itemStyle = ref<string>('none')
+const getItemBorderVariant = computed<string|undefined>(
+  () => itemBorderVariant.value === 'none' ? undefined : itemBorderVariant.value
+)
+const getSpaceAround = computed<string|undefined>(
+  () => spaceAround.value === 'none' ? undefined : spaceAround.value
+)
 
 const listItems1 = [
   {

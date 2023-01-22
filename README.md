@@ -1,4 +1,6 @@
-# vue-test
+# vue-mdbootstrap-demo
+
+vue-mdbootstrap v2.0 component's demo.
 
 ## Project setup
 ```
