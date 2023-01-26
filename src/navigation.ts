@@ -145,6 +145,12 @@ export const menuNavs: INavigationMenu[] = [{
   path: '/components/text-area',
   view: viewResolver('Field/DemoTextArea')
 }, {
+  label: 'Tooltips',
+  title: 'Demo Tooltips',
+  group: 'Group A',
+  path: '/components/tooltip',
+  view: viewResolver('Tooltip/DemoTooltip')
+}, {
   label: 'Color Variants',
   title: 'Color Variants',
   group: 'Group B',

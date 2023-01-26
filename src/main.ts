@@ -17,6 +17,7 @@ import { BsListViewPlugin } from '../../vue-mdbootstrap/src/components/ListView'
 import { BsProgressPlugin } from '../../vue-mdbootstrap/src/components/Progress'
 import { BsRadioPlugin } from '../../vue-mdbootstrap/src/components/Radio'
 import { BsTabsPlugin } from '../../vue-mdbootstrap/src/components/Tabs'
+import { BsTooltipPlugin } from '../../vue-mdbootstrap/src/components/Tooltip'
 import router from '@/router'
 import App from './App.vue'
 
@@ -39,5 +40,6 @@ createApp(App)
   .use(BsProgressPlugin)
   .use(BsRadioPlugin)
   .use(BsTabsPlugin)
+  .use(BsTooltipPlugin)
   .use(router)
   .mount('#app')

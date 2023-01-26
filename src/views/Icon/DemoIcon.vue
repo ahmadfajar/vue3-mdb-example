@@ -2,7 +2,7 @@
   <div class="demo-wrapper container-lg mx-auto">
     <h2>Overview</h2>
     <BsDivider/>
-    <div class="row row-cols-xl-5 row-cols-md-4 row-cols-sm-2 mt-4">
+    <div class="row row-cols-xl-5 row-cols-md-4 row-cols-sm-2 mt-4 text-center">
       <div class="col">
         <div class="p-2 bg-light">
           <BsIcon
@@ -39,7 +39,7 @@
         </div>
       </div>
     </div>
-    <div class="row row-cols-xl-5 row-cols-md-4 row-cols-sm-2 mt-3">
+    <div class="row row-cols-xl-5 row-cols-md-4 row-cols-sm-2 mt-3 text-center">
       <div class="col">
         <div class="p-2 bg-light">
           <BsIcon
@@ -81,7 +81,7 @@
         </div>
       </div>
     </div>
-    <div class="row row-cols-xl-5 row-cols-md-4 row-cols-sm-2 mt-3">
+    <div class="row row-cols-xl-5 row-cols-md-4 row-cols-sm-2 mt-3 text-center">
       <div class="col">
         <div class="d-flex justify-content-center bg-light" style="height: 80px">
           <BsIconSpinner
@@ -124,7 +124,7 @@
         </div>
       </div>
     </div>
-    <div class="row row-cols-5 mt-4">
+    <div class="row row-cols-5 mt-4 text-center">
       <div class="col">
         <div class="form-check form-switch">
           <input
@@ -156,7 +156,6 @@
 </template>
 
 <script lang="ts" setup>
-// import { BsIcon, BsIconToggle } from '../../../../vue-mdbootstrap/src/components/Icon'
 import { ref } from 'vue'
 
 const isToggle = ref(false)
