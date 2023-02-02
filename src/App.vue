@@ -90,8 +90,8 @@ function compareFn (a: INavigationMenu, b: INavigationMenu) {
   return 0
 }
 
-const routeNavA = menuNavs.filter(it => it.group === 'Group A').sort(compareFn)
-const routeNavB = menuNavs.filter(it => it.group === 'Group B').sort(compareFn)
+const routeNavA = menuNavs.filter(it => it.group === 'Components').sort(compareFn)
+const routeNavB = menuNavs.filter(it => it.group === 'Reference').sort(compareFn)
 </script>
 
 <style lang="scss">

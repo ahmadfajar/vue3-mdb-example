@@ -15,145 +15,151 @@ const viewResolver = (name: string) => require('./views/' + name).default
 export const menuNavs: INavigationMenu[] = [{
   label: 'Alert',
   title: 'Demo Alert',
-  group: 'Group A',
+  group: 'Components',
   path: '/components/alert',
-  view: viewResolver('Alert/DemoAlert')
+  view: viewResolver('Components/DemoAlert')
 }, {
   label: 'AppBar',
   title: 'Demo AppBar',
-  group: 'Group A',
+  group: 'Components',
   path: '/components/appbar',
-  view: viewResolver('Appbar/DemoAppbar')
+  view: viewResolver('Components/DemoAppbar')
 }, {
   label: 'Avatar',
   title: 'Demo Avatar',
-  group: 'Group A',
+  group: 'Components',
   path: '/components/avatar',
-  view: viewResolver('Avatar/DemoAvatar')
+  view: viewResolver('Components/DemoAvatar')
 }, {
   label: 'Badge',
   title: 'Demo Badge',
-  group: 'Group A',
+  group: 'Components',
   path: '/components/badge',
-  view: viewResolver('Badge/DemoBadge')
+  view: viewResolver('Components/DemoBadge')
 }, {
   label: 'Button',
   title: 'Demo Button',
-  group: 'Group A',
+  group: 'Components',
   path: '/components/button',
-  view: viewResolver('Button/DemoButton')
+  view: viewResolver('Components/DemoButton')
 }, {
   label: 'Toggle Button',
   title: 'Demo Toggle Button',
-  group: 'Group A',
+  group: 'Components',
   path: '/components/button-toggle',
-  view: viewResolver('Button/DemoToggleButton')
+  view: viewResolver('Components/DemoToggleButton')
 }, {
   label: 'Card',
   title: 'Demo Card',
-  group: 'Group A',
+  group: 'Components',
   path: '/components/card',
-  view: viewResolver('Card/DemoCard')
+  view: viewResolver('Components/DemoCard')
 }, {
   label: 'Checkbox',
   title: 'Demo Checkbox',
-  group: 'Group A',
+  group: 'Components',
   path: '/components/checkbox',
-  view: viewResolver('Checkbox/DemoCheckbox')
+  view: viewResolver('Components/DemoCheckbox')
 }, {
   label: 'Chip',
   title: 'Demo Chip',
-  group: 'Group A',
+  group: 'Components',
   path: '/components/chip',
-  view: viewResolver('Chip/DemoChip')
+  view: viewResolver('Components/DemoChip')
 }, {
   label: 'Chip Group',
   title: 'Demo Chip Group',
-  group: 'Group A',
+  group: 'Components',
   path: '/components/chip-group',
-  view: viewResolver('Chip/DemoChipGroup')
+  view: viewResolver('Components/DemoChipGroup')
 }, {
   label: 'Icon',
   title: 'Demo Icon',
-  group: 'Group A',
+  group: 'Components',
   path: '/components/icon',
-  view: viewResolver('Icon/DemoIcon')
+  view: viewResolver('Components/DemoIcon')
 }, {
   label: 'List Nav',
   title: 'Demo List Nav',
-  group: 'Group A',
+  group: 'Components',
   path: '/components/list-nav',
-  view: viewResolver('ListView/DemoListNav')
+  view: viewResolver('Components/DemoListNav')
 }, {
   label: 'List Tile',
   title: 'Demo List Tile',
-  group: 'Group A',
+  group: 'Components',
   path: '/components/list-tile',
-  view: viewResolver('ListView/DemoListTile')
+  view: viewResolver('Components/DemoListTile')
 }, {
   label: 'Mask Loader',
   title: 'Demo Mask Loader',
-  group: 'Group A',
+  group: 'Components',
   path: '/components/mask-loader',
-  view: viewResolver('Progress/DemoMaskLoader')
+  view: viewResolver('Components/DemoMaskLoader')
 }, {
   label: 'Progress Control',
   title: 'Demo Progress Control',
-  group: 'Group A',
+  group: 'Components',
   path: '/components/progress',
-  view: viewResolver('Progress/DemoProgress')
+  view: viewResolver('Components/DemoProgress')
 }, {
   label: 'Progress Bar',
   title: 'Demo Progress Bar',
-  group: 'Group A',
+  group: 'Components',
   path: '/components/progress-bar',
-  view: viewResolver('Progress/DemoProgressBar')
+  view: viewResolver('Components/DemoProgressBar')
 }, {
   label: 'Radio',
   title: 'Demo Radio',
-  group: 'Group A',
+  group: 'Components',
   path: '/components/radio',
-  view: viewResolver('Radio/DemoRadio')
+  view: viewResolver('Components/DemoRadio')
 }, {
   label: 'Ripple',
   title: 'Demo Ripple',
-  group: 'Group A',
+  group: 'Components',
   path: '/components/ripple',
-  view: viewResolver('Animation/DemoRipple')
+  view: viewResolver('Components/DemoRipple')
 }, {
   label: 'SideDrawer',
   title: 'Demo SideDrawer',
-  group: 'Group A',
+  group: 'Components',
   path: '/components/side-drawer',
-  view: viewResolver('Drawer/DemoSideDrawer')
+  view: viewResolver('Components/DemoSideDrawer')
 }, {
   label: 'Tabs',
   title: 'Demo Tabs',
-  group: 'Group A',
+  group: 'Components',
   path: '/components/tabs',
-  view: viewResolver('Tabs/DemoTabs')
+  view: viewResolver('Components/DemoTabs')
 }, {
   label: 'Text Field',
   title: 'Demo Text Field',
-  group: 'Group A',
+  group: 'Components',
   path: '/components/text-field',
-  view: viewResolver('Field/DemoTextField')
+  view: viewResolver('Components/DemoTextField')
 }, {
   label: 'TextArea Field',
   title: 'Demo TextArea Field',
-  group: 'Group A',
+  group: 'Components',
   path: '/components/text-area',
-  view: viewResolver('Field/DemoTextArea')
+  view: viewResolver('Components/DemoTextArea')
 }, {
   label: 'Tooltips',
   title: 'Demo Tooltips',
-  group: 'Group A',
+  group: 'Components',
   path: '/components/tooltip',
-  view: viewResolver('Tooltip/DemoTooltip')
+  view: viewResolver('Components/DemoTooltip')
+}, {
+  label: 'Popover',
+  title: 'Demo Popover',
+  group: 'Components',
+  path: '/components/popover',
+  view: viewResolver('Components/DemoPopover')
 }, {
   label: 'Color Variants',
   title: 'Color Variants',
-  group: 'Group B',
+  group: 'Reference',
   path: '/reference/color',
   view: viewResolver('Color/DemoColor')
 }]

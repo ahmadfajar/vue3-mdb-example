@@ -448,7 +448,7 @@
                 <BsListTileTitle>All Mail</BsListTileTitle>
               </BsListTileContent>
               <BsListTileAction center>
-                <BsBadge type="pill" color="grey-500">
+                <BsBadge type="pill" color="secondary">
                   102
                 </BsBadge>
               </BsListTileAction>
@@ -459,7 +459,7 @@
                 <BsListTileTitle>Trash</BsListTileTitle>
               </BsListTileContent>
               <BsListTileAction center>
-                <BsBadge type="pill" color="grey-500">
+                <BsBadge type="pill" color="secondary">
                   12
                 </BsBadge>
               </BsListTileAction>
@@ -470,7 +470,7 @@
                 <BsListTileTitle>Spam</BsListTileTitle>
               </BsListTileContent>
               <BsListTileAction center>
-                <BsBadge type="pill" color="grey-500">
+                <BsBadge type="pill" color="secondary">
                   8
                 </BsBadge>
               </BsListTileAction>

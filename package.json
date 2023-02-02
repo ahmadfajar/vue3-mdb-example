@@ -9,12 +9,12 @@
   },
   "dependencies": {
     "core-js": "^3.27.2",
-    "vue": "^3.2.45",
+    "vue": "^3.2.47",
     "vue-router": "^4.1.6"
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.48.2",
-    "@typescript-eslint/parser": "^5.48.2",
+    "@typescript-eslint/eslint-plugin": "^5.50.0",
+    "@typescript-eslint/parser": "^5.50.0",
     "@vue/cli-plugin-babel": "^5.0.8",
     "@vue/cli-plugin-eslint": "^5.0.8",
     "@vue/cli-plugin-typescript": "^5.0.8",
@@ -23,14 +23,14 @@
     "@vue/eslint-config-typescript": "^11.0.2",
     "bootstrap": "^5.2.3",
     "compass-mixins": "^0.12.12",
-    "eslint": "^8.32.0",
+    "eslint": "^8.33.0",
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^6.1.1",
     "eslint-plugin-vue": "^9.9.0",
-    "sass": "^1.57.1",
+    "sass": "^1.58.0",
     "sass-loader": "^13.2.0",
-    "typescript": "^4.9.4"
+    "typescript": "^4.9.5"
   },
   "eslintConfig": {
     "root": true,
