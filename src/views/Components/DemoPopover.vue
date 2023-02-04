@@ -6,6 +6,7 @@
         <BsButton
           ref="activator1"
           color="primary"
+          dropdown-toggle
           @click="show1 = !show1">
           Button Dropdown
         </BsButton>
@@ -58,6 +59,7 @@
           <BsButton
             ref="activator2"
             color="primary"
+            dropdown-toggle
             @click="show2 = !show2">
             Bottom Left
           </BsButton>
@@ -105,6 +107,7 @@
           <BsButton
             ref="activator3"
             color="primary"
+            dropdown-toggle
             @click="show3 = !show3">
             Bottom
           </BsButton>
@@ -152,6 +155,7 @@
           <BsButton
             ref="activator4"
             color="primary"
+            dropdown-toggle
             @click="show4 = !show4">
             Bottom Right
           </BsButton>
@@ -199,6 +203,7 @@
           <BsButton
             ref="activator5"
             color="primary"
+            dropdown-toggle
             @click="show5 = !show5">
             Top Left
           </BsButton>
@@ -246,6 +251,7 @@
           <BsButton
             ref="activator6"
             color="primary"
+            dropdown-toggle
             @click="show6 = !show6">
             Top
           </BsButton>
@@ -293,6 +299,7 @@
           <BsButton
             ref="activator7"
             color="primary"
+            dropdown-toggle
             @click="show7 = !show7">
             Top Right
           </BsButton>
@@ -340,6 +347,7 @@
           <BsButton
             ref="activator8"
             color="primary"
+            dropdown-toggle
             @click="show8 = !show8">
             Left Top
           </BsButton>
@@ -387,6 +395,7 @@
           <BsButton
             ref="activator9"
             color="primary"
+            dropdown-toggle
             @click="show9 = !show9">
             Right Top
           </BsButton>
