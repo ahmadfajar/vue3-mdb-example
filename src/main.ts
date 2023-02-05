@@ -15,6 +15,7 @@ import { BsFieldPlugin } from '../../vue-mdbootstrap/src/components/Field'
 import { BsIconPlugin } from '../../vue-mdbootstrap/src/components/Icon'
 import { BsListViewPlugin } from '../../vue-mdbootstrap/src/components/ListView'
 import { BsPopoverPlugin } from '../../vue-mdbootstrap/src/components/Popover'
+import { BsMenuPlugin } from '../../vue-mdbootstrap/src/components/Menu'
 import { BsProgressPlugin } from '../../vue-mdbootstrap/src/components/Progress'
 import { BsRadioPlugin } from '../../vue-mdbootstrap/src/components/Radio'
 import { BsTabsPlugin } from '../../vue-mdbootstrap/src/components/Tabs'
@@ -39,6 +40,7 @@ createApp(App)
   .use(BsIconPlugin)
   .use(BsListViewPlugin)
   .use(BsPopoverPlugin)
+  .use(BsMenuPlugin)
   .use(BsProgressPlugin)
   .use(BsRadioPlugin)
   .use(BsTabsPlugin)

@@ -64,7 +64,7 @@
 
 <script lang="ts" setup>
 import { computed, ref } from 'vue'
-import { INavigationMenu, menuNavs } from '@/navigation'
+import { TNavigationMenu, menuNavs } from '@/navigation'
 
 const openSideDrawer = ref(true)
 
@@ -77,7 +77,7 @@ function toggleSideDrawer (value: boolean) {
   openSideDrawer.value = value
 }
 
-function compareFn (a: INavigationMenu, b: INavigationMenu) {
+function compareFn (a: TNavigationMenu, b: TNavigationMenu) {
   const labelA = a.label.toUpperCase()
   const labelB = b.label.toUpperCase()
   if (labelA < labelB) {
@@ -151,6 +151,10 @@ const routeNavB = menuNavs.filter(it => it.group === 'Reference').sort(compareFn
 }
 
 .demo-wrapper {
+  > h2 {
+    font-weight: 400;
+  }
+
   .card {
     &.mobi-card {
       --bs-card-border-radius: .375rem;

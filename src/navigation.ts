@@ -1,6 +1,6 @@
 import { RouteComponent } from 'vue-router'
 
-export declare type INavigationMenu = {
+export declare type TNavigationMenu = {
   label: string;
   title: string;
   group: string;
@@ -12,7 +12,7 @@ export declare type INavigationMenu = {
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const viewResolver = (name: string) => require('./views/' + name).default
 
-export const menuNavs: INavigationMenu[] = [{
+export const menuNavs: TNavigationMenu[] = [{
   label: 'Alert',
   title: 'Demo Alert',
   group: 'Components',
@@ -156,6 +156,12 @@ export const menuNavs: INavigationMenu[] = [{
   group: 'Components',
   path: '/components/popover',
   view: viewResolver('Components/DemoPopover')
+}, {
+  label: 'Dropdown Menu',
+  title: 'Demo Dropdown Menu',
+  group: 'Components',
+  path: '/components/dropdown-menu',
+  view: viewResolver('Components/DemoDropdownMenu')
 }, {
   label: 'Color Variants',
   title: 'Color Variants',

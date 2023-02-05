@@ -55,11 +55,13 @@
     </h2>
     <DemoBlock class="mt-4">
       <div class="row">
-        <div class="col-12 col-md-6 col-lg-3 text-center">
+        <div class="col-12 col-md-6 col-lg-4 text-center">
           <BsButton
             ref="activator2"
+            :pill="false"
             color="primary"
             dropdown-toggle
+            rounded
             @click="show2 = !show2">
             Bottom Left
           </BsButton>
@@ -103,11 +105,13 @@
             </div>
           </BsPopover>
         </div>
-        <div class="col-12 col-md-6 col-lg-3 mt-3 mt-md-0 text-center">
+        <div class="col-12 col-md-6 col-lg-4 mt-3 mt-md-0 text-center">
           <BsButton
             ref="activator3"
+            :pill="false"
             color="primary"
             dropdown-toggle
+            rounded
             @click="show3 = !show3">
             Bottom
           </BsButton>
@@ -151,11 +155,13 @@
             </div>
           </BsPopover>
         </div>
-        <div class="col-12 col-md-6 col-lg-3 mt-3 mt-lg-0 text-center">
+        <div class="col-12 col-md-6 col-lg-4 mt-3 mt-lg-0 text-center">
           <BsButton
             ref="activator4"
+            :pill="false"
             color="primary"
             dropdown-toggle
+            rounded
             @click="show4 = !show4">
             Bottom Right
           </BsButton>
@@ -199,11 +205,13 @@
             </div>
           </BsPopover>
         </div>
-        <div class="col-12 col-md-6 col-lg-3 mt-3 mt-lg-0 text-center">
+        <div class="col-12 col-md-6 col-lg-4 mt-3 text-center">
           <BsButton
             ref="activator5"
+            :pill="false"
             color="primary"
             dropdown-toggle
+            rounded
             @click="show5 = !show5">
             Top Left
           </BsButton>
@@ -247,11 +255,13 @@
             </div>
           </BsPopover>
         </div>
-        <div class="col-12 col-md-6 col-lg-3 mt-3 text-center">
+        <div class="col-12 col-md-6 col-lg-4 mt-3 text-center">
           <BsButton
             ref="activator6"
+            :pill="false"
             color="primary"
             dropdown-toggle
+            rounded
             @click="show6 = !show6">
             Top
           </BsButton>
@@ -295,11 +305,13 @@
             </div>
           </BsPopover>
         </div>
-        <div class="col-12 col-md-6 col-lg-3 mt-3 text-center">
+        <div class="col-12 col-md-6 col-lg-4 mt-3 text-center">
           <BsButton
             ref="activator7"
+            :pill="false"
             color="primary"
             dropdown-toggle
+            rounded
             @click="show7 = !show7">
             Top Right
           </BsButton>
@@ -343,19 +355,21 @@
             </div>
           </BsPopover>
         </div>
-        <div class="col-12 col-md-6 col-lg-3 mt-3 text-center">
+        <div class="col-12 col-md-6 col-lg-4 mt-3 text-center">
           <BsButton
             ref="activator8"
+            :pill="false"
             color="primary"
             dropdown-toggle
+            rounded
             @click="show8 = !show8">
-            Left Top
+            Right Top
           </BsButton>
           <BsPopover
             v-model:open="show8"
             :trigger="activator8?.$el"
             class="md-shadow-1"
-            placement="left-top"
+            placement="right-top"
             space="3">
             <BsListView>
               <BsListTile>
@@ -391,19 +405,21 @@
             </div>
           </BsPopover>
         </div>
-        <div class="col-12 col-md-6 col-lg-3 mt-3 text-center">
+        <div class="col-12 col-md-6 col-lg-4 mt-3 text-center">
           <BsButton
             ref="activator9"
+            :pill="false"
             color="primary"
             dropdown-toggle
+            rounded
             @click="show9 = !show9">
-            Right Top
+            Left Top
           </BsButton>
           <BsPopover
             v-model:open="show9"
             :trigger="activator9?.$el"
             class="md-shadow-1"
-            placement="right-top"
+            placement="left-top"
             space="3">
             <BsListView>
               <BsListTile>

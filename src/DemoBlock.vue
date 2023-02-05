@@ -104,7 +104,7 @@ $radius: .75rem;
   padding: 24px 24px 20px;
   position: relative;
 
-  .md-btn-icon, .md-chip, .btn {
+  .md-btn-icon, .md-chip {
     margin-left: .375rem;
     margin-right: 0;
   }
