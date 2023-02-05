@@ -2,8 +2,7 @@
   <BsAppContainer class="bg-mdb-color" viewport-height>
     <BsAppbar
       class="bg-mdb-color"
-      clipped-left
-      fixed-top>
+      clipped-left>
       <BsButton
         color="light"
         icon="menu"
@@ -49,9 +48,11 @@
         </BsListNav>
       </BsListView>
     </BsSideDrawer>
-    <div v-if="openSideDrawer" class="side-decoration"></div>
-    <BsContainer app>
-      <div :class="classNames">
+    <BsContainer
+      app
+      class="y-overflow-hidden"
+      @resize="onContainerResize">
+      <div class="body-content">
         <RouterView v-slot="{ Component }">
           <Transition name="fastFade" mode="out-in">
             <component :is="Component"/>
@@ -63,15 +64,17 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, ref } from 'vue'
-import { TNavigationMenu, menuNavs } from '@/navigation'
+import { ref } from 'vue'
+import { menuNavs, TNavigationMenu } from '@/navigation'
+import { useBreakpointMax } from '../../vue-mdbootstrap/src/mixins/CommonApi'
 
 const openSideDrawer = ref(true)
 
-const classNames = computed(() => ({
-  'body-content': true,
-  open: openSideDrawer.value === true
-}))
+function onContainerResize () {
+  if (useBreakpointMax('xl')) {
+    openSideDrawer.value = false
+  }
+}
 
 function toggleSideDrawer (value: boolean) {
   openSideDrawer.value = value
@@ -99,60 +102,45 @@ const routeNavB = menuNavs.filter(it => it.group === 'Reference').sort(compareFn
 
 #app {
   font-family: "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   max-width: 100%;
   max-height: 100vh;
 
-  .side-decoration {
-    background-color: #fff;
-    position: fixed;
-    top: 64px;
-    bottom: 0;
-    z-index: 1020;
-
-    @media (min-width: 992px) {
-      @include border-top-left-radius(36px);
-      left: 250px;
-      width: 38px;
-    }
+  .md-container-wrap {
+    height: calc(100vh - 64px);
   }
 
   .body-content {
     background-color: white;
     padding-bottom: 2rem;
     position: relative;
+    overflow: auto;
     width: 100%;
 
     @media (min-width: 992px) {
-      &.open {
-        margin-left: 38px;
-      }
-    }
-
-    .demo-wrapper {
-      padding-top: 3rem;
-
-      .h4, h4 {
-        &:not(.card-title) {
-          font-weight: normal;
-        }
-      }
-
-      @media (min-width: 1200px) {
-        max-width: 1080px;
-      }
-
-      @media (min-width: 1480px) {
-        padding-left: 2rem;
-      }
+      @include border-top-left-radius(36px);
     }
   }
 }
 
 .demo-wrapper {
+  padding-top: 3rem;
+
   > h2 {
     font-weight: 400;
+  }
+
+  .h4, h4 {
+    &:not(.card-title) {
+      font-weight: normal;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    max-width: 1080px;
+  }
+
+  @media (min-width: 1480px) {
+    padding-left: 2rem;
   }
 
   .card {
