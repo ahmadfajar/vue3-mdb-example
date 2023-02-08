@@ -424,7 +424,6 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-import DemoBlock from '@/DemoBlock.vue'
 
 const sizes = ['Small', 'Medium', 'Large', 'Extra Large']
 const textValue = ref('Grocery delivery')

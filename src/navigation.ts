@@ -145,6 +145,12 @@ export const menuNavs: TNavigationMenu[] = [{
   path: '/components/text-area',
   view: viewResolver('Components/DemoTextArea')
 }, {
+  label: 'Switch',
+  title: 'Demo Switch',
+  group: 'Components',
+  path: '/components/switch',
+  view: viewResolver('Components/DemoSwitch')
+}, {
   label: 'Tooltips',
   title: 'Demo Tooltips',
   group: 'Components',

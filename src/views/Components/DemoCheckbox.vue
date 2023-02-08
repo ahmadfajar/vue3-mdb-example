@@ -6,16 +6,16 @@
         <template v-for="color in colorVariants" :key="color">
           <div class="col mb-2">
             <BsCheckbox
-              v-model="checkbox"
+              v-model="checkboxColors"
               :color="color"
               :value="color">
-              I accept the use of color: <span class="fw-semibold">{{ color }}</span>
+              Using color: <span class="fw-semibold">{{ color }}</span>
             </BsCheckbox>
           </div>
         </template>
       </div>
       <p class="mt-2">
-        Value: <b>{{ checkbox }}</b>
+        Value: <b>{{ checkboxColors }}</b>
       </p>
     </DemoBlock>
     <h2 class="mt-5">
@@ -59,9 +59,8 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
 import { colorVariants } from '@/sharedApi'
-import DemoBlock from '@/DemoBlock.vue'
 
-const checkbox = ref()
+const checkboxColors = ref([])
 const selectedFavoriteColors = ref([])
 const selectedFavoriteFruits = ref([])
 const favoriteColors = [
@@ -74,7 +73,6 @@ const favoriteFruits = [
   { value: 'Apple', label: 'Apple' },
   { value: 'Pineapple', label: 'Pineapple' },
   { value: 'Grape', label: 'Grape' }
-  // { value: 'Coconut', label: 'Coconut' }
 ]
 const selectedItems = ref([])
 const dummyItems = [

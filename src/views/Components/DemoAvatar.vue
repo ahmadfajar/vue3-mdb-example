@@ -81,7 +81,6 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
 import { IconThreeCircle } from '@/sharedApi'
-import DemoBlock from '@/DemoBlock.vue'
 
 const isSpin = ref(false)
 const isPulse = ref(false)

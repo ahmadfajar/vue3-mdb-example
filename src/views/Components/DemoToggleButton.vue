@@ -109,7 +109,6 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-import DemoBlock from '@/DemoBlock.vue'
 
 const drinks = [{
   value: 'tea',

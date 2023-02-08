@@ -175,7 +175,6 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import DemoBlock from '@/DemoBlock.vue'
 
 const show1 = ref(false)
 const show2 = ref(false)

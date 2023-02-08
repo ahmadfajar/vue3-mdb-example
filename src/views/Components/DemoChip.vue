@@ -565,7 +565,6 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
 import { colorVariants, IconBullhorn, toTitleCase } from '@/sharedApi'
-import DemoBlock from '@/DemoBlock.vue'
 
 const chipDefaultActive = ref(false)
 const chipPrimaryActive = ref(false)

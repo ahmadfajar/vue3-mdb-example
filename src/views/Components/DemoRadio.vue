@@ -59,7 +59,6 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
 import { colorVariants } from '@/sharedApi'
-import DemoBlock from '@/DemoBlock.vue'
 
 const radio1 = ref()
 const selectedFavoriteColors = ref()

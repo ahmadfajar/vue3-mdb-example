@@ -421,7 +421,6 @@
 
 <script lang="ts" setup>
 import { toTitleCase } from '@/sharedApi'
-import DemoBlock from '@/DemoBlock.vue'
 
 const iconXs = 16
 const iconSm = 22

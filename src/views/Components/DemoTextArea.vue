@@ -368,7 +368,6 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-import DemoBlock from '@/DemoBlock.vue'
 
 const textValue = ref('Grocery delivery')
 const fieldValue = ref('12th floor, Flat G - Magnolia Building\n' +
