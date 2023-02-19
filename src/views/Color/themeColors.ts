@@ -1,4 +1,4 @@
-export const themeColors:Record<string, string> = {
+export const themeColors: Record<string, string> = {
   default: '#2bbbad',
   primary: '#0d6efd',
   secondary: '#6c757d',
@@ -108,11 +108,11 @@ export function useBootstrapColorClasses (name: string) {
   }
 }
 
-export function useGrayColorClasses (name: string) {
+export function useGrayColorClasses (name: string | number) {
   return {
     [`bg-grey-${name}`]: true,
-    'text-black': ['100', '200', '300', '400', '500'].includes(name),
-    'text-white': !['100', '200', '300', '400', '500'].includes(name)
+    'text-black': ['100', '200', '300', '400', '500'].includes(<string>name),
+    'text-white': !['100', '200', '300', '400', '500'].includes(<string>name)
   }
 }
 

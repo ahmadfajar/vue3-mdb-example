@@ -169,6 +169,12 @@ export const menuNavs: TNavigationMenu[] = [{
   path: '/components/dropdown-menu',
   view: viewResolver('Components/DemoDropdownMenu')
 }, {
+  label: 'Color Picker',
+  title: 'Demo Color Picker',
+  group: 'Components',
+  path: '/components/color-picker',
+  view: viewResolver('Components/DemoColorPicker')
+}, {
   label: 'Color Variants',
   title: 'Color Variants',
   group: 'Reference',

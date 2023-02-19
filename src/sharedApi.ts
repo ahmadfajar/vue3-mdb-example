@@ -39,19 +39,13 @@ export function toRgb (hexColor: string): number[] {
   return [r, g, b]
 }
 
-export function brightness (hexColor: string): number {
+export function brightnessLevel (hexColor: string): number {
   const rgb = toRgb(hexColor)
   return ((rgb[0] * 299) + (rgb[1] * 587) + (rgb[2] * 114)) / 1000
 }
 
 export function getTextColor (bgColor: string): string {
-  // const hex = bgColor.replace('#', '')
-  // const color = parseInt(hex, 16)
-  // const r = (color >>> 16) & 0xff
-  // const g = (color >>> 8) & 0xff
-  // const b = color & 0xff
-  // const yiq = (r * 299 + g * 587 + b * 114) / 1000
-  const yiq = brightness(bgColor)
+  const yiq = brightnessLevel(bgColor)
 
   return yiq >= 170 ? '#000' : '#fff'
 }
