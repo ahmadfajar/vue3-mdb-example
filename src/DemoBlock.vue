@@ -66,12 +66,11 @@ watch(
 
 const darkenOrLighten = () => {
   if (styles.backgroundColor === '#ffffff' || styles.backgroundColor === '#000000') {
-    styles.backgroundColor = pickerColor.value
+    styles.backgroundColor = picker.value.hexColor()
     return
   }
 
   const strColor = newShade(styles.backgroundColor, step.value)
-  // console.log('strColor:', strColor)
   if (strColor.length === 7) {
     styles.backgroundColor = strColor
 

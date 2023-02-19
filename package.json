@@ -46,6 +46,7 @@
       "ecmaVersion": 2020
     },
     "rules": {
+      "space-before-function-paren": "off",
       "vue/html-closing-bracket-newline": [
         "warn",
         {

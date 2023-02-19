@@ -10,10 +10,10 @@ export const colorVariants = [
 ]
 
 export function newShade (hexColor: string, magnitude: number) {
-  const hex = hexColor.replace('#', '')
-
-  if (hex.length === 6) {
+  if (hexColor.startsWith('#') && hexColor.length === 7) {
+    const hex = hexColor.replace('#', '')
     const decimalColor = parseInt(hex, 16)
+
     let r = (decimalColor >> 16) + magnitude
     r > 255 && (r = 255)
     r < 0 && (r = 0)
