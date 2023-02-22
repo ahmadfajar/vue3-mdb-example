@@ -9,47 +9,6 @@ export const colorVariants = [
   'warning-color-dark', 'unique', 'unique-color'
 ]
 
-export function newShade (hexColor: string, magnitude: number) {
-  if (hexColor.startsWith('#') && hexColor.length === 7) {
-    const hex = hexColor.replace('#', '')
-    const decimalColor = parseInt(hex, 16)
-
-    let r = (decimalColor >> 16) + magnitude
-    r > 255 && (r = 255)
-    r < 0 && (r = 0)
-    let g = (decimalColor & 0x0000ff) + magnitude
-    g > 255 && (g = 255)
-    g < 0 && (g = 0)
-    let b = ((decimalColor >> 8) & 0x00ff) + magnitude
-    b > 255 && (b = 255)
-    b < 0 && (b = 0)
-    const str = (g | (b << 8) | (r << 16)).toString(16).padStart(6, '0')
-    return `#${str}`
-  } else {
-    return hexColor
-  }
-}
-
-export function toRgb (hexColor: string): number[] {
-  const color = hexColor.replace('#', '')
-  const r = parseInt(color.substring(0, 2), 16)
-  const g = parseInt(color.substring(2, 4), 16)
-  const b = parseInt(color.substring(4, 6), 16)
-
-  return [r, g, b]
-}
-
-export function brightnessLevel (hexColor: string): number {
-  const rgb = toRgb(hexColor)
-  return ((rgb[0] * 299) + (rgb[1] * 587) + (rgb[2] * 114)) / 1000
-}
-
-export function getTextColor (bgColor: string): string {
-  const yiq = brightnessLevel(bgColor)
-
-  return yiq >= 170 ? '#000' : '#fff'
-}
-
 export function IconBullhorn (props: Record<string, unknown>) {
   const svgData = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M480 179.6C498.6 188.4 512 212.1 512 240C512 267.9 498.6 291.6 480 300.4V448C480 460.9 472.2 472.6 460.2 477.6C448.3 482.5 434.5 479.8 425.4 470.6L381.7 426.1C333.7 378.1 268.6 352 200.7 352H192V480C192 497.7 177.7 512 160 512H96C78.33 512 64 497.7 64 480V352C28.65 352 0 323.3 0 288V192C0 156.7 28.65 128 64 128H200.7C268.6 128 333.7 101 381.7 53.02L425.4 9.373C434.5 .2215 448.3-2.516 460.2 2.437C472.2 7.39 480 19.06 480 32V179.6zM200.7 192H192V288H200.7C280.5 288 357.2 317.8 416 371.3V108.7C357.2 162.2 280.5 192 200.7 192V192z"/></svg>'
 

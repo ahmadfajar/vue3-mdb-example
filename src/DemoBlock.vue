@@ -35,7 +35,7 @@
 
 <script lang="ts" setup>
 import { reactive, ref, watch } from 'vue'
-import { getTextColor, newShade } from '@/sharedApi'
+import * as Color from '../../vue-mdbootstrap/src/mixins/colorUtils'
 
 const picker = ref()
 const pickerBtn = ref()
@@ -48,14 +48,15 @@ const styles = reactive<Record<string, string>>({ backgroundColor: pickerColor.v
 watch(
   () => pickerColor.value,
   (value) => {
-    styles.backgroundColor = pickerMode.value === 'HEX' ? value : picker.value.hexColor()
+    styles.backgroundColor = pickerMode.value === 'HEX' ? value.toLowerCase() : picker.value.hexColor().toLowerCase()
   }
 )
 watch(
   () => styles.backgroundColor,
   (value) => {
-    const textColor = getTextColor(value)
+    const textColor = contrastTextColor(value)
     styles.color = textColor
+
     if (textColor.startsWith('#fff')) {
       styles['--md-field-active-indicator'] = 'var(--md-field-accent-indicator)'
     } else {
@@ -64,24 +65,30 @@ watch(
   }
 )
 
+const contrastTextColor = (color: string) => {
+  const yiq = Color.brightnessLevel(Color.hexToRgba(color))
+  // console.info('yiq:', yiq)
+
+  return yiq >= 170 ? '#000' : '#fff'
+}
+
 const darkenOrLighten = () => {
   if (styles.backgroundColor === '#ffffff' || styles.backgroundColor === '#000000') {
-    styles.backgroundColor = picker.value.hexColor()
+    styles.backgroundColor = picker.value.hexColor().toLowerCase()
     return
   }
 
-  const strColor = newShade(styles.backgroundColor, step.value)
-  if (strColor.length === 7) {
-    styles.backgroundColor = strColor
+  const hexColor = Color.shadeColor(styles.backgroundColor, step.value).toLowerCase()
+  if (hexColor.length === 7) {
+    styles.backgroundColor = hexColor
 
-    if (strColor === '#ffffff' || strColor === '#000000') {
+    if (hexColor === '#ffffff' || hexColor === '#000000') {
       step.value = (step.value * -1)
     }
   } else {
     step.value = (step.value * -1)
   }
 }
-
 </script>
 
 <style lang="scss">
@@ -111,9 +118,20 @@ $radius: .75rem;
   padding: 24px 24px 20px;
   position: relative;
 
-  .md-btn-icon, .md-chip {
-    margin-left: .375rem;
-    margin-right: 0;
+  .btn, .md-btn-icon, .md-chip {
+    &:first-child {
+      margin-left: .375rem;
+    }
+  }
+
+  .md-chip-field {
+    .md-chips-wrapper {
+      > .md-chip {
+        &:first-child {
+          margin-left: 0;
+        }
+      }
+    }
   }
 }
 

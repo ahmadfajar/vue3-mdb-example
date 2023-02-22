@@ -175,6 +175,12 @@ export const menuNavs: TNavigationMenu[] = [{
   path: '/components/color-picker',
   view: viewResolver('Components/DemoColorPicker')
 }, {
+  label: 'Chip Field',
+  title: 'Demo Chip Field',
+  group: 'Components',
+  path: '/components/chip-field',
+  view: viewResolver('Components/DemoChipField')
+}, {
   label: 'Color Variants',
   title: 'Color Variants',
   group: 'Reference',
