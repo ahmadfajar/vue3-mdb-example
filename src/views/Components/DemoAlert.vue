@@ -122,7 +122,6 @@
     <h2 class="mt-5">
       Additional content inside alerts
     </h2>
-    <BsDivider/>
     <DemoBlock class="mt-3">
       <BsAlert
         filled

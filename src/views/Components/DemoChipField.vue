@@ -161,7 +161,7 @@
       <div class="row justify-content-center">
         <div class="col-lg-10 col-xl-8 mt-2">
           <BsChipField
-            v-model="chip8"
+            v-model="chip9"
             class="mb-4"
             chip-deletable
             clear-button
@@ -170,7 +170,7 @@
             <label>Field Label</label>
           </BsChipField>
           <BsChipField
-            v-model="chip8"
+            v-model="chip9"
             class="mb-4"
             chip-deletable
             clear-button
