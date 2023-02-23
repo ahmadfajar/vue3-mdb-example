@@ -39,7 +39,7 @@ import * as Color from '../../vue-mdbootstrap/src/mixins/colorUtils'
 
 const picker = ref()
 const pickerBtn = ref()
-const pickerColor = ref('#e9ecef')
+const pickerColor = ref('#f2f5f8')
 const pickerMode = ref('HEX')
 const pickerShow = ref(false)
 const step = ref(-10)
@@ -125,8 +125,8 @@ $radius: .75rem;
   }
 
   .md-chip-field {
-    .md-chips-wrapper {
-      > .md-chip {
+    .md-field-activator {
+      .md-chip {
         &:first-child {
           margin-left: 0;
         }

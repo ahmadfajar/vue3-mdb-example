@@ -5,7 +5,7 @@
       <div class="row">
         <div class="col-md d-flex justify-content-center">
           <BsTooltip content="I am a tooltip">
-            <BsButton color="primary">
+            <BsButton color="primary" @click="onClick">
               BUTTON
             </BsButton>
           </BsTooltip>
@@ -57,6 +57,10 @@
 
 <script lang="ts" setup>
 import DemoBlock from '@/DemoBlock.vue'
+
+function onClick() {
+  alert('I am clicked')
+}
 </script>
 
 <style scoped>

@@ -104,7 +104,7 @@
             color="default-color"
             inset-mode
             readonly>
-            Readonly
+            Readonly :: OFF
           </BsSwitch>
         </div>
         <div class="col-12 col-md-6 mt-3 mt-md-0">
@@ -114,7 +114,7 @@
             color="default-color"
             inset-mode
             readonly>
-            Readonly :: Selected
+            Readonly :: ON
           </BsSwitch>
         </div>
       </div>
@@ -125,7 +125,7 @@
             value="off"
             inset-mode
             disabled>
-            Disabled
+            Disabled :: OFF
           </BsSwitch>
         </div>
         <div class="col-12 col-md-6 mt-3 mt-md-0">
@@ -134,7 +134,7 @@
             value="on"
             inset-mode
             disabled>
-            Disabled :: Selected
+            Disabled :: ON
           </BsSwitch>
         </div>
       </div>
@@ -175,7 +175,7 @@
             color="default-color"
             inset-outlined
             readonly>
-            Readonly
+            Readonly :: OFF
           </BsSwitch>
         </div>
         <div class="col-12 col-md-6 mt-3 mt-md-0">
@@ -185,7 +185,7 @@
             color="default-color"
             inset-outlined
             readonly>
-            Readonly :: Selected
+            Readonly :: ON
           </BsSwitch>
         </div>
       </div>
@@ -196,7 +196,7 @@
             value="off"
             inset-outlined
             disabled>
-            Disabled
+            Disabled :: OFF
           </BsSwitch>
         </div>
         <div class="col-12 col-md-6 mt-3 mt-md-0">
@@ -205,7 +205,7 @@
             value="on"
             inset-outlined
             disabled>
-            Disabled :: Selected
+            Disabled :: ON
           </BsSwitch>
         </div>
       </div>
