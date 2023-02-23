@@ -68,6 +68,19 @@
       </BsCardContent>
       <div class="row my-3">
         <label class="col-md-3 col-xl-2 col-form-label">
+          Rounded style
+        </label>
+        <div class="col-md">
+          <BsToggleButton
+            v-model="selectedWeather"
+            :items="weathers"
+            :pill="false"
+            color="primary"
+            rounded/>
+        </div>
+      </div>
+      <div class="row my-3">
+        <label class="col-md-3 col-xl-2 col-form-label">
           Raised style
         </label>
         <div class="col-md">

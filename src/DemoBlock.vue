@@ -124,6 +124,12 @@ $radius: .75rem;
     }
   }
 
+  .btn-group {
+    .btn:first-child {
+      margin-left: 0;
+    }
+  }
+
   .md-chip-field {
     .md-field-activator {
       .md-chip {
