@@ -187,6 +187,12 @@ export const menuNavs: TNavigationMenu[] = [{
   path: '/components/toggle-field',
   view: viewResolver('Components/DemoToggleField')
 }, {
+  label: 'Numeric Field',
+  title: 'Demo Numeric Field',
+  group: 'Components',
+  path: '/components/numeric-field',
+  view: viewResolver('Components/DemoNumericField')
+}, {
   label: 'Color Variants',
   title: 'Color Variants',
   group: 'Reference',
