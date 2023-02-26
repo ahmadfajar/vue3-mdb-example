@@ -38,8 +38,6 @@
         <div class="col-md-11 col-lg-10 col-xl-8 mt-2">
           <BsNumericField
             v-model="numField2"
-            :spin-button="false"
-            action-button
             class="mb-4"
             clear-button
             floating-label>
