@@ -121,7 +121,7 @@
     </h2>
     <DemoBlock class="mt-4">
       <div class="row justify-content-center">
-        <div class="col-lg-10 col-xl-8 mt-2">
+        <div class="col-md-11 col-lg-10 col-xl-8 mt-2">
           <BsChipField
             v-model="chip5"
             class="mb-4"
@@ -141,16 +141,16 @@
           </BsChipField>
           <BsChipField
             v-model="chip5"
-            class="mb-2"
+            class="mb-4"
             clear-button
             floating-label
             outlined
             placeholder="Add Tags...">
             <label>Field Label</label>
           </BsChipField>
-        </div>
-        <div class="col-lg-10 col-xl-8 mt-2">
-          Field values: <span class="md-fw-semibold">{{ chip5 }}</span>
+          <div class="mb-2">
+            Field values: <span class="md-fw-semibold">{{ chip5 }}</span>
+          </div>
         </div>
       </div>
     </DemoBlock>
@@ -159,7 +159,7 @@
     </h2>
     <DemoBlock class="mt-4">
       <div class="row justify-content-center">
-        <div class="col-lg-10 col-xl-8 mt-2">
+        <div class="col-md-11 col-lg-10 col-xl-8 mt-2">
           <BsChipField
             v-model="chip6"
             class="mb-4"
@@ -181,7 +181,7 @@
           </BsChipField>
           <BsChipField
             v-model="chip6"
-            class="mb-2"
+            class="mb-4"
             chip-deletable
             clear-button
             floating-label
@@ -189,9 +189,9 @@
             placeholder="Add Tags...">
             <label>Field Label</label>
           </BsChipField>
-        </div>
-        <div class="col-lg-10 col-xl-8 mt-2">
-          Field value: <span class="md-fw-semibold">{{ chip6 }}</span>
+          <div class="mb-2">
+            Field value: <span class="md-fw-semibold">{{ chip6 }}</span>
+          </div>
         </div>
       </div>
     </DemoBlock>
@@ -203,7 +203,7 @@
     </h4>
     <DemoBlock class="mt-4">
       <div class="row justify-content-center">
-        <div class="col-lg-10 col-xl-8 mt-2">
+        <div class="col-md-11 col-lg-10 col-xl-8 mt-2">
           <BsChipField
             v-model="chip7"
             class="mb-4"
@@ -241,7 +241,7 @@
     </h4>
     <DemoBlock class="mt-4">
       <div class="row justify-content-center">
-        <div class="col-lg-10 col-xl-8 mt-2">
+        <div class="col-md-11 col-lg-10 col-xl-8 mt-2">
           <BsChipField
             v-model="chip8"
             class="mb-4"
@@ -282,7 +282,7 @@
     </h4>
     <DemoBlock class="mt-4">
       <div class="row justify-content-center">
-        <div class="col-lg-10 col-xl-8 mt-2">
+        <div class="col-md-11 col-lg-10 col-xl-8 mt-2">
           <BsChipField
             v-model="chip9"
             class="mb-4"
@@ -315,6 +315,78 @@
             outlined
             placeholder="Add Tags...">
             <label>Field Label</label>
+          </BsChipField>
+        </div>
+      </div>
+    </DemoBlock>
+    <h2 class="mt-5">
+      Help Text
+    </h2>
+    <DemoBlock class="mt-4">
+      <div class="row g-4 row-cols-1 row-cols-lg-2">
+        <div class="col">
+          <BsChipField
+            v-model="chip13"
+            help-text="Enter product keywords or tags"
+            chip-deletable
+            floating-label>
+            <label>Product Tags</label>
+          </BsChipField>
+        </div>
+        <div class="col">
+          <BsChipField
+            v-model="chip14"
+            :persistent-help-text="false"
+            help-text="Enter keywords for your website"
+            chip-deletable
+            chip-pill
+            clear-button
+            floating-label>
+            <label>Website Keywords</label>
+          </BsChipField>
+        </div>
+        <div class="col">
+          <BsChipField
+            v-model="chip13"
+            help-text="Enter product keywords or tags"
+            chip-deletable
+            filled
+            floating-label>
+            <label>Product Tags</label>
+          </BsChipField>
+        </div>
+        <div class="col">
+          <BsChipField
+            v-model="chip14"
+            :persistent-help-text="false"
+            help-text="Enter keywords for your website"
+            chip-deletable
+            chip-pill
+            filled
+            floating-label>
+            <label>Website Keywords</label>
+          </BsChipField>
+        </div>
+        <div class="col">
+          <BsChipField
+            v-model="chip13"
+            help-text="Enter product keywords or tags"
+            chip-deletable
+            outlined
+            floating-label>
+            <label>Product Tags</label>
+          </BsChipField>
+        </div>
+        <div class="col">
+          <BsChipField
+            v-model="chip14"
+            :persistent-help-text="false"
+            help-text="Enter keywords for your website"
+            chip-deletable
+            chip-pill
+            outlined
+            floating-label>
+            <label>Website Keywords</label>
           </BsChipField>
         </div>
       </div>
@@ -443,7 +515,7 @@
       </div>
     </DemoBlock>
     <h2 class="mt-5">
-      Classic Form Field Styles
+      Used With Other Input Controls
     </h2>
     <DemoBlock class="mt-4">
       <div class="row justify-content-center">
@@ -510,6 +582,8 @@ const chip9 = ref([])
 const chip10 = ref([])
 const chip11 = ref([])
 const chip12 = ref([])
+const chip13 = ref([])
+const chip14 = ref([])
 const textField = ref()
 const chipField = ref([])
 const occupation = ref()

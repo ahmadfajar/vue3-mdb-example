@@ -1,16 +1,14 @@
 <template>
   <div class="demo-wrapper container-lg mx-auto">
     <h2>Overview</h2>
-    <DemoBlock class="mt-4">
-      <div class="row">
-        <div class="col-auto">
+    <div class="demo-block-content bg-blue-grey lighten-5 rounded-4 mt-4">
+      <div class="d-flex justify-content-center">
+        <div class="d-inline-block">
           <BsColorPicker
             v-model="color1"
             v-model:mode="mode1"
             class="shadow"/>
-        </div>
-        <div class="col mt-3 mt-md-0">
-          <div>
+          <div class="mt-3">
             Mode: <b>{{ mode1 }}</b>
           </div>
           <div>
@@ -18,21 +16,19 @@
           </div>
         </div>
       </div>
-    </DemoBlock>
+    </div>
     <h2 class="mt-5">
       Color Swatches
     </h2>
-    <DemoBlock class="mt-4">
-      <div class="row">
-        <div class="col-auto">
+    <div class="demo-block-content bg-blue-grey lighten-5 rounded-4 mt-4">
+      <div class="d-flex justify-content-center">
+        <div class="d-inline-block">
           <BsColorPicker
             v-model="color2"
             v-model:mode="mode2"
             :swatches="swatches2"
             class="shadow"/>
-        </div>
-        <div class="col mt-3 mt-md-0">
-          <div>
+          <div class="mt-3">
             Mode: <b>{{ mode2 }}</b>
           </div>
           <div>
@@ -40,29 +36,31 @@
           </div>
         </div>
       </div>
-    </DemoBlock>
+    </div>
     <h2 class="mt-5">
       Popup ColorPicker
     </h2>
-    <DemoBlock class="mt-4">
+    <div class="demo-block-content bg-blue-grey lighten-5 rounded-4 mt-4">
       <div class="d-flex justify-content-center">
-        <BsButton
-          ref="picker3Activator"
-          title="Click to display color picker"
-          dropdown-toggle
-          @click="picker3Show = !picker3Show">
-          <span
-            class="picked-color rounded-circle"
-            :style="{ color: picker3color }"></span>
-        </BsButton>
-        <BsColorPicker
-          v-model="picker3color"
-          v-model:mode="picker3mode"
-          v-model:open="picker3Show"
-          :activator="picker3Activator?.$el"
-          class="shadow"/>
+        <div class="d-inline-block">
+          <BsButton
+            ref="picker3Activator"
+            title="Click to display color picker"
+            dropdown-toggle
+            @click="picker3Show = !picker3Show">
+            <span
+              class="picked-color rounded-circle"
+              :style="{ color: picker3color }"></span>
+          </BsButton>
+          <BsColorPicker
+            v-model="picker3color"
+            v-model:mode="picker3mode"
+            v-model:open="picker3Show"
+            :activator="picker3Activator?.$el"
+            class="shadow"/>
+        </div>
       </div>
-    </DemoBlock>
+    </div>
   </div>
 </template>
 
