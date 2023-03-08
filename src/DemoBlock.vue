@@ -129,7 +129,7 @@ $radius: .75rem;
     }
   }
 
-  .btn-group, .md-action-icon, .md-searchbox-inner {
+  .btn-group, .md-action-icon, .md-searchbox-inner, .md-datepicker {
     .btn, .md-btn-icon {
       margin-left: 0;
     }

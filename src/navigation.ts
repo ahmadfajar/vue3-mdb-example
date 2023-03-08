@@ -199,6 +199,12 @@ export const menuNavs: TNavigationMenu[] = [{
   path: '/components/search-field',
   view: viewResolver('Components/DemoSearchField')
 }, {
+  label: 'Date Picker',
+  title: 'Demo Date Picker',
+  group: 'Components',
+  path: '/components/datepicker',
+  view: viewResolver('Components/DemoDatePicker')
+}, {
   label: 'Color Variants',
   title: 'Color Variants',
   group: 'Reference',
