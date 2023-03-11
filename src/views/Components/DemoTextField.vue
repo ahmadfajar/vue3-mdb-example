@@ -4,40 +4,40 @@
     <DemoBlock class="mt-4">
       <div class="row g-4 row-cols-1 row-cols-lg-2">
         <div class="col">
-          <bs-text-field floating-label>
+          <BsTextField floating-label>
             <label>Field Label</label>
-          </bs-text-field>
+          </BsTextField>
         </div>
         <div class="col">
-          <bs-text-field placeholder="Placeholder" floating-label>
+          <BsTextField placeholder="Placeholder" floating-label>
             <label>Field Label</label>
-          </bs-text-field>
+          </BsTextField>
         </div>
         <div class="col">
-          <bs-text-field floating-label filled>
+          <BsTextField floating-label filled>
             <label>Field Label</label>
-          </bs-text-field>
+          </BsTextField>
         </div>
         <div class="col">
-          <bs-text-field
+          <BsTextField
             filled
             floating-label
             placeholder="Placeholder">
             <label>Field Label</label>
-          </bs-text-field>
+          </BsTextField>
         </div>
         <div class="col">
-          <bs-text-field floating-label outlined>
+          <BsTextField floating-label outlined>
             <label>Field Label</label>
-          </bs-text-field>
+          </BsTextField>
         </div>
         <div class="col">
-          <bs-text-field
+          <BsTextField
             floating-label
             outlined
             placeholder="Placeholder">
             <label>Field Label</label>
-          </bs-text-field>
+          </BsTextField>
         </div>
       </div>
     </DemoBlock>
@@ -47,56 +47,56 @@
     <DemoBlock class="mt-4">
       <div class="row g-4 row-cols-1 row-cols-lg-2">
         <div class="col">
-          <bs-text-field
+          <BsTextField
             v-model="textValue"
             :persistent-help-text="false"
             floating-label
             help-text="For example, flowers or used cars">
             <label>Field Label</label>
-          </bs-text-field>
+          </BsTextField>
         </div>
         <div class="col">
-          <bs-text-field
+          <BsTextField
             floating-label
             help-text="https://www.example.com/page-1">
             <label>Support Page</label>
-          </bs-text-field>
+          </BsTextField>
         </div>
         <div class="col">
-          <bs-text-field
+          <BsTextField
             v-model="textValue"
             :persistent-help-text="false"
             filled
             floating-label
             help-text="For example, flowers or used cars">
             <label>Field Label</label>
-          </bs-text-field>
+          </BsTextField>
         </div>
         <div class="col">
-          <bs-text-field
+          <BsTextField
             filled
             floating-label
             help-text="https://www.example.com/page-1">
             <label>Support Page</label>
-          </bs-text-field>
+          </BsTextField>
         </div>
         <div class="col">
-          <bs-text-field
+          <BsTextField
             v-model="textValue"
             :persistent-help-text="false"
             floating-label
             help-text="For example, flowers or used cars"
             outlined>
             <label>Field Label</label>
-          </bs-text-field>
+          </BsTextField>
         </div>
         <div class="col">
-          <bs-text-field
+          <BsTextField
             floating-label
             help-text="https://www.example.com/page-1"
             outlined>
             <label>Support Page</label>
-          </bs-text-field>
+          </BsTextField>
         </div>
       </div>
     </DemoBlock>
@@ -106,96 +106,96 @@
     <DemoBlock class="mt-4">
       <div class="row g-4 row-cols-1 row-cols-lg-2">
         <div class="col">
-          <bs-text-field
+          <BsTextField
             prepend-icon="person"
             floating-label>
             <label>Prepend</label>
-          </bs-text-field>
+          </BsTextField>
         </div>
         <div class="col">
-          <bs-text-field
+          <BsTextField
             append-icon="person"
             floating-label>
             <label>Append</label>
-          </bs-text-field>
+          </BsTextField>
         </div>
         <div class="col">
-          <bs-text-field
+          <BsTextField
             prepend-icon-outer="person"
             floating-label>
             <label>Prepend Outer</label>
-          </bs-text-field>
+          </BsTextField>
         </div>
         <div class="col">
-          <bs-text-field
+          <BsTextField
             append-icon-outer="person"
             floating-label>
             <label>Append Outer</label>
-          </bs-text-field>
+          </BsTextField>
         </div>
         <div class="col">
-          <bs-text-field
+          <BsTextField
             prepend-icon="person"
             filled
             floating-label>
             <label>Prepend</label>
-          </bs-text-field>
+          </BsTextField>
         </div>
         <div class="col">
-          <bs-text-field
+          <BsTextField
             append-icon="person"
             filled
             floating-label>
             <label>Append</label>
-          </bs-text-field>
+          </BsTextField>
         </div>
         <div class="col">
-          <bs-text-field
+          <BsTextField
             prepend-icon-outer="person"
             filled
             floating-label>
             <label>Prepend Outer</label>
-          </bs-text-field>
+          </BsTextField>
         </div>
         <div class="col">
-          <bs-text-field
+          <BsTextField
             append-icon-outer="person"
             filled
             floating-label>
             <label>Append Outer</label>
-          </bs-text-field>
+          </BsTextField>
         </div>
         <div class="col">
-          <bs-text-field
+          <BsTextField
             prepend-icon="person"
             floating-label
             outlined>
             <label>Prepend</label>
-          </bs-text-field>
+          </BsTextField>
         </div>
         <div class="col">
-          <bs-text-field
+          <BsTextField
             append-icon="person"
             floating-label
             outlined>
             <label>Append</label>
-          </bs-text-field>
+          </BsTextField>
         </div>
         <div class="col">
-          <bs-text-field
+          <BsTextField
             prepend-icon-outer="person"
             floating-label
             outlined>
             <label>Prepend Outer</label>
-          </bs-text-field>
+          </BsTextField>
         </div>
         <div class="col">
-          <bs-text-field
+          <BsTextField
             append-icon-outer="person"
             floating-label
             outlined>
             <label>Append Outer</label>
-          </bs-text-field>
+          </BsTextField>
         </div>
       </div>
     </DemoBlock>
@@ -205,56 +205,56 @@
     <DemoBlock class="mt-4">
       <div class="row g-4 row-cols-1 row-cols-lg-2">
         <div class="col">
-          <bs-text-field
+          <BsTextField
             clear-button
             floating-label
             action-icon-variant="filled"
             type="password">
             <label>Password</label>
-          </bs-text-field>
+          </BsTextField>
         </div>
         <div class="col">
-          <bs-text-field
+          <BsTextField
             autocomplete="email"
             floating-label
             prepend-icon="email_outlined"
             type="email">
             <label>Email Address</label>
-          </bs-text-field>
+          </BsTextField>
         </div>
         <div class="col">
-          <bs-text-field
+          <BsTextField
             floating-label
             filled
             type="password">
             <label>Password</label>
-          </bs-text-field>
+          </BsTextField>
         </div>
         <div class="col">
-          <bs-text-field
+          <BsTextField
             filled
             floating-label
             prepend-icon="email_outlined"
             type="email">
             <label>Email Address</label>
-          </bs-text-field>
+          </BsTextField>
         </div>
         <div class="col">
-          <bs-text-field
+          <BsTextField
             floating-label
             outlined
             type="password">
             <label>Password</label>
-          </bs-text-field>
+          </BsTextField>
         </div>
         <div class="col">
-          <bs-text-field
+          <BsTextField
             floating-label
             outlined
             prepend-icon="email_outlined"
             type="email">
             <label>Email Address</label>
-          </bs-text-field>
+          </BsTextField>
         </div>
       </div>
     </DemoBlock>
@@ -264,59 +264,59 @@
     <DemoBlock class="mt-4">
       <div class="row g-4 row-cols-1 row-cols-lg-2">
         <div class="col">
-          <bs-text-field
+          <BsTextField
             v-model="textValue"
             readonly
             floating-label>
             <label>State Readonly</label>
-          </bs-text-field>
+          </BsTextField>
         </div>
         <div class="col">
-          <bs-text-field
+          <BsTextField
             v-model="textValue"
             disabled
             floating-label
             prepend-icon="email_outlined">
             <label>State Disabled</label>
-          </bs-text-field>
+          </BsTextField>
         </div>
         <div class="col">
-          <bs-text-field
+          <BsTextField
             v-model="textValue"
             readonly
             floating-label
             filled>
             <label>State Readonly</label>
-          </bs-text-field>
+          </BsTextField>
         </div>
         <div class="col">
-          <bs-text-field
+          <BsTextField
             v-model="textValue"
             disabled
             filled
             floating-label
             prepend-icon="email_outlined">
             <label>State Disabled</label>
-          </bs-text-field>
+          </BsTextField>
         </div>
         <div class="col">
-          <bs-text-field
+          <BsTextField
             v-model="textValue"
             readonly
             floating-label
             outlined>
             <label>State Readonly</label>
-          </bs-text-field>
+          </BsTextField>
         </div>
         <div class="col">
-          <bs-text-field
+          <BsTextField
             v-model="textValue"
             disabled
             floating-label
             outlined
             prepend-icon="email_outlined">
             <label>State Disabled</label>
-          </bs-text-field>
+          </BsTextField>
         </div>
       </div>
     </DemoBlock>
@@ -326,56 +326,56 @@
     <DemoBlock class="mt-4">
       <div class="row g-4 row-cols-1 row-cols-lg-2">
         <div class="col">
-          <bs-text-field
+          <BsTextField
             clear-button
             datalist="my-datalist"
             floating-label>
             <label>Select Size</label>
-          </bs-text-field>
+          </BsTextField>
         </div>
         <div class="col">
-          <bs-text-field
+          <BsTextField
             datalist="my-datalist"
             floating-label
             prepend-icon="email_outlined">
             <label>Select Size</label>
-          </bs-text-field>
+          </BsTextField>
         </div>
         <div class="col">
-          <bs-text-field
+          <BsTextField
             clear-button
             datalist="my-datalist"
             floating-label
             filled>
             <label>Select Size</label>
-          </bs-text-field>
+          </BsTextField>
         </div>
         <div class="col">
-          <bs-text-field
+          <BsTextField
             datalist="my-datalist"
             filled
             floating-label
             prepend-icon="email_outlined">
             <label>Select Size</label>
-          </bs-text-field>
+          </BsTextField>
         </div>
         <div class="col">
-          <bs-text-field
+          <BsTextField
             clear-button
             datalist="my-datalist"
             floating-label
             outlined>
             <label>Select Size</label>
-          </bs-text-field>
+          </BsTextField>
         </div>
         <div class="col">
-          <bs-text-field
+          <BsTextField
             datalist="my-datalist"
             floating-label
             outlined
             prepend-icon="email_outlined">
             <label>Select Size</label>
-          </bs-text-field>
+          </BsTextField>
         </div>
         <datalist id="my-datalist">
           <option v-for="size in sizes" :key="size">
@@ -390,32 +390,32 @@
     <DemoBlock class="mt-4">
       <div class="row justify-content-center">
         <div class="col-lg-11 col-xl-10">
-          <bs-text-field
+          <BsTextField
             v-model="fieldValue"
             class="mb-3"
             clear-button>
             <label class="col-md-4 col-xl-2 col-form-label">Full Name</label>
-          </bs-text-field>
-          <bs-text-field
+          </BsTextField>
+          <BsTextField
             type="password"
             class="mb-3"
             clear-button>
             <label class="col-md-4 col-xl-2 col-form-label">Password</label>
-          </bs-text-field>
-          <bs-text-field
+          </BsTextField>
+          <BsTextField
             v-model="fieldValue"
             class="mb-3"
             append-icon="account_circle_outlined"
             readonly>
             <label class="col-md-4 col-xl-2 col-form-label">State Readonly</label>
-          </bs-text-field>
-          <bs-text-field
+          </BsTextField>
+          <BsTextField
             v-model="fieldValue"
             class="mb-3"
             append-icon="account_circle_outlined"
             disabled>
             <label class="col-md-4 col-xl-2 col-form-label">State Disabled</label>
-          </bs-text-field>
+          </BsTextField>
         </div>
       </div>
     </DemoBlock>

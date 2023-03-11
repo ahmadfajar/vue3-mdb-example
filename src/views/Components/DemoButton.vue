@@ -1,7 +1,7 @@
 <template>
   <div class="demo-wrapper container-lg mx-auto">
     <h2>Overview</h2>
-    <DemoBlock class="mt-4">
+    <DemoBlock class="docs-demo-ctrl mt-4">
       <template v-for="btn in variants.slice(0, 19)" :key="btn">
         <BsButton :color="btn" class="mb-3">
           {{ toTitleCase(btn) }}
@@ -11,7 +11,7 @@
     <h2 class="mt-5">
       Rounded Style
     </h2>
-    <DemoBlock class="mt-4">
+    <DemoBlock class="docs-demo-ctrl mt-4">
       <template v-for="btn in variants.slice(0, 19)" :key="btn">
         <BsButton
           :color="btn"
@@ -25,7 +25,7 @@
     <h2 class="mt-5">
       Rectangle Style
     </h2>
-    <DemoBlock class="mt-4">
+    <DemoBlock class="docs-demo-ctrl mt-4">
       <template v-for="btn in variants.slice(0, 19)" :key="btn">
         <BsButton
           :color="btn"
@@ -38,7 +38,7 @@
     <h2 class="mt-5">
       Raised Style (Elevated Button)
     </h2>
-    <DemoBlock class="mt-4">
+    <DemoBlock class="docs-demo-ctrl mt-4">
       <template v-for="btn in variants.slice(0, 19)" :key="btn">
         <BsButton
           :color="btn"
@@ -51,7 +51,7 @@
     <h2 class="mt-5">
       Outline Style (Outlined Button)
     </h2>
-    <DemoBlock class="mt-4">
+    <DemoBlock class="docs-demo-ctrl mt-4">
       <template v-for="btn in variants" :key="btn">
         <BsButton
           :color="btn"
@@ -64,7 +64,7 @@
     <h2 class="mt-5">
       Flat Style (Text Button)
     </h2>
-    <DemoBlock class="mt-4">
+    <DemoBlock class="docs-demo-ctrl mt-4">
       <template v-for="btn in variants" :key="btn">
         <BsButton
           :color="btn"

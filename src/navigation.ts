@@ -205,6 +205,12 @@ export const menuNavs: TNavigationMenu[] = [{
   path: '/components/datepicker',
   view: viewResolver('Components/DemoDatePicker')
 }, {
+  label: 'DateTime Field',
+  title: 'Demo DateTime Field',
+  group: 'Components',
+  path: '/components/datetime-field',
+  view: viewResolver('Components/DemoDateTimeField')
+}, {
   label: 'Color Variants',
   title: 'Color Variants',
   group: 'Reference',

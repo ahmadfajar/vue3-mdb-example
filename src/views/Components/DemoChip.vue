@@ -1,7 +1,7 @@
 <template>
   <div class="demo-wrapper container-lg mx-auto">
     <h2>Overview</h2>
-    <DemoBlock class="mt-4">
+    <DemoBlock class="docs-demo-ctrl mt-4">
       <template v-for="color in colorVariants" :key="color">
         <BsChip
           :color="color"
@@ -14,7 +14,7 @@
     <h4 class="mt-5">
       Pill Styles
     </h4>
-    <DemoBlock class="mt-4">
+    <DemoBlock class="docs-demo-ctrl mt-4">
       <template v-for="color in colorVariants" :key="color">
         <BsChip
           :color="color"
@@ -28,7 +28,7 @@
     <h4 class="mt-5">
       Outlined Styles
     </h4>
-    <DemoBlock class="mt-4">
+    <DemoBlock class="docs-demo-ctrl mt-4">
       <template v-for="color in colorVariants" :key="color">
         <BsChip
           :color="color"
@@ -42,7 +42,7 @@
     <h2 class="mt-5">
       Chip States
     </h2>
-    <DemoBlock class="mt-4">
+    <DemoBlock class="docs-demo-ctrl mt-4">
       <div class="mt-2">
         <BsChip
           color="primary"

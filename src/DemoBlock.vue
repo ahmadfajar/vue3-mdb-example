@@ -43,12 +43,18 @@ const pickerColor = ref('#f2f5f8')
 const pickerMode = ref('HEX')
 const pickerShow = ref(false)
 const step = ref(-10)
-const styles = reactive<Record<string, string>>({ backgroundColor: pickerColor.value, color: '#212121' })
+const styles = reactive<Record<string, string>>({
+  backgroundColor: pickerColor.value,
+  color: '#212121'
+})
 
 watch(
   () => pickerColor.value,
   (value) => {
-    styles.backgroundColor = pickerMode.value === 'HEX' ? value.toLowerCase() : picker.value.hexColor().toLowerCase()
+    styles.backgroundColor =
+      pickerMode.value === 'HEX'
+        ? value.toLowerCase()
+        : picker.value.hexColor().toLowerCase()
   }
 )
 watch(
@@ -78,20 +84,26 @@ const contrastTextColor = (color: string) => {
 }
 
 const darkenOrLighten = () => {
-  if (styles.backgroundColor === '#ffffff' || styles.backgroundColor === '#000000') {
+  if (
+    styles.backgroundColor === '#ffffff' ||
+    styles.backgroundColor === '#000000'
+  ) {
     styles.backgroundColor = picker.value.hexColor().toLowerCase()
     return
   }
 
-  const hexColor = Color.shadeColor(styles.backgroundColor, step.value).toLowerCase()
+  const hexColor = Color.shadeColor(
+    styles.backgroundColor,
+    step.value
+  ).toLowerCase()
   if (hexColor.length === 7) {
     styles.backgroundColor = hexColor
 
     if (hexColor === '#ffffff' || hexColor === '#000000') {
-      step.value = (step.value * -1)
+      step.value = step.value * -1
     }
   } else {
-    step.value = (step.value * -1)
+    step.value = step.value * -1
   }
 }
 </script>
@@ -99,7 +111,7 @@ const darkenOrLighten = () => {
 <style lang="scss">
 @import "~compass-mixins/lib/compass/css3";
 
-$radius: .75rem;
+$radius: 0.75rem;
 
 .demo-block {
   position: relative;
@@ -112,9 +124,15 @@ $radius: .75rem;
 
   > .inner-tools {
     @include border-radius($radius $radius 0 0);
-    @include flexbox((display: inline-flex, justify-content: center, align-items: center));
+    @include flexbox(
+      (
+        display: inline-flex,
+        justify-content: center,
+        align-items: center,
+      )
+    );
     position: relative;
-    padding: .5rem 1rem .5rem 1.25rem;
+    padding: 0.5rem 1rem 0.5rem 1.25rem;
   }
 }
 
@@ -122,33 +140,39 @@ $radius: .75rem;
   @include border-radius($radius 0 $radius $radius);
   padding: 24px 24px 20px;
   position: relative;
+}
 
-  .btn, .md-btn-icon, .md-chip {
-    &:first-child {
-      margin-left: .375rem;
-    }
-  }
-
-  .btn-group, .md-action-icon, .md-searchbox-inner, .md-datepicker {
-    .btn, .md-btn-icon {
-      margin-left: 0;
-    }
-  }
-
-  .md-chip-field {
-    .md-field-activator {
-      .md-chip {
-        &:first-child {
-          margin-left: 0;
-        }
+.docs-demo-ctrl {
+  .demo-block-content {
+    .btn,
+    .md-btn-icon,
+    .md-chip {
+      &:first-child {
+        margin-left: 0.375rem;
       }
     }
   }
 }
 
-.btn-color-picker, .picked-color {
+.btn-color-picker,
+.picked-color {
   @include border-radius(50%);
-  background-image: repeating-linear-gradient(45deg, #aaa 25%, transparent 25%, transparent 75%, #aaa 75%, #aaa), repeating-linear-gradient(45deg, #aaa 25%, #fff 25%, #fff 75%, #aaa 75%, #aaa);
+  background-image: repeating-linear-gradient(
+      45deg,
+      #aaa 25%,
+      transparent 25%,
+      transparent 75%,
+      #aaa 75%,
+      #aaa
+    ),
+    repeating-linear-gradient(
+      45deg,
+      #aaa 25%,
+      #fff 25%,
+      #fff 75%,
+      #aaa 75%,
+      #aaa
+    );
   background-position: 0 0, 4px 4px;
   background-size: 8px 8px;
   border: 0;
@@ -158,10 +182,10 @@ $radius: .75rem;
   white-space: nowrap;
 
   &:after {
-    @include box-shadow(inset 0 0 0 1px rgba(0, 0, 0, .1));
+    @include box-shadow(inset 0 0 0 1px rgba(0, 0, 0, 0.1));
     background-color: currentColor;
     border-radius: inherit;
-    content: '';
+    content: "";
     width: 100%;
     height: 100%;
     left: 0;

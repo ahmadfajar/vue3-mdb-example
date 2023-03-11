@@ -94,7 +94,10 @@
     <DemoBlock class="mt-4">
       <div class="row">
         <div class="col-12 col-md-6 col-lg-4 text-center">
-          <BsDropdownMenu v-model:open="show7" space="2" placement="top-left">
+          <BsDropdownMenu
+            v-model:open="show7"
+            space="2"
+            placement="top-left">
             <BsButton
               :pill="false"
               color="primary"
@@ -119,7 +122,10 @@
           </BsDropdownMenu>
         </div>
         <div class="col-12 col-md-6 col-lg-4 mt-3 mt-md-0 text-center">
-          <BsDropdownMenu v-model:open="show8" space="2" placement="top">
+          <BsDropdownMenu
+            v-model:open="show8"
+            space="2"
+            placement="top">
             <BsButton
               :pill="false"
               color="primary"
@@ -144,7 +150,10 @@
           </BsDropdownMenu>
         </div>
         <div class="col-12 col-md-6 col-lg-4 mt-3 mt-lg-0 text-center">
-          <BsDropdownMenu v-model:open="show9" space="2" placement="top-right">
+          <BsDropdownMenu
+            v-model:open="show9"
+            space="2"
+            placement="top-right">
             <BsButton
               :pill="false"
               color="primary"
