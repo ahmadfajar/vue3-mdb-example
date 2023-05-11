@@ -129,7 +129,7 @@ const routeNavB = menuNavs.filter(it => it.group === 'Reference').sort(compareFn
     font-weight: 400;
   }
 
-  .h4, h4 {
+  .h3, h3, .h4, h4 {
     &:not(.card-title) {
       font-weight: normal;
     }
