@@ -279,15 +279,6 @@
           v-model:open="openSideDrawer4"
           class="border-end"
           clipped>
-          <div class="p-3">
-            <img
-              src="https://vue-mdbootstrap.fajarconsultant.com/img/kitty-1.jpg"
-              alt="image"
-              style="width: 40px;"
-              class="rounded-circle"/>
-            <span class="h5 ps-3">Kitty Doe</span>
-          </div>
-          <BsDivider/>
           <div class="p-2">
             <ul class="nav nav-pills flex-column">
               <li class="nav-item">
@@ -313,7 +304,7 @@
             </ul>
           </div>
         </BsSideDrawer>
-        <BsContainer app style="height: 250px">
+        <BsContainer app style="height: 300px">
           <div class="container-fluid d-flex justify-content-center align-items-center"></div>
         </BsContainer>
       </BsAppContainer>
