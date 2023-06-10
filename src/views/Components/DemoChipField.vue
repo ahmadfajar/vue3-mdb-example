@@ -524,7 +524,7 @@
             v-model="textField"
             class="mb-4"
             clear-button>
-            <label class="col-md-4 col-xl-2 col-form-label">Your Name</label>
+            <label class="col-md-3 col-xl-2 col-form-label">Your Name</label>
           </BsTextField>
           <BsChipField
             v-model="chipField"
@@ -532,7 +532,7 @@
             chip-color="secondary-color"
             chip-pill
             clear-button>
-            <label class="col-md-4 col-xl-2 col-form-label">Interests</label>
+            <label class="col-md-3 col-xl-2 col-form-label">Interests</label>
           </BsChipField>
           <BsChipField
             v-model="chipField"
@@ -540,7 +540,7 @@
             chip-color="secondary"
             append-icon="face"
             readonly>
-            <label class="col-md-4 col-xl-2 col-form-label">State Readonly</label>
+            <label class="col-md-3 col-xl-2 col-form-label">State Readonly</label>
           </BsChipField>
           <BsChipField
             v-model="chipField"
@@ -549,15 +549,15 @@
             chip-outlined
             append-icon="face"
             disabled>
-            <label class="col-md-4 col-xl-2 col-form-label">State Disabled</label>
+            <label class="col-md-3 col-xl-2 col-form-label">State Disabled</label>
           </BsChipField>
           <BsRadioGroup
             v-model="occupation"
             :items="occupations"
-            :column="1"
+            :column="2"
             class="mb-3"
             color="default-color">
-            <label class="col-md-4 col-xl-2 col-form-label">
+            <label class="col-md-3 col-xl-2 col-form-label">
               Occupation
             </label>
           </BsRadioGroup>

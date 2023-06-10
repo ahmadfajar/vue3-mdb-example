@@ -13,7 +13,7 @@
       </div>
     </DemoBlock>
     <h2 class="mt-5">
-      Multiple Selection
+      Multi-Select Support
     </h2>
     <DemoBlock class="mt-4">
       <div class="mx-auto" style="width: 320px;">
@@ -143,14 +143,14 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-import { TDataSource, TDataListSchemaProps } from '../../../../vue-mdbootstrap/src/types'
+import type { TDataSource, TDataListSchemaProps } from '../../../../vue-mdbootstrap/src/types'
 import BsArrayStore from '../../../../vue-mdbootstrap/src/model/BsArrayStore'
 import BsStore from '../../../../vue-mdbootstrap/src/model/BsStore'
 
 const listbox1 = ref<number|undefined>()
 const listbox2 = ref<number[]|undefined>()
-const listbox3 = ref<number[]|undefined>()
-const listbox4 = ref<number[]|undefined>()
+const listbox3 = ref<string[]|undefined>()
+const listbox4 = ref<string[]|undefined>()
 const listbox5 = ref<number|undefined>()
 const listbox6 = ref<number|undefined>()
 const listbox7 = ref<number|undefined>()
@@ -174,14 +174,14 @@ const peopleSrc1: TDataSource = {
 }
 const peopleSrc2: TDataSource = {
   proxy: new BsArrayStore([
-    { id: 1, name: 'Sandra Adams', avatar: 'https://vue-mdbootstrap.fajarconsultant.com/img/1.jpg' },
-    { id: 2, name: 'Ali Connors', avatar: 'https://vue-mdbootstrap.fajarconsultant.com/img/2.jpg' },
-    { id: 3, name: 'Trevor Hansen', avatar: 'https://vue-mdbootstrap.fajarconsultant.com/img/3.jpg' },
-    { id: 4, name: 'Tucker Smith', avatar: 'https://vue-mdbootstrap.fajarconsultant.com/img/4.jpg' },
-    { id: 5, name: 'Britta Holt', avatar: 'https://vue-mdbootstrap.fajarconsultant.com/img/5.jpg' },
-    { id: 6, name: 'Jane Smith', avatar: 'https://vue-mdbootstrap.fajarconsultant.com/img/3.jpg' },
-    { id: 7, name: 'John Smith', avatar: 'https://vue-mdbootstrap.fajarconsultant.com/img/2.jpg' },
-    { id: 8, name: 'Sandra Williams', avatar: 'https://vue-mdbootstrap.fajarconsultant.com/img/4.jpg' }
+    { id: 1, name: 'Sandra Adams', avatar: 'http://vue-mdbootstrap.fajarconsultant.com/img/1.jpg' },
+    { id: 2, name: 'Ali Connors', avatar: 'http://vue-mdbootstrap.fajarconsultant.com/img/2.jpg' },
+    { id: 3, name: 'Trevor Hansen', avatar: 'http://vue-mdbootstrap.fajarconsultant.com/img/3.jpg' },
+    { id: 4, name: 'Tucker Smith', avatar: 'http://vue-mdbootstrap.fajarconsultant.com/img/4.jpg' },
+    { id: 5, name: 'Britta Holt', avatar: 'http://vue-mdbootstrap.fajarconsultant.com/img/5.jpg' },
+    { id: 6, name: 'Jane Smith', avatar: 'http://vue-mdbootstrap.fajarconsultant.com/img/3.jpg' },
+    { id: 7, name: 'John Smith', avatar: 'http://vue-mdbootstrap.fajarconsultant.com/img/2.jpg' },
+    { id: 8, name: 'Sandra Williams', avatar: 'http://vue-mdbootstrap.fajarconsultant.com/img/4.jpg' }
   ], {
     idProperty: 'id'
   }),
@@ -196,7 +196,7 @@ const statesCA1: TDataSource = {
     remoteFilter: false,
     filters: [{ property: 'country', value: 'CA', operator: 'eq' }],
     restProxy: {
-      browse: 'https://vue-mdbootstrap.fajarconsultant.com/data/states.json'
+      browse: 'http://vue-mdbootstrap.fajarconsultant.com/data/states.json'
     }
   })
 }
@@ -209,7 +209,7 @@ const statesCA2: TDataSource = {
     remoteFilter: false,
     filters: [{ property: 'country', value: 'CA', operator: 'eq' }],
     restProxy: {
-      browse: 'https://vue-mdbootstrap.fajarconsultant.com/data/states.json'
+      browse: 'http://vue-mdbootstrap.fajarconsultant.com/data/states.json'
     }
   })
 }
@@ -221,7 +221,7 @@ const productSrc: TDataSource = {
     remoteSort: false,
     remoteFilter: false,
     restProxy: {
-      browse: 'https://vue-mdbootstrap.fajarconsultant.com/data/product.json'
+      browse: 'http://vue-mdbootstrap.fajarconsultant.com/data/product.json'
     }
   }),
   schema: { displayField: 'ProductName', valueField: 'ProductID' }
