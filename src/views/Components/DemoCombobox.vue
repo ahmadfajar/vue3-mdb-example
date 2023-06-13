@@ -129,9 +129,9 @@
         </div>
       </div>
     </DemoBlock>
-    <h3 class="mt-5">
+    <h4 class="mt-5">
       Chips Style Support
-    </h3>
+    </h4>
     <DemoBlock class="mt-4">
       <div class="row g-4 row-cols-1 row-cols-lg-2">
         <div class="col">
@@ -277,9 +277,9 @@
         </div>
       </div>
     </DemoBlock>
-    <h3 class="mt-5">
+    <h4 class="mt-5">
       Chips Field State
-    </h3>
+    </h4>
     <DemoBlock class="mt-4">
       <div class="row g-4 row-cols-1 row-cols-lg-2">
         <div class="col">

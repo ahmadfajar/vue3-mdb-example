@@ -223,6 +223,12 @@ export const menuNavs: TNavigationMenu[] = [{
   path: '/components/combobox',
   view: viewResolver('Components/DemoCombobox')
 }, {
+  label: 'Modal',
+  title: 'Demo Modal',
+  group: 'Components',
+  path: '/components/modal',
+  view: viewResolver('Components/DemoModal')
+}, {
   label: 'Color Variants',
   title: 'Color Variants',
   group: 'Reference',
