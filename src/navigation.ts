@@ -234,4 +234,10 @@ export const menuNavs: TNavigationMenu[] = [{
   group: 'Reference',
   path: '/reference/color',
   view: viewResolver('Color/DemoColor')
+}, {
+  label: 'Notification',
+  title: 'Notification',
+  group: 'Reference',
+  path: '/reference/notification',
+  view: viewResolver('Reference/DemoNotification')
 }]
