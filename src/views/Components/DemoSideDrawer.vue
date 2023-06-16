@@ -7,7 +7,7 @@
         <BsSideDrawer v-model:open="openSideDrawer1" shadow>
           <div class="p-3">
             <img
-              src="https://vue-mdbootstrap.fajarconsultant.com/img/kitty-1.jpg"
+              src="http://vue-mdbootstrap.fajarconsultant.com/img/kitty-1.jpg"
               alt="image"
               style="width: 40px;"
               class="rounded-circle"/>
@@ -63,7 +63,7 @@
           shadow>
           <div class="p-3">
             <img
-              src="https://vue-mdbootstrap.fajarconsultant.com/img/kitty-1.jpg"
+              src="http://vue-mdbootstrap.fajarconsultant.com/img/kitty-1.jpg"
               alt="image"
               style="width: 40px;"
               class="rounded-circle"/>
@@ -116,7 +116,7 @@
         <BsSideDrawer :mini="miniSideDrawer1">
           <div class="d-flex flex-row p-2" style="width: 250px">
             <img
-              src="https://vue-mdbootstrap.fajarconsultant.com/img/kitty-1.jpg"
+              src="http://vue-mdbootstrap.fajarconsultant.com/img/kitty-1.jpg"
               alt="image"
               style="width: 40px; height: 40px"
               class="rounded-circle md-link"
@@ -210,7 +210,7 @@
         <BsSideDrawer v-model:open="openSideDrawer3" class="border-end">
           <div class="p-3">
             <img
-              src="https://vue-mdbootstrap.fajarconsultant.com/img/kitty-1.jpg"
+              src="http://vue-mdbootstrap.fajarconsultant.com/img/kitty-1.jpg"
               alt="image"
               style="width: 40px;"
               class="rounded-circle"/>

@@ -11,7 +11,7 @@
           icon="folder_shared"
           rounded/>
         <BsAvatar
-          img-src="https://vue-mdbootstrap.fajarconsultant.com/img/kitty-1.jpg"
+          img-src="http://vue-mdbootstrap.fajarconsultant.com/img/kitty-1.jpg"
           class="m-2 bg-teal"
           circle/>
         <BsAvatar

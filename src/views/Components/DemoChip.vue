@@ -271,18 +271,18 @@
       <div>
         <BsChip
           color="primary"
-          img-src="https://vue-mdbootstrap.fajarconsultant.com/img/1.jpg"
+          img-src="http://vue-mdbootstrap.fajarconsultant.com/img/1.jpg"
           size="sm">
           Small Chip
         </BsChip>
         <BsChip
           color="success"
-          img-src="https://vue-mdbootstrap.fajarconsultant.com/img/1.jpg">
+          img-src="http://vue-mdbootstrap.fajarconsultant.com/img/1.jpg">
           Normal Chip
         </BsChip>
         <BsChip
           color="danger"
-          img-src="https://vue-mdbootstrap.fajarconsultant.com/img/1.jpg"
+          img-src="http://vue-mdbootstrap.fajarconsultant.com/img/1.jpg"
           size="lg">
           Large Chip
         </BsChip>
@@ -290,7 +290,7 @@
       <div class="mt-3">
         <BsChip
           color="primary"
-          img-src="https://vue-mdbootstrap.fajarconsultant.com/img/1.jpg"
+          img-src="http://vue-mdbootstrap.fajarconsultant.com/img/1.jpg"
           size="sm"
           img-circle
           pill>
@@ -298,14 +298,14 @@
         </BsChip>
         <BsChip
           color="success"
-          img-src="https://vue-mdbootstrap.fajarconsultant.com/img/1.jpg"
+          img-src="http://vue-mdbootstrap.fajarconsultant.com/img/1.jpg"
           img-circle
           pill>
           Normal Chip
         </BsChip>
         <BsChip
           color="danger"
-          img-src="https://vue-mdbootstrap.fajarconsultant.com/img/1.jpg"
+          img-src="http://vue-mdbootstrap.fajarconsultant.com/img/1.jpg"
           size="lg"
           img-circle
           pill>
@@ -315,20 +315,20 @@
       <div class="mt-3">
         <BsChip
           color="primary"
-          img-src="https://vue-mdbootstrap.fajarconsultant.com/img/1.jpg"
+          img-src="http://vue-mdbootstrap.fajarconsultant.com/img/1.jpg"
           size="sm"
           outlined>
           Small Chip
         </BsChip>
         <BsChip
           color="success"
-          img-src="https://vue-mdbootstrap.fajarconsultant.com/img/1.jpg"
+          img-src="http://vue-mdbootstrap.fajarconsultant.com/img/1.jpg"
           outlined>
           Normal Chip
         </BsChip>
         <BsChip
           color="danger"
-          img-src="https://vue-mdbootstrap.fajarconsultant.com/img/1.jpg"
+          img-src="http://vue-mdbootstrap.fajarconsultant.com/img/1.jpg"
           size="lg"
           outlined>
           Large Chip
@@ -337,7 +337,7 @@
       <div class="mt-3">
         <BsChip
           color="primary"
-          img-src="https://vue-mdbootstrap.fajarconsultant.com/img/1.jpg"
+          img-src="http://vue-mdbootstrap.fajarconsultant.com/img/1.jpg"
           size="sm"
           img-circle
           outlined
@@ -346,7 +346,7 @@
         </BsChip>
         <BsChip
           color="success"
-          img-src="https://vue-mdbootstrap.fajarconsultant.com/img/1.jpg"
+          img-src="http://vue-mdbootstrap.fajarconsultant.com/img/1.jpg"
           img-circle
           outlined
           pill>
@@ -354,7 +354,7 @@
         </BsChip>
         <BsChip
           color="danger"
-          img-src="https://vue-mdbootstrap.fajarconsultant.com/img/1.jpg"
+          img-src="http://vue-mdbootstrap.fajarconsultant.com/img/1.jpg"
           size="lg"
           img-circle
           outlined
@@ -371,20 +371,20 @@
         <BsChip
           :img-padding="false"
           color="primary"
-          img-src="https://vue-mdbootstrap.fajarconsultant.com/img/2.jpg"
+          img-src="http://vue-mdbootstrap.fajarconsultant.com/img/2.jpg"
           size="sm">
           Small Chip
         </BsChip>
         <BsChip
           :img-padding="false"
           color="success"
-          img-src="https://vue-mdbootstrap.fajarconsultant.com/img/2.jpg">
+          img-src="http://vue-mdbootstrap.fajarconsultant.com/img/2.jpg">
           Normal Chip
         </BsChip>
         <BsChip
           :img-padding="false"
           color="danger"
-          img-src="https://vue-mdbootstrap.fajarconsultant.com/img/2.jpg"
+          img-src="http://vue-mdbootstrap.fajarconsultant.com/img/2.jpg"
           size="lg">
           Large Chip
         </BsChip>
@@ -393,7 +393,7 @@
         <BsChip
           :img-padding="false"
           color="primary"
-          img-src="https://vue-mdbootstrap.fajarconsultant.com/img/2.jpg"
+          img-src="http://vue-mdbootstrap.fajarconsultant.com/img/2.jpg"
           size="sm"
           img-circle
           pill>
@@ -402,7 +402,7 @@
         <BsChip
           :img-padding="false"
           color="success"
-          img-src="https://vue-mdbootstrap.fajarconsultant.com/img/2.jpg"
+          img-src="http://vue-mdbootstrap.fajarconsultant.com/img/2.jpg"
           img-circle
           pill>
           Normal Chip
@@ -410,7 +410,7 @@
         <BsChip
           :img-padding="false"
           color="danger"
-          img-src="https://vue-mdbootstrap.fajarconsultant.com/img/2.jpg"
+          img-src="http://vue-mdbootstrap.fajarconsultant.com/img/2.jpg"
           size="lg"
           img-circle
           pill>
@@ -421,7 +421,7 @@
         <BsChip
           :img-padding="false"
           color="primary"
-          img-src="https://vue-mdbootstrap.fajarconsultant.com/img/2.jpg"
+          img-src="http://vue-mdbootstrap.fajarconsultant.com/img/2.jpg"
           size="sm"
           outlined>
           Small Chip
@@ -429,14 +429,14 @@
         <BsChip
           :img-padding="false"
           color="success"
-          img-src="https://vue-mdbootstrap.fajarconsultant.com/img/2.jpg"
+          img-src="http://vue-mdbootstrap.fajarconsultant.com/img/2.jpg"
           outlined>
           Normal Chip
         </BsChip>
         <BsChip
           :img-padding="false"
           color="danger"
-          img-src="https://vue-mdbootstrap.fajarconsultant.com/img/2.jpg"
+          img-src="http://vue-mdbootstrap.fajarconsultant.com/img/2.jpg"
           size="lg"
           outlined>
           Large Chip
@@ -446,7 +446,7 @@
         <BsChip
           :img-padding="false"
           color="primary"
-          img-src="https://vue-mdbootstrap.fajarconsultant.com/img/2.jpg"
+          img-src="http://vue-mdbootstrap.fajarconsultant.com/img/2.jpg"
           size="sm"
           img-circle
           outlined
@@ -456,7 +456,7 @@
         <BsChip
           :img-padding="false"
           color="success"
-          img-src="https://vue-mdbootstrap.fajarconsultant.com/img/2.jpg"
+          img-src="http://vue-mdbootstrap.fajarconsultant.com/img/2.jpg"
           img-circle
           outlined
           pill>
@@ -465,7 +465,7 @@
         <BsChip
           :img-padding="false"
           color="danger"
-          img-src="https://vue-mdbootstrap.fajarconsultant.com/img/2.jpg"
+          img-src="http://vue-mdbootstrap.fajarconsultant.com/img/2.jpg"
           size="lg"
           img-circle
           outlined
