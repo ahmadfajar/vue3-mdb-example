@@ -271,9 +271,9 @@ const placements = [
   { label: 'Right', value: 'right' }
 ]
 const tabAlignments = [
-  { label: 'Left', value: 'left' },
+  { label: 'Start', value: 'start' },
   { label: 'Center', value: 'center' },
-  { label: 'Right', value: 'right' },
+  { label: 'End', value: 'end' },
   { label: 'Justified', value: 'justified' }
 ]
 const tabFlexStyles = [
@@ -294,7 +294,7 @@ const iconLabels = [
 const selectedVariant = ref<string>('modern')
 const selectedPlacement = ref<string>('top')
 const selectedIconPosition = ref<string>('left')
-const selectedAlignment = ref<string>('left')
+const selectedAlignment = ref<string>('start')
 const iconOnly = ref(false)
 const tabFlex = ref(false)
 
