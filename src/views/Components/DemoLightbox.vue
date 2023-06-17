@@ -43,7 +43,11 @@
 <script lang="ts" setup>
 import { ComponentPublicInstance, ref } from 'vue'
 
-const lightbox1 = ref<ComponentPublicInstance>()
+declare interface ILightboxComponent extends ComponentPublicInstance {
+  openAt(index: number): void;
+}
+
+const lightbox1 = ref<ILightboxComponent>()
 const showGallery1 = ref(false)
 const galleryItems1 = [{
   thumbnail: 'https://unsplash.it/200.jpg?image=251',
