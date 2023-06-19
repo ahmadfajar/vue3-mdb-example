@@ -246,4 +246,16 @@ export const menuNavs: TNavigationMenu[] = [{
   group: 'Reference',
   path: '/reference/notification',
   view: viewResolver('Reference/DemoNotification')
+}, {
+  label: 'Transitions',
+  title: 'Transitions',
+  group: 'Reference',
+  path: '/reference/transition',
+  view: viewResolver('Reference/DemoTransition')
+}, {
+  label: 'Shadows',
+  title: 'Shadows',
+  group: 'Reference',
+  path: '/reference/shadow',
+  view: viewResolver('Reference/DemoShadow')
 }]
