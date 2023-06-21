@@ -69,25 +69,25 @@
         filled
         variant="success"
         icon-variant="outlined">
-        {{ content }} a predefined <span class="md-fw-semibold">Contextual Alert</span>.
+        {{ content }} a predefined contextual <span class="md-fw-semibold">Success Alert</span>.
       </BsAlert>
       <BsAlert
         filled
         variant="info"
         icon-variant="outlined">
-        {{ content }} a predefined <span class="md-fw-semibold">Contextual Alert</span>.
+        {{ content }} a predefined contextual <span class="md-fw-semibold">Info Alert</span>.
       </BsAlert>
       <BsAlert
         filled
         variant="warning"
         icon-variant="round">
-        {{ content }} a predefined <span class="md-fw-semibold">Contextual Alert</span>.
+        {{ content }} a predefined contextual <span class="md-fw-semibold">Warning Alert</span>.
       </BsAlert>
       <BsAlert filled variant="danger">
-        {{ content }} a predefined <span class="md-fw-semibold">Contextual Alert</span>.
+        {{ content }} a predefined contextual <span class="md-fw-semibold">Danger Alert</span>.
       </BsAlert>
       <BsAlert filled variant="help">
-        {{ content }} a predefined <span class="md-fw-semibold">Contextual Alert</span>.
+        {{ content }} a predefined contextual <span class="md-fw-semibold">Help Alert</span>.
       </BsAlert>
     </DemoBlock>
     <h2 class="mt-5">
@@ -239,7 +239,6 @@ function toggleAlert () {
 
 function closeAlert () {
   clearInterval(timerInterval.value)
-  // showDismissibleAlert2.value = false
 }
 </script>
 

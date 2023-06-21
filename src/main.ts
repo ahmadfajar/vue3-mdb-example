@@ -1,6 +1,6 @@
 import { createApp } from 'vue'
+import { AxiosPlugin } from '../../vue-mdbootstrap/src/utils/AxiosPlugin'
 import * as _plugins from '../../vue-mdbootstrap/src/components'
-import AxiosPlugin from '../../vue-mdbootstrap/src/utils/AxiosPlugin'
 import DemoBlock from '@/DemoBlock.vue'
 import router from '@/router'
 import App from './App.vue'
