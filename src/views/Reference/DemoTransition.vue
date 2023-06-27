@@ -231,7 +231,7 @@
       </BsCardBody>
     </BsCard>
     <h2 class="mt-5">
-      Rotate Reverse Clock Direction
+      Rotate Reverse Direction
     </h2>
     <BsCard class="bg-grey-200 border-0" style="min-height: 206px;">
       <BsCardBody>
