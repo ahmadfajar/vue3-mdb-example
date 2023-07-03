@@ -1,16 +1,14 @@
 import type { RouteRecordRaw } from 'vue-router'
 import { createRouter, createWebHistory } from 'vue-router'
-import { menuNavs } from '@/navigation'
+import { menuNavs } from '@/router/navigation'
 
 const routes: RouteRecordRaw[] = menuNavs.map((it) => ({
   path: it.path,
   component: it.view,
-  meta: { title: it.title }
+  meta: { title: it.label }
 }))
 
-routes.push({ path: '/', redirect: '/components/alert' })
-
 export default createRouter({
-  history: createWebHistory(),
-  routes
+  history: createWebHistory(import.meta.env.BASE_URL),
+  routes: routes.concat({ path: '/', redirect: '/components/alert' })
 })

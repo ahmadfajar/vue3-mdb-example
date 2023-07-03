@@ -1,13 +1,9 @@
-import { createApp } from 'vue'
-import { AxiosPlugin } from '../../vue-mdbootstrap/src/utils/AxiosPlugin'
-import * as _plugins from '../../vue-mdbootstrap/src/components'
-import DemoBlock from '@/DemoBlock.vue'
-import router from '@/router'
-import App from './App.vue'
+import 'vue-mdbootstrap/styles';
 
-const app = createApp(App)
-Object.values(_plugins).forEach(plg => app.use(plg))
+import { createVueMdb } from 'vue-mdbootstrap';
+import DemoBlock from '@/components/DemoBlock.vue';
+import App from '@/App.vue';
+import router from '@/router';
 
-app.component('DemoBlock', DemoBlock)
-  .use(AxiosPlugin)
-  .use(router).mount('#app')
+const app = createVueMdb(App);
+app.component('DemoBlock', DemoBlock).use(router).mount('#app');

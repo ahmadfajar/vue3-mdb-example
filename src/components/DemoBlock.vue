@@ -9,17 +9,13 @@
           role="button"
           title="Change background color"
           type="button"
-          @click="pickerShow = !pickerShow"/>
-        <BsButton
-          color="dark"
-          icon="invert_colors"
-          mode="icon"
-          flat
-          @click="darkenOrLighten"/>
+          @click="pickerShow = !pickerShow"
+        />
+        <BsButton color="dark" icon="invert_colors" mode="icon" flat @click="darkenOrLighten" />
       </div>
     </div>
     <div class="demo-block-content" :style="styles">
-      <slot/>
+      <slot />
     </div>
     <BsColorPicker
       ref="picker"
@@ -29,87 +25,81 @@
       placement="bottom-right"
       :activator="pickerBtn"
       hide-alpha
-      class="shadow"/>
+      class="shadow"
+    />
   </div>
 </template>
 
 <script lang="ts" setup>
-import { reactive, ref, watch } from 'vue'
-import * as Color from '../../vue-mdbootstrap/src/mixins/colorUtils'
+import { reactive, ref, watch } from 'vue';
+import type { TColorPickerMode } from 'vue-mdbootstrap';
+import { Color } from 'vue-mdbootstrap';
 
-const picker = ref()
-const pickerBtn = ref()
-const pickerColor = ref('#f2f5f8')
-const pickerMode = ref('HEX')
-const pickerShow = ref(false)
-const step = ref(-10)
+const picker = ref();
+const pickerBtn = ref();
+const pickerColor = ref('#f2f5f8');
+const pickerMode = ref<TColorPickerMode>('HEX');
+const pickerShow = ref(false);
+const step = ref(-10);
 const styles = reactive<Record<string, string>>({
   backgroundColor: pickerColor.value,
   color: '#212121'
-})
+});
 
 watch(
   () => pickerColor.value,
   (value) => {
     styles.backgroundColor =
-      pickerMode.value === 'HEX'
-        ? value.toLowerCase()
-        : picker.value.hexColor().toLowerCase()
+      pickerMode.value === 'HEX' ? value.toLowerCase() : picker.value.hexColor().toLowerCase();
   }
-)
+);
 watch(
   () => styles.backgroundColor,
   (value) => {
-    const textColor = contrastTextColor(value)
-    styles.color = textColor
-    styles['--md-field-button-color'] = textColor
+    const textColor = contrastTextColor(value);
+    styles.color = textColor;
+    styles['--md-field-button-color'] = textColor;
 
     if (textColor.startsWith('#fff')) {
-      styles['--md-field-active-indicator'] = 'var(--md-field-accent-indicator)'
-      styles['--md-field-button-active-bg'] = 'rgba(250,250,250,.25)'
-      styles['--md-field-button-hover-bg'] = 'rgba(180,180,180,.15)'
+      styles['--md-field-active-indicator'] = 'var(--md-field-accent-indicator)';
+      styles['--md-field-button-active-bg'] = 'rgba(250,250,250,.25)';
+      styles['--md-field-button-hover-bg'] = 'rgba(180,180,180,.15)';
     } else {
-      styles['--md-field-active-indicator'] = 'var(--md-field-primary-indicator)'
-      styles['--md-field-button-active-bg'] = 'rgba(12,12,12,.25)'
-      styles['--md-field-button-hover-bg'] = 'rgba(80,80,80,.2)'
+      styles['--md-field-active-indicator'] = 'var(--md-field-primary-indicator)';
+      styles['--md-field-button-active-bg'] = 'rgba(12,12,12,.25)';
+      styles['--md-field-button-hover-bg'] = 'rgba(80,80,80,.2)';
     }
   }
-)
+);
 
 const contrastTextColor = (color: string) => {
-  const yiq = Color.brightnessLevel(Color.hexToRgba(color))
+  const yiq = Color.brightnessLevel(Color.hexToRgba(color));
   // console.info('yiq:', yiq)
 
-  return yiq >= 170 ? '#000' : '#fff'
-}
+  return yiq >= 170 ? '#000' : '#fff';
+};
 
 const darkenOrLighten = () => {
-  if (
-    styles.backgroundColor === '#ffffff' ||
-    styles.backgroundColor === '#000000'
-  ) {
-    styles.backgroundColor = picker.value.hexColor().toLowerCase()
-    return
+  if (styles.backgroundColor === '#ffffff' || styles.backgroundColor === '#000000') {
+    styles.backgroundColor = picker.value.hexColor().toLowerCase();
+    return;
   }
 
-  const hexColor = Color.shadeColor(
-    styles.backgroundColor,
-    step.value
-  ).toLowerCase()
+  const hexColor = Color.shadeColor(styles.backgroundColor, step.value).toLowerCase();
   if (hexColor.length === 7) {
-    styles.backgroundColor = hexColor
+    styles.backgroundColor = hexColor;
 
     if (hexColor === '#ffffff' || hexColor === '#000000') {
-      step.value = step.value * -1
+      step.value = step.value * -1;
     }
   } else {
-    step.value = step.value * -1
+    step.value = step.value * -1;
   }
-}
+};
 </script>
 
 <style lang="scss">
-@import "~compass-mixins/lib/compass/css3";
+@import 'compass-mixins/lib/compass/css3';
 
 $radius: 0.75rem;
 
@@ -128,7 +118,7 @@ $radius: 0.75rem;
       (
         display: inline-flex,
         justify-content: center,
-        align-items: center,
+        align-items: center
       )
     );
     position: relative;
@@ -142,18 +132,6 @@ $radius: 0.75rem;
   position: relative;
 }
 
-.docs-demo-ctrl {
-  .demo-block-content {
-    .btn,
-    .md-btn-icon,
-    .md-chip {
-      &:first-child {
-        margin-left: 0.375rem;
-      }
-    }
-  }
-}
-
 .btn-color-picker,
 .picked-color {
   @include border-radius(50%);
@@ -165,14 +143,7 @@ $radius: 0.75rem;
       #aaa 75%,
       #aaa
     ),
-    repeating-linear-gradient(
-      45deg,
-      #aaa 25%,
-      #fff 25%,
-      #fff 75%,
-      #aaa 75%,
-      #aaa
-    );
+    repeating-linear-gradient(45deg, #aaa 25%, #fff 25%, #fff 75%, #aaa 75%, #aaa);
   background-position: 0 0, 4px 4px;
   background-size: 8px 8px;
   border: 0;
@@ -185,7 +156,7 @@ $radius: 0.75rem;
     @include box-shadow(inset 0 0 0 1px rgba(0, 0, 0, 0.1));
     background-color: currentColor;
     border-radius: inherit;
-    content: "";
+    content: '';
     width: 100%;
     height: 100%;
     left: 0;

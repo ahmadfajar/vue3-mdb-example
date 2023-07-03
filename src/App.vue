@@ -1,61 +1,47 @@
 <template>
   <BsAppContainer class="bg-mdb-color" viewport-height>
-    <BsAppbar
-      class="bg-mdb-color"
-      clipped-left>
+    <BsAppbar class="bg-mdb-color" clipped-left>
       <BsButton
         color="light"
         icon="menu"
         mode="icon"
         flat
-        @click="toggleSideDrawer(!openSideDrawer)"/>
-      <BsAppbarTitle
-        :title="$route.meta.title"
-        class="text-white"/>
+        @click="toggleSideDrawer(!openSideDrawer)"
+      />
+      <BsAppbarTitle :title="($route.meta.title as string)" class="text-white" />
     </BsAppbar>
-    <BsSideDrawer
-      v-model:open="openSideDrawer"
-      color="mdb-color"
-      fixed-layout>
+    <BsSideDrawer v-model:open="openSideDrawer" color="mdb-color" fixed-layout>
       <div class="text-center mb-2">
-        <img
-          alt="Vue logo"
-          src="./assets/vue-mdb.png"
-          style="width: 96px"/>
+        <img alt="Vue logo" src="./assets/vue-mdb.png" style="width: 96px" />
       </div>
-      <BsDivider dark/>
-      <BsListView
-        color="mdb-color"
-        item-border-variant="left"
-        item-rounded
-        space-around="both">
+      <BsDivider dark />
+      <BsListView color="mdb-color" item-border-variant="left" item-rounded space-around="both">
         <BsListNav>
           <BsListNavItem
             v-for="navItem in routeNavA"
             :key="navItem.label"
             :path="navItem.path"
             :disabled="navItem.disabled"
-            :label="navItem.label"/>
+            :label="navItem.label"
+          />
         </BsListNav>
-        <BsDivider class="my-2"/>
+        <BsDivider class="my-2" />
         <BsListNav>
           <BsListNavItem
             v-for="navItem in routeNavB"
             :key="navItem.label"
             :path="navItem.path"
             :disabled="navItem.disabled"
-            :label="navItem.label"/>
+            :label="navItem.label"
+          />
         </BsListNav>
       </BsListView>
     </BsSideDrawer>
-    <BsContainer
-      app
-      class="y-overflow-hidden"
-      @resize="onContainerResize">
+    <BsContainer app class="y-overflow-hidden" @resize="onContainerResize">
       <div class="body-content">
         <RouterView v-slot="{ Component }">
           <Transition name="fastFade" mode="out-in">
-            <component :is="Component"/>
+            <component :is="Component" />
           </Transition>
         </RouterView>
       </div>
@@ -64,44 +50,55 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue'
-import { menuNavs, TNavigationMenu } from '@/navigation'
-import { useBreakpointMax } from '../../vue-mdbootstrap/src/mixins/CommonApi'
+import { ref } from 'vue';
+import type { TNavigationRecord } from '@/router/navigation';
+import { menuNavs } from '@/router/navigation';
+import { useBreakpointMax } from 'vue-mdbootstrap';
 
-const openSideDrawer = ref(true)
+const openSideDrawer = ref(true);
 
-function onContainerResize () {
+function onContainerResize() {
   if (useBreakpointMax('xl')) {
-    openSideDrawer.value = false
+    openSideDrawer.value = false;
   }
 }
 
-function toggleSideDrawer (value: boolean) {
-  openSideDrawer.value = value
+function toggleSideDrawer(value: boolean) {
+  openSideDrawer.value = value;
 }
 
-function compareFn (a: TNavigationMenu, b: TNavigationMenu) {
-  const labelA = a.label.toUpperCase()
-  const labelB = b.label.toUpperCase()
+function compareFn(a: TNavigationRecord, b: TNavigationRecord) {
+  const labelA = a.label.toUpperCase();
+  const labelB = b.label.toUpperCase();
   if (labelA < labelB) {
-    return -1
+    return -1;
   }
   if (labelA > labelB) {
-    return 1
+    return 1;
   }
   // label is equal
-  return 0
+  return 0;
 }
 
-const routeNavA = menuNavs.filter(it => it.group === 'Components').sort(compareFn)
-const routeNavB = menuNavs.filter(it => it.group === 'Reference').sort(compareFn)
+const routeNavA = menuNavs.filter((it) => it.group === 'Components').sort(compareFn);
+const routeNavB = menuNavs.filter((it) => it.group === 'Reference').sort(compareFn);
 </script>
 
 <style lang="scss">
-@import "~compass-mixins/lib/compass/css3";
+@import 'compass-mixins/lib/compass/css3';
+
+.fastFade-enter-active,
+.fastFade-leave-active {
+  transition: opacity 0.2s ease;
+}
+
+.fastFade-enter-from,
+.fastFade-leave-to {
+  opacity: 0;
+}
 
 #app {
-  font-family: "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   max-width: 100%;
   max-height: 100vh;
 
@@ -122,14 +119,17 @@ const routeNavB = menuNavs.filter(it => it.group === 'Reference').sort(compareFn
   }
 }
 
-.demo-wrapper {
+.docs-body {
   padding-top: 3rem;
 
   > h2 {
     font-weight: 400;
   }
 
-  .h3, h3, .h4, h4 {
+  .h3,
+  h3,
+  .h4,
+  h4 {
     &:not(.card-title) {
       font-weight: normal;
     }
@@ -145,29 +145,19 @@ const routeNavB = menuNavs.filter(it => it.group === 'Reference').sort(compareFn
 
   .card {
     &.mobi-card {
-      --bs-card-border-radius: .375rem;
-      --bs-card-inner-border-radius: calc(.375rem - 1px);
+      --bs-card-border-radius: 0.375rem;
+      --bs-card-inner-border-radius: calc(0.375rem - 1px);
       max-width: 400px;
     }
 
     &.rounded-sm {
-      --bs-card-border-radius: .375rem;
-      --bs-card-inner-border-radius: calc(.375rem - 1px);
+      --bs-card-border-radius: 0.375rem;
+      --bs-card-inner-border-radius: calc(0.375rem - 1px);
     }
 
     > .md-appbar:first-child {
       @include border-top-radius(var(--bs-card-border-radius));
     }
   }
-}
-
-.fastFade-enter-active,
-.fastFade-leave-active {
-  transition: opacity 0.2s ease;
-}
-
-.fastFade-enter-from,
-.fastFade-leave-to {
-  opacity: 0;
 }
 </style>

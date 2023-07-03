@@ -1,4 +1,4 @@
-import { themeColors } from '@/views/Color/themeColors'
+import { themeColors } from '@/views/Color/themeColors';
 
 export const fullColors = {
   red: {
@@ -305,9 +305,9 @@ export const fullColors = {
     'darken-3': '#424242',
     'darken-4': '#212121'
   }
-}
+};
 
-export function useFullColorClasses (base: string, prop: string) {
+export function useFullColorClasses(base: string, prop: string) {
   return {
     [`bg-${base}`]: true,
     [prop]: prop !== 'base',
@@ -337,13 +337,13 @@ export function useFullColorClasses (base: string, prop: string) {
       ].includes(prop) ||
       (['lime', 'amber'].includes(base) && prop === 'base') ||
       (base === 'yellow' && prop !== 'darken-4')
-  }
+  };
 }
 
-export function useFullColorName (base: string, prop: string): string {
+export function useFullColorName(base: string, prop: string): string {
   if (prop === 'base') {
-    return base
+    return base;
   } else {
-    return `${base} ${prop}`
+    return `${base} ${prop}`;
   }
 }

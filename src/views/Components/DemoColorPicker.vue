@@ -1,13 +1,10 @@
 <template>
-  <div class="demo-wrapper container-lg mx-auto">
+  <div class="docs-body container-lg mx-auto">
     <h2>Overview</h2>
     <div class="demo-block-content bg-blue-grey lighten-5 rounded-4 mt-4">
       <div class="d-flex justify-content-center">
         <div class="d-inline-block">
-          <BsColorPicker
-            v-model="color1"
-            v-model:mode="mode1"
-            class="shadow"/>
+          <BsColorPicker v-model="color1" v-model:mode="mode1" class="shadow" />
           <div class="mt-3">
             Mode: <b>{{ mode1 }}</b>
           </div>
@@ -17,9 +14,7 @@
         </div>
       </div>
     </div>
-    <h2 class="mt-5">
-      Color Swatches
-    </h2>
+    <h2 class="mt-5">Color Swatches</h2>
     <div class="demo-block-content bg-blue-grey lighten-5 rounded-4 mt-4">
       <div class="d-flex justify-content-center">
         <div class="d-inline-block">
@@ -27,7 +22,8 @@
             v-model="color2"
             v-model:mode="mode2"
             :swatches="swatches2"
-            class="shadow"/>
+            class="shadow"
+          />
           <div class="mt-3">
             Mode: <b>{{ mode2 }}</b>
           </div>
@@ -37,9 +33,7 @@
         </div>
       </div>
     </div>
-    <h2 class="mt-5">
-      Popup ColorPicker
-    </h2>
+    <h2 class="mt-5">Popup ColorPicker</h2>
     <div class="demo-block-content bg-blue-grey lighten-5 rounded-4 mt-4">
       <div class="d-flex justify-content-center">
         <div class="d-inline-block">
@@ -47,17 +41,17 @@
             ref="picker3Activator"
             title="Click to display color picker"
             dropdown-toggle
-            @click="picker3Show = !picker3Show">
-            <span
-              class="picked-color rounded-circle"
-              :style="{ color: picker3color }"></span>
+            @click="picker3Show = !picker3Show"
+          >
+            <span class="picked-color rounded-circle" :style="{ color: picker3color }"></span>
           </BsButton>
           <BsColorPicker
             v-model="picker3color"
             v-model:mode="picker3mode"
             v-model:open="picker3Show"
             :activator="picker3Activator?.$el"
-            class="shadow"/>
+            class="shadow"
+          />
         </div>
       </div>
     </div>
@@ -65,16 +59,18 @@
 </template>
 
 <script lang="ts" setup>
-import { ComponentPublicInstance, ref } from 'vue'
+import type { ComponentPublicInstance } from 'vue';
+import { ref } from 'vue';
+import type { TColorPickerMode } from 'vue-mdbootstrap';
 
-const mode1 = ref()
-const color1 = ref<string>('#1669de')
-const mode2 = ref()
-const color2 = ref<string>()
-const picker3mode = ref('RGB')
-const picker3color = ref<string>('#e632da')
-const picker3Activator = ref<ComponentPublicInstance | null>(null)
-const picker3Show = ref<boolean>(false)
+const mode1 = ref<TColorPickerMode>();
+const color1 = ref<string>('#1669de');
+const mode2 = ref<TColorPickerMode>();
+const color2 = ref<string>();
+const picker3mode = ref<TColorPickerMode>('RGB');
+const picker3color = ref<string>('#e632da');
+const picker3Activator = ref<ComponentPublicInstance | null>(null);
+const picker3Show = ref<boolean>(false);
 
 const swatches2 = [
   '#e9c46a',
@@ -94,7 +90,7 @@ const swatches2 = [
   '#0096c7',
   '#00b4d8',
   '#48cae4'
-]
+];
 </script>
 
 <style lang="scss">

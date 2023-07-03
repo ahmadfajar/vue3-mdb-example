@@ -1,10 +1,7 @@
 <template>
   <div class="docs-color-table">
     <div v-if="palette === 'bootstrap'" class="row">
-      <div
-        v-for="(value, key) in themeColors"
-        :key="key"
-        class="col-md-6 col-xl-4 mb-4">
+      <div v-for="(value, key) in themeColors" :key="key" class="col-md-6 col-xl-4 mb-4">
         <div :class="useBootstrapColorClasses(key)" class="d-flex p-3 md-shadow-1">
           <span class="flex-grow-1">{{ key }}</span>
           <span class="opacity-50 small">{{ value.toUpperCase() }}</span>
@@ -17,35 +14,32 @@
           v-for="(value, key) in grayColors"
           :key="key"
           :class="useGrayColorClasses(key)"
-          class="p-3 d-flex">
+          class="p-3 d-flex"
+        >
           <span class="flex-grow-1">grey-{{ key }}</span>
           <span class="opacity-50 small">{{ value.toUpperCase() }}</span>
         </div>
       </div>
     </div>
     <div v-else-if="palette === 'fullColor'" class="row">
-      <div
-        v-for="(items, key) in fullColors"
-        :key="key"
-        class="col-md-6 col-xl-4 mb-4">
+      <div v-for="(items, key) in fullColors" :key="key" class="col-md-6 col-xl-4 mb-4">
         <div
           v-for="(value, prop) in items"
           :key="key + prop"
           :class="useFullColorClasses(key, prop)"
-          class="p-3 d-flex">
+          class="p-3 d-flex"
+        >
           <span class="flex-grow-1">{{ useFullColorName(key, prop) }}</span>
           <span class="opacity-50 small">{{ value.toUpperCase() }}</span>
         </div>
       </div>
     </div>
     <div v-else-if="palette === 'material'" class="row">
-      <div
-        v-for="(item, key) in materialColors"
-        :key="key"
-        class="mb-4 col-md-6 col-xl-3">
+      <div v-for="(item, key) in materialColors" :key="key" class="mb-4 col-md-6 col-xl-3">
         <div
           :class="['bg-' + useMaterialColorInfo(item)[0].color]"
-          class="docs-color-block text-white">
+          class="docs-color-block text-white"
+        >
           <div>{{ useMaterialColorInfo(item)[0].color }}</div>
           <div class="opacity-50">
             {{ useMaterialColorInfo(item)[0].value.toUpperCase() }}
@@ -53,7 +47,8 @@
         </div>
         <div
           :class="['bg-' + useMaterialColorInfo(item)[1].color]"
-          class="md-shadow-1 docs-color-block text-white">
+          class="md-shadow-1 docs-color-block text-white"
+        >
           <div>{{ useMaterialColorInfo(item)[1].color }}</div>
           <div class="opacity-50">
             {{ useMaterialColorInfo(item)[1].value.toUpperCase() }}
@@ -65,8 +60,8 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
-import { fullColors, useFullColorClasses, useFullColorName } from './fullColors'
+import { defineComponent } from 'vue';
+import { fullColors, useFullColorClasses, useFullColorName } from './fullColors';
 import {
   grayColors,
   materialColors,
@@ -74,7 +69,7 @@ import {
   useBootstrapColorClasses,
   useGrayColorClasses,
   useMaterialColorInfo
-} from './themeColors'
+} from './themeColors';
 
 export default defineComponent({
   name: 'ColorPalette',
@@ -84,7 +79,7 @@ export default defineComponent({
       default: undefined
     }
   },
-  setup () {
+  setup() {
     return {
       materialColors,
       themeColors,
@@ -95,9 +90,9 @@ export default defineComponent({
       useMaterialColorInfo,
       useFullColorClasses,
       useFullColorName
-    }
+    };
   }
-})
+});
 </script>
 
 <style lang="scss">

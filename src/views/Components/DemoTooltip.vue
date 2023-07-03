@@ -1,21 +1,16 @@
 <template>
-  <div class="demo-wrapper container-lg mx-auto">
+  <div class="docs-body container-lg mx-auto">
     <h2>Overview</h2>
     <DemoBlock class="mt-4">
       <div class="row">
         <div class="col-md d-flex justify-content-center">
           <BsTooltip content="I am a tooltip">
-            <BsButton color="primary" @click="onClick">
-              BUTTON
-            </BsButton>
+            <BsButton color="primary" @click="onClick"> BUTTON </BsButton>
           </BsTooltip>
         </div>
         <div class="col-md d-flex justify-content-center">
           <BsTooltip content="I am a tooltip">
-            <BsIcon
-              icon="folder"
-              size="28"
-              class="text-amber"/>
+            <BsIcon icon="folder" size="28" class="text-amber" />
           </BsTooltip>
         </div>
         <div class="col-md">
@@ -25,9 +20,7 @@
         </div>
       </div>
     </DemoBlock>
-    <h2 class="mt-5">
-      Display Placement
-    </h2>
+    <h2 class="mt-5">Display Placement</h2>
     <DemoBlock class="mt-4">
       <div class="row">
         <div class="col-md d-flex justify-content-center">
@@ -56,12 +49,9 @@
 </template>
 
 <script lang="ts" setup>
-import DemoBlock from '@/DemoBlock.vue'
-
 function onClick() {
-  alert('I am clicked')
+  alert('I am clicked');
 }
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>

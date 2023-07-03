@@ -35,7 +35,7 @@ export const themeColors: Record<string, string> = {
   light: '#f8f9fa',
   white: '#ffffff',
   black: '#000000'
-}
+};
 
 export const grayColors = {
   100: '#f8f9fa',
@@ -47,7 +47,7 @@ export const grayColors = {
   700: '#495057',
   800: '#343a40',
   900: '#212529'
-}
+};
 
 export const materialColors = {
   'default-color': {
@@ -98,27 +98,43 @@ export const materialColors = {
     'unique-color': '#385870',
     'unique-color-dark': '#1c2331'
   }
-}
+};
 
-export function useBootstrapColorClasses (name: string) {
+export function useBootstrapColorClasses(name: string) {
   return {
     ['bg-' + name]: true,
-    'text-black': ['lime', 'yellow', 'amber', 'white', 'light', 'light-grey', 'light-blue'].includes(name),
-    'text-white': !['lime', 'yellow', 'amber', 'white', 'light', 'light-grey', 'light-blue'].includes(name)
-  }
+    'text-black': [
+      'lime',
+      'yellow',
+      'amber',
+      'white',
+      'light',
+      'light-grey',
+      'light-blue'
+    ].includes(name),
+    'text-white': ![
+      'lime',
+      'yellow',
+      'amber',
+      'white',
+      'light',
+      'light-grey',
+      'light-blue'
+    ].includes(name)
+  };
 }
 
-export function useGrayColorClasses (name: string | number) {
+export function useGrayColorClasses(name: string | number) {
   return {
     [`bg-grey-${name}`]: true,
     'text-black': ['100', '200', '300', '400', '500'].includes(<string>name),
     'text-white': !['100', '200', '300', '400', '500'].includes(<string>name)
-  }
+  };
 }
 
-export function useMaterialColorInfo (color: object) {
-  const keys = Object.keys(color)
-  const values = Object.values(color)
+export function useMaterialColorInfo(color: object) {
+  const keys = Object.keys(color);
+  const values = Object.values(color);
 
   return [
     {
@@ -129,5 +145,5 @@ export function useMaterialColorInfo (color: object) {
       color: keys[1],
       value: values[1]
     }
-  ]
+  ];
 }

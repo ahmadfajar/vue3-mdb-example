@@ -1,5 +1,6 @@
 {
-  "name": "vue-mdbootstrap-demo",
+  "name": "vue3-mdb-example",
+  "description": "Vue MDBootstrap v2.0 components demo",
   "version": "0.1.0",
   "private": true,
   "author": {

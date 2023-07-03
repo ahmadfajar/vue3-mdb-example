@@ -1,5 +1,5 @@
 <template>
-  <div class="demo-wrapper container-lg mx-auto">
+  <div class="docs-body container-lg mx-auto">
     <h2>Example</h2>
     <BsCard class="bg-grey-200 border-0">
       <BsCardBody style="padding: 2rem;">
