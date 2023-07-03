@@ -240,16 +240,16 @@
       <div class="mx-3">
         <div class="row text-center">
           <div class="col-6 col-lg-3 bg-indigo p-3">
-            <BsButton :pill="false" rounded transparent> Button </BsButton>
+            <BsButton transparent> Button </BsButton>
           </div>
           <div class="col-6 col-lg-3 bg-deep-purple p-3">
-            <BsButton :pill="false" rounded transparent> Button </BsButton>
+            <BsButton transparent> Button </BsButton>
           </div>
           <div class="col-6 col-lg-3 bg-red p-3">
-            <BsButton :pill="false" rounded transparent> Button </BsButton>
+            <BsButton transparent> Button </BsButton>
           </div>
           <div class="col-6 col-lg-3 bg-orange p-3">
-            <BsButton :pill="false" rounded transparent> Button </BsButton>
+            <BsButton transparent> Button </BsButton>
           </div>
         </div>
       </div>
