@@ -304,7 +304,7 @@
             :item-rounded="itemStyle === 'rounded'"
             :item-rounded-pill="itemStyle === 'pill'"
             :item-border-variant="getItemBorderVariant"
-            :space-around="spaceAround"
+            :space-around="getSpaceAround"
           >
             <BsListTile navigable>
               <BsListTileLeading icon="inbox" />
@@ -397,12 +397,12 @@ import { computed, ref } from 'vue';
 import type { TSpaceAround } from 'vue-mdbootstrap';
 
 const spaceAroundTypes = [
-  { label: 'None', value: null },
+  { label: 'None', value: 'none' },
   { label: 'Left', value: 'left' },
   { label: 'Right', value: 'right' },
   { label: 'Both', value: 'both' }
 ];
-const spaceAround = ref<TSpaceAround>();
+const spaceAround = ref<TSpaceAround | string>('none');
 const itemBorderVariants = [
   { label: 'None', value: 'none' },
   { label: 'Left', value: 'left' },
@@ -421,6 +421,9 @@ const itemStyles = [
 const itemStyle = ref<string>('none');
 const getItemBorderVariant = computed<string | undefined>(() =>
   itemBorderVariant.value === 'none' ? undefined : itemBorderVariant.value
+);
+const getSpaceAround = computed<TSpaceAround | undefined>(() =>
+  spaceAround.value === 'none' ? undefined : (spaceAround.value as TSpaceAround)
 );
 
 const listItems1 = [
