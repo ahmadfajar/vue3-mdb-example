@@ -315,7 +315,7 @@
             :item-rounded="itemStyle === 'rounded'"
             :item-rounded-pill="itemStyle === 'pill'"
             :item-border-variant="getItemBorderVariant"
-            :space-around="getSpaceAround"
+            :space-around="spaceAround"
           >
             <BsListNav>
               <BsListNavItem icon="inbox" label="Inbox">
@@ -398,7 +398,7 @@ const spaceAroundTypes = [
   { label: 'Right', value: 'right' },
   { label: 'Both', value: 'both' }
 ];
-const spaceAround = ref<TSpaceAround | string>('none');
+const spaceAround = ref<TSpaceAround>('none');
 const itemBorderVariants = [
   { label: 'None', value: 'none' },
   { label: 'Left', value: 'left' },
@@ -418,9 +418,6 @@ const itemStyle = ref<string>('none');
 const openSideDrawer1 = ref(true);
 const getItemBorderVariant = computed<string | undefined>(() =>
   itemBorderVariant.value === 'none' ? undefined : itemBorderVariant.value
-);
-const getSpaceAround = computed<TSpaceAround | undefined>(() =>
-  spaceAround.value === 'none' ? undefined : (spaceAround.value as TSpaceAround)
 );
 
 function toggleSideDrawer1(value: boolean) {
