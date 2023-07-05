@@ -38,13 +38,13 @@
       </BsListView>
     </BsSideDrawer>
     <BsContainer app class="y-overflow-hidden" @resize="onContainerResize">
-      <div class="body-content">
+      <main class="body-content">
         <RouterView v-slot="{ Component }">
           <Transition name="fastFade" mode="out-in">
             <component :is="Component" />
           </Transition>
         </RouterView>
-      </div>
+      </main>
     </BsContainer>
   </BsAppContainer>
 </template>

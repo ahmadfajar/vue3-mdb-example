@@ -144,7 +144,7 @@
           </BsCard>
         </div>
         <div class="col mb-3 mb-md-0">
-          <BsCard :rounded="false" class="bg-indigo text-white" shadow>
+          <BsCard class="bg-indigo text-white" rounded-off shadow>
             <BsCardHeader>Card with bg-indigo</BsCardHeader>
             <BsCardBody>
               <BsCardContent type="title"> Card Title </BsCardContent>
@@ -154,7 +154,7 @@
           </BsCard>
         </div>
         <div class="col">
-          <BsCard :rounded="false" class="bg-unique text-white" shadow>
+          <BsCard class="bg-unique text-white" rounded-off shadow>
             <BsCardHeader>Card with bg-unique</BsCardHeader>
             <BsCardBody>
               <BsCardContent type="title"> Card Title </BsCardContent>
