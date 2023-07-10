@@ -37,6 +37,7 @@
           </BsChip>
         </template>
       </div>
+      <div class="h5 mt-3">Outline styles</div>
       <div>
         <template v-for="color in colorVariants.slice(0, 10)" :key="color">
           <BsChip :color="color" class="mb-3" href="#/components/chip" active outlined>
