@@ -1,7 +1,7 @@
 <template>
   <div class="docs-body container-lg mx-auto">
     <h2>Fade</h2>
-    <BsCard class="bg-grey-200 border-0" style="min-height: 206px;">
+    <BsCard class="bg-grey-400 border-0" style="min-height: 206px;">
       <BsCardBody>
         <BsButton
           color="indigo"
@@ -24,7 +24,7 @@
     <h2 class="mt-5">
       Scale
     </h2>
-    <BsCard class="bg-grey-200 border-0" style="min-height: 206px;">
+    <BsCard class="bg-grey-400 border-0" style="min-height: 206px;">
       <BsCardBody>
         <BsButton
           color="indigo"
@@ -47,8 +47,8 @@
     <h2 class="mt-5">
       Slide Fade
     </h2>
-    <BsCard class="bg-grey-200 border-0" style="min-height: 206px;">
-      <BsCardBody>
+    <BsCard class="bg-grey-400 border-0" style="min-height: 206px;">
+      <BsCardBody class="position-relative overflow-hidden">
         <BsButton
           color="indigo"
           class="mb-3"
@@ -70,8 +70,8 @@
     <h2 class="mt-5">
       Slide Fade Reverse
     </h2>
-    <BsCard class="bg-grey-200 border-0" style="min-height: 206px;">
-      <BsCardBody>
+    <BsCard class="bg-grey-400 border-0" style="min-height: 206px;">
+      <BsCardBody class="position-relative overflow-hidden">
         <BsButton
           color="indigo"
           class="mb-3"
@@ -93,8 +93,8 @@
     <h2 class="mt-5">
       Slide Left Right
     </h2>
-    <BsCard class="bg-grey-200 border-0" style="min-height: 206px;">
-      <BsCardBody>
+    <BsCard class="bg-grey-400 border-0" style="min-height: 206px;">
+      <BsCardBody class="position-relative overflow-hidden">
         <BsButton
           color="indigo"
           class="mb-3"
@@ -116,8 +116,8 @@
     <h2 class="mt-5">
       Slide Right Left
     </h2>
-    <BsCard class="bg-grey-200 border-0" style="min-height: 206px;">
-      <BsCardBody>
+    <BsCard class="bg-grey-400 border-0" style="min-height: 206px;">
+      <BsCardBody class="position-relative overflow-hidden">
         <BsButton
           color="indigo"
           class="mb-3"
@@ -139,7 +139,7 @@
     <h2 class="mt-5">
       Slide Top Bottom
     </h2>
-    <BsCard class="bg-grey-200 border-0" style="min-height: 206px;">
+    <BsCard class="bg-grey-400 border-0" style="min-height: 206px;">
       <BsCardBody>
         <BsButton
           color="indigo"
@@ -162,7 +162,7 @@
     <h2 class="mt-5">
       Slide Bottom Top
     </h2>
-    <BsCard class="bg-grey-200 border-0" style="min-height: 206px;">
+    <BsCard class="bg-grey-400 border-0" style="min-height: 206px;">
       <BsCardBody>
         <BsButton
           color="indigo"
@@ -185,7 +185,7 @@
     <h2 class="mt-5">
       Expand Transition
     </h2>
-    <BsCard class="bg-grey-200 border-0" style="min-height: 302px;">
+    <BsCard class="bg-grey-400 border-0" style="min-height: 302px;">
       <BsCardBody>
         <BsButton
           color="indigo"
@@ -210,7 +210,7 @@
     <h2 class="mt-5">
       Rotate Clock Direction
     </h2>
-    <BsCard class="bg-grey-200 border-0" style="min-height: 206px;">
+    <BsCard class="bg-grey-400 border-0" style="min-height: 206px;">
       <BsCardBody>
         <BsButton
           color="indigo"
@@ -233,7 +233,7 @@
     <h2 class="mt-5">
       Rotate Reverse Direction
     </h2>
-    <BsCard class="bg-grey-200 border-0" style="min-height: 206px;">
+    <BsCard class="bg-grey-400 border-0" style="min-height: 206px;">
       <BsCardBody>
         <BsButton
           color="indigo"
@@ -256,8 +256,8 @@
     <h2 class="mt-5">
       Roll In-Out
     </h2>
-    <BsCard class="bg-grey-200 border-0" style="min-height: 206px;">
-      <BsCardBody>
+    <BsCard class="bg-grey-400 border-0" style="min-height: 206px;">
+      <BsCardBody class="position-relative overflow-hidden">
         <BsButton
           color="indigo"
           class="mb-3"

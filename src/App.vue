@@ -37,7 +37,7 @@
         </BsListNav>
       </BsListView>
     </BsSideDrawer>
-    <BsContainer app class="y-overflow-hidden" @resize="onContainerResize">
+    <BsContainer app @resize="onContainerResize">
       <main class="body-content">
         <RouterView v-slot="{ Component }">
           <Transition name="fastFade" mode="out-in">
@@ -98,7 +98,6 @@ const routeNavB = menuNavs.filter((it) => it.group === 'Reference').sort(compare
 }
 
 #app {
-  font-family: 'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   max-width: 100%;
   max-height: 100vh;
 

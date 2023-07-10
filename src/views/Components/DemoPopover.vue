@@ -18,7 +18,7 @@
               <BsListTileTitle>
                 <b>John Doe</b>
               </BsListTileTitle>
-              <BsListTileSubtitle> Going further more... </BsListTileSubtitle>
+              <BsListTileSubtitle>Going further more...</BsListTileSubtitle>
             </BsListTileContent>
           </BsListTile>
         </BsListView>
