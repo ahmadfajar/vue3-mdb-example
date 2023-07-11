@@ -61,11 +61,11 @@ watch(
     styles['--md-field-button-color'] = textColor;
 
     if (textColor.startsWith('#fff')) {
-      styles['--md-field-active-indicator'] = 'var(--md-field-accent-indicator)';
+      styles['--md-field-active-indicator'] = 'var(--md-field-accent-indicator-rgb)';
       styles['--md-field-button-active-bg'] = 'rgba(250,250,250,.25)';
       styles['--md-field-button-hover-bg'] = 'rgba(180,180,180,.15)';
     } else {
-      styles['--md-field-active-indicator'] = 'var(--md-field-primary-indicator)';
+      styles['--md-field-active-indicator'] = 'var(--md-field-primary-indicator-rgb)';
       styles['--md-field-button-active-bg'] = 'rgba(12,12,12,.25)';
       styles['--md-field-button-hover-bg'] = 'rgba(80,80,80,.2)';
     }

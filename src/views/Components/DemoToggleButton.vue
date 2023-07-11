@@ -44,7 +44,12 @@
             :pill="false"
             color="primary"
             rounded
-          />
+          >
+            <template #icon="item">
+              <icon-bullhorn v-if="item.value === 'sunny'" width="18" height="18" />
+              <BsIcon v-else :icon="item.icon" size="22" />
+            </template>
+          </BsToggleButton>
         </div>
       </div>
       <div class="row my-3">
@@ -77,6 +82,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue';
+import { IconBullhorn } from '@/sharedApi';
 
 const drinks = [
   {

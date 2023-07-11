@@ -149,11 +149,11 @@
           </template>
           Custom Icon
         </BsChip>
-        <BsChip color="success">
-          Custom Icon
+        <BsChip color="success" icon-position="right">
           <template #icon>
             <icon-bullhorn height="18" width="18" />
           </template>
+          Custom Icon
         </BsChip>
       </div>
     </DemoBlock>

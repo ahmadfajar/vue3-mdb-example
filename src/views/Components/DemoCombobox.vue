@@ -174,8 +174,9 @@
             v-model="states11"
             :data-source="statesUS11"
             multiple
+            chip-color="primary"
             chip-enabled
-            chip-color="mdb-color"
+            chip-outlined
             floating-label
             outlined
           >
@@ -187,10 +188,10 @@
             v-model="states12"
             :data-source="statesUS12"
             multiple
+            chip-color="danger"
             chip-enabled
             chip-outlined
             chip-pill
-            chip-color="danger"
             floating-label
             outlined
             placeholder="Placeholder"
