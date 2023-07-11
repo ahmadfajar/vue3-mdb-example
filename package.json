@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "vue": "^3.3.4",
-    "vue-mdbootstrap": "^2.0.2",
+    "vue-mdbootstrap": "^2.0.3",
     "vue-router": "^4.2.4"
   },
   "devDependencies": {
