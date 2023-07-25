@@ -10,7 +10,7 @@
   "license": "BSD-3-Clause",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --port 5175",
     "build": "run-p type-check build-only",
     "preview": "vite preview",
     "build-only": "vite build",

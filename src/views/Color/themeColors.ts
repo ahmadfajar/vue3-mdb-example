@@ -76,7 +76,7 @@ export const materialColors = {
   },
   'success-color': {
     'success-color': themeColors.success,
-    'success-color-dark': '#025222'
+    'success-color-dark': '#0f5334'
   },
   'blue-green-color': {
     'blue-green-color': themeColors['blue-green'],

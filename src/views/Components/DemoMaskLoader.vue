@@ -6,7 +6,7 @@
       <div class="col-md-6 mb-4">
         <BsCard shadow>
           <BsCardBody>
-            <BsCardContent type="title"> Linear Loader </BsCardContent>
+            <BsCardContent type="title">Linear Loader</BsCardContent>
             <p>{{ content }}</p>
           </BsCardBody>
           <BsMaskLoader v-model:show="showLinear1" />
@@ -18,10 +18,10 @@
       <div class="col-md-6 mb-4">
         <BsCard shadow>
           <BsCardBody>
-            <BsCardContent type="title"> Progress Loader </BsCardContent>
+            <BsCardContent type="title">Linear-Alt Loader</BsCardContent>
             <p>{{ content }}</p>
           </BsCardBody>
-          <BsMaskLoader v-model:show="showProgress1" variant="progress" />
+          <BsMaskLoader v-model:show="showProgress1" type="linear-alt" />
         </BsCard>
         <BsButton color="default-color mt-3" @click="showProgress1 = !showProgress1">
           Toggle Loader
@@ -30,10 +30,10 @@
       <div class="col-md-6 mb-4 mb-md-0">
         <BsCard shadow>
           <BsCardBody>
-            <BsCardContent type="title"> Spinner Loader </BsCardContent>
+            <BsCardContent type="title">Spinner Loader</BsCardContent>
             <p>{{ content }}</p>
           </BsCardBody>
-          <BsMaskLoader v-model:show="showSpinner1" variant="spinner" />
+          <BsMaskLoader v-model:show="showSpinner1" type="spinner" />
         </BsCard>
         <BsButton color="default-color mt-3" @click="showSpinner1 = !showSpinner1">
           Toggle Loader
@@ -42,10 +42,10 @@
       <div class="col-md-6 mb-4 mb-md-0">
         <BsCard shadow>
           <BsCardBody>
-            <BsCardContent type="title"> Growing Spinner Loader </BsCardContent>
+            <BsCardContent type="title">Growing Spinner Loader</BsCardContent>
             <p>{{ content }}</p>
           </BsCardBody>
-          <BsMaskLoader v-model:show="showGrow1" variant="grow" />
+          <BsMaskLoader v-model:show="showGrow1" type="grow" />
         </BsCard>
         <BsButton color="default-color mt-3" @click="showGrow1 = !showGrow1">
           Toggle Loader
@@ -58,7 +58,7 @@
       <div class="col-md-6 mb-4">
         <BsCard shadow>
           <BsCardBody>
-            <BsCardContent type="title"> Linear Loader </BsCardContent>
+            <BsCardContent type="title">Linear Loader</BsCardContent>
             <p>{{ content }}</p>
           </BsCardBody>
           <BsMaskLoader
@@ -76,12 +76,12 @@
       <div class="col-md-6 mb-4">
         <BsCard shadow>
           <BsCardBody>
-            <BsCardContent type="title"> Progress Loader </BsCardContent>
+            <BsCardContent type="title">Linear-Alt Loader</BsCardContent>
             <p>{{ content }}</p>
           </BsCardBody>
           <BsMaskLoader
             v-model:show="showProgress2"
-            variant="progress"
+            type="linear-alt"
             overlay-color="#064E40"
             spinner-color="blue-green"
             spinner-diameter="60"
@@ -95,12 +95,12 @@
       <div class="col-md-6 mb-4 mb-md-0">
         <BsCard shadow>
           <BsCardBody>
-            <BsCardContent type="title"> Spinner Loader </BsCardContent>
+            <BsCardContent type="title">Spinner Loader</BsCardContent>
             <p>{{ content }}</p>
           </BsCardBody>
           <BsMaskLoader
             v-model:show="showSpinner2"
-            variant="spinner"
+            type="spinner"
             overlay-color="#064E40"
             spinner-color="purple"
             spinner-diameter="60"
@@ -113,12 +113,12 @@
       <div class="col-md-6 mb-4 mb-md-0">
         <BsCard shadow>
           <BsCardBody>
-            <BsCardContent type="title"> Growing Spinner Loader </BsCardContent>
+            <BsCardContent type="title">Growing Spinner Loader</BsCardContent>
             <p>{{ content }}</p>
           </BsCardBody>
           <BsMaskLoader
             v-model:show="showGrow2"
-            variant="grow"
+            type="grow"
             overlay-color="#064E40"
             spinner-color="red"
             spinner-diameter="60"
@@ -135,8 +135,7 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
 
-const content =
-  "Some quick example text to build on the card title and make up the bulk of the card's content.";
+const content ='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Auctor augue mauris augue neque gravida in fermentum et sollicitudin.';
 const showGrow1 = ref(false);
 const showLinear1 = ref(false);
 const showProgress1 = ref(false);
