@@ -82,9 +82,10 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue';
+import type { TInputOptionItem } from 'vue-mdbootstrap';
 import { IconBullhorn } from '@/sharedApi';
 
-const drinks = [
+const drinks: TInputOptionItem[] = [
   {
     value: 'tea',
     label: 'Tea'
@@ -99,7 +100,7 @@ const drinks = [
   }
 ];
 
-const weathers = [
+const weathers: TInputOptionItem[] = [
   {
     value: 'sunny',
     label: 'Sunny',

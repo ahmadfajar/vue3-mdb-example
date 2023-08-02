@@ -51,8 +51,8 @@ export const grayColors = {
 
 export const materialColors = {
   'default-color': {
-    'default-color': '#6200ee',
-    'default-color-dark': '#4600ab'
+    'default-color': '#5f4a97',
+    'default-color-dark': '#44307a'
   },
   'primary-color': {
     'primary-color': themeColors.primary,
