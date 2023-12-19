@@ -165,20 +165,20 @@ const neighborhoods = [
   { text: 'Kennedy Park' }
 ];
 const amenities2 = [
-  { text: 'Elevator', imgSrc: 'https://vue-mdbootstrap.fajarconsultant.com/img/1.jpg' },
-  { text: 'Washer / Dryer', imgSrc: 'https://vue-mdbootstrap.fajarconsultant.com/img/2.jpg' },
-  { text: 'Fireplace', imgSrc: 'https://vue-mdbootstrap.fajarconsultant.com/img/3.jpg' },
-  { text: 'Wheelchair access', imgSrc: 'https://vue-mdbootstrap.fajarconsultant.com/img/4.jpg' },
-  { text: 'Dogs ok', imgSrc: 'https://vue-mdbootstrap.fajarconsultant.com/img/5.jpg' },
-  { text: 'Cats ok', imgSrc: 'https://vue-mdbootstrap.fajarconsultant.com/img/kitty-1.jpg' }
+  { text: 'Elevator', imgSrc: 'https://ahmadfajar.github.io/img/1.jpg' },
+  { text: 'Washer / Dryer', imgSrc: 'https://ahmadfajar.github.io/img/2.jpg' },
+  { text: 'Fireplace', imgSrc: 'https://ahmadfajar.github.io/img/3.jpg' },
+  { text: 'Wheelchair access', imgSrc: 'https://ahmadfajar.github.io/img/4.jpg' },
+  { text: 'Dogs ok', imgSrc: 'https://ahmadfajar.github.io/img/5.jpg' },
+  { text: 'Cats ok', imgSrc: 'https://ahmadfajar.github.io/img/kitty-1.jpg' }
 ];
 const neighborhoods2 = [
-  { text: 'Snowy Rock Place', imgSrc: 'https://vue-mdbootstrap.fajarconsultant.com/img/1.jpg' },
-  { text: 'Honey Lane Circle', imgSrc: 'https://vue-mdbootstrap.fajarconsultant.com/img/2.jpg' },
-  { text: 'Donna Drive', imgSrc: 'https://vue-mdbootstrap.fajarconsultant.com/img/3.jpg' },
-  { text: 'Elaine Street', imgSrc: 'https://vue-mdbootstrap.fajarconsultant.com/img/4.jpg' },
-  { text: 'Court Street', imgSrc: 'https://vue-mdbootstrap.fajarconsultant.com/img/5.jpg' },
-  { text: 'Kennedy Park', imgSrc: 'https://vue-mdbootstrap.fajarconsultant.com/img/kitty-1.jpg' }
+  { text: 'Snowy Rock Place', imgSrc: 'https://ahmadfajar.github.io/img/1.jpg' },
+  { text: 'Honey Lane Circle', imgSrc: 'https://ahmadfajar.github.io/img/2.jpg' },
+  { text: 'Donna Drive', imgSrc: 'https://ahmadfajar.github.io/img/3.jpg' },
+  { text: 'Elaine Street', imgSrc: 'https://ahmadfajar.github.io/img/4.jpg' },
+  { text: 'Court Street', imgSrc: 'https://ahmadfajar.github.io/img/5.jpg' },
+  { text: 'Kennedy Park', imgSrc: 'https://ahmadfajar.github.io/img/kitty-1.jpg' }
 ];
 </script>
 
