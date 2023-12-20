@@ -11,7 +11,7 @@
         <BsListView>
           <BsListTile>
             <BsListTileLeading
-              img-src="https://vue-mdbootstrap.fajarconsultant.com/img/2.jpg"
+              img-src="https://ahmadfajar.github.io/img/2.jpg"
               rounded
             />
             <BsListTileContent>
@@ -57,7 +57,7 @@
             <BsListView>
               <BsListTile>
                 <BsListTileLeading
-                  img-src="https://vue-mdbootstrap.fajarconsultant.com/img/2.jpg"
+                  img-src="https://ahmadfajar.github.io/img/2.jpg"
                   rounded
                 />
                 <BsListTileContent>
@@ -100,7 +100,7 @@
             <BsListView>
               <BsListTile>
                 <BsListTileLeading
-                  img-src="https://vue-mdbootstrap.fajarconsultant.com/img/2.jpg"
+                  img-src="https://ahmadfajar.github.io/img/2.jpg"
                   rounded
                 />
                 <BsListTileContent>
@@ -143,7 +143,7 @@
             <BsListView>
               <BsListTile>
                 <BsListTileLeading
-                  img-src="https://vue-mdbootstrap.fajarconsultant.com/img/2.jpg"
+                  img-src="https://ahmadfajar.github.io/img/2.jpg"
                   rounded
                 />
                 <BsListTileContent>
@@ -186,7 +186,7 @@
             <BsListView>
               <BsListTile>
                 <BsListTileLeading
-                  img-src="https://vue-mdbootstrap.fajarconsultant.com/img/2.jpg"
+                  img-src="https://ahmadfajar.github.io/img/2.jpg"
                   rounded
                 />
                 <BsListTileContent>
@@ -229,7 +229,7 @@
             <BsListView>
               <BsListTile>
                 <BsListTileLeading
-                  img-src="https://vue-mdbootstrap.fajarconsultant.com/img/2.jpg"
+                  img-src="https://ahmadfajar.github.io/img/2.jpg"
                   rounded
                 />
                 <BsListTileContent>
@@ -272,7 +272,7 @@
             <BsListView>
               <BsListTile>
                 <BsListTileLeading
-                  img-src="https://vue-mdbootstrap.fajarconsultant.com/img/2.jpg"
+                  img-src="https://ahmadfajar.github.io/img/2.jpg"
                   rounded
                 />
                 <BsListTileContent>
@@ -315,7 +315,7 @@
             <BsListView>
               <BsListTile>
                 <BsListTileLeading
-                  img-src="https://vue-mdbootstrap.fajarconsultant.com/img/2.jpg"
+                  img-src="https://ahmadfajar.github.io/img/2.jpg"
                   rounded
                 />
                 <BsListTileContent>
@@ -358,7 +358,7 @@
             <BsListView>
               <BsListTile>
                 <BsListTileLeading
-                  img-src="https://vue-mdbootstrap.fajarconsultant.com/img/2.jpg"
+                  img-src="https://ahmadfajar.github.io/img/2.jpg"
                   rounded
                 />
                 <BsListTileContent>

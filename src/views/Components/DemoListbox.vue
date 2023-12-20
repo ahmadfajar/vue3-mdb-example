@@ -168,42 +168,42 @@ const peopleSrc2: TDataSource = {
       {
         id: 1,
         name: 'Sandra Adams',
-        avatar: 'https://vue-mdbootstrap.fajarconsultant.com/img/1.jpg'
+        avatar: 'https://ahmadfajar.github.io/img/1.jpg'
       },
       {
         id: 2,
         name: 'Ali Connors',
-        avatar: 'https://vue-mdbootstrap.fajarconsultant.com/img/2.jpg'
+        avatar: 'https://ahmadfajar.github.io/img/2.jpg'
       },
       {
         id: 3,
         name: 'Trevor Hansen',
-        avatar: 'https://vue-mdbootstrap.fajarconsultant.com/img/3.jpg'
+        avatar: 'https://ahmadfajar.github.io/img/3.jpg'
       },
       {
         id: 4,
         name: 'Tucker Smith',
-        avatar: 'https://vue-mdbootstrap.fajarconsultant.com/img/4.jpg'
+        avatar: 'https://ahmadfajar.github.io/img/4.jpg'
       },
       {
         id: 5,
         name: 'Britta Holt',
-        avatar: 'https://vue-mdbootstrap.fajarconsultant.com/img/5.jpg'
+        avatar: 'https://ahmadfajar.github.io/img/5.jpg'
       },
       {
         id: 6,
         name: 'Jane Smith',
-        avatar: 'https://vue-mdbootstrap.fajarconsultant.com/img/3.jpg'
+        avatar: 'https://ahmadfajar.github.io/img/3.jpg'
       },
       {
         id: 7,
         name: 'John Smith',
-        avatar: 'https://vue-mdbootstrap.fajarconsultant.com/img/2.jpg'
+        avatar: 'https://ahmadfajar.github.io/img/2.jpg'
       },
       {
         id: 8,
         name: 'Sandra Williams',
-        avatar: 'https://vue-mdbootstrap.fajarconsultant.com/img/4.jpg'
+        avatar: 'https://ahmadfajar.github.io/img/4.jpg'
       }
     ],
     {
@@ -221,7 +221,7 @@ const statesCA1: TDataSource = {
     remoteFilter: false,
     filters: [{ property: 'country', value: 'CA', operator: 'eq' }],
     restProxy: {
-      browse: 'https://vue-mdbootstrap.fajarconsultant.com/data/states.json'
+      browse: 'https://ahmadfajar.github.io/data/states.json'
     }
   })
 };
@@ -234,7 +234,7 @@ const statesCA2: TDataSource = {
     remoteFilter: false,
     filters: [{ property: 'country', value: 'CA', operator: 'eq' }],
     restProxy: {
-      browse: 'https://vue-mdbootstrap.fajarconsultant.com/data/states.json'
+      browse: 'https://ahmadfajar.github.io/data/states.json'
     }
   })
 };
@@ -246,7 +246,7 @@ const productSrc: TDataSource = {
     remoteSort: false,
     remoteFilter: false,
     restProxy: {
-      browse: 'https://vue-mdbootstrap.fajarconsultant.com/data/product.json'
+      browse: 'https://ahmadfajar.github.io/data/product.json'
     }
   }),
   schema: { displayField: 'ProductName', valueField: 'ProductID' }

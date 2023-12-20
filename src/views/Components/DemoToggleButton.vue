@@ -46,8 +46,8 @@
             rounded
           >
             <template #icon="item">
-              <icon-bullhorn v-if="item.value === 'sunny'" width="18" height="18" />
-              <BsIcon v-else :icon="item.icon" size="22" />
+              <icon-bullhorn v-if="item?.value === 'sunny'" width="18" height="18" />
+              <BsIcon v-else :icon="item?.icon" size="22" />
             </template>
           </BsToggleButton>
         </div>
@@ -122,7 +122,7 @@ const weathers: TInputOptionItem[] = [
 ];
 
 const selectedDrink = ref<string>();
-const favoriteDrinks = ref<Array<string>>([]);
+const favoriteDrinks = ref<string[]>([]);
 const selectedWeather = ref<string>();
 </script>
 

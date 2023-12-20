@@ -660,7 +660,7 @@ const statesUS1: TDataSource = {
     remoteFilter: false,
     filters: [{ property: 'country', value: 'US', operator: 'eq' }],
     restProxy: {
-      browse: 'https://vue-mdbootstrap.fajarconsultant.com/data/states.json'
+      browse: 'https://ahmadfajar.github.io/data/states.json'
     }
   })
 };
@@ -673,7 +673,7 @@ const statesUS2: TDataSource = {
     remoteFilter: false,
     filters: [{ property: 'country', value: 'US', operator: 'eq' }],
     restProxy: {
-      browse: 'https://vue-mdbootstrap.fajarconsultant.com/data/states.json'
+      browse: 'https://ahmadfajar.github.io/data/states.json'
     }
   })
 };
@@ -686,7 +686,7 @@ const statesUS3: TDataSource = {
     remoteFilter: false,
     filters: [{ property: 'country', value: 'US', operator: 'eq' }],
     restProxy: {
-      browse: 'https://vue-mdbootstrap.fajarconsultant.com/data/states.json'
+      browse: 'https://ahmadfajar.github.io/data/states.json'
     }
   })
 };
@@ -699,7 +699,7 @@ const statesUS4: TDataSource = {
     remoteFilter: false,
     filters: [{ property: 'country', value: 'US', operator: 'eq' }],
     restProxy: {
-      browse: 'https://vue-mdbootstrap.fajarconsultant.com/data/states.json'
+      browse: 'https://ahmadfajar.github.io/data/states.json'
     }
   })
 };
@@ -712,7 +712,7 @@ const statesUS5: TDataSource = {
     remoteFilter: false,
     filters: [{ property: 'country', value: 'US', operator: 'eq' }],
     restProxy: {
-      browse: 'https://vue-mdbootstrap.fajarconsultant.com/data/states.json'
+      browse: 'https://ahmadfajar.github.io/data/states.json'
     }
   })
 };
@@ -725,7 +725,7 @@ const statesUS6: TDataSource = {
     remoteFilter: false,
     filters: [{ property: 'country', value: 'US', operator: 'eq' }],
     restProxy: {
-      browse: 'https://vue-mdbootstrap.fajarconsultant.com/data/states.json'
+      browse: 'https://ahmadfajar.github.io/data/states.json'
     }
   })
 };
@@ -739,7 +739,7 @@ const statesUS7: TDataSource = {
     remoteFilter: false,
     filters: [{ property: 'country', value: 'US', operator: 'eq' }],
     restProxy: {
-      browse: 'https://vue-mdbootstrap.fajarconsultant.com/data/states.json'
+      browse: 'https://ahmadfajar.github.io/data/states.json'
     }
   })
 };
@@ -752,7 +752,7 @@ const statesUS8: TDataSource = {
     remoteFilter: false,
     filters: [{ property: 'country', value: 'US', operator: 'eq' }],
     restProxy: {
-      browse: 'https://vue-mdbootstrap.fajarconsultant.com/data/states.json'
+      browse: 'https://ahmadfajar.github.io/data/states.json'
     }
   })
 };
@@ -765,7 +765,7 @@ const statesUS9: TDataSource = {
     remoteFilter: false,
     filters: [{ property: 'country', value: 'US', operator: 'eq' }],
     restProxy: {
-      browse: 'https://vue-mdbootstrap.fajarconsultant.com/data/states.json'
+      browse: 'https://ahmadfajar.github.io/data/states.json'
     }
   })
 };
@@ -778,7 +778,7 @@ const statesUS10: TDataSource = {
     remoteFilter: false,
     filters: [{ property: 'country', value: 'US', operator: 'eq' }],
     restProxy: {
-      browse: 'https://vue-mdbootstrap.fajarconsultant.com/data/states.json'
+      browse: 'https://ahmadfajar.github.io/data/states.json'
     }
   })
 };
@@ -791,7 +791,7 @@ const statesUS11: TDataSource = {
     remoteFilter: false,
     filters: [{ property: 'country', value: 'US', operator: 'eq' }],
     restProxy: {
-      browse: 'https://vue-mdbootstrap.fajarconsultant.com/data/states.json'
+      browse: 'https://ahmadfajar.github.io/data/states.json'
     }
   })
 };
@@ -804,7 +804,7 @@ const statesUS12: TDataSource = {
     remoteFilter: false,
     filters: [{ property: 'country', value: 'US', operator: 'eq' }],
     restProxy: {
-      browse: 'https://vue-mdbootstrap.fajarconsultant.com/data/states.json'
+      browse: 'https://ahmadfajar.github.io/data/states.json'
     }
   })
 };
@@ -818,7 +818,7 @@ const statesUS13: TDataSource = {
     remoteFilter: false,
     filters: [{ property: 'country', value: 'US', operator: 'eq' }],
     restProxy: {
-      browse: 'https://vue-mdbootstrap.fajarconsultant.com/data/states.json'
+      browse: 'https://ahmadfajar.github.io/data/states.json'
     }
   })
 };
@@ -831,7 +831,7 @@ const statesUS14: TDataSource = {
     remoteFilter: false,
     filters: [{ property: 'country', value: 'US', operator: 'eq' }],
     restProxy: {
-      browse: 'https://vue-mdbootstrap.fajarconsultant.com/data/states.json'
+      browse: 'https://ahmadfajar.github.io/data/states.json'
     }
   })
 };
@@ -844,7 +844,7 @@ const statesUS15: TDataSource = {
     remoteFilter: false,
     filters: [{ property: 'country', value: 'US', operator: 'eq' }],
     restProxy: {
-      browse: 'https://vue-mdbootstrap.fajarconsultant.com/data/states.json'
+      browse: 'https://ahmadfajar.github.io/data/states.json'
     }
   })
 };
@@ -857,7 +857,7 @@ const statesUS16: TDataSource = {
     remoteFilter: false,
     filters: [{ property: 'country', value: 'US', operator: 'eq' }],
     restProxy: {
-      browse: 'https://vue-mdbootstrap.fajarconsultant.com/data/states.json'
+      browse: 'https://ahmadfajar.github.io/data/states.json'
     }
   })
 };
@@ -870,7 +870,7 @@ const statesUS17: TDataSource = {
     remoteFilter: false,
     filters: [{ property: 'country', value: 'US', operator: 'eq' }],
     restProxy: {
-      browse: 'https://vue-mdbootstrap.fajarconsultant.com/data/states.json'
+      browse: 'https://ahmadfajar.github.io/data/states.json'
     }
   })
 };
@@ -883,7 +883,7 @@ const statesUS18: TDataSource = {
     remoteFilter: false,
     filters: [{ property: 'country', value: 'US', operator: 'eq' }],
     restProxy: {
-      browse: 'https://vue-mdbootstrap.fajarconsultant.com/data/states.json'
+      browse: 'https://ahmadfajar.github.io/data/states.json'
     }
   })
 };
@@ -897,7 +897,7 @@ const statesUS20: TDataSource = {
     remoteFilter: false,
     filters: [{ property: 'country', value: 'US', operator: 'eq' }],
     restProxy: {
-      browse: 'https://vue-mdbootstrap.fajarconsultant.com/data/states.json'
+      browse: 'https://ahmadfajar.github.io/data/states.json'
     }
   })
 };
@@ -910,7 +910,7 @@ const statesUS21: TDataSource = {
     remoteFilter: false,
     filters: [{ property: 'country', value: 'US', operator: 'eq' }],
     restProxy: {
-      browse: 'https://vue-mdbootstrap.fajarconsultant.com/data/states.json'
+      browse: 'https://ahmadfajar.github.io/data/states.json'
     }
   })
 };
@@ -923,7 +923,7 @@ const statesUS22: TDataSource = {
     remoteFilter: false,
     filters: [{ property: 'country', value: 'US', operator: 'eq' }],
     restProxy: {
-      browse: 'https://vue-mdbootstrap.fajarconsultant.com/data/states.json'
+      browse: 'https://ahmadfajar.github.io/data/states.json'
     }
   })
 };
@@ -936,7 +936,7 @@ const statesUS23: TDataSource = {
     remoteFilter: false,
     filters: [{ property: 'country', value: 'US', operator: 'eq' }],
     restProxy: {
-      browse: 'https://vue-mdbootstrap.fajarconsultant.com/data/states.json'
+      browse: 'https://ahmadfajar.github.io/data/states.json'
     }
   })
 };
@@ -949,7 +949,7 @@ const statesUS24: TDataSource = {
     remoteFilter: false,
     filters: [{ property: 'country', value: 'US', operator: 'eq' }],
     restProxy: {
-      browse: 'https://vue-mdbootstrap.fajarconsultant.com/data/states.json'
+      browse: 'https://ahmadfajar.github.io/data/states.json'
     }
   })
 };
@@ -962,7 +962,7 @@ const statesUS25: TDataSource = {
     remoteFilter: false,
     filters: [{ property: 'country', value: 'US', operator: 'eq' }],
     restProxy: {
-      browse: 'https://vue-mdbootstrap.fajarconsultant.com/data/states.json'
+      browse: 'https://ahmadfajar.github.io/data/states.json'
     }
   })
 };

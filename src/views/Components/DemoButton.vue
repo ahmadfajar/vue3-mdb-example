@@ -235,25 +235,6 @@
         </BsButton>
       </div>
     </DemoBlock>
-    <h4 class="mt-5">Transparent Button</h4>
-    <DemoBlock class="mt-4">
-      <div class="mx-3">
-        <div class="row text-center">
-          <div class="col-6 col-lg-3 bg-indigo p-3">
-            <BsButton transparent> Button </BsButton>
-          </div>
-          <div class="col-6 col-lg-3 bg-deep-purple p-3">
-            <BsButton transparent> Button </BsButton>
-          </div>
-          <div class="col-6 col-lg-3 bg-red p-3">
-            <BsButton transparent> Button </BsButton>
-          </div>
-          <div class="col-6 col-lg-3 bg-orange p-3">
-            <BsButton transparent> Button </BsButton>
-          </div>
-        </div>
-      </div>
-    </DemoBlock>
   </div>
 </template>
 

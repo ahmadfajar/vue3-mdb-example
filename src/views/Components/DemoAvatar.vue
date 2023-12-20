@@ -13,12 +13,12 @@
           circle
         />
         <BsAvatar
-          img-src="https://vue-mdbootstrap.fajarconsultant.com/img/kitty-1.jpg"
+          img-src="https://ahmadfajar.github.io/img/kitty-1.jpg"
           class="m-2 bg-teal"
           circle
         />
         <BsAvatar
-          img-src="https://vue-mdbootstrap.fajarconsultant.com/img/kitty-1.jpg"
+          img-src="https://ahmadfajar.github.io/img/kitty-1.jpg"
           border="2px"
           border-color="red"
           class="m-2 bg-teal"

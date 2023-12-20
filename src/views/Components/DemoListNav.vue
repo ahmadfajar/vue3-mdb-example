@@ -249,7 +249,7 @@
             <img
               alt="image"
               class="rounded-circle"
-              src="https://vue-mdbootstrap.fajarconsultant.com/img/kitty-1.jpg"
+              src="https://ahmadfajar.github.io/img/kitty-1.jpg"
               style="width: 40px"
             />
             <span class="h5 ps-3">Kitty Doe</span>

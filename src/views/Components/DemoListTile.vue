@@ -220,7 +220,7 @@
             <img
               alt="image"
               class="rounded-circle"
-              src="https://vue-mdbootstrap.fajarconsultant.com/img/kitty-1.jpg"
+              src="https://ahmadfajar.github.io/img/kitty-1.jpg"
               style="width: 40px"
             />
             <span class="h5 ps-3">Kitty Doe</span>
@@ -425,24 +425,24 @@ const getItemBorderVariant = computed<string | undefined>(() =>
 
 const listItems1 = [
   {
-    avatar: 'https://vue-mdbootstrap.fajarconsultant.com/img/1.jpg',
+    avatar: 'https://ahmadfajar.github.io/img/1.jpg',
     title: 'Brunch this weekend?',
     subtitle:
       "<b>Ali Connors</b> &#8212; I'll be in your neighborhood doing errands this weekend. Do you want to hang out?"
   },
   {
-    avatar: 'https://vue-mdbootstrap.fajarconsultant.com/img/2.jpg',
+    avatar: 'https://ahmadfajar.github.io/img/2.jpg',
     title: 'Summer BBQ',
     subtitle:
       "<b>to Alex, Scott, Jennifer</b> &mdash; Wish I could come, but I'm out of town this weekend."
   },
   {
-    avatar: 'https://vue-mdbootstrap.fajarconsultant.com/img/3.jpg',
+    avatar: 'https://ahmadfajar.github.io/img/3.jpg',
     title: 'Oui oui',
     subtitle: '<b>Sandra Adams</b> &mdash; Do you have Paris recommendations? Have you ever been?'
   },
   {
-    avatar: 'https://vue-mdbootstrap.fajarconsultant.com/img/4.jpg',
+    avatar: 'https://ahmadfajar.github.io/img/4.jpg',
     title: 'Birthday gift',
     subtitle:
       '<b>Trevor Hansen</b> &mdash; Have any ideas about what we should get Heidi for her birthday?'
@@ -450,37 +450,37 @@ const listItems1 = [
 ];
 const listItems2 = ref([
   {
-    avatar: 'https://vue-mdbootstrap.fajarconsultant.com/img/crunchy-croissants.jpg',
+    avatar: 'https://ahmadfajar.github.io/img/crunchy-croissants.jpg',
     title: 'Crunchy Croissants',
     text: 'Buttery, flaky pastry named for its crescent shaped.',
     active: true
   },
   {
-    avatar: 'https://vue-mdbootstrap.fajarconsultant.com/img/grilled-eggplant.jpg',
+    avatar: 'https://ahmadfajar.github.io/img/grilled-eggplant-1.jpg',
     title: 'Grilled Eggplant',
     text: 'Tender with a rich, complex flavor when cooked.',
     active: true
   },
   {
-    avatar: 'https://vue-mdbootstrap.fajarconsultant.com/img/tangerine-salad.jpg',
+    avatar: 'https://ahmadfajar.github.io/img/tangerine-salad.jpg',
     title: 'Tangerine Salad',
     text: 'Peak tangerine season lasts from autumn to spring.',
     active: true
   },
   {
-    avatar: 'https://vue-mdbootstrap.fajarconsultant.com/img/pomegranate-juice.jpg',
+    avatar: 'https://ahmadfajar.github.io/img/pomegranate-juice.jpg',
     title: 'Pomegranate Juice',
     text: 'A superfood for good skin, hair and health.',
     active: false
   },
   {
-    avatar: 'https://vue-mdbootstrap.fajarconsultant.com/img/simple-salsa.jpg',
+    avatar: 'https://ahmadfajar.github.io/img/simple-salsa.jpg',
     title: 'Chili Salsa',
     text: 'Heat up any taco night with minimal preparation.',
     active: false
   },
   {
-    avatar: 'https://vue-mdbootstrap.fajarconsultant.com/img/flour-scratch.jpg',
+    avatar: 'https://ahmadfajar.github.io/img/flour-scratch.jpg',
     title: 'Flour from scratch',
     text: 'Grind grains, nuts, or beans in your coffee grinder.',
     active: false
@@ -490,26 +490,26 @@ const listChat1 = [
   {
     active: true,
     fullName: 'Jason Oner',
-    avatar: 'https://vue-mdbootstrap.fajarconsultant.com/img/1.jpg'
+    avatar: 'https://ahmadfajar.github.io/img/1.jpg'
   },
   {
     active: true,
     fullName: 'Ranee Carlson',
-    avatar: 'https://vue-mdbootstrap.fajarconsultant.com/img/2.jpg'
+    avatar: 'https://ahmadfajar.github.io/img/2.jpg'
   },
   {
     active: false,
     fullName: 'Cindy Baker',
-    avatar: 'https://vue-mdbootstrap.fajarconsultant.com/img/3.jpg'
+    avatar: 'https://ahmadfajar.github.io/img/3.jpg'
   },
   {
     active: false,
     fullName: 'Ali Connors',
-    avatar: 'https://vue-mdbootstrap.fajarconsultant.com/img/4.jpg'
+    avatar: 'https://ahmadfajar.github.io/img/4.jpg'
   }
 ];
 const listChat2 = [
-  { fullName: 'Travis Howard', avatar: 'https://vue-mdbootstrap.fajarconsultant.com/img/5.jpg' }
+  { fullName: 'Travis Howard', avatar: 'https://ahmadfajar.github.io/img/5.jpg' }
 ];
 const content =
   'Quis magna Lorem anim amet ipsum do mollit sit cillum voluptate ex nulla tempor. Laborum consequat non elit enim exercitation cillum aliqua consequat id aliqua.';
