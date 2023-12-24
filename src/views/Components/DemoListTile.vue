@@ -53,7 +53,7 @@
               <BsListTileSubtitle> Work | Indonesia </BsListTileSubtitle>
             </BsListTileContent>
           </BsListTile>
-          <BsDivider left-indent="70" />
+          <BsDivider left-indent="60" />
           <BsListTile>
             <BsListTileLeading class="text-info" icon="email" />
             <BsListTileContent>
@@ -68,7 +68,7 @@
               <BsListTileSubtitle> Personal </BsListTileSubtitle>
             </BsListTileContent>
           </BsListTile>
-          <BsDivider left-indent="70" />
+          <BsDivider left-indent="60" />
           <BsListTile>
             <BsListTileLeading class="text-info" icon="place" />
             <BsListTileContent>
