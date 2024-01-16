@@ -41,10 +41,10 @@
 import { ref } from 'vue';
 
 const progress1 = ref(10);
-const progress2 = 30;
-const progress3 = 50;
-const progress4 = 70;
-const progress5 = 90;
+const progress2 = ref(30);
+const progress3 = ref(50);
+const progress4 = ref(70);
+const progress5 = ref(90);
 </script>
 
 <style scoped></style>

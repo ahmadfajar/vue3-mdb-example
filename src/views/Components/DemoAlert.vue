@@ -33,7 +33,7 @@
       <BsAlert filled variant="info" icon-variant="outlined">
         {{ content }} a predefined contextual <span class="md-fw-semibold">Info Alert</span>.
       </BsAlert>
-      <BsAlert filled variant="warning" icon-variant="round">
+      <BsAlert filled variant="warning" icon-variant="rounded">
         {{ content }} a predefined contextual <span class="md-fw-semibold">Warning Alert</span>.
       </BsAlert>
       <BsAlert filled variant="danger">

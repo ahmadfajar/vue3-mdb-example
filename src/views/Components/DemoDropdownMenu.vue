@@ -5,7 +5,7 @@
       <div class="row">
         <div class="col-12 col-md-6 text-center">
           <BsDropdownMenu v-model:open="show1" space="2">
-            <BsButton color="primary" dropdown-toggle> Dropdown </BsButton>
+            <BsButton color="primary" dropdown-toggle>Dropdown</BsButton>
             <template #content>
               <BsListView>
                 <BsListTile navigable>
@@ -30,7 +30,7 @@
         </div>
         <div class="col-12 col-md-6 mt-3 mt-md-0 text-center">
           <BsDropdownMenu v-model:open="show2" cover>
-            <BsButton color="primary" dropdown-toggle> Cover Dropdown </BsButton>
+            <BsButton color="primary" dropdown-toggle>Cover Dropdown</BsButton>
             <template #content>
               <BsListView>
                 <BsListNav>
@@ -53,7 +53,7 @@
     <DemoBlock class="mt-4">
       <div class="text-center">
         <BsDropdownMenu v-model:open="show3" space="2" open-on-hover>
-          <BsButton color="primary" dropdown-toggle> Dropdown </BsButton>
+          <BsButton color="primary" dropdown-toggle>Dropdown</BsButton>
           <template #content>
             <BsListView>
               <BsListNav>
@@ -76,7 +76,7 @@
       <div class="row">
         <div class="col-12 col-md-6 col-lg-4 text-center">
           <BsDropdownMenu v-model:open="show7" space="2" placement="top-left">
-            <BsButton :pill="false" color="primary" dropdown-toggle rounded> Top Left </BsButton>
+            <BsButton :pill="false" color="primary" dropdown-toggle rounded>Top Left</BsButton>
             <template #content>
               <BsListView>
                 <BsListNav>
@@ -95,7 +95,7 @@
         </div>
         <div class="col-12 col-md-6 col-lg-4 mt-3 mt-md-0 text-center">
           <BsDropdownMenu v-model:open="show8" space="2" placement="top">
-            <BsButton :pill="false" color="primary" dropdown-toggle rounded> Top </BsButton>
+            <BsButton :pill="false" color="primary" dropdown-toggle rounded>Top</BsButton>
             <template #content>
               <BsListView>
                 <BsListNav>
@@ -114,7 +114,7 @@
         </div>
         <div class="col-12 col-md-6 col-lg-4 mt-3 mt-lg-0 text-center">
           <BsDropdownMenu v-model:open="show9" space="2" placement="top-right">
-            <BsButton :pill="false" color="primary" dropdown-toggle rounded> Top Right </BsButton>
+            <BsButton :pill="false" color="primary" dropdown-toggle rounded>Top Right</BsButton>
             <template #content>
               <BsListView>
                 <BsListNav>
