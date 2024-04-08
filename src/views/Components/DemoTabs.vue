@@ -113,7 +113,7 @@
     <BsDivider />
     <BsAppContainer>
       <div class="demo-block-content bg-grey-200 rounded-4 mt-3">
-        <BsCard class="rounded-sm" style="min-height: 600px" shadow>
+        <BsCard class="rounded-sm" style="min-height: 520px" shadow>
           <BsAppbar class="bg-default-color-dark">
             <BsButton mode="icon" color="light" icon="menu" flat />
             <BsAppbarTitle title="Tabs Playground" class="text-white" />
@@ -126,7 +126,6 @@
             :alignment="selectedAlignment"
             :tab-position="selectedPlacement"
             :icon-position="selectedIconPosition"
-            :flex="tabFlex"
             :inner-class="innerClass"
             color="default-color-dark"
           >
@@ -160,15 +159,6 @@
                     column="2"
                   >
                     <label class="col-md-4 col-form-label md-fw-semibold">Tabs Alignment</label>
-                  </BsRadioGroup>
-                  <BsRadioGroup
-                    v-model="tabFlex"
-                    :items="tabFlexStyles"
-                    class="mt-3"
-                    color="default-color-dark"
-                    column="2"
-                  >
-                    <label class="col-md-4 col-form-label md-fw-semibold">Tabs Flex</label>
                   </BsRadioGroup>
                 </div>
                 <div class="col-12 col-xxl-6">
@@ -237,10 +227,6 @@ const tabAlignments = [
   { label: 'End', value: 'end' },
   { label: 'Justified', value: 'justified' },
 ];
-const tabFlexStyles = [
-  { label: 'Yes', value: true },
-  { label: 'No', value: false },
-];
 const iconPositions = [
   { label: 'Left', value: 'left' },
   { label: 'Right', value: 'right' },
@@ -257,7 +243,6 @@ const selectedPlacement = ref<TPlacementPosition>('top');
 const selectedIconPosition = ref<TPlacementPosition>('left');
 const selectedAlignment = ref<TAlignment>('start');
 const iconOnly = ref(false);
-const tabFlex = ref(false);
 
 const innerClass = computed(() => {
   if (['tabs', 'pills'].includes(selectedVariant.value) && selectedPlacement.value === 'top') {
