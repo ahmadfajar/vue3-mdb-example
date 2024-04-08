@@ -154,13 +154,13 @@ const peopleSrc1: TDataSource = {
       { id: 5, name: 'Britta Holt' },
       { id: 6, name: 'Jane Smith' },
       { id: 7, name: 'John Smith' },
-      { id: 8, name: 'Sandra Williams' }
+      { id: 8, name: 'Sandra Williams' },
     ],
     {
-      idProperty: 'id'
+      idProperty: 'id',
     }
   ),
-  schema: { displayField: 'name', valueField: 'id' } as TDataListSchemaProps
+  schema: { displayField: 'name', valueField: 'id' } as TDataListSchemaProps,
 };
 const peopleSrc2: TDataSource = {
   proxy: new BsArrayStore(
@@ -168,49 +168,49 @@ const peopleSrc2: TDataSource = {
       {
         id: 1,
         name: 'Sandra Adams',
-        avatar: 'https://ahmadfajar.github.io/img/1.jpg'
+        avatar: 'https://ahmadfajar.github.io/img/1.jpg',
       },
       {
         id: 2,
         name: 'Ali Connors',
-        avatar: 'https://ahmadfajar.github.io/img/2.jpg'
+        avatar: 'https://ahmadfajar.github.io/img/2.jpg',
       },
       {
         id: 3,
         name: 'Trevor Hansen',
-        avatar: 'https://ahmadfajar.github.io/img/3.jpg'
+        avatar: 'https://ahmadfajar.github.io/img/3.jpg',
       },
       {
         id: 4,
         name: 'Tucker Smith',
-        avatar: 'https://ahmadfajar.github.io/img/4.jpg'
+        avatar: 'https://ahmadfajar.github.io/img/4.jpg',
       },
       {
         id: 5,
         name: 'Britta Holt',
-        avatar: 'https://ahmadfajar.github.io/img/5.jpg'
+        avatar: 'https://ahmadfajar.github.io/img/5.jpg',
       },
       {
         id: 6,
         name: 'Jane Smith',
-        avatar: 'https://ahmadfajar.github.io/img/3.jpg'
+        avatar: 'https://ahmadfajar.github.io/img/3.jpg',
       },
       {
         id: 7,
         name: 'John Smith',
-        avatar: 'https://ahmadfajar.github.io/img/2.jpg'
+        avatar: 'https://ahmadfajar.github.io/img/2.jpg',
       },
       {
         id: 8,
         name: 'Sandra Williams',
-        avatar: 'https://ahmadfajar.github.io/img/4.jpg'
-      }
+        avatar: 'https://ahmadfajar.github.io/img/4.jpg',
+      },
     ],
     {
-      idProperty: 'id'
+      idProperty: 'id',
     }
   ),
-  schema: { displayField: 'name', valueField: 'id', imageField: 'avatar' } as TDataListSchemaProps
+  schema: { displayField: 'name', valueField: 'id', imageField: 'avatar' } as TDataListSchemaProps,
 };
 const statesCA1: TDataSource = {
   proxy: new BsStore({
@@ -221,9 +221,9 @@ const statesCA1: TDataSource = {
     remoteFilter: false,
     filters: [{ property: 'country', value: 'CA', operator: 'eq' }],
     restProxy: {
-      browse: 'https://ahmadfajar.github.io/data/states.json'
-    }
-  })
+      browse: 'https://ahmadfajar.github.io/data/states.json',
+    },
+  }),
 };
 const statesCA2: TDataSource = {
   proxy: new BsStore({
@@ -234,9 +234,9 @@ const statesCA2: TDataSource = {
     remoteFilter: false,
     filters: [{ property: 'country', value: 'CA', operator: 'eq' }],
     restProxy: {
-      browse: 'https://ahmadfajar.github.io/data/states.json'
-    }
-  })
+      browse: 'https://ahmadfajar.github.io/data/states.json',
+    },
+  }),
 };
 const productSrc: TDataSource = {
   proxy: new BsStore({
@@ -246,9 +246,9 @@ const productSrc: TDataSource = {
     remoteSort: false,
     remoteFilter: false,
     restProxy: {
-      browse: 'https://ahmadfajar.github.io/data/product.json'
-    }
+      browse: 'https://ahmadfajar.github.io/data/product.json',
+    },
   }),
-  schema: { displayField: 'ProductName', valueField: 'ProductID' }
+  schema: { displayField: 'ProductName', valueField: 'ProductID' },
 };
 </script>

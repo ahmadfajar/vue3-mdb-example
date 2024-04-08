@@ -146,7 +146,7 @@ const chipItems1 = [
   { text: 'Shopping' },
   { text: 'Tech' },
   { text: 'Vacation' },
-  { text: 'Work' }
+  { text: 'Work' },
 ];
 const amenities = [
   { text: 'Elevator' },
@@ -154,7 +154,7 @@ const amenities = [
   { text: 'Fireplace', disabled: true },
   { text: 'Wheelchair access' },
   { text: 'Dogs ok' },
-  { text: 'Cats ok' }
+  { text: 'Cats ok' },
 ];
 const neighborhoods = [
   { text: 'Snowy Rock Place' },
@@ -162,7 +162,7 @@ const neighborhoods = [
   { text: 'Donna Drive' },
   { text: 'Elaine Street' },
   { text: 'Court Street' },
-  { text: 'Kennedy Park' }
+  { text: 'Kennedy Park' },
 ];
 const amenities2 = [
   { text: 'Elevator', imgSrc: 'https://ahmadfajar.github.io/img/1.jpg' },
@@ -170,7 +170,7 @@ const amenities2 = [
   { text: 'Fireplace', imgSrc: 'https://ahmadfajar.github.io/img/3.jpg' },
   { text: 'Wheelchair access', imgSrc: 'https://ahmadfajar.github.io/img/4.jpg' },
   { text: 'Dogs ok', imgSrc: 'https://ahmadfajar.github.io/img/5.jpg' },
-  { text: 'Cats ok', imgSrc: 'https://ahmadfajar.github.io/img/kitty-1.jpg' }
+  { text: 'Cats ok', imgSrc: 'https://ahmadfajar.github.io/img/kitty-1.jpg' },
 ];
 const neighborhoods2 = [
   { text: 'Snowy Rock Place', imgSrc: 'https://ahmadfajar.github.io/img/1.jpg' },
@@ -178,8 +178,6 @@ const neighborhoods2 = [
   { text: 'Donna Drive', imgSrc: 'https://ahmadfajar.github.io/img/3.jpg' },
   { text: 'Elaine Street', imgSrc: 'https://ahmadfajar.github.io/img/4.jpg' },
   { text: 'Court Street', imgSrc: 'https://ahmadfajar.github.io/img/5.jpg' },
-  { text: 'Kennedy Park', imgSrc: 'https://ahmadfajar.github.io/img/kitty-1.jpg' }
+  { text: 'Kennedy Park', imgSrc: 'https://ahmadfajar.github.io/img/kitty-1.jpg' },
 ];
 </script>
-
-<style scoped></style>

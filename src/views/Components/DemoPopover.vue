@@ -10,10 +10,7 @@
       <BsPopover v-model:open="show1" :trigger="activator1?.$el" class="md-shadow-1" space="3">
         <BsListView>
           <BsListTile>
-            <BsListTileLeading
-              img-src="https://ahmadfajar.github.io/img/2.jpg"
-              rounded
-            />
+            <BsListTileLeading img-src="https://ahmadfajar.github.io/img/2.jpg" rounded />
             <BsListTileContent>
               <BsListTileTitle>
                 <b>John Doe</b>
@@ -56,10 +53,7 @@
           >
             <BsListView>
               <BsListTile>
-                <BsListTileLeading
-                  img-src="https://ahmadfajar.github.io/img/2.jpg"
-                  rounded
-                />
+                <BsListTileLeading img-src="https://ahmadfajar.github.io/img/2.jpg" rounded />
                 <BsListTileContent>
                   <BsListTileTitle>
                     <b>John Doe</b>
@@ -99,10 +93,7 @@
           >
             <BsListView>
               <BsListTile>
-                <BsListTileLeading
-                  img-src="https://ahmadfajar.github.io/img/2.jpg"
-                  rounded
-                />
+                <BsListTileLeading img-src="https://ahmadfajar.github.io/img/2.jpg" rounded />
                 <BsListTileContent>
                   <BsListTileTitle>
                     <b>John Doe</b>
@@ -142,10 +133,7 @@
           >
             <BsListView>
               <BsListTile>
-                <BsListTileLeading
-                  img-src="https://ahmadfajar.github.io/img/2.jpg"
-                  rounded
-                />
+                <BsListTileLeading img-src="https://ahmadfajar.github.io/img/2.jpg" rounded />
                 <BsListTileContent>
                   <BsListTileTitle>
                     <b>John Doe</b>
@@ -185,10 +173,7 @@
           >
             <BsListView>
               <BsListTile>
-                <BsListTileLeading
-                  img-src="https://ahmadfajar.github.io/img/2.jpg"
-                  rounded
-                />
+                <BsListTileLeading img-src="https://ahmadfajar.github.io/img/2.jpg" rounded />
                 <BsListTileContent>
                   <BsListTileTitle>
                     <b>John Doe</b>
@@ -228,10 +213,7 @@
           >
             <BsListView>
               <BsListTile>
-                <BsListTileLeading
-                  img-src="https://ahmadfajar.github.io/img/2.jpg"
-                  rounded
-                />
+                <BsListTileLeading img-src="https://ahmadfajar.github.io/img/2.jpg" rounded />
                 <BsListTileContent>
                   <BsListTileTitle>
                     <b>John Doe</b>
@@ -271,10 +253,7 @@
           >
             <BsListView>
               <BsListTile>
-                <BsListTileLeading
-                  img-src="https://ahmadfajar.github.io/img/2.jpg"
-                  rounded
-                />
+                <BsListTileLeading img-src="https://ahmadfajar.github.io/img/2.jpg" rounded />
                 <BsListTileContent>
                   <BsListTileTitle>
                     <b>John Doe</b>
@@ -314,10 +293,7 @@
           >
             <BsListView>
               <BsListTile>
-                <BsListTileLeading
-                  img-src="https://ahmadfajar.github.io/img/2.jpg"
-                  rounded
-                />
+                <BsListTileLeading img-src="https://ahmadfajar.github.io/img/2.jpg" rounded />
                 <BsListTileContent>
                   <BsListTileTitle>
                     <b>John Doe</b>
@@ -357,10 +333,7 @@
           >
             <BsListView>
               <BsListTile>
-                <BsListTileLeading
-                  img-src="https://ahmadfajar.github.io/img/2.jpg"
-                  rounded
-                />
+                <BsListTileLeading img-src="https://ahmadfajar.github.io/img/2.jpg" rounded />
                 <BsListTileContent>
                   <BsListTileTitle>
                     <b>John Doe</b>
@@ -408,5 +381,3 @@ const activator7 = ref<ComponentPublicInstance | null>(null);
 const activator8 = ref<ComponentPublicInstance | null>(null);
 const activator9 = ref<ComponentPublicInstance | null>(null);
 </script>
-
-<style scoped></style>

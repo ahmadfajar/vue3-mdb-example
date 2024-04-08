@@ -3,8 +3,6 @@
 
 import { AllowedComponentProps, ComponentCustomProps, VNode, VNodeProps } from 'vue';
 
-declare interface TypesConfig {}
-
 export declare const DemoBlock: {
   new (): {
     $props: AllowedComponentProps & ComponentCustomProps & VNodeProps;
@@ -14,8 +12,8 @@ export declare const DemoBlock: {
   };
 };
 
-declare module '@vue/runtime-core' {
+declare module 'vue' {
   export interface GlobalComponents {
-    DemoBlock: TypesConfig extends Record<'DemoBLock', infer T> ? T : typeof DemoBlock;
+    DemoBlock: typeof DemoBlock;
   }
 }

@@ -389,6 +389,6 @@ const occupations = [
   { value: 'Computer and IT', label: 'Computer and IT' },
   { value: 'Scientists', label: 'Scientists and Research' },
   { value: 'Consultant', label: 'Consultant' },
-  { value: 'Other', label: 'Other' }
+  { value: 'Other', label: 'Other' },
 ];
 </script>

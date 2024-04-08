@@ -68,7 +68,7 @@ import {
   themeColors,
   useBootstrapColorClasses,
   useGrayColorClasses,
-  useMaterialColorInfo
+  useMaterialColorInfo,
 } from './themeColors';
 
 export default defineComponent({
@@ -76,8 +76,8 @@ export default defineComponent({
   props: {
     palette: {
       type: String,
-      default: undefined
-    }
+      default: undefined,
+    },
   },
   setup() {
     return {
@@ -89,9 +89,9 @@ export default defineComponent({
       useGrayColorClasses,
       useMaterialColorInfo,
       useFullColorClasses,
-      useFullColorName
+      useFullColorName,
     };
-  }
+  },
 });
 </script>
 

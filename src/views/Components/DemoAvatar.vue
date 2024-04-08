@@ -91,5 +91,3 @@ import { IconThreeCircle } from '@/sharedApi';
 const isSpin = ref(false);
 const isPulse = ref(false);
 </script>
-
-<style scoped></style>

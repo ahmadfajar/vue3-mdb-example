@@ -14,5 +14,3 @@
 <script lang="ts" setup>
 import ColorPalette from '@/views/Color/ColorPalette.vue';
 </script>
-
-<style scoped></style>

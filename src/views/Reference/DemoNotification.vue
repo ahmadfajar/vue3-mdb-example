@@ -3,7 +3,7 @@
     <h2>Overview</h2>
     <DemoBlock class="mt-4">
       <div class="d-flex justify-content-center">
-        <BsButton color="indigo" @click="showDefaultNotification()"> Show Notification </BsButton>
+        <BsButton color="indigo" @click="showDefaultNotification($notification)">Show Notification</BsButton>
       </div>
     </DemoBlock>
     <h2 class="mt-5">Display Placement</h2>
@@ -13,10 +13,10 @@
           <BsButton
             color="indigo"
             @click="
-              provider?.add({
+              $notification.add({
                 message: 'Example notification message.',
                 title: 'Information',
-                position: 'top-left'
+                position: 'top-left',
               })
             "
           >
@@ -27,10 +27,10 @@
           <BsButton
             color="indigo"
             @click="
-              provider?.add({
+              $notification.add({
                 message: 'Example notification message.',
                 title: 'Information',
-                position: 'top-center'
+                position: 'top-center',
               })
             "
           >
@@ -41,10 +41,10 @@
           <BsButton
             color="indigo"
             @click="
-              provider?.add({
+              $notification.add({
                 message: 'Example notification message.',
                 title: 'Information',
-                position: 'top-right'
+                position: 'top-right',
               })
             "
           >
@@ -55,10 +55,10 @@
           <BsButton
             color="indigo"
             @click="
-              provider?.add({
+              $notification.add({
                 message: 'Example notification message.',
                 title: 'Information',
-                position: 'top-full-width'
+                position: 'top-full-width',
               })
             "
           >
@@ -69,10 +69,10 @@
           <BsButton
             color="indigo"
             @click="
-              provider?.add({
+              $notification.add({
                 message: 'Example notification message.',
                 title: 'Information',
-                position: 'bottom-left'
+                position: 'bottom-left',
               })
             "
           >
@@ -83,10 +83,10 @@
           <BsButton
             color="indigo"
             @click="
-              provider?.add({
+              $notification.add({
                 message: 'Example notification message.',
                 title: 'Information',
-                position: 'bottom-center'
+                position: 'bottom-center',
               })
             "
           >
@@ -97,10 +97,10 @@
           <BsButton
             color="indigo"
             @click="
-              provider?.add({
+              $notification.add({
                 message: 'Example notification message.',
                 title: 'Information',
-                position: 'bottom-right'
+                position: 'bottom-right',
               })
             "
           >
@@ -111,10 +111,10 @@
           <BsButton
             color="indigo"
             @click="
-              provider?.add({
+              $notification.add({
                 message: 'Example notification message.',
                 title: 'Information',
-                position: 'bottom-full-width'
+                position: 'bottom-full-width',
               })
             "
           >
@@ -130,10 +130,10 @@
           <BsButton
             color="secondary"
             @click="
-              provider?.add({
+              $notification.add({
                 message: 'Example notification message.',
                 title: 'Information',
-                progressBar: true
+                progressBar: true,
               })
             "
           >
@@ -143,7 +143,7 @@
         <div class="col d-flex justify-content-center">
           <BsButton
             color="info"
-            @click="provider?.info({ message: 'Example info message.', progressBar: true }, 'Info')"
+            @click="$notification.info({ message: 'Example info message.', progressBar: true }, 'Info')"
           >
             Info Notification
           </BsButton>
@@ -152,7 +152,7 @@
           <BsButton
             color="success"
             @click="
-              provider?.success(
+              $notification.success(
                 { message: 'Example success message.', progressBar: true },
                 'Success'
               )
@@ -165,7 +165,7 @@
           <BsButton
             color="warning"
             @click="
-              provider?.warning(
+              $notification.warning(
                 { message: 'Example warning message.', progressBar: true },
                 'Warning'
               )
@@ -178,7 +178,7 @@
           <BsButton
             color="danger"
             @click="
-              provider?.error({ message: 'Example error message.', progressBar: true }, 'Error')
+              $notification.error({ message: 'Example error message.', progressBar: true }, 'Error')
             "
           >
             Error Notification
@@ -192,17 +192,9 @@
 </template>
 
 <script lang="ts" setup>
-import { onMounted, shallowRef } from 'vue';
-import { useVueMdbNotification } from 'vue-mdbootstrap';
 import type { INotificationProvider } from 'vue-mdbootstrap';
 
-const provider = shallowRef<INotificationProvider>();
-
-onMounted(() => {
-  provider.value = useVueMdbNotification();
-});
-
-function showDefaultNotification() {
-  provider.value?.add('I am notification message.');
+function showDefaultNotification(notification: INotificationProvider) {
+  notification.add('I am notification message.');
 }
 </script>

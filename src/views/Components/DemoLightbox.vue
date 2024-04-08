@@ -153,51 +153,51 @@ const galleryItems1 = [
   {
     thumbnail: 'https://unsplash.it/200.jpg?image=251',
     imageSrc: 'https://unsplash.it/1200/768.jpg?image=251',
-    title: 'First image title'
+    title: 'First image title',
   },
   {
     thumbnail: 'https://unsplash.it/200.jpg?image=252',
     imageSrc: 'https://unsplash.it/1200/768.jpg?image=252',
-    title: 'Second image title'
+    title: 'Second image title',
   },
   {
     thumbnail: 'https://unsplash.it/200.jpg?image=253',
     imageSrc: 'https://unsplash.it/1200/768.jpg?image=253',
-    title: 'Third image title'
+    title: 'Third image title',
   },
   {
     thumbnail: 'https://unsplash.it/200.jpg?image=254',
     imageSrc: 'https://unsplash.it/1200/768.jpg?image=254',
-    title: 'Third image title'
-  }
+    title: 'Third image title',
+  },
 ];
 const galleryItems2 = [
   {
     thumbnail: 'https://unsplash.it/200.jpg?image=255',
     imageSrc: 'https://unsplash.it/1200/768.jpg?image=255',
-    title: 'First image title'
+    title: 'First image title',
   },
   {
     thumbnail: 'https://unsplash.it/200.jpg?image=256',
     imageSrc: 'https://unsplash.it/1200/768.jpg?image=256',
-    title: 'Second image title'
+    title: 'Second image title',
   },
   {
     thumbnail: 'https://unsplash.it/200.jpg?image=257',
     imageSrc: 'https://unsplash.it/1200/768.jpg?image=257',
-    title: 'Third image title'
+    title: 'Third image title',
   },
   {
     thumbnail: 'https://unsplash.it/200.jpg?image=259',
     imageSrc: 'https://unsplash.it/1200/768.jpg?image=259',
-    title: 'Third image title'
-  }
+    title: 'Third image title',
+  },
 ];
 const galleryItems3 = [
   {
     thumbnail: 'https://unsplash.it/200.jpg?image=251',
     imageSrc: 'https://unsplash.it/1200/768.jpg?image=251',
-    title: 'Your image title'
-  }
+    title: 'Your image title',
+  },
 ];
 </script>

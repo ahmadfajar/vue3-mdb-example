@@ -1,30 +1,30 @@
 <template>
   <div class="docs-body container-lg mx-auto">
-    <h2>Overview</h2>
+    <h2 id="overview">Overview</h2>
     <DemoBlock class="docs-demo-ctrl mt-4">
       <template v-for="color in colorVariants" :key="color">
-        <BsChip :color="color" class="mb-3" href="#/components/chip">
+        <BsChip :color="color" class="mb-3" href="javascript:void(0)">
           {{ StringHelper.titleCase(color) }}
         </BsChip>
       </template>
     </DemoBlock>
-    <h4 class="mt-5">Pill Styles</h4>
+    <h4 id="pill-styles" class="mt-5">Pill Styles</h4>
     <DemoBlock class="docs-demo-ctrl mt-4">
       <template v-for="color in colorVariants" :key="color">
-        <BsChip :color="color" class="mb-3" href="#/components/chip" pill>
+        <BsChip :color="color" class="mb-3" href="javascript:void(0)" pill>
           {{ StringHelper.titleCase(color) }}
         </BsChip>
       </template>
     </DemoBlock>
-    <h4 class="mt-5">Outlined Styles</h4>
+    <h4 id="outlined-styles" class="mt-5">Outlined Styles</h4>
     <DemoBlock class="docs-demo-ctrl mt-4">
       <template v-for="color in colorVariants" :key="color">
-        <BsChip :color="color" href="#/components/chip" class="mb-3" outlined>
+        <BsChip :color="color" href="javascript:void(0)" class="mb-3" outlined>
           {{ StringHelper.titleCase(color) }}
         </BsChip>
       </template>
     </DemoBlock>
-    <h2 class="mt-5">Chip States</h2>
+    <h2 id="chip-states" class="mt-5">Chip States</h2>
     <DemoBlock class="docs-demo-ctrl mt-4">
       <div class="mt-2">
         <BsChip color="primary" class="mb-3" disabled> Primary Color : Disabled </BsChip>
@@ -32,7 +32,7 @@
       </div>
       <div class="mt-2">
         <template v-for="color in colorVariants.slice(0, 10)" :key="color">
-          <BsChip :color="color" href="#/components/chip" class="mb-3" active>
+          <BsChip :color="color" href="javascript:void(0)" class="mb-3" active>
             {{ StringHelper.titleCase(color) }} : Active
           </BsChip>
         </template>
@@ -40,7 +40,7 @@
       <div class="h5 mt-3">Outline styles</div>
       <div>
         <template v-for="color in colorVariants.slice(0, 10)" :key="color">
-          <BsChip :color="color" class="mb-3" href="#/components/chip" active outlined>
+          <BsChip :color="color" href="javascript:void(0)" class="mb-3" active outlined>
             {{ StringHelper.titleCase(color) }} : Active
           </BsChip>
         </template>
@@ -429,5 +429,3 @@ function toggleChip() {
   showDismissibleChip.value = !showDismissibleChip.value;
 }
 </script>
-
-<style scoped></style>

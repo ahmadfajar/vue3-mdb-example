@@ -53,13 +53,13 @@ const selectedFavoriteFruits = ref();
 const favoriteColors = [
   { value: 'red', label: 'Red', color: 'red' },
   { value: 'green', label: 'Green', color: 'green' },
-  { value: 'blue', label: 'Blue', color: 'blue' }
+  { value: 'blue', label: 'Blue', color: 'blue' },
 ];
 const favoriteFruits = [
   { value: 'Orange', label: 'Orange' },
   { value: 'Apple', label: 'Apple' },
   { value: 'Pineapple', label: 'Pineapple' },
-  { value: 'Grape', label: 'Grape' }
+  { value: 'Grape', label: 'Grape' },
   // { value: 'Coconut', label: 'Coconut' }
 ];
 const selectedItem = ref();
@@ -69,8 +69,6 @@ const dummyItems = [
   { value: 3, label: 'Item 3', color: 'pink', disabled: true },
   { value: 4, label: 'Item 4', color: 'primary-color-dark' },
   { value: 5, label: 'Item 5', color: 'success' },
-  { value: 6, label: 'Item 6', color: 'orange' }
+  { value: 6, label: 'Item 6', color: 'orange' },
 ];
 </script>
-
-<style scoped></style>

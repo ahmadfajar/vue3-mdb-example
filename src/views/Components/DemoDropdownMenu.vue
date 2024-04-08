@@ -146,5 +146,3 @@ const show7 = ref(false);
 const show8 = ref(false);
 const show9 = ref(false);
 </script>
-
-<style scoped></style>

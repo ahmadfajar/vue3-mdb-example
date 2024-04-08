@@ -123,5 +123,3 @@ const isToggle = ref(false);
 const isSpin = ref(false);
 const isPulse = ref(false);
 </script>
-
-<style scoped></style>

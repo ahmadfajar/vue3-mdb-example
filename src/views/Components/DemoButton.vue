@@ -274,8 +274,6 @@ const variants = [
   'special-color',
   'special-color-dark',
   'unique-color',
-  'unique-color-dark'
+  'unique-color-dark',
 ];
 </script>
-
-<style scoped></style>

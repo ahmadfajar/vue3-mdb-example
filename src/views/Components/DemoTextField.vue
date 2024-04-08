@@ -40,7 +40,7 @@
       <div class="row g-4 row-cols-1 row-cols-lg-2">
         <div class="col">
           <BsTextField
-            v-model="textValue"
+            v-model="textValue1"
             :persistent-help-text="false"
             floating-label
             help-text="For example, flowers or used cars"
@@ -55,7 +55,7 @@
         </div>
         <div class="col">
           <BsTextField
-            v-model="textValue"
+            v-model="textValue1"
             :persistent-help-text="false"
             filled
             floating-label
@@ -71,7 +71,7 @@
         </div>
         <div class="col">
           <BsTextField
-            v-model="textValue"
+            v-model="textValue1"
             :persistent-help-text="false"
             floating-label
             help-text="For example, flowers or used cars"
@@ -196,23 +196,23 @@
     <DemoBlock class="mt-4">
       <div class="row g-4 row-cols-1 row-cols-lg-2">
         <div class="col">
-          <BsTextField v-model="textValue" readonly floating-label>
+          <BsTextField v-model="textValue1" readonly floating-label>
             <label>State Readonly</label>
           </BsTextField>
         </div>
         <div class="col">
-          <BsTextField v-model="textValue" disabled floating-label prepend-icon="email_outlined">
+          <BsTextField v-model="textValue1" disabled floating-label prepend-icon="email_outlined">
             <label>State Disabled</label>
           </BsTextField>
         </div>
         <div class="col">
-          <BsTextField v-model="textValue" readonly floating-label filled>
+          <BsTextField v-model="textValue1" readonly floating-label filled>
             <label>State Readonly</label>
           </BsTextField>
         </div>
         <div class="col">
           <BsTextField
-            v-model="textValue"
+            v-model="textValue1"
             disabled
             filled
             floating-label
@@ -222,13 +222,13 @@
           </BsTextField>
         </div>
         <div class="col">
-          <BsTextField v-model="textValue" readonly floating-label outlined>
+          <BsTextField v-model="textValue1" readonly floating-label outlined>
             <label>State Readonly</label>
           </BsTextField>
         </div>
         <div class="col">
           <BsTextField
-            v-model="textValue"
+            v-model="textValue1"
             disabled
             floating-label
             outlined
@@ -283,14 +283,14 @@
     <DemoBlock class="mt-4">
       <div class="row justify-content-center">
         <div class="col-lg-11 col-xl-10">
-          <BsTextField v-model="fieldValue" class="mb-3" clear-button>
+          <BsTextField v-model="textValue2" class="mb-3" clear-button>
             <label class="col-md-4 col-xl-2 col-form-label">Full Name</label>
           </BsTextField>
           <BsTextField type="password" class="mb-3" clear-button>
             <label class="col-md-4 col-xl-2 col-form-label">Password</label>
           </BsTextField>
           <BsTextField
-            v-model="fieldValue"
+            v-model="textValue2"
             class="mb-3"
             append-icon="account_circle_outlined"
             readonly
@@ -298,7 +298,7 @@
             <label class="col-md-4 col-xl-2 col-form-label">State Readonly</label>
           </BsTextField>
           <BsTextField
-            v-model="fieldValue"
+            v-model="textValue2"
             class="mb-3"
             append-icon="account_circle_outlined"
             disabled
@@ -315,8 +315,6 @@
 import { ref } from 'vue';
 
 const sizes = ['Small', 'Medium', 'Large', 'Extra Large'];
-const textValue = ref('Grocery delivery');
-const fieldValue = ref('Sandra Adam');
+const textValue1 = ref('Grocery delivery');
+const textValue2 = ref('Sandra Adam');
 </script>
-
-<style scoped></style>

@@ -81,23 +81,23 @@
 </template>
 
 <script lang="ts" setup>
+import { IconBullhorn } from '@/sharedApi';
 import { ref } from 'vue';
 import type { TInputOptionItem } from 'vue-mdbootstrap';
-import { IconBullhorn } from '@/sharedApi';
 
 const drinks: TInputOptionItem[] = [
   {
     value: 'tea',
-    label: 'Tea'
+    label: 'Tea',
   },
   {
     value: 'coffee',
-    label: 'Coffee'
+    label: 'Coffee',
   },
   {
     value: 'beer',
-    label: 'Beer'
-  }
+    label: 'Beer',
+  },
 ];
 
 const weathers: TInputOptionItem[] = [
@@ -105,25 +105,23 @@ const weathers: TInputOptionItem[] = [
     value: 'sunny',
     label: 'Sunny',
     icon: 'wb_sunny',
-    iconSize: 26
+    iconSize: 26,
   },
   {
     value: 'rain',
     label: 'Rain',
     icon: 'wb_cloudy',
-    iconSize: 26
+    iconSize: 26,
   },
   {
     value: 'heavy-rain',
     label: 'Heavy Rain',
     icon: 'thunderstorm',
-    iconSize: 26
-  }
+    iconSize: 26,
+  },
 ];
 
 const selectedDrink = ref<string>();
 const favoriteDrinks = ref<string[]>([]);
 const selectedWeather = ref<string>();
 </script>
-
-<style scoped></style>

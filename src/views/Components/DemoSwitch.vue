@@ -168,5 +168,3 @@ const switch5 = ref();
 const switchColor = ref([]);
 const switchColor1 = ref([]);
 </script>
-
-<style scoped></style>

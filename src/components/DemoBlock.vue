@@ -101,6 +101,14 @@ const darkenOrLighten = () => {
 <style lang="scss">
 @import 'compass-mixins/lib/compass/css3';
 
+// override compass-mixins global variables
+$legacy-support-for-ie:                 false;
+$legacy-support-for-mozilla:            false;
+$experimental-support-for-opera:        false;
+$experimental-support-for-mozilla:      false;
+$experimental-support-for-webkit:       true;
+$experimental-support-for-microsoft:    false;
+
 $radius: 0.75rem;
 
 .demo-block {

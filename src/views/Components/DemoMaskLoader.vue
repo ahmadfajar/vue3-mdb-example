@@ -135,7 +135,7 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
 
-const content ='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Auctor augue mauris augue neque gravida in fermentum et sollicitudin.';
+const content = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Auctor augue mauris augue neque gravida in fermentum et sollicitudin.';
 const showGrow1 = ref(false);
 const showLinear1 = ref(false);
 const showProgress1 = ref(false);
@@ -145,5 +145,3 @@ const showLinear2 = ref(false);
 const showProgress2 = ref(false);
 const showSpinner2 = ref(false);
 </script>
-
-<style scoped></style>

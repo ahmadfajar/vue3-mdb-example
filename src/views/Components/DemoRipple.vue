@@ -40,5 +40,3 @@ function hideOverlay() {
   showOverlay.value = false;
 }
 </script>
-
-<style scoped></style>

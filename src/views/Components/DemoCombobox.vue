@@ -585,26 +585,26 @@ import { ref } from 'vue';
 import type { TDataSource, TDataListSchemaProps } from 'vue-mdbootstrap';
 import { BsArrayStore, BsStore } from 'vue-mdbootstrap';
 
-const employee1 = ref<number | undefined>();
+const employee1 = ref<number>();
 const employee2 = ref<number>(2);
 const employee3 = ref<number>(3);
 const employee4 = ref<number>(4);
 const employee5 = ref<number>(5);
 const employee6 = ref<number>(6);
 const employee7 = ref<number>(7);
-const employee8 = ref<number | undefined>();
-const employee9 = ref<number | undefined>();
-const employee10 = ref<number | undefined>();
-const employee11 = ref<number | undefined>();
-const employee12 = ref<number | undefined>();
-const employee13 = ref<number | undefined>();
-const employee14 = ref<number | undefined>();
-const employee15 = ref<number | undefined>();
-const employee16 = ref<number | undefined>();
-const employee17 = ref<number | undefined>();
-const employee18 = ref<number | undefined>();
-const employee19 = ref<number | undefined>();
-const employee20 = ref<number | undefined>();
+const employee8 = ref<number>();
+const employee9 = ref<number>();
+const employee10 = ref<number>();
+const employee11 = ref<number>();
+const employee12 = ref<number>();
+const employee13 = ref<number>();
+const employee14 = ref<number>();
+const employee15 = ref<number>();
+const employee16 = ref<number>();
+const employee17 = ref<number>();
+const employee18 = ref<number>();
+const employee19 = ref<number>();
+const employee20 = ref<number>();
 const employee30 = ref<number>(2);
 const employee40 = ref<number>(3);
 
@@ -643,13 +643,13 @@ const peopleSrc1: TDataSource = {
       { id: 5, name: 'Britta Holt' },
       { id: 6, name: 'Jane Smith' },
       { id: 7, name: 'John Smith' },
-      { id: 8, name: 'Sandra Williams' }
+      { id: 8, name: 'Sandra Williams' },
     ],
     {
-      idProperty: 'id'
+      idProperty: 'id',
     }
   ),
-  schema: { displayField: 'name', valueField: 'id' } as TDataListSchemaProps
+  schema: { displayField: 'name', valueField: 'id' } as TDataListSchemaProps,
 };
 const statesUS1: TDataSource = {
   proxy: new BsStore({
@@ -660,9 +660,9 @@ const statesUS1: TDataSource = {
     remoteFilter: false,
     filters: [{ property: 'country', value: 'US', operator: 'eq' }],
     restProxy: {
-      browse: 'https://ahmadfajar.github.io/data/states.json'
-    }
-  })
+      browse: 'https://ahmadfajar.github.io/data/states.json',
+    },
+  }),
 };
 const statesUS2: TDataSource = {
   proxy: new BsStore({
@@ -673,9 +673,9 @@ const statesUS2: TDataSource = {
     remoteFilter: false,
     filters: [{ property: 'country', value: 'US', operator: 'eq' }],
     restProxy: {
-      browse: 'https://ahmadfajar.github.io/data/states.json'
-    }
-  })
+      browse: 'https://ahmadfajar.github.io/data/states.json',
+    },
+  }),
 };
 const statesUS3: TDataSource = {
   proxy: new BsStore({
@@ -686,9 +686,9 @@ const statesUS3: TDataSource = {
     remoteFilter: false,
     filters: [{ property: 'country', value: 'US', operator: 'eq' }],
     restProxy: {
-      browse: 'https://ahmadfajar.github.io/data/states.json'
-    }
-  })
+      browse: 'https://ahmadfajar.github.io/data/states.json',
+    },
+  }),
 };
 const statesUS4: TDataSource = {
   proxy: new BsStore({
@@ -699,9 +699,9 @@ const statesUS4: TDataSource = {
     remoteFilter: false,
     filters: [{ property: 'country', value: 'US', operator: 'eq' }],
     restProxy: {
-      browse: 'https://ahmadfajar.github.io/data/states.json'
-    }
-  })
+      browse: 'https://ahmadfajar.github.io/data/states.json',
+    },
+  }),
 };
 const statesUS5: TDataSource = {
   proxy: new BsStore({
@@ -712,9 +712,9 @@ const statesUS5: TDataSource = {
     remoteFilter: false,
     filters: [{ property: 'country', value: 'US', operator: 'eq' }],
     restProxy: {
-      browse: 'https://ahmadfajar.github.io/data/states.json'
-    }
-  })
+      browse: 'https://ahmadfajar.github.io/data/states.json',
+    },
+  }),
 };
 const statesUS6: TDataSource = {
   proxy: new BsStore({
@@ -725,9 +725,9 @@ const statesUS6: TDataSource = {
     remoteFilter: false,
     filters: [{ property: 'country', value: 'US', operator: 'eq' }],
     restProxy: {
-      browse: 'https://ahmadfajar.github.io/data/states.json'
-    }
-  })
+      browse: 'https://ahmadfajar.github.io/data/states.json',
+    },
+  }),
 };
 
 const statesUS7: TDataSource = {
@@ -739,9 +739,9 @@ const statesUS7: TDataSource = {
     remoteFilter: false,
     filters: [{ property: 'country', value: 'US', operator: 'eq' }],
     restProxy: {
-      browse: 'https://ahmadfajar.github.io/data/states.json'
-    }
-  })
+      browse: 'https://ahmadfajar.github.io/data/states.json',
+    },
+  }),
 };
 const statesUS8: TDataSource = {
   proxy: new BsStore({
@@ -752,9 +752,9 @@ const statesUS8: TDataSource = {
     remoteFilter: false,
     filters: [{ property: 'country', value: 'US', operator: 'eq' }],
     restProxy: {
-      browse: 'https://ahmadfajar.github.io/data/states.json'
-    }
-  })
+      browse: 'https://ahmadfajar.github.io/data/states.json',
+    },
+  }),
 };
 const statesUS9: TDataSource = {
   proxy: new BsStore({
@@ -765,9 +765,9 @@ const statesUS9: TDataSource = {
     remoteFilter: false,
     filters: [{ property: 'country', value: 'US', operator: 'eq' }],
     restProxy: {
-      browse: 'https://ahmadfajar.github.io/data/states.json'
-    }
-  })
+      browse: 'https://ahmadfajar.github.io/data/states.json',
+    },
+  }),
 };
 const statesUS10: TDataSource = {
   proxy: new BsStore({
@@ -778,9 +778,9 @@ const statesUS10: TDataSource = {
     remoteFilter: false,
     filters: [{ property: 'country', value: 'US', operator: 'eq' }],
     restProxy: {
-      browse: 'https://ahmadfajar.github.io/data/states.json'
-    }
-  })
+      browse: 'https://ahmadfajar.github.io/data/states.json',
+    },
+  }),
 };
 const statesUS11: TDataSource = {
   proxy: new BsStore({
@@ -791,9 +791,9 @@ const statesUS11: TDataSource = {
     remoteFilter: false,
     filters: [{ property: 'country', value: 'US', operator: 'eq' }],
     restProxy: {
-      browse: 'https://ahmadfajar.github.io/data/states.json'
-    }
-  })
+      browse: 'https://ahmadfajar.github.io/data/states.json',
+    },
+  }),
 };
 const statesUS12: TDataSource = {
   proxy: new BsStore({
@@ -804,9 +804,9 @@ const statesUS12: TDataSource = {
     remoteFilter: false,
     filters: [{ property: 'country', value: 'US', operator: 'eq' }],
     restProxy: {
-      browse: 'https://ahmadfajar.github.io/data/states.json'
-    }
-  })
+      browse: 'https://ahmadfajar.github.io/data/states.json',
+    },
+  }),
 };
 
 const statesUS13: TDataSource = {
@@ -818,9 +818,9 @@ const statesUS13: TDataSource = {
     remoteFilter: false,
     filters: [{ property: 'country', value: 'US', operator: 'eq' }],
     restProxy: {
-      browse: 'https://ahmadfajar.github.io/data/states.json'
-    }
-  })
+      browse: 'https://ahmadfajar.github.io/data/states.json',
+    },
+  }),
 };
 const statesUS14: TDataSource = {
   proxy: new BsStore({
@@ -831,9 +831,9 @@ const statesUS14: TDataSource = {
     remoteFilter: false,
     filters: [{ property: 'country', value: 'US', operator: 'eq' }],
     restProxy: {
-      browse: 'https://ahmadfajar.github.io/data/states.json'
-    }
-  })
+      browse: 'https://ahmadfajar.github.io/data/states.json',
+    },
+  }),
 };
 const statesUS15: TDataSource = {
   proxy: new BsStore({
@@ -844,9 +844,9 @@ const statesUS15: TDataSource = {
     remoteFilter: false,
     filters: [{ property: 'country', value: 'US', operator: 'eq' }],
     restProxy: {
-      browse: 'https://ahmadfajar.github.io/data/states.json'
-    }
-  })
+      browse: 'https://ahmadfajar.github.io/data/states.json',
+    },
+  }),
 };
 const statesUS16: TDataSource = {
   proxy: new BsStore({
@@ -857,9 +857,9 @@ const statesUS16: TDataSource = {
     remoteFilter: false,
     filters: [{ property: 'country', value: 'US', operator: 'eq' }],
     restProxy: {
-      browse: 'https://ahmadfajar.github.io/data/states.json'
-    }
-  })
+      browse: 'https://ahmadfajar.github.io/data/states.json',
+    },
+  }),
 };
 const statesUS17: TDataSource = {
   proxy: new BsStore({
@@ -870,9 +870,9 @@ const statesUS17: TDataSource = {
     remoteFilter: false,
     filters: [{ property: 'country', value: 'US', operator: 'eq' }],
     restProxy: {
-      browse: 'https://ahmadfajar.github.io/data/states.json'
-    }
-  })
+      browse: 'https://ahmadfajar.github.io/data/states.json',
+    },
+  }),
 };
 const statesUS18: TDataSource = {
   proxy: new BsStore({
@@ -883,9 +883,9 @@ const statesUS18: TDataSource = {
     remoteFilter: false,
     filters: [{ property: 'country', value: 'US', operator: 'eq' }],
     restProxy: {
-      browse: 'https://ahmadfajar.github.io/data/states.json'
-    }
-  })
+      browse: 'https://ahmadfajar.github.io/data/states.json',
+    },
+  }),
 };
 
 const statesUS20: TDataSource = {
@@ -897,9 +897,9 @@ const statesUS20: TDataSource = {
     remoteFilter: false,
     filters: [{ property: 'country', value: 'US', operator: 'eq' }],
     restProxy: {
-      browse: 'https://ahmadfajar.github.io/data/states.json'
-    }
-  })
+      browse: 'https://ahmadfajar.github.io/data/states.json',
+    },
+  }),
 };
 const statesUS21: TDataSource = {
   proxy: new BsStore({
@@ -910,9 +910,9 @@ const statesUS21: TDataSource = {
     remoteFilter: false,
     filters: [{ property: 'country', value: 'US', operator: 'eq' }],
     restProxy: {
-      browse: 'https://ahmadfajar.github.io/data/states.json'
-    }
-  })
+      browse: 'https://ahmadfajar.github.io/data/states.json',
+    },
+  }),
 };
 const statesUS22: TDataSource = {
   proxy: new BsStore({
@@ -923,9 +923,9 @@ const statesUS22: TDataSource = {
     remoteFilter: false,
     filters: [{ property: 'country', value: 'US', operator: 'eq' }],
     restProxy: {
-      browse: 'https://ahmadfajar.github.io/data/states.json'
-    }
-  })
+      browse: 'https://ahmadfajar.github.io/data/states.json',
+    },
+  }),
 };
 const statesUS23: TDataSource = {
   proxy: new BsStore({
@@ -936,9 +936,9 @@ const statesUS23: TDataSource = {
     remoteFilter: false,
     filters: [{ property: 'country', value: 'US', operator: 'eq' }],
     restProxy: {
-      browse: 'https://ahmadfajar.github.io/data/states.json'
-    }
-  })
+      browse: 'https://ahmadfajar.github.io/data/states.json',
+    },
+  }),
 };
 const statesUS24: TDataSource = {
   proxy: new BsStore({
@@ -949,9 +949,9 @@ const statesUS24: TDataSource = {
     remoteFilter: false,
     filters: [{ property: 'country', value: 'US', operator: 'eq' }],
     restProxy: {
-      browse: 'https://ahmadfajar.github.io/data/states.json'
-    }
-  })
+      browse: 'https://ahmadfajar.github.io/data/states.json',
+    },
+  }),
 };
 const statesUS25: TDataSource = {
   proxy: new BsStore({
@@ -962,8 +962,8 @@ const statesUS25: TDataSource = {
     remoteFilter: false,
     filters: [{ property: 'country', value: 'US', operator: 'eq' }],
     restProxy: {
-      browse: 'https://ahmadfajar.github.io/data/states.json'
-    }
-  })
+      browse: 'https://ahmadfajar.github.io/data/states.json',
+    },
+  }),
 };
 </script>

@@ -134,16 +134,16 @@ const occupation = ref();
 const drinks = [
   {
     value: 'tea',
-    label: 'Tea'
+    label: 'Tea',
   },
   {
     value: 'coffee',
-    label: 'Coffee'
+    label: 'Coffee',
   },
   {
     value: 'beer',
-    label: 'Beer'
-  }
+    label: 'Beer',
+  },
 ];
 
 const weathers = [
@@ -151,28 +151,26 @@ const weathers = [
     value: 'sunny',
     label: 'Sunny',
     icon: 'wb_sunny',
-    iconSize: 26
+    iconSize: 26,
   },
   {
     value: 'rain',
     label: 'Rain',
     icon: 'wb_cloudy',
-    iconSize: 26
+    iconSize: 26,
   },
   {
     value: 'heavy-rain',
     label: 'Heavy Rain',
     icon: 'thunderstorm',
-    iconSize: 26
-  }
+    iconSize: 26,
+  },
 ];
 
 const occupations = [
   { value: 'Computer and IT', label: 'Computer and IT' },
   { value: 'Scientists', label: 'Scientists and Research' },
   { value: 'Consultant', label: 'Consultant' },
-  { value: 'Other', label: 'Other' }
+  { value: 'Other', label: 'Other' },
 ];
 </script>
-
-<style scoped></style>

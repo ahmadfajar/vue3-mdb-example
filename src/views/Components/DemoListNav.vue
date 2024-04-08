@@ -396,7 +396,7 @@ const spaceAroundTypes = [
   { label: 'None', value: 'none' },
   { label: 'Left', value: 'left' },
   { label: 'Right', value: 'right' },
-  { label: 'Both', value: 'both' }
+  { label: 'Both', value: 'both' },
 ];
 const spaceAround = ref<TSpaceAround>('none');
 const itemBorderVariants = [
@@ -406,13 +406,13 @@ const itemBorderVariants = [
   { label: 'Left & Right', value: 'left-right' },
   { label: 'Top', value: 'top' },
   { label: 'Bottom', value: 'bottom' },
-  { label: 'Top & Bottom', value: 'top-bottom' }
+  { label: 'Top & Bottom', value: 'top-bottom' },
 ];
 const itemBorderVariant = ref<string>('none');
 const itemStyles = [
   { label: 'None', value: 'none' },
   { label: 'Rounded', value: 'rounded' },
-  { label: 'Rounded-Pill', value: 'pill' }
+  { label: 'Rounded-Pill', value: 'pill' },
 ];
 const itemStyle = ref<string>('none');
 const openSideDrawer1 = ref(true);
@@ -424,5 +424,3 @@ function toggleSideDrawer1(value: boolean) {
   openSideDrawer1.value = value;
 }
 </script>
-
-<style scoped></style>

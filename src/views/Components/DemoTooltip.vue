@@ -53,5 +53,3 @@ function onClick() {
   alert('I am clicked');
 }
 </script>
-
-<style scoped></style>

@@ -400,7 +400,7 @@ const spaceAroundTypes = [
   { label: 'None', value: 'none' },
   { label: 'Left', value: 'left' },
   { label: 'Right', value: 'right' },
-  { label: 'Both', value: 'both' }
+  { label: 'Both', value: 'both' },
 ];
 const spaceAround = ref<TSpaceAround>('none');
 const itemBorderVariants = [
@@ -410,13 +410,13 @@ const itemBorderVariants = [
   { label: 'Left & Right', value: 'left-right' },
   { label: 'Top', value: 'top' },
   { label: 'Bottom', value: 'bottom' },
-  { label: 'Top & Bottom', value: 'top-bottom' }
+  { label: 'Top & Bottom', value: 'top-bottom' },
 ];
 const itemBorderVariant = ref<string>('none');
 const itemStyles = [
   { label: 'None', value: 'none' },
   { label: 'Rounded', value: 'rounded' },
-  { label: 'Rounded-Pill', value: 'pill' }
+  { label: 'Rounded-Pill', value: 'pill' },
 ];
 const itemStyle = ref<string>('none');
 const getItemBorderVariant = computed<string | undefined>(() =>
@@ -428,92 +428,88 @@ const listItems1 = [
     avatar: 'https://ahmadfajar.github.io/img/1.jpg',
     title: 'Brunch this weekend?',
     subtitle:
-      "<b>Ali Connors</b> &#8212; I'll be in your neighborhood doing errands this weekend. Do you want to hang out?"
+      "<b>Ali Connors</b> &#8212; I'll be in your neighborhood doing errands this weekend. Do you want to hang out?",
   },
   {
     avatar: 'https://ahmadfajar.github.io/img/2.jpg',
     title: 'Summer BBQ',
     subtitle:
-      "<b>to Alex, Scott, Jennifer</b> &mdash; Wish I could come, but I'm out of town this weekend."
+      "<b>to Alex, Scott, Jennifer</b> &mdash; Wish I could come, but I'm out of town this weekend.",
   },
   {
     avatar: 'https://ahmadfajar.github.io/img/3.jpg',
     title: 'Oui oui',
-    subtitle: '<b>Sandra Adams</b> &mdash; Do you have Paris recommendations? Have you ever been?'
+    subtitle: '<b>Sandra Adams</b> &mdash; Do you have Paris recommendations? Have you ever been?',
   },
   {
     avatar: 'https://ahmadfajar.github.io/img/4.jpg',
     title: 'Birthday gift',
     subtitle:
-      '<b>Trevor Hansen</b> &mdash; Have any ideas about what we should get Heidi for her birthday?'
-  }
+      '<b>Trevor Hansen</b> &mdash; Have any ideas about what we should get Heidi for her birthday?',
+  },
 ];
 const listItems2 = ref([
   {
     avatar: 'https://ahmadfajar.github.io/img/crunchy-croissants.jpg',
     title: 'Crunchy Croissants',
     text: 'Buttery, flaky pastry named for its crescent shaped.',
-    active: true
+    active: true,
   },
   {
     avatar: 'https://ahmadfajar.github.io/img/grilled-eggplant-1.jpg',
     title: 'Grilled Eggplant',
     text: 'Tender with a rich, complex flavor when cooked.',
-    active: true
+    active: true,
   },
   {
     avatar: 'https://ahmadfajar.github.io/img/tangerine-salad.jpg',
     title: 'Tangerine Salad',
     text: 'Peak tangerine season lasts from autumn to spring.',
-    active: true
+    active: true,
   },
   {
     avatar: 'https://ahmadfajar.github.io/img/pomegranate-juice.jpg',
     title: 'Pomegranate Juice',
     text: 'A superfood for good skin, hair and health.',
-    active: false
+    active: false,
   },
   {
     avatar: 'https://ahmadfajar.github.io/img/simple-salsa.jpg',
     title: 'Chili Salsa',
     text: 'Heat up any taco night with minimal preparation.',
-    active: false
+    active: false,
   },
   {
     avatar: 'https://ahmadfajar.github.io/img/flour-scratch.jpg',
     title: 'Flour from scratch',
     text: 'Grind grains, nuts, or beans in your coffee grinder.',
-    active: false
-  }
+    active: false,
+  },
 ]);
 const listChat1 = [
   {
     active: true,
     fullName: 'Jason Oner',
-    avatar: 'https://ahmadfajar.github.io/img/1.jpg'
+    avatar: 'https://ahmadfajar.github.io/img/1.jpg',
   },
   {
     active: true,
     fullName: 'Ranee Carlson',
-    avatar: 'https://ahmadfajar.github.io/img/2.jpg'
+    avatar: 'https://ahmadfajar.github.io/img/2.jpg',
   },
   {
     active: false,
     fullName: 'Cindy Baker',
-    avatar: 'https://ahmadfajar.github.io/img/3.jpg'
+    avatar: 'https://ahmadfajar.github.io/img/3.jpg',
   },
   {
     active: false,
     fullName: 'Ali Connors',
-    avatar: 'https://ahmadfajar.github.io/img/4.jpg'
-  }
+    avatar: 'https://ahmadfajar.github.io/img/4.jpg',
+  },
 ];
-const listChat2 = [
-  { fullName: 'Travis Howard', avatar: 'https://ahmadfajar.github.io/img/5.jpg' }
-];
-const content =
-  'Quis magna Lorem anim amet ipsum do mollit sit cillum voluptate ex nulla tempor. Laborum consequat non elit enim exercitation cillum aliqua consequat id aliqua.';
-
+const listChat2 = [{ fullName: 'Travis Howard', avatar: 'https://ahmadfajar.github.io/img/5.jpg' }];
+const content = 'Quis magna Lorem anim amet ipsum do mollit sit cillum voluptate ex nulla tempor. Laborum consequat non elit enim exercitation cillum aliqua consequat id aliqua.';
 const openSideDrawer1 = ref(true);
 
 function toggleSideDrawer1(value: boolean) {

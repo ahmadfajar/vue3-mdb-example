@@ -220,5 +220,3 @@ const quickText =
   "Some quick example text to build on the card title and make up the bulk of the card's content.";
 const smallText = 'Last updated 3 mins ago';
 </script>
-
-<style lang="scss"></style>

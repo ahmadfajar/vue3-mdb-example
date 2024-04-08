@@ -40,7 +40,7 @@
       <div class="row g-4 row-cols-1 row-cols-lg-2">
         <div class="col">
           <bs-text-area
-            v-model="textValue"
+            v-model="textValue1"
             :persistent-help-text="false"
             floating-label
             help-text="For example, flowers or used cars"
@@ -55,7 +55,7 @@
         </div>
         <div class="col">
           <bs-text-area
-            v-model="textValue"
+            v-model="textValue1"
             :persistent-help-text="false"
             filled
             floating-label
@@ -71,7 +71,7 @@
         </div>
         <div class="col">
           <bs-text-area
-            v-model="textValue"
+            v-model="textValue1"
             :persistent-help-text="false"
             floating-label
             help-text="For example, flowers or used cars"
@@ -191,23 +191,23 @@
     <DemoBlock class="mt-4">
       <div class="row g-4 row-cols-1 row-cols-lg-2">
         <div class="col">
-          <bs-text-area v-model="textValue" readonly floating-label>
+          <bs-text-area v-model="textValue1" readonly floating-label>
             <label>State Readonly</label>
           </bs-text-area>
         </div>
         <div class="col">
-          <bs-text-area v-model="textValue" disabled floating-label prepend-icon="email_outlined">
+          <bs-text-area v-model="textValue1" disabled floating-label prepend-icon="email_outlined">
             <label>State Disabled</label>
           </bs-text-area>
         </div>
         <div class="col">
-          <bs-text-area v-model="textValue" readonly floating-label filled>
+          <bs-text-area v-model="textValue1" readonly floating-label filled>
             <label>State Readonly</label>
           </bs-text-area>
         </div>
         <div class="col">
           <bs-text-area
-            v-model="textValue"
+            v-model="textValue1"
             disabled
             filled
             floating-label
@@ -217,13 +217,13 @@
           </bs-text-area>
         </div>
         <div class="col">
-          <bs-text-area v-model="textValue" readonly floating-label outlined>
+          <bs-text-area v-model="textValue1" readonly floating-label outlined>
             <label>State Readonly</label>
           </bs-text-area>
         </div>
         <div class="col">
           <bs-text-area
-            v-model="textValue"
+            v-model="textValue1"
             disabled
             floating-label
             outlined
@@ -241,20 +241,20 @@
           <bs-text-field class="mb-3" clear-button filled>
             <label class="col-md-4 col-xl-2 col-form-label">Full Name</label>
           </bs-text-field>
-          <bs-text-area v-model="fieldValue" class="mb-3" clear-button filled>
+          <bs-text-area v-model="textValue2" class="mb-3" clear-button filled>
             <label class="col-md-4 col-xl-2 col-form-label">Address</label>
           </bs-text-area>
           <bs-text-area
-            v-model="fieldValue"
-            class="mb-3"
+            v-model="textValue2"
             append-icon="account_circle_outlined"
+            class="mb-3"
             filled
             readonly
           >
             <label class="col-md-4 col-xl-2 col-form-label">State Readonly</label>
           </bs-text-area>
           <bs-text-area
-            v-model="fieldValue"
+            v-model="textValue2"
             append-icon="account_circle_outlined"
             class="mb-3"
             disabled
@@ -271,10 +271,8 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
 
-const textValue = ref('Grocery delivery');
-const fieldValue = ref(
+const textValue1 = ref('Grocery delivery');
+const textValue2 = ref(
   '12th floor, Flat G - Magnolia Building\n' + '212 Sycamore Street - WAN CHAI HONG KONG'
 );
 </script>
-
-<style scoped></style>

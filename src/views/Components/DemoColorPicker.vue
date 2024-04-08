@@ -89,7 +89,7 @@ const swatches2 = [
   '#0077b6',
   '#0096c7',
   '#00b4d8',
-  '#48cae4'
+  '#48cae4',
 ];
 </script>
 

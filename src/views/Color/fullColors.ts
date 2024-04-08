@@ -15,7 +15,7 @@ export const fullColors = {
     'accent-1': '#ff8a80',
     'accent-2': '#ff5252',
     'accent-3': '#e03333',
-    'accent-4': '#d21b1b'
+    'accent-4': '#d21b1b',
   },
   pink: {
     'lighten-5': '#ffdfe7',
@@ -31,7 +31,7 @@ export const fullColors = {
     'accent-1': '#ff80ab',
     'accent-2': '#ff4081',
     'accent-3': '#da1970',
-    'accent-4': '#c51162'
+    'accent-4': '#c51162',
   },
   purple: {
     'lighten-5': '#f3e5f5',
@@ -47,7 +47,7 @@ export const fullColors = {
     'accent-1': '#ea80fc',
     'accent-2': '#e040fb',
     'accent-3': '#bf19db',
-    'accent-4': '#9d08b7'
+    'accent-4': '#9d08b7',
   },
   'deep-purple': {
     'lighten-5': '#ede7f6',
@@ -63,7 +63,7 @@ export const fullColors = {
     'accent-1': '#b388ff',
     'accent-2': '#8f67ff',
     'accent-3': '#7846ff',
-    'accent-4': '#5402c5'
+    'accent-4': '#5402c5',
   },
   indigo: {
     'lighten-5': '#e8eaf6',
@@ -79,7 +79,7 @@ export const fullColors = {
     'accent-1': '#8c9eff',
     'accent-2': '#6770eb',
     'accent-3': '#4a56f1',
-    'accent-4': '#3945dd'
+    'accent-4': '#3945dd',
   },
   blue: {
     'lighten-5': '#e3f2fd',
@@ -95,7 +95,7 @@ export const fullColors = {
     'accent-1': '#82b1ff',
     'accent-2': '#448aff',
     'accent-3': '#2979ff',
-    'accent-4': '#2962ff'
+    'accent-4': '#2962ff',
   },
   'light-blue': {
     'lighten-5': '#e1f5fe',
@@ -111,7 +111,7 @@ export const fullColors = {
     'accent-1': '#80d8ff',
     'accent-2': '#40c4ff',
     'accent-3': '#00b0ff',
-    'accent-4': '#0091ea'
+    'accent-4': '#0091ea',
   },
   cyan: {
     'lighten-5': '#e0f7fa',
@@ -127,7 +127,7 @@ export const fullColors = {
     'accent-1': '#84ffff',
     'accent-2': '#18ffff',
     'accent-3': '#0bd3d2',
-    'accent-4': '#0ba1a0'
+    'accent-4': '#0ba1a0',
   },
   teal: {
     'lighten-5': '#e0f2f1',
@@ -143,7 +143,7 @@ export const fullColors = {
     'accent-1': '#a7ffeb',
     'accent-2': '#64f9dd',
     'accent-3': '#27c9ab',
-    'accent-4': '#14a98d'
+    'accent-4': '#14a98d',
   },
   green: {
     'lighten-5': '#deffdf',
@@ -159,7 +159,7 @@ export const fullColors = {
     'accent-1': '#b9f6ca',
     'accent-2': '#8fefaa',
     'accent-3': '#5bcd7a',
-    'accent-4': '#1da762'
+    'accent-4': '#1da762',
   },
   'light-green': {
     'lighten-5': '#f1f8e9',
@@ -175,7 +175,7 @@ export const fullColors = {
     'accent-1': '#ccff90',
     'accent-2': '#a7e75c',
     'accent-3': '#76b130',
-    'accent-4': '#508511'
+    'accent-4': '#508511',
   },
   lime: {
     'lighten-5': '#f9fbe7',
@@ -191,7 +191,7 @@ export const fullColors = {
     'accent-1': '#f4ff81',
     'accent-2': '#dae75b',
     'accent-3': '#bbc741',
-    'accent-4': '#9ca919'
+    'accent-4': '#9ca919',
   },
   yellow: {
     'lighten-5': '#fffde7',
@@ -207,7 +207,7 @@ export const fullColors = {
     'accent-1': '#fffe6d',
     'accent-2': '#f3f23a',
     'accent-3': '#dbda18',
-    'accent-4': '#c1c00a'
+    'accent-4': '#c1c00a',
   },
   amber: {
     'lighten-5': '#fff8e1',
@@ -223,7 +223,7 @@ export const fullColors = {
     'accent-1': '#ffe05d',
     'accent-2': '#f3cd2f',
     'accent-3': '#d5b016',
-    'accent-4': '#bd9900'
+    'accent-4': '#bd9900',
   },
   orange: {
     'lighten-5': '#fff3e0',
@@ -239,7 +239,7 @@ export const fullColors = {
     'accent-1': '#ffd180',
     'accent-2': '#ffab40',
     'accent-3': '#ff9100',
-    'accent-4': '#d37801'
+    'accent-4': '#d37801',
   },
   'deep-orange': {
     'lighten-5': '#fbe9e7',
@@ -255,7 +255,7 @@ export const fullColors = {
     'accent-1': '#ff9e80',
     'accent-2': '#ff6e40',
     'accent-3': '#ff3d00',
-    'accent-4': '#dd2c00'
+    'accent-4': '#dd2c00',
   },
   'mdb-color': {
     'lighten-5': '#d0d6e2',
@@ -267,7 +267,7 @@ export const fullColors = {
     'darken-1': '#3b465e',
     'darken-2': '#2e3951',
     'darken-3': '#232c40',
-    'darken-4': '#1c2331'
+    'darken-4': '#1c2331',
   },
   brown: {
     'lighten-5': '#efebe9',
@@ -279,7 +279,7 @@ export const fullColors = {
     'darken-1': '#6d4c41',
     'darken-2': '#5d4037',
     'darken-3': '#4e342e',
-    'darken-4': '#3e2723'
+    'darken-4': '#3e2723',
   },
   'blue-grey': {
     'lighten-5': '#eceff1',
@@ -291,7 +291,7 @@ export const fullColors = {
     'darken-1': '#546e7a',
     'darken-2': '#455a64',
     'darken-3': '#37474f',
-    'darken-4': '#263238'
+    'darken-4': '#263238',
   },
   grey: {
     'lighten-5': '#fafafa',
@@ -303,8 +303,8 @@ export const fullColors = {
     'darken-1': '#757575',
     'darken-2': '#616161',
     'darken-3': '#424242',
-    'darken-4': '#212121'
-  }
+    'darken-4': '#212121',
+  },
 };
 
 export function useFullColorClasses(base: string, prop: string) {
@@ -320,7 +320,7 @@ export function useFullColorClasses(base: string, prop: string) {
         'lighten-1',
         'accent-1',
         'accent-2',
-        'accent-3'
+        'accent-3',
       ].includes(prop) &&
       !(['lime', 'amber'].includes(base) && prop === 'base') &&
       !(base === 'yellow' && prop !== 'darken-4'),
@@ -333,10 +333,10 @@ export function useFullColorClasses(base: string, prop: string) {
         'lighten-1',
         'accent-1',
         'accent-2',
-        'accent-3'
+        'accent-3',
       ].includes(prop) ||
       (['lime', 'amber'].includes(base) && prop === 'base') ||
-      (base === 'yellow' && prop !== 'darken-4')
+      (base === 'yellow' && prop !== 'darken-4'),
   };
 }
 

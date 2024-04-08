@@ -46,5 +46,3 @@ const progress3 = ref(50);
 const progress4 = ref(70);
 const progress5 = ref(90);
 </script>
-
-<style scoped></style>

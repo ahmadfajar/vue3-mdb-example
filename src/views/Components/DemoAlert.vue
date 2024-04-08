@@ -76,9 +76,7 @@
           construct <b>Alerts</b> from other predefined colors.
         </p>
         <hr />
-        <p>
-          Whenever you need to, be sure to use margin utilities to keep things nice and tidy.
-        </p>
+        <p>Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p>
       </BsAlert>
     </DemoBlock>
     <h2 class="mt-5">Dismissible alerts</h2>
@@ -158,5 +156,3 @@ function closeAlert() {
   clearInterval(timerInterval.value);
 }
 </script>
-
-<style scoped></style>

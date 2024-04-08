@@ -1,6 +1,6 @@
 <template>
   <BsAppContainer class="bg-mdb-color" viewport-height>
-    <BsAppbar class="bg-mdb-color" clipped-left>
+    <BsAppbar class="bg-mdb-color" clipped-left fixed-top>
       <BsButton
         color="light"
         icon="menu"
@@ -8,7 +8,7 @@
         flat
         @click="toggleSideDrawer(!openSideDrawer)"
       />
-      <BsAppbarTitle :title="($route.meta.title as string)" class="text-white" />
+      <BsAppbarTitle :title="$route.meta.title as string" class="text-white" />
     </BsAppbar>
     <BsSideDrawer v-model:open="openSideDrawer" color="mdb-color" fixed-layout>
       <div class="text-center mb-2">
@@ -37,22 +37,22 @@
         </BsListNav>
       </BsListView>
     </BsSideDrawer>
-    <BsContainer app @resize="onContainerResize">
-      <main class="body-content">
+    <BsContainer class="bg-mdb-color" app @resize="onContainerResize">
+      <BsContent>
         <RouterView v-slot="{ Component }">
           <Transition name="fastFade" mode="out-in">
             <component :is="Component" />
           </Transition>
         </RouterView>
-      </main>
+      </BsContent>
     </BsContainer>
   </BsAppContainer>
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue';
 import type { TNavigationRecord } from '@/router/navigation';
 import { menuNavs } from '@/router/navigation';
+import { ref } from 'vue';
 import { useBreakpointMax } from 'vue-mdbootstrap';
 
 const openSideDrawer = ref(true);
@@ -87,6 +87,14 @@ const routeNavB = menuNavs.filter((it) => it.group === 'Reference').sort(compare
 <style lang="scss">
 @import 'compass-mixins/lib/compass/css3';
 
+// override compass-mixins global variables
+$legacy-support-for-ie:                 false;
+$legacy-support-for-mozilla:            false;
+$experimental-support-for-opera:        false;
+$experimental-support-for-mozilla:      false;
+$experimental-support-for-webkit:       true;
+$experimental-support-for-microsoft:    false;
+
 .fastFade-enter-active,
 .fastFade-leave-active {
   transition: opacity 0.2s ease;
@@ -98,19 +106,9 @@ const routeNavB = menuNavs.filter((it) => it.group === 'Reference').sort(compare
 }
 
 #app {
-  max-width: 100%;
-  max-height: 100vh;
-
-  .md-container-wrap {
-    height: calc(100vh - 64px);
-  }
-
-  .body-content {
+  .md-content-wrap {
     background-color: white;
     padding-bottom: 2rem;
-    position: relative;
-    overflow: auto;
-    width: 100%;
 
     @media (min-width: 992px) {
       @include border-top-left-radius(36px);
@@ -126,8 +124,8 @@ const routeNavB = menuNavs.filter((it) => it.group === 'Reference').sort(compare
   }
 
   .h3,
-  h3,
   .h4,
+  h3,
   h4 {
     &:not(.card-title) {
       font-weight: normal;
