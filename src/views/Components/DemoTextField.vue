@@ -279,6 +279,41 @@
         </datalist>
       </div>
     </DemoBlock>
+    <h4 class="mt-5">Prefixes and Suffixes</h4>
+    <DemoBlock class="mt-4">
+      <div class="row g-4 row-cols-1 row-cols-lg-2">
+        <div class="col">
+          <BsTextField prefix="INV -" floating-label>
+            <label>Invoice Number</label>
+          </BsTextField>
+        </div>
+        <div class="col">
+          <BsTextField suffix="Kg" floating-label readonly>
+            <label>Weight</label>
+          </BsTextField>
+        </div>
+        <div class="col">
+          <BsTextField prefix="www." prepend-icon="public_outlined" floating-label filled>
+            <label>Website</label>
+          </BsTextField>
+        </div>
+        <div class="col">
+          <BsTextField suffix="@example.com" prepend-icon="email_outlined" filled floating-label readonly>
+            <label>Admin Email</label>
+          </BsTextField>
+        </div>
+        <div class="col">
+          <BsTextField prefix="www." prepend-icon="public_outlined" floating-label outlined>
+            <label>Website</label>
+          </BsTextField>
+        </div>
+        <div class="col">
+          <BsTextField suffix="@example.com" prepend-icon="email_outlined" floating-label outlined readonly>
+            <label>Admin Email</label>
+          </BsTextField>
+        </div>
+      </div>
+    </DemoBlock>
     <h4 class="mt-5">Classic Form Field Styles</h4>
     <DemoBlock class="mt-4">
       <div class="row justify-content-center">

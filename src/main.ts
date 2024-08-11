@@ -4,6 +4,7 @@ import router from '@/router';
 import { createVueMdb } from 'vue-mdbootstrap';
 
 import 'vue-mdbootstrap/styles';
+import '@/assets/main.css';
 
 const app = createVueMdb(App);
 app.component('DemoBlock', DemoBlock).use(router).mount('#app');

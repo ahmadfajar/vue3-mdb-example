@@ -4,9 +4,9 @@
     <DemoBlock class="mt-4">
       <BsProgressBar v-model="progress1" />
       <BsProgressBar v-model="progress1" class="mt-3" height="1.5rem" show-value />
-      <BsCardContent type="subtitle" class="my-3">
+      <h6 class="mb-3 mt-4">
         Value: <span class="text-unique">{{ progress1 }}%</span>
-      </BsCardContent>
+      </h6>
       <input v-model.number="progress1" class="form-range" type="range" />
     </DemoBlock>
     <h2 class="mt-5">Color</h2>

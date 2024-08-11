@@ -284,6 +284,41 @@
         </div>
       </div>
     </DemoBlock>
+    <h2 class="mt-5">Prefixes and Suffixes</h2>
+    <DemoBlock class="mt-4">
+      <div class="row g-4 row-cols-1 row-cols-lg-2">
+        <div class="col">
+          <BsNumericField prefix="Rp." floating-label>
+            <label>Unit Price</label>
+          </BsNumericField>
+        </div>
+        <div class="col">
+          <BsNumericField suffix="Kg" floating-label>
+            <label>Unit Weight</label>
+          </BsNumericField>
+        </div>
+        <div class="col">
+          <BsNumericField prefix="Rp." filled floating-label>
+            <label>Unit Price</label>
+          </BsNumericField>
+        </div>
+        <div class="col">
+          <BsNumericField suffix="Kg" filled floating-label>
+            <label>Unit Weight</label>
+          </BsNumericField>
+        </div>
+        <div class="col">
+          <BsNumericField prefix="Rp." outlined floating-label>
+            <label>Unit Price</label>
+          </BsNumericField>
+        </div>
+        <div class="col">
+          <BsNumericField suffix="Kg" outlined floating-label>
+            <label>Unit Weight</label>
+          </BsNumericField>
+        </div>
+      </div>
+    </DemoBlock>
   </div>
 </template>
 
