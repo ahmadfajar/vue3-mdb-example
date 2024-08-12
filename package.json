@@ -1,7 +1,7 @@
 {
   "name": "vue3-mdb-example",
   "description": "Vue MDBootstrap v2.0 components demo",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "private": true,
   "author": {
     "name": "Ahmad Fajar",
@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "vue": "^3.4.37",
-    "vue-mdbootstrap": "^2.0.9",
+    "vue-mdbootstrap": "^2.0.10",
     "vue-router": "^4.4.3"
   },
   "devDependencies": {
