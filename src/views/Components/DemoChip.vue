@@ -3,7 +3,7 @@
     <h2 id="overview">Overview</h2>
     <DemoBlock class="docs-demo-ctrl mt-4">
       <template v-for="color in colorVariants" :key="color">
-        <BsChip :color="color" class="mb-3" href="javascript:void(0)">
+        <BsChip :color="color" class="mb-3" href="javascript:;">
           {{ StringHelper.titleCase(color) }}
         </BsChip>
       </template>

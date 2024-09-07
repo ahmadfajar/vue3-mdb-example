@@ -60,7 +60,7 @@
             Spin {{ isSpin ? 'OFF' : 'ON' }}
           </BsSwitch>
         </div>
-        <div class="d-flex flex-column align-items-center m-2" style="width: 150px">
+        <div class="d-flex flex-column align-items-center m-2" style="width: 160px">
           <BsAvatar
             v-model:icon-pulse="isPulse"
             class="bg-teal text-white"

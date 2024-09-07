@@ -1,5 +1,5 @@
 <template>
-  <BsAppContainer class="bg-mdb-color" viewport-height>
+  <BsApp class="bg-mdb-color" viewport-height>
     <BsAppbar class="bg-mdb-color" clipped-left fixed-top>
       <BsButton
         color="light"
@@ -15,12 +15,12 @@
         <img alt="Vue logo" src="./assets/vue-mdb.png" style="width: 96px" />
       </div>
       <BsDivider dark />
-      <BsListView color="mdb-color" item-border-variant="left" item-rounded space-around="both">
+      <BsListView color="mdb-color" space-around="both" item-border-variant="left" item-rounded>
         <BsListNav>
           <BsListNavItem
             v-for="navItem in routeNavA"
             :key="navItem.label"
-            :path="navItem.path"
+            :path-name="StringHelper.kebabCase(navItem.label)"
             :disabled="navItem.disabled"
             :label="navItem.label"
           />
@@ -30,7 +30,7 @@
           <BsListNavItem
             v-for="navItem in routeNavB"
             :key="navItem.label"
-            :path="navItem.path"
+            :path-name="StringHelper.kebabCase(navItem.label)"
             :disabled="navItem.disabled"
             :label="navItem.label"
           />
@@ -46,19 +46,19 @@
         </RouterView>
       </BsContent>
     </BsContainer>
-  </BsAppContainer>
+  </BsApp>
 </template>
 
 <script lang="ts" setup>
 import type { TNavigationRecord } from '@/router/navigation';
 import { menuNavs } from '@/router/navigation';
 import { ref } from 'vue';
-import { useBreakpointMax } from 'vue-mdbootstrap';
+import { useBreakpointMax, StringHelper } from 'vue-mdbootstrap';
 
 const openSideDrawer = ref(true);
 
 function onContainerResize() {
-  if (useBreakpointMax('xl')) {
+  if (useBreakpointMax('lg')) {
     openSideDrawer.value = false;
   }
 }

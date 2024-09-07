@@ -98,17 +98,20 @@
     <BsDivider />
     <div class="demo-block-content bg-grey-200 rounded mt-3">
       <BsAppContainer>
-        <BsSideDrawer :mini="miniSideDrawer1">
+        <BsSideDrawer v-model:open="openSideDrawerMini" mini>
           <div class="d-flex flex-row p-2" style="width: 250px">
             <img
               src="https://ahmadfajar.github.io/img/kitty-1.jpg"
               alt="image"
               style="width: 40px; height: 40px"
               class="rounded-circle md-link"
-              @click="miniSideDrawer1 = false"
+              @click="openSideDrawerMini = true"
             />
             <transition name="fade">
-              <div v-if="!miniSideDrawer1" class="h5 mb-0 ps-3 d-flex align-items-center flex-fill">
+              <div
+                v-if="openSideDrawerMini"
+                class="h5 mb-0 ps-3 d-flex align-items-center flex-fill"
+              >
                 Kitty Doe
               </div>
             </transition>
@@ -117,7 +120,7 @@
               icon="chevron_left"
               mode="icon"
               flat
-              @click="miniSideDrawer1 = true"
+              @click="openSideDrawerMini = false"
             />
           </div>
           <BsDivider />
@@ -127,7 +130,7 @@
                 <a href="#" class="nav-link d-flex active">
                   <BsIcon icon="home_outlined" />
                   <transition name="fade">
-                    <span v-if="!miniSideDrawer1" class="ps-3">Home</span>
+                    <span v-if="openSideDrawerMini" class="ps-3">Home</span>
                   </transition>
                 </a>
               </li>
@@ -135,7 +138,7 @@
                 <a href="#" class="nav-link d-flex">
                   <BsIcon icon="view_list_outlined" />
                   <transition name="fade">
-                    <span v-if="!miniSideDrawer1" class="ps-3">Orders</span>
+                    <span v-if="openSideDrawerMini" class="ps-3">Orders</span>
                   </transition>
                 </a>
               </li>
@@ -143,7 +146,7 @@
                 <a href="#" class="nav-link d-flex">
                   <BsIcon icon="redeem_outlined" />
                   <transition name="fade">
-                    <span v-if="!miniSideDrawer1" class="ps-3">Products</span>
+                    <span v-if="openSideDrawerMini" class="ps-3">Products</span>
                   </transition>
                 </a>
               </li>
@@ -151,7 +154,7 @@
                 <a href="#" class="nav-link d-flex">
                   <BsIcon icon="account_circle_outlined" />
                   <transition name="fade">
-                    <span v-if="!miniSideDrawer1" class="ps-3">Customers</span>
+                    <span v-if="openSideDrawerMini" class="ps-3">Customers</span>
                   </transition>
                 </a>
               </li>
@@ -281,7 +284,7 @@ const openSideDrawer1 = ref(true);
 const openSideDrawer2 = ref(true);
 const openSideDrawer3 = ref(true);
 const openSideDrawer4 = ref(true);
-const miniSideDrawer1 = ref(true);
+const openSideDrawerMini = ref(false);
 
 function toggleSideDrawer1(value: boolean) {
   openSideDrawer1.value = value;

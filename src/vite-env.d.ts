@@ -3,7 +3,7 @@
 
 import { AllowedComponentProps, ComponentCustomProps, VNode, VNodeProps } from 'vue';
 
-export declare const DemoBlock: {
+declare const DemoBlock: {
   new (): {
     $props: AllowedComponentProps & ComponentCustomProps & VNodeProps;
     $slots: {
@@ -12,8 +12,13 @@ export declare const DemoBlock: {
   };
 };
 
-declare module 'vue' {
-  export interface GlobalComponents {
+declare module '@vue/runtime-core' {
+  interface GlobalComponents {
     DemoBlock: typeof DemoBlock;
+  }
+
+  interface ComponentCustomProperties {
+    $route: typeof RouteLocationNormalizedLoaded;
+    $router: typeof Router;
   }
 }
