@@ -137,15 +137,12 @@
 
 <script lang="ts" setup>
 import type { ComponentPublicInstance } from 'vue';
+import type { BsLightboxInstance } from 'vue-mdbootstrap';
 import { ref } from 'vue';
 
-declare interface ILightboxComponent extends ComponentPublicInstance {
-  openAt(index: number): void;
-}
-
 const toolbarButtons = { download: true, rotate: true, menubar: true, close: true };
-const lightbox1 = ref<ILightboxComponent>();
-const lightbox2 = ref<ILightboxComponent>();
+const lightbox1 = ref<BsLightboxInstance>();
+const lightbox2 = ref<BsLightboxInstance>();
 const showGallery1 = ref(false);
 const showGallery2 = ref(false);
 const showGallery3 = ref(false);

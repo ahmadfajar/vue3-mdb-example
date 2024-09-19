@@ -85,32 +85,28 @@
     </div>
     <div class="row row-cols-5 mt-4 text-center">
       <div class="col">
-        <div class="form-check form-switch">
-          <input
-            id="flexSwitchCheck1"
-            v-model="isSpin"
-            class="form-check-input"
-            role="switch"
-            type="checkbox"
-          />
-          <label class="form-check-label" for="flexSwitchCheck1"
-            >Spin {{ isSpin ? 'OFF' : 'ON' }}</label
-          >
-        </div>
+        <BsSwitch
+          v-model="isSpin"
+          :value="true"
+          color="primary-color-dark"
+          class="mt-2 align-self-start"
+          checked-icon
+          inset-outlined
+        >
+          Spin {{ isSpin ? 'OFF' : 'ON' }}
+        </BsSwitch>
       </div>
       <div class="col">
-        <div class="form-check form-switch">
-          <input
-            id="flexSwitchCheck2"
-            v-model="isPulse"
-            class="form-check-input"
-            role="switch"
-            type="checkbox"
-          />
-          <label class="form-check-label" for="flexSwitchCheck2"
-            >Pulse {{ isPulse ? 'OFF' : 'ON' }}</label
-          >
-        </div>
+        <BsSwitch
+          v-model="isPulse"
+          :value="true"
+          color="primary-color-dark"
+          class="mt-2 align-self-start"
+          checked-icon
+          inset-outlined
+        >
+          Pulse {{ isPulse ? 'OFF' : 'ON' }}
+        </BsSwitch>
       </div>
     </div>
   </div>
