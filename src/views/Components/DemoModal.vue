@@ -3,22 +3,22 @@
     <h2>Overview</h2>
     <DemoBlock class="mt-4">
       <div class="d-flex justify-content-center">
-        <BsButton color="indigo" @click="dialog1 = true"> Open Dialog </BsButton>
+        <BsButton color="indigo" @click="dialog1 = true">Open Dialog</BsButton>
       </div>
       <BsModal v-model:open="dialog1" title="Dialog Title" max-width="85%">
         <div class="fw-semibold">Hello, I am a modal dialog.</div>
         <div>You can click outside area or press ESC to close me.</div>
 
         <template #footer>
-          <BsButton outlined color="primary" @click="dialog1 = false"> Cancel </BsButton>
-          <BsButton color="primary" @click="dialog1 = false"> OK </BsButton>
+          <BsButton color="primary" style="width: 103px;" @click="dialog1 = false">OK</BsButton>
+          <BsButton outlined color="primary" @click="dialog1 = false">Cancel</BsButton>
         </template>
       </BsModal>
     </DemoBlock>
     <h2 class="mt-5">True Modal Dialog</h2>
     <DemoBlock class="mt-4">
       <div class="d-flex justify-content-center">
-        <BsButton color="indigo" @click="dialog2 = true"> Open Dialog </BsButton>
+        <BsButton color="indigo" @click="dialog2 = true">Open Dialog</BsButton>
       </div>
       <BsModal
         v-model:open="dialog2"
@@ -29,15 +29,15 @@
         You can only close me by clicking the button below or press ESC.
 
         <template #footer>
-          <BsButton outlined color="primary" @click="dialog2 = false"> Cancel </BsButton>
-          <BsButton color="primary" @click="dialog2 = false"> OK </BsButton>
+          <BsButton color="primary" style="width: 103px;" @click="dialog2 = false">OK</BsButton>
+          <BsButton outlined color="primary" @click="dialog2 = false">Cancel</BsButton>
         </template>
       </BsModal>
     </DemoBlock>
     <h2 class="mt-5">Scrolling Long Content</h2>
     <DemoBlock class="mt-4">
       <div class="d-flex justify-content-center">
-        <BsButton color="indigo" @click="dialog3 = true"> Open Dialog </BsButton>
+        <BsButton color="indigo" @click="dialog3 = true">Open Dialog</BsButton>
       </div>
       <BsModal
         v-model:open="dialog3"
@@ -127,22 +127,22 @@
         </p>
 
         <template #footer>
-          <BsButton outlined color="primary" @click="dialog3 = false"> Cancel </BsButton>
-          <BsButton color="primary" @click="dialog3 = false"> OK </BsButton>
+          <BsButton color="primary" style="width: 103px;" @click="dialog3 = false">OK</BsButton>
+          <BsButton outlined color="primary" @click="dialog3 = false">Cancel</BsButton>
         </template>
       </BsModal>
     </DemoBlock>
     <h2 class="mt-5">Hiding Backdrop Overlay</h2>
     <DemoBlock class="mt-4">
       <div class="d-flex justify-content-center">
-        <BsButton color="indigo" @click="dialog4 = true"> Open Dialog </BsButton>
+        <BsButton color="indigo" @click="dialog4 = true">Open Dialog</BsButton>
       </div>
       <BsModal v-model:open="dialog4" title="Modal Dialog" max-width="85%" :overlay="false">
         You can close me by clicking the outside area or press ESC.
 
         <template #footer>
-          <BsButton outlined color="primary" @click="dialog4 = false"> Cancel </BsButton>
-          <BsButton color="primary" @click="dialog4 = false"> OK </BsButton>
+          <BsButton color="primary" style="width: 103px;" @click="dialog4 = false">OK</BsButton>
+          <BsButton outlined color="primary" @click="dialog4 = false">Cancel</BsButton>
         </template>
       </BsModal>
     </DemoBlock>

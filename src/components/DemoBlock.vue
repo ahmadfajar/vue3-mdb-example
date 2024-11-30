@@ -43,7 +43,7 @@ const pickerShow = ref(false);
 const step = ref(-10);
 const styles = reactive<Record<string, string>>({
   backgroundColor: pickerColor.value,
-  color: '#212121'
+  color: '#212121',
 });
 
 watch(
@@ -99,15 +99,7 @@ const darkenOrLighten = () => {
 </script>
 
 <style lang="scss">
-@import 'compass-mixins/lib/compass/css3';
-
-// override compass-mixins global variables
-$legacy-support-for-ie:                 false;
-$legacy-support-for-mozilla:            false;
-$experimental-support-for-opera:        false;
-$experimental-support-for-mozilla:      false;
-$experimental-support-for-webkit:       true;
-$experimental-support-for-microsoft:    false;
+@use 'vue-mdbootstrap/scss/mixins/css3/borders';
 
 $radius: 0.75rem;
 
@@ -121,28 +113,24 @@ $radius: 0.75rem;
   top: -54px;
 
   > .inner-tools {
-    @include border-radius($radius $radius 0 0);
-    @include flexbox(
-      (
-        display: inline-flex,
-        justify-content: center,
-        align-items: center
-      )
-    );
+    @include borders.radius($radius $radius 0 0);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
     position: relative;
     padding: 0.5rem 1rem 0.5rem 1.25rem;
   }
 }
 
 .demo-block-content {
-  @include border-radius($radius 0 $radius $radius);
+  @include borders.radius($radius 0 $radius $radius);
   padding: 24px 24px 20px;
   position: relative;
 }
 
 .btn-color-picker,
 .picked-color {
-  @include border-radius(50%);
+  @include borders.radius(50%);
   background-image: repeating-linear-gradient(
       45deg,
       #aaa 25%,
@@ -152,7 +140,9 @@ $radius: 0.75rem;
       #aaa
     ),
     repeating-linear-gradient(45deg, #aaa 25%, #fff 25%, #fff 75%, #aaa 75%, #aaa);
-  background-position: 0 0, 4px 4px;
+  background-position:
+    0 0,
+    4px 4px;
   background-size: 8px 8px;
   border: 0;
   padding: 0;
@@ -161,9 +151,9 @@ $radius: 0.75rem;
   white-space: nowrap;
 
   &:after {
-    @include box-shadow(inset 0 0 0 1px rgba(0, 0, 0, 0.1));
     background-color: currentColor;
     border-radius: inherit;
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1);
     content: '';
     width: 100%;
     height: 100%;

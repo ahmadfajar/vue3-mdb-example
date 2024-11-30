@@ -45,7 +45,7 @@
           <BsAvatar
             v-model:icon-spin="isSpin"
             class="bg-deep-orange darken-3 text-white"
-            icon="cached"
+            icon="sync"
             size="56"
             circle
           />
@@ -64,7 +64,7 @@
           <BsAvatar
             v-model:icon-pulse="isPulse"
             class="bg-teal text-white"
-            icon="rotate_right"
+            icon="refresh"
             size="56"
             circle
           />

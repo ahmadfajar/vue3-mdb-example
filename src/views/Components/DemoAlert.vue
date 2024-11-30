@@ -27,13 +27,13 @@
     </DemoBlock>
     <h2 class="mt-5">Predefined Contextual Alert</h2>
     <DemoBlock class="mt-3">
-      <BsAlert filled variant="success" icon-variant="outlined">
+      <BsAlert filled variant="success" icon-variant="filled">
         {{ content }} a predefined contextual <span class="md-fw-semibold">Success Alert</span>.
       </BsAlert>
-      <BsAlert filled variant="info" icon-variant="outlined">
+      <BsAlert filled variant="info" icon-variant="filled">
         {{ content }} a predefined contextual <span class="md-fw-semibold">Info Alert</span>.
       </BsAlert>
-      <BsAlert filled variant="warning" icon-variant="rounded">
+      <BsAlert filled variant="warning" icon-variant="filled">
         {{ content }} a predefined contextual <span class="md-fw-semibold">Warning Alert</span>.
       </BsAlert>
       <BsAlert filled variant="danger">
@@ -45,22 +45,22 @@
     </DemoBlock>
     <h2 class="mt-5">Custom Icon</h2>
     <DemoBlock class="mt-3">
-      <BsAlert icon="verified" icon-variant="outlined" color="green">
+      <BsAlert icon="verified" color="green">
         {{ content }} alert with <span class="md-fw-semibold">custom Icon</span>.
       </BsAlert>
-      <BsAlert icon="help_center" color="orange">
+      <BsAlert icon="help_center" color="orange" icon-variant="filled">
         {{ content }} alert with <span class="md-fw-semibold">custom Icon</span>.
       </BsAlert>
-      <BsAlert icon="dangerous" color="danger">
+      <BsAlert icon="dangerous" color="danger" icon-variant="filled">
         {{ content }} alert with <span class="md-fw-semibold">custom Icon</span>.
       </BsAlert>
-      <BsAlert color="deep-purple">
+      <BsAlert color="deep-purple" icon-variant="filled">
         <template #icon>
           <icon-circle-nodes class="md-spin" />
         </template>
         {{ content }} alert with <span class="md-fw-semibold">custom Icon</span>.
       </BsAlert>
-      <BsAlert color="blue">
+      <BsAlert color="blue" icon-variant="filled">
         {{ content }} alert with <span class="md-fw-semibold">custom Icon</span>.
         <template #icon>
           <icon-bullhorn />
@@ -69,7 +69,7 @@
     </DemoBlock>
     <h2 class="mt-5">Additional content inside alerts</h2>
     <DemoBlock class="mt-3">
-      <BsAlert filled variant="success">
+      <BsAlert filled variant="success" icon-variant="filled">
         <h5 class="mt-2">Well done!</h5>
         <p>
           Aww yeah, you successfully read this important alert message. This is an example how to

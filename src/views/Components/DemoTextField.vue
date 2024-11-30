@@ -288,7 +288,7 @@
           </BsTextField>
         </div>
         <div class="col">
-          <BsTextField suffix="Kg" floating-label readonly>
+          <BsTextField suffix="Kg" floating-label>
             <label>Weight</label>
           </BsTextField>
         </div>
@@ -298,7 +298,7 @@
           </BsTextField>
         </div>
         <div class="col">
-          <BsTextField suffix="@example.com" prepend-icon="email_outlined" filled floating-label readonly>
+          <BsTextField suffix="@example.com" prepend-icon="email_outlined" filled floating-label>
             <label>Admin Email</label>
           </BsTextField>
         </div>
@@ -308,7 +308,7 @@
           </BsTextField>
         </div>
         <div class="col">
-          <BsTextField suffix="@example.com" prepend-icon="email_outlined" floating-label outlined readonly>
+          <BsTextField suffix="@example.com" prepend-icon="email_outlined" floating-label outlined>
             <label>Admin Email</label>
           </BsTextField>
         </div>

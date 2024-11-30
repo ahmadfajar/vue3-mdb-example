@@ -46,8 +46,7 @@
             rounded
           >
             <template #icon="item">
-              <icon-bullhorn v-if="item?.value === 'sunny'" width="18" height="18" />
-              <BsIcon v-else :icon="item?.icon" size="22" />
+              <BsIconSvg :icon="(item?.value === selectedWeather ? 'check' : item?.icon) as string" />
             </template>
           </BsToggleButton>
         </div>
@@ -104,13 +103,13 @@ const weathers: TInputOptionItem[] = [
   {
     value: 'sunny',
     label: 'Sunny',
-    icon: 'wb_sunny',
+    icon: 'wb_sunny_outlined',
     iconSize: 26,
   },
   {
     value: 'rain',
     label: 'Rain',
-    icon: 'wb_cloudy',
+    icon: 'rainy_outlined',
     iconSize: 26,
   },
   {

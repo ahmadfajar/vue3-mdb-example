@@ -1,6 +1,6 @@
 # Vue MDBootstrap Example
 
-This repository contains examples on how to use the Vue MDBootstrap v2.0 components.
+This repository contains examples on how to use the Vue MDBootstrap v2.x components.
 
 ## Recommended IDE Setup
 

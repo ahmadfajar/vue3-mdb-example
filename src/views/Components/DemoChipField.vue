@@ -388,12 +388,24 @@
           </BsChipField>
         </div>
         <div class="col">
-          <BsChipField v-model="chip11" prepend-icon="person" clear-button filled floating-label>
+          <BsChipField
+            v-model="chip11"
+            prepend-icon="person_filled"
+            clear-button
+            filled
+            floating-label
+          >
             <label>Prepend</label>
           </BsChipField>
         </div>
         <div class="col">
-          <BsChipField v-model="chip11" append-icon="person" clear-button filled floating-label>
+          <BsChipField
+            v-model="chip11"
+            append-icon="person_filled"
+            clear-button
+            filled
+            floating-label
+          >
             <label>Append</label>
           </BsChipField>
         </div>
@@ -420,12 +432,24 @@
           </BsChipField>
         </div>
         <div class="col">
-          <BsChipField v-model="chip12" prepend-icon="person" clear-button floating-label outlined>
+          <BsChipField
+            v-model="chip12"
+            prepend-icon="person_filled"
+            clear-button
+            floating-label
+            outlined
+          >
             <label>Prepend</label>
           </BsChipField>
         </div>
         <div class="col">
-          <BsChipField v-model="chip12" append-icon="person" clear-button floating-label outlined>
+          <BsChipField
+            v-model="chip12"
+            append-icon="person_filled"
+            clear-button
+            floating-label
+            outlined
+          >
             <label>Append</label>
           </BsChipField>
         </div>

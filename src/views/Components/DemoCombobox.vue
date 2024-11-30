@@ -455,7 +455,7 @@
           <BsCombobox
             v-model="states22"
             :data-source="statesUS22"
-            prepend-icon="person"
+            prepend-icon="person_filled"
             multiple
             filled
             chip-enabled
@@ -469,7 +469,7 @@
           <BsCombobox
             v-model="states23"
             :data-source="statesUS23"
-            append-icon="person"
+            append-icon="person_filled"
             filled
             multiple
             chip-enabled
@@ -506,7 +506,7 @@
           <BsCombobox
             v-model="states24"
             :data-source="statesUS24"
-            prepend-icon="person"
+            prepend-icon="person_filled"
             outlined
             multiple
             chip-enabled
@@ -520,7 +520,7 @@
           <BsCombobox
             v-model="states25"
             :data-source="statesUS25"
-            append-icon="person"
+            append-icon="person_filled"
             outlined
             multiple
             chip-enabled

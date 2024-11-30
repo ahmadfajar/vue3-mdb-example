@@ -241,7 +241,7 @@
         <div class="col">
           <BsDateTimeField
             v-model="field11"
-            prepend-icon="person"
+            prepend-icon="person_outlined_filled"
             clear-button
             filled
             floating-label
@@ -250,7 +250,13 @@
           </BsDateTimeField>
         </div>
         <div class="col">
-          <BsDateTimeField v-model="field11" append-icon="event" clear-button filled floating-label>
+          <BsDateTimeField
+            v-model="field11"
+            append-icon="event_outlined_filled"
+            clear-button
+            filled
+            floating-label
+          >
             <label>Append</label>
           </BsDateTimeField>
         </div>
@@ -279,7 +285,7 @@
         <div class="col">
           <BsDateTimeField
             v-model="field12"
-            prepend-icon="person"
+            prepend-icon="person_outlined_filled"
             clear-button
             floating-label
             outlined
@@ -290,7 +296,7 @@
         <div class="col">
           <BsDateTimeField
             v-model="field12"
-            append-icon="event"
+            append-icon="event_sharp"
             clear-button
             floating-label
             outlined

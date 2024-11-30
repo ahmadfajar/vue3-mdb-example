@@ -22,10 +22,10 @@
         <BsDivider />
         <div class="p-3">
           <div class="text-end">
+            <BsButton class="md-fw-semibold" @click="show1 = false"> Save </BsButton>
             <BsButton class="md-fw-semibold" color="secondary" outlined @click="show1 = false">
               Cancel
             </BsButton>
-            <BsButton class="md-fw-semibold" @click="show1 = false"> Save </BsButton>
           </div>
         </div>
       </BsPopover>
@@ -65,10 +65,10 @@
             <BsDivider />
             <div class="p-3">
               <div class="text-end">
+                <BsButton class="md-fw-semibold" @click="show2 = false"> Save </BsButton>
                 <BsButton class="md-fw-semibold" color="secondary" outlined @click="show2 = false">
                   Cancel
                 </BsButton>
-                <BsButton class="md-fw-semibold" @click="show2 = false"> Save </BsButton>
               </div>
             </div>
           </BsPopover>
@@ -105,10 +105,10 @@
             <BsDivider />
             <div class="p-3">
               <div class="text-end">
+                <BsButton class="md-fw-semibold" @click="show3 = false"> Save </BsButton>
                 <BsButton class="md-fw-semibold" color="secondary" outlined @click="show3 = false">
                   Cancel
                 </BsButton>
-                <BsButton class="md-fw-semibold" @click="show3 = false"> Save </BsButton>
               </div>
             </div>
           </BsPopover>
@@ -145,10 +145,10 @@
             <BsDivider />
             <div class="p-3">
               <div class="text-end">
+                <BsButton class="md-fw-semibold" @click="show4 = false"> Save </BsButton>
                 <BsButton class="md-fw-semibold" color="secondary" outlined @click="show4 = false">
                   Cancel
                 </BsButton>
-                <BsButton class="md-fw-semibold" @click="show4 = false"> Save </BsButton>
               </div>
             </div>
           </BsPopover>
@@ -185,10 +185,10 @@
             <BsDivider />
             <div class="p-3">
               <div class="text-end">
+                <BsButton class="md-fw-semibold" @click="show5 = false"> Save </BsButton>
                 <BsButton class="md-fw-semibold" color="secondary" outlined @click="show5 = false">
                   Cancel
                 </BsButton>
-                <BsButton class="md-fw-semibold" @click="show5 = false"> Save </BsButton>
               </div>
             </div>
           </BsPopover>
@@ -225,10 +225,10 @@
             <BsDivider />
             <div class="p-3">
               <div class="text-end">
+                <BsButton class="md-fw-semibold" @click="show6 = false"> Save </BsButton>
                 <BsButton class="md-fw-semibold" color="secondary" outlined @click="show6 = false">
                   Cancel
                 </BsButton>
-                <BsButton class="md-fw-semibold" @click="show6 = false"> Save </BsButton>
               </div>
             </div>
           </BsPopover>
@@ -265,10 +265,10 @@
             <BsDivider />
             <div class="p-3">
               <div class="text-end">
+                <BsButton class="md-fw-semibold" @click="show7 = false"> Save </BsButton>
                 <BsButton class="md-fw-semibold" color="secondary" outlined @click="show7 = false">
                   Cancel
                 </BsButton>
-                <BsButton class="md-fw-semibold" @click="show7 = false"> Save </BsButton>
               </div>
             </div>
           </BsPopover>
@@ -305,10 +305,10 @@
             <BsDivider />
             <div class="p-3">
               <div class="text-end">
+                <BsButton class="md-fw-semibold" @click="show8 = false"> Save </BsButton>
                 <BsButton class="md-fw-semibold" color="secondary" outlined @click="show8 = false">
                   Cancel
                 </BsButton>
-                <BsButton class="md-fw-semibold" @click="show8 = false"> Save </BsButton>
               </div>
             </div>
           </BsPopover>
@@ -345,10 +345,10 @@
             <BsDivider />
             <div class="p-3">
               <div class="text-end">
+                <BsButton class="md-fw-semibold" @click="show9 = false"> Save </BsButton>
                 <BsButton class="md-fw-semibold" color="secondary" outlined @click="show9 = false">
                   Cancel
                 </BsButton>
-                <BsButton class="md-fw-semibold" @click="show9 = false"> Save </BsButton>
               </div>
             </div>
           </BsPopover>

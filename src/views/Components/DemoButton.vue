@@ -126,7 +126,7 @@
           </BsButton>
         </div>
         <div class="col-12 col-sm-6 col-xl-3 mb-3">
-          <BsButton color="stylish-color" icon="rotate_right" icon-position="right" icon-pulse>
+          <BsButton color="stylish-color" icon="refresh" icon-position="right" icon-pulse>
             Pulse Animation
           </BsButton>
         </div>
@@ -198,7 +198,7 @@
           :icon-size="iconXs"
           class="me-4"
           color="success"
-          icon="rotate_right"
+          icon="refresh"
           icon-pulse
           mode="icon"
           size="xs"
@@ -207,16 +207,16 @@
           :icon-size="iconSm"
           class="me-4"
           color="success"
-          icon="rotate_right"
+          icon="refresh"
           icon-pulse
           mode="icon"
           size="sm"
         />
-        <BsButton mode="icon" class="me-4" color="success" icon="rotate_right" icon-pulse />
+        <BsButton mode="icon" class="me-4" color="success" icon="refresh" icon-pulse />
         <BsButton
           :icon-size="iconLg"
           color="success"
-          icon="rotate_right"
+          icon="refresh"
           icon-pulse
           mode="icon"
           size="lg"

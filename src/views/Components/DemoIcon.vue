@@ -1,11 +1,16 @@
 <template>
   <div class="docs-body container-lg mx-auto">
-    <h2>Overview</h2>
+    <h2>Google Material Symbol</h2>
     <BsDivider />
     <div class="row row-cols-xl-5 row-cols-md-4 row-cols-sm-2 mt-4 text-center">
       <div class="col">
         <div class="p-2 bg-light">
-          <BsIcon icon="home_work" size="64" />
+          <BsIcon icon="home_work_filled" size="64" />
+        </div>
+      </div>
+      <div class="col">
+        <div class="p-2 bg-light">
+          <BsIcon icon="4k_filled" size="64" />
         </div>
       </div>
       <div class="col">
@@ -15,17 +20,12 @@
       </div>
       <div class="col">
         <div class="p-2 bg-light">
-          <BsIcon icon="4k_outlined" size="64" />
+          <BsIcon icon="account_circle" size="64" />
         </div>
       </div>
       <div class="col">
         <div class="p-2 bg-light">
-          <BsIcon icon="account_circle_outlined" size="64" />
-        </div>
-      </div>
-      <div class="col">
-        <div class="p-2 bg-light">
-          <BsIcon icon="settings_outlined" size="64" />
+          <BsIcon icon="settings" size="64" />
         </div>
       </div>
     </div>
@@ -64,12 +64,12 @@
       </div>
       <div class="col">
         <div class="p-2 bg-light">
-          <BsIcon icon="home" size="64" rotate="90" />
+          <BsIcon icon="home_rounded" filled size="64" rotate="90" />
         </div>
       </div>
       <div class="col">
         <div class="p-2 bg-light">
-          <BsIcon icon="home" size="64" rotate="180" />
+          <BsIcon icon="home_rounded" size="64" rotate="180" />
         </div>
       </div>
       <div class="col">
@@ -79,7 +79,7 @@
       </div>
       <div class="col">
         <div class="p-2 bg-light">
-          <BsToggleIcon icon="lock_outlined" toggle-icon="lock" size="64" v-model="isToggle" />
+          <BsToggleIcon icon="lock_sharp" toggle-icon="lock" size="64" v-model="isToggle" />
         </div>
       </div>
     </div>

@@ -156,7 +156,7 @@ const weathers = [
   {
     value: 'rain',
     label: 'Rain',
-    icon: 'wb_cloudy',
+    icon: 'rainy',
     iconSize: 26,
   },
   {

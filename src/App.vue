@@ -37,7 +37,7 @@
         </BsListNav>
       </BsListView>
     </BsSideDrawer>
-    <BsContainer class="bg-mdb-color" app @resize="onContainerResize">
+    <BsContainer app @resize="onContainerResize">
       <BsContent>
         <RouterView v-slot="{ Component }">
           <Transition name="fastFade" mode="out-in">
@@ -85,15 +85,7 @@ const routeNavB = menuNavs.filter((it) => it.group === 'Reference').sort(compare
 </script>
 
 <style lang="scss">
-@import 'compass-mixins/lib/compass/css3';
-
-// override compass-mixins global variables
-$legacy-support-for-ie:                 false;
-$legacy-support-for-mozilla:            false;
-$experimental-support-for-opera:        false;
-$experimental-support-for-mozilla:      false;
-$experimental-support-for-webkit:       true;
-$experimental-support-for-microsoft:    false;
+@use 'vue-mdbootstrap/scss/mixins/css3/borders';
 
 .fastFade-enter-active,
 .fastFade-leave-active {
@@ -111,7 +103,7 @@ $experimental-support-for-microsoft:    false;
     padding-bottom: 2rem;
 
     @media (min-width: 992px) {
-      @include border-top-left-radius(36px);
+      @include borders.top-start-radius(36px);
     }
   }
 }
@@ -153,7 +145,7 @@ $experimental-support-for-microsoft:    false;
     }
 
     > .md-appbar:first-child {
-      @include border-top-radius(var(--bs-card-border-radius));
+      @include borders.top-radius(var(--bs-card-border-radius));
     }
   }
 }

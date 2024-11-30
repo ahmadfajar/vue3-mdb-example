@@ -11,11 +11,11 @@
           </BsAppbar>
           <BsListView>
             <BsListNav>
-              <BsListNavItem icon="folder" label="My Files" />
-              <BsListNavItem icon="folder-shared" label="Shared with me" />
-              <BsListNavItem icon="star" label="Starred" />
+              <BsListNavItem icon="folder_filled" label="My Files" />
+              <BsListNavItem icon="folder_shared_filled" label="Shared with me" />
+              <BsListNavItem icon="star_filled" label="Starred" />
               <BsListNavItem icon="upload" label="Upload" />
-              <BsListNavItem icon="cloud_upload" label="Backup" />
+              <BsListNavItem icon="backup" label="Backup" />
               <BsListNavItem icon="delete" label="Trash" />
             </BsListNav>
           </BsListView>
@@ -200,7 +200,7 @@
                 <BsListTileTitle>All Mail</BsListTileTitle>
               </BsListTileContent>
               <BsListTileAction center>
-                <BsBadge type="pill" variant="secondary"> 102 </BsBadge>
+                <BsBadge type="pill" variant="secondary">102</BsBadge>
               </BsListTileAction>
             </BsListTile>
             <BsListTile navigable>
@@ -209,7 +209,7 @@
                 <BsListTileTitle>Trash</BsListTileTitle>
               </BsListTileContent>
               <BsListTileAction center>
-                <BsBadge type="pill" variant="secondary"> 12 </BsBadge>
+                <BsBadge type="pill" variant="secondary">12</BsBadge>
               </BsListTileAction>
             </BsListTile>
             <BsListTile navigable>
