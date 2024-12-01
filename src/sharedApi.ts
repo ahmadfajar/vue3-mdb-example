@@ -36,8 +36,8 @@ export function IconBullhorn(props: TRecord): VNode {
 
   return useRenderSVG(
     svgData,
-    (props.height ?? 32) as number,
     (props.width ?? 32) as number,
+    (props.height ?? 32) as number,
     `md-svg-inline ${props.class}`
   );
 }
@@ -48,8 +48,8 @@ export function IconCircleNodes(props: TRecord): VNode {
 
   return useRenderSVG(
     svgData,
-    (props.height ?? 32) as number,
     (props.width ?? 32) as number,
+    (props.height ?? 32) as number,
     `md-svg-inline ${props.class}`
   );
 }
@@ -60,8 +60,8 @@ export function IconThreeCircle(props: TRecord): VNode {
 
   return useRenderSVG(
     svgData,
-    (props.height ?? 32) as number,
     (props.width ?? 32) as number,
+    (props.height ?? 32) as number,
     `md-svg-inline ${props.class}`
   );
 }
