@@ -1,6 +1,6 @@
-# Vue MDBootstrap Example
+# Vue MDBootstrap Examples
 
-This repository contains examples on how to use the Vue MDBootstrap v2.x components.
+This repository contains examples on how to use the Vue MDBootstrap v2.1 components.
 
 ## Recommended IDE Setup
 
@@ -19,7 +19,7 @@ If the standalone TypeScript plugin doesn't feel fast enough to you, _Vue - Offi
 
 ## Customize configuration
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+See [Vite Configuration Reference](https://vite.dev/config/).
 
 ## Project Setup
 

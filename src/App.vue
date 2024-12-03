@@ -135,18 +135,22 @@ const routeNavB = menuNavs.filter((it) => it.group === 'Reference').sort(compare
   .card {
     &.mobi-card {
       --bs-card-border-radius: 0.375rem;
-      --bs-card-inner-border-radius: calc(0.375rem - 1px);
       max-width: 400px;
     }
 
     &.rounded-sm {
       --bs-card-border-radius: 0.375rem;
-      --bs-card-inner-border-radius: calc(0.375rem - 1px);
     }
 
     > .md-appbar:first-child {
       @include borders.top-radius(var(--bs-card-border-radius));
     }
+  }
+}
+
+.demo-block-content {
+  .md-breadcrumb {
+    --md-breadcrumb-container-padding-x: 0;
   }
 }
 </style>

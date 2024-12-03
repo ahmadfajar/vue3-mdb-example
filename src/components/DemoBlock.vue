@@ -140,9 +140,7 @@ $radius: 0.75rem;
       #aaa
     ),
     repeating-linear-gradient(45deg, #aaa 25%, #fff 25%, #fff 75%, #aaa 75%, #aaa);
-  background-position:
-    0 0,
-    4px 4px;
+  background-position: 0 0, 4px 4px;
   background-size: 8px 8px;
   border: 0;
   padding: 0;

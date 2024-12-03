@@ -232,6 +232,18 @@ export const menuNavs: TNavigationRecord[] = [
     view: () => import('@/views/Components/DemoLightbox.vue')
   },
   {
+    label: 'Breadcrumb',
+    group: 'Components',
+    path: '/components/breadcrumb',
+    view: () => import('@/views/Components/DemoBreadcrumb.vue')
+  },
+  {
+    label: 'Image Uploader',
+    group: 'Components',
+    path: '/components/image-uploader',
+    view: () => import('@/views/Components/DemoImageUploader.vue')
+  },
+  {
     label: 'Color Variants',
     group: 'Reference',
     path: '/reference/color',
