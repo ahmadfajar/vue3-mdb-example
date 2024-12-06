@@ -135,72 +135,72 @@
     <div class="row row-cols-auto">
       <div class="col mt-4">
         <div class="p-4 bg-grey-200 rounded-3">
-          <BsFontAwesome icon="house" size="64" />
+          <BsIconFontawesome icon="house" size="64" />
         </div>
       </div>
       <div class="col mt-4">
         <div class="p-4 bg-grey-200 rounded-3">
-          <BsFontAwesome icon="house" variant="regular" size="64" />
+          <BsIconFontawesome icon="house" variant="regular" size="64" />
         </div>
       </div>
       <div class="col mt-4">
         <div class="p-4 bg-grey-200 rounded-3">
-          <BsFontAwesome icon="envelope" size="64" />
+          <BsIconFontawesome icon="envelope" size="64" />
         </div>
       </div>
       <div class="col mt-4">
         <div class="p-4 bg-grey-200 rounded-3">
-          <BsFontAwesome icon="envelope" variant="regular" size="64" />
+          <BsIconFontawesome icon="envelope" variant="regular" size="64" />
         </div>
       </div>
       <div class="col mt-4">
         <div class="p-4 bg-grey-200 rounded-3">
-          <BsFontAwesome icon="user" size="64" />
+          <BsIconFontawesome icon="user" size="64" />
         </div>
       </div>
       <div class="col mt-4">
         <div class="p-4 bg-grey-200 rounded-3">
-          <BsFontAwesome icon="user" variant="regular" size="64" />
+          <BsIconFontawesome icon="user" variant="regular" size="64" />
         </div>
       </div>
       <div class="col mt-4">
         <div class="p-4 bg-grey-200 rounded-3">
-          <BsFontAwesome icon="cart-shopping" size="64" />
+          <BsIconFontawesome icon="cart-shopping" size="64" />
         </div>
       </div>
       <div class="col mt-4">
         <div class="p-4 bg-grey-200 rounded-3">
-          <BsFontAwesome icon="cart-shopping" size="64" flip="horizontal" />
+          <BsIconFontawesome icon="cart-shopping" size="64" flip="horizontal" />
         </div>
       </div>
       <div class="col mt-4">
         <div class="p-4 bg-grey-200 rounded-3">
-          <BsFontAwesome icon="cart-shopping" size="64" flip="vertical" />
+          <BsIconFontawesome icon="cart-shopping" size="64" flip="vertical" />
         </div>
       </div>
       <div class="col mt-4">
         <div class="p-4 bg-grey-200 rounded-3">
-          <BsFontAwesome icon="cart-shopping" size="64" flip="both" />
+          <BsIconFontawesome icon="cart-shopping" size="64" flip="both" />
         </div>
       </div>
       <div class="col mt-4">
         <div class="p-4 bg-grey-200 rounded-3">
-          <BsFontAwesome icon="truck" size="64" variant="regular" />
+          <BsIconFontawesome icon="truck" size="64" variant="regular" />
         </div>
       </div>
       <div class="col mt-4">
         <div class="p-4 bg-grey-200 rounded-3">
-          <BsFontAwesome icon="truck" size="64" variant="regular" rotate="90" />
+          <BsIconFontawesome icon="truck" size="64" variant="regular" rotate="90" />
         </div>
       </div>
       <div class="col mt-4">
         <div class="p-4 bg-grey-200 rounded-3">
-          <BsFontAwesome icon="truck" size="64" variant="regular" rotate="180" />
+          <BsIconFontawesome icon="truck" size="64" variant="regular" rotate="180" />
         </div>
       </div>
       <div class="col mt-4">
         <div class="p-4 bg-grey-200 rounded-3">
-          <BsFontAwesome icon="truck" size="64" variant="regular" rotate="270" />
+          <BsIconFontawesome icon="truck" size="64" variant="regular" rotate="270" />
         </div>
       </div>
     </div>
@@ -210,12 +210,12 @@
         <div class="row row-cols-auto">
           <div class="col mt-4">
             <div class="p-4 bg-grey-200 rounded-3">
-              <BsFontAwesome :spin="isSpin2" icon="sun" size="64" />
+              <BsIconFontawesome :spin="isSpin2" icon="sun" size="64" />
             </div>
           </div>
           <div class="col mt-4">
             <div class="p-4 bg-grey-200 rounded-3">
-              <BsFontAwesome :spin="isSpin2" icon="spinner" size="64" />
+              <BsIconFontawesome :spin="isSpin2" icon="spinner" size="64" />
             </div>
           </div>
         </div>
@@ -234,12 +234,12 @@
         <div class="row row-cols-auto">
           <div class="col mt-4">
             <div class="p-4 bg-grey-200 rounded-3">
-              <BsFontAwesome :pulse="isPulse2" icon="compass" variant="regular" size="64" />
+              <BsIconFontawesome :pulse="isPulse2" icon="compass" variant="regular" size="64" />
             </div>
           </div>
           <div class="col mt-4">
             <div class="p-4 bg-grey-200 rounded-3">
-              <BsFontAwesome :pulse="isPulse2" icon="spinner" size="64" />
+              <BsIconFontawesome :pulse="isPulse2" icon="spinner" size="64" />
             </div>
           </div>
         </div>
