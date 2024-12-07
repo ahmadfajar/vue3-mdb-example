@@ -12,7 +12,7 @@
       <div class="h5 mt-4">Using Custom Slot</div>
       <BsBreadcrumb :items="items2">
         <template #icon>
-          <BsFontAwesome icon="house-user" variant="regular" />
+          <BsIconFontawesome icon="house-user" variant="regular" />
         </template>
       </BsBreadcrumb>
     </DemoBlock>
