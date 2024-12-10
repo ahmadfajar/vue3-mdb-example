@@ -3,7 +3,9 @@
     <h2>Overview</h2>
     <DemoBlock class="mt-4">
       <div class="d-flex justify-content-center">
-        <BsButton color="indigo" @click="showDefaultNotification($notification)">Show Notification</BsButton>
+        <BsButton color="indigo" @click="showDefaultNotification($notification)"
+          >Show Notification</BsButton
+        >
       </div>
     </DemoBlock>
     <h2 class="mt-5">Display Placement</h2>
@@ -143,7 +145,13 @@
         <div class="col d-flex justify-content-center">
           <BsButton
             color="info"
-            @click="$notification.info({ message: 'Example info message.', progressBar: true }, 'Info')"
+            @click="
+              $notification.info({
+                title: 'Info',
+                message: 'Example info message.',
+                progressBar: true,
+              })
+            "
           >
             Info Notification
           </BsButton>
