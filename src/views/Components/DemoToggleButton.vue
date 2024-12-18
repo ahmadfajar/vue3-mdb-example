@@ -80,7 +80,6 @@
 </template>
 
 <script lang="ts" setup>
-import { IconBullhorn } from '@/sharedApi';
 import { ref } from 'vue';
 import type { TInputOptionItem } from 'vue-mdbootstrap';
 

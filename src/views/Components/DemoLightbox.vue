@@ -136,7 +136,6 @@
 </template>
 
 <script lang="ts" setup>
-import type { ComponentPublicInstance } from 'vue';
 import type { BsLightboxInstance } from 'vue-mdbootstrap';
 import { ref } from 'vue';
 
