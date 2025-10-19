@@ -52,8 +52,8 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { StringHelper, useBreakpointMax } from 'vue-mdbootstrap';
-import type { TNavigationRecord } from './router/navigation';
-import { menuNavs } from './router/navigation';
+import type { TNavigationRecord } from '@bs/router/navigation';
+import { menuNavs } from '@bs/router/navigation';
 
 const openSideDrawer = ref(true);
 
@@ -99,7 +99,6 @@ const routeNavB = menuNavs.filter((it) => it.group === 'Reference').sort(compare
 
 #app {
   .md-content-wrap {
-    background-color: white;
     padding-bottom: 2rem;
 
     @media (min-width: 992px) {
@@ -132,20 +131,20 @@ const routeNavB = menuNavs.filter((it) => it.group === 'Reference').sort(compare
     padding-left: 2rem;
   }
 
-  .card {
-    &.mobi-card {
-      --bs-card-border-radius: 0.375rem;
-      max-width: 400px;
-    }
-
-    &.rounded-sm {
-      --bs-card-border-radius: 0.375rem;
-    }
-
-    > .md-appbar:first-child {
-      @include borders.top-radius(var(--bs-card-border-radius));
-    }
-  }
+  //.card {
+  //  &.mobi-card {
+  //    --bs-card-border-radius: 0.375rem;
+  //    max-width: 400px;
+  //  }
+  //
+  //  &.rounded-sm {
+  //    --bs-card-border-radius: 0.375rem;
+  //  }
+  //
+  //  > .md-appbar:first-child {
+  //    @include borders.top-radius(var(--bs-card-border-radius));
+  //  }
+  //}
 }
 
 .demo-block-content {

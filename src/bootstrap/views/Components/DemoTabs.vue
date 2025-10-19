@@ -5,13 +5,13 @@
     <div class="demo-block-content bg-grey-200 rounded-4 mt-3">
       <div class="bg-white">
         <BsTabs v-model="tabs1active">
-          <BsTab label="Home" icon="home_rounded">
+          <BsTab icon="home_rounded" label="Home">
             {{ homeTab }}
           </BsTab>
-          <BsTab label="Profile" icon="person">
+          <BsTab icon="person" label="Profile">
             {{ profileTab }}
           </BsTab>
-          <BsTab label="Contact" icon="contact_phone">
+          <BsTab icon="contact_phone" label="Contact">
             {{ contactTab }}
           </BsTab>
         </BsTabs>
@@ -24,16 +24,16 @@
       <BsCard shadow>
         <BsTabs
           v-model="tabs2active"
-          inner-class="card-header"
           content-transition="slide-top-bottom"
+          inner-class="card-header"
         >
-          <BsTab label="Home" icon="home_rounded">
+          <BsTab icon="home_rounded" label="Home">
             {{ homeTab }}
           </BsTab>
-          <BsTab label="Profile" icon="person">
+          <BsTab icon="person" label="Profile">
             {{ profileTab }}
           </BsTab>
-          <BsTab label="Contact" icon="contact_phone">
+          <BsTab icon="contact_phone" label="Contact">
             {{ contactTab }}
           </BsTab>
         </BsTabs>
@@ -43,13 +43,13 @@
     <div class="demo-block-content bg-grey-200 rounded-4 mt-3">
       <BsCard shadow>
         <BsTabs v-model="tabs3active" inner-class="card-header" variant="pills">
-          <BsTab label="Home" icon="home_rounded">
+          <BsTab icon="home_rounded" label="Home">
             {{ homeTab }}
           </BsTab>
-          <BsTab label="Profile" icon="person">
+          <BsTab icon="person" label="Profile">
             {{ profileTab }}
           </BsTab>
-          <BsTab label="Contact" icon="contact_phone">
+          <BsTab icon="contact_phone" label="Contact">
             {{ contactTab }}
           </BsTab>
         </BsTabs>
@@ -60,22 +60,22 @@
       <div class="demo-block-content bg-grey-200 rounded-4 mt-3">
         <BsCard class="rounded-sm" shadow>
           <BsAppbar class="bg-pink darken-2">
-            <BsButton mode="icon" color="light" icon="menu" flat />
-            <BsAppbarTitle title="Page Title" class="text-white" />
+            <BsButton color="light" flat icon="menu" mode="icon" />
+            <BsAppbarTitle class="text-white" title="Page Title" />
             <BsSpacer />
-            <BsButton color="light" mode="icon" icon="more_vert" flat />
+            <BsButton color="light" flat icon="more_vert" mode="icon" />
           </BsAppbar>
-          <BsTabs v-model="tabs4active" variant="material" color="pink darken-2">
-            <BsTab label="Home" icon="home_rounded">
+          <BsTabs v-model="tabs4active" color="pink darken-2" variant="material">
+            <BsTab icon="home_rounded" label="Home">
               {{ homeTab }}
             </BsTab>
-            <BsTab label="Profile" icon="person">
+            <BsTab icon="person" label="Profile">
               {{ profileTab }}
             </BsTab>
-            <BsTab label="Contact" icon="contact_phone">
+            <BsTab icon="contact_phone" label="Contact">
               {{ contactTab }}
             </BsTab>
-            <BsTab label="Gallery" icon="collections">
+            <BsTab icon="collections" label="Gallery">
               {{ loremTab }}
             </BsTab>
           </BsTabs>
@@ -87,22 +87,22 @@
       <div class="demo-block-content bg-grey-200 rounded-4 mt-3">
         <BsCard class="rounded-sm" shadow>
           <BsAppbar class="bg-default-color-dark">
-            <BsButton mode="icon" color="light" icon="menu" flat />
-            <BsAppbarTitle title="Page Title" class="text-white" />
+            <BsButton color="light" flat icon="menu" mode="icon" />
+            <BsAppbarTitle class="text-white" title="Page Title" />
             <BsSpacer />
-            <BsButton color="light" mode="icon" icon="more_vert" flat />
+            <BsButton color="light" flat icon="more_vert" mode="icon" />
           </BsAppbar>
-          <BsTabs v-model="tabs5active" variant="modern" color="default-color-dark">
-            <BsTab label="Home" icon="home_rounded">
+          <BsTabs v-model="tabs5active" color="default-color-dark" variant="modern">
+            <BsTab icon="home_rounded" label="Home">
               {{ homeTab }}
             </BsTab>
-            <BsTab label="Profile" icon="person">
+            <BsTab icon="person" label="Profile">
               {{ profileTab }}
             </BsTab>
-            <BsTab label="Contact" icon="contact_phone">
+            <BsTab icon="contact_phone" label="Contact">
               {{ contactTab }}
             </BsTab>
-            <BsTab label="Gallery" icon="collections">
+            <BsTab icon="collections" label="Gallery">
               {{ loremTab }}
             </BsTab>
           </BsTabs>
@@ -113,20 +113,20 @@
     <BsDivider />
     <BsAppContainer>
       <div class="demo-block-content bg-grey-200 rounded-4 mt-3">
-        <BsCard class="rounded-sm" style="min-height: 520px" shadow>
+        <BsCard class="rounded-sm" shadow style="min-height: 520px">
           <BsAppbar class="bg-default-color-dark">
-            <BsButton mode="icon" color="light" icon="menu" flat />
-            <BsAppbarTitle title="Tabs Playground" class="text-white" />
+            <BsButton color="light" flat icon="menu" mode="icon" />
+            <BsAppbarTitle class="text-white" title="Tabs Playground" />
             <BsSpacer />
-            <BsButton color="light" mode="icon" icon="more_vert" flat />
+            <BsButton color="light" flat icon="more_vert" mode="icon" />
           </BsAppbar>
           <BsTabs
             v-model="tabs6active"
-            :variant="selectedVariant"
             :alignment="selectedAlignment"
-            :tab-position="selectedPlacement"
             :icon-position="selectedIconPosition"
             :inner-class="innerClass"
+            :tab-position="selectedPlacement"
+            :variant="selectedVariant"
             color="default-color-dark"
           >
             <BsTab :label="!iconOnly ? 'Configuration' : undefined" icon="settings">
@@ -199,7 +199,7 @@
   </div>
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 import { computed, ref } from 'vue';
 import type { TAlignment, TPlacementPosition, TTabsVariant } from 'vue-mdbootstrap';
 
@@ -256,8 +256,12 @@ const innerClass = computed(() => {
   return undefined;
 });
 
-const homeTab = "Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.";
-const profileTab = "Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar helvetica VHS salvia yr.";
-const contactTab = "Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, iphone skateboard locavore carles etsy salvia banksy hoodie helvetica. DIY synth PBR banksy irony. Leggings gentrify squid 8-bit cred pitchfork. Williamsburg banh mi whatever gluten-free, carles pitchfork biodiesel fixie etsy retro mlkshk vice blog.";
-const loremTab = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Volutpat maecenas volutpat blandit aliquam etiam erat velit. Vulputate ut pharetra sit amet. Lobortis scelerisque fermentum dui faucibus. Arcu non odio euismod lacinia at quis risus sed. Non enim praesent elementum facilisis leo. Egestas diam in arcu cursus euismod. Netus et malesuada fames ac turpis. Interdum velit euismod in pellentesque massa placerat duis ultricies lacus. Lorem mollis aliquam ut porttitor leo a diam sollicitudin tempor. Congue quisque egestas diam in arcu cursus euismod. Turpis massa tincidunt dui ut ornare. Arcu ac tortor dignissim convallis aenean et tortor at risus. Egestas purus viverra accumsan in nisl nisi scelerisque. Mi ipsum faucibus vitae aliquet nec ullamcorper.';
+const homeTab =
+  "Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.";
+const profileTab =
+  "Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar helvetica VHS salvia yr.";
+const contactTab =
+  "Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, iphone skateboard locavore carles etsy salvia banksy hoodie helvetica. DIY synth PBR banksy irony. Leggings gentrify squid 8-bit cred pitchfork. Williamsburg banh mi whatever gluten-free, carles pitchfork biodiesel fixie etsy retro mlkshk vice blog.";
+const loremTab =
+  'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Volutpat maecenas volutpat blandit aliquam etiam erat velit. Vulputate ut pharetra sit amet. Lobortis scelerisque fermentum dui faucibus. Arcu non odio euismod lacinia at quis risus sed. Non enim praesent elementum facilisis leo. Egestas diam in arcu cursus euismod. Netus et malesuada fames ac turpis. Interdum velit euismod in pellentesque massa placerat duis ultricies lacus. Lorem mollis aliquam ut porttitor leo a diam sollicitudin tempor. Congue quisque egestas diam in arcu cursus euismod. Turpis massa tincidunt dui ut ornare. Arcu ac tortor dignissim convallis aenean et tortor at risus. Egestas purus viverra accumsan in nisl nisi scelerisque. Mi ipsum faucibus vitae aliquet nec ullamcorper.';
 </script>

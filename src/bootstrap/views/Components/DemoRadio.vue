@@ -17,7 +17,7 @@
     </DemoBlock>
     <h2 class="mt-5">Radio Group</h2>
     <DemoBlock class="mt-4">
-      <BsRadioGroup class="g-2" v-model="selectedFavoriteColors" :items="favoriteColors">
+      <BsRadioGroup v-model="selectedFavoriteColors" :items="favoriteColors" class="g-2">
         <label class="col-12">Field Label</label>
       </BsRadioGroup>
       <div class="mt-2">
@@ -43,9 +43,9 @@
   </div>
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 import { ref } from 'vue';
-import { colorVariants } from '@/composables/sharedApi';
+import { colorVariants } from '@shares/sharedApi';
 
 const radio1 = ref();
 const selectedFavoriteColors = ref();

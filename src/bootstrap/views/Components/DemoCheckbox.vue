@@ -17,7 +17,7 @@
     </DemoBlock>
     <h2 class="mt-5">Checkbox Group</h2>
     <DemoBlock class="mt-4">
-      <BsCheckboxGroup class="g-2" v-model="selectedFavoriteColors" :items="favoriteColors">
+      <BsCheckboxGroup v-model="selectedFavoriteColors" :items="favoriteColors" class="g-2">
         <label class="col-12">Field Label</label>
       </BsCheckboxGroup>
       <div class="mt-2">
@@ -43,9 +43,9 @@
   </div>
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 import { ref } from 'vue';
-import { colorVariants } from '@/composables/sharedApi';
+import { colorVariants } from '@shares/sharedApi';
 
 const checkboxColors = ref([]);
 const selectedFavoriteColors = ref([]);

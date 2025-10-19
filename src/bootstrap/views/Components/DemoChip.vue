@@ -3,36 +3,36 @@
     <h2 id="overview">Overview</h2>
     <DemoBlock class="docs-demo-ctrl mt-4">
       <template v-for="color in colorVariants" :key="color">
-        <BsChip :color="color" class="mb-3" href="javascript:;">
+        <BsChip href="javascript:;" :color="color" class="mb-3">
           {{ StringHelper.titleCase(color) }}
         </BsChip>
       </template>
     </DemoBlock>
-    <h4 id="pill-styles" class="mt-5">Pill Styles</h4>
+    <h4 class="mt-5" id="pill-styles">Pill Styles</h4>
     <DemoBlock class="docs-demo-ctrl mt-4">
       <template v-for="color in colorVariants" :key="color">
-        <BsChip :color="color" class="mb-3" href="javascript:void(0)" pill>
+        <BsChip href="javascript:void(0)" :color="color" class="mb-3" pill>
           {{ StringHelper.titleCase(color) }}
         </BsChip>
       </template>
     </DemoBlock>
-    <h4 id="outlined-styles" class="mt-5">Outlined Styles</h4>
+    <h4 class="mt-5" id="outlined-styles">Outlined Styles</h4>
     <DemoBlock class="docs-demo-ctrl mt-4">
       <template v-for="color in colorVariants" :key="color">
-        <BsChip :color="color" href="javascript:void(0)" class="mb-3" outlined>
+        <BsChip href="javascript:void(0)" :color="color" class="mb-3" outlined>
           {{ StringHelper.titleCase(color) }}
         </BsChip>
       </template>
     </DemoBlock>
-    <h2 id="chip-states" class="mt-5">Chip States</h2>
+    <h2 class="mt-5" id="chip-states">Chip States</h2>
     <DemoBlock class="docs-demo-ctrl mt-4">
       <div class="mt-2">
-        <BsChip color="primary" class="mb-3" disabled> Primary Color : Disabled </BsChip>
-        <BsChip color="success" class="mb-3" disabled pill> Success Color : Disabled </BsChip>
+        <BsChip class="mb-3" color="primary" disabled> Primary Color : Disabled </BsChip>
+        <BsChip class="mb-3" color="success" disabled pill> Success Color : Disabled </BsChip>
       </div>
       <div class="mt-2">
         <template v-for="color in colorVariants.slice(0, 10)" :key="color">
-          <BsChip :color="color" href="javascript:void(0)" class="mb-3" active>
+          <BsChip href="javascript:void(0)" :color="color" active class="mb-3">
             {{ StringHelper.titleCase(color) }} : Active
           </BsChip>
         </template>
@@ -40,7 +40,7 @@
       <div class="h5 mt-3">Outline styles</div>
       <div>
         <template v-for="color in colorVariants.slice(0, 10)" :key="color">
-          <BsChip :color="color" href="javascript:void(0)" class="mb-3" active outlined>
+          <BsChip href="javascript:void(0)" :color="color" active class="mb-3" outlined>
             {{ StringHelper.titleCase(color) }} : Active
           </BsChip>
         </template>
@@ -116,9 +116,9 @@
         <BsChip color="danger" size="lg"> Large Chip </BsChip>
       </div>
       <div class="mt-3">
-        <BsChip color="primary" size="sm" pill> Small Chip </BsChip>
+        <BsChip color="primary" pill size="sm"> Small Chip </BsChip>
         <BsChip color="success" pill> Normal Chip </BsChip>
-        <BsChip color="danger" size="lg" pill> Large Chip </BsChip>
+        <BsChip color="danger" pill size="lg"> Large Chip </BsChip>
       </div>
     </DemoBlock>
     <h2 class="mt-5">Chip Icon</h2>
@@ -129,16 +129,16 @@
         <BsChip color="danger" icon="notifications" size="lg"> Large Chip </BsChip>
       </div>
       <div class="mt-3">
-        <BsChip color="primary" icon="done" size="sm" pill> Small Chip </BsChip>
+        <BsChip color="primary" icon="done" pill size="sm"> Small Chip </BsChip>
         <BsChip color="success" icon="help_center" pill> Normal Chip </BsChip>
-        <BsChip color="danger" icon="notifications" size="lg" pill> Large Chip </BsChip>
+        <BsChip color="danger" icon="notifications" pill size="lg"> Large Chip </BsChip>
       </div>
       <div class="mt-3">
-        <BsChip color="primary" icon="done" size="sm" outlined> Small Chip </BsChip>
+        <BsChip color="primary" icon="done" outlined size="sm"> Small Chip </BsChip>
         <BsChip color="success" icon="help_center" icon-variant="outlined" outlined>
           Normal Chip
         </BsChip>
-        <BsChip color="danger" icon="notifications" size="lg" icon-variant="outlined" outlined>
+        <BsChip color="danger" icon="notifications" icon-variant="outlined" outlined size="lg">
           Large Chip
         </BsChip>
       </div>
@@ -160,92 +160,65 @@
     <h2 class="mt-5">Avatar</h2>
     <DemoBlock class="mt-4">
       <div>
-        <BsChip
-          color="primary"
-          img-src="https://ahmadfajar.github.io/img/1.jpg"
-          size="sm"
-        >
+        <BsChip color="primary" img-src="https://ahmadfajar.github.io/img/1.jpg" size="sm">
           Small Chip
         </BsChip>
         <BsChip color="success" img-src="https://ahmadfajar.github.io/img/1.jpg">
           Normal Chip
         </BsChip>
-        <BsChip
-          color="danger"
-          img-src="https://ahmadfajar.github.io/img/1.jpg"
-          size="lg"
-        >
+        <BsChip color="danger" img-src="https://ahmadfajar.github.io/img/1.jpg" size="lg">
           Large Chip
         </BsChip>
       </div>
       <div class="mt-3">
         <BsChip
           color="primary"
-          img-src="https://ahmadfajar.github.io/img/1.jpg"
-          size="sm"
           img-circle
+          img-src="https://ahmadfajar.github.io/img/1.jpg"
           pill
+          size="sm"
         >
           Small Chip
         </BsChip>
-        <BsChip
-          color="success"
-          img-src="https://ahmadfajar.github.io/img/1.jpg"
-          img-circle
-          pill
-        >
+        <BsChip color="success" img-circle img-src="https://ahmadfajar.github.io/img/1.jpg" pill>
           Normal Chip
         </BsChip>
         <BsChip
           color="danger"
-          img-src="https://ahmadfajar.github.io/img/1.jpg"
-          size="lg"
           img-circle
+          img-src="https://ahmadfajar.github.io/img/1.jpg"
           pill
+          size="lg"
         >
           Large Chip
         </BsChip>
       </div>
       <div class="mt-3">
-        <BsChip
-          color="primary"
-          img-src="https://ahmadfajar.github.io/img/1.jpg"
-          size="sm"
-          outlined
-        >
+        <BsChip color="primary" img-src="https://ahmadfajar.github.io/img/1.jpg" outlined size="sm">
           Small Chip
         </BsChip>
-        <BsChip
-          color="success"
-          img-src="https://ahmadfajar.github.io/img/1.jpg"
-          outlined
-        >
+        <BsChip color="success" img-src="https://ahmadfajar.github.io/img/1.jpg" outlined>
           Normal Chip
         </BsChip>
-        <BsChip
-          color="danger"
-          img-src="https://ahmadfajar.github.io/img/1.jpg"
-          size="lg"
-          outlined
-        >
+        <BsChip color="danger" img-src="https://ahmadfajar.github.io/img/1.jpg" outlined size="lg">
           Large Chip
         </BsChip>
       </div>
       <div class="mt-3">
         <BsChip
           color="primary"
-          img-src="https://ahmadfajar.github.io/img/1.jpg"
-          size="sm"
           img-circle
+          img-src="https://ahmadfajar.github.io/img/1.jpg"
           outlined
           pill
+          size="sm"
         >
           Small Chip
         </BsChip>
         <BsChip
           color="success"
-          img-src="https://ahmadfajar.github.io/img/1.jpg"
           img-circle
+          img-src="https://ahmadfajar.github.io/img/1.jpg"
           outlined
           pill
         >
@@ -253,11 +226,11 @@
         </BsChip>
         <BsChip
           color="danger"
-          img-src="https://ahmadfajar.github.io/img/1.jpg"
-          size="lg"
           img-circle
+          img-src="https://ahmadfajar.github.io/img/1.jpg"
           outlined
           pill
+          size="lg"
         >
           Large Chip
         </BsChip>
@@ -294,18 +267,18 @@
         <BsChip
           :img-padding="false"
           color="primary"
-          img-src="https://ahmadfajar.github.io/img/2.jpg"
-          size="sm"
           img-circle
+          img-src="https://ahmadfajar.github.io/img/2.jpg"
           pill
+          size="sm"
         >
           Small Chip
         </BsChip>
         <BsChip
           :img-padding="false"
           color="success"
-          img-src="https://ahmadfajar.github.io/img/2.jpg"
           img-circle
+          img-src="https://ahmadfajar.github.io/img/2.jpg"
           pill
         >
           Normal Chip
@@ -313,10 +286,10 @@
         <BsChip
           :img-padding="false"
           color="danger"
-          img-src="https://ahmadfajar.github.io/img/2.jpg"
-          size="lg"
           img-circle
+          img-src="https://ahmadfajar.github.io/img/2.jpg"
           pill
+          size="lg"
         >
           Large Chip
         </BsChip>
@@ -326,8 +299,8 @@
           :img-padding="false"
           color="primary"
           img-src="https://ahmadfajar.github.io/img/2.jpg"
-          size="sm"
           outlined
+          size="sm"
         >
           Small Chip
         </BsChip>
@@ -343,8 +316,8 @@
           :img-padding="false"
           color="danger"
           img-src="https://ahmadfajar.github.io/img/2.jpg"
-          size="lg"
           outlined
+          size="lg"
         >
           Large Chip
         </BsChip>
@@ -353,19 +326,19 @@
         <BsChip
           :img-padding="false"
           color="primary"
-          img-src="https://ahmadfajar.github.io/img/2.jpg"
-          size="sm"
           img-circle
+          img-src="https://ahmadfajar.github.io/img/2.jpg"
           outlined
           pill
+          size="sm"
         >
           Small Chip
         </BsChip>
         <BsChip
           :img-padding="false"
           color="success"
-          img-src="https://ahmadfajar.github.io/img/2.jpg"
           img-circle
+          img-src="https://ahmadfajar.github.io/img/2.jpg"
           outlined
           pill
         >
@@ -374,11 +347,11 @@
         <BsChip
           :img-padding="false"
           color="danger"
-          img-src="https://ahmadfajar.github.io/img/2.jpg"
-          size="lg"
           img-circle
+          img-src="https://ahmadfajar.github.io/img/2.jpg"
           outlined
           pill
+          size="lg"
         >
           Large Chip
         </BsChip>
@@ -392,19 +365,19 @@
         <BsChip color="success" dismissible size="lg">Large Chip</BsChip>
       </div>
       <div class="mt-3">
-        <BsChip size="sm" dismissible outlined>Small Chip</BsChip>
+        <BsChip dismissible outlined size="sm">Small Chip</BsChip>
         <BsChip color="primary" dismissible outlined>Normal Chip</BsChip>
-        <BsChip color="success" size="lg" dismissible outlined> Large Chip </BsChip>
+        <BsChip color="success" dismissible outlined size="lg"> Large Chip </BsChip>
       </div>
       <div class="mt-3">
-        <BsChip color="purple" size="sm" dismissible outlined pill>Small Chip</BsChip>
+        <BsChip color="purple" dismissible outlined pill size="sm">Small Chip</BsChip>
         <BsChip color="unique" dismissible outlined pill>Normal Chip</BsChip>
-        <BsChip color="default-color" size="lg" dismissible outlined pill>Large Chip</BsChip>
+        <BsChip color="default-color" dismissible outlined pill size="lg">Large Chip</BsChip>
       </div>
     </DemoBlock>
     <h4 class="mt-5">Controlling Dismissible Chip</h4>
     <DemoBlock class="mt-4">
-      <bs-button color="default-color" class="me-4" style="width: 130px;" @click="toggleChip">
+      <bs-button class="me-4" color="default-color" style="width: 130px" @click="toggleChip">
         {{ showDismissibleChip ? 'Hide' : 'Show' }} Chip
       </bs-button>
       <BsChip v-model="showDismissibleChip" color="dark-blue" dismissible outlined>
@@ -414,10 +387,10 @@
   </div>
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 import { ref } from 'vue';
 import { StringHelper } from 'vue-mdbootstrap';
-import { colorVariants, IconBullhorn } from '@/composables/sharedApi';
+import { colorVariants, IconBullhorn } from '@shares/sharedApi';
 
 const chipDefaultActive = ref(false);
 const chipPrimaryActive = ref(false);

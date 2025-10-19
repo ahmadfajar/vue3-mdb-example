@@ -7,7 +7,7 @@
           <BsNumericField v-model="numField1" class="mb-4" floating-label>
             <label>Field Label</label>
           </BsNumericField>
-          <BsNumericField v-model="numField1" class="mb-4" readonly floating-label>
+          <BsNumericField v-model="numField1" class="mb-4" floating-label readonly>
             <label>State Readonly</label>
           </BsNumericField>
           <BsNumericField v-model="numField1" class="mb-4" disabled floating-label>
@@ -50,9 +50,9 @@
         <div class="col">
           <BsNumericField
             v-model="numField3"
-            spin-button-placement="left"
             clear-button
             floating-label
+            spin-button-placement="left"
           >
             <label>Field Label</label>
           </BsNumericField>
@@ -65,26 +65,26 @@
         <div class="col">
           <BsNumericField
             v-model="numField3"
-            spin-button-placement="left"
             clear-button
             filled
             floating-label
+            spin-button-placement="left"
           >
             <label>Field Label</label>
           </BsNumericField>
         </div>
         <div class="col">
-          <BsNumericField v-model="numField3" clear-button outlined floating-label>
+          <BsNumericField v-model="numField3" clear-button floating-label outlined>
             <label>Field Label</label>
           </BsNumericField>
         </div>
         <div class="col">
           <BsNumericField
             v-model="numField3"
-            spin-button-placement="left"
             clear-button
-            outlined
             floating-label
+            outlined
+            spin-button-placement="left"
           >
             <label>Field Label</label>
           </BsNumericField>
@@ -148,8 +148,8 @@
             :spin-button="false"
             action-button
             clear-button
-            outlined
             floating-label
+            outlined
           >
             <label>Field Label</label>
           </BsNumericField>
@@ -161,8 +161,8 @@
             action-button
             action-button-placement="both"
             clear-button
-            outlined
             floating-label
+            outlined
           >
             <label>Field Label</label>
           </BsNumericField>
@@ -173,46 +173,46 @@
     <DemoBlock class="mt-4">
       <div class="row g-4 row-cols-1 row-cols-lg-2">
         <div class="col">
-          <BsNumericField help-text="Type the product price per-unit" floating-label>
+          <BsNumericField floating-label help-text="Type the product price per-unit">
             <label>Unit Price</label>
           </BsNumericField>
         </div>
         <div class="col">
           <BsNumericField
             :persistent-help-text="false"
-            help-text="Type the product price per-unit"
             clear-button
             floating-label
+            help-text="Type the product price per-unit"
           >
             <label>Unit Price</label>
           </BsNumericField>
         </div>
         <div class="col">
-          <BsNumericField help-text="Type the product price per-unit" filled floating-label>
+          <BsNumericField filled floating-label help-text="Type the product price per-unit">
             <label>Unit Price</label>
           </BsNumericField>
         </div>
         <div class="col">
           <BsNumericField
             :persistent-help-text="false"
-            help-text="Type the product price per-unit"
             filled
             floating-label
+            help-text="Type the product price per-unit"
           >
             <label>Unit Price</label>
           </BsNumericField>
         </div>
         <div class="col">
-          <BsNumericField help-text="Type the product price per-unit" outlined floating-label>
+          <BsNumericField floating-label help-text="Type the product price per-unit" outlined>
             <label>Unit Price</label>
           </BsNumericField>
         </div>
         <div class="col">
           <BsNumericField
             :persistent-help-text="false"
+            floating-label
             help-text="Type the product price per-unit"
             outlined
-            floating-label
           >
             <label>Unit Price</label>
           </BsNumericField>
@@ -223,7 +223,7 @@
     <DemoBlock class="mt-4">
       <div class="row g-4 row-cols-1 row-cols-lg-2">
         <div class="col">
-          <BsNumericField prepend-icon="bug_report" clear-button floating-label>
+          <BsNumericField clear-button floating-label prepend-icon="bug_report">
             <label>Prepend</label>
           </BsNumericField>
         </div>
@@ -233,7 +233,7 @@
           </BsNumericField>
         </div>
         <div class="col">
-          <BsNumericField prepend-icon-outer="bug_report" clear-button floating-label>
+          <BsNumericField clear-button floating-label prepend-icon-outer="bug_report">
             <label>Prepend Outer</label>
           </BsNumericField>
         </div>
@@ -243,7 +243,7 @@
           </BsNumericField>
         </div>
         <div class="col">
-          <BsNumericField prepend-icon="bug_report" clear-button filled floating-label>
+          <BsNumericField clear-button filled floating-label prepend-icon="bug_report">
             <label>Prepend</label>
           </BsNumericField>
         </div>
@@ -253,7 +253,7 @@
           </BsNumericField>
         </div>
         <div class="col">
-          <BsNumericField prepend-icon-outer="bug_report" clear-button filled floating-label>
+          <BsNumericField clear-button filled floating-label prepend-icon-outer="bug_report">
             <label>Prepend Outer</label>
           </BsNumericField>
         </div>
@@ -263,7 +263,7 @@
           </BsNumericField>
         </div>
         <div class="col">
-          <BsNumericField prepend-icon="bug_report" clear-button floating-label outlined>
+          <BsNumericField clear-button floating-label outlined prepend-icon="bug_report">
             <label>Prepend</label>
           </BsNumericField>
         </div>
@@ -273,7 +273,7 @@
           </BsNumericField>
         </div>
         <div class="col">
-          <BsNumericField prepend-icon-outer="bug_report" clear-button floating-label outlined>
+          <BsNumericField clear-button floating-label outlined prepend-icon-outer="bug_report">
             <label>Prepend Outer</label>
           </BsNumericField>
         </div>
@@ -293,7 +293,7 @@
           </BsNumericField>
         </div>
         <div class="col">
-          <BsNumericField suffix="Kg" floating-label>
+          <BsNumericField floating-label suffix="Kg">
             <label>Unit Weight</label>
           </BsNumericField>
         </div>
@@ -303,17 +303,17 @@
           </BsNumericField>
         </div>
         <div class="col">
-          <BsNumericField suffix="Kg" filled floating-label>
+          <BsNumericField filled floating-label suffix="Kg">
             <label>Unit Weight</label>
           </BsNumericField>
         </div>
         <div class="col">
-          <BsNumericField prefix="Rp." outlined floating-label>
+          <BsNumericField prefix="Rp." floating-label outlined>
             <label>Unit Price</label>
           </BsNumericField>
         </div>
         <div class="col">
-          <BsNumericField suffix="Kg" outlined floating-label>
+          <BsNumericField floating-label outlined suffix="Kg">
             <label>Unit Weight</label>
           </BsNumericField>
         </div>
@@ -322,7 +322,7 @@
   </div>
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 import { ref } from 'vue';
 
 const numField1 = ref<number>();

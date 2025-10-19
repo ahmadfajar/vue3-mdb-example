@@ -59,6 +59,8 @@ npm run tailwind:dev
 yarn tailwind:dev
 ```
 
+Then open your browser and point to: http://localhost:5175/ 
+
 ### Type-Check, Compile and Minify for Production
 
 **Build examples with Bootstrap v5 css framework.**

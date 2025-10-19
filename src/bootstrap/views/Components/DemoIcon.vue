@@ -35,46 +35,46 @@
       </div>
       <div class="col mt-4">
         <div class="p-4 bg-grey-200 rounded-3">
-          <BsIcon icon="home_work" size="64" flip="horizontal" />
+          <BsIcon flip="horizontal" icon="home_work" size="64" />
         </div>
       </div>
       <div class="col mt-4">
         <div class="p-4 bg-grey-200 rounded-3">
-          <BsIcon icon="home_work" size="64" flip="vertical" />
+          <BsIcon flip="vertical" icon="home_work" size="64" />
         </div>
       </div>
       <div class="col mt-4">
         <div class="p-4 bg-grey-200 rounded-3">
-          <BsIcon icon="home_work" size="64" flip="both" />
+          <BsIcon flip="both" icon="home_work" size="64" />
         </div>
       </div>
       <div class="col mt-4">
         <div class="p-4 bg-grey-200 rounded-3">
-          <BsIcon icon="home_rounded" filled size="64" />
+          <BsIcon filled icon="home_rounded" size="64" />
         </div>
       </div>
       <div class="col mt-4">
         <div class="p-4 bg-grey-200 rounded-3">
-          <BsIcon icon="home_rounded" filled size="64" rotate="90" />
+          <BsIcon filled icon="home_rounded" rotate="90" size="64" />
         </div>
       </div>
       <div class="col mt-4">
         <div class="p-4 bg-grey-200 rounded-3">
-          <BsIcon icon="home" size="64" rotate="180" />
+          <BsIcon icon="home" rotate="180" size="64" />
         </div>
       </div>
       <div class="col mt-4">
         <div class="p-4 bg-grey-200 rounded-3">
-          <BsIcon icon="home" size="64" rotate="270" />
+          <BsIcon icon="home" rotate="270" size="64" />
         </div>
       </div>
       <div class="col mt-4">
         <div class="p-4 bg-grey-200 rounded-3">
           <BsToggleIcon
+            v-model="isToggle"
             icon="lock_sharp"
             toggle-icon="lock_open_sharp"
             size="64"
-            v-model="isToggle"
           />
         </div>
       </div>
@@ -97,9 +97,9 @@
         <BsSwitch
           v-model="isSpin1"
           :value="true"
-          color="primary-color-dark"
-          class="mt-2 align-self-start"
           checked-icon
+          class="mt-2 align-self-start"
+          color="primary-color-dark"
           inset-outlined
         >
           Spin {{ isSpin1 ? 'OFF' : 'ON' }}
@@ -121,9 +121,9 @@
         <BsSwitch
           v-model="isPulse1"
           :value="true"
-          color="primary-color-dark"
-          class="mt-2 align-self-start"
           checked-icon
+          class="mt-2 align-self-start"
+          color="primary-color-dark"
           inset-outlined
         >
           Pulse {{ isPulse1 ? 'OFF' : 'ON' }}
@@ -170,37 +170,37 @@
       </div>
       <div class="col mt-4">
         <div class="p-4 bg-grey-200 rounded-3">
-          <BsIconFontawesome icon="cart-shopping" size="64" flip="horizontal" />
+          <BsIconFontawesome flip="horizontal" icon="cart-shopping" size="64" />
         </div>
       </div>
       <div class="col mt-4">
         <div class="p-4 bg-grey-200 rounded-3">
-          <BsIconFontawesome icon="cart-shopping" size="64" flip="vertical" />
+          <BsIconFontawesome flip="vertical" icon="cart-shopping" size="64" />
         </div>
       </div>
       <div class="col mt-4">
         <div class="p-4 bg-grey-200 rounded-3">
-          <BsIconFontawesome icon="cart-shopping" size="64" flip="both" />
+          <BsIconFontawesome flip="both" icon="cart-shopping" size="64" />
         </div>
       </div>
       <div class="col mt-4">
         <div class="p-4 bg-grey-200 rounded-3">
-          <BsIconFontawesome icon="truck" size="64" variant="regular" />
+          <BsIconFontawesome icon="truck" variant="regular" size="64" />
         </div>
       </div>
       <div class="col mt-4">
         <div class="p-4 bg-grey-200 rounded-3">
-          <BsIconFontawesome icon="truck" size="64" variant="regular" rotate="90" />
+          <BsIconFontawesome icon="truck" rotate="90" variant="regular" size="64" />
         </div>
       </div>
       <div class="col mt-4">
         <div class="p-4 bg-grey-200 rounded-3">
-          <BsIconFontawesome icon="truck" size="64" variant="regular" rotate="180" />
+          <BsIconFontawesome icon="truck" rotate="180" variant="regular" size="64" />
         </div>
       </div>
       <div class="col mt-4">
         <div class="p-4 bg-grey-200 rounded-3">
-          <BsIconFontawesome icon="truck" size="64" variant="regular" rotate="270" />
+          <BsIconFontawesome icon="truck" rotate="270" variant="regular" size="64" />
         </div>
       </div>
     </div>
@@ -222,9 +222,9 @@
         <BsSwitch
           v-model="isSpin2"
           :value="true"
-          color="primary-color-dark"
-          class="mt-2 align-self-start"
           checked-icon
+          class="mt-2 align-self-start"
+          color="primary-color-dark"
           inset-outlined
         >
           Spin {{ isSpin2 ? 'OFF' : 'ON' }}
@@ -246,9 +246,9 @@
         <BsSwitch
           v-model="isPulse2"
           :value="true"
-          color="primary-color-dark"
-          class="mt-2 align-self-start"
           checked-icon
+          class="mt-2 align-self-start"
+          color="primary-color-dark"
           inset-outlined
         >
           Pulse {{ isPulse2 ? 'OFF' : 'ON' }}
@@ -258,7 +258,7 @@
   </div>
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 import { ref } from 'vue';
 
 const isToggle = ref(false);

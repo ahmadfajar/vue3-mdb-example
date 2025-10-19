@@ -39,11 +39,11 @@
         <div class="d-inline-block">
           <BsButton
             ref="picker3Activator"
-            title="Click to display color picker"
             dropdown-toggle
+            title="Click to display color picker"
             @click="picker3Show = !picker3Show"
           >
-            <span class="picked-color rounded-circle" :style="{ color: picker3color }"></span>
+            <span :style="{ color: picker3color }" class="picked-color rounded-circle"></span>
           </BsButton>
           <BsColorPicker
             v-model="picker3color"
@@ -58,7 +58,7 @@
   </div>
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 import type { ComponentPublicInstance } from 'vue';
 import { ref } from 'vue';
 import type { TColorPickerMode } from 'vue-mdbootstrap';

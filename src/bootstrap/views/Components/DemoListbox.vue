@@ -39,11 +39,11 @@
         <BsListbox
           v-model="listbox4"
           :data-source="statesCA2"
+          checkbox-color="primary"
+          checkbox-position="right"
           max-height="250"
           multiple
           use-checkbox
-          checkbox-color="primary"
-          checkbox-position="right"
         />
         <p class="mt-2">
           Values: <span class="fw-semibold">{{ listbox4 }}</span>
@@ -58,8 +58,8 @@
             <BsListbox
               v-model="listbox5"
               :data-source="peopleSrc2"
-              max-height="250"
               circle-image
+              max-height="250"
               show-image
             />
           </div>
@@ -85,9 +85,9 @@
             <BsListbox
               v-model="listbox7"
               :data-source="peopleSrc2"
-              max-height="250"
-              image-size="32"
               circle-image
+              image-size="32"
+              max-height="250"
               show-image
             />
           </div>
@@ -97,8 +97,8 @@
             <BsListbox
               v-model="listbox8"
               :data-source="peopleSrc2"
-              max-height="250"
               image-size="32"
+              max-height="250"
               rounded-image
               show-image
             />
@@ -113,8 +113,8 @@
           v-model="listbox9"
           :data-source="productSrc"
           color="info-color-dark"
-          max-height="270"
           item-separator
+          max-height="270"
         >
           <template #option-item="{ item }">
             <bs-list-tile-title>
@@ -129,9 +129,9 @@
   </div>
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 import { ref } from 'vue';
-import type { TDataSource, TDataListSchemaProps } from 'vue-mdbootstrap';
+import type { TDataSource, TDataListSchema } from 'vue-mdbootstrap';
 import { BsArrayStore, BsStore } from 'vue-mdbootstrap';
 
 const listbox1 = ref<number | undefined>();
@@ -160,7 +160,7 @@ const peopleSrc1: TDataSource = {
       idProperty: 'id',
     }
   ),
-  schema: { displayField: 'name', valueField: 'id' } as TDataListSchemaProps,
+  schema: { displayField: 'name', valueField: 'id' } as TDataListSchema,
 };
 const peopleSrc2: TDataSource = {
   proxy: new BsArrayStore(
@@ -210,7 +210,7 @@ const peopleSrc2: TDataSource = {
       idProperty: 'id',
     }
   ),
-  schema: { displayField: 'name', valueField: 'id', imageField: 'avatar' } as TDataListSchemaProps,
+  schema: { displayField: 'name', valueField: 'id', imageField: 'avatar' } as TDataListSchema,
 };
 const statesCA1: TDataSource = {
   proxy: new BsStore({

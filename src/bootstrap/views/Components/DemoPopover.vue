@@ -358,7 +358,7 @@
   </div>
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 import type { ComponentPublicInstance } from 'vue';
 import { ref } from 'vue';
 

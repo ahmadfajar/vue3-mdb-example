@@ -3,7 +3,7 @@
     <h2>Overview</h2>
     <DemoBlock class="mt-4">
       <BsProgressBar v-model="progress1" />
-      <BsProgressBar v-model="progress1" class="mt-3" height="1.5rem" show-value />
+      <BsProgressBar v-model="progress1" class="mt-3" show-value height="1.5rem" />
       <h6 class="mb-3 mt-4">
         Value: <span class="text-unique">{{ progress1 }}%</span>
       </h6>
@@ -59,11 +59,11 @@
   </div>
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 import { ref } from 'vue';
 import {
   BsArrayStore,
-  type TDataListSchemaProps,
+  type TDataListSchema,
   type TDataSource,
   type TProgressBarLabelPosition,
   type TProgressBarValuePosition,
@@ -90,7 +90,7 @@ const position1Src: TDataSource = {
       idProperty: 'id',
     }
   ),
-  schema: { displayField: 'text', valueField: 'id' } as TDataListSchemaProps,
+  schema: { displayField: 'text', valueField: 'id' } as TDataListSchema,
 };
 const position2 = ref<TProgressBarLabelPosition>('top');
 const position2Src: TDataSource = {
@@ -105,6 +105,6 @@ const position2Src: TDataSource = {
       idProperty: 'id',
     }
   ),
-  schema: { displayField: 'text', valueField: 'id' } as TDataListSchemaProps,
+  schema: { displayField: 'text', valueField: 'id' } as TDataListSchema,
 };
 </script>

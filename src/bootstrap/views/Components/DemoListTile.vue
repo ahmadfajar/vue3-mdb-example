@@ -9,7 +9,7 @@
           <BsSubheader>Today</BsSubheader>
           <template v-for="(item, index) in listItems1" :key="item.title">
             <BsListTile>
-              <BsListTileLeading :img-src="item.avatar" size="40" circle />
+              <BsListTileLeading :img-src="item.avatar" circle size="40" />
               <BsListTileContent multi-line>
                 <BsListTileTitle class="fw-semibold">
                   {{ item.title }}
@@ -36,7 +36,7 @@
     <div class="demo-block-content bg-grey-200 rounded-4 mt-3">
       <BsCard class="mx-auto" shadow style="max-width: 400px">
         <BsCardMedia title="Jonathan Smith">
-          <img src="https://picsum.photos/id/91/600/350.jpg?blur=2" alt="image" />
+          <img alt="image" src="https://picsum.photos/id/91/600/350.jpg?blur=2" />
         </BsCardMedia>
         <BsListView>
           <BsListTile>
@@ -86,15 +86,15 @@
       <div class="demo-block-content bg-grey-200 rounded-4 mt-3">
         <BsCard class="mobi-card mx-auto" shadow>
           <BsAppbar class="bg-default-color-dark" shadow>
-            <BsButton mode="icon" icon="menu" color="light-grey" flat />
-            <BsAppbarTitle title="My Recipes" class="text-white" />
+            <BsButton color="light-grey" flat icon="menu" mode="icon" />
+            <BsAppbarTitle class="text-white" title="My Recipes" />
             <BsSpacer />
-            <BsButton color="light-grey" mode="icon" icon="search" flat />
+            <BsButton color="light-grey" flat icon="search" mode="icon" />
           </BsAppbar>
           <BsListView>
             <BsSubheader>Summer Recipes</BsSubheader>
             <template v-for="(item, index) in listItems2" :key="item.title">
-              <BsListTile navigable :disabled="index === 2">
+              <BsListTile :disabled="index === 2" navigable>
                 <BsListTileLeading :img-src="item.avatar" :size="{ height: 56, width: 85 }" />
                 <BsListTileContent multi-line>
                   <BsListTileTitle class="md-fw-semibold">
@@ -121,10 +121,10 @@
       <div class="demo-block-content bg-grey-200 rounded-4 mt-3">
         <BsCard class="mobi-card mx-auto" shadow>
           <BsAppbar class="bg-default-color-dark" shadow>
-            <BsButton mode="icon" icon="menu" color="light-grey" flat />
-            <BsAppbarTitle title="My Recipes" class="text-white" />
+            <BsButton color="light-grey" flat icon="menu" mode="icon" />
+            <BsAppbarTitle class="text-white" title="My Recipes" />
             <BsSpacer />
-            <BsButton color="light-grey" mode="icon" icon="search" flat />
+            <BsButton color="light-grey" flat icon="search" mode="icon" />
           </BsAppbar>
           <BsListView individual-state>
             <BsSubheader>Summer Recipes</BsSubheader>
@@ -157,10 +157,10 @@
       <div class="demo-block-content bg-grey-200 rounded-4 mt-3">
         <BsCard class="mobi-card mx-auto" shadow>
           <BsAppbar class="bg-default-color-dark" shadow>
-            <BsButton mode="icon" icon="menu" color="light-grey" flat />
-            <BsAppbarTitle title="Chats" class="text-white" />
+            <BsButton color="light-grey" flat icon="menu" mode="icon" />
+            <BsAppbarTitle class="text-white" title="Chats" />
             <BsSpacer />
-            <BsButton color="light-grey" mode="icon" icon="search" flat />
+            <BsButton color="light-grey" flat icon="search" mode="icon" />
           </BsAppbar>
           <BsListView>
             <BsSubheader>Recent Chats</BsSubheader>
@@ -173,7 +173,7 @@
                   </BsListTileTitle>
                 </BsListTileContent>
                 <BsListTileAction center>
-                  <BsIcon :class="{ 'text-info': item.active === true }" icon="chat_bubble" />
+                  <BsIcon :class="{ 'text-info': item.active }" icon="chat_bubble" />
                 </BsListTileAction>
               </BsListTile>
             </template>
@@ -203,16 +203,16 @@
         <BsAppbar class="bg-default-color-dark" clipped-left shadow>
           <BsButton
             color="light-grey"
+            flat
             icon="menu"
             mode="icon"
-            flat
             @click="toggleSideDrawer1(!openSideDrawer1)"
           />
-          <BsAppbarTitle title="Page Title" class="text-white" />
+          <BsAppbarTitle class="text-white" title="Page Title" />
           <BsSpacer />
           <BsAppbarItems>
-            <BsButton color="light-grey" icon="search" mode="icon" flat />
-            <BsButton color="light-grey" icon="notifications" mode="icon" flat />
+            <BsButton color="light-grey" flat icon="search" mode="icon" />
+            <BsButton color="light-grey" flat icon="notifications" mode="icon" />
           </BsAppbarItems>
         </BsAppbar>
         <BsSideDrawer v-model:open="openSideDrawer1" class="border-end">
@@ -258,7 +258,7 @@
                 <BsListTileTitle>All Mail</BsListTileTitle>
               </BsListTileContent>
               <BsListTileAction center>
-                <BsBadge type="pill" color="grey-500"> 102 </BsBadge>
+                <BsBadge color="grey-500" type="pill"> 102 </BsBadge>
               </BsListTileAction>
             </BsListTile>
             <BsListTile navigable>
@@ -267,7 +267,7 @@
                 <BsListTileTitle>Trash</BsListTileTitle>
               </BsListTileContent>
               <BsListTileAction center>
-                <BsBadge type="pill" color="grey-500"> 12 </BsBadge>
+                <BsBadge color="grey-500" type="pill"> 12 </BsBadge>
               </BsListTileAction>
             </BsListTile>
             <BsListTile navigable>
@@ -276,7 +276,7 @@
                 <BsListTileTitle>Spam</BsListTileTitle>
               </BsListTileContent>
               <BsListTileAction center>
-                <BsBadge type="pill" color="grey-500"> 8 </BsBadge>
+                <BsBadge color="grey-500" type="pill"> 8 </BsBadge>
               </BsListTileAction>
             </BsListTile>
           </BsListView>
@@ -292,18 +292,18 @@
       <div class="demo-block-content bg-grey-200 rounded-4 mt-3">
         <BsCard class="mobi-card mx-auto" shadow>
           <BsAppbar class="bg-default-color-dark" clipped-left shadow>
-            <BsButton color="light-grey" icon="menu" mode="icon" flat />
-            <BsAppbarTitle title="Menus" class="text-white" />
+            <BsButton color="light-grey" flat icon="menu" mode="icon" />
+            <BsAppbarTitle class="text-white" title="Menus" />
             <BsSpacer />
             <BsAppbarItems>
-              <BsButton color="light-grey" icon="search" mode="icon" flat />
-              <BsButton color="light-grey" icon="notifications" mode="icon" flat />
+              <BsButton color="light-grey" flat icon="search" mode="icon" />
+              <BsButton color="light-grey" flat icon="notifications" mode="icon" />
             </BsAppbarItems>
           </BsAppbar>
           <BsListView
+            :item-border-variant="getItemBorderVariant"
             :item-rounded="itemStyle === 'rounded'"
             :item-rounded-pill="itemStyle === 'pill'"
-            :item-border-variant="getItemBorderVariant"
             :space-around="spaceAround"
           >
             <BsListTile navigable>
@@ -337,7 +337,7 @@
                 <BsListTileTitle>All Mail</BsListTileTitle>
               </BsListTileContent>
               <BsListTileAction center>
-                <BsBadge type="pill" color="secondary"> 102 </BsBadge>
+                <BsBadge color="secondary" type="pill"> 102 </BsBadge>
               </BsListTileAction>
             </BsListTile>
             <BsListTile navigable>
@@ -346,7 +346,7 @@
                 <BsListTileTitle>Trash</BsListTileTitle>
               </BsListTileContent>
               <BsListTileAction center>
-                <BsBadge type="pill" color="secondary"> 12 </BsBadge>
+                <BsBadge color="secondary" type="pill"> 12 </BsBadge>
               </BsListTileAction>
             </BsListTile>
             <BsListTile navigable>
@@ -355,7 +355,7 @@
                 <BsListTileTitle>Spam</BsListTileTitle>
               </BsListTileContent>
               <BsListTileAction center>
-                <BsBadge type="pill" color="secondary"> 8 </BsBadge>
+                <BsBadge color="secondary" type="pill"> 8 </BsBadge>
               </BsListTileAction>
             </BsListTile>
           </BsListView>
@@ -373,8 +373,8 @@
       <BsRadioGroup
         v-model="itemBorderVariant"
         :items="itemBorderVariants"
-        color="default-color-dark"
         class="mt-3"
+        color="default-color-dark"
         column="3"
       >
         <label class="col-md-3 col-form-label md-fw-semibold">Item Border Variant</label>
@@ -382,8 +382,8 @@
       <BsRadioGroup
         v-model="itemStyle"
         :items="itemStyles"
-        color="default-color-dark"
         class="mt-3"
+        color="default-color-dark"
         column="3"
       >
         <label class="col-md-3 col-form-label md-fw-semibold">Item Style</label>
@@ -392,7 +392,7 @@
   </div>
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 import { computed, ref } from 'vue';
 import type { TSpaceAround } from 'vue-mdbootstrap';
 
@@ -509,7 +509,8 @@ const listChat1 = [
   },
 ];
 const listChat2 = [{ fullName: 'Travis Howard', avatar: 'https://ahmadfajar.github.io/img/5.jpg' }];
-const content = 'Quis magna Lorem anim amet ipsum do mollit sit cillum voluptate ex nulla tempor. Laborum consequat non elit enim exercitation cillum aliqua consequat id aliqua.';
+const content =
+  'Quis magna Lorem anim amet ipsum do mollit sit cillum voluptate ex nulla tempor. Laborum consequat non elit enim exercitation cillum aliqua consequat id aliqua.';
 const openSideDrawer1 = ref(true);
 
 function toggleSideDrawer1(value: boolean) {

@@ -16,9 +16,9 @@
         <b>Click Me</b>
       </BsRipple>
       <BsRipple
+        centered
         class="d-flex justify-content-center align-items-center text-bg-success border rounded"
         style="max-width: 150px; height: 150px"
-        centered
       >
         <b>Click Me</b>
       </BsRipple>
@@ -32,7 +32,7 @@
   </div>
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 import { ref } from 'vue';
 
 const showOverlay = ref(false);

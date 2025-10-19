@@ -81,11 +81,11 @@
           </BsCardBody>
           <BsMaskLoader
             v-model:show="showProgress2"
-            type="linear-alt"
             overlay-color="#064E40"
             spinner-color="blue-green"
             spinner-diameter="60"
             spinner-thickness="8"
+            type="linear-alt"
           />
         </BsCard>
         <BsButton color="default-color mt-3" @click="showProgress2 = !showProgress2">
@@ -100,10 +100,10 @@
           </BsCardBody>
           <BsMaskLoader
             v-model:show="showSpinner2"
-            type="spinner"
             overlay-color="#064E40"
             spinner-color="purple"
             spinner-diameter="60"
+            type="spinner"
           />
         </BsCard>
         <BsButton color="default-color mt-3" @click="showSpinner2 = !showSpinner2">
@@ -118,10 +118,10 @@
           </BsCardBody>
           <BsMaskLoader
             v-model:show="showGrow2"
-            type="grow"
             overlay-color="#064E40"
             spinner-color="red"
             spinner-diameter="60"
+            type="grow"
           />
         </BsCard>
         <BsButton color="default-color mt-3" @click="showGrow2 = !showGrow2">
@@ -132,9 +132,10 @@
   </div>
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 import { ref } from 'vue';
 
+// prettier-ignore
 const content = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Auctor augue mauris augue neque gravida in fermentum et sollicitudin.';
 const showGrow1 = ref(false);
 const showLinear1 = ref(false);

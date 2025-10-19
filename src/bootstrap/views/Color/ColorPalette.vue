@@ -12,8 +12,8 @@
       <div class="col-md-6 col-xl-4">
         <div
           v-for="(value, key) in grayColors"
-          :key="key"
           :class="useGrayColorClasses(key)"
+          :key="key"
           class="p-3 d-flex"
         >
           <span class="flex-grow-1">grey-{{ key }}</span>
@@ -25,33 +25,33 @@
       <div v-for="(items, key) in fullColors" :key="key" class="col-md-6 col-xl-4 mb-4">
         <div
           v-for="(value, prop) in items"
-          :key="key + prop"
           :class="useFullColorClasses(key, prop)"
+          :key="key + prop"
           class="p-3 d-flex"
         >
           <span class="flex-grow-1">{{ useFullColorName(key, prop) }}</span>
-          <span class="opacity-50 small">{{ value.toUpperCase() }}</span>
+          <span class="opacity-50 small">{{ (value as string).toUpperCase() }}</span>
         </div>
       </div>
     </div>
     <div v-else-if="palette === 'material'" class="row">
       <div v-for="(item, key) in materialColors" :key="key" class="mb-4 col-md-6 col-xl-3">
         <div
-          :class="['bg-' + useMaterialColorInfo(item)[0].color]"
+          :class="['bg-' + useMaterialColorInfo(item)[0]!.color]"
           class="docs-color-block text-white"
         >
-          <div>{{ useMaterialColorInfo(item)[0].color }}</div>
+          <div>{{ useMaterialColorInfo(item)[0]!.color }}</div>
           <div class="opacity-50">
-            {{ useMaterialColorInfo(item)[0].value.toUpperCase() }}
+            {{ useMaterialColorInfo(item)[0]!.value.toUpperCase() }}
           </div>
         </div>
         <div
-          :class="['bg-' + useMaterialColorInfo(item)[1].color]"
+          :class="['bg-' + useMaterialColorInfo(item)[1]!.color]"
           class="md-shadow-1 docs-color-block text-white"
         >
-          <div>{{ useMaterialColorInfo(item)[1].color }}</div>
+          <div>{{ useMaterialColorInfo(item)[1]!.color }}</div>
           <div class="opacity-50">
-            {{ useMaterialColorInfo(item)[1].value.toUpperCase() }}
+            {{ useMaterialColorInfo(item)[1]!.value.toUpperCase() }}
           </div>
         </div>
       </div>

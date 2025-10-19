@@ -41,7 +41,7 @@
                 <BsDivider />
                 <BsListNav>
                   <BsListNavItem label="Another Action" />
-                  <BsListNavItem label="Disabled Action" disabled />
+                  <BsListNavItem disabled label="Disabled Action" />
                 </BsListNav>
               </BsListView>
             </template>
@@ -52,7 +52,7 @@
     <h2 class="mt-5">Hover Display</h2>
     <DemoBlock class="mt-4">
       <div class="text-center">
-        <BsDropdownMenu v-model:open="show3" space="2" open-on-hover>
+        <BsDropdownMenu v-model:open="show3" open-on-hover space="2">
           <BsButton color="primary" dropdown-toggle>Dropdown</BsButton>
           <template #content>
             <BsListView>
@@ -64,7 +64,7 @@
               <BsDivider />
               <BsListNav>
                 <BsListNavItem label="Another Action" />
-                <BsListNavItem label="Disabled Action" disabled />
+                <BsListNavItem disabled label="Disabled Action" />
               </BsListNav>
             </BsListView>
           </template>
@@ -75,7 +75,7 @@
     <DemoBlock class="mt-4">
       <div class="row">
         <div class="col-12 col-md-6 col-lg-4 text-center">
-          <BsDropdownMenu v-model:open="show7" space="2" placement="top-left">
+          <BsDropdownMenu v-model:open="show7" placement="top-left" space="2">
             <BsButton :pill="false" color="primary" dropdown-toggle rounded>Top Left</BsButton>
             <template #content>
               <BsListView>
@@ -87,14 +87,14 @@
                 <BsDivider />
                 <BsListNav>
                   <BsListNavItem label="Another Action" />
-                  <BsListNavItem label="Disabled Action" disabled />
+                  <BsListNavItem disabled label="Disabled Action" />
                 </BsListNav>
               </BsListView>
             </template>
           </BsDropdownMenu>
         </div>
         <div class="col-12 col-md-6 col-lg-4 mt-3 mt-md-0 text-center">
-          <BsDropdownMenu v-model:open="show8" space="2" placement="top">
+          <BsDropdownMenu v-model:open="show8" placement="top" space="2">
             <BsButton :pill="false" color="primary" dropdown-toggle rounded>Top</BsButton>
             <template #content>
               <BsListView>
@@ -106,14 +106,14 @@
                 <BsDivider />
                 <BsListNav>
                   <BsListNavItem label="Another Action" />
-                  <BsListNavItem label="Disabled Action" disabled />
+                  <BsListNavItem disabled label="Disabled Action" />
                 </BsListNav>
               </BsListView>
             </template>
           </BsDropdownMenu>
         </div>
         <div class="col-12 col-md-6 col-lg-4 mt-3 mt-lg-0 text-center">
-          <BsDropdownMenu v-model:open="show9" space="2" placement="top-right">
+          <BsDropdownMenu v-model:open="show9" placement="top-right" space="2">
             <BsButton :pill="false" color="primary" dropdown-toggle rounded>Top Right</BsButton>
             <template #content>
               <BsListView>
@@ -125,7 +125,7 @@
                 <BsDivider />
                 <BsListNav>
                   <BsListNavItem label="Another Action" />
-                  <BsListNavItem label="Disabled Action" disabled />
+                  <BsListNavItem disabled label="Disabled Action" />
                 </BsListNav>
               </BsListView>
             </template>

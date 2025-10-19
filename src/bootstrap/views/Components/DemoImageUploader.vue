@@ -8,7 +8,7 @@
             ref="uploader"
             accept-types="image/jpeg, image/png"
             limit="0.2"
-            @error="(error) => $notification.error(error.message)"
+            @error="(error: TUploadError) => $notification.error(error.message)"
           />
           <ul class="mt-3 mb-0">
             <li>Valid image types: *.jpg, *.jpeg, *.png</li>
@@ -38,7 +38,7 @@
 
 <script setup lang="ts">
 import { computed, ref, unref } from 'vue';
-import type { BsImageUploaderInstance, INotificationProvider } from 'vue-mdbootstrap';
+import type { BsImageUploaderInstance, INotificationProvider, TUploadError } from 'vue-mdbootstrap';
 
 const uploader = ref<BsImageUploaderInstance>();
 const isBusy = ref(false);

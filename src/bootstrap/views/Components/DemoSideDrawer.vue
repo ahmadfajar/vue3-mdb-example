@@ -7,10 +7,10 @@
         <BsSideDrawer v-model:open="openSideDrawer1" shadow>
           <div class="p-3">
             <img
-              src="https://ahmadfajar.github.io/img/kitty-1.jpg"
               alt="image"
-              style="width: 40px"
               class="rounded-circle"
+              src="https://ahmadfajar.github.io/img/kitty-1.jpg"
+              style="width: 40px"
             />
             <span class="h5 ps-3">Kitty Doe</span>
           </div>
@@ -40,7 +40,7 @@
             </ul>
           </div>
         </BsSideDrawer>
-        <BsContainer class="bg-blue-grey darken-3" style="height: 250px" app>
+        <BsContainer app class="bg-blue-grey darken-3" style="height: 250px">
           <div class="container-fluid d-flex justify-content-center align-items-center">
             <BsButton @click="toggleSideDrawer1(!openSideDrawer1)"> TOGGLE </BsButton>
           </div>
@@ -54,10 +54,10 @@
         <BsSideDrawer v-model:open="openSideDrawer2" position="right" shadow>
           <div class="p-3">
             <img
-              src="https://ahmadfajar.github.io/img/kitty-1.jpg"
               alt="image"
-              style="width: 40px"
               class="rounded-circle"
+              src="https://ahmadfajar.github.io/img/kitty-1.jpg"
+              style="width: 40px"
             />
             <span class="h5 ps-3">Kitty Doe</span>
           </div>
@@ -87,7 +87,7 @@
             </ul>
           </div>
         </BsSideDrawer>
-        <BsContainer class="bg-blue-grey darken-3" style="height: 250px" app>
+        <BsContainer app class="bg-blue-grey darken-3" style="height: 250px">
           <div class="container-fluid d-flex justify-content-center align-items-center">
             <BsButton @click="toggleSideDrawer2(!openSideDrawer2)"> TOGGLE </BsButton>
           </div>
@@ -101,10 +101,10 @@
         <BsSideDrawer v-model:open="openSideDrawerMini" mini>
           <div class="d-flex flex-row p-2" style="width: 250px">
             <img
-              src="https://ahmadfajar.github.io/img/kitty-1.jpg"
               alt="image"
-              style="width: 40px; height: 40px"
               class="rounded-circle md-link"
+              src="https://ahmadfajar.github.io/img/kitty-1.jpg"
+              style="width: 40px; height: 40px"
               @click="openSideDrawerMini = true"
             />
             <transition name="fade">
@@ -117,9 +117,9 @@
             </transition>
             <BsButton
               color="stylish-color-dark"
+              flat
               icon="chevron_left"
               mode="icon"
-              flat
               @click="openSideDrawerMini = false"
             />
           </div>
@@ -161,7 +161,7 @@
             </ul>
           </div>
         </BsSideDrawer>
-        <BsContainer class="bg-blue-grey darken-3" style="height: 233px" app />
+        <BsContainer app class="bg-blue-grey darken-3" style="height: 233px" />
       </BsAppContainer>
     </div>
     <h2 class="mt-5">Use with AppBar</h2>
@@ -171,25 +171,25 @@
         <BsAppbar clipped-left shadow>
           <BsButton
             color="secondary"
+            flat
             icon="menu"
             mode="icon"
-            flat
             @click="toggleSideDrawer3(!openSideDrawer3)"
           />
           <BsAppbarTitle title="Page Title" />
           <BsSpacer />
           <BsAppbarItems>
-            <BsButton color="secondary" icon="search" mode="icon" flat />
-            <BsButton color="secondary" icon="notifications" mode="icon" flat />
+            <BsButton color="secondary" flat icon="search" mode="icon" />
+            <BsButton color="secondary" flat icon="notifications" mode="icon" />
           </BsAppbarItems>
         </BsAppbar>
         <BsSideDrawer v-model:open="openSideDrawer3" class="border-end">
           <div class="p-3">
             <img
-              src="https://ahmadfajar.github.io/img/kitty-1.jpg"
               alt="image"
-              style="width: 40px"
               class="rounded-circle"
+              src="https://ahmadfajar.github.io/img/kitty-1.jpg"
+              style="width: 40px"
             />
             <span class="h5 ps-3">Kitty Doe</span>
           </div>
@@ -231,16 +231,16 @@
         <BsAppbar shadow>
           <BsButton
             color="secondary"
+            flat
             icon="menu"
             mode="icon"
-            flat
             @click="toggleSideDrawer4(!openSideDrawer4)"
           />
           <BsAppbarTitle title="Page Title" />
           <BsSpacer />
           <BsAppbarItems>
-            <BsButton color="secondary" icon="search" mode="icon" flat />
-            <BsButton color="secondary" icon="notifications" mode="icon" flat />
+            <BsButton color="secondary" flat icon="search" mode="icon" />
+            <BsButton color="secondary" flat icon="notifications" mode="icon" />
           </BsAppbarItems>
         </BsAppbar>
         <BsSideDrawer v-model:open="openSideDrawer4" class="border-end" clipped>
@@ -277,7 +277,7 @@
   </div>
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 import { ref } from 'vue';
 
 const openSideDrawer1 = ref(true);

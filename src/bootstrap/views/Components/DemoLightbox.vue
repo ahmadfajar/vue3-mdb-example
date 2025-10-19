@@ -9,8 +9,8 @@
               <BsAvatar
                 class="md-link"
                 img-src="https://unsplash.it/600.jpg?image=251"
-                size="100%"
                 rounded
+                size="100%"
                 @click="lightbox1?.openAt(0)"
               />
             </div>
@@ -18,8 +18,8 @@
               <BsAvatar
                 class="md-link"
                 img-src="https://unsplash.it/600.jpg?image=252"
-                size="100%"
                 rounded
+                size="100%"
                 @click="lightbox1?.openAt(1)"
               />
             </div>
@@ -27,8 +27,8 @@
               <BsAvatar
                 class="md-link"
                 img-src="https://unsplash.it/600.jpg?image=253"
-                size="100%"
                 rounded
+                size="100%"
                 @click="lightbox1?.openAt(2)"
               />
             </div>
@@ -36,8 +36,8 @@
               <BsAvatar
                 class="md-link"
                 img-src="https://unsplash.it/600.jpg?image=254"
-                size="100%"
                 rounded
+                size="100%"
                 @click="lightbox1?.openAt(3)"
               />
             </div>
@@ -55,8 +55,8 @@
               <BsAvatar
                 class="md-link"
                 img-src="https://unsplash.it/600.jpg?image=255"
-                size="100%"
                 rounded
+                size="100%"
                 @click="lightbox2?.openAt(0)"
               />
             </div>
@@ -64,8 +64,8 @@
               <BsAvatar
                 class="md-link"
                 img-src="https://unsplash.it/600.jpg?image=256"
-                size="100%"
                 rounded
+                size="100%"
                 @click="lightbox2?.openAt(1)"
               />
             </div>
@@ -73,8 +73,8 @@
               <BsAvatar
                 class="md-link"
                 img-src="https://unsplash.it/600.jpg?image=257"
-                size="100%"
                 rounded
+                size="100%"
                 @click="lightbox2?.openAt(2)"
               />
             </div>
@@ -82,8 +82,8 @@
               <BsAvatar
                 class="md-link"
                 img-src="https://unsplash.it/600.jpg?image=259"
-                size="100%"
                 rounded
+                size="100%"
                 @click="lightbox2?.openAt(3)"
               />
             </div>
@@ -118,8 +118,8 @@
         <BsAvatar
           class="md-link"
           img-src="https://unsplash.it/600.jpg?image=251"
-          size="132"
           rounded
+          size="132"
           @click="showGallery3 = true"
         />
       </div>
@@ -135,9 +135,9 @@
   </div>
 </template>
 
-<script lang="ts" setup>
-import type { BsLightboxInstance } from 'vue-mdbootstrap';
+<script setup lang="ts">
 import { ref } from 'vue';
+import type { BsLightboxInstance } from 'vue-mdbootstrap';
 
 const toolbarButtons = { download: true, rotate: true, menubar: true, close: true };
 const lightbox1 = ref<BsLightboxInstance>();

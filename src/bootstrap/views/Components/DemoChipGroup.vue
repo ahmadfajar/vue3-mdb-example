@@ -70,8 +70,8 @@
             <bs-chip-group
               v-model="selectedNeighborhoods1"
               :items="neighborhoods"
-              color="primary"
               checked-icon
+              color="primary"
               column
               outlined
             />
@@ -99,8 +99,8 @@
             <bs-chip-group
               v-model="selectedNeighborhoods2"
               :items="neighborhoods2"
-              color="purple"
               checked-icon
+              color="purple"
               column
               img-circle
               outlined
@@ -127,7 +127,7 @@
   </div>
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 import { ref } from 'vue';
 
 const selectedChips = ref();

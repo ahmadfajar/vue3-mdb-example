@@ -12,14 +12,14 @@
           <BsCombobox
             v-model="employee1"
             :data-source="peopleSrc1"
-            placeholder="Placeholder"
             floating-label
+            placeholder="Placeholder"
           >
             <label>Field Label</label>
           </BsCombobox>
         </div>
         <div class="col">
-          <BsCombobox v-model="employee1" :data-source="peopleSrc1" floating-label filled>
+          <BsCombobox v-model="employee1" :data-source="peopleSrc1" filled floating-label>
             <label>Field Label</label>
           </BsCombobox>
         </div>
@@ -59,9 +59,9 @@
           <BsCombobox
             v-model="states1"
             :data-source="statesUS1"
+            floating-label
             listbox-max-height="280"
             multiple
-            floating-label
           >
             <label>Select States</label>
           </BsCombobox>
@@ -70,15 +70,15 @@
           <BsCombobox
             v-model="states2"
             :data-source="statesUS2"
-            placeholder="Placeholder"
-            multiple
             floating-label
+            multiple
+            placeholder="Placeholder"
           >
             <label>Select States</label>
           </BsCombobox>
         </div>
         <div class="col">
-          <BsCombobox v-model="states3" :data-source="statesUS3" multiple floating-label filled>
+          <BsCombobox v-model="states3" :data-source="statesUS3" filled floating-label multiple>
             <label>Select States</label>
           </BsCombobox>
         </div>
@@ -86,16 +86,16 @@
           <BsCombobox
             v-model="states4"
             :data-source="statesUS4"
-            multiple
             filled
             floating-label
+            multiple
             placeholder="Placeholder"
           >
             <label>Select States</label>
           </BsCombobox>
         </div>
         <div class="col">
-          <BsCombobox v-model="states5" :data-source="statesUS5" multiple floating-label outlined>
+          <BsCombobox v-model="states5" :data-source="statesUS5" floating-label multiple outlined>
             <label>Select States</label>
           </BsCombobox>
         </div>
@@ -103,8 +103,8 @@
           <BsCombobox
             v-model="states6"
             :data-source="statesUS6"
-            multiple
             floating-label
+            multiple
             outlined
             placeholder="Placeholder"
           >
@@ -120,10 +120,10 @@
           <BsCombobox
             v-model="states7"
             :data-source="statesUS7"
-            listbox-max-height="280"
-            multiple
             chip-enabled
             floating-label
+            listbox-max-height="280"
+            multiple
           >
             <label>Select States</label>
           </BsCombobox>
@@ -132,11 +132,11 @@
           <BsCombobox
             v-model="states8"
             :data-source="statesUS8"
-            placeholder="Placeholder"
-            multiple
             chip-enabled
             chip-pill
             floating-label
+            multiple
+            placeholder="Placeholder"
           >
             <label>Select States</label>
           </BsCombobox>
@@ -145,11 +145,11 @@
           <BsCombobox
             v-model="states9"
             :data-source="statesUS9"
-            multiple
-            chip-enabled
             chip-color="stylish-color"
-            floating-label
+            chip-enabled
             filled
+            floating-label
+            multiple
           >
             <label>Select States</label>
           </BsCombobox>
@@ -158,12 +158,12 @@
           <BsCombobox
             v-model="states10"
             :data-source="statesUS10"
-            multiple
+            chip-color="info-color-dark"
             chip-enabled
             chip-pill
-            chip-color="info-color-dark"
             filled
             floating-label
+            multiple
             placeholder="Placeholder"
           >
             <label>Select States</label>
@@ -173,11 +173,11 @@
           <BsCombobox
             v-model="states11"
             :data-source="statesUS11"
-            multiple
             chip-color="primary"
             chip-enabled
             chip-outlined
             floating-label
+            multiple
             outlined
           >
             <label>Select States</label>
@@ -187,12 +187,12 @@
           <BsCombobox
             v-model="states12"
             :data-source="statesUS12"
-            multiple
             chip-color="danger"
             chip-enabled
             chip-outlined
             chip-pill
             floating-label
+            multiple
             outlined
             placeholder="Placeholder"
           >
@@ -210,17 +210,17 @@
           </BsCombobox>
         </div>
         <div class="col">
-          <BsCombobox v-model="employee3" :data-source="peopleSrc1" floating-label disabled>
+          <BsCombobox v-model="employee3" :data-source="peopleSrc1" disabled floating-label>
             <label>State Disabled</label>
           </BsCombobox>
         </div>
         <div class="col">
-          <BsCombobox v-model="employee4" :data-source="peopleSrc1" floating-label filled readonly>
+          <BsCombobox v-model="employee4" :data-source="peopleSrc1" filled floating-label readonly>
             <label>State Readonly</label>
           </BsCombobox>
         </div>
         <div class="col">
-          <BsCombobox v-model="employee5" :data-source="peopleSrc1" filled floating-label disabled>
+          <BsCombobox v-model="employee5" :data-source="peopleSrc1" disabled filled floating-label>
             <label>State Disabled</label>
           </BsCombobox>
         </div>
@@ -239,9 +239,9 @@
           <BsCombobox
             v-model="employee7"
             :data-source="peopleSrc1"
+            disabled
             floating-label
             outlined
-            disabled
           >
             <label>State Disabled</label>
           </BsCombobox>
@@ -255,9 +255,9 @@
           <BsCombobox
             v-model="states13"
             :data-source="statesUS13"
-            multiple
             chip-enabled
             floating-label
+            multiple
             readonly
           >
             <label>State Readonly</label>
@@ -267,10 +267,10 @@
           <BsCombobox
             v-model="states14"
             :data-source="statesUS14"
-            multiple
             chip-enabled
-            floating-label
             disabled
+            floating-label
+            multiple
           >
             <label>State Disabled</label>
           </BsCombobox>
@@ -279,10 +279,10 @@
           <BsCombobox
             v-model="states15"
             :data-source="statesUS15"
-            multiple
             chip-enabled
-            floating-label
             filled
+            floating-label
+            multiple
             readonly
           >
             <label>State Readonly</label>
@@ -292,11 +292,11 @@
           <BsCombobox
             v-model="states16"
             :data-source="statesUS16"
-            multiple
             chip-enabled
+            disabled
             filled
             floating-label
-            disabled
+            multiple
           >
             <label>State Disabled</label>
           </BsCombobox>
@@ -305,9 +305,9 @@
           <BsCombobox
             v-model="states17"
             :data-source="statesUS17"
-            multiple
             chip-enabled
             floating-label
+            multiple
             outlined
             readonly
           >
@@ -318,11 +318,11 @@
           <BsCombobox
             v-model="states18"
             :data-source="statesUS18"
-            multiple
             chip-enabled
-            floating-label
-            outlined
             disabled
+            floating-label
+            multiple
+            outlined
           >
             <label>State Disabled</label>
           </BsCombobox>
@@ -336,8 +336,8 @@
           <BsCombobox
             v-model="employee8"
             :data-source="peopleSrc1"
-            help-text="Select employee of the month"
             floating-label
+            help-text="Select employee of the month"
           >
             <label>Employee Name</label>
           </BsCombobox>
@@ -347,8 +347,8 @@
             v-model="employee9"
             :data-source="peopleSrc1"
             :persistent-help-text="false"
-            help-text="Select employee of the month"
             floating-label
+            help-text="Select employee of the month"
           >
             <label>Employee Name</label>
           </BsCombobox>
@@ -357,9 +357,9 @@
           <BsCombobox
             v-model="employee10"
             :data-source="peopleSrc1"
-            help-text="Select employee of the month"
             filled
             floating-label
+            help-text="Select employee of the month"
           >
             <label>Employee Name</label>
           </BsCombobox>
@@ -369,9 +369,9 @@
             v-model="employee11"
             :data-source="peopleSrc1"
             :persistent-help-text="false"
-            help-text="Select employee of the month"
             filled
             floating-label
+            help-text="Select employee of the month"
           >
             <label>Employee Name</label>
           </BsCombobox>
@@ -380,9 +380,9 @@
           <BsCombobox
             v-model="employee12"
             :data-source="peopleSrc1"
+            floating-label
             help-text="Select employee of the month"
             outlined
-            floating-label
           >
             <label>Employee Name</label>
           </BsCombobox>
@@ -392,9 +392,9 @@
             v-model="employee13"
             :data-source="peopleSrc1"
             :persistent-help-text="false"
+            floating-label
             help-text="Select employee of the month"
             outlined
-            floating-label
           >
             <label>Employee Name</label>
           </BsCombobox>
@@ -408,11 +408,11 @@
           <BsCombobox
             v-model="states20"
             :data-source="statesUS20"
-            prepend-icon="person"
-            multiple
             chip-enabled
             clear-button
             floating-label
+            multiple
+            prepend-icon="person"
           >
             <label>Prepend</label>
           </BsCombobox>
@@ -422,10 +422,10 @@
             v-model="states21"
             :data-source="statesUS21"
             append-icon="person"
-            multiple
             chip-enabled
             clear-button
             floating-label
+            multiple
           >
             <label>Append</label>
           </BsCombobox>
@@ -434,8 +434,8 @@
           <BsCombobox
             v-model="employee14"
             :data-source="peopleSrc1"
-            prepend-icon-outer="person"
             floating-label
+            prepend-icon-outer="person"
           >
             <label>Prepend Outer</label>
           </BsCombobox>
@@ -455,12 +455,12 @@
           <BsCombobox
             v-model="states22"
             :data-source="statesUS22"
-            prepend-icon="person_filled"
-            multiple
-            filled
             chip-enabled
             clear-button
+            filled
             floating-label
+            multiple
+            prepend-icon="person_filled"
           >
             <label>Prepend</label>
           </BsCombobox>
@@ -470,11 +470,11 @@
             v-model="states23"
             :data-source="statesUS23"
             append-icon="person_filled"
-            filled
-            multiple
             chip-enabled
             clear-button
+            filled
             floating-label
+            multiple
           >
             <label>Append</label>
           </BsCombobox>
@@ -483,9 +483,9 @@
           <BsCombobox
             v-model="employee16"
             :data-source="peopleSrc1"
-            prepend-icon-outer="person"
             filled
             floating-label
+            prepend-icon-outer="person"
           >
             <label>Prepend Outer</label>
           </BsCombobox>
@@ -495,8 +495,8 @@
             v-model="employee17"
             :data-source="peopleSrc1"
             append-icon-outer="person"
-            filled
             clear-button
+            filled
             floating-label
           >
             <label>Append Outer</label>
@@ -506,12 +506,12 @@
           <BsCombobox
             v-model="states24"
             :data-source="statesUS24"
-            prepend-icon="person_filled"
-            outlined
-            multiple
             chip-enabled
             clear-button
             floating-label
+            multiple
+            outlined
+            prepend-icon="person_filled"
           >
             <label>Prepend</label>
           </BsCombobox>
@@ -521,11 +521,11 @@
             v-model="states25"
             :data-source="statesUS25"
             append-icon="person_filled"
-            outlined
-            multiple
             chip-enabled
             clear-button
             floating-label
+            multiple
+            outlined
           >
             <label>Append</label>
           </BsCombobox>
@@ -534,9 +534,9 @@
           <BsCombobox
             v-model="employee18"
             :data-source="peopleSrc1"
-            prepend-icon-outer="person"
-            outlined
             floating-label
+            outlined
+            prepend-icon-outer="person"
           >
             <label>Prepend Outer</label>
           </BsCombobox>
@@ -546,9 +546,9 @@
             v-model="employee19"
             :data-source="peopleSrc1"
             append-icon-outer="person"
-            outlined
             clear-button
             floating-label
+            outlined
           >
             <label>Append Outer</label>
           </BsCombobox>
@@ -562,9 +562,9 @@
           <BsCombobox
             v-model="employee20"
             :data-source="peopleSrc1"
-            placeholder="Test Placeholder"
-            clear-button
             class="mb-3"
+            clear-button
+            placeholder="Test Placeholder"
           >
             <label class="col-md-3 col-xl-2 col-form-label">Employee</label>
           </BsCombobox>
@@ -580,9 +580,9 @@
   </div>
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 import { ref } from 'vue';
-import type { TDataSource, TDataListSchemaProps } from 'vue-mdbootstrap';
+import type { TDataSource, TDataListSchema } from 'vue-mdbootstrap';
 import { BsArrayStore, BsStore } from 'vue-mdbootstrap';
 
 const employee1 = ref<number>();
@@ -649,7 +649,7 @@ const peopleSrc1: TDataSource = {
       idProperty: 'id',
     }
   ),
-  schema: { displayField: 'name', valueField: 'id' } as TDataListSchemaProps,
+  schema: { displayField: 'name', valueField: 'id' } as TDataListSchema,
 };
 const statesUS1: TDataSource = {
   proxy: new BsStore({

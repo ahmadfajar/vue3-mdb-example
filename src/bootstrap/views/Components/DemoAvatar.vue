@@ -6,34 +6,34 @@
         <BsAvatar class="bg-deep-orange darken-3 text-white m-2" icon="people_alt" />
         <BsAvatar class="bg-teal text-white m-2" icon="folder_shared" rounded />
         <BsAvatar
+          border="2px"
+          border-color="pink"
+          circle
           class="bg-teal text-white m-2"
           icon="account_circle"
-          border="2px"
-          border-color="pink"
-          circle
         />
         <BsAvatar
-          img-src="https://ahmadfajar.github.io/img/kitty-1.jpg"
+          circle
           class="m-2 bg-teal"
-          circle
+          img-src="https://ahmadfajar.github.io/img/kitty-1.jpg"
         />
         <BsAvatar
-          img-src="https://ahmadfajar.github.io/img/kitty-1.jpg"
           border="2px"
           border-color="red"
-          class="m-2 bg-teal"
           circle
+          class="m-2 bg-teal"
+          img-src="https://ahmadfajar.github.io/img/kitty-1.jpg"
         />
-        <BsAvatar class="bg-grey-600 text-white m-2" style="font-size: 150%" text="BS" circle />
+        <BsAvatar circle class="bg-grey-600 text-white m-2" style="font-size: 150%" text="BS" />
         <BsAvatar
-          class="bg-grey-600 text-white m-2"
           border="2px"
           border-color="pink"
+          circle
+          class="bg-grey-600 text-white m-2"
           style="font-size: 150%"
           text="BS"
-          circle
         />
-        <BsAvatar class="bg-dark-blue text-white m-2" circle>
+        <BsAvatar circle class="bg-dark-blue text-white m-2">
           <icon-three-circle height="30" width="30" />
         </BsAvatar>
       </div>
@@ -44,17 +44,17 @@
         <div class="d-flex flex-column align-items-center m-2" style="width: 150px">
           <BsAvatar
             v-model:icon-spin="isSpin"
+            circle
             class="bg-deep-orange darken-3 text-white"
             icon="sync"
             size="56"
-            circle
           />
           <BsSwitch
             v-model="isSpin"
             :value="true"
-            color="primary-color-dark"
-            class="mt-2 align-self-start"
             checked-icon
+            class="mt-2 align-self-start"
+            color="primary-color-dark"
             inset-outlined
           >
             Spin {{ isSpin ? 'OFF' : 'ON' }}
@@ -63,17 +63,17 @@
         <div class="d-flex flex-column align-items-center m-2" style="width: 160px">
           <BsAvatar
             v-model:icon-pulse="isPulse"
+            circle
             class="bg-teal text-white"
             icon="refresh"
             size="56"
-            circle
           />
           <BsSwitch
             v-model="isPulse"
             :value="true"
-            color="primary-color-dark"
-            class="mt-2 align-self-start"
             checked-icon
+            class="mt-2 align-self-start"
+            color="primary-color-dark"
             inset-outlined
           >
             Pulse {{ isPulse ? 'OFF' : 'ON' }}
@@ -84,9 +84,9 @@
   </div>
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 import { ref } from 'vue';
-import { IconThreeCircle } from '@/composables/sharedApi';
+import { IconThreeCircle } from '@shares/sharedApi';
 
 const isSpin = ref(false);
 const isPulse = ref(false);

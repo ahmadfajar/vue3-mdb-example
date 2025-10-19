@@ -3,9 +3,9 @@
     <h2>Overview</h2>
     <DemoBlock class="mt-4">
       <div class="d-flex justify-content-center">
-        <BsButton color="indigo" @click="showDefaultNotification($notification)"
-          >Show Notification</BsButton
-        >
+        <BsButton color="indigo" @click="showDefaultNotification($notification)">
+          Show Notification
+        </BsButton>
       </div>
     </DemoBlock>
     <h2 class="mt-5">Display Placement</h2>
@@ -199,7 +199,7 @@
   </div>
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 import type { INotificationProvider } from 'vue-mdbootstrap';
 
 function showDefaultNotification(notification: INotificationProvider) {

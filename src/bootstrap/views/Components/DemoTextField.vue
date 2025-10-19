@@ -9,12 +9,12 @@
           </BsTextField>
         </div>
         <div class="col">
-          <BsTextField placeholder="Placeholder" floating-label>
+          <BsTextField floating-label placeholder="Placeholder">
             <label>Field Label</label>
           </BsTextField>
         </div>
         <div class="col">
-          <BsTextField floating-label filled>
+          <BsTextField filled floating-label>
             <label>Field Label</label>
           </BsTextField>
         </div>
@@ -91,7 +91,7 @@
     <DemoBlock class="mt-4">
       <div class="row g-4 row-cols-1 row-cols-lg-2">
         <div class="col">
-          <BsTextField prepend-icon="person" floating-label>
+          <BsTextField floating-label prepend-icon="person">
             <label>Prepend</label>
           </BsTextField>
         </div>
@@ -101,7 +101,7 @@
           </BsTextField>
         </div>
         <div class="col">
-          <BsTextField prepend-icon-outer="person" floating-label>
+          <BsTextField floating-label prepend-icon-outer="person">
             <label>Prepend Outer</label>
           </BsTextField>
         </div>
@@ -111,7 +111,7 @@
           </BsTextField>
         </div>
         <div class="col">
-          <BsTextField prepend-icon="person" filled floating-label>
+          <BsTextField filled floating-label prepend-icon="person">
             <label>Prepend</label>
           </BsTextField>
         </div>
@@ -121,7 +121,7 @@
           </BsTextField>
         </div>
         <div class="col">
-          <BsTextField prepend-icon-outer="person" filled floating-label>
+          <BsTextField filled floating-label prepend-icon-outer="person">
             <label>Prepend Outer</label>
           </BsTextField>
         </div>
@@ -131,7 +131,7 @@
           </BsTextField>
         </div>
         <div class="col">
-          <BsTextField prepend-icon="person" floating-label outlined>
+          <BsTextField floating-label outlined prepend-icon="person">
             <label>Prepend</label>
           </BsTextField>
         </div>
@@ -141,7 +141,7 @@
           </BsTextField>
         </div>
         <div class="col">
-          <BsTextField prepend-icon-outer="person" floating-label outlined>
+          <BsTextField floating-label outlined prepend-icon-outer="person">
             <label>Prepend Outer</label>
           </BsTextField>
         </div>
@@ -156,7 +156,7 @@
     <DemoBlock class="mt-4">
       <div class="row g-4 row-cols-1 row-cols-lg-2">
         <div class="col">
-          <BsTextField clear-button floating-label action-icon-variant="filled" type="password">
+          <BsTextField action-icon-variant="filled" clear-button floating-label type="password">
             <label>Password</label>
           </BsTextField>
         </div>
@@ -171,7 +171,7 @@
           </BsTextField>
         </div>
         <div class="col">
-          <BsTextField floating-label filled type="password">
+          <BsTextField filled floating-label type="password">
             <label>Password</label>
           </BsTextField>
         </div>
@@ -196,7 +196,7 @@
     <DemoBlock class="mt-4">
       <div class="row g-4 row-cols-1 row-cols-lg-2">
         <div class="col">
-          <BsTextField v-model="textValue1" readonly floating-label>
+          <BsTextField v-model="textValue1" floating-label readonly>
             <label>State Readonly</label>
           </BsTextField>
         </div>
@@ -206,7 +206,7 @@
           </BsTextField>
         </div>
         <div class="col">
-          <BsTextField v-model="textValue1" readonly floating-label filled>
+          <BsTextField v-model="textValue1" filled floating-label readonly>
             <label>State Readonly</label>
           </BsTextField>
         </div>
@@ -222,7 +222,7 @@
           </BsTextField>
         </div>
         <div class="col">
-          <BsTextField v-model="textValue1" readonly floating-label outlined>
+          <BsTextField v-model="textValue1" floating-label outlined readonly>
             <label>State Readonly</label>
           </BsTextField>
         </div>
@@ -253,7 +253,7 @@
           </BsTextField>
         </div>
         <div class="col">
-          <BsTextField clear-button datalist="my-datalist" floating-label filled>
+          <BsTextField clear-button datalist="my-datalist" filled floating-label>
             <label>Select Size</label>
           </BsTextField>
         </div>
@@ -288,27 +288,27 @@
           </BsTextField>
         </div>
         <div class="col">
-          <BsTextField suffix="Kg" floating-label>
+          <BsTextField floating-label suffix="Kg">
             <label>Weight</label>
           </BsTextField>
         </div>
         <div class="col">
-          <BsTextField prefix="www." prepend-icon="public_outlined" floating-label filled>
+          <BsTextField prefix="www." filled floating-label prepend-icon="public_outlined">
             <label>Website</label>
           </BsTextField>
         </div>
         <div class="col">
-          <BsTextField suffix="@example.com" prepend-icon="email_outlined" filled floating-label>
+          <BsTextField filled floating-label prepend-icon="email_outlined" suffix="@example.com">
             <label>Admin Email</label>
           </BsTextField>
         </div>
         <div class="col">
-          <BsTextField prefix="www." prepend-icon="public_outlined" floating-label outlined>
+          <BsTextField prefix="www." floating-label outlined prepend-icon="public_outlined">
             <label>Website</label>
           </BsTextField>
         </div>
         <div class="col">
-          <BsTextField suffix="@example.com" prepend-icon="email_outlined" floating-label outlined>
+          <BsTextField floating-label outlined prepend-icon="email_outlined" suffix="@example.com">
             <label>Admin Email</label>
           </BsTextField>
         </div>
@@ -321,21 +321,21 @@
           <BsTextField v-model="textValue2" class="mb-3" clear-button>
             <label class="col-md-4 col-xl-2 col-form-label">Full Name</label>
           </BsTextField>
-          <BsTextField type="password" class="mb-3" clear-button>
+          <BsTextField class="mb-3" clear-button type="password">
             <label class="col-md-4 col-xl-2 col-form-label">Password</label>
           </BsTextField>
           <BsTextField
             v-model="textValue2"
-            class="mb-3"
             append-icon="account_circle_outlined"
+            class="mb-3"
             readonly
           >
             <label class="col-md-4 col-xl-2 col-form-label">State Readonly</label>
           </BsTextField>
           <BsTextField
             v-model="textValue2"
-            class="mb-3"
             append-icon="account_circle_outlined"
+            class="mb-3"
             disabled
           >
             <label class="col-md-4 col-xl-2 col-form-label">State Disabled</label>
@@ -346,7 +346,7 @@
   </div>
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 import { ref } from 'vue';
 
 const sizes = ['Small', 'Medium', 'Large', 'Extra Large'];

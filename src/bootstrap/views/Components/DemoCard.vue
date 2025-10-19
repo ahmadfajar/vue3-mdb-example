@@ -7,7 +7,7 @@
           <BsCard class="text-dark" shadow>
             <BsCardBody>
               <BsCardContent type="title"> Card Title </BsCardContent>
-              <BsCardContent type="subtitle" class="mb-3"> Card Subtitle </BsCardContent>
+              <BsCardContent class="mb-3" type="subtitle"> Card Subtitle </BsCardContent>
               <BsCardContent>{{ quickText }}</BsCardContent>
               <BsCardContent>
                 <small class="text-muted">{{ smallText }}</small>
@@ -55,7 +55,7 @@
               <div class="col-md-8">
                 <BsCardBody>
                   <BsCardContent type="title"> Content Title </BsCardContent>
-                  <BsCardContent type="subtitle" class="mb-3"> Content Subtitle </BsCardContent>
+                  <BsCardContent class="mb-3" type="subtitle"> Content Subtitle </BsCardContent>
                   <BsCardContent>{{ quickText }}</BsCardContent>
                   <BsCardContent>
                     <small class="text-muted">{{ smallText }}</small>
@@ -73,8 +73,8 @@
         <div class="col mb-3 mb-md-4">
           <BsCard
             class="text-dark"
-            img-top-src="https://picsum.photos/id/29/600/300.jpg"
             img-top-alt="Image Top"
+            img-top-src="https://picsum.photos/id/29/600/300.jpg"
             shadow
           >
             <BsCardBody>
@@ -85,8 +85,8 @@
         </div>
         <div class="col mb-3 mb-md-4">
           <BsCard class="bg-unique text-white" shadow>
-            <BsCardMedia title="Image Title" subtitle="Image SubTitle">
-              <img src="https://picsum.photos/id/25/600/300.jpg" alt="image" />
+            <BsCardMedia subtitle="Image SubTitle" title="Image Title">
+              <img alt="image" src="https://picsum.photos/id/25/600/300.jpg" />
             </BsCardMedia>
             <BsCardBody>
               <BsCardContent type="title"> Content Title </BsCardContent>
@@ -97,8 +97,8 @@
         <div class="col mb-3 mb-md-0">
           <BsCard
             class="text-dark"
-            img-bottom-src="https://picsum.photos/id/425/600/300.jpg"
             img-bottom-alt="Image Bottom"
+            img-bottom-src="https://picsum.photos/id/425/600/300.jpg"
             shadow
           >
             <BsCardBody>
@@ -113,8 +113,8 @@
               <BsCardContent type="title"> Content Title </BsCardContent>
               <BsCardContent>{{ quickText }}</BsCardContent>
             </BsCardBody>
-            <BsCardMedia title="Image Title" subtitle="Image SubTitle">
-              <img src="https://picsum.photos/id/225/600/300.jpg" alt="image" />
+            <BsCardMedia subtitle="Image SubTitle" title="Image Title">
+              <img alt="image" src="https://picsum.photos/id/225/600/300.jpg" />
             </BsCardMedia>
           </BsCard>
         </div>
@@ -215,8 +215,8 @@
   </div>
 </template>
 
-<script lang="ts" setup>
-const quickText =
-  "Some quick example text to build on the card title and make up the bulk of the card's content.";
+<script setup lang="ts">
+// prettier-ignore
+const quickText = "Some quick example text to build on the card title and make up the bulk of the card's content.";
 const smallText = 'Last updated 3 mins ago';
 </script>

@@ -8,15 +8,15 @@
     <h2 class="mt-5">Use with Button</h2>
     <BsDivider />
     <BsAppbar class="bg-indigo mt-4" shadow>
-      <BsButton color="light" mode="icon" flat>
+      <BsButton color="light" flat mode="icon">
         <BsIcon icon="menu" />
       </BsButton>
       <BsAppbarTitle class="text-white"> Page Title </BsAppbarTitle>
       <BsSpacer />
       <BsAppbarItems>
-        <BsButton mode="icon" icon="search" color="light" flat />
-        <BsButton mode="icon" icon="notifications" color="light" flat />
-        <BsButton mode="icon" color="light" flat>
+        <BsButton color="light" flat icon="search" mode="icon" />
+        <BsButton color="light" flat icon="notifications" mode="icon" />
+        <BsButton color="light" flat mode="icon">
           <BsIcon icon="more_vert" />
         </BsButton>
       </BsAppbarItems>
@@ -24,4 +24,4 @@
   </div>
 </template>
 
-<script lang="ts" setup></script>
+<script setup lang="ts"></script>

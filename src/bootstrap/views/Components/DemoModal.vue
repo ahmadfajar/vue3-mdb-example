@@ -5,13 +5,13 @@
       <div class="d-flex justify-content-center">
         <BsButton color="indigo" @click="dialog1 = true">Open Dialog</BsButton>
       </div>
-      <BsModal v-model:open="dialog1" title="Dialog Title" max-width="85%">
+      <BsModal v-model:open="dialog1" max-width="85%" title="Dialog Title">
         <div class="fw-semibold">Hello, I am a modal dialog.</div>
         <div>You can click outside area or press ESC to close me.</div>
 
         <template #footer>
-          <BsButton color="primary" style="width: 103px;" @click="dialog1 = false">OK</BsButton>
-          <BsButton outlined color="primary" @click="dialog1 = false">Cancel</BsButton>
+          <BsButton color="primary" style="width: 103px" @click="dialog1 = false">OK</BsButton>
+          <BsButton color="primary" outlined @click="dialog1 = false">Cancel</BsButton>
         </template>
       </BsModal>
     </DemoBlock>
@@ -22,15 +22,15 @@
       </div>
       <BsModal
         v-model:open="dialog2"
-        title="Modal Dialog"
-        max-width="85%"
         :overlay-click-close="false"
+        max-width="85%"
+        title="Modal Dialog"
       >
         You can only close me by clicking the button below or press ESC.
 
         <template #footer>
-          <BsButton color="primary" style="width: 103px;" @click="dialog2 = false">OK</BsButton>
-          <BsButton outlined color="primary" @click="dialog2 = false">Cancel</BsButton>
+          <BsButton color="primary" style="width: 103px" @click="dialog2 = false">OK</BsButton>
+          <BsButton color="primary" outlined @click="dialog2 = false">Cancel</BsButton>
         </template>
       </BsModal>
     </DemoBlock>
@@ -41,11 +41,11 @@
       </div>
       <BsModal
         v-model:open="dialog3"
-        title="Long Content Dialog"
-        :max-width="useBreakpointMax('lg') ? '95%' : '80%'"
-        :footer-class="['border-top', 'pt-3']"
         :body-class="['border-top', 'pt-3']"
+        :footer-class="['border-top', 'pt-3']"
+        :max-width="useBreakpointMax('lg') ? '95%' : '80%'"
         scrollable
+        title="Long Content Dialog"
       >
         <p>
           Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis
@@ -127,8 +127,8 @@
         </p>
 
         <template #footer>
-          <BsButton color="primary" style="width: 103px;" @click="dialog3 = false">OK</BsButton>
-          <BsButton outlined color="primary" @click="dialog3 = false">Cancel</BsButton>
+          <BsButton color="primary" style="width: 103px" @click="dialog3 = false">OK</BsButton>
+          <BsButton color="primary" outlined @click="dialog3 = false">Cancel</BsButton>
         </template>
       </BsModal>
     </DemoBlock>
@@ -137,19 +137,19 @@
       <div class="d-flex justify-content-center">
         <BsButton color="indigo" @click="dialog4 = true">Open Dialog</BsButton>
       </div>
-      <BsModal v-model:open="dialog4" title="Modal Dialog" max-width="85%" :overlay="false">
+      <BsModal v-model:open="dialog4" :overlay="false" max-width="85%" title="Modal Dialog">
         You can close me by clicking the outside area or press ESC.
 
         <template #footer>
-          <BsButton color="primary" style="width: 103px;" @click="dialog4 = false">OK</BsButton>
-          <BsButton outlined color="primary" @click="dialog4 = false">Cancel</BsButton>
+          <BsButton color="primary" style="width: 103px" @click="dialog4 = false">OK</BsButton>
+          <BsButton color="primary" outlined @click="dialog4 = false">Cancel</BsButton>
         </template>
       </BsModal>
     </DemoBlock>
   </div>
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 import { ref } from 'vue';
 import { useBreakpointMax } from 'vue-mdbootstrap';
 

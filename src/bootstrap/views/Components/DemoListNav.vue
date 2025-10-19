@@ -6,8 +6,8 @@
       <div class="demo-block-content bg-grey-200 rounded-4 mt-3">
         <BsCard class="mobi-card mx-auto" shadow>
           <BsAppbar class="bg-purple darken-3 rounded-top" shadow>
-            <BsButton mode="icon" color="light-grey" icon="menu" flat />
-            <BsAppbarTitle title="Menus" class="text-white" />
+            <BsButton color="light-grey" flat icon="menu" mode="icon" />
+            <BsAppbarTitle class="text-white" title="Menus" />
           </BsAppbar>
           <BsListView>
             <BsListNav>
@@ -28,17 +28,17 @@
       <div class="demo-block-content bg-grey-200 rounded-4 mt-3">
         <BsCard class="mobi-card mx-auto" shadow>
           <BsAppbar class="bg-purple darken-3 rounded-top" shadow>
-            <BsButton mode="icon" color="light-grey" icon="menu" flat />
-            <BsAppbarTitle title="Topics" class="text-white" />
+            <BsButton color="light-grey" flat icon="menu" mode="icon" />
+            <BsAppbarTitle class="text-white" title="Topics" />
             <BsSpacer />
-            <BsButton color="light-grey" icon="more_vert" mode="icon" flat />
+            <BsButton color="light-grey" flat icon="more_vert" mode="icon" />
           </BsAppbar>
           <BsListView>
             <BsListNav>
               <BsListNavItem icon="widgets" label="Attractions">
                 <BsListNav child>
                   <BsListNavItem label="Topic 1" />
-                  <BsListNavItem label="Topic 2" disabled />
+                  <BsListNavItem disabled label="Topic 2" />
                   <BsListNavItem label="Topic 3" />
                 </BsListNav>
               </BsListNavItem>
@@ -98,17 +98,17 @@
         </BsCard>
         <BsCard class="mobi-card mx-auto mt-3" shadow>
           <BsAppbar class="bg-purple darken-3 rounded-top" shadow>
-            <BsButton mode="icon" color="light-grey" icon="menu" flat />
-            <BsAppbarTitle title="Topics" class="text-white" />
+            <BsButton color="light-grey" flat icon="menu" mode="icon" />
+            <BsAppbarTitle class="text-white" title="Topics" />
             <BsSpacer />
-            <BsButton color="light-grey" icon="more_vert" mode="icon" flat />
+            <BsButton color="light-grey" flat icon="more_vert" mode="icon" />
           </BsAppbar>
           <BsListView>
             <BsListNav>
               <BsListNavItem label="Attractions">
                 <BsListNav child>
                   <BsListNavItem label="Topic 1" />
-                  <BsListNavItem label="Topic 2" disabled />
+                  <BsListNavItem disabled label="Topic 2" />
                   <BsListNavItem label="Topic 3" />
                 </BsListNav>
               </BsListNavItem>
@@ -174,10 +174,10 @@
       <div class="demo-block-content bg-grey-200 rounded-4 mt-3">
         <BsCard class="mobi-card mx-auto" shadow>
           <BsAppbar class="bg-deep-purple darken-2 rounded-top" shadow>
-            <BsButton mode="icon" color="light-grey" icon="menu" flat />
-            <BsAppbarTitle title="Mail" class="text-white" />
+            <BsButton color="light-grey" flat icon="menu" mode="icon" />
+            <BsAppbarTitle class="text-white" title="Mail" />
             <BsSpacer />
-            <BsButton color="light-grey" icon="more_vert" mode="icon" flat />
+            <BsButton color="light-grey" flat icon="more_vert" mode="icon" />
           </BsAppbar>
           <BsListView>
             <BsListNav>
@@ -232,16 +232,16 @@
         <BsAppbar class="bg-default-color-dark" clipped-left shadow>
           <BsButton
             color="light-grey"
+            flat
             icon="menu"
             mode="icon"
-            flat
             @click="toggleSideDrawer1(!openSideDrawer1)"
           />
-          <BsAppbarTitle title="Page Title" class="text-white" />
+          <BsAppbarTitle class="text-white" title="Page Title" />
           <BsSpacer />
           <BsAppbarItems>
-            <BsButton color="light-grey" icon="search" mode="icon" flat />
-            <BsButton color="light-grey" icon="notifications" mode="icon" flat />
+            <BsButton color="light-grey" flat icon="search" mode="icon" />
+            <BsButton color="light-grey" flat icon="notifications" mode="icon" />
           </BsAppbarItems>
         </BsAppbar>
         <BsSideDrawer v-model:open="openSideDrawer1" class="border-end">
@@ -306,15 +306,15 @@
       <div class="demo-block-content bg-grey-200 rounded-4 mt-3">
         <BsCard class="mobi-card mx-auto" shadow>
           <BsAppbar class="bg-deep-purple darken-2 rounded-top" shadow>
-            <BsButton mode="icon" color="light-grey" icon="menu" flat />
-            <BsAppbarTitle title="Menus" class="text-white" />
+            <BsButton color="light-grey" flat icon="menu" mode="icon" />
+            <BsAppbarTitle class="text-white" title="Menus" />
             <BsSpacer />
-            <BsButton color="light-grey" icon="more_vert" mode="icon" flat />
+            <BsButton color="light-grey" flat icon="more_vert" mode="icon" />
           </BsAppbar>
           <BsListView
+            :item-border-variant="getItemBorderVariant"
             :item-rounded="itemStyle === 'rounded'"
             :item-rounded-pill="itemStyle === 'pill'"
-            :item-border-variant="getItemBorderVariant"
             :space-around="spaceAround"
           >
             <BsListNav>
@@ -369,8 +369,8 @@
       <BsRadioGroup
         v-model="itemBorderVariant"
         :items="itemBorderVariants"
-        color="default-color-dark"
         class="mt-3"
+        color="default-color-dark"
         column="3"
       >
         <label class="col-md-3 col-form-label md-fw-semibold">Item Border Variant</label>
@@ -378,8 +378,8 @@
       <BsRadioGroup
         v-model="itemStyle"
         :items="itemStyles"
-        color="default-color-dark"
         class="mt-3"
+        color="default-color-dark"
         column="3"
       >
         <label class="col-md-3 col-form-label md-fw-semibold">Item Style</label>
@@ -388,7 +388,7 @@
   </div>
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 import { computed, ref } from 'vue';
 import type { TSpaceAround } from 'vue-mdbootstrap';
 

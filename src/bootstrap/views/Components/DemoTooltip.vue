@@ -10,7 +10,7 @@
         </div>
         <div class="col-md d-flex justify-content-center">
           <BsTooltip content="I am a tooltip">
-            <BsIcon icon="folder" size="28" class="text-amber" />
+            <BsIcon class="text-amber" icon="folder" size="28" />
           </BsTooltip>
         </div>
         <div class="col-md">
@@ -48,7 +48,7 @@
   </div>
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 function onClick() {
   alert('I am clicked');
 }

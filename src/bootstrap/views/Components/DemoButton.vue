@@ -133,7 +133,7 @@
         <div class="col-12 col-sm-6 col-xl-3 mb-3">
           <BsButton color="indigo">
             <template #icon>
-              <BsIconSpinner size="22" spin />
+              <BsIconSpinner spin size="22" />
             </template>
             Custom Icon-Spin
           </BsButton>
@@ -141,7 +141,7 @@
         <div class="col-12 col-sm-6 col-xl-3 mb-3">
           <BsButton color="purple" icon-position="right">
             <template #icon>
-              <BsIconSpinner size="22" pulse />
+              <BsIconSpinner pulse size="22" />
             </template>
             Custom Icon-Pulse
           </BsButton>
@@ -161,7 +161,7 @@
       <div>
         <BsButton :icon-size="iconXs" class="me-4" icon="shopping_cart" mode="icon" size="xs" />
         <BsButton :icon-size="iconSm" class="me-4" icon="shopping_cart" mode="icon" size="sm" />
-        <BsButton mode="icon" class="me-4" icon="shopping_cart" />
+        <BsButton class="me-4" icon="shopping_cart" mode="icon" />
         <BsButton :icon-size="iconLg" icon="shopping_cart" mode="icon" size="lg" />
       </div>
       <div class="mt-3">
@@ -183,7 +183,7 @@
           mode="icon"
           size="sm"
         />
-        <BsButton mode="icon" class="me-4" color="primary" icon="rotate_right" icon-spin />
+        <BsButton class="me-4" color="primary" icon="rotate_right" icon-spin mode="icon" />
         <BsButton
           :icon-size="iconLg"
           color="primary"
@@ -212,7 +212,7 @@
           mode="icon"
           size="sm"
         />
-        <BsButton mode="icon" class="me-4" color="success" icon="refresh" icon-pulse />
+        <BsButton class="me-4" color="success" icon="refresh" icon-pulse mode="icon" />
         <BsButton
           :icon-size="iconLg"
           color="success"
@@ -223,14 +223,14 @@
         />
       </div>
       <div class="mt-3">
-        <BsButton mode="icon" class="me-4" color="danger">
+        <BsButton class="me-4" color="danger" mode="icon">
           <template #icon>
-            <BsIconSpinner size="22" spin />
+            <BsIconSpinner spin size="22" />
           </template>
         </BsButton>
-        <BsButton mode="icon" color="danger" icon-position="right">
+        <BsButton color="danger" icon-position="right" mode="icon">
           <template #icon>
-            <BsIconSpinner size="22" pulse />
+            <BsIconSpinner pulse size="22" />
           </template>
         </BsButton>
       </div>
@@ -238,7 +238,7 @@
   </div>
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 import { StringHelper } from 'vue-mdbootstrap';
 
 const iconXs = 16;

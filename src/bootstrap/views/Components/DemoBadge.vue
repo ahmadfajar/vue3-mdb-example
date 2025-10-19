@@ -12,12 +12,13 @@
     <DemoBlock class="mt-3">
       <BsButton color="primary">
         Notifications
-        <BsBadge variant="light" class="ms-2"> 9 </BsBadge>
+        <BsBadge class="ms-2" variant="light"> 9 </BsBadge>
       </BsButton>
     </DemoBlock>
     <h2 class="mt-5">Contextual Variation</h2>
     <DemoBlock class="mt-3">
       <div>
+        <BsBadge variant="default"> Default </BsBadge>
         <BsBadge variant="primary"> Primary </BsBadge>
         <BsBadge variant="secondary"> Secondary </BsBadge>
         <BsBadge variant="success"> Success </BsBadge>
@@ -25,7 +26,6 @@
         <BsBadge variant="warning"> Warning </BsBadge>
         <BsBadge variant="info"> Info </BsBadge>
         <BsBadge variant="light"> Light </BsBadge>
-        <BsBadge variant="dark"> Dark </BsBadge>
       </div>
       <div class="mt-3">
         <BsBadge color="primary-color-dark text-white"> primary-color-dark </BsBadge>
@@ -40,6 +40,7 @@
     </DemoBlock>
     <h2 class="mt-5">Pill Badges</h2>
     <DemoBlock class="mt-3">
+      <BsBadge type="pill" variant="default"> Default </BsBadge>
       <BsBadge type="pill" variant="primary"> Primary </BsBadge>
       <BsBadge type="pill" variant="secondary"> Secondary </BsBadge>
       <BsBadge type="pill" variant="success"> Success </BsBadge>
@@ -47,10 +48,10 @@
       <BsBadge type="pill" variant="warning"> Warning </BsBadge>
       <BsBadge type="pill" variant="info"> Info </BsBadge>
       <BsBadge type="pill" variant="light"> Light </BsBadge>
-      <BsBadge type="pill" variant="dark"> Dark </BsBadge>
     </DemoBlock>
     <h2 class="mt-5">Label Badges</h2>
     <DemoBlock class="mt-3">
+      <BsBadge type="label" variant="default"> Default </BsBadge>
       <BsBadge type="label" variant="primary"> Primary </BsBadge>
       <BsBadge type="label" variant="secondary"> Secondary </BsBadge>
       <BsBadge type="label" variant="success"> Success </BsBadge>
@@ -58,20 +59,19 @@
       <BsBadge type="label" variant="warning"> Warning </BsBadge>
       <BsBadge type="label" variant="info"> Info </BsBadge>
       <BsBadge type="label" variant="light"> Light </BsBadge>
-      <BsBadge type="label" variant="dark"> Dark </BsBadge>
     </DemoBlock>
     <h2 class="mt-5">Actionable Badges</h2>
     <DemoBlock class="mt-3">
-      <BsBadge tag="a" variant="primary" href="/components/badge"> Primary </BsBadge>
-      <BsBadge tag="a" variant="secondary" href="/components/badge"> Secondary </BsBadge>
-      <BsBadge tag="a" variant="success" href="/components/badge"> Success </BsBadge>
-      <BsBadge tag="a" variant="danger" href="/components/badge"> Danger </BsBadge>
-      <BsBadge tag="a" variant="warning" href="/components/badge"> Warning </BsBadge>
-      <BsBadge tag="a" variant="info" href="/components/badge"> Info </BsBadge>
-      <BsBadge tag="a" variant="light" href="/components/badge"> Light </BsBadge>
-      <BsBadge tag="a" variant="dark" href="/components/badge"> Dark </BsBadge>
+      <BsBadge href="/components/badge" tag="a" variant="default"> Default </BsBadge>
+      <BsBadge href="/components/badge" tag="a" variant="primary"> Primary </BsBadge>
+      <BsBadge href="/components/badge" tag="a" variant="secondary"> Secondary </BsBadge>
+      <BsBadge href="/components/badge" tag="a" variant="success"> Success </BsBadge>
+      <BsBadge href="/components/badge" tag="a" variant="danger"> Danger </BsBadge>
+      <BsBadge href="/components/badge" tag="a" variant="warning"> Warning </BsBadge>
+      <BsBadge href="/components/badge" tag="a" variant="info"> Info </BsBadge>
+      <BsBadge href="/components/badge" tag="a" variant="light"> Light </BsBadge>
     </DemoBlock>
   </div>
 </template>
 
-<script lang="ts" setup></script>
+<script setup lang="ts"></script>

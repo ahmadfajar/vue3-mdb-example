@@ -46,7 +46,9 @@
             rounded
           >
             <template #icon="item">
-              <BsIconSvg :icon="(item?.value === selectedWeather ? 'check' : item?.icon) as string" />
+              <BsIconSvg
+                :icon="(item?.value === selectedWeather ? 'check' : item?.icon) as string"
+              />
             </template>
           </BsToggleButton>
         </div>
@@ -79,7 +81,7 @@
   </div>
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 import { ref } from 'vue';
 import type { TInputOptionItem } from 'vue-mdbootstrap';
 

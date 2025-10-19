@@ -8,18 +8,18 @@
       <h6 class="mt-3">Switch States</h6>
       <div class="row">
         <div class="col-12 col-md-6">
-          <BsSwitch v-model="switch2" value="off" readonly> Readonly </BsSwitch>
+          <BsSwitch v-model="switch2" readonly value="off"> Readonly </BsSwitch>
         </div>
         <div class="col-12 col-md-6 mt-3 mt-md-0">
-          <BsSwitch v-model="switch2" value="on" readonly> Readonly :: Selected </BsSwitch>
+          <BsSwitch v-model="switch2" readonly value="on"> Readonly :: Selected </BsSwitch>
         </div>
       </div>
       <div class="row mt-3">
         <div class="col-12 col-md-6">
-          <BsSwitch v-model="switch3" value="off" disabled> Disabled </BsSwitch>
+          <BsSwitch v-model="switch3" disabled value="off"> Disabled </BsSwitch>
         </div>
         <div class="col-12 col-md-6 mt-3 mt-md-0">
-          <BsSwitch v-model="switch3" value="on" disabled> Disabled :: Selected </BsSwitch>
+          <BsSwitch v-model="switch3" disabled value="on"> Disabled :: Selected </BsSwitch>
         </div>
       </div>
     </DemoBlock>
@@ -56,9 +56,9 @@
           <BsSwitch
             v-model="switch4"
             :value="true"
-            color="default-color"
-            checkoff-icon
             checked-icon
+            checkoff-icon
+            color="default-color"
             inset-mode
           >
             With Icon
@@ -68,22 +68,22 @@
       <h6 class="mt-3">Switch States</h6>
       <div class="row">
         <div class="col-12 col-md-6">
-          <BsSwitch v-model="switch2" value="off" color="default-color" inset-mode readonly>
+          <BsSwitch v-model="switch2" color="default-color" inset-mode readonly value="off">
             Readonly :: OFF
           </BsSwitch>
         </div>
         <div class="col-12 col-md-6 mt-3 mt-md-0">
-          <BsSwitch v-model="switch2" value="on" color="default-color" inset-mode readonly>
+          <BsSwitch v-model="switch2" color="default-color" inset-mode readonly value="on">
             Readonly :: ON
           </BsSwitch>
         </div>
       </div>
       <div class="row mt-3">
         <div class="col-12 col-md-6">
-          <BsSwitch v-model="switch3" value="off" inset-mode disabled> Disabled :: OFF </BsSwitch>
+          <BsSwitch v-model="switch3" disabled inset-mode value="off"> Disabled :: OFF </BsSwitch>
         </div>
         <div class="col-12 col-md-6 mt-3 mt-md-0">
-          <BsSwitch v-model="switch3" value="on" inset-mode disabled> Disabled :: ON </BsSwitch>
+          <BsSwitch v-model="switch3" disabled inset-mode value="on"> Disabled :: ON </BsSwitch>
         </div>
       </div>
     </DemoBlock>
@@ -99,8 +99,8 @@
           <BsSwitch
             v-model="switch5"
             :value="true"
-            color="default-color"
             checked-icon
+            color="default-color"
             inset-outlined
           >
             With Icon
@@ -110,24 +110,24 @@
       <h6 class="mt-3">Switch States</h6>
       <div class="row">
         <div class="col-12 col-md-6">
-          <BsSwitch v-model="switch2" value="off" color="default-color" inset-outlined readonly>
+          <BsSwitch v-model="switch2" color="default-color" inset-outlined readonly value="off">
             Readonly :: OFF
           </BsSwitch>
         </div>
         <div class="col-12 col-md-6 mt-3 mt-md-0">
-          <BsSwitch v-model="switch2" value="on" color="default-color" inset-outlined readonly>
+          <BsSwitch v-model="switch2" color="default-color" inset-outlined readonly value="on">
             Readonly :: ON
           </BsSwitch>
         </div>
       </div>
       <div class="row mt-3">
         <div class="col-12 col-md-6">
-          <BsSwitch v-model="switch3" value="off" inset-outlined disabled>
+          <BsSwitch v-model="switch3" disabled inset-outlined value="off">
             Disabled :: OFF
           </BsSwitch>
         </div>
         <div class="col-12 col-md-6 mt-3 mt-md-0">
-          <BsSwitch v-model="switch3" value="on" inset-outlined disabled> Disabled :: ON </BsSwitch>
+          <BsSwitch v-model="switch3" disabled inset-outlined value="on"> Disabled :: ON </BsSwitch>
         </div>
       </div>
     </DemoBlock>
@@ -156,9 +156,9 @@
   </div>
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 import { ref } from 'vue';
-import { colorVariants } from '@/composables/sharedApi';
+import { colorVariants } from '@shares/sharedApi';
 
 const switch1 = ref();
 const switch2 = ref('on');

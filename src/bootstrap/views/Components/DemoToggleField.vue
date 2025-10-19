@@ -2,7 +2,7 @@
   <div class="docs-body container-lg mx-auto">
     <h2>Overview</h2>
     <DemoBlock class="mt-4">
-      <BsCardContent type="subtitle" class="mb-4"> What are you drinking? </BsCardContent>
+      <BsCardContent class="mb-4" type="subtitle"> What are you drinking? </BsCardContent>
       <BsToggleField v-model="selectedDrink" :items="drinks" class="mb-4">
         <label class="col-md-3 col-xl-2 col-form-label"> Normal State </label>
       </BsToggleField>
@@ -21,7 +21,7 @@
     </DemoBlock>
     <h2 class="mt-5">Multiple Selection</h2>
     <DemoBlock class="mt-4">
-      <BsCardContent type="subtitle" class="mb-4"> What is your favorites drink? </BsCardContent>
+      <BsCardContent class="mb-4" type="subtitle"> What is your favorites drink? </BsCardContent>
       <BsToggleField
         v-model="favoriteDrinks"
         :items="drinks"
@@ -34,14 +34,14 @@
     </DemoBlock>
     <h2 class="mt-5">Toggle Styles</h2>
     <DemoBlock class="mt-4">
-      <BsCardContent type="subtitle" class="mb-4"> How is the weather today? </BsCardContent>
+      <BsCardContent class="mb-4" type="subtitle"> How is the weather today? </BsCardContent>
       <BsToggleField
         v-model="selectedWeather"
         :items="weathers"
         :pill="false"
-        rounded
         class="mb-4"
         color="primary"
+        rounded
       >
         <label class="col-md-3 col-xl-2 col-form-label"> Rounded style </label>
       </BsToggleField>
@@ -70,7 +70,7 @@
     </DemoBlock>
     <h2 class="mt-5">Help Text</h2>
     <DemoBlock class="mt-4">
-      <bs-card-content type="subtitle" class="mb-4"> Persistent help text </bs-card-content>
+      <bs-card-content class="mb-4" type="subtitle"> Persistent help text </bs-card-content>
       <bs-toggle-field
         v-model="todayWeather"
         :items="weathers"
@@ -80,7 +80,7 @@
       >
         <label class="col-md-3 col-xl-2 col-form-label"> Weather Today </label>
       </bs-toggle-field>
-      <bs-card-content type="subtitle" class="mb-4"> Non-persistent help text </bs-card-content>
+      <bs-card-content class="mb-4" type="subtitle"> Non-persistent help text </bs-card-content>
       <bs-toggle-field
         v-model="favoriteDrink"
         :items="drinks"
@@ -94,7 +94,7 @@
     <h2 class="mt-5">Used With Other Input Controls</h2>
     <DemoBlock class="mt-4">
       <div class="mt-3" style="max-width: 700px">
-        <BsTextField v-model="textField" class="mb-4" filled clear-button>
+        <BsTextField v-model="textField" class="mb-4" clear-button filled>
           <label class="col-md-4 col-xl-3 col-form-label">Your Name</label>
         </BsTextField>
         <bs-toggle-field
@@ -107,8 +107,8 @@
         </bs-toggle-field>
         <BsRadioGroup
           v-model="occupation"
-          :items="occupations"
           :column="1"
+          :items="occupations"
           class="mb-3"
           color="default-color"
         >
@@ -119,11 +119,11 @@
   </div>
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 import { ref } from 'vue';
 
 const selectedDrink = ref<string>();
-const favoriteDrinks = ref<Array<string>>([]);
+const favoriteDrinks = ref<string[]>([]);
 const selectedWeather = ref<string>();
 const todayWeather = ref<string>();
 const favoriteDrink = ref<string>();

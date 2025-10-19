@@ -27,13 +27,13 @@
     </DemoBlock>
     <h2 class="mt-5">Predefined Contextual Alert</h2>
     <DemoBlock class="mt-3">
-      <BsAlert filled variant="success" icon-variant="filled">
+      <BsAlert filled icon-variant="filled" variant="success">
         {{ content }} a predefined contextual <span class="md-fw-semibold">Success Alert</span>.
       </BsAlert>
-      <BsAlert filled variant="info" icon-variant="filled">
+      <BsAlert filled icon-variant="filled" variant="info">
         {{ content }} a predefined contextual <span class="md-fw-semibold">Info Alert</span>.
       </BsAlert>
-      <BsAlert filled variant="warning" icon-variant="filled">
+      <BsAlert filled icon-variant="filled" variant="warning">
         {{ content }} a predefined contextual <span class="md-fw-semibold">Warning Alert</span>.
       </BsAlert>
       <BsAlert filled variant="danger">
@@ -45,13 +45,13 @@
     </DemoBlock>
     <h2 class="mt-5">Custom Icon</h2>
     <DemoBlock class="mt-3">
-      <BsAlert icon="verified" color="green">
+      <BsAlert color="green" icon="verified">
         {{ content }} alert with <span class="md-fw-semibold">custom Icon</span>.
       </BsAlert>
-      <BsAlert icon="help_center" color="orange" icon-variant="filled">
+      <BsAlert color="orange" icon="help_center" icon-variant="filled">
         {{ content }} alert with <span class="md-fw-semibold">custom Icon</span>.
       </BsAlert>
-      <BsAlert icon="dangerous" color="danger" icon-variant="filled">
+      <BsAlert color="danger" icon="dangerous" icon-variant="filled">
         {{ content }} alert with <span class="md-fw-semibold">custom Icon</span>.
       </BsAlert>
       <BsAlert color="deep-purple" icon-variant="filled">
@@ -69,7 +69,7 @@
     </DemoBlock>
     <h2 class="mt-5">Additional content inside alerts</h2>
     <DemoBlock class="mt-3">
-      <BsAlert filled variant="success" icon-variant="filled">
+      <BsAlert filled icon-variant="filled" variant="success">
         <h5 class="mt-2">Well done!</h5>
         <p>
           Aww yeah, you successfully read this important alert message. This is an example how to
@@ -81,13 +81,13 @@
     </DemoBlock>
     <h2 class="mt-5">Dismissible alerts</h2>
     <DemoBlock class="mt-3">
-      <bs-alert color="primary" filled dismissible>
+      <bs-alert color="primary" dismissible filled>
         Simple alert with primary color. Click the close button over there
       </bs-alert>
       <bs-alert color="info" dismissible>
         Simple info alert with info color. Click the close button over there
       </bs-alert>
-      <bs-alert color="danger" outlined dismissible>
+      <bs-alert color="danger" dismissible outlined>
         Simple alert with success color. Click the close button over there
       </bs-alert>
     </DemoBlock>
@@ -96,7 +96,7 @@
       <bs-alert v-model="showDismissibleAlert1" color="teal" dismissible>
         This is a dismissible alert.
       </bs-alert>
-      <bs-alert v-model="showDismissibleAlert2" @close="closeAlert" dismissible>
+      <bs-alert v-model="showDismissibleAlert2" dismissible @close="closeAlert">
         <div class="pb-2">This alert will dismiss after {{ dismissCountDown }} seconds...</div>
         <bs-progress v-model="percentProgress" color="pink" mode="determinate" type="bar" />
       </bs-alert>
@@ -114,9 +114,9 @@
   </div>
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 import { computed, ref, watch } from 'vue';
-import { IconBullhorn, IconCircleNodes } from '@/composables/sharedApi';
+import { IconBullhorn, IconCircleNodes } from '@shares/sharedApi';
 
 const content =
   'Aww yeah, you successfully read this alert message. This is an example how to construct';

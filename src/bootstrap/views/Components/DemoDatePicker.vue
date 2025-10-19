@@ -29,7 +29,7 @@
     <div class="demo-block-content bg-grey-200 rounded-4 mt-4">
       <div class="d-flex justify-content-center">
         <div class="d-inline-block">
-          <BsDatePicker v-model="picker3" mode="datetime" class="md-shadow" />
+          <BsDatePicker v-model="picker3" class="md-shadow" mode="datetime" />
           <div class="my-3">
             Output value: <span class="md-fw-semibold">{{ picker3 }}</span>
           </div>
@@ -40,7 +40,7 @@
     <div class="demo-block-content bg-grey-200 rounded-4 mt-4">
       <div class="d-flex justify-content-center">
         <div class="d-inline-block">
-          <BsDatePicker v-model="picker4" mode="month" class="md-shadow" />
+          <BsDatePicker v-model="picker4" class="md-shadow" mode="month" />
           <div class="my-3">
             Output value: <span class="md-fw-semibold">{{ picker4 }}</span>
           </div>
@@ -51,7 +51,7 @@
     <div class="demo-block-content bg-grey-200 rounded-4 mt-4">
       <div class="d-flex justify-content-center">
         <div class="d-inline-block">
-          <BsDatePicker v-model="picker5" mode="year" class="md-shadow" />
+          <BsDatePicker v-model="picker5" class="md-shadow" mode="year" />
           <div class="my-3">
             Output value: <span class="md-fw-semibold">{{ picker5 }}</span>
           </div>
@@ -62,7 +62,7 @@
     <div class="demo-block-content bg-grey-200 rounded-4 mt-4">
       <div class="d-flex justify-content-center">
         <div class="d-inline-block">
-          <BsDatePicker v-model="picker6" mode="time" class="md-shadow" />
+          <BsDatePicker v-model="picker6" class="md-shadow" mode="time" />
           <div class="my-3">
             Output value: <span class="md-fw-semibold">{{ picker6 }}</span>
           </div>
@@ -74,17 +74,17 @@
       <div class="d-flex justify-content-center">
         <BsDatePicker
           v-model="picker7"
-          header-color="orange"
-          surface-color="elegant-color"
-          mode="datetime"
           class="shadow"
+          header-color="orange"
+          mode="datetime"
+          surface-color="elegant-color"
         />
       </div>
     </div>
   </div>
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 import { ref } from 'vue';
 
 const picker1 = ref<string>();

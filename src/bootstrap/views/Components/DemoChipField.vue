@@ -9,12 +9,12 @@
           </BsChipField>
         </div>
         <div class="col">
-          <BsChipField v-model="chip1" placeholder="Add Tags..." floating-label>
+          <BsChipField v-model="chip1" floating-label placeholder="Add Tags...">
             <label>Field Label</label>
           </BsChipField>
         </div>
         <div class="col">
-          <BsChipField v-model="chip2" floating-label filled>
+          <BsChipField v-model="chip2" filled floating-label>
             <label>Field Label</label>
           </BsChipField>
         </div>
@@ -39,7 +39,7 @@
     <DemoBlock class="mt-4">
       <div class="row g-4 row-cols-1 row-cols-lg-2">
         <div class="col">
-          <BsChipField v-model="chip4state" readonly floating-label>
+          <BsChipField v-model="chip4state" floating-label readonly>
             <label>State Readonly</label>
           </BsChipField>
         </div>
@@ -49,7 +49,7 @@
           </BsChipField>
         </div>
         <div class="col">
-          <BsChipField v-model="chip4state" readonly floating-label filled>
+          <BsChipField v-model="chip4state" filled floating-label readonly>
             <label>State Readonly</label>
           </BsChipField>
         </div>
@@ -65,7 +65,7 @@
           </BsChipField>
         </div>
         <div class="col">
-          <BsChipField v-model="chip4state" readonly floating-label outlined>
+          <BsChipField v-model="chip4state" floating-label outlined readonly>
             <label>State Readonly</label>
           </BsChipField>
         </div>
@@ -127,8 +127,8 @@
         <div class="col-md-11 col-lg-10 col-xl-8 mt-2">
           <BsChipField
             v-model="chip6"
-            class="mb-4"
             chip-deletable
+            class="mb-4"
             clear-button
             floating-label
             placeholder="Add Tags..."
@@ -137,8 +137,8 @@
           </BsChipField>
           <BsChipField
             v-model="chip6"
-            class="mb-4"
             chip-deletable
+            class="mb-4"
             clear-button
             filled
             floating-label
@@ -148,8 +148,8 @@
           </BsChipField>
           <BsChipField
             v-model="chip6"
-            class="mb-4"
             chip-deletable
+            class="mb-4"
             clear-button
             floating-label
             outlined
@@ -170,9 +170,9 @@
         <div class="col-md-11 col-lg-10 col-xl-8 mt-2">
           <BsChipField
             v-model="chip7"
-            class="mb-4"
             chip-color="secondary"
             chip-deletable
+            class="mb-4"
             floating-label
             placeholder="Add Tags..."
           >
@@ -180,9 +180,9 @@
           </BsChipField>
           <BsChipField
             v-model="chip7"
-            class="mb-4"
             chip-color="indigo"
             chip-deletable
+            class="mb-4"
             filled
             floating-label
             placeholder="Add Tags..."
@@ -191,9 +191,9 @@
           </BsChipField>
           <BsChipField
             v-model="chip7"
-            class="mb-2"
             chip-color="success"
             chip-deletable
+            class="mb-2"
             floating-label
             outlined
             placeholder="Add Tags..."
@@ -209,10 +209,10 @@
         <div class="col-md-11 col-lg-10 col-xl-8 mt-2">
           <BsChipField
             v-model="chip8"
-            class="mb-4"
             chip-color="unique-color"
             chip-deletable
             chip-pill
+            class="mb-4"
             floating-label
             placeholder="Add Tags..."
           >
@@ -220,10 +220,10 @@
           </BsChipField>
           <BsChipField
             v-model="chip8"
-            class="mb-4"
             chip-color="primary"
             chip-deletable
             chip-pill
+            class="mb-4"
             filled
             floating-label
             placeholder="Add Tags..."
@@ -232,10 +232,10 @@
           </BsChipField>
           <BsChipField
             v-model="chip8"
-            class="mb-2"
             chip-color="secondary-color"
             chip-deletable
             chip-pill
+            class="mb-2"
             floating-label
             outlined
             placeholder="Add Tags..."
@@ -251,11 +251,11 @@
         <div class="col-md-11 col-lg-10 col-xl-8 mt-2">
           <BsChipField
             v-model="chip9"
-            class="mb-4"
             chip-color="danger"
             chip-deletable
             chip-outlined
             chip-pill
+            class="mb-4"
             floating-label
             placeholder="Add Tags..."
           >
@@ -263,10 +263,10 @@
           </BsChipField>
           <BsChipField
             v-model="chip9"
-            class="mb-4"
             chip-color="purple"
             chip-deletable
             chip-outlined
+            class="mb-4"
             filled
             floating-label
             placeholder="Add Tags..."
@@ -275,10 +275,10 @@
           </BsChipField>
           <BsChipField
             v-model="chip9"
-            class="mb-2"
             chip-color="blue-green"
             chip-deletable
             chip-outlined
+            class="mb-2"
             floating-label
             outlined
             placeholder="Add Tags..."
@@ -294,9 +294,9 @@
         <div class="col">
           <BsChipField
             v-model="chip13"
-            help-text="Enter product keywords or tags"
             chip-deletable
             floating-label
+            help-text="Enter product keywords or tags"
           >
             <label>Product Tags</label>
           </BsChipField>
@@ -305,11 +305,11 @@
           <BsChipField
             v-model="chip14"
             :persistent-help-text="false"
-            help-text="Enter keywords for your website"
             chip-deletable
             chip-pill
             clear-button
             floating-label
+            help-text="Enter keywords for your website"
           >
             <label>Website Keywords</label>
           </BsChipField>
@@ -317,10 +317,10 @@
         <div class="col">
           <BsChipField
             v-model="chip13"
-            help-text="Enter product keywords or tags"
             chip-deletable
             filled
             floating-label
+            help-text="Enter product keywords or tags"
           >
             <label>Product Tags</label>
           </BsChipField>
@@ -329,11 +329,11 @@
           <BsChipField
             v-model="chip14"
             :persistent-help-text="false"
-            help-text="Enter keywords for your website"
             chip-deletable
             chip-pill
             filled
             floating-label
+            help-text="Enter keywords for your website"
           >
             <label>Website Keywords</label>
           </BsChipField>
@@ -341,10 +341,10 @@
         <div class="col">
           <BsChipField
             v-model="chip13"
-            help-text="Enter product keywords or tags"
             chip-deletable
-            outlined
             floating-label
+            help-text="Enter product keywords or tags"
+            outlined
           >
             <label>Product Tags</label>
           </BsChipField>
@@ -353,11 +353,11 @@
           <BsChipField
             v-model="chip14"
             :persistent-help-text="false"
-            help-text="Enter keywords for your website"
             chip-deletable
             chip-pill
-            outlined
             floating-label
+            help-text="Enter keywords for your website"
+            outlined
           >
             <label>Website Keywords</label>
           </BsChipField>
@@ -368,7 +368,7 @@
     <DemoBlock class="mt-4">
       <div class="row g-4 row-cols-1 row-cols-lg-2">
         <div class="col">
-          <BsChipField v-model="chip10" prepend-icon="person" clear-button floating-label>
+          <BsChipField v-model="chip10" clear-button floating-label prepend-icon="person">
             <label>Prepend</label>
           </BsChipField>
         </div>
@@ -378,7 +378,7 @@
           </BsChipField>
         </div>
         <div class="col">
-          <BsChipField v-model="chip10" prepend-icon-outer="person" clear-button floating-label>
+          <BsChipField v-model="chip10" clear-button floating-label prepend-icon-outer="person">
             <label>Prepend Outer</label>
           </BsChipField>
         </div>
@@ -390,10 +390,10 @@
         <div class="col">
           <BsChipField
             v-model="chip11"
-            prepend-icon="person_filled"
             clear-button
             filled
             floating-label
+            prepend-icon="person_filled"
           >
             <label>Prepend</label>
           </BsChipField>
@@ -412,10 +412,10 @@
         <div class="col">
           <BsChipField
             v-model="chip11"
-            prepend-icon-outer="person"
             clear-button
             filled
             floating-label
+            prepend-icon-outer="person"
           >
             <label>Prepend Outer</label>
           </BsChipField>
@@ -434,10 +434,10 @@
         <div class="col">
           <BsChipField
             v-model="chip12"
-            prepend-icon="person_filled"
             clear-button
             floating-label
             outlined
+            prepend-icon="person_filled"
           >
             <label>Prepend</label>
           </BsChipField>
@@ -456,10 +456,10 @@
         <div class="col">
           <BsChipField
             v-model="chip12"
-            prepend-icon-outer="person"
             clear-button
             floating-label
             outlined
+            prepend-icon-outer="person"
           >
             <label>Prepend Outer</label>
           </BsChipField>
@@ -486,36 +486,36 @@
           </BsTextField>
           <BsChipField
             v-model="chipField"
-            class="mb-4"
             chip-color="secondary-color"
             chip-pill
+            class="mb-4"
             clear-button
           >
             <label class="col-md-3 col-xl-2 col-form-label">Interests</label>
           </BsChipField>
           <BsChipField
             v-model="chipField"
-            class="mb-4"
-            chip-color="secondary"
             append-icon="face"
+            chip-color="secondary"
+            class="mb-4"
             readonly
           >
             <label class="col-md-3 col-xl-2 col-form-label">State Readonly</label>
           </BsChipField>
           <BsChipField
             v-model="chipField"
-            class="mb-4"
+            append-icon="face"
             chip-color="secondary"
             chip-outlined
-            append-icon="face"
+            class="mb-4"
             disabled
           >
             <label class="col-md-3 col-xl-2 col-form-label">State Disabled</label>
           </BsChipField>
           <BsRadioGroup
             v-model="occupation"
-            :items="occupations"
             :column="2"
+            :items="occupations"
             class="mb-3"
             color="default-color"
           >
@@ -527,7 +527,7 @@
   </div>
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 import { ref } from 'vue';
 
 const chip1 = ref('');

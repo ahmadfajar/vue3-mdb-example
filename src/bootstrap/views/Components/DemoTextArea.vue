@@ -4,12 +4,12 @@
     <DemoBlock class="mt-4">
       <div class="row g-4 row-cols-1 row-cols-lg-2">
         <div class="col">
-          <bs-text-area floating-label auto-grow>
+          <bs-text-area auto-grow floating-label>
             <label>Field Label</label>
           </bs-text-area>
         </div>
         <div class="col">
-          <bs-text-area placeholder="Placeholder" floating-label>
+          <bs-text-area floating-label placeholder="Placeholder">
             <label>Field Label</label>
           </bs-text-area>
         </div>
@@ -91,7 +91,7 @@
     <DemoBlock class="mt-4">
       <div class="row g-4 row-cols-1 row-cols-lg-2">
         <div class="col">
-          <bs-text-area prepend-icon="person" floating-label>
+          <bs-text-area floating-label prepend-icon="person">
             <label>Prepend</label>
           </bs-text-area>
         </div>
@@ -101,7 +101,7 @@
           </bs-text-area>
         </div>
         <div class="col">
-          <bs-text-area prepend-icon-outer="person" floating-label>
+          <bs-text-area floating-label prepend-icon-outer="person">
             <label>Prepend Outer</label>
           </bs-text-area>
         </div>
@@ -111,7 +111,7 @@
           </bs-text-area>
         </div>
         <div class="col">
-          <bs-text-area prepend-icon="person" filled floating-label>
+          <bs-text-area filled floating-label prepend-icon="person">
             <label>Prepend</label>
           </bs-text-area>
         </div>
@@ -121,7 +121,7 @@
           </bs-text-area>
         </div>
         <div class="col">
-          <bs-text-area prepend-icon-outer="person" filled floating-label>
+          <bs-text-area filled floating-label prepend-icon-outer="person">
             <label>Prepend Outer</label>
           </bs-text-area>
         </div>
@@ -131,7 +131,7 @@
           </bs-text-area>
         </div>
         <div class="col">
-          <bs-text-area prepend-icon="person" floating-label outlined>
+          <bs-text-area floating-label outlined prepend-icon="person">
             <label>Prepend</label>
           </bs-text-area>
         </div>
@@ -141,7 +141,7 @@
           </bs-text-area>
         </div>
         <div class="col">
-          <bs-text-area prepend-icon-outer="person" floating-label outlined>
+          <bs-text-area floating-label outlined prepend-icon-outer="person">
             <label>Prepend Outer</label>
           </bs-text-area>
         </div>
@@ -156,7 +156,7 @@
     <DemoBlock class="mt-4">
       <div class="row g-4 row-cols-1 row-cols-lg-2">
         <div class="col">
-          <bs-text-area clear-button floating-label action-icon-variant="filled">
+          <bs-text-area action-icon-variant="filled" clear-button floating-label>
             <label>Enter Text</label>
           </bs-text-area>
         </div>
@@ -166,7 +166,7 @@
           </bs-text-area>
         </div>
         <div class="col">
-          <bs-text-area floating-label filled>
+          <bs-text-area filled floating-label>
             <label>Enter Text</label>
           </bs-text-area>
         </div>
@@ -191,7 +191,7 @@
     <DemoBlock class="mt-4">
       <div class="row g-4 row-cols-1 row-cols-lg-2">
         <div class="col">
-          <bs-text-area v-model="textValue1" readonly floating-label>
+          <bs-text-area v-model="textValue1" floating-label readonly>
             <label>State Readonly</label>
           </bs-text-area>
         </div>
@@ -201,7 +201,7 @@
           </bs-text-area>
         </div>
         <div class="col">
-          <bs-text-area v-model="textValue1" readonly floating-label filled>
+          <bs-text-area v-model="textValue1" filled floating-label readonly>
             <label>State Readonly</label>
           </bs-text-area>
         </div>
@@ -217,7 +217,7 @@
           </bs-text-area>
         </div>
         <div class="col">
-          <bs-text-area v-model="textValue1" readonly floating-label outlined>
+          <bs-text-area v-model="textValue1" floating-label outlined readonly>
             <label>State Readonly</label>
           </bs-text-area>
         </div>
@@ -268,11 +268,10 @@
   </div>
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 import { ref } from 'vue';
 
 const textValue1 = ref('Grocery delivery');
-const textValue2 = ref(
-  '12th floor, Flat G - Magnolia Building\n' + '212 Sycamore Street - WAN CHAI HONG KONG'
-);
+// prettier-ignore
+const textValue2 = ref('12th floor, Flat G - Magnolia Building\n' + '212 Sycamore Street - WAN CHAI HONG KONG');
 </script>

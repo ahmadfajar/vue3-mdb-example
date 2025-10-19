@@ -9,12 +9,12 @@
           </BsDateTimeField>
         </div>
         <div class="col">
-          <BsDateTimeField v-model="field1" placeholder="Select a date" floating-label>
+          <BsDateTimeField v-model="field1" floating-label placeholder="Select a date">
             <label>Field Label</label>
           </BsDateTimeField>
         </div>
         <div class="col">
-          <BsDateTimeField v-model="field2" floating-label filled>
+          <BsDateTimeField v-model="field2" filled floating-label>
             <label>Field Label</label>
           </BsDateTimeField>
         </div>
@@ -39,7 +39,7 @@
     <DemoBlock class="mt-4">
       <div class="row g-4 row-cols-1 row-cols-lg-2">
         <div class="col">
-          <BsDateTimeField v-model="field4state" readonly floating-label>
+          <BsDateTimeField v-model="field4state" floating-label readonly>
             <label>State Readonly</label>
           </BsDateTimeField>
         </div>
@@ -54,7 +54,7 @@
           </BsDateTimeField>
         </div>
         <div class="col">
-          <BsDateTimeField v-model="field4state" readonly floating-label filled>
+          <BsDateTimeField v-model="field4state" filled floating-label readonly>
             <label>State Readonly</label>
           </BsDateTimeField>
         </div>
@@ -70,7 +70,7 @@
           </BsDateTimeField>
         </div>
         <div class="col">
-          <BsDateTimeField v-model="field4state" readonly floating-label outlined>
+          <BsDateTimeField v-model="field4state" floating-label outlined readonly>
             <label>State Readonly</label>
           </BsDateTimeField>
         </div>
@@ -93,18 +93,18 @@
         <div class="col-md-11 col-lg-10 col-xl-8 mt-2">
           <BsDateTimeField
             v-model="field5"
-            display-format="D"
             class="mb-4"
             clear-button
+            display-format="D"
             floating-label
           >
             <label>Field Label</label>
           </BsDateTimeField>
           <BsDateTimeField
             v-model="field5"
-            display-format="DDD"
             class="mb-4"
             clear-button
+            display-format="DDD"
             filled
             floating-label
           >
@@ -112,9 +112,9 @@
           </BsDateTimeField>
           <BsDateTimeField
             v-model="field5"
-            display-format="DDDD"
             class="mb-3"
             clear-button
+            display-format="DDDD"
             floating-label
             outlined
           >
@@ -132,11 +132,11 @@
         <div class="col-md-11 col-lg-10 col-xl-8 mt-2">
           <BsDateTimeField
             v-model="field6"
-            display-format="DDD"
             class="mb-4"
             clear-button
-            open-on-hover
+            display-format="DDD"
             floating-label
+            open-on-hover
           >
             <label>Field Label</label>
           </BsDateTimeField>
@@ -149,8 +149,8 @@
         <div class="col">
           <BsDateTimeField
             v-model="field7"
-            help-text="Choose the product expiry date"
             floating-label
+            help-text="Choose the product expiry date"
           >
             <label>Product Expiry</label>
           </BsDateTimeField>
@@ -159,9 +159,9 @@
           <BsDateTimeField
             v-model="field7"
             :persistent-help-text="false"
-            help-text="Choose the product expiry date"
             clear-button
             floating-label
+            help-text="Choose the product expiry date"
           >
             <label>Product Expiry</label>
           </BsDateTimeField>
@@ -169,9 +169,9 @@
         <div class="col">
           <BsDateTimeField
             v-model="field8"
-            help-text="Choose the product expiry date"
             filled
             floating-label
+            help-text="Choose the product expiry date"
           >
             <label>Product Expiry</label>
           </BsDateTimeField>
@@ -180,9 +180,9 @@
           <BsDateTimeField
             v-model="field8"
             :persistent-help-text="false"
-            help-text="Choose the product expiry date"
             filled
             floating-label
+            help-text="Choose the product expiry date"
           >
             <label>Product Expiry</label>
           </BsDateTimeField>
@@ -190,9 +190,9 @@
         <div class="col">
           <BsDateTimeField
             v-model="field9"
+            floating-label
             help-text="Choose the product expiry date"
             outlined
-            floating-label
           >
             <label>Product Expiry</label>
           </BsDateTimeField>
@@ -201,9 +201,9 @@
           <BsDateTimeField
             v-model="field9"
             :persistent-help-text="false"
+            floating-label
             help-text="Choose the product expiry date"
             outlined
-            floating-label
           >
             <label>Product Expiry</label>
           </BsDateTimeField>
@@ -214,7 +214,7 @@
     <DemoBlock class="mt-4">
       <div class="row g-4 row-cols-1 row-cols-lg-2">
         <div class="col">
-          <BsDateTimeField v-model="field10" prepend-icon="person" clear-button floating-label>
+          <BsDateTimeField v-model="field10" clear-button floating-label prepend-icon="person">
             <label>Prepend</label>
           </BsDateTimeField>
         </div>
@@ -226,9 +226,9 @@
         <div class="col">
           <BsDateTimeField
             v-model="field10"
-            prepend-icon-outer="person"
             clear-button
             floating-label
+            prepend-icon-outer="person"
           >
             <label>Prepend Outer</label>
           </BsDateTimeField>
@@ -241,10 +241,10 @@
         <div class="col">
           <BsDateTimeField
             v-model="field11"
-            prepend-icon="person_outlined_filled"
             clear-button
             filled
             floating-label
+            prepend-icon="person_outlined_filled"
           >
             <label>Prepend</label>
           </BsDateTimeField>
@@ -263,10 +263,10 @@
         <div class="col">
           <BsDateTimeField
             v-model="field11"
-            prepend-icon-outer="person"
             clear-button
             filled
             floating-label
+            prepend-icon-outer="person"
           >
             <label>Prepend Outer</label>
           </BsDateTimeField>
@@ -285,10 +285,10 @@
         <div class="col">
           <BsDateTimeField
             v-model="field12"
-            prepend-icon="person_outlined_filled"
             clear-button
             floating-label
             outlined
+            prepend-icon="person_outlined_filled"
           >
             <label>Prepend</label>
           </BsDateTimeField>
@@ -307,10 +307,10 @@
         <div class="col">
           <BsDateTimeField
             v-model="field12"
-            prepend-icon-outer="person"
             clear-button
             floating-label
             outlined
+            prepend-icon-outer="person"
           >
             <label>Prepend Outer</label>
           </BsDateTimeField>
@@ -338,10 +338,10 @@
           <BsDateTimeField
             v-model="dateField"
             class="mb-4"
+            clear-button
             display-format="DDD"
             header-color="amber"
             picker-color="elegant-color"
-            clear-button
           >
             <label class="col-md-4 col-xl-2 col-form-label">Birthdate</label>
           </BsDateTimeField>
@@ -360,8 +360,8 @@
           </BsDateTimeField>
           <BsRadioGroup
             v-model="occupation"
-            :items="occupations"
             :column="1"
+            :items="occupations"
             class="mb-3"
             color="default-color"
           >
@@ -373,7 +373,7 @@
   </div>
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 import { ref } from 'vue';
 
 const field1 = ref();
