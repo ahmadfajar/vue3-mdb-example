@@ -1,43 +1,66 @@
 {
   "name": "vue3-mdb-example",
-  "description": "Vue MDBootstrap v2.1 components demo",
-  "version": "1.1.0",
+  "description": "Vue MDBootstrap v2.2 demos",
+  "version": "2.0.0",
   "private": true,
   "author": {
     "name": "Ahmad Fajar",
     "email": "ahmad.fajar234@hotmail.com"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ahmadfajar/vue3-mdb-example"
+  },
   "license": "BSD-3-Clause",
   "type": "module",
   "scripts": {
-    "dev": "vite --port 5175",
-    "build": "run-p type-check build-only",
-    "preview": "vite preview",
-    "build-only": "vite build",
-    "type-check": "vue-tsc --noEmit -p tsconfig.app.json --composite false",
-    "format": "prettier --write src/"
+    "bootstrap:dev": "vite --config vite.config.bs.mts --port 5175",
+    "bootstrap:prod": "run-p type-check bootstrap:build",
+    "bootstrap:build": "vite build --config vite.config.bs.mts",
+    "bootstrap:preview": "vite preview --config vite.config.bs.mts",
+    "tailwind:dev": "vite --config vite.config.tw.mts --port 5175",
+    "tailwind:prod": "run-p type-check tailwind:build",
+    "tailwind:build": "vite build --config vite.config.tw.mts",
+    "tailwind:preview": "vite preview --config vite.config.tw.mts",
+    "type-check": "vue-tsc --noEmit --composite false"
   },
   "dependencies": {
-    "vue": "^3.5.13",
-    "vue-mdbootstrap": "^2.1.3",
-    "vue-router": "^4.5.0"
+    "axios": "^1.12.2",
+    "vue": "^3.5.22",
+    "vue-mdbootstrap": "2.2.0",
+    "vue-router": "^4.6.3"
   },
   "devDependencies": {
-    "@tsconfig/node22": "^22.0.0",
-    "@types/node": "^22.10.1",
-    "@vitejs/plugin-vue": "^5.2.1",
-    "@vue/tsconfig": "^0.7.0",
+    "@eslint/js": "^9.38.0",
+    "@types/node": "^24.8.1",
+    "@types/sass": "^1.45.0",
+    "@types/vue": "^2.0.0",
+    "@vitejs/plugin-vue": "^6.0.1",
+    "@vue/eslint-config-typescript": "^14.6.0",
+    "eslint": "^9.38.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-vue": "^10.5.1",
     "npm-run-all": "^4.1.5",
-    "prettier": "^3.4.2",
-    "sass": "^1.82.0",
-    "typescript": "^5.7.2",
-    "vite": "^6.0.3",
-    "vue-tsc": "^2.1.10"
+    "prettier": "^3.6.2",
+    "prettier-plugin-organize-attributes": "^1.0.0",
+    "prettier-plugin-organize-imports": "^4.3.0",
+    "prettier-plugin-sort-imports": "^1.8.8",
+    "sass": "^1.93.2",
+    "terser": "^5.44.0",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.46.1",
+    "vite": "^7.1.10",
+    "vue-eslint-parser": "^10.2.0",
+    "vue-tsc": "^3.1.1"
   },
   "browserslist": [
     "> 5%",
     "last 2 versions",
     "not dead",
     "not ie <= 11"
-  ]
+  ],
+  "packageManager": "yarn@4.10.3",
+  "resolutions": {
+    "vue-mdbootstrap": "portal:../vue-mdbootstrap"
+  }
 }

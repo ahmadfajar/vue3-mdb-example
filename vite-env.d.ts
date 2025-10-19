@@ -12,13 +12,13 @@ declare const DemoBlock: {
   };
 };
 
-declare module '@vue/runtime-core' {
+declare module 'vue' {
   interface GlobalComponents {
     DemoBlock: typeof DemoBlock;
   }
 
-  interface ComponentCustomProperties {
-    $route: typeof RouteLocationNormalizedLoaded;
-    $router: typeof Router;
-  }
+  // interface ComponentCustomProperties {
+  //   $route: RouteLocationNormalizedLoaded;
+  //   $router: Router;
+  // }
 }

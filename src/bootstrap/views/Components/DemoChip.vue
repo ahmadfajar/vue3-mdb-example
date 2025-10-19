@@ -417,7 +417,7 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
 import { StringHelper } from 'vue-mdbootstrap';
-import { colorVariants, IconBullhorn } from '@/sharedApi';
+import { colorVariants, IconBullhorn } from '@/composables/sharedApi';
 
 const chipDefaultActive = ref(false);
 const chipPrimaryActive = ref(false);

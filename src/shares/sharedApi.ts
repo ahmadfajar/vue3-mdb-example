@@ -27,7 +27,7 @@ export const colorVariants = [
   'danger-color-dark',
   'warning-color-dark',
   'unique',
-  'unique-color'
+  'unique-color',
 ];
 
 export function IconBullhorn(props: TRecord): VNode {

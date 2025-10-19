@@ -45,7 +45,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { colorVariants } from '@/sharedApi';
+import { colorVariants } from '@/composables/sharedApi';
 
 const checkboxColors = ref([]);
 const selectedFavoriteColors = ref([]);

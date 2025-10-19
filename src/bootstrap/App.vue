@@ -3,36 +3,36 @@
     <BsAppbar class="bg-mdb-color" clipped-left fixed-top>
       <BsButton
         color="light"
+        flat
         icon="menu"
         mode="icon"
-        flat
         @click="toggleSideDrawer(!openSideDrawer)"
       />
       <BsAppbarTitle :title="$route.meta.title as string" class="text-white" />
     </BsAppbar>
     <BsSideDrawer v-model:open="openSideDrawer" color="mdb-color" fixed-layout>
       <div class="text-center mb-2">
-        <img alt="Vue logo" src="./assets/vue-mdb.png" style="width: 96px" />
+        <img alt="Vue logo" src="../assets/vue-mdb.png" style="width: 96px" />
       </div>
       <BsDivider dark />
-      <BsListView color="mdb-color" space-around="both" item-border-variant="left" item-rounded>
+      <BsListView color="mdb-color" item-border-variant="left" item-rounded space-around="both">
         <BsListNav>
           <BsListNavItem
             v-for="navItem in routeNavA"
-            :key="navItem.label"
-            :path-name="StringHelper.kebabCase(navItem.label)"
             :disabled="navItem.disabled"
+            :key="navItem.label"
             :label="navItem.label"
+            :path-name="StringHelper.kebabCase(navItem.label)"
           />
         </BsListNav>
         <BsDivider class="my-2" />
         <BsListNav>
           <BsListNavItem
             v-for="navItem in routeNavB"
-            :key="navItem.label"
-            :path-name="StringHelper.kebabCase(navItem.label)"
             :disabled="navItem.disabled"
+            :key="navItem.label"
             :label="navItem.label"
+            :path-name="StringHelper.kebabCase(navItem.label)"
           />
         </BsListNav>
       </BsListView>
@@ -40,7 +40,7 @@
     <BsContainer app @resize="onContainerResize">
       <BsContent>
         <RouterView v-slot="{ Component }">
-          <Transition name="fastFade" mode="out-in">
+          <Transition mode="out-in" name="fastFade">
             <component :is="Component" />
           </Transition>
         </RouterView>
@@ -49,11 +49,11 @@
   </BsApp>
 </template>
 
-<script lang="ts" setup>
-import type { TNavigationRecord } from '@/router/navigation';
-import { menuNavs } from '@/router/navigation';
+<script setup lang="ts">
 import { ref } from 'vue';
-import { useBreakpointMax, StringHelper } from 'vue-mdbootstrap';
+import { StringHelper, useBreakpointMax } from 'vue-mdbootstrap';
+import type { TNavigationRecord } from './router/navigation';
+import { menuNavs } from './router/navigation';
 
 const openSideDrawer = ref(true);
 

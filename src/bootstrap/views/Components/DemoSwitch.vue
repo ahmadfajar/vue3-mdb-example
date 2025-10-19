@@ -158,7 +158,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { colorVariants } from '@/sharedApi';
+import { colorVariants } from '@/composables/sharedApi';
 
 const switch1 = ref();
 const switch2 = ref('on');

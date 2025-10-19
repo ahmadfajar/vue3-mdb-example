@@ -116,7 +116,7 @@
 
 <script lang="ts" setup>
 import { computed, ref, watch } from 'vue';
-import { IconBullhorn, IconCircleNodes } from '@/sharedApi';
+import { IconBullhorn, IconCircleNodes } from '@/composables/sharedApi';
 
 const content =
   'Aww yeah, you successfully read this alert message. This is an example how to construct';

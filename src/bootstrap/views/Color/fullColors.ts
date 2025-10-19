@@ -1,4 +1,4 @@
-import { themeColors } from '@/views/Color/themeColors';
+import { themeColors } from '@/bootstrap/views/Color/themeColors';
 
 export const fullColors = {
   red: {

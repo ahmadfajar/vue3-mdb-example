@@ -1,4 +1,4 @@
-import { menuNavs } from '@/router/navigation';
+import { menuNavs } from '@/bootstrap/router/navigation';
 import { StringHelper } from 'vue-mdbootstrap';
 import type { RouteRecordRaw } from 'vue-router';
 import { createRouter, createWebHistory } from 'vue-router';

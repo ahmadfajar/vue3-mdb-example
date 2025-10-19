@@ -30,6 +30,9 @@ yarn.lock
 .vscode/*
 !.vscode/extensions.json
 .idea
+.yarn
+.pnp.cjs
+.pnp.loader.mjs
 *.suo
 *.ntvs*
 *.njsproj

@@ -86,7 +86,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { IconThreeCircle } from '@/sharedApi';
+import { IconThreeCircle } from '@/composables/sharedApi';
 
 const isSpin = ref(false);
 const isPulse = ref(false);
