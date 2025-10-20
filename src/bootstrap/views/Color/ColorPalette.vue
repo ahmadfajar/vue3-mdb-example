@@ -61,7 +61,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import { fullColors, useFullColorClasses, useFullColorName } from './fullColors';
+import { fullColors, useFullColorClasses, useFullColorName } from '@shares/fullColors.ts';
 import {
   grayColors,
   materialColors,
@@ -69,7 +69,7 @@ import {
   useBootstrapColorClasses,
   useGrayColorClasses,
   useMaterialColorInfo,
-} from './themeColors';
+} from '@shares/themeColors.ts';
 
 export default defineComponent({
   name: 'ColorPalette',

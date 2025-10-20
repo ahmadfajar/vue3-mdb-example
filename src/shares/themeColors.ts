@@ -100,6 +100,18 @@ export const materialColors = {
   },
 };
 
+export const contextColors = {
+  default: '#715eac',
+  primary: '#0d6efd',
+  secondary: '#6c757d',
+  success: '#1a8754',
+  danger: '#dc3545',
+  warning: '#ffbb33',
+  info: '#20dcfb',
+  light: '#e9ecef',
+  dark: '#202020',
+};
+
 export function useBootstrapColorClasses(name: string) {
   return {
     ['bg-' + name]: true,
@@ -127,8 +139,8 @@ export function useBootstrapColorClasses(name: string) {
 export function useGrayColorClasses(name: string | number) {
   return {
     [`bg-grey-${name}`]: true,
-    'text-black': ['100', '200', '300', '400', '500'].includes(<string>name),
-    'text-white': !['100', '200', '300', '400', '500'].includes(<string>name),
+    'text-black': ['100', '200', '300', '400', '500'].includes(name as string),
+    'text-white': !['100', '200', '300', '400', '500'].includes(name as string),
   };
 }
 

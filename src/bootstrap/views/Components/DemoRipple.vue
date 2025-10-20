@@ -2,9 +2,9 @@
   <div class="docs-body container-lg mx-auto">
     <h2>Demo Ripple</h2>
     <BsDivider />
-    <div class="d-flex justify-content-center mt-4">
+    <div class="flex justify-center mt-4">
       <BsRipple
-        class="d-flex justify-content-center align-items-center text-bg-secondary border rounded me-3"
+        class="flex justify-center items-center text-bg-secondary border rounded me-3"
         style="max-width: 150px; height: 150px"
       >
         <b>Click Me</b>

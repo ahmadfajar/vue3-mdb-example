@@ -11,10 +11,10 @@
           type="button"
           @click="pickerShow = !pickerShow"
         />
-        <BsButton color="dark" icon="invert_colors" mode="icon" flat @click="darkenOrLighten" />
+        <BsButton color="dark" flat icon="invert_colors" mode="icon" @click="darkenOrLighten" />
       </div>
     </div>
-    <div class="demo-block-content" :style="styles">
+    <div :style="styles" class="demo-block-content">
       <slot />
     </div>
     <BsColorPicker
@@ -22,15 +22,15 @@
       v-model="pickerColor"
       v-model:mode="pickerMode"
       v-model:open="pickerShow"
-      placement="bottom-right"
       :activator="pickerBtn"
-      hide-alpha
       class="shadow"
+      hide-alpha
+      placement="bottom-right"
     />
   </div>
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 import { reactive, ref, watch } from 'vue';
 import type { TColorPickerMode } from 'vue-mdbootstrap';
 import { Color } from 'vue-mdbootstrap';
@@ -56,7 +56,7 @@ watch(
 watch(
   () => styles.backgroundColor,
   (value) => {
-    const textColor = contrastTextColor(value);
+    const textColor = contrastTextColor(value!);
     styles.color = textColor;
     styles['--md-field-button-color'] = textColor;
 
@@ -85,7 +85,7 @@ const darkenOrLighten = () => {
     return;
   }
 
-  const hexColor = Color.shadeColor(styles.backgroundColor, step.value).toLowerCase();
+  const hexColor = Color.shadeColor(styles.backgroundColor!, step.value).toLowerCase();
   if (hexColor.length === 7) {
     styles.backgroundColor = hexColor;
 
@@ -114,6 +114,7 @@ $radius: 0.75rem;
 
   > .inner-tools {
     @include borders.radius($radius $radius 0 0);
+    background-color: oklch(0.942 0.005 247.879);
     display: inline-flex;
     justify-content: center;
     align-items: center;
@@ -131,15 +132,11 @@ $radius: 0.75rem;
 .btn-color-picker,
 .picked-color {
   @include borders.radius(50%);
-  background-image: repeating-linear-gradient(
-      45deg,
-      #aaa 25%,
-      transparent 25%,
-      transparent 75%,
-      #aaa 75%,
-      #aaa
-    ),
+  background-image:
+    repeating-linear-gradient(45deg, #aaa 25%, transparent 25%, transparent 75%, #aaa 75%, #aaa),
     repeating-linear-gradient(45deg, #aaa 25%, #fff 25%, #fff 75%, #aaa 75%, #aaa);
+
+  // prettier-ignore
   background-position: 0 0, 4px 4px;
   background-size: 8px 8px;
   border: 0;

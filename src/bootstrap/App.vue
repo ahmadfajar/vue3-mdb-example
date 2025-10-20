@@ -1,21 +1,21 @@
 <template>
-  <BsApp class="bg-mdb-color" viewport-height>
-    <BsAppbar class="bg-mdb-color" clipped-left fixed-top>
+  <BsApp viewport-height>
+    <BsAppbar clipped-left sticky-top>
       <BsButton
-        color="light"
+        color="secondary"
         flat
         icon="menu"
         mode="icon"
         @click="toggleSideDrawer(!openSideDrawer)"
       />
-      <BsAppbarTitle :title="$route.meta.title as string" class="text-white" />
+      <BsAppbarTitle :title="$route.meta.title as string" />
     </BsAppbar>
-    <BsSideDrawer v-model:open="openSideDrawer" color="mdb-color" fixed-layout>
-      <div class="text-center mb-2">
-        <img alt="Vue logo" src="../assets/vue-mdb.png" style="width: 96px" />
+    <BsSideDrawer v-model:open="openSideDrawer" fixed-layout>
+      <div class="flex justify-center my-2">
+        <img alt="Vue logo" src="/assets/vue-mdb.png" style="width: 96px" />
       </div>
       <BsDivider dark />
-      <BsListView color="mdb-color" item-border-variant="left" item-rounded space-around="both">
+      <BsListView item-border-variant="left" item-rounded space-around="both">
         <BsListNav>
           <BsListNavItem
             v-for="navItem in routeNavA"
@@ -108,20 +108,20 @@ const routeNavB = menuNavs.filter((it) => it.group === 'Reference').sort(compare
 }
 
 .docs-body {
-  padding-top: 3rem;
+  padding-top: 2rem;
 
   > h2 {
-    font-weight: 400;
+    font-weight: var(--font-weight-medium);
   }
 
-  .h3,
-  .h4,
-  h3,
-  h4 {
-    &:not(.card-title) {
-      font-weight: normal;
-    }
-  }
+  //.h3,
+  //.h4,
+  //h3,
+  //h4 {
+  //  &:not(.card-title) {
+  //    font-weight: normal;
+  //  }
+  //}
 
   @media (min-width: 1200px) {
     max-width: 1080px;
@@ -147,9 +147,9 @@ const routeNavB = menuNavs.filter((it) => it.group === 'Reference').sort(compare
   //}
 }
 
-.demo-block-content {
-  .md-breadcrumb {
-    --md-breadcrumb-container-padding-x: 0;
-  }
-}
+//.demo-block-content {
+//  .md-breadcrumb {
+//    --md-breadcrumb-container-padding-x: 0;
+//  }
+//}
 </style>

@@ -1,4 +1,4 @@
-import { themeColors } from '@bs/views/Color/themeColors';
+import { themeColors } from '@shares/themeColors.ts';
 
 export const fullColors = {
   red: {

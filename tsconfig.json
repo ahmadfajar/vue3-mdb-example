@@ -60,6 +60,7 @@
     "vite-env.d.ts"
   ],
   "exclude": [
+    "../vue-mdbootstrap/dist/*",
     "src/**/__tests__/*",
     "node_modules"
   ],
