@@ -12,7 +12,7 @@
       <div class="row mb-3">
         <label class="col-md-3 col-xl-2 col-form-label"> Readonly State </label>
         <div class="col-md">
-          <BsToggleButton v-model="selectedDrink" :items="drinks" color="default-color" readonly />
+          <BsToggleButton v-model="selectedDrink" :items="drinks" readonly />
         </div>
       </div>
       <div class="row">
@@ -22,29 +22,25 @@
         </div>
       </div>
     </DemoBlock>
+
     <h2 class="mt-5">Multiple Selection</h2>
     <DemoBlock class="mt-4">
       <BsCardContent type="subtitle"> What is your favorites drink? </BsCardContent>
       <div class="row my-3">
         <label class="col-md-3 col-xl-2 col-form-label"> My favorites are </label>
         <div class="col-md">
-          <BsToggleButton v-model="favoriteDrinks" :items="drinks" color="default-color" multiple />
+          <BsToggleButton v-model="favoriteDrinks" :items="drinks" color="primary" multiple />
         </div>
       </div>
     </DemoBlock>
-    <h2 class="mt-5">Toggle Button Styles</h2>
+
+    <h2 class="mt-5">Style Variants</h2>
     <DemoBlock class="mt-4">
       <BsCardContent type="subtitle"> How is the weather today? </BsCardContent>
       <div class="row my-3">
-        <label class="col-md-3 col-xl-2 col-form-label"> Rounded style </label>
+        <label class="col-md-3 col-xl-2 col-form-label"> Rounded </label>
         <div class="col-md">
-          <BsToggleButton
-            v-model="selectedWeather"
-            :items="weathers"
-            :pill="false"
-            color="primary"
-            rounded
-          >
+          <BsToggleButton v-model="selectedWeather" :items="weathers" color="primary" rounded>
             <template #icon="item">
               <BsIconSvg
                 :icon="(item?.value === selectedWeather ? 'check' : item?.icon) as string"
@@ -54,27 +50,27 @@
         </div>
       </div>
       <div class="row my-3">
-        <label class="col-md-3 col-xl-2 col-form-label"> Raised style </label>
+        <label class="col-md-3 col-xl-2 col-form-label"> Elevated </label>
         <div class="col-md">
-          <BsToggleButton v-model="selectedWeather" :items="weathers" color="primary" raised />
+          <BsToggleButton v-model="selectedWeather" :items="weathers" raised />
         </div>
       </div>
       <div class="row mb-3">
-        <label class="col-md-3 col-xl-2 col-form-label"> Outlined style </label>
+        <label class="col-md-3 col-xl-2 col-form-label"> Tonal </label>
+        <div class="col-md">
+          <BsToggleButton v-model="selectedWeather" :items="weathers" icon-position="right" tonal />
+        </div>
+      </div>
+      <div class="row mb-3">
+        <label class="col-md-3 col-xl-2 col-form-label"> Outlined </label>
         <div class="col-md">
           <BsToggleButton
             v-model="selectedWeather"
             :items="weathers"
-            color="indigo"
+            color="success"
             icon-position="right"
             outlined
           />
-        </div>
-      </div>
-      <div class="row">
-        <label class="col-md-3 col-xl-2 col-form-label"> Flat style </label>
-        <div class="col-md">
-          <BsToggleButton v-model="selectedWeather" :items="weathers" color="red" flat />
         </div>
       </div>
     </DemoBlock>

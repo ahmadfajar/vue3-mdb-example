@@ -6,33 +6,23 @@
       <BsToggleField v-model="selectedDrink" :items="drinks" class="mb-4">
         <label class="col-md-3 col-xl-2 col-form-label"> Normal State </label>
       </BsToggleField>
-      <BsToggleField
-        v-model="selectedDrink"
-        :items="drinks"
-        class="mb-4"
-        color="default-color"
-        readonly
-      >
+      <BsToggleField v-model="selectedDrink" :items="drinks" class="mb-4" readonly>
         <label class="col-md-3 col-xl-2 col-form-label"> Readonly State </label>
       </BsToggleField>
-      <BsToggleField v-model="selectedDrink" :items="drinks" class="mb-2" disabled>
+      <BsToggleField v-model="selectedDrink" :items="drinks" disabled>
         <label class="col-md-3 col-xl-2 col-form-label"> Disabled State </label>
       </BsToggleField>
     </DemoBlock>
+
     <h2 class="mt-5">Multiple Selection</h2>
     <DemoBlock class="mt-4">
       <BsCardContent class="mb-4" type="subtitle"> What is your favorites drink? </BsCardContent>
-      <BsToggleField
-        v-model="favoriteDrinks"
-        :items="drinks"
-        class="mb-2"
-        color="default-color"
-        multiple
-      >
+      <BsToggleField v-model="favoriteDrinks" :items="drinks" class="mb-2" color="primary" multiple>
         <label class="col-md-3 col-xl-2 col-form-label"> My favorites are </label>
       </BsToggleField>
     </DemoBlock>
-    <h2 class="mt-5">Toggle Styles</h2>
+
+    <h2 class="mt-5">Style Variants</h2>
     <DemoBlock class="mt-4">
       <BsCardContent class="mb-4" type="subtitle"> How is the weather today? </BsCardContent>
       <BsToggleField
@@ -43,31 +33,35 @@
         color="primary"
         rounded
       >
-        <label class="col-md-3 col-xl-2 col-form-label"> Rounded style </label>
+        <label class="col-md-3 col-xl-2 col-form-label"> Rounded </label>
+        <template #icon="item">
+          <BsSvgIcon :icon="item?.value === selectedWeather ? 'check' : (item.icon as string)" />
+        </template>
+      </BsToggleField>
+      <BsToggleField v-model="selectedWeather" :items="weathers" class="mb-4" raised>
+        <label class="col-md-3 col-xl-2 col-form-label"> Elevated </label>
       </BsToggleField>
       <BsToggleField
         v-model="selectedWeather"
         :items="weathers"
         class="mb-4"
-        color="primary"
-        raised
+        icon-position="right"
+        tonal
       >
-        <label class="col-md-3 col-xl-2 col-form-label"> Raised style </label>
+        <label class="col-md-3 col-xl-2 col-form-label"> Tonal </label>
       </BsToggleField>
       <BsToggleField
         v-model="selectedWeather"
         :items="weathers"
-        class="mb-4"
-        color="indigo"
+        class="mb-3"
+        color="success"
         icon-position="right"
         outlined
       >
-        <label class="col-md-3 col-xl-2 col-form-label"> Outlined style </label>
-      </BsToggleField>
-      <BsToggleField v-model="selectedWeather" :items="weathers" class="mb-2" color="red" flat>
-        <label class="col-md-3 col-xl-2 col-form-label"> Flat style </label>
+        <label class="col-md-3 col-xl-2 col-form-label"> Outlined </label>
       </BsToggleField>
     </DemoBlock>
+
     <h2 class="mt-5">Help Text</h2>
     <DemoBlock class="mt-4">
       <bs-card-content class="mb-4" type="subtitle"> Persistent help text </bs-card-content>
@@ -91,27 +85,17 @@
         <label class="col-md-3 col-xl-2 col-form-label"> Favorite Drink </label>
       </bs-toggle-field>
     </DemoBlock>
+
     <h2 class="mt-5">Used With Other Input Controls</h2>
     <DemoBlock class="mt-4">
       <div class="mt-3" style="max-width: 700px">
         <BsTextField v-model="textField" class="mb-4" clear-button filled>
           <label class="col-md-4 col-xl-3 col-form-label">Your Name</label>
         </BsTextField>
-        <bs-toggle-field
-          v-model="favoriteDrink1"
-          :items="drinks"
-          class="mb-4"
-          color="default-color"
-        >
+        <bs-toggle-field v-model="favoriteDrink1" :items="drinks" class="mb-4">
           <label class="col-md-4 col-xl-3 col-form-label"> Favorite Drink </label>
         </bs-toggle-field>
-        <BsRadioGroup
-          v-model="occupation"
-          :column="1"
-          :items="occupations"
-          class="mb-3"
-          color="default-color"
-        >
+        <BsRadioGroup v-model="occupation" :column="1" :items="occupations" class="mb-3">
           <label class="col-md-4 col-xl-3 col-form-label"> Occupation </label>
         </BsRadioGroup>
       </div>
