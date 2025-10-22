@@ -2,71 +2,103 @@
   <div class="docs-body container-lg mx-auto">
     <h2>Overview</h2>
     <DemoBlock class="mt-3">
-      <BsAlert> Simple alert with primary color </BsAlert>
-      <BsAlert color="secondary"> Simple info alert with secondary color </BsAlert>
-      <BsAlert color="success"> Simple alert with success color </BsAlert>
-      <BsAlert color="danger"> Simple alert with danger color </BsAlert>
-      <BsAlert color="warning"> Simple alert with warning color </BsAlert>
-      <BsAlert color="info"> Simple info alert with info color </BsAlert>
+      <BsAlert> Simple alert with <span class="font-weight-semibold">primary color</span> </BsAlert>
+      <BsAlert color="secondary">
+        Simple alert with <span class="font-weight-semibold">secondary color</span>
+      </BsAlert>
+      <BsAlert color="success">
+        Simple alert with <span class="font-weight-semibold">success color</span>
+      </BsAlert>
+      <BsAlert color="danger">
+        Simple alert with <span class="font-weight-semibold">danger color</span>
+      </BsAlert>
+      <BsAlert color="warning">
+        Simple alert with <span class="font-weight-semibold">warning color</span>
+      </BsAlert>
+      <BsAlert color="info">
+        Simple alert with <span class="font-weight-semibold">info color</span>
+      </BsAlert>
     </DemoBlock>
+
     <h2 class="mt-5">Solid Fill Style</h2>
     <DemoBlock class="mt-3">
-      <BsAlert filled> Solid alert with primary color </BsAlert>
-      <BsAlert color="success" filled> Solid alert with success color </BsAlert>
-      <BsAlert color="danger" filled> Solid alert with danger color </BsAlert>
-      <BsAlert color="warning" filled> Solid alert with warning color </BsAlert>
-      <BsAlert color="info" filled> Solid info alert with info color </BsAlert>
+      <BsAlert filled>
+        Solid alert with <span class="font-weight-semibold">primary color</span>
+      </BsAlert>
+      <BsAlert color="secondary" filled>
+        Solid alert with <span class="font-weight-semibold">secondary color</span>
+      </BsAlert>
+      <BsAlert color="success" filled>
+        Solid alert with <span class="font-weight-semibold">success color</span>
+      </BsAlert>
+      <BsAlert color="danger" filled>
+        Solid alert with <span class="font-weight-semibold">danger color</span>
+      </BsAlert>
+      <BsAlert color="warning" filled>
+        Solid alert with <span class="font-weight-semibold">warning color</span>
+      </BsAlert>
+      <BsAlert color="info" filled>
+        Solid alert with <span class="font-weight-semibold">info color</span>
+      </BsAlert>
     </DemoBlock>
+
     <h2 class="mt-5">Outline Style</h2>
     <DemoBlock class="mt-3">
       <BsAlert outlined> Outlined alert with primary color </BsAlert>
+      <BsAlert color="secondary" outlined> Outlined alert with secondary color </BsAlert>
       <BsAlert color="success" outlined> Outlined alert with success color </BsAlert>
       <BsAlert color="danger" outlined> Outlined alert with danger color </BsAlert>
       <BsAlert color="warning" outlined> Outlined alert with warning color </BsAlert>
-      <BsAlert color="info" outlined> Outlined info alert with info color </BsAlert>
+      <BsAlert color="info" outlined> Outlined alert with info color </BsAlert>
     </DemoBlock>
+
     <h2 class="mt-5">Predefined Contextual Alert</h2>
     <DemoBlock class="mt-3">
       <BsAlert filled icon-variant="filled" variant="success">
-        {{ content }} a predefined contextual <span class="md-fw-semibold">Success Alert</span>.
+        {{ content }} a predefined contextual
+        <span class="font-weight-semibold">Success Alert</span>.
       </BsAlert>
       <BsAlert filled icon-variant="filled" variant="info">
-        {{ content }} a predefined contextual <span class="md-fw-semibold">Info Alert</span>.
+        {{ content }} a predefined contextual <span class="font-weight-semibold">Info Alert</span>.
       </BsAlert>
       <BsAlert filled icon-variant="filled" variant="warning">
-        {{ content }} a predefined contextual <span class="md-fw-semibold">Warning Alert</span>.
+        {{ content }} a predefined contextual
+        <span class="font-weight-semibold">Warning Alert</span>.
       </BsAlert>
       <BsAlert filled variant="danger">
-        {{ content }} a predefined contextual <span class="md-fw-semibold">Danger Alert</span>.
+        {{ content }} a predefined contextual
+        <span class="font-weight-semibold">Danger Alert</span>.
       </BsAlert>
       <BsAlert filled variant="help">
-        {{ content }} a predefined contextual <span class="md-fw-semibold">Help Alert</span>.
+        {{ content }} a predefined contextual <span class="font-weight-semibold">Help Alert</span>.
       </BsAlert>
     </DemoBlock>
+
     <h2 class="mt-5">Custom Icon</h2>
     <DemoBlock class="mt-3">
-      <BsAlert color="green" icon="verified">
-        {{ content }} alert with <span class="md-fw-semibold">custom Icon</span>.
+      <BsAlert color="success" icon="verified">
+        {{ content }} alert with <span class="font-weight-semibold">custom Icon</span>.
       </BsAlert>
-      <BsAlert color="orange" icon="help_center" icon-variant="filled">
-        {{ content }} alert with <span class="md-fw-semibold">custom Icon</span>.
+      <BsAlert color="default" icon="help_center" icon-variant="filled">
+        {{ content }} alert with <span class="font-weight-semibold">custom Icon</span>.
       </BsAlert>
       <BsAlert color="danger" icon="dangerous" icon-variant="filled">
-        {{ content }} alert with <span class="md-fw-semibold">custom Icon</span>.
+        {{ content }} alert with <span class="font-weight-semibold">custom Icon</span>.
       </BsAlert>
-      <BsAlert color="deep-purple" icon-variant="filled">
+      <BsAlert color="primary" icon-variant="filled">
         <template #icon>
           <icon-circle-nodes class="md-spin" />
         </template>
-        {{ content }} alert with <span class="md-fw-semibold">custom Icon</span>.
+        {{ content }} alert with <span class="font-weight-semibold">custom Icon</span>.
       </BsAlert>
-      <BsAlert color="blue" icon-variant="filled">
-        {{ content }} alert with <span class="md-fw-semibold">custom Icon</span>.
+      <BsAlert color="warning" icon-variant="filled">
+        {{ content }} alert with <span class="font-weight-semibold">custom Icon</span>.
         <template #icon>
           <icon-bullhorn />
         </template>
       </BsAlert>
     </DemoBlock>
+
     <h2 class="mt-5">Additional content inside alerts</h2>
     <DemoBlock class="mt-3">
       <BsAlert filled icon-variant="filled" variant="success">
@@ -79,35 +111,38 @@
         <p>Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p>
       </BsAlert>
     </DemoBlock>
+
     <h2 class="mt-5">Dismissible alerts</h2>
     <DemoBlock class="mt-3">
-      <bs-alert color="primary" dismissible filled>
+      <BsAlert color="primary" dismissible filled>
         Simple alert with primary color. Click the close button over there
-      </bs-alert>
-      <bs-alert color="info" dismissible>
-        Simple info alert with info color. Click the close button over there
-      </bs-alert>
-      <bs-alert color="danger" dismissible outlined>
+        <BsFontawesomeIcon icon="hand-pointer" rotate="90" />
+      </BsAlert>
+      <BsAlert color="success" dismissible filled>
         Simple alert with success color. Click the close button over there
-      </bs-alert>
+      </BsAlert>
+      <BsAlert color="danger" dismissible outlined>
+        Simple alert with danger color. Click the close button over there
+      </BsAlert>
     </DemoBlock>
+
     <h2 class="mt-5">Controlling dismissible alert</h2>
     <DemoBlock class="mt-3">
-      <bs-alert v-model="showDismissibleAlert1" color="teal" dismissible>
+      <BsAlert v-model="showDismissibleAlert1" color="danger" dismissible>
         This is a dismissible alert.
-      </bs-alert>
-      <bs-alert v-model="showDismissibleAlert2" dismissible @close="closeAlert">
+      </BsAlert>
+      <BsAlert v-model="showDismissibleAlert2" dismissible @close="closeAlert">
         <div class="pb-2">This alert will dismiss after {{ dismissCountDown }} seconds...</div>
-        <bs-progress v-model="percentProgress" color="pink" mode="determinate" type="bar" />
-      </bs-alert>
-      <div class="row">
-        <div class="col-12 col-md-6 mb-3 mb-md-0">
-          <BsButton color="default-color" @click="toggleAlert">
+        <bs-progress v-model="percentProgress" mode="determinate" type="bar" />
+      </BsAlert>
+      <div class="row gy-3">
+        <div class="col-12 col-md-6">
+          <BsButton @click="toggleAlert">
             {{ showDismissibleAlert1 ? 'Hide' : 'Show' }} dismissible Alert
           </BsButton>
         </div>
-        <div class="col-12 col-md-6 mb-3 mb-md-0">
-          <BsButton color="default-color" @click="showAlert"> Show Alert with timer </BsButton>
+        <div class="col-12 col-md-6">
+          <BsButton @click="showAlert"> Show Alert with timer </BsButton>
         </div>
       </div>
     </DemoBlock>
@@ -118,8 +153,8 @@
 import { computed, ref, watch } from 'vue';
 import { IconBullhorn, IconCircleNodes } from '@shares/sharedApi';
 
-const content =
-  'Aww yeah, you successfully read this alert message. This is an example how to construct';
+// prettier-ignore
+const content = 'Aww yeah, you successfully read this alert message. This is an example how to construct';
 
 const dismissSecs = 10;
 const dismissCountDown = ref(0);

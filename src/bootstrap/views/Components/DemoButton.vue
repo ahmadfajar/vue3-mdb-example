@@ -10,6 +10,7 @@
         </template>
       </div>
     </DemoBlock>
+
     <h2 class="mt-5">Style Variants</h2>
     <h4 class="mt-3">Rounded Style</h4>
     <DemoBlock class="docs-demo-ctrl mt-4">
@@ -71,6 +72,7 @@
         </template>
       </div>
     </DemoBlock>
+
     <h2 class="mt-5">Button Size</h2>
     <DemoBlock class="mt-4">
       <div class="row items-center">
@@ -102,6 +104,7 @@
         </div>
       </div>
     </DemoBlock>
+
     <h2 class="mt-5">Button with Icon</h2>
     <DemoBlock class="mt-4">
       <div class="row text-center">
@@ -144,7 +147,7 @@
         <div class="col-12 col-sm-6 col-xl-3 mb-3">
           <BsButton>
             <template #icon>
-              <BsIconSpinner spin size="22" />
+              <BsSpinnerIcon spin size="22" />
             </template>
             Custom Icon-Spin
           </BsButton>
@@ -152,7 +155,7 @@
         <div class="col-12 col-sm-6 col-xl-3 mb-3">
           <BsButton icon-position="right">
             <template #icon>
-              <BsIconSpinner pulse size="22" />
+              <BsSpinnerIcon pulse size="22" />
             </template>
             Custom Icon-Pulse
           </BsButton>
@@ -167,6 +170,7 @@
         </div>
       </div>
     </DemoBlock>
+
     <h2 class="mt-5" id="button-groups">Button Groups</h2>
     <h4 class="mt-3" id="basic-example">Basic Example</h4>
     <DemoBlock class="mt-4">
@@ -254,6 +258,7 @@
         </div>
       </div>
     </DemoBlock>
+
     <h2 class="mt-5" id="icon-button">Icon Button</h2>
     <DemoBlock class="mt-4">
       <div class="flex items-center md-gap-4 mb-4">
@@ -287,6 +292,7 @@
         </BsButton>
       </div>
     </DemoBlock>
+
     <h2 class="mt-5" id="fab-button">FAB Button</h2>
     <h4 class="mt-3" id="fab-default">Default FAB</h4>
     <DemoBlock class="mt-4">

@@ -17,7 +17,7 @@ const router = createRouter({
 
 router.beforeEach((to, _from, next) => {
   document.title = `${to.meta.title} | Vue MDBootstrap Demos`;
-  document.querySelector('.md-content-wrap')?.scrollTo({ top: 0, behavior: 'smooth' });
+  window.scrollTo({ top: 0, behavior: 'smooth' });
   next();
 });
 

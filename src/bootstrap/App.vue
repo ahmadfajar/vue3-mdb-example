@@ -10,7 +10,7 @@
       />
       <BsAppbarTitle :title="$route.meta.title as string" />
     </BsAppbar>
-    <BsSideDrawer v-model:open="openSideDrawer" fixed-layout>
+    <BsSideDrawer v-model:open="openSideDrawer" class="border-end" fixed-layout>
       <div class="flex justify-center my-2">
         <img alt="Vue logo" src="/assets/vue-mdb.png" style="width: 96px" />
       </div>
