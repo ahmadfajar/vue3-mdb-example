@@ -8,6 +8,7 @@
       <h5>Example heading <BsBadge>New</BsBadge></h5>
       <h6>Example heading <BsBadge>New</BsBadge></h6>
     </DemoBlock>
+
     <h2 class="mt-5">Inside Button</h2>
     <DemoBlock class="mt-3">
       <BsButton color="primary">
@@ -15,9 +16,11 @@
         <BsBadge class="ms-2" variant="light"> 9 </BsBadge>
       </BsButton>
     </DemoBlock>
-    <h2 class="mt-5">Contextual Variation</h2>
+
+    <h2 class="mt-5">Color Variants</h2>
+    <h4 class="mt-4">Contextual Colors</h4>
     <DemoBlock class="mt-3">
-      <div>
+      <div class="flex flex-wrap md-gap-2">
         <BsBadge variant="default"> Default </BsBadge>
         <BsBadge variant="primary"> Primary </BsBadge>
         <BsBadge variant="secondary"> Secondary </BsBadge>
@@ -27,7 +30,10 @@
         <BsBadge variant="info"> Info </BsBadge>
         <BsBadge variant="light"> Light </BsBadge>
       </div>
-      <div class="mt-3">
+    </DemoBlock>
+    <h4 class="mt-4">Custom Colors</h4>
+    <DemoBlock class="mt-3">
+      <div class="flex flex-wrap md-gap-2">
         <BsBadge color="primary-color-dark text-white"> primary-color-dark </BsBadge>
         <BsBadge color="default-color-dark text-white"> default-color-dark </BsBadge>
         <BsBadge color="elegant-color text-white"> elegant-color </BsBadge>
@@ -38,38 +44,65 @@
         <BsBadge color="purple text-white"> purple </BsBadge>
       </div>
     </DemoBlock>
-    <h2 class="mt-5">Pill Badges</h2>
+
+    <h2 class="mt-5">Style Variants</h2>
+    <h4 class="mt-3">Pills</h4>
     <DemoBlock class="mt-3">
-      <BsBadge type="pill" variant="default"> Default </BsBadge>
-      <BsBadge type="pill" variant="primary"> Primary </BsBadge>
-      <BsBadge type="pill" variant="secondary"> Secondary </BsBadge>
-      <BsBadge type="pill" variant="success"> Success </BsBadge>
-      <BsBadge type="pill" variant="danger"> Danger </BsBadge>
-      <BsBadge type="pill" variant="warning"> Warning </BsBadge>
-      <BsBadge type="pill" variant="info"> Info </BsBadge>
-      <BsBadge type="pill" variant="light"> Light </BsBadge>
+      <div class="flex flex-wrap md-gap-2">
+        <BsBadge type="pill" variant="default"> Default </BsBadge>
+        <BsBadge type="pill" variant="primary"> Primary </BsBadge>
+        <BsBadge type="pill" variant="secondary"> Secondary </BsBadge>
+        <BsBadge type="pill" variant="success"> Success </BsBadge>
+        <BsBadge type="pill" variant="danger"> Danger </BsBadge>
+        <BsBadge type="pill" variant="warning"> Warning </BsBadge>
+        <BsBadge type="pill" variant="info"> Info </BsBadge>
+      </div>
     </DemoBlock>
-    <h2 class="mt-5">Label Badges</h2>
+    <h4 class="mt-5">Label</h4>
     <DemoBlock class="mt-3">
-      <BsBadge type="label" variant="default"> Default </BsBadge>
-      <BsBadge type="label" variant="primary"> Primary </BsBadge>
-      <BsBadge type="label" variant="secondary"> Secondary </BsBadge>
-      <BsBadge type="label" variant="success"> Success </BsBadge>
-      <BsBadge type="label" variant="danger"> Danger </BsBadge>
-      <BsBadge type="label" variant="warning"> Warning </BsBadge>
-      <BsBadge type="label" variant="info"> Info </BsBadge>
-      <BsBadge type="label" variant="light"> Light </BsBadge>
+      <div class="flex flex-wrap md-gap-2">
+        <BsBadge type="label" variant="default"> Default </BsBadge>
+        <BsBadge type="label" variant="primary"> Primary </BsBadge>
+        <BsBadge type="label" variant="secondary"> Secondary </BsBadge>
+        <BsBadge type="label" variant="success"> Success </BsBadge>
+        <BsBadge type="label" variant="danger"> Danger </BsBadge>
+        <BsBadge type="label" variant="warning"> Warning </BsBadge>
+        <BsBadge type="label" variant="info"> Info </BsBadge>
+      </div>
     </DemoBlock>
+    <h4 class="mt-5">Outlined</h4>
+    <DemoBlock class="mt-3">
+      <div class="flex flex-wrap md-gap-2 mb-3">
+        <BsBadge outlined type="pill" variant="default"> Default </BsBadge>
+        <BsBadge outlined type="pill" variant="primary"> Primary </BsBadge>
+        <BsBadge outlined type="pill" variant="secondary"> Secondary </BsBadge>
+        <BsBadge outlined type="pill" variant="success"> Success </BsBadge>
+        <BsBadge outlined type="pill" variant="danger"> Danger </BsBadge>
+        <BsBadge outlined type="pill" variant="warning"> Warning </BsBadge>
+        <BsBadge outlined type="pill" variant="info"> Info </BsBadge>
+      </div>
+      <div class="flex flex-wrap md-gap-2">
+        <BsBadge outlined type="label" variant="default"> Default </BsBadge>
+        <BsBadge outlined type="label" variant="primary"> Primary </BsBadge>
+        <BsBadge outlined type="label" variant="secondary"> Secondary </BsBadge>
+        <BsBadge outlined type="label" variant="success"> Success </BsBadge>
+        <BsBadge outlined type="label" variant="danger"> Danger </BsBadge>
+        <BsBadge outlined type="label" variant="warning"> Warning </BsBadge>
+        <BsBadge outlined type="label" variant="info"> Info </BsBadge>
+      </div>
+    </DemoBlock>
+
     <h2 class="mt-5">Actionable Badges</h2>
     <DemoBlock class="mt-3">
-      <BsBadge href="/components/badge" tag="a" variant="default"> Default </BsBadge>
-      <BsBadge href="/components/badge" tag="a" variant="primary"> Primary </BsBadge>
-      <BsBadge href="/components/badge" tag="a" variant="secondary"> Secondary </BsBadge>
-      <BsBadge href="/components/badge" tag="a" variant="success"> Success </BsBadge>
-      <BsBadge href="/components/badge" tag="a" variant="danger"> Danger </BsBadge>
-      <BsBadge href="/components/badge" tag="a" variant="warning"> Warning </BsBadge>
-      <BsBadge href="/components/badge" tag="a" variant="info"> Info </BsBadge>
-      <BsBadge href="/components/badge" tag="a" variant="light"> Light </BsBadge>
+      <div class="flex flex-wrap md-gap-2">
+        <BsBadge href="/components/badge" tag="a" variant="default"> Default </BsBadge>
+        <BsBadge href="/components/badge" tag="a" variant="primary"> Primary </BsBadge>
+        <BsBadge href="/components/badge" tag="a" variant="secondary"> Secondary </BsBadge>
+        <BsBadge href="/components/badge" tag="a" variant="success"> Success </BsBadge>
+        <BsBadge href="/components/badge" tag="a" variant="danger"> Danger </BsBadge>
+        <BsBadge href="/components/badge" tag="a" variant="warning"> Warning </BsBadge>
+        <BsBadge href="/components/badge" tag="a" variant="info"> Info </BsBadge>
+      </div>
     </DemoBlock>
   </div>
 </template>
