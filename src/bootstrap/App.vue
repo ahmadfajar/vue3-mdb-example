@@ -86,6 +86,7 @@ const routeNavB = menuNavs.filter((it) => it.group === 'Reference').sort(compare
 
 <style lang="scss">
 @use 'vue-mdbootstrap/scss/mixins/css3/borders';
+@use 'vue-mdbootstrap/scss/variables' as vars;
 
 .fastFade-enter-active,
 .fastFade-leave-active {
@@ -101,9 +102,9 @@ const routeNavB = menuNavs.filter((it) => it.group === 'Reference').sort(compare
   .md-content-wrap {
     padding-bottom: 2rem;
 
-    @media (min-width: 992px) {
-      @include borders.top-start-radius(36px);
-    }
+    //@media (min-width: 992px) {
+    //  @include borders.top-start-radius(36px);
+    //}
   }
 }
 
