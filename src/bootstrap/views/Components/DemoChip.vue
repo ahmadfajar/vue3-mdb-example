@@ -2,125 +2,143 @@
   <div class="docs-body container-lg mx-auto">
     <h2 id="overview">Overview</h2>
     <DemoBlock class="docs-demo-ctrl mt-4">
-      <template v-for="color in colorVariants" :key="color">
-        <BsChip href="javascript:;" :color="color" class="mb-3">
-          {{ StringHelper.titleCase(color) }}
-        </BsChip>
-      </template>
+      <div class="flex flex-wrap">
+        <template v-for="(_color, name) in contextColors" :key="_color">
+          <BsChip v-if="name !== 'dark'" :color="name">
+            {{ StringHelper.titleCase(name) }}
+          </BsChip>
+        </template>
+      </div>
     </DemoBlock>
-    <h4 class="mt-5" id="pill-styles">Pill Styles</h4>
+
+    <h2 class="mt-5" id="href-element">Element Type</h2>
     <DemoBlock class="docs-demo-ctrl mt-4">
-      <template v-for="color in colorVariants" :key="color">
-        <BsChip href="javascript:void(0)" :color="color" class="mb-3" pill>
-          {{ StringHelper.titleCase(color) }}
-        </BsChip>
-      </template>
+      <div class="flex flex-wrap">
+        <template v-for="(_color, name) in contextColors" :key="_color">
+          <BsChip v-if="name !== 'dark'" href="javascript:void(0)" :color="name">
+            {{ StringHelper.titleCase(name) }}
+          </BsChip>
+        </template>
+      </div>
     </DemoBlock>
-    <h4 class="mt-5" id="outlined-styles">Outlined Styles</h4>
+
+    <h2 class="mt-5" id="variants">Style Variants</h2>
+    <h4 class="mt-4" id="pill-styles">Rounded Pill</h4>
     <DemoBlock class="docs-demo-ctrl mt-4">
-      <template v-for="color in colorVariants" :key="color">
-        <BsChip href="javascript:void(0)" :color="color" class="mb-3" outlined>
-          {{ StringHelper.titleCase(color) }}
-        </BsChip>
-      </template>
+      <div class="flex flex-wrap">
+        <template v-for="(_color, name) in contextColors" :key="_color">
+          <BsChip v-if="name !== 'dark'" :color="name" pill>
+            {{ StringHelper.titleCase(name) }}
+          </BsChip>
+        </template>
+      </div>
     </DemoBlock>
+    <h4 class="mt-5" id="outlined-styles">Outlined</h4>
+    <DemoBlock class="docs-demo-ctrl mt-4">
+      <div class="flex flex-wrap">
+        <template v-for="(_color, name) in contextColors" :key="_color">
+          <BsChip v-if="name !== 'dark'" :color="name" outlined>
+            {{ StringHelper.titleCase(name) }}
+          </BsChip>
+        </template>
+      </div>
+    </DemoBlock>
+
     <h2 class="mt-5" id="chip-states">Chip States</h2>
     <DemoBlock class="docs-demo-ctrl mt-4">
-      <div class="mt-2">
-        <BsChip class="mb-3" color="primary" disabled> Primary Color : Disabled </BsChip>
-        <BsChip class="mb-3" color="success" disabled pill> Success Color : Disabled </BsChip>
+      <div class="h6 mt-3">Disabled</div>
+      <div class="flex">
+        <BsChip color="primary" disabled> Primary </BsChip>
+        <BsChip color="success" disabled pill> Success </BsChip>
       </div>
-      <div class="mt-2">
-        <template v-for="color in colorVariants.slice(0, 10)" :key="color">
-          <BsChip href="javascript:void(0)" :color="color" active class="mb-3">
-            {{ StringHelper.titleCase(color) }} : Active
+      <div class="h6 mt-3">Readonly</div>
+      <div class="flex flex-wrap">
+        <template v-for="(_color, name) in contextColors" :key="_color">
+          <BsChip v-if="name !== 'dark'" :color="name" readonly>
+            {{ StringHelper.titleCase(name) }}
           </BsChip>
         </template>
       </div>
-      <div class="h5 mt-3">Outline styles</div>
-      <div>
-        <template v-for="color in colorVariants.slice(0, 10)" :key="color">
-          <BsChip href="javascript:void(0)" :color="color" active class="mb-3" outlined>
-            {{ StringHelper.titleCase(color) }} : Active
+      <div class="h6 mt-3">Active</div>
+      <div class="flex flex-wrap">
+        <template v-for="(_color, name) in contextColors" :key="_color">
+          <BsChip v-if="name !== 'dark'" :color="name" active>
+            {{ StringHelper.titleCase(name) }}
+          </BsChip>
+        </template>
+      </div>
+      <hr />
+      <div class="h6 mt-4">Outlined Disabled</div>
+      <div class="flex">
+        <BsChip color="primary" disabled outlined> Primary </BsChip>
+        <BsChip color="success" disabled outlined pill> Success </BsChip>
+      </div>
+      <div class="h6 mt-3">Outlined Readonly</div>
+      <div class="flex flex-wrap">
+        <template v-for="(_color, name) in contextColors" :key="_color">
+          <BsChip v-if="name !== 'dark'" :color="name" outlined readonly>
+            {{ StringHelper.titleCase(name) }}
+          </BsChip>
+        </template>
+      </div>
+      <div class="h6 mt-3">Outlined Active</div>
+      <div class="flex flex-wrap">
+        <template v-for="(_color, name) in contextColors" :key="_color">
+          <BsChip v-if="name !== 'dark'" :color="name" active outlined>
+            {{ StringHelper.titleCase(name) }}
           </BsChip>
         </template>
       </div>
     </DemoBlock>
+
     <h2 class="mt-5">Click events</h2>
     <DemoBlock class="mt-4">
-      <div>
-        <BsChip
-          :active="chipDefaultActive"
-          outlined
-          @click="chipDefaultActive = !chipDefaultActive"
-        >
-          Default {{ chipDefaultActive ? ': Active' : '' }}
-        </BsChip>
-        <BsChip
-          :active="chipPrimaryActive"
-          color="primary"
-          outlined
-          @click="chipPrimaryActive = !chipPrimaryActive"
-        >
-          Primary {{ chipPrimaryActive ? ': Active' : '' }}
-        </BsChip>
-        <BsChip
-          :active="chipSuccessActive"
-          color="success"
-          outlined
-          @click="chipSuccessActive = !chipSuccessActive"
-        >
-          Success {{ chipSuccessActive ? ': Active' : '' }}
-        </BsChip>
-        <BsChip
-          :active="chipDangerActive"
-          color="danger"
-          outlined
-          @click="chipDangerActive = !chipDangerActive"
-        >
-          Danger {{ chipDangerActive ? ': Active' : '' }}
-        </BsChip>
+      <div class="flex flex-wrap mb-3">
+        <template v-for="(_color, name) in contextColors" :key="_color">
+          <BsChip
+            v-if="name !== 'dark'"
+            :active="chipState[name] as boolean"
+            :color="name"
+            @click="toggleState(name, !chipState[name])"
+          >
+            {{ StringHelper.titleCase(name) }}
+          </BsChip>
+        </template>
       </div>
-      <div class="mt-3">
-        <BsChip :active="chipDefaultActive" @click="chipDefaultActive = !chipDefaultActive">
-          Default {{ chipDefaultActive ? ': Active' : '' }}
-        </BsChip>
-        <BsChip
-          :active="chipPrimaryActive"
-          color="primary"
-          @click="chipPrimaryActive = !chipPrimaryActive"
-        >
-          Primary {{ chipPrimaryActive ? ': Active' : '' }}
-        </BsChip>
-        <BsChip
-          :active="chipSuccessActive"
-          color="success"
-          @click="chipSuccessActive = !chipSuccessActive"
-        >
-          Success {{ chipSuccessActive ? ': Active' : '' }}
-        </BsChip>
-        <BsChip
-          :active="chipDangerActive"
-          color="danger"
-          @click="chipDangerActive = !chipDangerActive"
-        >
-          Danger {{ chipDangerActive ? ': Active' : '' }}
-        </BsChip>
+      <div class="flex flex-wrap">
+        <template v-for="(_color, name) in contextColors" :key="_color">
+          <BsChip
+            v-if="name !== 'dark'"
+            :active="chipState[name] as boolean"
+            :color="name"
+            outlined
+            @click="toggleState(name, !chipState[name])"
+          >
+            {{ StringHelper.titleCase(name) }}
+          </BsChip>
+        </template>
       </div>
     </DemoBlock>
+
     <h2 class="mt-5">Chip Size</h2>
     <DemoBlock class="mt-4">
       <div>
-        <BsChip color="primary" size="sm"> Small Chip </BsChip>
-        <BsChip color="success"> Normal Chip </BsChip>
+        <BsChip color="default" size="sm"> Small Chip </BsChip>
+        <BsChip color="primary"> Normal Chip </BsChip>
         <BsChip color="danger" size="lg"> Large Chip </BsChip>
       </div>
       <div class="mt-3">
-        <BsChip color="primary" pill size="sm"> Small Chip </BsChip>
-        <BsChip color="success" pill> Normal Chip </BsChip>
+        <BsChip color="default" pill size="sm"> Small Chip </BsChip>
+        <BsChip color="primary" pill> Normal Chip </BsChip>
         <BsChip color="danger" pill size="lg"> Large Chip </BsChip>
       </div>
+      <div class="mt-3">
+        <BsChip color="default" outlined pill size="sm"> Small Chip </BsChip>
+        <BsChip color="primary" outlined pill> Normal Chip </BsChip>
+        <BsChip color="danger" outlined pill size="lg"> Large Chip </BsChip>
+      </div>
     </DemoBlock>
+
     <h2 class="mt-5">Chip Icon</h2>
     <DemoBlock class="mt-4">
       <div>
@@ -151,12 +169,13 @@
         </BsChip>
         <BsChip color="success" icon-position="right">
           <template #icon>
-            <icon-bullhorn height="18" width="18" />
+            <IconBullhorn height="18" width="18" />
           </template>
           Custom Icon
         </BsChip>
       </div>
     </DemoBlock>
+
     <h2 class="mt-5">Avatar</h2>
     <DemoBlock class="mt-4">
       <div>
@@ -240,23 +259,19 @@
     <DemoBlock class="mt-4">
       <div>
         <BsChip
-          :img-padding="false"
           color="primary"
+          img-padding-off
           img-src="https://ahmadfajar.github.io/img/2.jpg"
           size="sm"
         >
           Small Chip
         </BsChip>
-        <BsChip
-          :img-padding="false"
-          color="success"
-          img-src="https://ahmadfajar.github.io/img/2.jpg"
-        >
+        <BsChip color="success" img-padding-off img-src="https://ahmadfajar.github.io/img/2.jpg">
           Normal Chip
         </BsChip>
         <BsChip
-          :img-padding="false"
           color="danger"
+          img-padding-off
           img-src="https://ahmadfajar.github.io/img/2.jpg"
           size="lg"
         >
@@ -265,9 +280,9 @@
       </div>
       <div class="mt-3">
         <BsChip
-          :img-padding="false"
           color="primary"
           img-circle
+          img-padding-off
           img-src="https://ahmadfajar.github.io/img/2.jpg"
           pill
           size="sm"
@@ -275,18 +290,18 @@
           Small Chip
         </BsChip>
         <BsChip
-          :img-padding="false"
           color="success"
           img-circle
+          img-padding-off
           img-src="https://ahmadfajar.github.io/img/2.jpg"
           pill
         >
           Normal Chip
         </BsChip>
         <BsChip
-          :img-padding="false"
           color="danger"
           img-circle
+          img-padding-off
           img-src="https://ahmadfajar.github.io/img/2.jpg"
           pill
           size="lg"
@@ -296,8 +311,8 @@
       </div>
       <div class="mt-3">
         <BsChip
-          :img-padding="false"
           color="primary"
+          img-padding-off
           img-src="https://ahmadfajar.github.io/img/2.jpg"
           outlined
           size="sm"
@@ -305,16 +320,16 @@
           Small Chip
         </BsChip>
         <BsChip
-          :img-padding="false"
           color="success"
+          img-padding-off
           img-src="https://ahmadfajar.github.io/img/2.jpg"
           outlined
         >
           Normal Chip
         </BsChip>
         <BsChip
-          :img-padding="false"
           color="danger"
+          img-padding-off
           img-src="https://ahmadfajar.github.io/img/2.jpg"
           outlined
           size="lg"
@@ -324,9 +339,9 @@
       </div>
       <div class="mt-3">
         <BsChip
-          :img-padding="false"
           color="primary"
           img-circle
+          img-padding-off
           img-src="https://ahmadfajar.github.io/img/2.jpg"
           outlined
           pill
@@ -335,9 +350,9 @@
           Small Chip
         </BsChip>
         <BsChip
-          :img-padding="false"
           color="success"
           img-circle
+          img-padding-off
           img-src="https://ahmadfajar.github.io/img/2.jpg"
           outlined
           pill
@@ -345,9 +360,9 @@
           Normal Chip
         </BsChip>
         <BsChip
-          :img-padding="false"
           color="danger"
           img-circle
+          img-padding-off
           img-src="https://ahmadfajar.github.io/img/2.jpg"
           outlined
           pill
@@ -357,48 +372,65 @@
         </BsChip>
       </div>
     </DemoBlock>
+
     <h2 class="mt-5">Dismissible Chip</h2>
     <DemoBlock class="mt-4">
       <div>
-        <BsChip dismissible size="sm">Small Chip</BsChip>
+        <BsChip color="default" dismissible size="sm">Small Chip</BsChip>
         <BsChip color="primary" dismissible>Normal Chip</BsChip>
-        <BsChip color="success" dismissible size="lg">Large Chip</BsChip>
+        <BsChip color="danger" dismissible size="lg">Large Chip</BsChip>
+      </div>
+      <div>
+        <BsChip color="default" dismissible pill size="sm">Small Chip</BsChip>
+        <BsChip color="primary" dismissible pill>Normal Chip</BsChip>
+        <BsChip color="danger" dismissible pill size="lg">Large Chip</BsChip>
       </div>
       <div class="mt-3">
-        <BsChip dismissible outlined size="sm">Small Chip</BsChip>
+        <BsChip color="default" dismissible outlined size="sm">Small Chip</BsChip>
         <BsChip color="primary" dismissible outlined>Normal Chip</BsChip>
-        <BsChip color="success" dismissible outlined size="lg"> Large Chip </BsChip>
+        <BsChip color="danger" dismissible outlined size="lg"> Large Chip </BsChip>
       </div>
       <div class="mt-3">
-        <BsChip color="purple" dismissible outlined pill size="sm">Small Chip</BsChip>
-        <BsChip color="unique" dismissible outlined pill>Normal Chip</BsChip>
-        <BsChip color="default-color" dismissible outlined pill size="lg">Large Chip</BsChip>
+        <BsChip color="default" dismissible outlined pill size="sm">Small Chip</BsChip>
+        <BsChip color="primary" dismissible outlined pill>Normal Chip</BsChip>
+        <BsChip color="danger" dismissible outlined pill size="lg">Large Chip</BsChip>
       </div>
     </DemoBlock>
+
     <h4 class="mt-5">Controlling Dismissible Chip</h4>
     <DemoBlock class="mt-4">
-      <bs-button class="me-4" color="default-color" style="width: 130px" @click="toggleChip">
+      <bs-button class="me-4" style="width: 130px" @click="toggleDismissibleChip">
         {{ showDismissibleChip ? 'Hide' : 'Show' }} Chip
       </bs-button>
-      <BsChip v-model="showDismissibleChip" color="dark-blue" dismissible outlined>
-        Dismissible Chip
-      </BsChip>
+      <BsChip v-model="showDismissibleChip" color="primary" dismissible> Dismissible Chip </BsChip>
     </DemoBlock>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
-import { StringHelper } from 'vue-mdbootstrap';
-import { colorVariants, IconBullhorn } from '@shares/sharedApi';
+import { reactive, ref } from 'vue';
+import { StringHelper, type TRecord } from 'vue-mdbootstrap';
+import { contextColors } from '@shares/themeColors.ts';
+import { IconBullhorn } from '@shares/sharedApi.ts';
 
-const chipDefaultActive = ref(false);
-const chipPrimaryActive = ref(false);
-const chipSuccessActive = ref(false);
-const chipDangerActive = ref(false);
+const chipState = reactive<TRecord>({
+  default: false,
+  primary: false,
+  secondary: false,
+  success: false,
+  danger: false,
+  warning: false,
+  info: false,
+  light: false,
+});
+
 const showDismissibleChip = ref(true);
 
-function toggleChip() {
+function toggleState(name: string, state: boolean) {
+  chipState[name] = state;
+}
+
+function toggleDismissibleChip() {
   showDismissibleChip.value = !showDismissibleChip.value;
 }
 </script>
