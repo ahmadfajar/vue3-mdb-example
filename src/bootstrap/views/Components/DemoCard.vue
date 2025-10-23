@@ -4,7 +4,7 @@
     <DemoBlock class="mt-4">
       <div class="row row-cols-1 row-cols-md-2">
         <div class="col mb-3">
-          <BsCard class="text-dark" shadow>
+          <BsCard shadow>
             <BsCardBody>
               <BsCardContent type="title"> Card Title </BsCardContent>
               <BsCardContent class="mb-3" type="subtitle"> Card Subtitle </BsCardContent>
@@ -16,7 +16,7 @@
           </BsCard>
         </div>
         <div class="col mb-3">
-          <BsCard class="text-dark" shadow>
+          <BsCard shadow>
             <BsCardHeader>Card Header</BsCardHeader>
             <BsCardBody>
               <BsCardContent>{{ quickText }}</BsCardContent>
@@ -28,9 +28,9 @@
           </BsCard>
         </div>
         <div class="col mb-3 mb-md-0">
-          <BsCard class="text-dark" shadow>
+          <BsCard shadow>
             <BsImageHolder
-              class="card-img-top fs-1 md-fw-light"
+              class="card-img-top fs-1 font-weight-light"
               placeholder-text="Image"
               y-pos="60%"
             />
@@ -43,11 +43,11 @@
           </BsCard>
         </div>
         <div class="col">
-          <BsCard class="text-dark" shadow>
+          <BsCard shadow>
             <div class="row g-0">
               <div class="col-md-4">
                 <BsImageHolder
-                  class="card-img-start fs-2 md-fw-light"
+                  class="card-img-start fs-2 font-weight-light"
                   placeholder-text="Image"
                   y-pos="55%"
                 />
@@ -67,12 +67,12 @@
         </div>
       </div>
     </DemoBlock>
+
     <h2 class="mt-5">Content Media</h2>
     <DemoBlock class="mt-4">
-      <div class="row row-cols-1 row-cols-md-2">
-        <div class="col mb-3 mb-md-4">
+      <div class="row row-cols-1 row-cols-md-2 g-4">
+        <div class="col">
           <BsCard
-            class="text-dark"
             img-top-alt="Image Top"
             img-top-src="https://picsum.photos/id/29/600/300.jpg"
             shadow
@@ -83,8 +83,8 @@
             </BsCardBody>
           </BsCard>
         </div>
-        <div class="col mb-3 mb-md-4">
-          <BsCard class="bg-unique text-white" shadow>
+        <div class="col">
+          <BsCard border-off class="bg-unique text-white" shadow>
             <BsCardMedia subtitle="Image SubTitle" title="Image Title">
               <img alt="image" src="https://picsum.photos/id/25/600/300.jpg" />
             </BsCardMedia>
@@ -94,9 +94,8 @@
             </BsCardBody>
           </BsCard>
         </div>
-        <div class="col mb-3 mb-md-0">
+        <div class="col">
           <BsCard
-            class="text-dark"
             img-bottom-alt="Image Bottom"
             img-bottom-src="https://picsum.photos/id/425/600/300.jpg"
             shadow
@@ -120,11 +119,12 @@
         </div>
       </div>
     </DemoBlock>
+
     <h2 class="mt-5">Background Color</h2>
     <DemoBlock class="mt-4">
-      <div class="row row-cols-1 row-cols-md-2">
-        <div class="col mb-3 mb-md-4">
-          <BsCard class="bg-primary text-white" shadow>
+      <div class="row row-cols-1 row-cols-md-2 g-4">
+        <div class="col">
+          <BsCard class="text-bg-primary" shadow>
             <BsCardHeader>Card with bg-primary</BsCardHeader>
             <BsCardBody>
               <BsCardContent type="title"> Card Title </BsCardContent>
@@ -133,8 +133,8 @@
             <BsCardFooter>Card Footer</BsCardFooter>
           </BsCard>
         </div>
-        <div class="col mb-3 mb-md-4">
-          <BsCard class="bg-secondary text-white" shadow>
+        <div class="col">
+          <BsCard class="text-bg-secondary" shadow>
             <BsCardHeader>Card with bg-secondary</BsCardHeader>
             <BsCardBody>
               <BsCardContent type="title"> Card Title </BsCardContent>
@@ -143,9 +143,9 @@
             <BsCardFooter>Card Footer</BsCardFooter>
           </BsCard>
         </div>
-        <div class="col mb-3 mb-md-0">
-          <BsCard class="bg-indigo text-white" rounded-off shadow>
-            <BsCardHeader>Card with bg-indigo</BsCardHeader>
+        <div class="col">
+          <BsCard class="text-bg-danger" rounded-off shadow>
+            <BsCardHeader>Card with bg-danger</BsCardHeader>
             <BsCardBody>
               <BsCardContent type="title"> Card Title </BsCardContent>
               <BsCardContent>{{ quickText }}</BsCardContent>
@@ -165,12 +165,13 @@
         </div>
       </div>
     </DemoBlock>
+
     <h2 class="mt-5">Card Group</h2>
     <DemoBlock class="mt-4">
       <div class="card-group">
-        <BsCard class="text-dark">
+        <BsCard>
           <BsImageHolder
-            class="card-img-top fs-2 md-fw-light"
+            class="card-img-top fs-2 font-weight-light"
             placeholder-text="Image Caption"
             y-pos="60%"
           />
@@ -182,13 +183,13 @@
             </BsCardContent>
           </BsCardBody>
         </BsCard>
-        <BsCard class="text-dark">
+        <BsCard>
           <BsImageHolder
-            class="card-img-top fs-2 md-fw-light"
+            class="card-img-top fs-2 font-weight-light"
             placeholder-text="Image Caption"
             y-pos="60%"
           />
-          <BsCardBody class="card-body">
+          <BsCardBody>
             <BsCardContent type="title"> Card title </BsCardContent>
             <BsCardContent>{{ quickText }}</BsCardContent>
             <BsCardContent>
@@ -196,9 +197,9 @@
             </BsCardContent>
           </BsCardBody>
         </BsCard>
-        <BsCard class="text-dark">
+        <BsCard>
           <BsImageHolder
-            class="card-img-top fs-2 md-fw-light"
+            class="card-img-top fs-2 font-weight-light"
             placeholder-text="Image Caption"
             y-pos="60%"
           />
