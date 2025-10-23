@@ -35,9 +35,9 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.38.0",
-    "@types/lodash-es": "^4",
-    "@types/luxon": "^3",
-    "@types/node": "^24.8.1",
+    "@types/lodash-es": "^4.17.12",
+    "@types/luxon": "^3.7.1",
+    "@types/node": "^24.9.1",
     "@types/sass": "^1.45.0",
     "@types/vue": "^2.0.0",
     "@vitejs/plugin-vue": "^6.0.1",
@@ -53,8 +53,8 @@
     "sass": "^1.93.2",
     "terser": "^5.44.0",
     "typescript": "^5.9.3",
-    "typescript-eslint": "^8.46.1",
-    "vite": "^7.1.10",
+    "typescript-eslint": "^8.46.2",
+    "vite": "^7.1.12",
     "vue-eslint-parser": "^10.2.0",
     "vue-tsc": "^3.1.1"
   },

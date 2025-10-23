@@ -10,7 +10,7 @@
         </div>
         <div class="col-md flex justify-center">
           <BsTooltip content="I am a tooltip">
-            <BsIcon class="text-amber" icon="folder" size="28" />
+            <BsIcon class="text-primary" icon="folder" size="28" />
           </BsTooltip>
         </div>
         <div class="col-md">
