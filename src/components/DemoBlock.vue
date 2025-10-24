@@ -14,7 +14,7 @@
         <BsButton color="dark" flat icon="invert_colors" mode="icon" @click="darkenOrLighten" />
       </div>
     </div>
-    <div :style="styles" class="demo-block-content">
+    <div :class="cssClasses" :style="styles">
       <slot />
     </div>
     <BsColorPicker
@@ -41,6 +41,7 @@ const pickerColor = ref('#f2f5f8');
 const pickerMode = ref<TColorPickerMode>('HEX');
 const pickerShow = ref(false);
 const step = ref(-10);
+const cssClasses = ref(['demo-block-content']);
 const styles = reactive<Record<string, string>>({
   backgroundColor: pickerColor.value,
   color: '#212121',
@@ -61,13 +62,15 @@ watch(
     styles['--md-field-button-color'] = textColor;
 
     if (textColor.startsWith('#fff')) {
-      styles['--md-field-active-indicator'] = 'var(--md-field-accent-indicator-rgb)';
+      styles['--md-field-active-indicator'] = 'var(--md-field-accent-indicator)';
       styles['--md-field-button-active-bg'] = 'rgba(250,250,250,.25)';
       styles['--md-field-button-hover-bg'] = 'rgba(180,180,180,.15)';
+      cssClasses.value = ['demo-block-content', 'dark'];
     } else {
-      styles['--md-field-active-indicator'] = 'var(--md-field-primary-indicator-rgb)';
+      styles['--md-field-active-indicator'] = 'var(--md-field-primary-indicator)';
       styles['--md-field-button-active-bg'] = 'rgba(12,12,12,.25)';
       styles['--md-field-button-hover-bg'] = 'rgba(80,80,80,.2)';
+      cssClasses.value = ['demo-block-content'];
     }
   }
 );

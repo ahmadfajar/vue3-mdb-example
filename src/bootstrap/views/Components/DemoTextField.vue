@@ -1,40 +1,213 @@
 <template>
   <div class="docs-body container-lg mx-auto">
-    <h2>Overview</h2>
+    <h2>Basic Examples</h2>
+    <DemoBlock class="mt-4">
+      <div class="row ps-2">
+        <div class="col-12 col-lg-10 col-xl-8">
+          <div class="mb-3">
+            <BsTextField>
+              <label class="col-md-4 col-xl-3 col-form-label">Text Field</label>
+            </BsTextField>
+          </div>
+          <div class="mb-3">
+            <BsTextField type="password">
+              <label class="col-md-4 col-xl-3 col-form-label">Password Field</label>
+            </BsTextField>
+          </div>
+          <div class="mb-3">
+            <BsTextField model-value="Sandra Adam" readonly>
+              <label class="col-md-4 col-xl-3 col-form-label">State Readonly</label>
+            </BsTextField>
+          </div>
+          <div class="mb-3">
+            <BsTextField disabled model-value="Sandra Adam">
+              <label class="col-md-4 col-xl-3 col-form-label">State Disabled</label>
+            </BsTextField>
+          </div>
+        </div>
+      </div>
+    </DemoBlock>
+
+    <h2 class="mt-5">Style Variants</h2>
+    <h4 class="mt-4">Default</h4>
+    <DemoBlock class="mt-4">
+      <div class="row ps-2">
+        <div class="col-12 col-lg-10 col-xl-8">
+          <div class="mb-4">
+            <BsTextField>
+              <label class="col-md-4 col-xl-3 col-form-label">Classic Field</label>
+            </BsTextField>
+          </div>
+          <div class="mb-3">
+            <BsTextField floating-label>
+              <label>Floating Label</label>
+            </BsTextField>
+          </div>
+          <div class="mb-3">
+            <BsTextField floating-label placeholder="Placeholder">
+              <label>Field Label</label>
+            </BsTextField>
+          </div>
+        </div>
+      </div>
+    </DemoBlock>
+
+    <h4 class="mt-5">Filled</h4>
+    <DemoBlock class="mt-4">
+      <div class="row ps-2 mt-3">
+        <div class="col-12 col-lg-10 col-xl-8">
+          <div class="mb-4">
+            <BsTextField filled>
+              <label class="col-md-4 col-xl-3 col-form-label">Classic Field</label>
+            </BsTextField>
+          </div>
+          <hr />
+          <div class="mb-3">
+            <BsTextField filled floating-label>
+              <label>Floating Label</label>
+            </BsTextField>
+          </div>
+          <div class="mb-3">
+            <BsTextField filled floating-label placeholder="Placeholder">
+              <label>Field Label</label>
+            </BsTextField>
+          </div>
+        </div>
+      </div>
+    </DemoBlock>
+
+    <h4 class="mt-5">Rounded Filled</h4>
+    <DemoBlock class="mt-4">
+      <div class="row ps-2 mt-3">
+        <div class="col-12 col-lg-10 col-xl-8">
+          <div class="mb-4">
+            <BsTextField filled rounded>
+              <label class="col-md-4 col-xl-3 col-form-label">Classic Field</label>
+            </BsTextField>
+          </div>
+          <hr />
+          <div class="mb-3">
+            <BsTextField filled floating-label rounded>
+              <label>Floating Label</label>
+            </BsTextField>
+          </div>
+          <div class="mb-3">
+            <BsTextField filled floating-label placeholder="Placeholder" rounded>
+              <label>Field Label</label>
+            </BsTextField>
+          </div>
+        </div>
+      </div>
+    </DemoBlock>
+
+    <h4 class="mt-5">Outlined</h4>
+    <DemoBlock class="mt-4">
+      <div class="row ps-2 mt-3">
+        <div class="col-12 col-lg-10 col-xl-8">
+          <div class="mb-4">
+            <BsTextField outlined>
+              <label class="col-md-4 col-xl-3 col-form-label">Classic Field</label>
+            </BsTextField>
+          </div>
+          <hr />
+          <div class="mb-4">
+            <BsTextField floating-label outlined>
+              <label>Floating Label</label>
+            </BsTextField>
+          </div>
+          <div class="mb-3">
+            <BsTextField floating-label outlined placeholder="Placeholder">
+              <label>Field Label</label>
+            </BsTextField>
+          </div>
+        </div>
+      </div>
+    </DemoBlock>
+
+    <h4 class="mt-5">Rounded Outlined</h4>
+    <DemoBlock class="mt-4">
+      <div class="row ps-2 mt-3">
+        <div class="col-12 col-lg-10 col-xl-8">
+          <div class="mb-4">
+            <BsTextField outlined rounded>
+              <label class="col-md-4 col-xl-3 col-form-label">Classic Field</label>
+            </BsTextField>
+          </div>
+          <hr />
+          <div class="mb-4">
+            <BsTextField floating-label outlined rounded>
+              <label>Floating Label</label>
+            </BsTextField>
+          </div>
+          <div class="mb-3">
+            <BsTextField floating-label outlined placeholder="Placeholder" rounded>
+              <label>Field Label</label>
+            </BsTextField>
+          </div>
+        </div>
+      </div>
+    </DemoBlock>
+
+    <h2 class="mt-5">Field State</h2>
     <DemoBlock class="mt-4">
       <div class="row g-4 row-cols-1 row-cols-lg-2">
         <div class="col">
-          <BsTextField floating-label>
-            <label>Field Label</label>
+          <BsTextField v-model="textValue1" floating-label readonly>
+            <label>State Readonly</label>
           </BsTextField>
         </div>
         <div class="col">
-          <BsTextField floating-label placeholder="Placeholder">
-            <label>Field Label</label>
+          <BsTextField v-model="textValue1" disabled floating-label>
+            <label>State Disabled</label>
           </BsTextField>
         </div>
         <div class="col">
-          <BsTextField filled floating-label>
-            <label>Field Label</label>
+          <BsTextField
+            v-model="textValue1"
+            filled
+            floating-label
+            prepend-icon="local_shipping_filled"
+            readonly
+          >
+            <label>State Readonly</label>
           </BsTextField>
         </div>
         <div class="col">
-          <BsTextField filled floating-label placeholder="Placeholder">
-            <label>Field Label</label>
+          <BsTextField
+            v-model="textValue1"
+            disabled
+            filled
+            floating-label
+            prepend-icon="local_shipping_filled"
+          >
+            <label>State Disabled</label>
           </BsTextField>
         </div>
         <div class="col">
-          <BsTextField floating-label outlined>
-            <label>Field Label</label>
+          <BsTextField
+            v-model="textValue1"
+            floating-label
+            outlined
+            prepend-icon="local_shipping"
+            readonly
+          >
+            <label>State Readonly</label>
           </BsTextField>
         </div>
         <div class="col">
-          <BsTextField floating-label outlined placeholder="Placeholder">
-            <label>Field Label</label>
+          <BsTextField
+            v-model="textValue1"
+            disabled
+            floating-label
+            outlined
+            prepend-icon="local_shipping"
+          >
+            <label>State Disabled</label>
           </BsTextField>
         </div>
       </div>
     </DemoBlock>
+
     <h2 class="mt-5">Help Text</h2>
     <DemoBlock class="mt-4">
       <div class="row g-4 row-cols-1 row-cols-lg-2">
@@ -152,12 +325,14 @@
         </div>
       </div>
     </DemoBlock>
+
     <h2 class="mt-5">Other Features</h2>
+    <h4 class="mt-4">Browser Autocomplete</h4>
     <DemoBlock class="mt-4">
       <div class="row g-4 row-cols-1 row-cols-lg-2">
         <div class="col">
-          <BsTextField action-icon-variant="filled" clear-button floating-label type="password">
-            <label>Password</label>
+          <BsTextField action-icon-variant="filled" autocomplete="name" clear-button floating-label>
+            <label>Full Name</label>
           </BsTextField>
         </div>
         <div class="col">
@@ -171,74 +346,40 @@
           </BsTextField>
         </div>
         <div class="col">
-          <BsTextField filled floating-label type="password">
-            <label>Password</label>
-          </BsTextField>
-        </div>
-        <div class="col">
-          <BsTextField filled floating-label prepend-icon="email_outlined" type="email">
-            <label>Email Address</label>
-          </BsTextField>
-        </div>
-        <div class="col">
-          <BsTextField floating-label outlined type="password">
-            <label>Password</label>
-          </BsTextField>
-        </div>
-        <div class="col">
-          <BsTextField floating-label outlined prepend-icon="email_outlined" type="email">
-            <label>Email Address</label>
-          </BsTextField>
-        </div>
-      </div>
-    </DemoBlock>
-    <h4 class="mt-5">Field State</h4>
-    <DemoBlock class="mt-4">
-      <div class="row g-4 row-cols-1 row-cols-lg-2">
-        <div class="col">
-          <BsTextField v-model="textValue1" floating-label readonly>
-            <label>State Readonly</label>
-          </BsTextField>
-        </div>
-        <div class="col">
-          <BsTextField v-model="textValue1" disabled floating-label prepend-icon="email_outlined">
-            <label>State Disabled</label>
-          </BsTextField>
-        </div>
-        <div class="col">
-          <BsTextField v-model="textValue1" filled floating-label readonly>
-            <label>State Readonly</label>
+          <BsTextField autocomplete="name" filled floating-label>
+            <label>Full Name</label>
           </BsTextField>
         </div>
         <div class="col">
           <BsTextField
-            v-model="textValue1"
-            disabled
+            autocomplete="email"
             filled
             floating-label
             prepend-icon="email_outlined"
+            type="email"
           >
-            <label>State Disabled</label>
+            <label>Email Address</label>
           </BsTextField>
         </div>
         <div class="col">
-          <BsTextField v-model="textValue1" floating-label outlined readonly>
-            <label>State Readonly</label>
+          <BsTextField autocomplete="name" floating-label outlined>
+            <label>Full Name</label>
           </BsTextField>
         </div>
         <div class="col">
           <BsTextField
-            v-model="textValue1"
-            disabled
+            autocomplete="email"
             floating-label
             outlined
             prepend-icon="email_outlined"
+            type="email"
           >
-            <label>State Disabled</label>
+            <label>Email Address</label>
           </BsTextField>
         </div>
       </div>
     </DemoBlock>
+
     <h4 class="mt-5">DataList Support</h4>
     <DemoBlock class="mt-4">
       <div class="row g-4 row-cols-1 row-cols-lg-2">
@@ -279,6 +420,7 @@
         </datalist>
       </div>
     </DemoBlock>
+
     <h4 class="mt-5">Prefixes and Suffixes</h4>
     <DemoBlock class="mt-4">
       <div class="row g-4 row-cols-1 row-cols-lg-2">
@@ -314,35 +456,6 @@
         </div>
       </div>
     </DemoBlock>
-    <h4 class="mt-5">Classic Form Field Styles</h4>
-    <DemoBlock class="mt-4">
-      <div class="row justify-content-center">
-        <div class="col-lg-11 col-xl-10">
-          <BsTextField v-model="textValue2" class="mb-3" clear-button>
-            <label class="col-md-4 col-xl-2 col-form-label">Full Name</label>
-          </BsTextField>
-          <BsTextField class="mb-3" clear-button type="password">
-            <label class="col-md-4 col-xl-2 col-form-label">Password</label>
-          </BsTextField>
-          <BsTextField
-            v-model="textValue2"
-            append-icon="account_circle_outlined"
-            class="mb-3"
-            readonly
-          >
-            <label class="col-md-4 col-xl-2 col-form-label">State Readonly</label>
-          </BsTextField>
-          <BsTextField
-            v-model="textValue2"
-            append-icon="account_circle_outlined"
-            class="mb-3"
-            disabled
-          >
-            <label class="col-md-4 col-xl-2 col-form-label">State Disabled</label>
-          </BsTextField>
-        </div>
-      </div>
-    </DemoBlock>
   </div>
 </template>
 
@@ -351,5 +464,4 @@ import { ref } from 'vue';
 
 const sizes = ['Small', 'Medium', 'Large', 'Extra Large'];
 const textValue1 = ref('Grocery delivery');
-const textValue2 = ref('Sandra Adam');
 </script>
