@@ -21,6 +21,7 @@
         </BsCard>
       </div>
     </div>
+
     <h2 class="mt-5">Multiple Selection</h2>
     <BsDivider />
     <div class="row mt-4">
@@ -30,7 +31,7 @@
             <BsChipGroup
               v-model="multiSelectedChips1"
               :items="chipItems1"
-              active-class="bg-green lighten-3 border-light-green"
+              active-class="bg-green-300 border-light-green"
               column
               multiple
             />
@@ -40,7 +41,7 @@
             <BsChipGroup
               v-model="multiSelectedChips1"
               :items="chipItems1"
-              color="deep-purple"
+              color="default"
               column
               multiple
               outlined
@@ -49,24 +50,25 @@
         </BsCard>
       </div>
     </div>
+
     <h2 class="mt-5">Filter Chips</h2>
     <BsDivider />
     <div class="row mt-4">
       <div class="col col-lg-8">
         <bs-card shadow>
           <bs-card-body>
-            <div class="lead md-fw-semibold mb-2">Choose amenities</div>
+            <div class="lead fw-medium mb-2">Choose amenities</div>
             <bs-chip-group
               v-model="selectedAmenities1"
               :items="amenities"
-              active-class="md-chip-default-color"
+              active-class="bg-deep-purple-200 border-secondary-color"
               checked-icon
               column
             />
           </bs-card-body>
           <bs-divider />
           <bs-card-body>
-            <div class="lead md-fw-semibold mb-2">Choose neighborhoods</div>
+            <div class="lead fw-medium mb-2">Choose neighborhoods</div>
             <bs-chip-group
               v-model="selectedNeighborhoods1"
               :items="neighborhoods"
@@ -84,23 +86,23 @@
       <div class="col col-lg-8">
         <bs-card shadow>
           <bs-card-body>
-            <div class="lead md-fw-semibold mb-2">Choose amenities</div>
+            <div class="lead fw-medium mb-2">Choose amenities</div>
             <bs-chip-group
               v-model="selectedAmenities2"
               :items="amenities2"
-              active-class="md-chip-deep-purple active"
+              active-class="md-chip-default active"
               checked-icon
               column
             />
           </bs-card-body>
           <bs-divider />
           <bs-card-body>
-            <div class="lead md-fw-semibold mb-2">Choose neighborhoods</div>
+            <div class="lead fw-medium mb-2">Choose neighborhoods</div>
             <bs-chip-group
               v-model="selectedNeighborhoods2"
               :items="neighborhoods2"
               checked-icon
-              color="purple"
+              color="primary"
               column
               img-circle
               outlined
@@ -109,6 +111,7 @@
         </bs-card>
       </div>
     </div>
+
     <h2 class="mt-5">Sliding Chips</h2>
     <BsDivider />
     <div class="row mt-4">
@@ -117,7 +120,7 @@
           <bs-chip-group
             v-model="multiSelectedChips2"
             :items="chipItems1"
-            active-class="md-chip-outline-blue active"
+            active-class="md-chip-outline-primary active"
             multiple
             slider-button
           />
