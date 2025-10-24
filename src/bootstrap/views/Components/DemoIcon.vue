@@ -4,93 +4,94 @@
     <BsDivider />
     <div class="row row-cols-auto">
       <div class="col mt-4">
-        <div class="p-4 bg-grey-200 rounded-3">
-          <BsIcon icon="home_work_filled" size="64" />
+        <div class="p-4 bg-gray-200 rounded-3">
+          <BsIcon :size="iconSize" icon="home_work_filled" />
         </div>
       </div>
       <div class="col mt-4">
-        <div class="p-4 bg-grey-200 rounded-3">
-          <BsIcon icon="4k_filled" size="64" />
+        <div class="p-4 bg-gray-200 rounded-3">
+          <BsIcon :size="iconSize" icon="4k_filled" />
         </div>
       </div>
       <div class="col mt-4">
-        <div class="p-4 bg-grey-200 rounded-3">
-          <BsIcon icon="4k" size="64" />
+        <div class="p-4 bg-gray-200 rounded-3">
+          <BsIcon :size="iconSize" icon="4k" />
         </div>
       </div>
       <div class="col mt-4">
-        <div class="p-4 bg-grey-200 rounded-3">
-          <BsIcon icon="account_circle_filled" size="64" />
+        <div class="p-4 bg-gray-200 rounded-3">
+          <BsIcon :size="iconSize" icon="account_circle_filled" />
         </div>
       </div>
       <div class="col mt-4">
-        <div class="p-4 bg-grey-200 rounded-3">
-          <BsIcon icon="account_circle" size="64" />
+        <div class="p-4 bg-gray-200 rounded-3">
+          <BsIcon :size="iconSize" icon="account_circle" />
         </div>
       </div>
       <div class="col mt-4">
-        <div class="p-4 bg-grey-200 rounded-3">
-          <BsIcon icon="settings" size="64" />
+        <div class="p-4 bg-gray-200 rounded-3">
+          <BsIcon :size="iconSize" icon="settings" />
         </div>
       </div>
       <div class="col mt-4">
-        <div class="p-4 bg-grey-200 rounded-3">
-          <BsIcon flip="horizontal" icon="home_work" size="64" />
+        <div class="p-4 bg-gray-200 rounded-3">
+          <BsIcon :size="iconSize" flip="horizontal" icon="home_work" />
         </div>
       </div>
       <div class="col mt-4">
-        <div class="p-4 bg-grey-200 rounded-3">
-          <BsIcon flip="vertical" icon="home_work" size="64" />
+        <div class="p-4 bg-gray-200 rounded-3">
+          <BsIcon :size="iconSize" flip="vertical" icon="home_work" />
         </div>
       </div>
       <div class="col mt-4">
-        <div class="p-4 bg-grey-200 rounded-3">
-          <BsIcon flip="both" icon="home_work" size="64" />
+        <div class="p-4 bg-gray-200 rounded-3">
+          <BsIcon :size="iconSize" flip="both" icon="home_work" />
         </div>
       </div>
       <div class="col mt-4">
-        <div class="p-4 bg-grey-200 rounded-3">
-          <BsIcon filled icon="home_rounded" size="64" />
+        <div class="p-4 bg-gray-200 rounded-3">
+          <BsIcon :size="iconSize" filled icon="home_rounded" />
         </div>
       </div>
       <div class="col mt-4">
-        <div class="p-4 bg-grey-200 rounded-3">
-          <BsIcon filled icon="home_rounded" rotate="90" size="64" />
+        <div class="p-4 bg-gray-200 rounded-3">
+          <BsIcon :size="iconSize" filled icon="home_rounded" rotate="90" />
         </div>
       </div>
       <div class="col mt-4">
-        <div class="p-4 bg-grey-200 rounded-3">
-          <BsIcon icon="home" rotate="180" size="64" />
+        <div class="p-4 bg-gray-200 rounded-3">
+          <BsIcon :size="iconSize" icon="home" rotate="180" />
         </div>
       </div>
       <div class="col mt-4">
-        <div class="p-4 bg-grey-200 rounded-3">
-          <BsIcon icon="home" rotate="270" size="64" />
+        <div class="p-4 bg-gray-200 rounded-3">
+          <BsIcon :size="iconSize" icon="home" rotate="270" />
         </div>
       </div>
       <div class="col mt-4">
-        <div class="p-4 bg-grey-200 rounded-3">
+        <div class="p-4 bg-gray-200 rounded-3">
           <BsToggleIcon
             v-model="isToggle"
+            :size="iconSize"
             icon="lock_sharp"
             toggle-icon="lock_open_sharp"
-            size="64"
           />
         </div>
       </div>
     </div>
+
     <h3 class="mt-4">Animation</h3>
     <div class="row row-cols-auto">
       <div class="col">
         <div class="row row-cols-auto">
           <div class="col mt-4">
-            <div class="p-4 bg-grey-200 rounded-3">
-              <BsIcon :spin="isSpin1" icon="sync" size="64" />
+            <div class="p-4 bg-gray-200 rounded-3">
+              <BsIcon :size="iconSize" :spin="isSpin1" icon="sync" />
             </div>
           </div>
           <div class="col mt-4">
-            <div class="p-4 bg-grey-200 rounded-3">
-              <BsIconSpinner :spin="isSpin1" size="64" />
+            <div class="p-4 bg-gray-200 rounded-3">
+              <BsSpinnerIcon :size="iconSize" :spin="isSpin1" />
             </div>
           </div>
         </div>
@@ -98,8 +99,7 @@
           v-model="isSpin1"
           :value="true"
           checked-icon
-          class="mt-2 align-self-start"
-          color="primary-color-dark"
+          class="mt-2 self-start"
           inset-outlined
         >
           Spin {{ isSpin1 ? 'OFF' : 'ON' }}
@@ -108,13 +108,13 @@
       <div class="col">
         <div class="row row-cols-auto">
           <div class="col mt-4">
-            <div class="p-4 bg-grey-200 rounded-3">
-              <BsIcon :pulse="isPulse1" icon="refresh" size="64" />
+            <div class="p-4 bg-gray-200 rounded-3">
+              <BsIcon :pulse="isPulse1" :size="iconSize" icon="refresh" />
             </div>
           </div>
           <div class="col mt-4">
-            <div class="p-4 bg-grey-200 rounded-3">
-              <BsIconSpinner :pulse="isPulse1" size="64" />
+            <div class="p-4 bg-gray-200 rounded-3">
+              <BsSpinnerIcon :pulse="isPulse1" :size="iconSize" />
             </div>
           </div>
         </div>
@@ -122,100 +122,101 @@
           v-model="isPulse1"
           :value="true"
           checked-icon
-          class="mt-2 align-self-start"
-          color="primary-color-dark"
+          class="mt-2 self-start"
           inset-outlined
         >
           Pulse {{ isPulse1 ? 'OFF' : 'ON' }}
         </BsSwitch>
       </div>
     </div>
+
     <h2 class="mt-5">Font Awesome</h2>
     <BsDivider />
     <div class="row row-cols-auto">
       <div class="col mt-4">
-        <div class="p-4 bg-grey-200 rounded-3">
-          <BsIconFontawesome icon="house" size="64" />
+        <div class="p-4 bg-gray-200 rounded-3">
+          <BsFontawesomeIcon :size="iconSize" icon="house" />
         </div>
       </div>
       <div class="col mt-4">
-        <div class="p-4 bg-grey-200 rounded-3">
-          <BsIconFontawesome icon="house" variant="regular" size="64" />
+        <div class="p-4 bg-gray-200 rounded-3">
+          <BsFontawesomeIcon :size="iconSize" icon="house" variant="regular" />
         </div>
       </div>
       <div class="col mt-4">
-        <div class="p-4 bg-grey-200 rounded-3">
-          <BsIconFontawesome icon="envelope" size="64" />
+        <div class="p-4 bg-gray-200 rounded-3">
+          <BsFontawesomeIcon :size="iconSize" icon="envelope" />
         </div>
       </div>
       <div class="col mt-4">
-        <div class="p-4 bg-grey-200 rounded-3">
-          <BsIconFontawesome icon="envelope" variant="regular" size="64" />
+        <div class="p-4 bg-gray-200 rounded-3">
+          <BsFontawesomeIcon :size="iconSize" icon="envelope" variant="regular" />
         </div>
       </div>
       <div class="col mt-4">
-        <div class="p-4 bg-grey-200 rounded-3">
-          <BsIconFontawesome icon="user" size="64" />
+        <div class="p-4 bg-gray-200 rounded-3">
+          <BsFontawesomeIcon :size="iconSize" icon="user" />
         </div>
       </div>
       <div class="col mt-4">
-        <div class="p-4 bg-grey-200 rounded-3">
-          <BsIconFontawesome icon="user" variant="regular" size="64" />
+        <div class="p-4 bg-gray-200 rounded-3">
+          <BsFontawesomeIcon :size="iconSize" icon="user" variant="regular" />
         </div>
       </div>
       <div class="col mt-4">
-        <div class="p-4 bg-grey-200 rounded-3">
-          <BsIconFontawesome icon="cart-shopping" size="64" />
+        <div class="p-4 bg-gray-200 rounded-3">
+          <BsFontawesomeIcon :size="iconSize" icon="cart-shopping" />
         </div>
       </div>
       <div class="col mt-4">
-        <div class="p-4 bg-grey-200 rounded-3">
-          <BsIconFontawesome flip="horizontal" icon="cart-shopping" size="64" />
+        <div class="p-4 bg-gray-200 rounded-3">
+          <BsFontawesomeIcon :size="iconSize" flip="horizontal" icon="cart-shopping" />
         </div>
       </div>
       <div class="col mt-4">
-        <div class="p-4 bg-grey-200 rounded-3">
-          <BsIconFontawesome flip="vertical" icon="cart-shopping" size="64" />
+        <div class="p-4 bg-gray-200 rounded-3">
+          <BsFontawesomeIcon :size="iconSize" flip="vertical" icon="cart-shopping" />
         </div>
       </div>
       <div class="col mt-4">
-        <div class="p-4 bg-grey-200 rounded-3">
-          <BsIconFontawesome flip="both" icon="cart-shopping" size="64" />
+        <div class="p-4 bg-gray-200 rounded-3">
+          <BsFontawesomeIcon :size="iconSize" flip="both" icon="cart-shopping" />
         </div>
       </div>
       <div class="col mt-4">
-        <div class="p-4 bg-grey-200 rounded-3">
-          <BsIconFontawesome icon="truck" variant="regular" size="64" />
+        <div class="p-4 bg-gray-200 rounded-3">
+          <BsFontawesomeIcon :size="iconSize" icon="truck" variant="regular" />
         </div>
       </div>
       <div class="col mt-4">
-        <div class="p-4 bg-grey-200 rounded-3">
-          <BsIconFontawesome icon="truck" rotate="90" variant="regular" size="64" />
+        <div class="p-4 bg-gray-200 rounded-3">
+          <BsFontawesomeIcon :size="iconSize" icon="truck" rotate="90" variant="regular" />
         </div>
       </div>
       <div class="col mt-4">
-        <div class="p-4 bg-grey-200 rounded-3">
-          <BsIconFontawesome icon="truck" rotate="180" variant="regular" size="64" />
+        <div class="p-4 bg-gray-200 rounded-3">
+          <BsFontawesomeIcon :size="iconSize" icon="truck" rotate="180" variant="regular" />
         </div>
       </div>
       <div class="col mt-4">
-        <div class="p-4 bg-grey-200 rounded-3">
-          <BsIconFontawesome icon="truck" rotate="270" variant="regular" size="64" />
+        <div class="p-4 bg-gray-200 rounded-3">
+          <BsFontawesomeIcon :size="iconSize" icon="truck" rotate="270" variant="regular" />
         </div>
       </div>
     </div>
+
     <h3 class="mt-4">Animation</h3>
     <div class="row row-cols-auto">
       <div class="col">
         <div class="row row-cols-auto">
           <div class="col mt-4">
-            <div class="p-4 bg-grey-200 rounded-3">
-              <BsIconFontawesome :spin="isSpin2" icon="sun" size="64" />
+            <div class="p-4 bg-gray-200 rounded-3">
+              <BsFontawesomeIcon :size="iconSize" :spin="isSpin2" icon="sun" />
             </div>
           </div>
           <div class="col mt-4">
-            <div class="p-4 bg-grey-200 rounded-3">
-              <BsIconFontawesome :spin="isSpin2" icon="spinner" size="64" />
+            <div class="p-4 bg-gray-200 rounded-3">
+              <BsFontawesomeIcon :size="iconSize" :spin="isSpin2" icon="spinner" />
             </div>
           </div>
         </div>
@@ -223,8 +224,7 @@
           v-model="isSpin2"
           :value="true"
           checked-icon
-          class="mt-2 align-self-start"
-          color="primary-color-dark"
+          class="mt-2 self-start"
           inset-outlined
         >
           Spin {{ isSpin2 ? 'OFF' : 'ON' }}
@@ -233,13 +233,18 @@
       <div class="col">
         <div class="row row-cols-auto">
           <div class="col mt-4">
-            <div class="p-4 bg-grey-200 rounded-3">
-              <BsIconFontawesome :pulse="isPulse2" icon="compass" variant="regular" size="64" />
+            <div class="p-4 bg-gray-200 rounded-3">
+              <BsFontawesomeIcon
+                :pulse="isPulse2"
+                :size="iconSize"
+                icon="compass"
+                variant="regular"
+              />
             </div>
           </div>
           <div class="col mt-4">
-            <div class="p-4 bg-grey-200 rounded-3">
-              <BsIconFontawesome :pulse="isPulse2" icon="spinner" size="64" />
+            <div class="p-4 bg-gray-200 rounded-3">
+              <BsFontawesomeIcon :pulse="isPulse2" :size="iconSize" icon="spinner" />
             </div>
           </div>
         </div>
@@ -247,8 +252,7 @@
           v-model="isPulse2"
           :value="true"
           checked-icon
-          class="mt-2 align-self-start"
-          color="primary-color-dark"
+          class="mt-2 self-start"
           inset-outlined
         >
           Pulse {{ isPulse2 ? 'OFF' : 'ON' }}
@@ -266,4 +270,5 @@ const isSpin1 = ref(false);
 const isPulse1 = ref(false);
 const isSpin2 = ref(false);
 const isPulse2 = ref(false);
+const iconSize = 64;
 </script>
