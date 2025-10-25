@@ -1,267 +1,324 @@
 <template>
   <div class="docs-body container-lg mx-auto">
-    <h2>Overview</h2>
+    <h2>Basic Examples</h2>
     <DemoBlock class="mt-4">
-      <div class="row g-4 row-cols-1 row-cols-lg-2">
-        <div class="col">
-          <bs-text-area auto-grow floating-label>
-            <label>Field Label</label>
-          </bs-text-area>
-        </div>
-        <div class="col">
-          <bs-text-area floating-label placeholder="Placeholder">
-            <label>Field Label</label>
-          </bs-text-area>
-        </div>
-        <div class="col">
-          <bs-text-area auto-grow filled floating-label>
-            <label>Field Label</label>
-          </bs-text-area>
-        </div>
-        <div class="col">
-          <bs-text-area filled floating-label no-resize placeholder="Placeholder">
-            <label>Field Label</label>
-          </bs-text-area>
-        </div>
-        <div class="col">
-          <bs-text-area auto-grow floating-label outlined>
-            <label>Field Label</label>
-          </bs-text-area>
-        </div>
-        <div class="col">
-          <bs-text-area floating-label outlined placeholder="Placeholder">
-            <label>Field Label</label>
-          </bs-text-area>
+      <div class="row ps-2">
+        <div class="col-12 col-lg-10 col-xl-8">
+          <div class="mb-3">
+            <BsTextArea>
+              <label class="col-md-4 col-xl-3 col-form-label">Field Label</label>
+            </BsTextArea>
+          </div>
+          <div class="mb-3">
+            <BsTextArea :model-value="loremIpsum" readonly>
+              <label class="col-md-4 col-xl-3 col-form-label">State Readonly</label>
+            </BsTextArea>
+          </div>
+          <div class="mb-3">
+            <BsTextArea :model-value="loremIpsum" disabled>
+              <label class="col-md-4 col-xl-3 col-form-label">State Disabled</label>
+            </BsTextArea>
+          </div>
         </div>
       </div>
     </DemoBlock>
+
+    <h2 class="mt-5">Style Variants</h2>
+    <h4 class="mt-4">Default</h4>
+    <DemoBlock class="mt-4">
+      <div class="row ps-2">
+        <div class="col-12 col-lg-10 col-xl-8">
+          <div class="mb-4">
+            <BsTextArea>
+              <label class="col-md-4 col-xl-3 col-form-label">Classic Field</label>
+            </BsTextArea>
+          </div>
+          <div class="mb-3">
+            <BsTextArea floating-label>
+              <label>Floating Label</label>
+            </BsTextArea>
+          </div>
+          <div class="mb-3">
+            <BsTextArea floating-label placeholder="Placeholder">
+              <label>Field Label</label>
+            </BsTextArea>
+          </div>
+        </div>
+      </div>
+    </DemoBlock>
+
+    <h4 class="mt-5">Filled</h4>
+    <DemoBlock class="mt-4">
+      <div class="row ps-2 mt-3">
+        <div class="col-12 col-lg-10 col-xl-8">
+          <div class="mb-4">
+            <BsTextArea filled>
+              <label class="col-md-4 col-xl-3 col-form-label">Classic Field</label>
+            </BsTextArea>
+          </div>
+          <div class="mb-3">
+            <BsTextArea filled floating-label>
+              <label>Floating Label</label>
+            </BsTextArea>
+          </div>
+          <div class="mb-3">
+            <BsTextArea filled floating-label placeholder="Placeholder">
+              <label>Field Label</label>
+            </BsTextArea>
+          </div>
+        </div>
+      </div>
+    </DemoBlock>
+
+    <h4 class="mt-5">Outlined</h4>
+    <DemoBlock class="mt-4">
+      <div class="row ps-2 mt-3">
+        <div class="col-12 col-lg-10 col-xl-8">
+          <div class="mb-4">
+            <BsTextArea outlined>
+              <label class="col-md-4 col-xl-3 col-form-label">Classic Field</label>
+            </BsTextArea>
+          </div>
+          <div class="mb-3">
+            <BsTextArea floating-label outlined>
+              <label>Floating Label</label>
+            </BsTextArea>
+          </div>
+          <div class="mb-3">
+            <BsTextArea floating-label outlined placeholder="Placeholder">
+              <label>Field Label</label>
+            </BsTextArea>
+          </div>
+        </div>
+      </div>
+    </DemoBlock>
+
+    <h2 class="mt-5">Field State</h2>
+    <DemoBlock class="mt-4">
+      <div class="row g-4 row-cols-1 row-cols-lg-2">
+        <div class="col">
+          <BsTextArea v-model="loremIpsum" auto-grow floating-label readonly>
+            <label>State Readonly</label>
+          </BsTextArea>
+        </div>
+        <div class="col">
+          <BsTextArea v-model="loremIpsum" auto-grow disabled floating-label>
+            <label>State Disabled</label>
+          </BsTextArea>
+        </div>
+        <div class="col">
+          <BsTextArea
+            v-model="loremIpsum"
+            auto-grow
+            filled
+            floating-label
+            prepend-icon="article_filled"
+            readonly
+          >
+            <label>State Readonly</label>
+          </BsTextArea>
+        </div>
+        <div class="col">
+          <BsTextArea
+            v-model="loremIpsum"
+            auto-grow
+            disabled
+            filled
+            floating-label
+            prepend-icon="article_filled"
+          >
+            <label>State Disabled</label>
+          </BsTextArea>
+        </div>
+        <div class="col">
+          <BsTextArea
+            v-model="loremIpsum"
+            auto-grow
+            floating-label
+            outlined
+            prepend-icon="article"
+            readonly
+          >
+            <label>State Readonly</label>
+          </BsTextArea>
+        </div>
+        <div class="col">
+          <BsTextArea
+            v-model="loremIpsum"
+            auto-grow
+            disabled
+            floating-label
+            outlined
+            prepend-icon="article"
+          >
+            <label>State Disabled</label>
+          </BsTextArea>
+        </div>
+      </div>
+    </DemoBlock>
+
     <h2 class="mt-5">Help Text</h2>
     <DemoBlock class="mt-4">
       <div class="row g-4 row-cols-1 row-cols-lg-2">
         <div class="col">
-          <bs-text-area
+          <BsTextArea
             v-model="textValue1"
             :persistent-help-text="false"
             floating-label
             help-text="For example, flowers or used cars"
           >
-            <label>Field Label</label>
-          </bs-text-area>
+            <label>Product and Service</label>
+          </BsTextArea>
         </div>
         <div class="col">
-          <bs-text-area floating-label help-text="https://www.example.com/page-1">
-            <label>Support Page</label>
-          </bs-text-area>
+          <BsTextArea floating-label help-text="Enter your profile information">
+            <label>Your Profile</label>
+          </BsTextArea>
         </div>
         <div class="col">
-          <bs-text-area
+          <BsTextArea
             v-model="textValue1"
             :persistent-help-text="false"
             filled
             floating-label
             help-text="For example, flowers or used cars"
           >
-            <label>Field Label</label>
-          </bs-text-area>
+            <label>Product and Service</label>
+          </BsTextArea>
         </div>
         <div class="col">
-          <bs-text-area filled floating-label help-text="https://www.example.com/page-1">
-            <label>Support Page</label>
-          </bs-text-area>
+          <BsTextArea filled floating-label help-text="Enter your profile information">
+            <label>Your Profile</label>
+          </BsTextArea>
         </div>
         <div class="col">
-          <bs-text-area
+          <BsTextArea
             v-model="textValue1"
             :persistent-help-text="false"
             floating-label
             help-text="For example, flowers or used cars"
             outlined
           >
-            <label>Field Label</label>
-          </bs-text-area>
+            <label>Product and Service</label>
+          </BsTextArea>
         </div>
         <div class="col">
-          <bs-text-area floating-label help-text="https://www.example.com/page-1" outlined>
-            <label>Support Page</label>
-          </bs-text-area>
+          <BsTextArea floating-label help-text="Enter your profile information" outlined>
+            <label>Your Profile</label>
+          </BsTextArea>
         </div>
       </div>
     </DemoBlock>
+
     <h2 class="mt-5">Icons</h2>
     <DemoBlock class="mt-4">
       <div class="row g-4 row-cols-1 row-cols-lg-2">
         <div class="col">
-          <bs-text-area floating-label prepend-icon="person">
+          <BsTextArea floating-label prepend-icon="article">
             <label>Prepend</label>
-          </bs-text-area>
+          </BsTextArea>
         </div>
         <div class="col">
-          <bs-text-area append-icon="person" floating-label>
+          <BsTextArea append-icon="article" floating-label>
             <label>Append</label>
-          </bs-text-area>
+          </BsTextArea>
         </div>
         <div class="col">
-          <bs-text-area floating-label prepend-icon-outer="person">
+          <BsTextArea floating-label prepend-icon-outer="article">
             <label>Prepend Outer</label>
-          </bs-text-area>
+          </BsTextArea>
         </div>
         <div class="col">
-          <bs-text-area append-icon-outer="person" floating-label>
+          <BsTextArea append-icon-outer="article" floating-label>
             <label>Append Outer</label>
-          </bs-text-area>
+          </BsTextArea>
         </div>
         <div class="col">
-          <bs-text-area filled floating-label prepend-icon="person">
+          <BsTextArea filled floating-label prepend-icon="article">
             <label>Prepend</label>
-          </bs-text-area>
+          </BsTextArea>
         </div>
         <div class="col">
-          <bs-text-area append-icon="person" filled floating-label>
+          <BsTextArea append-icon="article" filled floating-label>
             <label>Append</label>
-          </bs-text-area>
+          </BsTextArea>
         </div>
         <div class="col">
-          <bs-text-area filled floating-label prepend-icon-outer="person">
+          <BsTextArea filled floating-label prepend-icon-outer="article">
             <label>Prepend Outer</label>
-          </bs-text-area>
+          </BsTextArea>
         </div>
         <div class="col">
-          <bs-text-area append-icon-outer="person" filled floating-label>
+          <BsTextArea append-icon-outer="article" filled floating-label>
             <label>Append Outer</label>
-          </bs-text-area>
+          </BsTextArea>
         </div>
         <div class="col">
-          <bs-text-area floating-label outlined prepend-icon="person">
+          <BsTextArea floating-label outlined prepend-icon="article">
             <label>Prepend</label>
-          </bs-text-area>
+          </BsTextArea>
         </div>
         <div class="col">
-          <bs-text-area append-icon="person" floating-label outlined>
+          <BsTextArea append-icon="article" floating-label outlined>
             <label>Append</label>
-          </bs-text-area>
+          </BsTextArea>
         </div>
         <div class="col">
-          <bs-text-area floating-label outlined prepend-icon-outer="person">
+          <BsTextArea floating-label outlined prepend-icon-outer="article">
             <label>Prepend Outer</label>
-          </bs-text-area>
+          </BsTextArea>
         </div>
         <div class="col">
-          <bs-text-area append-icon-outer="person" floating-label outlined>
+          <BsTextArea append-icon-outer="article" floating-label outlined>
             <label>Append Outer</label>
-          </bs-text-area>
+          </BsTextArea>
         </div>
       </div>
     </DemoBlock>
+
     <h2 class="mt-5">Other Features</h2>
+    <h3 class="mt-5">Browser Autocomplete</h3>
     <DemoBlock class="mt-4">
-      <div class="row g-4 row-cols-1 row-cols-lg-2">
-        <div class="col">
-          <bs-text-area action-icon-variant="filled" clear-button floating-label>
-            <label>Enter Text</label>
-          </bs-text-area>
-        </div>
-        <div class="col">
-          <bs-text-area autocomplete="email" floating-label prepend-icon="email_outlined">
-            <label>Email Address</label>
-          </bs-text-area>
-        </div>
-        <div class="col">
-          <bs-text-area filled floating-label>
-            <label>Enter Text</label>
-          </bs-text-area>
-        </div>
-        <div class="col">
-          <bs-text-area filled floating-label prepend-icon="email_outlined">
-            <label>Email Address</label>
-          </bs-text-area>
-        </div>
-        <div class="col">
-          <bs-text-area floating-label outlined>
-            <label>Enter Text</label>
-          </bs-text-area>
-        </div>
-        <div class="col">
-          <bs-text-area floating-label outlined prepend-icon="email_outlined">
-            <label>Email Address</label>
-          </bs-text-area>
+      <div class="row ps-2">
+        <div class="col-12 col-lg-10 col-xl-8">
+          <div class="mb-4">
+            <BsTextArea autocomplete="address" floating-label>
+              <label>Address</label>
+            </BsTextArea>
+          </div>
+          <div class="mb-3">
+            <BsTextArea autocomplete="address" filled floating-label>
+              <label>Address</label>
+            </BsTextArea>
+          </div>
+          <div class="mb-3">
+            <BsTextArea autocomplete="address" floating-label outlined>
+              <label>Address</label>
+            </BsTextArea>
+          </div>
         </div>
       </div>
     </DemoBlock>
-    <h4 class="mt-5">Field State</h4>
+
+    <h4 class="mt-5">Clearable</h4>
     <DemoBlock class="mt-4">
-      <div class="row g-4 row-cols-1 row-cols-lg-2">
-        <div class="col">
-          <bs-text-area v-model="textValue1" floating-label readonly>
-            <label>State Readonly</label>
-          </bs-text-area>
-        </div>
-        <div class="col">
-          <bs-text-area v-model="textValue1" disabled floating-label prepend-icon="email_outlined">
-            <label>State Disabled</label>
-          </bs-text-area>
-        </div>
-        <div class="col">
-          <bs-text-area v-model="textValue1" filled floating-label readonly>
-            <label>State Readonly</label>
-          </bs-text-area>
-        </div>
-        <div class="col">
-          <bs-text-area
-            v-model="textValue1"
-            disabled
-            filled
-            floating-label
-            prepend-icon="email_outlined"
-          >
-            <label>State Disabled</label>
-          </bs-text-area>
-        </div>
-        <div class="col">
-          <bs-text-area v-model="textValue1" floating-label outlined readonly>
-            <label>State Readonly</label>
-          </bs-text-area>
-        </div>
-        <div class="col">
-          <bs-text-area
-            v-model="textValue1"
-            disabled
-            floating-label
-            outlined
-            prepend-icon="email_outlined"
-          >
-            <label>State Disabled</label>
-          </bs-text-area>
-        </div>
-      </div>
-    </DemoBlock>
-    <h4 class="mt-5">Classic Form Field Styles</h4>
-    <DemoBlock class="mt-4">
-      <div class="row justify-content-center">
-        <div class="col-lg-11 col-xl-10">
-          <bs-text-field class="mb-3" clear-button filled>
-            <label class="col-md-4 col-xl-2 col-form-label">Full Name</label>
-          </bs-text-field>
-          <bs-text-area v-model="textValue2" class="mb-3" clear-button filled>
-            <label class="col-md-4 col-xl-2 col-form-label">Address</label>
-          </bs-text-area>
-          <bs-text-area
-            v-model="textValue2"
-            append-icon="account_circle_outlined"
-            class="mb-3"
-            filled
-            readonly
-          >
-            <label class="col-md-4 col-xl-2 col-form-label">State Readonly</label>
-          </bs-text-area>
-          <bs-text-area
-            v-model="textValue2"
-            append-icon="account_circle_outlined"
-            class="mb-3"
-            disabled
-            filled
-          >
-            <label class="col-md-4 col-xl-2 col-form-label">State Disabled</label>
-          </bs-text-area>
+      <div class="row ps-2">
+        <div class="col-12 col-lg-10 col-xl-8">
+          <div class="mb-4">
+            <BsTextArea clear-button floating-label>
+              <label>Address</label>
+            </BsTextArea>
+          </div>
+          <div class="mb-3">
+            <BsTextArea clear-button filled floating-label>
+              <label>Address</label>
+            </BsTextArea>
+          </div>
+          <div class="mb-3">
+            <BsTextArea clear-button floating-label outlined>
+              <label>Address</label>
+            </BsTextArea>
+          </div>
         </div>
       </div>
     </DemoBlock>
@@ -273,5 +330,5 @@ import { ref } from 'vue';
 
 const textValue1 = ref('Grocery delivery');
 // prettier-ignore
-const textValue2 = ref('12th floor, Flat G - Magnolia Building\n' + '212 Sycamore Street - WAN CHAI HONG KONG');
+const loremIpsum = ref('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.');
 </script>

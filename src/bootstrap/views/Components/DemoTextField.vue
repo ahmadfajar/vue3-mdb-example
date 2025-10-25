@@ -6,7 +6,7 @@
         <div class="col-12 col-lg-10 col-xl-8">
           <div class="mb-3">
             <BsTextField>
-              <label class="col-md-4 col-xl-3 col-form-label">Text Field</label>
+              <label class="col-md-4 col-xl-3 col-form-label">Field Label</label>
             </BsTextField>
           </div>
           <div class="mb-3">
