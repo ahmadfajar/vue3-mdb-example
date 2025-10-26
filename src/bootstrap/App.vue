@@ -12,24 +12,28 @@
     </BsAppbar>
     <BsSideDrawer v-model:open="openSideDrawer" class="border-end" fixed-layout>
       <div class="flex justify-center my-2">
-        <img alt="Vue logo" src="/assets/vue-mdb.png" style="width: 96px" />
+        <RouterLink to="/home">
+          <img alt="Vue logo" src="/assets/vue-mdb.png" style="width: 96px" />
+        </RouterLink>
       </div>
       <BsDivider dark />
       <BsListView item-border-variant="left" item-rounded space-around="both">
         <BsListNav>
-          <BsListNavItem
-            v-for="navItem in routeNavA"
-            :disabled="navItem.disabled"
-            :key="navItem.label"
-            :label="navItem.label"
-            :path-name="StringHelper.kebabCase(navItem.label)"
-          />
+          <BsListNavItem v-for="navItem in routeNavA" :key="navItem.label" :label="navItem.label">
+            <BsListNav child>
+              <BsListNavItem
+                v-for="child in navItem.children"
+                :key="child.label"
+                :label="child.label"
+                :path-name="StringHelper.kebabCase(child.label)"
+              />
+            </BsListNav>
+          </BsListNavItem>
         </BsListNav>
         <BsDivider class="my-2" />
         <BsListNav>
           <BsListNavItem
             v-for="navItem in routeNavB"
-            :disabled="navItem.disabled"
             :key="navItem.label"
             :label="navItem.label"
             :path-name="StringHelper.kebabCase(navItem.label)"
@@ -52,7 +56,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { StringHelper, useBreakpointMax } from 'vue-mdbootstrap';
-import type { TNavigationRecord } from '@bs/router/navigation';
+import type { TMainNavigation } from '@bs/router/navigation';
 import { menuNavs } from '@bs/router/navigation';
 
 const openSideDrawer = ref(true);
@@ -67,7 +71,7 @@ function toggleSideDrawer(value: boolean) {
   openSideDrawer.value = value;
 }
 
-function compareFn(a: TNavigationRecord, b: TNavigationRecord) {
+function compareFn(a: TMainNavigation, b: TMainNavigation) {
   const labelA = a.label.toUpperCase();
   const labelB = b.label.toUpperCase();
   if (labelA < labelB) {
