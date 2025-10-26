@@ -81,7 +81,7 @@
         <BsDatePicker
           v-model="picker7"
           button-color="light"
-          class="shadow"
+          class="md-shadow-3"
           header-color="bg-orange"
           mode="datetime"
           selected-color="warning"

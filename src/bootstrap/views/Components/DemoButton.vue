@@ -12,7 +12,7 @@
     </DemoBlock>
 
     <h2 class="mt-5">Style Variants</h2>
-    <h4 class="mt-3">Rounded Style</h4>
+    <h4 class="mt-3">Rounded</h4>
     <DemoBlock class="docs-demo-ctrl mt-4">
       <div class="flex flex-wrap md-gap-x-3 md-gap-y-4 mb-2">
         <template v-for="(_color, name) in contextColors" :key="_color">
@@ -22,7 +22,7 @@
         </template>
       </div>
     </DemoBlock>
-    <h4 class="mt-5">Rectangle Style</h4>
+    <h4 class="mt-5">Rectangle</h4>
     <DemoBlock class="docs-demo-ctrl mt-4">
       <div class="flex flex-wrap md-gap-x-3 md-gap-y-4 mb-2">
         <template v-for="(_color, name) in contextColors" :key="_color">
@@ -32,7 +32,7 @@
         </template>
       </div>
     </DemoBlock>
-    <h4 class="mt-5">Elevated Style</h4>
+    <h4 class="mt-5">Elevated</h4>
     <DemoBlock class="docs-demo-ctrl mt-4">
       <div class="flex flex-wrap md-gap-x-3 md-gap-y-4 mb-2">
         <template v-for="(_color, name) in contextColors" :key="_color">
@@ -42,31 +42,46 @@
         </template>
       </div>
     </DemoBlock>
-    <h4 class="mt-5">Outlined Style</h4>
+    <h4 class="mt-5">Outlined</h4>
     <DemoBlock class="docs-demo-ctrl mt-4">
       <div class="flex flex-wrap md-gap-x-3 md-gap-y-4 mb-2">
         <template v-for="(_color, name) in contextColors" :key="_color">
-          <BsButton :color="name" outlined>
+          <BsButton
+            :active="buttonOutlined[name] as boolean"
+            :color="name"
+            outlined
+            @click="toggleOutlinedState(name, !buttonOutlined[name])"
+          >
             {{ StringHelper.titleCase(name) }}
           </BsButton>
         </template>
       </div>
     </DemoBlock>
-    <h4 class="mt-5">Flat Style</h4>
+    <h4 class="mt-5">Flat</h4>
     <DemoBlock class="docs-demo-ctrl mt-4">
       <div class="flex flex-wrap md-gap-x-3 md-gap-y-4 mb-2">
         <template v-for="(_color, name) in contextColors" :key="_color">
-          <BsButton :color="name" flat>
+          <BsButton
+            :active="buttonFlat[name] as boolean"
+            :color="name"
+            flat
+            @click="toggleFlatState(name, !buttonFlat[name])"
+          >
             {{ StringHelper.titleCase(name) }}
           </BsButton>
         </template>
       </div>
     </DemoBlock>
-    <h4 class="mt-5">Tonal Style</h4>
+    <h4 class="mt-5">Tonal</h4>
     <DemoBlock class="docs-demo-ctrl mt-4">
       <div class="flex flex-wrap md-gap-x-3 md-gap-y-4 mb-2">
         <template v-for="(_color, name) in contextColors" :key="_color">
-          <BsButton :color="name" tonal>
+          <BsButton
+            :active="buttonTonal[name] as boolean"
+            :color="name"
+            tonal
+            @click="toggleTonalState(name, !buttonTonal[name])"
+          >
             {{ StringHelper.titleCase(name) }}
           </BsButton>
         </template>
@@ -380,8 +395,8 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
-import { StringHelper } from 'vue-mdbootstrap';
+import { reactive, ref } from 'vue';
+import { StringHelper, type TRecord } from 'vue-mdbootstrap';
 import { contextColors } from '@shares/themeColors.ts';
 
 const iconXs = 14;
@@ -395,4 +410,52 @@ const state4 = ref(false);
 const state5 = ref(false);
 const state7 = ref(false);
 const state6 = ref(false);
+
+const buttonOutlined = reactive<TRecord>({
+  default: false,
+  primary: false,
+  secondary: false,
+  success: false,
+  danger: false,
+  warning: false,
+  info: false,
+  light: false,
+  dark: false,
+});
+
+const buttonFlat = reactive<TRecord>({
+  default: false,
+  primary: false,
+  secondary: false,
+  success: false,
+  danger: false,
+  warning: false,
+  info: false,
+  light: false,
+  dark: false,
+});
+
+const buttonTonal = reactive<TRecord>({
+  default: false,
+  primary: false,
+  secondary: false,
+  success: false,
+  danger: false,
+  warning: false,
+  info: false,
+  light: false,
+  dark: false,
+});
+
+function toggleOutlinedState(name: string, state: boolean) {
+  buttonOutlined[name] = state;
+}
+
+function toggleFlatState(name: string, state: boolean) {
+  buttonFlat[name] = state;
+}
+
+function toggleTonalState(name: string, state: boolean) {
+  buttonTonal[name] = state;
+}
 </script>
