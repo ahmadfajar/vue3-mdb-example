@@ -12,5 +12,5 @@
 </template>
 
 <script setup lang="ts">
-import ColorPalette from '@bs/views/Color/ColorPalette.vue';
+import ColorPalette from '@bs/views/references/ColorPalette.vue';
 </script>

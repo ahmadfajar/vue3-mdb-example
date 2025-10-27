@@ -151,7 +151,7 @@
 
 <script setup lang="ts">
 import { computed, ref, watch } from 'vue';
-import { IconBullhorn, IconCircleNodes } from '@shares/sharedApi';
+import { IconBullhorn, IconCircleNodes } from '@shares/sharedApi.ts';
 
 // prettier-ignore
 const content = 'Aww yeah, you successfully read this alert message. This is an example how to construct';

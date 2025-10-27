@@ -122,6 +122,7 @@ const routeNavB = menuNavs.filter((it) => it.group === 'Reference').sort(compare
     }
   }
 
+  // screen: 801px
   @media (min-width: calc(50rem + 1px)) {
     ::-webkit-scrollbar {
       width: 0.4rem;
@@ -145,6 +146,11 @@ const routeNavB = menuNavs.filter((it) => it.group === 'Reference').sort(compare
   }
 }
 
+.mobi-card {
+  //--md-card-border-radius: 0.375rem;
+  max-width: 25rem; // 400px;
+}
+
 .docs-body {
   padding-top: 2rem;
 
@@ -152,6 +158,7 @@ const routeNavB = menuNavs.filter((it) => it.group === 'Reference').sort(compare
     font-weight: var(--font-weight-medium);
   }
 
+  // screen: 801px
   @media (min-width: calc(50rem + 1px)) {
     .card-mw-65 {
       max-width: 90%;
@@ -187,11 +194,6 @@ const routeNavB = menuNavs.filter((it) => it.group === 'Reference').sort(compare
   //    @include borders.top-radius(var(--bs-card-border-radius));
   //  }
   //}
-}
-
-.mobi-card {
-  //--md-card-border-radius: 0.375rem;
-  max-width: 400px;
 }
 
 .demo-block-content {
