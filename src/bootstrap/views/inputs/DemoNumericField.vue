@@ -1,6 +1,6 @@
 <template>
   <div class="docs-body container-lg mx-auto">
-    <h2>Overview</h2>
+    <h2>Basic Examples</h2>
     <DemoBlock class="mt-4">
       <div class="row justify-content-center">
         <div class="col-md-11 col-lg-10 col-xl-8 pt-3">

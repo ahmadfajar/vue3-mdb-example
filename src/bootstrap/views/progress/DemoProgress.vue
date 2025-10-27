@@ -1,6 +1,6 @@
 <template>
   <div class="docs-body container-lg mx-auto">
-    <h2>Overview</h2>
+    <h2>Basic Examples</h2>
     <BsDivider />
     <div class="w-75 me-auto mt-4">
       <BsProgress class="mb-3" />

@@ -1,6 +1,6 @@
 <template>
   <div class="docs-body container-lg mx-auto">
-    <h2>Overview</h2>
+    <h2>Basic Examples</h2>
     <div class="demo-block-content bg-grey-100 rounded-3 mt-4">
       <div class="d-flex justify-content-center">
         <div class="col-12 col-lg-9 col-xl-7">

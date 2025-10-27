@@ -1,6 +1,6 @@
 <template>
   <div class="docs-body container-lg mx-auto">
-    <h2>Overview</h2>
+    <h2>Basic Examples</h2>
     <BsDivider />
     <BsApp class="mt-4">
       <BsAppbar class="bg-primary" shadow>

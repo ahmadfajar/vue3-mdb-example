@@ -14,7 +14,7 @@ CLI with `vue-tsc` for type checking. In editors, we need [Vue - Official](https
 TypeScript language service aware of `.vue` file types.
 
 If the standalone TypeScript plugin doesn't feel fast enough to you, _Vue - Official_ has also 
-implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
+implemented a [Take-Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
 
 1. Disable the built-in TypeScript Extension
     1) Run `Extensions: Show Built-in Extensions` from VSCode's command palette
@@ -49,7 +49,7 @@ npm run bootstrap:dev
 yarn bootstrap:dev
 ```
 
-**Running examples with TailwindCss v4 css framework.**
+**Running examples with Tailwind v4 css framework.**
 
 ```sh
 # with npm
@@ -73,7 +73,7 @@ npm run bootstrap:prod
 yarn bootstrap:prod
 ```
 
-**Build examples with TailwindCss v4 css framework.**
+**Build examples with Tailwind v4 css framework.**
 
 ```sh
 # with npm

@@ -1,6 +1,6 @@
 <template>
   <div class="docs-body container-lg mx-auto">
-    <h2>Overview</h2>
+    <h2>Basic Examples</h2>
     <DemoBlock class="mt-4">
       <BsCardContent type="subtitle"> What are you drinking? </BsCardContent>
       <div class="row my-3">

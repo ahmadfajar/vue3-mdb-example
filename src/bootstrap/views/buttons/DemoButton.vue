@@ -1,6 +1,6 @@
 <template>
   <div class="docs-body container-lg mx-auto">
-    <h2>Overview</h2>
+    <h2>Basic Examples</h2>
     <DemoBlock class="docs-demo-ctrl mt-4">
       <div class="flex flex-wrap md-gap-x-3 md-gap-y-4 mb-2">
         <template v-for="(_color, name) in contextColors" :key="_color">

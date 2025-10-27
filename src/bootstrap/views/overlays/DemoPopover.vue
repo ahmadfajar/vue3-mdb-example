@@ -1,6 +1,6 @@
 <template>
   <div class="docs-body container-lg mx-auto">
-    <h2>Overview</h2>
+    <h2>Basic Examples</h2>
     <DemoBlock class="mt-4">
       <div class="text-center">
         <BsButton ref="activator1" color="primary" dropdown-toggle @click="show1 = !show1">

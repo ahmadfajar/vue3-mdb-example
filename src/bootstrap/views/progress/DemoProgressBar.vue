@@ -1,6 +1,6 @@
 <template>
   <div class="docs-body container-lg mx-auto">
-    <h2>Overview</h2>
+    <h2>Basic Examples</h2>
     <DemoBlock class="mt-4">
       <BsProgressBar v-model="progress1" />
       <BsProgressBar v-model="progress1" class="mt-3" show-value height="1.5rem" />

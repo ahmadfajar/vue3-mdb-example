@@ -1,10 +1,10 @@
 <template>
   <div class="docs-body container-lg mx-auto">
-    <h2>Overview</h2>
+    <h2>Basic Examples</h2>
     <BsDivider />
     <h4 class="mt-4">Basic Example</h4>
-    <div class="demo-block-content bg-grey-200 rounded-4 mt-3">
-      <BsCard class="mx-auto" shadow style="max-width: 400px">
+    <div class="demo-block-content bg-gray-200 rounded-4 mt-3">
+      <BsCard class="mobi-card mx-auto" shadow>
         <BsListView>
           <BsSubheader>Today</BsSubheader>
           <template v-for="(item, index) in listItems1" :key="item.title">
@@ -32,8 +32,9 @@
         </BsCardBody>
       </BsCard>
     </div>
+
     <h4 class="mt-5">Contact Details Example</h4>
-    <div class="demo-block-content bg-grey-200 rounded-4 mt-3">
+    <div class="demo-block-content bg-gray-200 rounded-4 mt-3">
       <BsCard class="mx-auto" shadow style="max-width: 400px">
         <BsCardMedia title="Jonathan Smith">
           <img alt="image" src="https://picsum.photos/id/91/600/350.jpg?blur=2" />
@@ -79,17 +80,18 @@
         </BsListView>
       </BsCard>
     </div>
-    <h2 class="mt-5">List Tile With Manageable State</h2>
+
+    <h2 class="mt-5">List Tile with Manageable State</h2>
     <BsDivider />
     <h4 class="mt-4">State manage by ListView</h4>
     <BsAppContainer>
-      <div class="demo-block-content bg-grey-200 rounded-4 mt-3">
+      <div class="demo-block-content bg-gray-200 rounded-4 mt-3">
         <BsCard class="mobi-card mx-auto" shadow>
-          <BsAppbar class="bg-default-color-dark" shadow>
-            <BsButton color="light-grey" flat icon="menu" mode="icon" />
+          <BsAppbar class="bg-indigo-700" shadow>
+            <BsButton color="light" flat icon="menu" mode="icon" />
             <BsAppbarTitle class="text-white" title="My Recipes" />
             <BsSpacer />
-            <BsButton color="light-grey" flat icon="search" mode="icon" />
+            <BsButton color="light" flat icon="search" mode="icon" />
           </BsAppbar>
           <BsListView>
             <BsSubheader>Summer Recipes</BsSubheader>
@@ -97,7 +99,7 @@
               <BsListTile :disabled="index === 2" navigable>
                 <BsListTileLeading :img-src="item.avatar" :size="{ height: 56, width: 85 }" />
                 <BsListTileContent multi-line>
-                  <BsListTileTitle class="md-fw-semibold">
+                  <BsListTileTitle class="font-weight-semibold">
                     {{ item.title }}
                   </BsListTileTitle>
                   <BsListTileSubtitle>
@@ -116,15 +118,16 @@
         </BsCard>
       </div>
     </BsAppContainer>
+
     <h4 class="mt-5">State manage individually</h4>
     <BsAppContainer>
-      <div class="demo-block-content bg-grey-200 rounded-4 mt-3">
+      <div class="demo-block-content bg-gray-200 rounded-4 mt-3">
         <BsCard class="mobi-card mx-auto" shadow>
-          <BsAppbar class="bg-default-color-dark" shadow>
-            <BsButton color="light-grey" flat icon="menu" mode="icon" />
+          <BsAppbar class="bg-indigo-700" shadow>
+            <BsButton color="light" flat icon="menu" mode="icon" />
             <BsAppbarTitle class="text-white" title="My Recipes" />
             <BsSpacer />
-            <BsButton color="light-grey" flat icon="search" mode="icon" />
+            <BsButton color="light" flat icon="search" mode="icon" />
           </BsAppbar>
           <BsListView individual-state>
             <BsSubheader>Summer Recipes</BsSubheader>
@@ -132,7 +135,7 @@
               <BsListTile v-model:active="item.active" navigable>
                 <BsListTileLeading :img-src="item.avatar" :size="{ height: 56, width: 85 }" />
                 <BsListTileContent multi-line>
-                  <BsListTileTitle class="md-fw-semibold">
+                  <BsListTileTitle class="font-weight-semibold">
                     {{ item.title }}
                   </BsListTileTitle>
                   <BsListTileSubtitle>
@@ -151,16 +154,17 @@
         </BsCard>
       </div>
     </BsAppContainer>
+
     <h2 class="mt-5">List Tile with Avatar and Icon</h2>
     <BsDivider />
     <BsAppContainer>
-      <div class="demo-block-content bg-grey-200 rounded-4 mt-3">
+      <div class="demo-block-content bg-gray-200 rounded-4 mt-3">
         <BsCard class="mobi-card mx-auto" shadow>
-          <BsAppbar class="bg-default-color-dark" shadow>
-            <BsButton color="light-grey" flat icon="menu" mode="icon" />
+          <BsAppbar class="bg-indigo-700" shadow>
+            <BsButton color="light" flat icon="menu" mode="icon" />
             <BsAppbarTitle class="text-white" title="Chats" />
             <BsSpacer />
-            <BsButton color="light-grey" flat icon="search" mode="icon" />
+            <BsButton color="light" flat icon="search" mode="icon" />
           </BsAppbar>
           <BsListView>
             <BsSubheader>Recent Chats</BsSubheader>
@@ -168,7 +172,7 @@
               <BsListTile navigable>
                 <BsListTileLeading :img-src="item.avatar" circle />
                 <BsListTileContent>
-                  <BsListTileTitle class="md-fw-semibold">
+                  <BsListTileTitle class="font-weight-semibold">
                     {{ item.fullName }}
                   </BsListTileTitle>
                 </BsListTileContent>
@@ -183,7 +187,7 @@
               <BsListTile navigable>
                 <BsListTileLeading :img-src="item.avatar" circle />
                 <BsListTileContent>
-                  <BsListTileTitle class="md-fw-semibold">
+                  <BsListTileTitle class="font-weight-semibold">
                     {{ item.fullName }}
                   </BsListTileTitle>
                 </BsListTileContent>
@@ -196,108 +200,108 @@
         </BsCard>
       </div>
     </BsAppContainer>
-    <h2 class="mt-5">List Tile Used Inside SideDrawer</h2>
+
+    <h2 class="mt-5">List Tile used Inside SideDrawer</h2>
     <BsDivider />
-    <div class="demo-block-content bg-grey-200 rounded-4 mt-3">
-      <BsAppContainer class="bg-grey-400">
-        <BsAppbar class="bg-default-color-dark" clipped-left shadow>
-          <BsButton
-            color="light-grey"
-            flat
-            icon="menu"
-            mode="icon"
-            @click="toggleSideDrawer1(!openSideDrawer1)"
+    <BsAppContainer class="bg-gray-400 mt-4 rounded-3 shadow">
+      <BsAppbar class="bg-indigo-700" clipped-left shadow>
+        <BsButton
+          color="light"
+          flat
+          icon="menu"
+          mode="icon"
+          @click="toggleSideDrawer1(!openSideDrawer1)"
+        />
+        <BsAppbarTitle class="text-white" title="Page Title" />
+        <BsSpacer />
+        <BsAppbarItems>
+          <BsButton color="light" flat icon="search" mode="icon" />
+          <BsButton color="light" flat icon="notifications" mode="icon" />
+        </BsAppbarItems>
+      </BsAppbar>
+      <BsSideDrawer v-model:open="openSideDrawer1" style="--sidedrawer-background: #fff">
+        <div class="p-3">
+          <img
+            alt="image"
+            class="rounded-circle"
+            src="https://ahmadfajar.github.io/img/kitty-1.jpg"
+            style="width: 40px"
           />
-          <BsAppbarTitle class="text-white" title="Page Title" />
-          <BsSpacer />
-          <BsAppbarItems>
-            <BsButton color="light-grey" flat icon="search" mode="icon" />
-            <BsButton color="light-grey" flat icon="notifications" mode="icon" />
-          </BsAppbarItems>
-        </BsAppbar>
-        <BsSideDrawer v-model:open="openSideDrawer1" class="border-end">
-          <div class="p-3">
-            <img
-              alt="image"
-              class="rounded-circle"
-              src="https://ahmadfajar.github.io/img/kitty-1.jpg"
-              style="width: 40px"
-            />
-            <span class="h5 ps-3">Kitty Doe</span>
-          </div>
-          <BsDivider />
-          <BsListView>
-            <BsListTile navigable>
-              <BsListTileLeading icon="inbox" />
-              <BsListTileContent>
-                <BsListTileTitle>Inbox</BsListTileTitle>
-              </BsListTileContent>
-            </BsListTile>
-            <BsListTile navigable>
-              <BsListTileLeading icon="bookmarks" />
-              <BsListTileContent>
-                <BsListTileTitle>Important</BsListTileTitle>
-              </BsListTileContent>
-            </BsListTile>
-            <BsListTile navigable>
-              <BsListTileLeading icon="send" />
-              <BsListTileContent>
-                <BsListTileTitle>Sent</BsListTileTitle>
-              </BsListTileContent>
-            </BsListTile>
-            <BsListTile navigable>
-              <BsListTileLeading icon="description" />
-              <BsListTileContent>
-                <BsListTileTitle>Drafts</BsListTileTitle>
-              </BsListTileContent>
-            </BsListTile>
-            <BsDivider class="my-2" />
-            <BsListTile navigable>
-              <BsListTileLeading icon="email" />
-              <BsListTileContent>
-                <BsListTileTitle>All Mail</BsListTileTitle>
-              </BsListTileContent>
-              <BsListTileAction center>
-                <BsBadge color="grey-500" type="pill"> 102 </BsBadge>
-              </BsListTileAction>
-            </BsListTile>
-            <BsListTile navigable>
-              <BsListTileLeading icon="delete" />
-              <BsListTileContent>
-                <BsListTileTitle>Trash</BsListTileTitle>
-              </BsListTileContent>
-              <BsListTileAction center>
-                <BsBadge color="grey-500" type="pill"> 12 </BsBadge>
-              </BsListTileAction>
-            </BsListTile>
-            <BsListTile navigable>
-              <BsListTileLeading icon="gpp_maybe" />
-              <BsListTileContent>
-                <BsListTileTitle>Spam</BsListTileTitle>
-              </BsListTileContent>
-              <BsListTileAction center>
-                <BsBadge color="grey-500" type="pill"> 8 </BsBadge>
-              </BsListTileAction>
-            </BsListTile>
-          </BsListView>
-        </BsSideDrawer>
-        <BsContainer app style="height: 400px">
-          <div class="container-fluid d-flex justify-content-center align-items-center"></div>
-        </BsContainer>
-      </BsAppContainer>
-    </div>
+          <span class="h5 ps-3">Kitty Doe</span>
+        </div>
+        <BsDivider />
+        <BsListView>
+          <BsListTile navigable>
+            <BsListTileLeading icon="inbox" />
+            <BsListTileContent>
+              <BsListTileTitle>Inbox</BsListTileTitle>
+            </BsListTileContent>
+          </BsListTile>
+          <BsListTile navigable>
+            <BsListTileLeading icon="bookmarks" />
+            <BsListTileContent>
+              <BsListTileTitle>Important</BsListTileTitle>
+            </BsListTileContent>
+          </BsListTile>
+          <BsListTile navigable>
+            <BsListTileLeading icon="send" />
+            <BsListTileContent>
+              <BsListTileTitle>Sent</BsListTileTitle>
+            </BsListTileContent>
+          </BsListTile>
+          <BsListTile navigable>
+            <BsListTileLeading icon="description" />
+            <BsListTileContent>
+              <BsListTileTitle>Drafts</BsListTileTitle>
+            </BsListTileContent>
+          </BsListTile>
+          <BsDivider class="my-2" />
+          <BsListTile navigable>
+            <BsListTileLeading icon="email" />
+            <BsListTileContent>
+              <BsListTileTitle>All Mail</BsListTileTitle>
+            </BsListTileContent>
+            <BsListTileAction center>
+              <BsBadge color="gray-500" type="pill"> 102 </BsBadge>
+            </BsListTileAction>
+          </BsListTile>
+          <BsListTile navigable>
+            <BsListTileLeading icon="delete" />
+            <BsListTileContent>
+              <BsListTileTitle>Trash</BsListTileTitle>
+            </BsListTileContent>
+            <BsListTileAction center>
+              <BsBadge color="gray-500" type="pill"> 12 </BsBadge>
+            </BsListTileAction>
+          </BsListTile>
+          <BsListTile navigable>
+            <BsListTileLeading icon="gpp_maybe" />
+            <BsListTileContent>
+              <BsListTileTitle>Spam</BsListTileTitle>
+            </BsListTileContent>
+            <BsListTileAction center>
+              <BsBadge color="gray-500" type="pill"> 8 </BsBadge>
+            </BsListTileAction>
+          </BsListTile>
+        </BsListView>
+      </BsSideDrawer>
+      <BsContainer app style="height: 400px">
+        <div class="container-fluid d-flex justify-content-center align-items-center"></div>
+      </BsContainer>
+    </BsAppContainer>
+
     <h2 class="mt-5">Playground</h2>
     <BsDivider />
-    <BsAppContainer class="overflow-hidden">
-      <div class="demo-block-content bg-grey-200 rounded-4 mt-3">
+    <BsAppContainer>
+      <div class="demo-block-content bg-gray-200 rounded-4 mt-3">
         <BsCard class="mobi-card mx-auto" shadow>
           <BsAppbar class="bg-default-color-dark" clipped-left shadow>
-            <BsButton color="light-grey" flat icon="menu" mode="icon" />
+            <BsButton color="light" flat icon="menu" mode="icon" />
             <BsAppbarTitle class="text-white" title="Menus" />
             <BsSpacer />
             <BsAppbarItems>
-              <BsButton color="light-grey" flat icon="search" mode="icon" />
-              <BsButton color="light-grey" flat icon="notifications" mode="icon" />
+              <BsButton color="light" flat icon="search" mode="icon" />
+              <BsButton color="light" flat icon="notifications" mode="icon" />
             </BsAppbarItems>
           </BsAppbar>
           <BsListView
@@ -337,7 +341,7 @@
                 <BsListTileTitle>All Mail</BsListTileTitle>
               </BsListTileContent>
               <BsListTileAction center>
-                <BsBadge color="secondary" type="pill"> 102 </BsBadge>
+                <BsBadge type="pill" variant="secondary"> 102 </BsBadge>
               </BsListTileAction>
             </BsListTile>
             <BsListTile navigable>
@@ -346,7 +350,7 @@
                 <BsListTileTitle>Trash</BsListTileTitle>
               </BsListTileContent>
               <BsListTileAction center>
-                <BsBadge color="secondary" type="pill"> 12 </BsBadge>
+                <BsBadge type="pill" variant="secondary"> 12 </BsBadge>
               </BsListTileAction>
             </BsListTile>
             <BsListTile navigable>
@@ -355,38 +359,21 @@
                 <BsListTileTitle>Spam</BsListTileTitle>
               </BsListTileContent>
               <BsListTileAction center>
-                <BsBadge color="secondary" type="pill"> 8 </BsBadge>
+                <BsBadge type="pill" variant="secondary"> 8 </BsBadge>
               </BsListTileAction>
             </BsListTile>
           </BsListView>
         </BsCard>
       </div>
       <h4 class="mt-4">ListView properties:</h4>
-      <BsRadioGroup
-        v-model="spaceAround"
-        :items="spaceAroundTypes"
-        color="default-color-dark"
-        column="3"
-      >
-        <label class="col-md-3 col-form-label md-fw-semibold">Space Around</label>
+      <BsRadioGroup v-model="spaceAround" :items="spaceAroundTypes" column="3">
+        <label class="col-md-3 col-form-label font-weight-semibold">Space Around</label>
       </BsRadioGroup>
-      <BsRadioGroup
-        v-model="itemBorderVariant"
-        :items="itemBorderVariants"
-        class="mt-3"
-        color="default-color-dark"
-        column="3"
-      >
-        <label class="col-md-3 col-form-label md-fw-semibold">Item Border Variant</label>
+      <BsRadioGroup v-model="itemBorderVariant" :items="itemBorderVariants" class="mt-3" column="3">
+        <label class="col-md-3 col-form-label font-weight-semibold">Item Border Variant</label>
       </BsRadioGroup>
-      <BsRadioGroup
-        v-model="itemStyle"
-        :items="itemStyles"
-        class="mt-3"
-        color="default-color-dark"
-        column="3"
-      >
-        <label class="col-md-3 col-form-label md-fw-semibold">Item Style</label>
+      <BsRadioGroup v-model="itemStyle" :items="itemStyles" class="mt-3" column="3">
+        <label class="col-md-3 col-form-label font-weight-semibold">Item Style</label>
       </BsRadioGroup>
     </BsAppContainer>
   </div>
@@ -394,7 +381,7 @@
 
 <script setup lang="ts">
 import { computed, ref } from 'vue';
-import type { TSpaceAround } from 'vue-mdbootstrap';
+import type { TListItemBorder, TSpaceAround } from 'vue-mdbootstrap';
 
 const spaceAroundTypes = [
   { label: 'None', value: 'none' },
@@ -419,8 +406,8 @@ const itemStyles = [
   { label: 'Rounded-Pill', value: 'pill' },
 ];
 const itemStyle = ref<string>('none');
-const getItemBorderVariant = computed<string | undefined>(() =>
-  itemBorderVariant.value === 'none' ? undefined : itemBorderVariant.value
+const getItemBorderVariant = computed<TListItemBorder | undefined>(() =>
+  itemBorderVariant.value === 'none' ? undefined : (itemBorderVariant.value as TListItemBorder)
 );
 
 const listItems1 = [

@@ -89,7 +89,7 @@ const routeNavB = menuNavs.filter((it) => it.group === 'Reference').sort(compare
 </script>
 
 <style lang="scss">
-//@use 'vue-mdbootstrap/scss/mixins/css3/borders';
+@use 'vue-mdbootstrap/scss/mixins/css3/borders';
 //@use 'vue-mdbootstrap/scss/variables' as vars;
 
 .fastFade-enter-active,
@@ -147,8 +147,11 @@ const routeNavB = menuNavs.filter((it) => it.group === 'Reference').sort(compare
 }
 
 .mobi-card {
-  //--md-card-border-radius: 0.375rem;
   max-width: 25rem; // 400px;
+
+  > .md-appbar:first-child {
+    @include borders.top-radius(inherit);
+  }
 }
 
 .docs-body {

@@ -1,6 +1,6 @@
 <template>
   <div class="docs-body container-lg mx-auto">
-    <h2>Overview</h2>
+    <h2>Basic Examples</h2>
     <BsDivider />
     <div class="demo-block-content bg-grey-200 rounded-4 mt-3">
       <div class="bg-white">

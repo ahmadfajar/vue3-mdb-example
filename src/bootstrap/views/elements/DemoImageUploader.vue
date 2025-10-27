@@ -1,6 +1,6 @@
 <template>
   <div class="docs-body container-lg mx-auto">
-    <h2>Overview</h2>
+    <h2>Basic Examples</h2>
     <DemoBlock class="mt-3">
       <BsCard>
         <BsCardBody>
@@ -37,6 +37,7 @@
 </template>
 
 <script setup lang="ts">
+import type { AxiosError, AxiosResponse } from 'axios';
 import { computed, ref, unref } from 'vue';
 import type { BsImageUploaderInstance, INotificationProvider, TUploadError } from 'vue-mdbootstrap';
 
@@ -58,8 +59,7 @@ async function doUpload(notification: INotificationProvider) {
       notification.error('Upload failed.');
     }
   } catch (error) {
-    // @ts-ignore
-    notification.error(error.data?.message || error.message);
+    notification.error((error as AxiosResponse).data?.message || (error as AxiosError).message);
   } finally {
     isBusy.value = false;
   }

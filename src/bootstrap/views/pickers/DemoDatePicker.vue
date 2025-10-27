@@ -1,6 +1,6 @@
 <template>
   <div class="docs-body container-lg mx-auto">
-    <h2>Overview</h2>
+    <h2>Basic Examples</h2>
     <h4 class="mt-3">Default Orientation</h4>
     <div class="demo-block-content bg-gray-200 rounded-4 mt-4">
       <div class="flex justify-center">

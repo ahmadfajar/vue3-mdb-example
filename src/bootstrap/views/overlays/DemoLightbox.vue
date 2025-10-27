@@ -1,6 +1,6 @@
 <template>
   <div class="docs-body container-lg mx-auto">
-    <h2>Overview</h2>
+    <h2>Basic Examples</h2>
     <div class="card bg-grey-200 border-0 py-4 px-3">
       <div class="row justify-content-center">
         <div class="col-lg-8 col-xl-6">

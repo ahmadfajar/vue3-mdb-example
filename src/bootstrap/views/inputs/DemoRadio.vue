@@ -1,6 +1,6 @@
 <template>
   <div class="docs-body container-lg mx-auto">
-    <h2>Overview</h2>
+    <h2>Basic Examples</h2>
     <DemoBlock class="mt-4">
       <div class="row row-cols-1 row-cols-md-2">
         <template v-for="(_color, name) in contextColors" :key="_color">

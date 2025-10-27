@@ -1,6 +1,6 @@
 <template>
   <div class="docs-body container-lg mx-auto">
-    <h2>Overview</h2>
+    <h2>Basic Examples</h2>
     <DemoBlock class="mt-3">
       <div class="flex justify-center md-gap-4">
         <BsAvatar class="bg-deep-orange darken-3 text-white" icon="people_alt" />

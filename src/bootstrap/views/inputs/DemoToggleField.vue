@@ -1,6 +1,6 @@
 <template>
   <div class="docs-body container-lg mx-auto">
-    <h2>Overview</h2>
+    <h2>Basic Examples</h2>
     <DemoBlock class="mt-4">
       <BsCardContent class="mb-4" type="subtitle"> What are you drinking? </BsCardContent>
       <BsToggleField v-model="selectedDrink" :items="drinks" class="mb-4">

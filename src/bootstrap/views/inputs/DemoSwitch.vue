@@ -1,6 +1,6 @@
 <template>
   <div class="docs-body container-lg mx-auto">
-    <h2>Overview</h2>
+    <h2>Basic Examples</h2>
     <DemoBlock class="mt-4">
       <BsSwitch v-model="switch1" :value="true">
         Enable power meter : <b>{{ switch1 }}</b>

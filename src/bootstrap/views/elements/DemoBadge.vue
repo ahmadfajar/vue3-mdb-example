@@ -1,6 +1,6 @@
 <template>
   <div class="docs-body container-lg mx-auto">
-    <h2>Overview</h2>
+    <h2>Basic Examples</h2>
     <DemoBlock class="mt-3">
       <h2>Example heading <BsBadge>New</BsBadge></h2>
       <h3>Example heading <BsBadge>New</BsBadge></h3>
@@ -73,7 +73,7 @@
     <h4 class="mt-5">Outlined</h4>
     <DemoBlock class="mt-3">
       <div class="flex flex-wrap md-gap-2 mb-3">
-        <BsBadge outlined type="pill" variant="default"> Default </BsBadge>
+        <BsBadge class="border-default text-default" outlined type="pill"> Default </BsBadge>
         <BsBadge outlined type="pill" variant="primary"> Primary </BsBadge>
         <BsBadge outlined type="pill" variant="secondary"> Secondary </BsBadge>
         <BsBadge outlined type="pill" variant="success"> Success </BsBadge>
@@ -95,13 +95,13 @@
     <h2 class="mt-5">Actionable Badges</h2>
     <DemoBlock class="mt-3">
       <div class="flex flex-wrap md-gap-2">
-        <BsBadge href="/components/badge" tag="a" variant="default"> Default </BsBadge>
-        <BsBadge href="/components/badge" tag="a" variant="primary"> Primary </BsBadge>
-        <BsBadge href="/components/badge" tag="a" variant="secondary"> Secondary </BsBadge>
-        <BsBadge href="/components/badge" tag="a" variant="success"> Success </BsBadge>
-        <BsBadge href="/components/badge" tag="a" variant="danger"> Danger </BsBadge>
-        <BsBadge href="/components/badge" tag="a" variant="warning"> Warning </BsBadge>
-        <BsBadge href="/components/badge" tag="a" variant="info"> Info </BsBadge>
+        <BsBadge href="#" tag="a" variant="default"> Default </BsBadge>
+        <BsBadge href="#" tag="a" variant="primary"> Primary </BsBadge>
+        <BsBadge href="#" tag="a" variant="secondary"> Secondary </BsBadge>
+        <BsBadge href="#" tag="a" variant="success"> Success </BsBadge>
+        <BsBadge href="#" tag="a" variant="danger"> Danger </BsBadge>
+        <BsBadge href="#" tag="a" variant="warning"> Warning </BsBadge>
+        <BsBadge href="#" tag="a" variant="info"> Info </BsBadge>
       </div>
     </DemoBlock>
   </div>

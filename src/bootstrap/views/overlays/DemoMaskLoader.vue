@@ -1,6 +1,6 @@
 <template>
   <div class="docs-body container-lg mx-auto">
-    <h2>Overview</h2>
+    <h2>Basic Examples</h2>
     <BsDivider />
     <div class="row mt-4">
       <div class="col-md-6 mb-4">
