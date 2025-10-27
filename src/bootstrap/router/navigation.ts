@@ -247,7 +247,12 @@ export const menuNavs: TMainNavigation[] = [
       {
         label: 'Notification',
         path: '/components/notification',
-        view: () => import('@bs/views/Reference/DemoNotification.vue'),
+        view: () => import('@bs/views/Components/DemoNotification.vue'),
+      },
+      {
+        label: 'Overlay',
+        path: '/components/overlay',
+        view: () => import('@bs/views/Components/DemoOverlay.vue'),
       },
       {
         label: 'Popover',

@@ -89,8 +89,8 @@ const routeNavB = menuNavs.filter((it) => it.group === 'Reference').sort(compare
 </script>
 
 <style lang="scss">
-@use 'vue-mdbootstrap/scss/mixins/css3/borders';
-@use 'vue-mdbootstrap/scss/variables' as vars;
+//@use 'vue-mdbootstrap/scss/mixins/css3/borders';
+//@use 'vue-mdbootstrap/scss/variables' as vars;
 
 .fastFade-enter-active,
 .fastFade-leave-active {
@@ -112,6 +112,39 @@ const routeNavB = menuNavs.filter((it) => it.group === 'Reference').sort(compare
   }
 }
 
+.md-side-drawer {
+  .md-nav-item:not(.md-expanded) {
+    .md-tile-border-left.active > .md-ripple:before {
+      --md-tile-indicator-border-width: 5px;
+      height: 70%;
+      top: 15%;
+      border-radius: 12px;
+    }
+  }
+
+  @media (min-width: calc(50rem + 1px)) {
+    ::-webkit-scrollbar {
+      width: 0.4rem;
+      height: 0.4rem;
+    }
+
+    &:hover {
+      ::-webkit-scrollbar-track {
+        background: var(--md-sidedrawer-background);
+      }
+
+      ::-webkit-scrollbar-thumb {
+        border-radius: 0.25rem;
+        background: oklch(0.593 0.005 271.335);
+
+        &:hover {
+          background: oklch(0.492 0.007 264.503);
+        }
+      }
+    }
+  }
+}
+
 .docs-body {
   padding-top: 2rem;
 
@@ -119,29 +152,33 @@ const routeNavB = menuNavs.filter((it) => it.group === 'Reference').sort(compare
     font-weight: var(--font-weight-medium);
   }
 
-  //.h3,
-  //.h4,
-  //h3,
-  //h4 {
-  //  &:not(.card-title) {
-  //    font-weight: normal;
-  //  }
-  //}
-
-  @media (min-width: 1200px) {
-    max-width: 1080px;
+  @media (min-width: calc(50rem + 1px)) {
+    .card-mw-65 {
+      max-width: 90%;
+    }
   }
 
-  @media (min-width: 1480px) {
+  // screen: 1024px
+  @media (min-width: 64rem) {
+    .card-mw-65 {
+      max-width: 85%;
+    }
+  }
+
+  // screen: 1200px
+  @media (min-width: 75rem) {
+    max-width: 1080px;
+    .card-mw-65 {
+      max-width: 65%;
+    }
+  }
+
+  // screen: 1440px
+  @media (min-width: 90rem) {
     padding-left: 2rem;
   }
 
   //.card {
-  //  &.mobi-card {
-  //    --bs-card-border-radius: 0.375rem;
-  //    max-width: 400px;
-  //  }
-  //
   //  &.rounded-sm {
   //    --bs-card-border-radius: 0.375rem;
   //  }
@@ -152,9 +189,14 @@ const routeNavB = menuNavs.filter((it) => it.group === 'Reference').sort(compare
   //}
 }
 
-//.demo-block-content {
-//  .md-breadcrumb {
-//    --md-breadcrumb-container-padding-x: 0;
-//  }
-//}
+.mobi-card {
+  //--md-card-border-radius: 0.375rem;
+  max-width: 400px;
+}
+
+.demo-block-content {
+  .md-breadcrumb {
+    --md-breadcrumb-padding-x: 0;
+  }
+}
 </style>

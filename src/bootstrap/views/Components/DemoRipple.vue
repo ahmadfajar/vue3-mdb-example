@@ -1,6 +1,6 @@
 <template>
   <div class="docs-body container-lg mx-auto">
-    <h2>Demo Ripple</h2>
+    <h2>Basic Examples</h2>
     <BsDivider />
     <div class="flex justify-center mt-4">
       <BsRipple
@@ -10,33 +10,20 @@
         <b>Click Me</b>
       </BsRipple>
       <BsRipple
-        class="d-flex justify-content-center align-items-center text-bg-primary border rounded me-3"
+        class="flex justify-center items-center text-bg-primary border rounded me-3"
         style="max-width: 150px; height: 150px"
       >
         <b>Click Me</b>
       </BsRipple>
       <BsRipple
         centered
-        class="d-flex justify-content-center align-items-center text-bg-success border rounded"
+        class="flex justify-center items-center text-bg-success border rounded"
         style="max-width: 150px; height: 150px"
       >
         <b>Click Me</b>
       </BsRipple>
     </div>
-    <h2 class="mt-5">Demo Overlay</h2>
-    <BsDivider />
-    <div class="position-relative d-flex justify-content-center mt-4 py-5">
-      <BsButton color="success" @click="showOverlay = !showOverlay"> Show Overlay </BsButton>
-      <BsOverlay :show="showOverlay" @click="hideOverlay" />
-    </div>
   </div>
 </template>
 
-<script setup lang="ts">
-import { ref } from 'vue';
-
-const showOverlay = ref(false);
-function hideOverlay() {
-  showOverlay.value = false;
-}
-</script>
+<script setup lang="ts"></script>

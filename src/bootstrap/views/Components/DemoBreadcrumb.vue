@@ -2,17 +2,17 @@
   <div class="docs-body container-lg mx-auto">
     <h2>Overview</h2>
     <DemoBlock class="mt-3">
-      <BsBreadcrumb :items="items1" class="px-0" />
-      <BsBreadcrumb :items="items2" class="px-0" />
+      <BsBreadcrumb :items="items1" />
+      <BsBreadcrumb :items="items2" />
     </DemoBlock>
 
     <h2 class="mt-5">Icons</h2>
     <DemoBlock class="mt-3">
-      <BsBreadcrumb :items="items1" class="px-0" prepend-icon="home" />
-      <BsBreadcrumb :items="items2" class="px-0" icon-size="28" prepend-icon="home" />
+      <BsBreadcrumb :items="items1" prepend-icon="home" />
+      <BsBreadcrumb :items="items2" icon-size="28" prepend-icon="home" />
 
       <div class="h5 mt-4">Custom Slot</div>
-      <BsBreadcrumb :items="items2" class="px-0">
+      <BsBreadcrumb :items="items2">
         <template #icon>
           <BsFontawesomeIcon icon="house-user" variant="regular" size="22" />
         </template>
@@ -21,15 +21,9 @@
 
     <h2 class="mt-5">Separators</h2>
     <DemoBlock class="mt-3">
-      <BsBreadcrumb :items="items1" class="px-0" icon-size="22" prepend-icon="home" separator=">" />
+      <BsBreadcrumb :items="items1" icon-size="22" prepend-icon="home" separator=">" />
       <div class="h5 mt-4">Embedded SVG</div>
-      <BsBreadcrumb
-        :items="items2"
-        :separator="svg"
-        class="px-0"
-        icon-size="22"
-        prepend-icon="home"
-      />
+      <BsBreadcrumb :items="items2" :separator="svg" icon-size="22" prepend-icon="home" />
     </DemoBlock>
   </div>
 </template>
