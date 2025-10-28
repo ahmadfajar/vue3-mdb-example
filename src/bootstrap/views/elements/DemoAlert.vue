@@ -2,54 +2,29 @@
   <div class="docs-body container-lg mx-auto">
     <h2>Basic Examples</h2>
     <DemoBlock class="mt-3">
-      <BsAlert> Simple alert with <span class="font-weight-semibold">primary color</span> </BsAlert>
-      <BsAlert color="secondary">
-        Simple alert with <span class="font-weight-semibold">secondary color</span>
-      </BsAlert>
-      <BsAlert color="success">
-        Simple alert with <span class="font-weight-semibold">success color</span>
-      </BsAlert>
-      <BsAlert color="danger">
-        Simple alert with <span class="font-weight-semibold">danger color</span>
-      </BsAlert>
-      <BsAlert color="warning">
-        Simple alert with <span class="font-weight-semibold">warning color</span>
-      </BsAlert>
-      <BsAlert color="info">
-        Simple alert with <span class="font-weight-semibold">info color</span>
-      </BsAlert>
+      <template v-for="(_color, name) in contextColors" :key="_color">
+        <BsAlert :color="name">
+          Simple alert with <span class="font-weight-semibold">{{ name }} color</span>
+        </BsAlert>
+      </template>
     </DemoBlock>
 
     <h2 class="mt-5">Solid Fill Style</h2>
     <DemoBlock class="mt-3">
-      <BsAlert filled>
-        Solid alert with <span class="font-weight-semibold">primary color</span>
-      </BsAlert>
-      <BsAlert color="secondary" filled>
-        Solid alert with <span class="font-weight-semibold">secondary color</span>
-      </BsAlert>
-      <BsAlert color="success" filled>
-        Solid alert with <span class="font-weight-semibold">success color</span>
-      </BsAlert>
-      <BsAlert color="danger" filled>
-        Solid alert with <span class="font-weight-semibold">danger color</span>
-      </BsAlert>
-      <BsAlert color="warning" filled>
-        Solid alert with <span class="font-weight-semibold">warning color</span>
-      </BsAlert>
-      <BsAlert color="info" filled>
-        Solid alert with <span class="font-weight-semibold">info color</span>
-      </BsAlert>
+      <template v-for="(_color, name) in contextColors" :key="_color">
+        <BsAlert :color="name" filled>
+          Solid alert with <span class="font-weight-semibold">{{ name }} color</span>
+        </BsAlert>
+      </template>
     </DemoBlock>
 
     <h2 class="mt-5">Outline Style</h2>
     <DemoBlock class="mt-3">
-      <BsAlert outlined> Outlined alert with primary color </BsAlert>
-      <BsAlert color="secondary" outlined> Outlined alert with secondary color </BsAlert>
-      <BsAlert color="success" outlined> Outlined alert with success color </BsAlert>
-      <BsAlert color="danger" outlined> Outlined alert with danger color </BsAlert>
-      <BsAlert color="warning" outlined> Outlined alert with warning color </BsAlert>
-      <BsAlert color="info" outlined> Outlined alert with info color </BsAlert>
+      <template v-for="(_color, name) in contextColors" :key="_color">
+        <BsAlert :color="name" outlined>
+          Outlined alert with <span class="font-weight-semibold">{{ name }} color</span>
+        </BsAlert>
+      </template>
     </DemoBlock>
 
     <h2 class="mt-5">Predefined Contextual Alert</h2>
@@ -115,34 +90,51 @@
     <h2 class="mt-5">Dismissible alerts</h2>
     <DemoBlock class="mt-3">
       <BsAlert color="primary" dismissible filled>
-        Simple alert with primary color. Click the close button over there
-        <BsFontawesomeIcon icon="hand-pointer" rotate="90" />
+        <div class="flex items-center">
+          <div class="me-2">
+            Simple alert with primary color. Click the close button over there.
+          </div>
+          <BsFontawesomeIcon icon="hand-pointer" rotate="90" />
+        </div>
       </BsAlert>
       <BsAlert color="success" dismissible filled>
-        Simple alert with success color. Click the close button over there
+        <div class="flex items-center">
+          <div class="me-2">
+            Simple alert with success color. Click the close button over there.
+          </div>
+          <BsFontawesomeIcon icon="hand-pointer" rotate="90" />
+        </div>
       </BsAlert>
       <BsAlert color="danger" dismissible outlined>
-        Simple alert with danger color. Click the close button over there
+        <div class="flex items-center">
+          <div class="me-2">Simple alert with danger color. Click the close button over there.</div>
+          <BsFontawesomeIcon icon="hand-pointer" rotate="90" />
+        </div>
       </BsAlert>
     </DemoBlock>
 
     <h2 class="mt-5">Controlling dismissible alert</h2>
     <DemoBlock class="mt-3">
-      <BsAlert v-model="showDismissibleAlert1" color="danger" dismissible>
-        This is a dismissible alert.
-      </BsAlert>
-      <BsAlert v-model="showDismissibleAlert2" dismissible @close="closeAlert">
-        <div class="pb-2">This alert will dismiss after {{ dismissCountDown }} seconds...</div>
-        <bs-progress v-model="percentProgress" mode="determinate" type="bar" />
-      </BsAlert>
-      <div class="row gy-3">
-        <div class="col-12 col-md-6">
-          <BsButton @click="toggleAlert">
-            {{ showDismissibleAlert1 ? 'Hide' : 'Show' }} dismissible Alert
-          </BsButton>
+      <div class="flex flex-col" style="min-height: 210px">
+        <div class="flex-fill">
+          <BsAlert v-model="showDismissibleAlert1" color="danger" dismissible>
+            This is a dismissible alert.
+          </BsAlert>
+          <BsAlert v-model="showDismissibleAlert2" dismissible @close="closeAlert">
+            <div class="pb-2">This alert will dismiss after {{ dismissCountDown }} seconds...</div>
+            <bs-progress v-model="percentProgress" mode="determinate" type="bar" />
+          </BsAlert>
         </div>
-        <div class="col-12 col-md-6">
-          <BsButton @click="showAlert"> Show Alert with timer </BsButton>
+
+        <div class="row gy-3">
+          <div class="col-12 col-md-6">
+            <BsButton @click="toggleAlert">
+              {{ showDismissibleAlert1 ? 'Hide' : 'Show' }} dismissible Alert
+            </BsButton>
+          </div>
+          <div class="col-12 col-md-6">
+            <BsButton @click="showAlert"> Show Alert with timer </BsButton>
+          </div>
         </div>
       </div>
     </DemoBlock>
@@ -150,6 +142,7 @@
 </template>
 
 <script setup lang="ts">
+import { contextColors } from '@shares/themeColors.ts';
 import { computed, ref, watch } from 'vue';
 import { IconBullhorn, IconCircleNodes } from '@shares/sharedApi.ts';
 

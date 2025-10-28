@@ -1,3 +1,36 @@
+export const contextColors = {
+  default: '#715eac',
+  primary: '#0d6efd',
+  secondary: '#6c757d',
+  success: '#1a8754',
+  danger: '#dc3545',
+  warning: '#ffbb33',
+  info: '#20dcfb',
+};
+
+export const contextColorsLight = {
+  default: '#715eac',
+  primary: '#0d6efd',
+  secondary: '#6c757d',
+  success: '#1a8754',
+  danger: '#dc3545',
+  warning: '#ffbb33',
+  info: '#20dcfb',
+  light: '#e9ecef',
+};
+
+export const contextColorsLightDark = {
+  default: '#715eac',
+  primary: '#0d6efd',
+  secondary: '#6c757d',
+  success: '#1a8754',
+  danger: '#dc3545',
+  warning: '#ffbb33',
+  info: '#20dcfb',
+  light: '#e9ecef',
+  dark: '#202020',
+};
+
 export const themeColors: Record<string, string> = {
   default: '#2bbbad',
   primary: '#0d6efd',
@@ -98,18 +131,6 @@ export const materialColors = {
     'unique-color': '#385870',
     'unique-color-dark': '#1c2331',
   },
-};
-
-export const contextColors = {
-  default: '#715eac',
-  primary: '#0d6efd',
-  secondary: '#6c757d',
-  success: '#1a8754',
-  danger: '#dc3545',
-  warning: '#ffbb33',
-  info: '#20dcfb',
-  light: '#e9ecef',
-  dark: '#202020',
 };
 
 export function useBootstrapColorClasses(name: string) {

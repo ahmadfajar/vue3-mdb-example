@@ -73,7 +73,7 @@
     <h4 class="mt-5">Outlined</h4>
     <DemoBlock class="mt-3">
       <div class="flex flex-wrap md-gap-2 mb-3">
-        <BsBadge class="border-default text-default" outlined type="pill"> Default </BsBadge>
+        <BsBadge outlined type="pill" variant="default"> Default </BsBadge>
         <BsBadge outlined type="pill" variant="primary"> Primary </BsBadge>
         <BsBadge outlined type="pill" variant="secondary"> Secondary </BsBadge>
         <BsBadge outlined type="pill" variant="success"> Success </BsBadge>
