@@ -37,7 +37,10 @@
     <div class="demo-block-content bg-gray-200 rounded-4 mt-3">
       <BsCard class="mx-auto" shadow style="max-width: 400px">
         <BsCardMedia title="Jonathan Smith">
-          <img alt="image" src="https://picsum.photos/id/91/600/350.jpg?blur=2" />
+          <img
+            alt="image"
+            src="https://fastly.picsum.photos/id/91/600/350.jpg?blur=2&hmac=c-eoJJmkWO0d7n63mHebn8XQmXf9GYe8_LnjrbiK-aU"
+          />
         </BsCardMedia>
         <BsListView>
           <BsListTile>

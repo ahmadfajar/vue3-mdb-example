@@ -322,6 +322,29 @@
         </div>
       </div>
     </DemoBlock>
+
+    <h4 class="mt-5">Auto Grow</h4>
+    <DemoBlock class="mt-4">
+      <div class="row ps-2">
+        <div class="col-12 col-lg-10 col-xl-8">
+          <div class="mb-4">
+            <BsTextArea v-model="autogrow1" auto-grow clear-button floating-label>
+              <label>Address</label>
+            </BsTextArea>
+          </div>
+          <div class="mb-3">
+            <BsTextArea v-model="autogrow2" auto-grow clear-button filled floating-label>
+              <label>Address</label>
+            </BsTextArea>
+          </div>
+          <div class="mb-3">
+            <BsTextArea v-model="autogrow3" auto-grow clear-button floating-label outlined>
+              <label>Address</label>
+            </BsTextArea>
+          </div>
+        </div>
+      </div>
+    </DemoBlock>
   </div>
 </template>
 
@@ -329,6 +352,9 @@
 import { ref } from 'vue';
 
 const textValue1 = ref('Grocery delivery');
+const autogrow1 = ref();
+const autogrow2 = ref();
+const autogrow3 = ref();
 // prettier-ignore
 const loremIpsum = ref('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.');
 </script>

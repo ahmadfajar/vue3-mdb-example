@@ -187,16 +187,6 @@ const routeNavB = menuNavs.filter((it) => it.group === 'Reference').sort(compare
   @media (min-width: 90rem) {
     padding-left: 2rem;
   }
-
-  //.card {
-  //  &.rounded-sm {
-  //    --bs-card-border-radius: 0.375rem;
-  //  }
-  //
-  //  > .md-appbar:first-child {
-  //    @include borders.top-radius(var(--bs-card-border-radius));
-  //  }
-  //}
 }
 
 .demo-block-content {

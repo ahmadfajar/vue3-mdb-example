@@ -183,11 +183,6 @@ export const menuNavs: TMainNavigation[] = [
         view: () => import('@bs/views/inputs/DemoChipField.vue'),
       },
       {
-        label: 'Toggle Field',
-        path: '/inputs/toggle-field',
-        view: () => import('@bs/views/inputs/DemoToggleField.vue'),
-      },
-      {
         label: 'Listbox',
         path: '/inputs/listbox',
         view: () => import('@bs/views/inputs/DemoListbox.vue'),
@@ -196,6 +191,11 @@ export const menuNavs: TMainNavigation[] = [
         label: 'Combobox',
         path: '/inputs/combobox',
         view: () => import('@bs/views/inputs/DemoCombobox.vue'),
+      },
+      {
+        label: 'Toggle Field',
+        path: '/inputs/toggle-field',
+        view: () => import('@bs/views/inputs/DemoToggleField.vue'),
       },
       {
         label: 'Search Field',

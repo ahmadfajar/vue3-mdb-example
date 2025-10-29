@@ -29,7 +29,7 @@
     </DemoBlock>
 
     <h2 class="mt-5">Style Variants</h2>
-    <h4 class="mt-4">Default</h4>
+    <h4 class="mt-3">Default</h4>
     <DemoBlock class="mt-4">
       <div class="row ps-2">
         <div class="col-12 col-lg-10 col-xl-8">
@@ -327,7 +327,7 @@
     </DemoBlock>
 
     <h2 class="mt-5">Other Features</h2>
-    <h4 class="mt-4">Browser Autocomplete</h4>
+    <h4 class="mt-3">Browser Autocomplete</h4>
     <DemoBlock class="mt-4">
       <div class="row g-4 row-cols-1 row-cols-lg-2">
         <div class="col">

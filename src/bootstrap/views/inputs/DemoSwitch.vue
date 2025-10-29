@@ -93,13 +93,13 @@
               label-class="col-10 col-lg-8"
               label-position="left"
             >
-              Color: <span class="fw-semibold">{{ name }}</span>
+              Color: <span class="font-weight-semibold">{{ name }}</span>
             </BsSwitch>
           </div>
         </template>
       </div>
       <p class="mt-2">
-        Selected values: <span class="fw-semibold">{{ switchColor1 }}</span>
+        Selected values: <span class="font-weight-semibold">{{ switchColor1 }}</span>
       </p>
     </DemoBlock>
     <h4 class="mt-5">Switch - Inset</h4>
@@ -115,13 +115,13 @@
               label-class="col-10 col-lg-8"
               label-position="left"
             >
-              Color: <span class="fw-semibold">{{ name }}</span>
+              Color: <span class="font-weight-semibold">{{ name }}</span>
             </BsSwitch>
           </div>
         </template>
       </div>
       <p class="mt-2">
-        Selected values: <span class="fw-semibold">{{ switchColor2 }}</span>
+        Selected values: <span class="font-weight-semibold">{{ switchColor2 }}</span>
       </p>
     </DemoBlock>
     <h4 class="mt-5">Switch - Inset Outlined</h4>
@@ -137,13 +137,13 @@
               label-class="col-10 col-lg-8"
               label-position="left"
             >
-              Color: <span class="fw-semibold">{{ name }}</span>
+              Color: <span class="font-weight-semibold">{{ name }}</span>
             </BsSwitch>
           </div>
         </template>
       </div>
       <p class="mt-2">
-        Selected values: <span class="fw-semibold">{{ switchColor3 }}</span>
+        Selected values: <span class="font-weight-semibold">{{ switchColor3 }}</span>
       </p>
     </DemoBlock>
   </div>
