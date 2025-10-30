@@ -368,17 +368,17 @@
           </BsListView>
         </BsCard>
       </div>
-      <h4 class="mt-4">ListView properties:</h4>
-      <BsRadioGroup v-model="spaceAround" :items="spaceAroundTypes" column="3">
-        <label class="col-md-3 col-form-label font-weight-semibold">Space Around</label>
-      </BsRadioGroup>
-      <BsRadioGroup v-model="itemBorderVariant" :items="itemBorderVariants" class="mt-3" column="3">
-        <label class="col-md-3 col-form-label font-weight-semibold">Item Border Variant</label>
-      </BsRadioGroup>
-      <BsRadioGroup v-model="itemStyle" :items="itemStyles" class="mt-3" column="3">
-        <label class="col-md-3 col-form-label font-weight-semibold">Item Style</label>
-      </BsRadioGroup>
     </BsAppContainer>
+    <h4 class="mt-4">ListView properties:</h4>
+    <BsRadioGroup v-model="spaceAround" :items="spaceAroundTypes" column="3">
+      <label class="col-md-3 col-form-label font-weight-semibold">Space Around</label>
+    </BsRadioGroup>
+    <BsRadioGroup v-model="itemBorderVariant" :items="itemBorderVariants" class="mt-3" column="3">
+      <label class="col-md-3 col-form-label font-weight-semibold">Item Border Variant</label>
+    </BsRadioGroup>
+    <BsRadioGroup v-model="itemStyle" :items="itemStyles" class="mt-3" column="3">
+      <label class="col-md-3 col-form-label font-weight-semibold">Item Style</label>
+    </BsRadioGroup>
   </div>
 </template>
 

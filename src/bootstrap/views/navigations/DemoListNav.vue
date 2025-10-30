@@ -3,10 +3,10 @@
     <h2>Basic Examples</h2>
     <BsDivider />
     <BsAppContainer>
-      <div class="demo-block-content bg-grey-200 rounded-4 mt-3">
+      <div class="demo-block-content bg-gray-200 rounded-4 mt-3">
         <BsCard class="mobi-card mx-auto" shadow>
-          <BsAppbar class="bg-purple darken-3 rounded-top" shadow>
-            <BsButton color="light-grey" flat icon="menu" mode="icon" />
+          <BsAppbar class="bg-purple-900" shadow>
+            <BsButton color="light" flat icon="menu" mode="icon" />
             <BsAppbarTitle class="text-white" title="Menus" />
           </BsAppbar>
           <BsListView>
@@ -22,16 +22,17 @@
         </BsCard>
       </div>
     </BsAppContainer>
+
     <h2 class="mt-5">Nested Navigation</h2>
     <BsDivider />
-    <BsAppContainer class="overflow-hidden">
-      <div class="demo-block-content bg-grey-200 rounded-4 mt-3">
+    <BsAppContainer>
+      <div class="demo-block-content bg-gray-200 rounded-4 mt-3">
         <BsCard class="mobi-card mx-auto" shadow>
-          <BsAppbar class="bg-purple darken-3 rounded-top" shadow>
-            <BsButton color="light-grey" flat icon="menu" mode="icon" />
+          <BsAppbar class="bg-purple-900" shadow>
+            <BsButton color="light" flat icon="menu" mode="icon" />
             <BsAppbarTitle class="text-white" title="Topics" />
             <BsSpacer />
-            <BsButton color="light-grey" flat icon="more_vert" mode="icon" />
+            <BsButton color="light" flat icon="more_vert" mode="icon" />
           </BsAppbar>
           <BsListView>
             <BsListNav>
@@ -97,11 +98,11 @@
           </BsListView>
         </BsCard>
         <BsCard class="mobi-card mx-auto mt-3" shadow>
-          <BsAppbar class="bg-purple darken-3 rounded-top" shadow>
-            <BsButton color="light-grey" flat icon="menu" mode="icon" />
+          <BsAppbar class="bg-purple-900" shadow>
+            <BsButton color="light" flat icon="menu" mode="icon" />
             <BsAppbarTitle class="text-white" title="Topics" />
             <BsSpacer />
-            <BsButton color="light-grey" flat icon="more_vert" mode="icon" />
+            <BsButton color="light" flat icon="more_vert" mode="icon" />
           </BsAppbar>
           <BsListView>
             <BsListNav>
@@ -168,16 +169,17 @@
         </BsCard>
       </div>
     </BsAppContainer>
+
     <h2 class="mt-5">Mixed With ListTile</h2>
     <BsDivider />
-    <BsAppContainer class="overflow-hidden">
-      <div class="demo-block-content bg-grey-200 rounded-4 mt-3">
+    <BsAppContainer>
+      <div class="demo-block-content bg-gray-200 rounded-4 mt-3">
         <BsCard class="mobi-card mx-auto" shadow>
-          <BsAppbar class="bg-deep-purple darken-2 rounded-top" shadow>
-            <BsButton color="light-grey" flat icon="menu" mode="icon" />
+          <BsAppbar class="bg-deep-purple-800" shadow>
+            <BsButton color="light" flat icon="menu" mode="icon" />
             <BsAppbarTitle class="text-white" title="Mail" />
             <BsSpacer />
-            <BsButton color="light-grey" flat icon="more_vert" mode="icon" />
+            <BsButton color="light" flat icon="more_vert" mode="icon" />
           </BsAppbar>
           <BsListView>
             <BsListNav>
@@ -225,91 +227,91 @@
         </BsCard>
       </div>
     </BsAppContainer>
+
     <h2 class="mt-5">List Nav Used Inside SideDrawer</h2>
     <BsDivider />
-    <div class="demo-block-content bg-grey-200 rounded-4 mt-3">
-      <BsAppContainer class="bg-grey-400">
-        <BsAppbar class="bg-default-color-dark" clipped-left shadow>
-          <BsButton
-            color="light-grey"
-            flat
-            icon="menu"
-            mode="icon"
-            @click="toggleSideDrawer1(!openSideDrawer1)"
+    <BsAppContainer class="bg-gray-400 mt-4 rounded-3 shadow">
+      <BsAppbar class="bg-default-color-dark" clipped-left shadow>
+        <BsButton
+          color="light"
+          flat
+          icon="menu"
+          mode="icon"
+          @click="toggleSideDrawer1(!openSideDrawer1)"
+        />
+        <BsAppbarTitle class="text-white" title="Page Title" />
+        <BsSpacer />
+        <BsAppbarItems>
+          <BsButton color="light" flat icon="search" mode="icon" />
+          <BsButton color="light" flat icon="notifications" mode="icon" />
+        </BsAppbarItems>
+      </BsAppbar>
+      <BsSideDrawer v-model:open="openSideDrawer1" style="--sidedrawer-background: #fff">
+        <div class="p-3">
+          <img
+            alt="image"
+            class="rounded-circle"
+            src="https://ahmadfajar.github.io/img/kitty-1.jpg"
+            style="width: 40px"
           />
-          <BsAppbarTitle class="text-white" title="Page Title" />
-          <BsSpacer />
-          <BsAppbarItems>
-            <BsButton color="light-grey" flat icon="search" mode="icon" />
-            <BsButton color="light-grey" flat icon="notifications" mode="icon" />
-          </BsAppbarItems>
-        </BsAppbar>
-        <BsSideDrawer v-model:open="openSideDrawer1" class="border-end">
-          <div class="p-3">
-            <img
-              alt="image"
-              class="rounded-circle"
-              src="https://ahmadfajar.github.io/img/kitty-1.jpg"
-              style="width: 40px"
+          <span class="h5 ps-3">Kitty Doe</span>
+        </div>
+        <BsDivider />
+        <BsListView>
+          <BsListNav>
+            <BsListNavItem icon="inbox" label="Inbox">
+              <BsListNav child>
+                <BsListNavItem label="Primary" />
+                <BsListNavItem label="Social" />
+                <BsListNavItem label="Promotions" />
+                <BsListNavItem label="Updates" />
+              </BsListNav>
+            </BsListNavItem>
+            <BsListNavItem icon="bookmarks" label="Important" />
+            <BsListNavItem icon="send" label="Sent" />
+            <BsListNavItem icon="description" label="Drafts" />
+          </BsListNav>
+          <BsDivider class="my-2" />
+          <BsListNav>
+            <BsListNavItem
+              badge="102"
+              badge-type="pill"
+              badge-variant="secondary"
+              icon="email"
+              label="All Mail"
             />
-            <span class="h5 ps-3">Kitty Doe</span>
-          </div>
-          <BsDivider />
-          <BsListView>
-            <BsListNav>
-              <BsListNavItem icon="inbox" label="Inbox">
-                <BsListNav child>
-                  <BsListNavItem label="Primary" />
-                  <BsListNavItem label="Social" />
-                  <BsListNavItem label="Promotions" />
-                  <BsListNavItem label="Updates" />
-                </BsListNav>
-              </BsListNavItem>
-              <BsListNavItem icon="bookmarks" label="Important" />
-              <BsListNavItem icon="send" label="Sent" />
-              <BsListNavItem icon="description" label="Drafts" />
-            </BsListNav>
-            <BsDivider class="my-2" />
-            <BsListNav>
-              <BsListNavItem
-                badge="102"
-                badge-type="pill"
-                badge-variant="secondary"
-                icon="email"
-                label="All Mail"
-              />
-              <BsListNavItem
-                badge="12"
-                badge-type="pill"
-                badge-variant="secondary"
-                icon="delete"
-                label="Trash"
-              />
-              <BsListNavItem
-                badge="8"
-                badge-type="pill"
-                badge-variant="secondary"
-                icon="gpp_maybe"
-                label="Spam"
-              />
-            </BsListNav>
-          </BsListView>
-        </BsSideDrawer>
-        <BsContainer app style="height: 400px">
-          <div class="container-fluid d-flex justify-content-center align-items-center"></div>
-        </BsContainer>
-      </BsAppContainer>
-    </div>
+            <BsListNavItem
+              badge="12"
+              badge-type="pill"
+              badge-variant="secondary"
+              icon="delete"
+              label="Trash"
+            />
+            <BsListNavItem
+              badge="8"
+              badge-type="pill"
+              badge-variant="secondary"
+              icon="gpp_maybe"
+              label="Spam"
+            />
+          </BsListNav>
+        </BsListView>
+      </BsSideDrawer>
+      <BsContainer app style="height: 400px">
+        <div class="container-fluid flex justify-center items-center"></div>
+      </BsContainer>
+    </BsAppContainer>
+
     <h2 class="mt-5">Playground</h2>
     <BsDivider />
-    <BsAppContainer class="overflow-hidden">
-      <div class="demo-block-content bg-grey-200 rounded-4 mt-3">
+    <BsAppContainer>
+      <div class="demo-block-content bg-gray-200 rounded-4 mt-3">
         <BsCard class="mobi-card mx-auto" shadow>
-          <BsAppbar class="bg-deep-purple darken-2 rounded-top" shadow>
-            <BsButton color="light-grey" flat icon="menu" mode="icon" />
+          <BsAppbar class="bg-deep-purple-800" shadow>
+            <BsButton color="light" flat icon="menu" mode="icon" />
             <BsAppbarTitle class="text-white" title="Menus" />
             <BsSpacer />
-            <BsButton color="light-grey" flat icon="more_vert" mode="icon" />
+            <BsButton color="light" flat icon="more_vert" mode="icon" />
           </BsAppbar>
           <BsListView
             :item-border-variant="getItemBorderVariant"
@@ -357,40 +359,24 @@
           </BsListView>
         </BsCard>
       </div>
-      <h4 class="mt-4">ListView properties:</h4>
-      <BsRadioGroup
-        v-model="spaceAround"
-        :items="spaceAroundTypes"
-        color="default-color-dark"
-        column="3"
-      >
-        <label class="col-md-3 col-form-label md-fw-semibold">Space Around</label>
-      </BsRadioGroup>
-      <BsRadioGroup
-        v-model="itemBorderVariant"
-        :items="itemBorderVariants"
-        class="mt-3"
-        color="default-color-dark"
-        column="3"
-      >
-        <label class="col-md-3 col-form-label md-fw-semibold">Item Border Variant</label>
-      </BsRadioGroup>
-      <BsRadioGroup
-        v-model="itemStyle"
-        :items="itemStyles"
-        class="mt-3"
-        color="default-color-dark"
-        column="3"
-      >
-        <label class="col-md-3 col-form-label md-fw-semibold">Item Style</label>
-      </BsRadioGroup>
     </BsAppContainer>
+
+    <h4 class="mt-4">ListView properties:</h4>
+    <BsRadioGroup v-model="spaceAround" :items="spaceAroundTypes" column="3">
+      <label class="col-md-3 col-form-label font-weight-semibold">Space Around</label>
+    </BsRadioGroup>
+    <BsRadioGroup v-model="itemBorderVariant" :items="itemBorderVariants" class="mt-3" column="3">
+      <label class="col-md-3 col-form-label font-weight-semibold">Item Border Variant</label>
+    </BsRadioGroup>
+    <BsRadioGroup v-model="itemStyle" :items="itemStyles" class="mt-3" column="3">
+      <label class="col-md-3 col-form-label font-weight-semibold">Item Style</label>
+    </BsRadioGroup>
   </div>
 </template>
 
 <script setup lang="ts">
 import { computed, ref } from 'vue';
-import type { TSpaceAround } from 'vue-mdbootstrap';
+import type { TListItemBorder, TSpaceAround } from 'vue-mdbootstrap';
 
 const spaceAroundTypes = [
   { label: 'None', value: 'none' },
@@ -416,8 +402,8 @@ const itemStyles = [
 ];
 const itemStyle = ref<string>('none');
 const openSideDrawer1 = ref(true);
-const getItemBorderVariant = computed<string | undefined>(() =>
-  itemBorderVariant.value === 'none' ? undefined : itemBorderVariant.value
+const getItemBorderVariant = computed<TListItemBorder | undefined>(() =>
+  itemBorderVariant.value === 'none' ? undefined : (itemBorderVariant.value as TListItemBorder)
 );
 
 function toggleSideDrawer1(value: boolean) {
