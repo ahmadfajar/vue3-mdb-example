@@ -148,7 +148,9 @@ const routeNavB = menuNavs.filter((it) => it.group === 'Reference').sort(compare
 
 .mobi-card {
   max-width: 25rem; // 400px;
+}
 
+.md-card {
   > .md-appbar:first-child {
     @include borders.top-radius(inherit);
   }
