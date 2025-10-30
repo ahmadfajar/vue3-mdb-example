@@ -9,6 +9,7 @@
         </p>
       </div>
     </DemoBlock>
+
     <h2 class="mt-5">Multi-Select Support</h2>
     <DemoBlock class="mt-4">
       <div class="mx-auto" style="width: 320px">
@@ -18,6 +19,7 @@
         </p>
       </div>
     </DemoBlock>
+
     <h4 class="mt-5">Using Checkbox</h4>
     <DemoBlock class="mt-4">
       <div class="mx-auto" style="width: 320px">
@@ -33,6 +35,7 @@
         </p>
       </div>
     </DemoBlock>
+
     <h4 class="mt-5">Controlling Checkbox Position and Color</h4>
     <DemoBlock class="mt-4">
       <div class="mx-auto" style="width: 320px">
@@ -50,6 +53,7 @@
         </p>
       </div>
     </DemoBlock>
+
     <h2 class="mt-5">Image or Avatar Support</h2>
     <DemoBlock class="mt-4">
       <div class="row">
@@ -77,6 +81,7 @@
         </div>
       </div>
     </DemoBlock>
+
     <h4 class="mt-5">Controlling Image Size</h4>
     <DemoBlock class="mt-4">
       <div class="row">
@@ -106,15 +111,17 @@
         </div>
       </div>
     </DemoBlock>
-    <h2 class="mt-5">Customize List Items</h2>
+
+    <h2 class="mt-5">Custom List Items</h2>
     <DemoBlock class="mt-4">
-      <div class="mx-auto" style="width: 360px">
+      <div class="mx-auto" style="max-width: 400px">
         <BsListbox
           v-model="listbox9"
           :data-source="productSrc"
           color="info-color-dark"
           item-separator
-          max-height="270"
+          item-separator-dark
+          max-height="300"
         >
           <template #option-item="{ item }">
             <bs-list-tile-title>
@@ -130,7 +137,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { onBeforeUnmount, ref } from 'vue';
 import type { TDataSource, TDataListSchema } from 'vue-mdbootstrap';
 import { BsArrayStore, BsStore } from 'vue-mdbootstrap';
 
@@ -251,4 +258,19 @@ const productSrc: TDataSource = {
   }),
   schema: { displayField: 'ProductName', valueField: 'ProductID' },
 };
+
+onBeforeUnmount(() => {
+  peopleSrc1.proxy.destroy();
+  peopleSrc2.proxy.destroy();
+  productSrc.proxy.destroy();
+  statesCA1.proxy.destroy();
+  statesCA2.proxy.destroy();
+});
 </script>
+
+<style lang="scss">
+@use 'vue-mdbootstrap/scss/mixins/listview';
+@use 'vue-mdbootstrap/scss/color_vars' as colors;
+
+@include listview.make-listview-variant('info-color-dark', colors.$info-color-dark);
+</style>
