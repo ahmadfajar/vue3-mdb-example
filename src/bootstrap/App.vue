@@ -151,7 +151,11 @@ const routeNavB = menuNavs.filter((it) => it.group === 'Reference').sort(compare
 }
 
 .md-card {
-  > .md-appbar:first-child {
+  > .md-application-wrap:first-child {
+    @include borders.radius(inherit);
+  }
+
+  .md-appbar:first-child {
     @include borders.top-radius(inherit);
   }
 }

@@ -53,118 +53,166 @@
     </BsCard>
 
     <h4 class="mt-5">Material</h4>
-    <BsAppContainer class="rounded-3 shadow mt-3">
-      <BsAppbar class="bg-pink-800">
-        <BsButton color="light" flat icon="menu" mode="icon" />
-        <BsAppbarTitle class="text-white" title="Page Title" />
-        <BsSpacer />
-        <BsButton color="light" flat icon="more_vert" mode="icon" />
-      </BsAppbar>
-      <BsTabs v-model="tabs4active" color="bg-pink-800" variant="material">
-        <BsTab icon="home_rounded" label="Home">
-          {{ homeTab }}
-        </BsTab>
-        <BsTab icon="person" label="Profile">
-          {{ profileTab }}
-        </BsTab>
-        <BsTab icon="contact_phone" label="Contact">
-          {{ contactTab }}
-        </BsTab>
-        <BsTab disabled icon="collections" label="Gallery">
-          {{ loremTab }}
-        </BsTab>
-      </BsTabs>
-    </BsAppContainer>
+    <BsCard class="mt-3" shadow>
+      <BsAppContainer>
+        <BsAppbar class="bg-pink-800">
+          <BsButton color="light" flat icon="menu" mode="icon" />
+          <BsAppbarTitle class="text-white" title="Page Title" />
+          <BsSpacer />
+          <BsButton color="light" flat icon="more_vert" mode="icon" />
+        </BsAppbar>
+        <BsTabs v-model="tabs4active" color="bg-pink-800" variant="material">
+          <BsTab icon="home_rounded" label="Home">
+            {{ homeTab }}
+          </BsTab>
+          <BsTab icon="person" label="Profile">
+            {{ profileTab }}
+          </BsTab>
+          <BsTab icon="contact_phone" label="Contact">
+            {{ contactTab }}
+          </BsTab>
+          <BsTab disabled icon="collections" label="Gallery">
+            {{ loremTab }}
+          </BsTab>
+        </BsTabs>
+      </BsAppContainer>
+    </BsCard>
 
     <h4 class="mt-5">Modern</h4>
-    <BsAppContainer class="rounded-3 shadow mt-3">
-      <BsAppbar class="bg-default-color-dark">
-        <BsButton color="light" flat icon="menu" mode="icon" />
-        <BsAppbarTitle class="text-white" title="Page Title" />
-        <BsSpacer />
-        <BsButton color="light" flat icon="more_vert" mode="icon" />
-      </BsAppbar>
-      <BsTabs v-model="tabs5active" color="bg-default-color-dark" variant="modern">
-        <BsTab icon="home_rounded" label="Home">
-          {{ homeTab }}
-        </BsTab>
-        <BsTab icon="person" label="Profile">
-          {{ profileTab }}
-        </BsTab>
-        <BsTab icon="contact_phone" label="Contact">
-          {{ contactTab }}
-        </BsTab>
-        <BsTab disabled icon="collections" label="Gallery">
-          {{ loremTab }}
-        </BsTab>
-      </BsTabs>
-    </BsAppContainer>
+    <BsCard class="mt-3" shadow>
+      <BsAppContainer>
+        <BsAppbar class="bg-indigo-700">
+          <BsButton color="light" flat icon="menu" mode="icon" />
+          <BsAppbarTitle class="text-white" title="Page Title" />
+          <BsSpacer />
+          <BsButton color="light" flat icon="more_vert" mode="icon" />
+        </BsAppbar>
+        <BsTabs v-model="tabs5active" color="bg-indigo-700" variant="modern">
+          <BsTab icon="home_rounded" label="Home">
+            {{ homeTab }}
+          </BsTab>
+          <BsTab icon="person" label="Profile">
+            {{ profileTab }}
+          </BsTab>
+          <BsTab icon="contact_phone" label="Contact">
+            {{ contactTab }}
+          </BsTab>
+          <BsTab disabled icon="collections" label="Gallery">
+            {{ loremTab }}
+          </BsTab>
+        </BsTabs>
+      </BsAppContainer>
+    </BsCard>
+
+    <h2 class="mt-5">Extra Slot</h2>
+    <BsCard class="mt-3" shadow>
+      <BsAppContainer>
+        <BsAppbar class="bg-indigo-700">
+          <BsButton color="light" flat icon="menu" mode="icon" />
+          <BsAppbarTitle class="text-white" title="Page Title" />
+          <BsSpacer />
+          <BsButton color="light" flat icon="more_vert" mode="icon" />
+        </BsAppbar>
+        <BsTabs v-model="tabs7active" color="bg-indigo-700" variant="modern">
+          <BsTab icon="home_rounded" label="Home">
+            {{ homeTab }}
+          </BsTab>
+          <BsTab icon="person" label="Profile">
+            {{ profileTab }}
+          </BsTab>
+          <BsTab icon="contact_phone" label="Contact">
+            {{ contactTab }}
+          </BsTab>
+          <BsTab icon="collections" label="Gallery">
+            {{ loremTab }}
+          </BsTab>
+          <template #append-header>
+            <BsButton color="light" flat icon="favorite_filled" mode="icon" />
+          </template>
+        </BsTabs>
+      </BsAppContainer>
+    </BsCard>
 
     <h2 class="mt-5">Playground</h2>
     <BsDivider />
-    <BsAppContainer class="rounded-3 shadow mt-3" style="min-height: 520px">
-      <BsAppbar class="bg-default-color-dark">
-        <BsButton color="light" flat icon="menu" mode="icon" />
-        <BsAppbarTitle class="text-white" title="Tabs Playground" />
-        <BsSpacer />
-        <BsButton color="light" flat icon="more_vert" mode="icon" />
-      </BsAppbar>
-      <BsTabs
-        v-model="tabs6active"
-        :alignment="selectedAlignment"
-        :icon-position="selectedIconPosition"
-        :inner-class="innerClass"
-        :tab-position="selectedPlacement"
-        :variant="selectedVariant"
-        color="bg-default-color-dark"
-        content-class="flex-grow-1"
-      >
-        <BsTab :label="!iconOnly ? 'Configuration' : undefined" icon="settings">
-          <h3>Let's play with Tabs</h3>
-          <BsDivider />
-          <div class="row mt-5">
-            <div class="col-12 col-xxl-6">
-              <BsRadioGroup v-model="selectedVariant" :items="variants" column="2">
-                <label class="col-md-4 col-form-label font-weight-semibold"> Tabs Variants </label>
-              </BsRadioGroup>
-              <BsRadioGroup v-model="selectedPlacement" :items="placements" class="mt-3" column="2">
-                <label class="col-md-4 col-form-label font-weight-semibold"> Tabs Placement </label>
-              </BsRadioGroup>
-              <BsRadioGroup
-                v-model="selectedAlignment"
-                :items="tabAlignments"
-                class="mt-3"
-                column="2"
-              >
-                <label class="col-md-4 col-form-label font-weight-semibold"> Tabs Alignment </label>
-              </BsRadioGroup>
+    <BsCard class="mt-3" shadow>
+      <BsAppContainer style="min-height: 540px">
+        <BsAppbar class="bg-deep-purple-800">
+          <BsButton color="light" flat icon="menu" mode="icon" />
+          <BsAppbarTitle class="text-white" title="Tabs Playground" />
+          <BsSpacer />
+          <BsButton color="light" flat icon="more_vert" mode="icon" />
+        </BsAppbar>
+        <BsTabs
+          v-model="tabs6active"
+          :alignment="selectedAlignment"
+          :icon-position="selectedIconPosition"
+          :inner-class="innerClass"
+          :tab-position="selectedPlacement"
+          :variant="selectedVariant"
+          color="bg-deep-purple-800"
+          content-class="flex-grow"
+        >
+          <BsTab :label="!iconOnly ? 'Configuration' : undefined" icon="settings">
+            <h3>Let's play with Tabs</h3>
+            <BsDivider />
+            <div class="row mt-5">
+              <div class="col-12 col-xxl-6">
+                <BsRadioGroup v-model="selectedVariant" :items="variants" column="2">
+                  <label class="col-md-4 col-form-label font-weight-semibold">
+                    Tabs Variants
+                  </label>
+                </BsRadioGroup>
+                <BsRadioGroup
+                  v-model="selectedPlacement"
+                  :items="placements"
+                  class="mt-3"
+                  column="2"
+                >
+                  <label class="col-md-4 col-form-label font-weight-semibold">
+                    Tabs Placement
+                  </label>
+                </BsRadioGroup>
+                <BsRadioGroup
+                  v-model="selectedAlignment"
+                  :items="tabAlignments"
+                  class="mt-3"
+                  column="2"
+                >
+                  <label class="col-md-4 col-form-label font-weight-semibold">
+                    Tabs Alignment
+                  </label>
+                </BsRadioGroup>
+              </div>
+              <div class="col-12 col-xxl-6">
+                <BsRadioGroup
+                  v-model="selectedIconPosition"
+                  :items="iconPositions"
+                  class="mt-3 mt-xxl-0"
+                  column="2"
+                >
+                  <label class="col-md-4 col-form-label font-weight-semibold">
+                    Icon Position
+                  </label>
+                </BsRadioGroup>
+                <BsRadioGroup v-model="iconOnly" :items="iconLabels" class="mt-3" column="1">
+                  <label class="col-md-4 col-form-label font-weight-semibold">Icon & Label</label>
+                </BsRadioGroup>
+              </div>
             </div>
-            <div class="col-12 col-xxl-6">
-              <BsRadioGroup
-                v-model="selectedIconPosition"
-                :items="iconPositions"
-                class="mt-3 mt-xxl-0"
-                column="2"
-              >
-                <label class="col-md-4 col-form-label font-weight-semibold"> Icon Position </label>
-              </BsRadioGroup>
-              <BsRadioGroup v-model="iconOnly" :items="iconLabels" class="mt-3" column="1">
-                <label class="col-md-4 col-form-label font-weight-semibold">Icon & Label</label>
-              </BsRadioGroup>
-            </div>
-          </div>
-        </BsTab>
-        <BsTab :label="!iconOnly ? 'Gallery' : undefined" icon="collections">
-          {{ loremTab }}
-        </BsTab>
-        <BsTab :label="!iconOnly ? 'Profile' : undefined" icon="person">
-          {{ profileTab }}
-        </BsTab>
-        <BsTab :label="!iconOnly ? 'Contact' : undefined" icon="contact_phone">
-          {{ contactTab }}
-        </BsTab>
-      </BsTabs>
-    </BsAppContainer>
+          </BsTab>
+          <BsTab :label="!iconOnly ? 'Gallery' : undefined" icon="collections">
+            {{ loremTab }}
+          </BsTab>
+          <BsTab :label="!iconOnly ? 'Profile' : undefined" icon="person">
+            {{ profileTab }}
+          </BsTab>
+          <BsTab :label="!iconOnly ? 'Contact' : undefined" icon="contact_phone">
+            {{ contactTab }}
+          </BsTab>
+        </BsTabs>
+      </BsAppContainer>
+    </BsCard>
   </div>
 </template>
 
@@ -178,6 +226,8 @@ const tabs3active = ref(0);
 const tabs4active = ref(0);
 const tabs5active = ref(0);
 const tabs6active = ref(0);
+const tabs7active = ref(0);
+
 const variants = [
   { label: 'Tabs', value: 'tabs' },
   { label: 'Pills', value: 'pills' },
