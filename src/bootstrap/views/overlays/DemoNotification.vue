@@ -2,18 +2,16 @@
   <div class="docs-body container-lg mx-auto">
     <h2>Basic Examples</h2>
     <DemoBlock class="mt-4">
-      <div class="d-flex justify-content-center">
-        <BsButton color="indigo" @click="showDefaultNotification($notification)">
-          Show Notification
-        </BsButton>
+      <div class="flex justify-center">
+        <BsButton @click="showDefaultNotification($notification)"> Show Notification </BsButton>
       </div>
     </DemoBlock>
+
     <h2 class="mt-5">Display Placement</h2>
     <DemoBlock class="mt-4">
       <div class="row g-4 row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4">
-        <div class="col d-flex justify-content-center">
+        <div class="col flex justify-center">
           <BsButton
-            color="indigo"
             @click="
               $notification.add({
                 message: 'Example notification message.',
@@ -25,9 +23,8 @@
             Top Left
           </BsButton>
         </div>
-        <div class="col d-flex justify-content-center">
+        <div class="col flex justify-center">
           <BsButton
-            color="indigo"
             @click="
               $notification.add({
                 message: 'Example notification message.',
@@ -39,9 +36,8 @@
             Top Center
           </BsButton>
         </div>
-        <div class="col d-flex justify-content-center">
+        <div class="col flex justify-center">
           <BsButton
-            color="indigo"
             @click="
               $notification.add({
                 message: 'Example notification message.',
@@ -53,9 +49,8 @@
             Top Right
           </BsButton>
         </div>
-        <div class="col d-flex justify-content-center">
+        <div class="col flex justify-center">
           <BsButton
-            color="indigo"
             @click="
               $notification.add({
                 message: 'Example notification message.',
@@ -64,12 +59,11 @@
               })
             "
           >
-            Top FullWidth
+            Top Full Width
           </BsButton>
         </div>
-        <div class="col d-flex justify-content-center">
+        <div class="col flex justify-center">
           <BsButton
-            color="indigo"
             @click="
               $notification.add({
                 message: 'Example notification message.',
@@ -81,9 +75,8 @@
             Bottom Left
           </BsButton>
         </div>
-        <div class="col d-flex justify-content-center">
+        <div class="col flex justify-center">
           <BsButton
-            color="indigo"
             @click="
               $notification.add({
                 message: 'Example notification message.',
@@ -95,9 +88,8 @@
             Bottom Center
           </BsButton>
         </div>
-        <div class="col d-flex justify-content-center">
+        <div class="col flex justify-center">
           <BsButton
-            color="indigo"
             @click="
               $notification.add({
                 message: 'Example notification message.',
@@ -109,9 +101,8 @@
             Bottom Right
           </BsButton>
         </div>
-        <div class="col d-flex justify-content-center">
+        <div class="col flex justify-center">
           <BsButton
-            color="indigo"
             @click="
               $notification.add({
                 message: 'Example notification message.',
@@ -120,15 +111,16 @@
               })
             "
           >
-            Bottom FullWidth
+            Bottom Full Width
           </BsButton>
         </div>
       </div>
     </DemoBlock>
+
     <h2 class="mt-5">Notification With ProgressBar</h2>
     <DemoBlock class="mt-4">
       <div class="row g-4 row-cols-1 row-cols-sm-2 row-cols-lg-3">
-        <div class="col d-flex justify-content-center">
+        <div class="col flex justify-center">
           <BsButton
             color="secondary"
             @click="
@@ -142,7 +134,7 @@
             Default Notification
           </BsButton>
         </div>
-        <div class="col d-flex justify-content-center">
+        <div class="col flex justify-center">
           <BsButton
             color="info"
             @click="
@@ -156,7 +148,7 @@
             Info Notification
           </BsButton>
         </div>
-        <div class="col d-flex justify-content-center">
+        <div class="col flex justify-center">
           <BsButton
             color="success"
             @click="
@@ -169,7 +161,7 @@
             Success Notification
           </BsButton>
         </div>
-        <div class="col d-flex justify-content-center">
+        <div class="col flex justify-center">
           <BsButton
             color="warning"
             @click="
@@ -182,7 +174,7 @@
             Warning Notification
           </BsButton>
         </div>
-        <div class="col d-flex justify-content-center">
+        <div class="col flex justify-center">
           <BsButton
             color="danger"
             @click="

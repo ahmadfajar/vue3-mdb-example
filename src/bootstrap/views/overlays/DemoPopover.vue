@@ -20,23 +20,21 @@
           </BsListTile>
         </BsListView>
         <BsDivider />
-        <div class="p-3">
-          <div class="text-end">
-            <BsButton class="md-fw-semibold" @click="show1 = false"> Save </BsButton>
-            <BsButton class="md-fw-semibold" color="secondary" outlined @click="show1 = false">
-              Cancel
-            </BsButton>
-          </div>
+        <div class="flex md-gap-1 justify-end p-3">
+          <BsButton class="font-weight-semibold" @click="show1 = false"> Save </BsButton>
+          <BsButton class="font-weight-semibold" color="secondary" outlined @click="show1 = false">
+            Cancel
+          </BsButton>
         </div>
       </BsPopover>
     </DemoBlock>
+
     <h2 class="mt-5">Display Placement</h2>
     <DemoBlock class="mt-4">
-      <div class="row">
+      <div class="row g-3">
         <div class="col-12 col-md-6 col-lg-4 text-center">
           <BsButton
             ref="activator2"
-            :pill="false"
             color="primary"
             dropdown-toggle
             rounded
@@ -63,20 +61,22 @@
               </BsListTile>
             </BsListView>
             <BsDivider />
-            <div class="p-3">
-              <div class="text-end">
-                <BsButton class="md-fw-semibold" @click="show2 = false"> Save </BsButton>
-                <BsButton class="md-fw-semibold" color="secondary" outlined @click="show2 = false">
-                  Cancel
-                </BsButton>
-              </div>
+            <div class="flex md-gap-1 justify-end p-3">
+              <BsButton class="font-weight-semibold" @click="show2 = false"> Save </BsButton>
+              <BsButton
+                class="font-weight-semibold"
+                color="secondary"
+                outlined
+                @click="show2 = false"
+              >
+                Cancel
+              </BsButton>
             </div>
           </BsPopover>
         </div>
-        <div class="col-12 col-md-6 col-lg-4 mt-3 mt-md-0 text-center">
+        <div class="col-12 col-md-6 col-lg-4 text-center">
           <BsButton
             ref="activator3"
-            :pill="false"
             color="primary"
             dropdown-toggle
             rounded
@@ -103,20 +103,22 @@
               </BsListTile>
             </BsListView>
             <BsDivider />
-            <div class="p-3">
-              <div class="text-end">
-                <BsButton class="md-fw-semibold" @click="show3 = false"> Save </BsButton>
-                <BsButton class="md-fw-semibold" color="secondary" outlined @click="show3 = false">
-                  Cancel
-                </BsButton>
-              </div>
+            <div class="flex md-gap-1 justify-end p-3">
+              <BsButton class="font-weight-semibold" @click="show3 = false"> Save </BsButton>
+              <BsButton
+                class="font-weight-semibold"
+                color="secondary"
+                outlined
+                @click="show3 = false"
+              >
+                Cancel
+              </BsButton>
             </div>
           </BsPopover>
         </div>
-        <div class="col-12 col-md-6 col-lg-4 mt-3 mt-lg-0 text-center">
+        <div class="col-12 col-md-6 col-lg-4 text-center">
           <BsButton
             ref="activator4"
-            :pill="false"
             color="primary"
             dropdown-toggle
             rounded
@@ -143,20 +145,22 @@
               </BsListTile>
             </BsListView>
             <BsDivider />
-            <div class="p-3">
-              <div class="text-end">
-                <BsButton class="md-fw-semibold" @click="show4 = false"> Save </BsButton>
-                <BsButton class="md-fw-semibold" color="secondary" outlined @click="show4 = false">
-                  Cancel
-                </BsButton>
-              </div>
+            <div class="flex md-gap-1 justify-end p-3">
+              <BsButton class="font-weight-semibold" @click="show4 = false"> Save </BsButton>
+              <BsButton
+                class="font-weight-semibold"
+                color="secondary"
+                outlined
+                @click="show4 = false"
+              >
+                Cancel
+              </BsButton>
             </div>
           </BsPopover>
         </div>
-        <div class="col-12 col-md-6 col-lg-4 mt-3 text-center">
+        <div class="col-12 col-md-6 col-lg-4 text-center">
           <BsButton
             ref="activator5"
-            :pill="false"
             color="primary"
             dropdown-toggle
             rounded
@@ -183,20 +187,22 @@
               </BsListTile>
             </BsListView>
             <BsDivider />
-            <div class="p-3">
-              <div class="text-end">
-                <BsButton class="md-fw-semibold" @click="show5 = false"> Save </BsButton>
-                <BsButton class="md-fw-semibold" color="secondary" outlined @click="show5 = false">
-                  Cancel
-                </BsButton>
-              </div>
+            <div class="flex md-gap-1 justify-end p-3">
+              <BsButton class="font-weight-semibold" @click="show5 = false"> Save </BsButton>
+              <BsButton
+                class="font-weight-semibold"
+                color="secondary"
+                outlined
+                @click="show5 = false"
+              >
+                Cancel
+              </BsButton>
             </div>
           </BsPopover>
         </div>
-        <div class="col-12 col-md-6 col-lg-4 mt-3 text-center">
+        <div class="col-12 col-md-6 col-lg-4 text-center">
           <BsButton
             ref="activator6"
-            :pill="false"
             color="primary"
             dropdown-toggle
             rounded
@@ -223,20 +229,22 @@
               </BsListTile>
             </BsListView>
             <BsDivider />
-            <div class="p-3">
-              <div class="text-end">
-                <BsButton class="md-fw-semibold" @click="show6 = false"> Save </BsButton>
-                <BsButton class="md-fw-semibold" color="secondary" outlined @click="show6 = false">
-                  Cancel
-                </BsButton>
-              </div>
+            <div class="flex md-gap-1 justify-end p-3">
+              <BsButton class="font-weight-semibold" @click="show6 = false"> Save </BsButton>
+              <BsButton
+                class="font-weight-semibold"
+                color="secondary"
+                outlined
+                @click="show6 = false"
+              >
+                Cancel
+              </BsButton>
             </div>
           </BsPopover>
         </div>
-        <div class="col-12 col-md-6 col-lg-4 mt-3 text-center">
+        <div class="col-12 col-md-6 col-lg-4 text-center">
           <BsButton
             ref="activator7"
-            :pill="false"
             color="primary"
             dropdown-toggle
             rounded
@@ -263,20 +271,22 @@
               </BsListTile>
             </BsListView>
             <BsDivider />
-            <div class="p-3">
-              <div class="text-end">
-                <BsButton class="md-fw-semibold" @click="show7 = false"> Save </BsButton>
-                <BsButton class="md-fw-semibold" color="secondary" outlined @click="show7 = false">
-                  Cancel
-                </BsButton>
-              </div>
+            <div class="flex md-gap-1 justify-end p-3">
+              <BsButton class="font-weight-semibold" @click="show7 = false"> Save </BsButton>
+              <BsButton
+                class="font-weight-semibold"
+                color="secondary"
+                outlined
+                @click="show7 = false"
+              >
+                Cancel
+              </BsButton>
             </div>
           </BsPopover>
         </div>
-        <div class="col-12 col-md-6 col-lg-4 mt-3 text-center">
+        <div class="col-12 col-md-6 col-lg-4 text-center">
           <BsButton
             ref="activator8"
-            :pill="false"
             color="primary"
             dropdown-toggle
             rounded
@@ -303,20 +313,22 @@
               </BsListTile>
             </BsListView>
             <BsDivider />
-            <div class="p-3">
-              <div class="text-end">
-                <BsButton class="md-fw-semibold" @click="show8 = false"> Save </BsButton>
-                <BsButton class="md-fw-semibold" color="secondary" outlined @click="show8 = false">
-                  Cancel
-                </BsButton>
-              </div>
+            <div class="flex md-gap-1 justify-end p-3">
+              <BsButton class="font-weight-semibold" @click="show8 = false"> Save </BsButton>
+              <BsButton
+                class="font-weight-semibold"
+                color="secondary"
+                outlined
+                @click="show8 = false"
+              >
+                Cancel
+              </BsButton>
             </div>
           </BsPopover>
         </div>
-        <div class="col-12 col-md-6 col-lg-4 mt-3 text-center">
+        <div class="col-12 col-md-6 col-lg-4 text-center">
           <BsButton
             ref="activator9"
-            :pill="false"
             color="primary"
             dropdown-toggle
             rounded
@@ -343,13 +355,16 @@
               </BsListTile>
             </BsListView>
             <BsDivider />
-            <div class="p-3">
-              <div class="text-end">
-                <BsButton class="md-fw-semibold" @click="show9 = false"> Save </BsButton>
-                <BsButton class="md-fw-semibold" color="secondary" outlined @click="show9 = false">
-                  Cancel
-                </BsButton>
-              </div>
+            <div class="flex md-gap-1 justify-end p-3">
+              <BsButton class="font-weight-semibold" @click="show9 = false"> Save </BsButton>
+              <BsButton
+                class="font-weight-semibold"
+                color="secondary"
+                outlined
+                @click="show9 = false"
+              >
+                Cancel
+              </BsButton>
             </div>
           </BsPopover>
         </div>

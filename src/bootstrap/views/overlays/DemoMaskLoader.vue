@@ -2,61 +2,54 @@
   <div class="docs-body container-lg mx-auto">
     <h2>Basic Examples</h2>
     <BsDivider />
-    <div class="row mt-4">
-      <div class="col-md-6 mb-4">
-        <BsCard shadow>
+    <div class="row g-4 mt-2">
+      <div class="col-md-6">
+        <BsCard class="overflow-hidden" shadow>
           <BsCardBody>
             <BsCardContent type="title">Linear Loader</BsCardContent>
             <p>{{ content }}</p>
           </BsCardBody>
           <BsMaskLoader v-model:show="showLinear1" />
         </BsCard>
-        <BsButton color="default-color mt-3" @click="showLinear1 = !showLinear1">
-          Toggle Loader
-        </BsButton>
+        <BsButton class="mt-3" @click="showLinear1 = !showLinear1"> Toggle Loader </BsButton>
       </div>
-      <div class="col-md-6 mb-4">
-        <BsCard shadow>
+      <div class="col-md-6">
+        <BsCard class="overflow-hidden" shadow>
           <BsCardBody>
             <BsCardContent type="title">Linear-Alt Loader</BsCardContent>
             <p>{{ content }}</p>
           </BsCardBody>
           <BsMaskLoader v-model:show="showProgress1" type="linear-alt" />
         </BsCard>
-        <BsButton color="default-color mt-3" @click="showProgress1 = !showProgress1">
-          Toggle Loader
-        </BsButton>
+        <BsButton class="mt-3" @click="showProgress1 = !showProgress1"> Toggle Loader </BsButton>
       </div>
-      <div class="col-md-6 mb-4 mb-md-0">
-        <BsCard shadow>
+      <div class="col-md-6">
+        <BsCard class="overflow-hidden" shadow>
           <BsCardBody>
             <BsCardContent type="title">Spinner Loader</BsCardContent>
             <p>{{ content }}</p>
           </BsCardBody>
           <BsMaskLoader v-model:show="showSpinner1" type="spinner" />
         </BsCard>
-        <BsButton color="default-color mt-3" @click="showSpinner1 = !showSpinner1">
-          Toggle Loader
-        </BsButton>
+        <BsButton class="mt-3" @click="showSpinner1 = !showSpinner1"> Toggle Loader </BsButton>
       </div>
-      <div class="col-md-6 mb-4 mb-md-0">
-        <BsCard shadow>
+      <div class="col-md-6">
+        <BsCard class="overflow-hidden" shadow>
           <BsCardBody>
             <BsCardContent type="title">Growing Spinner Loader</BsCardContent>
             <p>{{ content }}</p>
           </BsCardBody>
           <BsMaskLoader v-model:show="showGrow1" type="grow" />
         </BsCard>
-        <BsButton color="default-color mt-3" @click="showGrow1 = !showGrow1">
-          Toggle Loader
-        </BsButton>
+        <BsButton class="mt-3" @click="showGrow1 = !showGrow1"> Toggle Loader </BsButton>
       </div>
     </div>
+
     <h2 class="mt-5">Color and Size</h2>
     <BsDivider />
-    <div class="row mt-4">
-      <div class="col-md-6 mb-4">
-        <BsCard shadow>
+    <div class="row g-4 mt-2">
+      <div class="col-md-6">
+        <BsCard class="overflow-hidden" shadow>
           <BsCardBody>
             <BsCardContent type="title">Linear Loader</BsCardContent>
             <p>{{ content }}</p>
@@ -69,12 +62,10 @@
             spinner-thickness="8"
           />
         </BsCard>
-        <BsButton color="default-color mt-3" @click="showLinear2 = !showLinear2">
-          Toggle Loader
-        </BsButton>
+        <BsButton class="mt-3" @click="showLinear2 = !showLinear2"> Toggle Loader </BsButton>
       </div>
-      <div class="col-md-6 mb-4">
-        <BsCard shadow>
+      <div class="col-md-6">
+        <BsCard class="overflow-hidden" shadow>
           <BsCardBody>
             <BsCardContent type="title">Linear-Alt Loader</BsCardContent>
             <p>{{ content }}</p>
@@ -82,18 +73,16 @@
           <BsMaskLoader
             v-model:show="showProgress2"
             overlay-color="#064E40"
-            spinner-color="blue-green"
+            spinner-color="danger"
             spinner-diameter="60"
             spinner-thickness="8"
             type="linear-alt"
           />
         </BsCard>
-        <BsButton color="default-color mt-3" @click="showProgress2 = !showProgress2">
-          Toggle Loader
-        </BsButton>
+        <BsButton class="mt-3" @click="showProgress2 = !showProgress2"> Toggle Loader </BsButton>
       </div>
-      <div class="col-md-6 mb-4 mb-md-0">
-        <BsCard shadow>
+      <div class="col-md-6">
+        <BsCard class="overflow-hidden" shadow>
           <BsCardBody>
             <BsCardContent type="title">Spinner Loader</BsCardContent>
             <p>{{ content }}</p>
@@ -106,12 +95,10 @@
             type="spinner"
           />
         </BsCard>
-        <BsButton color="default-color mt-3" @click="showSpinner2 = !showSpinner2">
-          Toggle Loader
-        </BsButton>
+        <BsButton class="mt-3" @click="showSpinner2 = !showSpinner2"> Toggle Loader </BsButton>
       </div>
-      <div class="col-md-6 mb-4 mb-md-0">
-        <BsCard shadow>
+      <div class="col-md-6">
+        <BsCard class="overflow-hidden" shadow>
           <BsCardBody>
             <BsCardContent type="title">Growing Spinner Loader</BsCardContent>
             <p>{{ content }}</p>
@@ -119,14 +106,12 @@
           <BsMaskLoader
             v-model:show="showGrow2"
             overlay-color="#064E40"
-            spinner-color="red"
+            spinner-color="purple"
             spinner-diameter="60"
             type="grow"
           />
         </BsCard>
-        <BsButton color="default-color mt-3" @click="showGrow2 = !showGrow2">
-          Toggle Loader
-        </BsButton>
+        <BsButton class="mt-3" @click="showGrow2 = !showGrow2"> Toggle Loader </BsButton>
       </div>
     </div>
   </div>

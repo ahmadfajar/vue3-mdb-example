@@ -3,7 +3,7 @@
     <h2>Basic Examples</h2>
     <DemoBlock class="docs-demo-ctrl mt-4">
       <div class="flex flex-wrap md-gap-x-3 md-gap-y-4 mb-2">
-        <template v-for="(_color, name) in contextColors" :key="_color">
+        <template v-for="(_color, name) in contextColorsLightDark" :key="_color">
           <BsButton :color="name">
             {{ StringHelper.titleCase(name) }}
           </BsButton>
@@ -15,7 +15,7 @@
     <h4 class="mt-3">Rounded</h4>
     <DemoBlock class="docs-demo-ctrl mt-4">
       <div class="flex flex-wrap md-gap-x-3 md-gap-y-4 mb-2">
-        <template v-for="(_color, name) in contextColors" :key="_color">
+        <template v-for="(_color, name) in contextColorsLightDark" :key="_color">
           <BsButton :color="name" rounded>
             {{ StringHelper.titleCase(name) }}
           </BsButton>
@@ -25,7 +25,7 @@
     <h4 class="mt-5">Rectangle</h4>
     <DemoBlock class="docs-demo-ctrl mt-4">
       <div class="flex flex-wrap md-gap-x-3 md-gap-y-4 mb-2">
-        <template v-for="(_color, name) in contextColors" :key="_color">
+        <template v-for="(_color, name) in contextColorsLightDark" :key="_color">
           <BsButton :color="name" pill-off>
             {{ StringHelper.titleCase(name) }}
           </BsButton>
@@ -35,7 +35,7 @@
     <h4 class="mt-5">Elevated</h4>
     <DemoBlock class="docs-demo-ctrl mt-4">
       <div class="flex flex-wrap md-gap-x-3 md-gap-y-4 mb-2">
-        <template v-for="(_color, name) in contextColors" :key="_color">
+        <template v-for="(_color, name) in contextColorsLightDark" :key="_color">
           <BsButton :color="name" raised>
             {{ StringHelper.titleCase(name) }}
           </BsButton>
@@ -45,7 +45,7 @@
     <h4 class="mt-5">Outlined</h4>
     <DemoBlock class="docs-demo-ctrl mt-4">
       <div class="flex flex-wrap md-gap-x-3 md-gap-y-4 mb-2">
-        <template v-for="(_color, name) in contextColors" :key="_color">
+        <template v-for="(_color, name) in contextColorsLightDark" :key="_color">
           <BsButton
             :active="buttonOutlined[name] as boolean"
             :color="name"
@@ -60,7 +60,7 @@
     <h4 class="mt-5">Flat</h4>
     <DemoBlock class="docs-demo-ctrl mt-4">
       <div class="flex flex-wrap md-gap-x-3 md-gap-y-4 mb-2">
-        <template v-for="(_color, name) in contextColors" :key="_color">
+        <template v-for="(_color, name) in contextColorsLightDark" :key="_color">
           <BsButton
             :active="buttonFlat[name] as boolean"
             :color="name"
@@ -75,7 +75,7 @@
     <h4 class="mt-5">Tonal</h4>
     <DemoBlock class="docs-demo-ctrl mt-4">
       <div class="flex flex-wrap md-gap-x-3 md-gap-y-4 mb-2">
-        <template v-for="(_color, name) in contextColors" :key="_color">
+        <template v-for="(_color, name) in contextColorsLightDark" :key="_color">
           <BsButton
             :active="buttonTonal[name] as boolean"
             :color="name"
@@ -90,76 +90,74 @@
 
     <h2 class="mt-5">Button Size</h2>
     <DemoBlock class="mt-4">
-      <div class="row items-center">
+      <div class="row row-cols-2 row-cols-md-4 items-center gy-4">
         <div class="col">
-          <BsButton class="mb-3" size="xs"> Extra Small Button </BsButton>
+          <BsButton size="xs"> Extra Small Button </BsButton>
         </div>
         <div class="col">
-          <BsButton class="mb-3" color="primary" size="sm"> Small Button </BsButton>
+          <BsButton color="primary" size="sm"> Small Button </BsButton>
         </div>
         <div class="col">
-          <BsButton class="mb-3" color="success"> Normal Button </BsButton>
+          <BsButton color="success"> Normal Button </BsButton>
         </div>
         <div class="col">
-          <BsButton class="mb-3" color="danger" size="lg"> Large Button </BsButton>
-        </div>
-      </div>
-      <div class="row items-center">
-        <div class="col">
-          <BsButton class="mb-3" rounded size="xs"> Extra Small Button </BsButton>
+          <BsButton color="danger" size="lg"> Large Button </BsButton>
         </div>
         <div class="col">
-          <BsButton class="mb-3" color="primary" rounded size="sm"> Small Button </BsButton>
+          <BsButton rounded size="xs"> Extra Small Button </BsButton>
         </div>
         <div class="col">
-          <BsButton class="mb-3" color="success" rounded> Normal Button </BsButton>
+          <BsButton color="primary" rounded size="sm"> Small Button </BsButton>
         </div>
         <div class="col">
-          <BsButton class="mb-3" color="danger" rounded size="lg"> Large Button </BsButton>
+          <BsButton color="success" rounded> Normal Button </BsButton>
+        </div>
+        <div class="col">
+          <BsButton color="danger" rounded size="lg"> Large Button </BsButton>
         </div>
       </div>
     </DemoBlock>
 
     <h2 class="mt-5">Button with Icon</h2>
     <DemoBlock class="mt-4">
-      <div class="row text-center">
-        <div class="col-12 col-sm-6 col-xl-3 mb-3">
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-xl-4 gy-4 text-center">
+        <div class="col">
           <BsButton color="primary" icon="shopping_cart"> Icon Left </BsButton>
         </div>
-        <div class="col-12 col-sm-6 col-xl-3 mb-3">
+        <div class="col">
           <BsButton color="primary" icon="shopping_cart_outlined" icon-position="right">
             Icon Right
           </BsButton>
         </div>
-        <div class="col-12 col-sm-6 col-xl-3 mb-3">
+        <div class="col">
           <BsButton color="success" icon="shopping_cart_sharp" icon-flip="horizontal">
             Flip Horizontal
           </BsButton>
         </div>
-        <div class="col-12 col-sm-6 col-xl-3 mb-3">
+        <div class="col">
           <BsButton color="success" icon="shopping_cart" icon-flip="vertical">
             Flip Vertical
           </BsButton>
         </div>
-        <div class="col-12 col-sm-6 col-xl-3 mb-3">
+        <div class="col">
           <BsButton color="success" icon="shopping_cart" icon-flip="both"> Flip Both </BsButton>
         </div>
-        <div class="col-12 col-sm-6 col-xl-3 mb-3">
+        <div class="col">
           <BsButton icon="shopping_cart" icon-rotation="90"> Rotate 90&deg; </BsButton>
         </div>
-        <div class="col-12 col-sm-6 col-xl-3 mb-3">
+        <div class="col">
           <BsButton icon="shopping_cart" icon-rotation="180"> Rotate 180&deg; </BsButton>
         </div>
-        <div class="col-12 col-sm-6 col-xl-3 mb-3">
+        <div class="col">
           <BsButton icon="shopping_cart" icon-rotation="270"> Rotate 270&deg; </BsButton>
         </div>
-        <div class="col-12 col-sm-6 col-xl-3 mb-3">
+        <div class="col">
           <BsButton icon="rotate_right" icon-spin> Spin Animation </BsButton>
         </div>
-        <div class="col-12 col-sm-6 col-xl-3 mb-3">
+        <div class="col">
           <BsButton icon="refresh" icon-position="right" icon-pulse> Pulse Animation </BsButton>
         </div>
-        <div class="col-12 col-sm-6 col-xl-3 mb-3">
+        <div class="col">
           <BsButton>
             <template #icon>
               <BsSpinnerIcon spin size="22" />
@@ -167,7 +165,7 @@
             Custom Icon-Spin
           </BsButton>
         </div>
-        <div class="col-12 col-sm-6 col-xl-3 mb-3">
+        <div class="col">
           <BsButton icon-position="right">
             <template #icon>
               <BsSpinnerIcon pulse size="22" />
@@ -175,10 +173,10 @@
             Custom Icon-Pulse
           </BsButton>
         </div>
-        <div class="col-12 col-sm-6 col-xl-3 mb-3">
+        <div class="col">
           <BsButton color="primary" icon="shopping_cart" icon-size="32"> Icon Size=32 </BsButton>
         </div>
-        <div class="col-12 col-sm-6 col-xl-3 mb-3">
+        <div class="col">
           <BsButton color="primary" icon="shopping_cart" icon-position="right" icon-size="32">
             Icon Size=32
           </BsButton>
@@ -187,10 +185,10 @@
     </DemoBlock>
 
     <h2 class="mt-5" id="button-groups">Button Groups</h2>
-    <h4 class="mt-3" id="basic-example">Basic Example</h4>
+    <h4 class="mt-3" id="basic-example">Basic Examples</h4>
     <DemoBlock class="mt-4">
-      <div class="row gy-3 mb-3">
-        <div class="col-12 col-lg-6">
+      <div class="row row-cols-1 row-cols-lg-2 gy-3">
+        <div class="col">
           <div class="md-button-group" role="group" style="gap: 2px">
             <BsButton :icon-size="iconSm" icon="mic" mode="icon" />
             <BsButton :icon-size="iconSm" class="rounded-3" icon="shopping_cart" mode="icon" />
@@ -198,7 +196,7 @@
             <BsButton :icon-size="iconSm" icon="delete" mode="icon" />
           </div>
         </div>
-        <div class="col-12 col-lg-6">
+        <div class="col">
           <div class="md-button-group" role="group" style="gap: 2px">
             <BsButton :icon-size="iconSm" icon="mic" mode="icon" />
             <BsButton :icon-size="iconSm" class="rounded-3" icon="shopping_cart" mode="icon" />
@@ -213,7 +211,7 @@
             <BsButton :icon-size="iconSm" icon="delete" mode="icon" />
           </div>
         </div>
-        <div class="col-12 col-lg-6">
+        <div class="col">
           <div class="md-button-group" role="group" style="gap: 2px">
             <BsButton :icon-size="iconSm" icon="mic" mode="icon" />
             <BsButton :icon-size="iconSm" class="rounded-3" icon="shopping_cart" mode="icon" />
@@ -247,7 +245,8 @@
         </div>
       </div>
     </DemoBlock>
-    <h4 class="mt-4" id="button-toolbar">Button Toolbar</h4>
+
+    <h4 class="mt-5" id="button-toolbar">Button Toolbar</h4>
     <DemoBlock class="mt-4">
       <div class="md-button-toolbar md-gap-3" role="toolbar">
         <div class="inline-flex" role="group">
@@ -345,7 +344,8 @@
         />
       </div>
     </DemoBlock>
-    <h4 class="mt-3" id="fab-extended">Extended FAB</h4>
+
+    <h4 class="mt-5" id="fab-extended">Extended FAB</h4>
     <DemoBlock class="mt-4">
       <div class="flex items-center md-gap-4 mb-4">
         <BsButton icon="navigation_filled" icon-size="18" mode="fab" size="xs"> Navigate </BsButton>
@@ -397,7 +397,7 @@
 <script setup lang="ts">
 import { reactive, ref } from 'vue';
 import { StringHelper, type TRecord } from 'vue-mdbootstrap';
-import { contextColors } from '@shares/themeColors.ts';
+import { contextColorsLightDark } from '@shares/themeColors.ts';
 
 const iconXs = 14;
 const iconSm = 20;
