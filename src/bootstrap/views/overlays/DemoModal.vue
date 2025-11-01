@@ -2,8 +2,8 @@
   <div class="docs-body container-lg mx-auto">
     <h2>Basic Examples</h2>
     <DemoBlock class="mt-4">
-      <div class="d-flex justify-content-center">
-        <BsButton color="indigo" @click="dialog1 = true">Open Dialog</BsButton>
+      <div class="flex justify-center">
+        <BsButton @click="dialog1 = true">Open Dialog</BsButton>
       </div>
       <BsModal v-model:open="dialog1" max-width="85%" title="Dialog Title">
         <div class="fw-semibold">Hello, I am a modal dialog.</div>
@@ -15,10 +15,11 @@
         </template>
       </BsModal>
     </DemoBlock>
+
     <h2 class="mt-5">True Modal Dialog</h2>
     <DemoBlock class="mt-4">
-      <div class="d-flex justify-content-center">
-        <BsButton color="indigo" @click="dialog2 = true">Open Dialog</BsButton>
+      <div class="flex justify-center">
+        <BsButton @click="dialog2 = true">Open Dialog</BsButton>
       </div>
       <BsModal
         v-model:open="dialog2"
@@ -34,10 +35,11 @@
         </template>
       </BsModal>
     </DemoBlock>
+
     <h2 class="mt-5">Scrolling Long Content</h2>
     <DemoBlock class="mt-4">
-      <div class="d-flex justify-content-center">
-        <BsButton color="indigo" @click="dialog3 = true">Open Dialog</BsButton>
+      <div class="flex justify-center">
+        <BsButton @click="dialog3 = true">Open Dialog</BsButton>
       </div>
       <BsModal
         v-model:open="dialog3"
@@ -132,10 +134,11 @@
         </template>
       </BsModal>
     </DemoBlock>
+
     <h2 class="mt-5">Hiding Backdrop Overlay</h2>
     <DemoBlock class="mt-4">
-      <div class="d-flex justify-content-center">
-        <BsButton color="indigo" @click="dialog4 = true">Open Dialog</BsButton>
+      <div class="flex justify-center">
+        <BsButton @click="dialog4 = true">Open Dialog</BsButton>
       </div>
       <BsModal v-model:open="dialog4" :overlay="false" max-width="85%" title="Modal Dialog">
         You can close me by clicking the outside area or press ESC.
