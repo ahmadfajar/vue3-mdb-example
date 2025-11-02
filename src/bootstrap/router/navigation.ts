@@ -271,13 +271,13 @@ export const menuNavs: TMainNavigation[] = [
     group: 'Components',
     children: [
       {
-        label: 'Progress Control',
-        path: '/progress/progress-control',
+        label: 'Progress',
+        path: '/progress-control/progress',
         view: () => import('@bs/views/progress/DemoProgress.vue'),
       },
       {
         label: 'Progress Bar',
-        path: '/progress/progress-bar',
+        path: '/progress-control/progress-bar',
         view: () => import('@bs/views/progress/DemoProgressBar.vue'),
       },
     ],

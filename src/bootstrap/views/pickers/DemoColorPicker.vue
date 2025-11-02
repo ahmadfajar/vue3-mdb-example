@@ -1,27 +1,47 @@
 <template>
   <div class="docs-body container-lg mx-auto">
     <h2>Basic Examples</h2>
-    <div class="demo-block-content bg-blue-grey lighten-5 rounded-4 mt-4">
-      <div class="d-flex justify-content-center">
-        <div class="d-inline-block">
-          <BsColorPicker v-model="color1" v-model:mode="mode1" class="shadow" />
-          <div class="mt-3">
+    <div class="demo-block-content bg-gray-200 rounded-4 mt-4">
+      <div class="flex flex-col items-center">
+        <BsColorPicker ref="colorPicker" v-model="color1" v-model:mode="mode1" class="shadow" />
+        <div class="inline-block" style="width: 480px">
+          <div class="mt-4">
             Mode: <b>{{ mode1 }}</b>
           </div>
           <div>
             Value: <b>{{ color1 }}</b>
           </div>
+          <div class="mt-3">Exposed by instance:</div>
+          <div class="font-weight-medium">
+            <div>
+              <b class="inline-block" style="width: 65px">HEX:</b>
+              {{ (colorPicker as BsColorPickerInstance)?.hex() }}
+            </div>
+            <div>
+              <b class="inline-block" style="width: 65px">RGBA:</b>
+              {{ (colorPicker as BsColorPickerInstance)?.rgba() }}
+            </div>
+            <div>
+              <b class="inline-block" style="width: 65px">HSLA:</b>
+              {{ (colorPicker as BsColorPickerInstance)?.hsla() }}
+            </div>
+            <div>
+              <b class="inline-block" style="width: 65px">OKLCH:</b>
+              {{ (colorPicker as BsColorPickerInstance)?.oklch() }}
+            </div>
+          </div>
         </div>
       </div>
     </div>
+
     <h2 class="mt-5">Color Swatches</h2>
-    <div class="demo-block-content bg-blue-grey lighten-5 rounded-4 mt-4">
-      <div class="d-flex justify-content-center">
-        <div class="d-inline-block">
+    <div class="demo-block-content bg-gray-200 rounded-4 mt-4">
+      <div class="flex justify-center">
+        <div class="inline-block">
           <BsColorPicker
             v-model="color2"
             v-model:mode="mode2"
-            :swatches="swatches2"
+            :swatches="swatches1"
             class="shadow"
           />
           <div class="mt-3">
@@ -33,17 +53,24 @@
         </div>
       </div>
     </div>
+
     <h2 class="mt-5">Popup ColorPicker</h2>
-    <div class="demo-block-content bg-blue-grey lighten-5 rounded-4 mt-4">
-      <div class="d-flex justify-content-center">
-        <div class="d-inline-block">
+    <div class="demo-block-content bg-gray-200 rounded-4 mt-4">
+      <div class="flex justify-center">
+        <div class="inline-block">
           <BsButton
             ref="picker3Activator"
+            color="info"
             dropdown-toggle
             title="Click to display color picker"
             @click="picker3Show = !picker3Show"
           >
-            <span :style="{ color: picker3color }" class="picked-color rounded-circle"></span>
+            <template #icon>
+              <span
+                :style="{ color: picker3color }"
+                class="picked-color rounded-circle inline-block"
+              />
+            </template>
           </BsButton>
           <BsColorPicker
             v-model="picker3color"
@@ -61,7 +88,7 @@
 <script setup lang="ts">
 import type { ComponentPublicInstance } from 'vue';
 import { ref } from 'vue';
-import type { TColorPickerMode } from 'vue-mdbootstrap';
+import type { BsColorPickerInstance, TColorPickerMode } from 'vue-mdbootstrap';
 
 const mode1 = ref<TColorPickerMode>();
 const color1 = ref<string>('#1669de');
@@ -71,8 +98,9 @@ const picker3mode = ref<TColorPickerMode>('RGB');
 const picker3color = ref<string>('#e632da');
 const picker3Activator = ref<ComponentPublicInstance | null>(null);
 const picker3Show = ref<boolean>(false);
+const colorPicker = ref<BsColorPickerInstance | null>(null);
 
-const swatches2 = [
+const swatches1 = [
   '#e9c46a',
   '#f4a261',
   '#e76f51',
@@ -86,19 +114,20 @@ const swatches2 = [
   '#00FF00',
   '#00AA00',
   '#005500',
-  '#0077b6',
-  '#0096c7',
-  '#00b4d8',
-  '#48cae4',
+  '#055e8e',
+  '#0a80a6',
+  '#099fbd',
+  '#27a4bd',
+  '#69d9ef',
+  '#95e6f6',
 ];
 </script>
 
 <style lang="scss">
-.btn {
+.md-btn {
   .picked-color {
-    display: inline-block;
-    width: 26px;
-    height: 26px;
+    width: 24px;
+    height: 24px;
   }
 }
 </style>

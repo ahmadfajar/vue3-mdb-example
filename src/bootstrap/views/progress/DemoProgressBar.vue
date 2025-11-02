@@ -3,12 +3,13 @@
     <h2>Basic Examples</h2>
     <DemoBlock class="mt-4">
       <BsProgressBar v-model="progress1" />
-      <BsProgressBar v-model="progress1" class="mt-3" show-value height="1.5rem" />
+      <BsProgressBar v-model="progress1" class="mt-3" color="indigo" show-value height="1.5rem" />
       <h6 class="mb-3 mt-4">
         Value: <span class="text-unique">{{ progress1 }}%</span>
       </h6>
       <input v-model.number="progress1" class="form-range" type="range" />
     </DemoBlock>
+
     <h2 class="mt-5">Color</h2>
     <DemoBlock class="mt-4">
       <BsProgressBar v-model="progress2" color="success" />
@@ -16,6 +17,7 @@
       <BsProgressBar v-model="progress4" class="mt-3" color="purple" />
       <BsProgressBar v-model="progress5" class="mt-3" color="indigo" />
     </DemoBlock>
+
     <h2 class="mt-5">Striped</h2>
     <DemoBlock class="mt-4">
       <BsProgressBar v-model="progress2" color="success" striped />
@@ -23,7 +25,7 @@
       <BsProgressBar v-model="progress4" class="mt-3" color="purple" striped />
       <BsProgressBar v-model="progress5" class="mt-3" color="indigo" striped />
     </DemoBlock>
-    <BsDivider />
+
     <h2 class="mt-5">Animated Stripes</h2>
     <DemoBlock class="mt-4">
       <BsProgressBar v-model="progress2" color="success" striped striped-animation />
@@ -31,6 +33,7 @@
       <BsProgressBar v-model="progress4" class="mt-3" color="purple" striped striped-animation />
       <BsProgressBar v-model="progress5" class="mt-3" color="indigo" striped striped-animation />
     </DemoBlock>
+
     <h2 class="mt-5">Text Label</h2>
     <DemoBlock class="mt-4">
       <h5 class="mb-3">Value as Label</h5>

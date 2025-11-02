@@ -1,7 +1,7 @@
 <template>
   <div class="demo-block">
     <div class="demo-block-tools">
-      <div class="inner-tools bg-grey-200">
+      <div class="inner-tools bg-gray-200">
         <button
           ref="pickerBtn"
           :style="{ color: pickerColor }"
@@ -32,10 +32,10 @@
 
 <script setup lang="ts">
 import { reactive, ref, watch } from 'vue';
-import type { TColorPickerMode } from 'vue-mdbootstrap';
+import type { BsColorPickerInstance, TColorPickerMode } from 'vue-mdbootstrap';
 import { Color } from 'vue-mdbootstrap';
 
-const picker = ref();
+const picker = ref<BsColorPickerInstance>();
 const pickerBtn = ref();
 const pickerColor = ref('#f2f5f8');
 const pickerMode = ref<TColorPickerMode>('HEX');
@@ -44,14 +44,14 @@ const step = ref(-10);
 const cssClasses = ref(['demo-block-content']);
 const styles = reactive<Record<string, string>>({
   backgroundColor: pickerColor.value,
-  color: '#212121',
+  color: '#171717',
 });
 
 watch(
   () => pickerColor.value,
   (value) => {
     styles.backgroundColor =
-      pickerMode.value === 'HEX' ? value.toLowerCase() : picker.value.hexColor().toLowerCase();
+      pickerMode.value === 'HEX' ? value.toLowerCase() : picker.value!.hex().toLowerCase();
   }
 );
 watch(
@@ -61,7 +61,7 @@ watch(
     styles.color = textColor;
     styles['--md-field-button-color'] = textColor;
 
-    if (textColor.startsWith('#fff')) {
+    if (textColor === '#fafafa') {
       styles['--md-field-active-indicator'] = 'var(--md-field-accent-indicator)';
       styles['--md-field-button-active-bg'] = 'rgba(250,250,250,.25)';
       styles['--md-field-button-hover-bg'] = 'rgba(180,180,180,.15)';
@@ -79,12 +79,12 @@ const contrastTextColor = (color: string) => {
   const yiq = Color.brightnessLevel(Color.hexToRgba(color));
   // console.info('yiq:', yiq)
 
-  return yiq >= 170 ? '#000' : '#fff';
+  return yiq >= 170 ? '#171717' : '#fafafa';
 };
 
 const darkenOrLighten = () => {
   if (styles.backgroundColor === '#ffffff' || styles.backgroundColor === '#000000') {
-    styles.backgroundColor = picker.value.hexColor().toLowerCase();
+    styles.backgroundColor = picker.value!.hex().toLowerCase();
     return;
   }
 

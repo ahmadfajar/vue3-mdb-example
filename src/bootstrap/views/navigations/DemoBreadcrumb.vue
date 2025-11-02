@@ -38,7 +38,7 @@ const items1 = [
 ];
 const items2 = [
   { label: 'Home', href: '#' },
-  { label: 'Components', path: '/components/breadcrumb' },
+  { label: 'Components', path: '/navigations/breadcrumb' },
   { label: 'Breadcrumb', href: '#' },
 ];
 </script>

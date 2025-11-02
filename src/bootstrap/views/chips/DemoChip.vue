@@ -3,8 +3,8 @@
     <h2 id="overview">Basic Examples</h2>
     <DemoBlock class="docs-demo-ctrl mt-4">
       <div class="flex flex-wrap">
-        <template v-for="(_color, name) in contextColors" :key="_color">
-          <BsChip v-if="name !== 'dark'" :color="name">
+        <template v-for="(_color, name) in contextColorsLight" :key="_color">
+          <BsChip :color="name">
             {{ StringHelper.titleCase(name) }}
           </BsChip>
         </template>
@@ -14,8 +14,8 @@
     <h2 class="mt-5" id="href-element">Element Type</h2>
     <DemoBlock class="docs-demo-ctrl mt-4">
       <div class="flex flex-wrap">
-        <template v-for="(_color, name) in contextColors" :key="_color">
-          <BsChip v-if="name !== 'dark'" href="javascript:void(0)" :color="name">
+        <template v-for="(_color, name) in contextColorsLight" :key="_color">
+          <BsChip href="javascript:void(0)" :color="name">
             {{ StringHelper.titleCase(name) }}
           </BsChip>
         </template>
@@ -26,8 +26,8 @@
     <h4 class="mt-4" id="pill-styles">Rounded Pill</h4>
     <DemoBlock class="docs-demo-ctrl mt-4">
       <div class="flex flex-wrap">
-        <template v-for="(_color, name) in contextColors" :key="_color">
-          <BsChip v-if="name !== 'dark'" :color="name" pill>
+        <template v-for="(_color, name) in contextColorsLight" :key="_color">
+          <BsChip :color="name" pill>
             {{ StringHelper.titleCase(name) }}
           </BsChip>
         </template>
@@ -36,8 +36,8 @@
     <h4 class="mt-5" id="outlined-styles">Outlined</h4>
     <DemoBlock class="docs-demo-ctrl mt-4">
       <div class="flex flex-wrap">
-        <template v-for="(_color, name) in contextColors" :key="_color">
-          <BsChip v-if="name !== 'dark'" :color="name" outlined>
+        <template v-for="(_color, name) in contextColorsLight" :key="_color">
+          <BsChip :color="name" outlined>
             {{ StringHelper.titleCase(name) }}
           </BsChip>
         </template>
@@ -53,16 +53,16 @@
       </div>
       <div class="h6 mt-3">Readonly</div>
       <div class="flex flex-wrap">
-        <template v-for="(_color, name) in contextColors" :key="_color">
-          <BsChip v-if="name !== 'dark'" :color="name" readonly>
+        <template v-for="(_color, name) in contextColorsLight" :key="_color">
+          <BsChip :color="name" readonly>
             {{ StringHelper.titleCase(name) }}
           </BsChip>
         </template>
       </div>
       <div class="h6 mt-3">Active</div>
       <div class="flex flex-wrap">
-        <template v-for="(_color, name) in contextColors" :key="_color">
-          <BsChip v-if="name !== 'dark'" :color="name" active>
+        <template v-for="(_color, name) in contextColorsLight" :key="_color">
+          <BsChip :color="name" active>
             {{ StringHelper.titleCase(name) }}
           </BsChip>
         </template>
@@ -75,16 +75,16 @@
       </div>
       <div class="h6 mt-3">Outlined Readonly</div>
       <div class="flex flex-wrap">
-        <template v-for="(_color, name) in contextColors" :key="_color">
-          <BsChip v-if="name !== 'dark'" :color="name" outlined readonly>
+        <template v-for="(_color, name) in contextColorsLight" :key="_color">
+          <BsChip :color="name" outlined readonly>
             {{ StringHelper.titleCase(name) }}
           </BsChip>
         </template>
       </div>
       <div class="h6 mt-3">Outlined Active</div>
       <div class="flex flex-wrap">
-        <template v-for="(_color, name) in contextColors" :key="_color">
-          <BsChip v-if="name !== 'dark'" :color="name" active outlined>
+        <template v-for="(_color, name) in contextColorsLight" :key="_color">
+          <BsChip :color="name" active outlined>
             {{ StringHelper.titleCase(name) }}
           </BsChip>
         </template>
@@ -94,9 +94,8 @@
     <h2 class="mt-5">Click events</h2>
     <DemoBlock class="mt-4">
       <div class="flex flex-wrap mb-3">
-        <template v-for="(_color, name) in contextColors" :key="_color">
+        <template v-for="(_color, name) in contextColorsLight" :key="_color">
           <BsChip
-            v-if="name !== 'dark'"
             :active="chipState[name] as boolean"
             :color="name"
             @click="toggleState(name, !chipState[name])"
@@ -106,9 +105,8 @@
         </template>
       </div>
       <div class="flex flex-wrap">
-        <template v-for="(_color, name) in contextColors" :key="_color">
+        <template v-for="(_color, name) in contextColorsLight" :key="_color">
           <BsChip
-            v-if="name !== 'dark'"
             :active="chipState[name] as boolean"
             :color="name"
             outlined
@@ -410,7 +408,7 @@
 <script setup lang="ts">
 import { reactive, ref } from 'vue';
 import { StringHelper, type TRecord } from 'vue-mdbootstrap';
-import { contextColors } from '@shares/themeColors.ts';
+import { contextColorsLight } from '@shares/themeColors.ts';
 import { IconBullhorn } from '@shares/sharedApi.ts';
 
 const chipState = reactive<TRecord>({
