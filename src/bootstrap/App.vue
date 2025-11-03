@@ -102,9 +102,9 @@ const routeNavB = menuNavs.filter((it) => it.group === 'Reference').sort(compare
   opacity: 0;
 }
 
-body {
-  --md-radius: 0.5rem;
-}
+//body {
+//  --md-radius: 0.5rem;
+//}
 
 #app {
   .md-content-wrap {

@@ -230,7 +230,7 @@
             </BsDropdownMenu>
 
             <BsDropdownMenu>
-              <BsButton :icon-size="iconSm" dropdown-toggle icon="favorite_filled" />
+              <BsButton dropdown-toggle icon="favorite_filled" />
               <template #content>
                 <BsListView>
                   <div class="dropdown-menu">

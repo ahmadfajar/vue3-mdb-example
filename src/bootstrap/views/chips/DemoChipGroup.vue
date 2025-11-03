@@ -90,7 +90,7 @@
             <bs-chip-group
               v-model="selectedAmenities2"
               :items="amenities2"
-              active-class="md-chip-default active"
+              active-class="chip-default active"
               checked-icon
               column
             />
@@ -120,7 +120,7 @@
           <bs-chip-group
             v-model="multiSelectedChips2"
             :items="chipItems1"
-            active-class="md-chip-outline-primary active"
+            active-class="chip-outline-primary active"
             multiple
             slider-button
           />

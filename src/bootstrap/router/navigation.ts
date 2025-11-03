@@ -49,7 +49,7 @@ export const menuNavs: TMainNavigation[] = [
       },
       {
         label: 'Toggle Button',
-        path: '/buttons/button-toggle',
+        path: '/buttons/toggle-button',
         view: () => import('@bs/views/buttons/DemoToggleButton.vue'),
       },
     ],
