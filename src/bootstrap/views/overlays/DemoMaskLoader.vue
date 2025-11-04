@@ -57,7 +57,7 @@
           <BsMaskLoader
             v-model:show="showLinear2"
             overlay-color="#064E40"
-            spinner-color="red"
+            spinner-color="text-red"
             spinner-diameter="60"
             spinner-thickness="8"
           />
@@ -90,7 +90,7 @@
           <BsMaskLoader
             v-model:show="showSpinner2"
             overlay-color="#064E40"
-            spinner-color="purple"
+            spinner-color="text-light-blue"
             spinner-diameter="60"
             type="spinner"
           />
@@ -106,7 +106,7 @@
           <BsMaskLoader
             v-model:show="showGrow2"
             overlay-color="#064E40"
-            spinner-color="purple"
+            spinner-color="text-pink"
             spinner-diameter="60"
             type="grow"
           />

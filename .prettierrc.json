@@ -6,8 +6,27 @@
   "singleQuote": true,
   "printWidth": 100,
   "trailingComma": "es5",
-  "plugins": ["prettier-plugin-sort-imports", "prettier-plugin-organize-imports", "prettier-plugin-organize-attributes"],
-  "attributeGroups": ["setup", "xmlns", "v-for", "v-if", "^v-else", "ref", "^v-", "$DEFAULT", "^height", "^width", "^size", "^data-", "^aria-", "^@"],
+  "plugins": [
+    "prettier-plugin-sort-imports",
+    "prettier-plugin-organize-imports",
+    "prettier-plugin-organize-attributes"
+  ],
+  "attributeGroups": [
+    "^setup",
+    "^xmlns",
+    "^v-for",
+    "^v-if",
+    "^v-else",
+    "^ref",
+    "^v-",
+    "$DEFAULT",
+    "^height",
+    "^width",
+    "^size",
+    "^data-",
+    "^aria-",
+    "^@"
+  ],
   "attributeSort": "ASC",
   "sortingMethod": "alphabetical",
   "sortingOrder": "ascending"

@@ -116,11 +116,11 @@ const dummyItems1 = [
 ];
 
 const dummyItems2 = [
-  { value: 1, label: 'Item 1', color: 'default' },
-  { value: 2, label: 'Item 2', color: 'primary' },
-  { value: 3, label: 'Item 3', color: 'success' },
-  { value: 4, label: 'Item 4', color: 'warning' },
-  { value: 5, label: 'Item 5', disabled: true },
-  { value: 6, label: 'Item 6', color: 'info' },
+  { value: 'default', label: 'Default', color: 'default' },
+  { value: 'primary', label: 'Primary', color: 'primary' },
+  { value: 'success', label: 'Success', color: 'success' },
+  { value: 'warning', label: 'Warning', color: 'warning' },
+  { value: 'danger', label: 'Danger', disabled: true },
+  { value: 'info', label: 'Info', color: 'info' },
 ];
 </script>

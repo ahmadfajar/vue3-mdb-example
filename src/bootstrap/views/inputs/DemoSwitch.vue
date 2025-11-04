@@ -146,6 +146,29 @@
         Selected values: <span class="font-weight-semibold">{{ switchColor3 }}</span>
       </p>
     </DemoBlock>
+
+    <h2 class="mt-5">Thumb Icon</h2>
+    <DemoBlock class="mt-4">
+      <div class="row row-cols-1 row-cols-md-2">
+        <div class="col">
+          <BsSwitch
+            v-model="switch7"
+            checked-icon
+            checkoff-icon
+            color="default"
+            inset-mode
+            value="on"
+          >
+            Power meter : <b>{{ switch7 }}</b>
+          </BsSwitch>
+        </div>
+        <div class="col">
+          <BsSwitch v-model="switch8" checked-icon color="primary" inset-outlined value="on">
+            Power meter : <b>{{ switch8 }}</b>
+          </BsSwitch>
+        </div>
+      </div>
+    </DemoBlock>
   </div>
 </template>
 
@@ -159,6 +182,8 @@ const switch3 = ref();
 const switch4 = ref();
 const switch5 = ref();
 const switch6 = ref();
+const switch7 = ref();
+const switch8 = ref();
 const switchColor1 = ref([]);
 const switchColor2 = ref([]);
 const switchColor3 = ref([]);

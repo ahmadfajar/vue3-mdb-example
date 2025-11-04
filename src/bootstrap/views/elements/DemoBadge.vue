@@ -2,11 +2,11 @@
   <div class="docs-body container-lg mx-auto">
     <h2>Basic Examples</h2>
     <DemoBlock class="mt-3">
-      <h2>Example heading <BsBadge>New</BsBadge></h2>
-      <h3>Example heading <BsBadge>New</BsBadge></h3>
-      <h4>Example heading <BsBadge>New</BsBadge></h4>
-      <h5>Example heading <BsBadge>New</BsBadge></h5>
-      <h6>Example heading <BsBadge>New</BsBadge></h6>
+      <h2>Example heading <BsBadge variant="secondary">New</BsBadge></h2>
+      <h3>Example heading <BsBadge variant="secondary">New</BsBadge></h3>
+      <h4>Example heading <BsBadge variant="secondary">New</BsBadge></h4>
+      <h5>Example heading <BsBadge variant="secondary">New</BsBadge></h5>
+      <h6>Example heading <BsBadge variant="secondary">New</BsBadge></h6>
     </DemoBlock>
 
     <h2 class="mt-5">Inside Button</h2>
@@ -21,14 +21,9 @@
     <h4 class="mt-4">Contextual Colors</h4>
     <DemoBlock class="mt-3">
       <div class="flex flex-wrap md-gap-2">
-        <BsBadge variant="default"> Default </BsBadge>
-        <BsBadge variant="primary"> Primary </BsBadge>
-        <BsBadge variant="secondary"> Secondary </BsBadge>
-        <BsBadge variant="success"> Success </BsBadge>
-        <BsBadge variant="danger"> Danger </BsBadge>
-        <BsBadge variant="warning"> Warning </BsBadge>
-        <BsBadge variant="info"> Info </BsBadge>
-        <BsBadge variant="light"> Light </BsBadge>
+        <template v-for="(_color, name) in contextColorsLight" :key="_color">
+          <BsBadge :variant="name"> {{ StringHelper.titleCase(name) }} </BsBadge>
+        </template>
       </div>
     </DemoBlock>
     <h4 class="mt-4">Custom Colors</h4>
@@ -49,62 +44,57 @@
     <h4 class="mt-3">Pills</h4>
     <DemoBlock class="mt-3">
       <div class="flex flex-wrap md-gap-2">
-        <BsBadge type="pill" variant="default"> Default </BsBadge>
-        <BsBadge type="pill" variant="primary"> Primary </BsBadge>
-        <BsBadge type="pill" variant="secondary"> Secondary </BsBadge>
-        <BsBadge type="pill" variant="success"> Success </BsBadge>
-        <BsBadge type="pill" variant="danger"> Danger </BsBadge>
-        <BsBadge type="pill" variant="warning"> Warning </BsBadge>
-        <BsBadge type="pill" variant="info"> Info </BsBadge>
+        <template v-for="(_color, name) in contextColorsLight" :key="_color">
+          <BsBadge :variant="name" type="pill">
+            {{ StringHelper.titleCase(name) }}
+          </BsBadge>
+        </template>
       </div>
     </DemoBlock>
+
     <h4 class="mt-5">Label</h4>
     <DemoBlock class="mt-3">
       <div class="flex flex-wrap md-gap-2">
-        <BsBadge type="label" variant="default"> Default </BsBadge>
-        <BsBadge type="label" variant="primary"> Primary </BsBadge>
-        <BsBadge type="label" variant="secondary"> Secondary </BsBadge>
-        <BsBadge type="label" variant="success"> Success </BsBadge>
-        <BsBadge type="label" variant="danger"> Danger </BsBadge>
-        <BsBadge type="label" variant="warning"> Warning </BsBadge>
-        <BsBadge type="label" variant="info"> Info </BsBadge>
+        <template v-for="(_color, name) in contextColorsLight" :key="_color">
+          <BsBadge :variant="name" type="label">
+            {{ StringHelper.titleCase(name) }}
+          </BsBadge>
+        </template>
       </div>
     </DemoBlock>
+
     <h4 class="mt-5">Outlined</h4>
     <DemoBlock class="mt-3">
       <div class="flex flex-wrap md-gap-2 mb-3">
-        <BsBadge outlined type="pill" variant="default"> Default </BsBadge>
-        <BsBadge outlined type="pill" variant="primary"> Primary </BsBadge>
-        <BsBadge outlined type="pill" variant="secondary"> Secondary </BsBadge>
-        <BsBadge outlined type="pill" variant="success"> Success </BsBadge>
-        <BsBadge outlined type="pill" variant="danger"> Danger </BsBadge>
-        <BsBadge outlined type="pill" variant="warning"> Warning </BsBadge>
-        <BsBadge outlined type="pill" variant="info"> Info </BsBadge>
+        <template v-for="(_color, name) in contextColors" :key="_color">
+          <BsBadge :variant="name" outlined type="pill">
+            {{ StringHelper.titleCase(name) }}
+          </BsBadge>
+        </template>
       </div>
       <div class="flex flex-wrap md-gap-2">
-        <BsBadge outlined type="label" variant="default"> Default </BsBadge>
-        <BsBadge outlined type="label" variant="primary"> Primary </BsBadge>
-        <BsBadge outlined type="label" variant="secondary"> Secondary </BsBadge>
-        <BsBadge outlined type="label" variant="success"> Success </BsBadge>
-        <BsBadge outlined type="label" variant="danger"> Danger </BsBadge>
-        <BsBadge outlined type="label" variant="warning"> Warning </BsBadge>
-        <BsBadge outlined type="label" variant="info"> Info </BsBadge>
+        <template v-for="(_color, name) in contextColors" :key="_color">
+          <BsBadge :variant="name" outlined type="label">
+            {{ StringHelper.titleCase(name) }}
+          </BsBadge>
+        </template>
       </div>
     </DemoBlock>
 
     <h2 class="mt-5">Actionable Badges</h2>
     <DemoBlock class="mt-3">
       <div class="flex flex-wrap md-gap-2">
-        <BsBadge href="#" tag="a" variant="default"> Default </BsBadge>
-        <BsBadge href="#" tag="a" variant="primary"> Primary </BsBadge>
-        <BsBadge href="#" tag="a" variant="secondary"> Secondary </BsBadge>
-        <BsBadge href="#" tag="a" variant="success"> Success </BsBadge>
-        <BsBadge href="#" tag="a" variant="danger"> Danger </BsBadge>
-        <BsBadge href="#" tag="a" variant="warning"> Warning </BsBadge>
-        <BsBadge href="#" tag="a" variant="info"> Info </BsBadge>
+        <template v-for="(_color, name) in contextColors" :key="_color">
+          <BsBadge :variant="name" href="#" tag="a">
+            {{ StringHelper.titleCase(name) }}
+          </BsBadge>
+        </template>
       </div>
     </DemoBlock>
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { contextColors, contextColorsLight } from '@shares/themeColors.ts';
+import { StringHelper } from 'vue-mdbootstrap';
+</script>
