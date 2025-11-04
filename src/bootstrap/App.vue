@@ -1,16 +1,45 @@
 <template>
   <BsApp viewport-height>
-    <BsAppbar clipped-left sticky-top>
+    <BsAppbar v-scroll="onScroll" :class="appbarCls" clipped-left sticky-top>
       <BsButton
-        color="secondary"
+        color="dark"
         flat
         icon="menu"
         mode="icon"
-        @click="toggleSideDrawer(!openSideDrawer)"
+        @click="toggleSideDrawer(!sideDrawerOpen)"
       />
       <BsAppbarTitle :title="$route.meta.title as string" />
+      <BsAppbarItems class="items-center ms-auto">
+        <div class="d-none d-md-flex md-gap-x-6 me-3">
+          <RouterLink class="menu-item" to="/home"> Home </RouterLink>
+          <a
+            class="menu-item"
+            href="https://ahmadfajar.github.io/"
+            target="_blank"
+            aria-label="Component documentation"
+          >
+            Documentation
+          </a>
+        </div>
+        <div class="d-none d-md-block mx-2 border" style="width: 1px; height: 26px"></div>
+        <div class="flex">
+          <BsButton
+            color="dark"
+            flat
+            href="https://github.com/ahmadfajar/vue3-mdb-example"
+            mode="icon"
+            target="_blank"
+            aria-label="GitHub Repo"
+          >
+            <template #icon>
+              <BsFontawesomeIcon icon="github" mode="icon" variant="brands" />
+            </template>
+          </BsButton>
+          <BsButton color="dark" flat icon="dark_mode" mode="icon" />
+        </div>
+      </BsAppbarItems>
     </BsAppbar>
-    <BsSideDrawer v-model:open="openSideDrawer" class="border-end" fixed-layout>
+    <BsSideDrawer v-model:open="sideDrawerOpen" class="border-e" fixed-layout>
       <div class="flex justify-center my-2">
         <RouterLink to="/home">
           <img alt="Vue logo" src="/assets/vue-mdb.png" style="width: 96px" />
@@ -59,16 +88,25 @@ import { StringHelper, useBreakpointMax } from 'vue-mdbootstrap';
 import type { TMainNavigation } from '@bs/router/navigation';
 import { menuNavs } from '@bs/router/navigation';
 
-const openSideDrawer = ref(true);
+const sideDrawerOpen = ref(true);
+const appbarCls = ref(['border-b']);
 
 function onContainerResize() {
   if (useBreakpointMax('lg')) {
-    openSideDrawer.value = false;
+    sideDrawerOpen.value = false;
+  }
+}
+
+function onScroll(target: Element | Window) {
+  if ((target as Window).scrollY >= 50) {
+    appbarCls.value = ['border-b', 'md-shadow'];
+  } else {
+    appbarCls.value = ['border-b'];
   }
 }
 
 function toggleSideDrawer(value: boolean) {
-  openSideDrawer.value = value;
+  sideDrawerOpen.value = value;
 }
 
 function compareFn(a: TMainNavigation, b: TMainNavigation) {
@@ -90,7 +128,7 @@ const routeNavB = menuNavs.filter((it) => it.group === 'Reference').sort(compare
 
 <style lang="scss">
 @use 'vue-mdbootstrap/scss/mixins/css3/borders';
-//@use 'vue-mdbootstrap/scss/variables' as vars;
+@use 'vue-mdbootstrap/scss/color_vars' as colors;
 
 .fastFade-enter-active,
 .fastFade-leave-active {
@@ -102,9 +140,17 @@ const routeNavB = menuNavs.filter((it) => it.group === 'Reference').sort(compare
   opacity: 0;
 }
 
-//body {
-//  --md-radius: 0.5rem;
-//}
+:root {
+  --background: oklch(0.976 0 89.876);
+  --appbar-background: oklch(1 0 0);
+  --sidedrawer-background: oklch(0.921 0.009 264.52);
+}
+
+body {
+  > .md-side-drawer {
+    --sidedrawer-background: oklch(1 0 0);
+  }
+}
 
 #app {
   .md-content-wrap {
@@ -146,6 +192,18 @@ const routeNavB = menuNavs.filter((it) => it.group === 'Reference').sort(compare
           background: oklch(0.492 0.007 264.503);
         }
       }
+    }
+  }
+}
+
+.md-appbar {
+  a.menu-item {
+    color: var(--foreground);
+    font-weight: var(--font-weight-medium);
+    text-decoration: none;
+
+    &:hover {
+      color: colors.$blue-accent-4;
     }
   }
 }
