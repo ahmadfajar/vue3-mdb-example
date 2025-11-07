@@ -6,6 +6,7 @@
         flat
         icon="menu"
         mode="icon"
+        aria-label="Menu"
         @click="toggleSideDrawer(!sideDrawerOpen)"
       />
       <BsAppbarTitle :title="$route.meta.title as string" />
@@ -140,28 +141,14 @@ const routeNavB = menuNavs.filter((it) => it.group === 'Reference').sort(compare
   opacity: 0;
 }
 
+// Override UI aspect global css variables
 :root {
   --background: oklch(0.976 0 89.876);
   --appbar-background: oklch(1 0 0);
   --sidedrawer-background: oklch(0.921 0.009 264.52);
 }
 
-body {
-  > .md-side-drawer {
-    --sidedrawer-background: oklch(1 0 0);
-  }
-}
-
-#app {
-  .md-content-wrap {
-    padding-bottom: 2rem;
-
-    //@media (min-width: 992px) {
-    //  @include borders.top-start-radius(36px);
-    //}
-  }
-}
-
+// Override side-drawer menu styles
 .md-side-drawer {
   .md-nav-item:not(.md-expanded) {
     .md-tile-border-left.active > .md-ripple:before {
@@ -196,6 +183,22 @@ body {
   }
 }
 
+body {
+  > .md-side-drawer {
+    --sidedrawer-background: oklch(1 0 0);
+  }
+}
+
+#app {
+  .md-content-wrap {
+    padding-bottom: 2rem;
+
+    //@media (min-width: 992px) {
+    //  @include borders.top-start-radius(36px);
+    //}
+  }
+}
+
 .md-appbar {
   a.menu-item {
     color: var(--foreground);
@@ -208,10 +211,6 @@ body {
   }
 }
 
-.mobi-card {
-  max-width: 25rem; // 400px;
-}
-
 .md-card {
   > .md-application-wrap:first-child {
     @include borders.radius(inherit);
@@ -219,6 +218,10 @@ body {
 
   .md-appbar:first-child {
     @include borders.top-radius(inherit);
+
+    + .md-tabs {
+      @include borders.top-radius(0);
+    }
   }
 }
 
@@ -261,5 +264,30 @@ body {
   .md-breadcrumb {
     --md-breadcrumb-padding-x: 0;
   }
+}
+
+// Utilities
+.bg-background {
+  background-color: var(--background);
+}
+
+.mobi-card {
+  max-width: 25rem; // 400px;
+}
+
+.grid {
+  display: grid;
+
+  .sticky-top {
+    z-index: 10;
+  }
+}
+
+.grid-cols-auto {
+  grid-template-columns: auto minmax(0, 1fr);
+}
+
+.grid-cols-11 {
+  grid-template-columns: repeat(11, minmax(0, 1fr));
 }
 </style>

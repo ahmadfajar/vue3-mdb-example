@@ -1,5 +1,8 @@
 <template>
-  <div class="docs-body container-lg mx-auto">
+  <div
+    class="docs-body container-lg mx-auto"
+    style="--sidedrawer-background: var(--background-secondary)"
+  >
     <h2>Basic Examples</h2>
     <BsDivider />
     <BsAppContainer class="shadow rounded-3 mt-4">
@@ -17,22 +20,22 @@
         <div class="p-2">
           <ul class="nav nav-pills flex-column">
             <li class="nav-item">
-              <a href="#" class="nav-link d-flex active">
+              <a class="nav-link d-flex active" href="#">
                 <BsIcon icon="home_outlined" /><span class="ps-3">Home</span>
               </a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link d-flex">
+              <a class="nav-link d-flex" href="#">
                 <BsIcon icon="view_list_outlined" /><span class="ps-3">Orders</span>
               </a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link d-flex">
+              <a class="nav-link d-flex" href="#">
                 <BsIcon icon="redeem_outlined" /><span class="ps-3">Products</span>
               </a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link d-flex">
+              <a class="nav-link d-flex" href="#">
                 <BsIcon icon="account_circle_outlined" /><span class="ps-3">Customers</span>
               </a>
             </li>
@@ -63,22 +66,22 @@
         <div class="p-2">
           <ul class="nav nav-pills flex-column">
             <li class="nav-item">
-              <a href="#" class="nav-link d-flex active">
+              <a class="nav-link d-flex active" href="#">
                 <BsIcon icon="home_outlined" /><span class="ps-3">Home</span>
               </a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link d-flex">
+              <a class="nav-link d-flex" href="#">
                 <BsIcon icon="view_list_outlined" /><span class="ps-3">Orders</span>
               </a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link d-flex">
+              <a class="nav-link d-flex" href="#">
                 <BsIcon icon="redeem_outlined" /><span class="ps-3">Products</span>
               </a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link d-flex">
+              <a class="nav-link d-flex" href="#">
                 <BsIcon icon="account_circle_outlined" /><span class="ps-3">Customers</span>
               </a>
             </li>
@@ -121,7 +124,7 @@
         <div class="p-2">
           <ul class="nav nav-pills flex-column">
             <li class="nav-item">
-              <a href="#" class="nav-link d-flex active">
+              <a class="nav-link d-flex active" href="#">
                 <BsIcon icon="home_outlined" />
                 <transition name="fade">
                   <span v-if="openSideDrawerMini" class="ps-3">Home</span>
@@ -129,7 +132,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link d-flex">
+              <a class="nav-link d-flex" href="#">
                 <BsIcon icon="view_list_outlined" />
                 <transition name="fade">
                   <span v-if="openSideDrawerMini" class="ps-3">Orders</span>
@@ -137,7 +140,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link d-flex">
+              <a class="nav-link d-flex" href="#">
                 <BsIcon icon="redeem_outlined" />
                 <transition name="fade">
                   <span v-if="openSideDrawerMini" class="ps-3">Products</span>
@@ -145,7 +148,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link d-flex">
+              <a class="nav-link d-flex" href="#">
                 <BsIcon icon="account_circle_outlined" />
                 <transition name="fade">
                   <span v-if="openSideDrawerMini" class="ps-3">Customers</span>
@@ -163,7 +166,7 @@
     <BsAppContainer class="bg-gray-400 shadow rounded-3 mt-4">
       <BsAppbar clipped-left shadow>
         <BsButton
-          color="secondary"
+          color="dark"
           flat
           icon="menu"
           mode="icon"
@@ -172,8 +175,8 @@
         <BsAppbarTitle title="Page Title" />
         <BsSpacer />
         <BsAppbarItems>
-          <BsButton color="secondary" flat icon="search" mode="icon" />
-          <BsButton color="secondary" flat icon="notifications" mode="icon" />
+          <BsButton color="dark" flat icon="search" mode="icon" />
+          <BsButton color="dark" flat icon="notifications" mode="icon" />
         </BsAppbarItems>
       </BsAppbar>
       <BsSideDrawer v-model:open="openSideDrawer3" class="border-end">
@@ -190,22 +193,22 @@
         <div class="p-2">
           <ul class="nav nav-pills flex-column">
             <li class="nav-item">
-              <a href="#" class="nav-link d-flex active">
+              <a class="nav-link d-flex active" href="#">
                 <BsIcon icon="home_outlined" /><span class="ps-3">Home</span>
               </a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link d-flex">
+              <a class="nav-link d-flex" href="#">
                 <BsIcon icon="view_list_outlined" /><span class="ps-3">Orders</span>
               </a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link d-flex">
+              <a class="nav-link d-flex" href="#">
                 <BsIcon icon="redeem_outlined" /><span class="ps-3">Products</span>
               </a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link d-flex">
+              <a class="nav-link d-flex" href="#">
                 <BsIcon icon="account_circle_outlined" /><span class="ps-3">Customers</span>
               </a>
             </li>
@@ -222,7 +225,7 @@
     <BsAppContainer class="bg-gray-400 shadow rounded-3 mt-4">
       <BsAppbar shadow>
         <BsButton
-          color="secondary"
+          color="dark"
           flat
           icon="menu"
           mode="icon"
@@ -231,30 +234,30 @@
         <BsAppbarTitle title="Page Title" />
         <BsSpacer />
         <BsAppbarItems>
-          <BsButton color="secondary" flat icon="search" mode="icon" />
-          <BsButton color="secondary" flat icon="notifications" mode="icon" />
+          <BsButton color="dark" flat icon="search" mode="icon" />
+          <BsButton color="dark" flat icon="notifications" mode="icon" />
         </BsAppbarItems>
       </BsAppbar>
       <BsSideDrawer v-model:open="openSideDrawer4" class="border-end" clipped>
         <div class="p-2">
           <ul class="nav nav-pills flex-column">
             <li class="nav-item">
-              <a href="#" class="nav-link d-flex active">
+              <a class="nav-link d-flex active" href="#">
                 <BsIcon icon="home_outlined" /><span class="ps-3">Home</span>
               </a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link d-flex">
+              <a class="nav-link d-flex" href="#">
                 <BsIcon icon="view_list_outlined" /><span class="ps-3">Orders</span>
               </a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link d-flex">
+              <a class="nav-link d-flex" href="#">
                 <BsIcon icon="redeem_outlined" /><span class="ps-3">Products</span>
               </a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link d-flex">
+              <a class="nav-link d-flex" href="#">
                 <BsIcon icon="account_circle_outlined" /><span class="ps-3">Customers</span>
               </a>
             </li>

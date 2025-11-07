@@ -1,181 +1,160 @@
+import { fullColors } from '@shares/fullColors.ts';
+
 export const contextColors = {
-  default: '#715eac',
-  primary: '#0d6efd',
-  secondary: '#6c757d',
-  success: '#1a8754',
-  danger: '#dc3545',
-  warning: '#ffbb33',
-  info: '#20dcfb',
+  default: 'oklch(0.536 0.12 293.128)',
+  primary: 'oklch(0.578 0.228 260.025)',
+  secondary: 'oklch(0.56 0.02 245.595)',
+  success: 'oklch(0.552 0.123 156.93)',
+  danger: 'oklch(0.592 0.202 21.239)',
+  warning: 'oklch(0.834 0.159 79.507)',
+  info: 'oklch(0.823 0.14 213.052)',
 };
 
 export const contextColorsLight = {
-  default: '#715eac',
-  primary: '#0d6efd',
-  secondary: '#6c757d',
-  success: '#1a8754',
-  danger: '#dc3545',
-  warning: '#ffbb33',
-  info: '#20dcfb',
-  light: '#e9ecef',
+  default: 'oklch(0.536 0.12 293.128)',
+  primary: 'oklch(0.578 0.228 260.025)',
+  secondary: 'oklch(0.56 0.02 245.595)',
+  success: 'oklch(0.552 0.123 156.93)',
+  danger: 'oklch(0.592 0.202 21.239)',
+  warning: 'oklch(0.834 0.159 79.507)',
+  info: 'oklch(0.823 0.14 213.052)',
+  light: 'oklch(0.928 0.006 264.531)',
 };
 
 export const contextColorsLightDark = {
-  default: '#715eac',
-  primary: '#0d6efd',
-  secondary: '#6c757d',
-  success: '#1a8754',
-  danger: '#dc3545',
-  warning: '#ffbb33',
-  info: '#20dcfb',
-  light: '#e9ecef',
-  dark: '#202020',
+  default: 'oklch(0.536 0.12 293.128)',
+  primary: 'oklch(0.578 0.228 260.025)',
+  secondary: 'oklch(0.56 0.02 245.595)',
+  success: 'oklch(0.552 0.123 156.93)',
+  danger: 'oklch(0.592 0.202 21.239)',
+  warning: 'oklch(0.834 0.159 79.507)',
+  info: 'oklch(0.823 0.14 213.052)',
+  light: 'oklch(0.928 0.006 264.531)',
+  dark: 'oklch(0.213 0 89.876)',
 };
 
 export const themeColors: Record<string, string> = {
-  default: '#2bbbad',
-  primary: '#0d6efd',
-  secondary: '#6c757d',
-  info: '#0dcaf0',
-  success: '#198754',
-  warning: '#ffbb33',
-  danger: '#dc3545',
-  'deep-orange': '#ff5722',
-  orange: '#ff9800',
-  amber: '#ffc107',
-  yellow: '#ffe822',
-  brown: '#795548',
-  lime: '#cddc39',
-  'light-green': '#8bc34a',
-  green: '#40a545',
-  'dark-green': '#1d6623',
-  'blue-green': '#064e40',
-  teal: '#009688',
-  cyan: '#00bcd4',
-  'light-blue': '#4fc3f7',
-  blue: '#2196f3',
-  'dark-blue': '#0d47a1',
-  indigo: '#3f51b5',
-  'deep-purple': '#6f42c1',
-  purple: '#9c27b0',
-  pink: '#F65A83',
-  red: '#f44336',
-  unique: '#880e4f',
-  'mdb-color': '#45526e',
-  'blue-grey': '#607d8b',
-  dark: '#212121',
-  grey: '#9e9e9e',
-  'light-grey': '#e0e0e0',
-  light: '#f8f9fa',
-  white: '#ffffff',
-  black: '#000000',
-};
-
-export const grayColors = {
-  100: '#f8f9fa',
-  200: '#e9ecef',
-  300: '#dee2e6',
-  400: '#ced4da',
-  500: '#adb5bd',
-  600: '#6c757d',
-  700: '#495057',
-  800: '#343a40',
-  900: '#212529',
+  red: fullColors.red['500'],
+  'deep-orange': fullColors['deep-orange']['500'],
+  orange: fullColors.orange['500'],
+  amber: fullColors.amber['500'],
+  yellow: fullColors.yellow['500'],
+  lime: fullColors.lime['500'],
+  'light-green': fullColors['light-green']['500'],
+  green: fullColors.green['500'],
+  'dark-green': 'oklch(0.445 0.12 144.099)',
+  'blue-green': 'oklch(0.38 0.069 174.843)',
+  teal: fullColors.teal['500'],
+  cyan: fullColors.cyan['500'],
+  'light-blue': fullColors['light-blue']['500'],
+  blue: fullColors.blue['500'],
+  'dark-blue': fullColors.blue['950'],
+  indigo: fullColors.indigo['500'],
+  'deep-purple': fullColors['deep-purple']['500'],
+  purple: fullColors.purple['500'],
+  pink: fullColors.pink['500'],
+  unique: 'oklch(0.415 0.16 355.687)',
+  'midnight-haze': fullColors['midnight-haze']['500'],
+  'blue-grey': fullColors['blue-grey']['500'],
+  gray: fullColors.gray['500'],
+  neutral: fullColors.neutral['500'],
+  // black: '#000000',
+  // white: '#ffffff',
 };
 
 export const materialColors = {
   'default-color': {
-    'default-color': '#5f4a97',
-    'default-color-dark': '#44307a',
+    'default-color': 'oklch(0.468 0.121 293.753)',
+    'default-color-dark': 'oklch(0.374 0.121 291.984)',
   },
   'primary-color': {
-    'primary-color': themeColors.primary,
+    'primary-color': contextColors.primary,
     'primary-color-dark': themeColors['dark-blue'],
   },
   'secondary-color': {
-    'secondary-color': '#aa66cc',
-    'secondary-color-dark': '#681c8f',
+    'secondary-color': 'oklch(0.626 0.162 313.371)',
+    'secondary-color-dark': 'oklch(0.409 0.178 310.718)',
   },
   'info-color': {
-    'info-color': themeColors.info,
-    'info-color-dark': '#0b6c8d',
+    'info-color': contextColors.info,
+    'info-color-dark': 'oklch(0.497 0.095 228.69)',
   },
   'warning-color': {
-    'warning-color': themeColors.warning,
-    'warning-color-dark': '#b57a04',
+    'warning-color': contextColors.warning,
+    'warning-color-dark': 'oklch(0.625 0.131 74.896)',
   },
   'danger-color': {
-    'danger-color': themeColors.danger,
-    'danger-color-dark': '#ad0000',
+    'danger-color': contextColors.danger,
+    'danger-color-dark': 'oklch(0.469 0.193 29.234)',
   },
   'success-color': {
-    'success-color': themeColors.success,
-    'success-color-dark': '#0f5334',
+    'success-color': contextColors.success,
+    'success-color-dark': 'oklch(0.393 0.084 158.124)',
   },
   'blue-green-color': {
     'blue-green-color': themeColors['blue-green'],
-    'blue-green-color-dark': '#022f27',
+    'blue-green-color-dark': 'oklch(0.274 0.049 177.381)',
   },
   'elegant-color': {
-    'elegant-color': '#2e2e2e',
-    'elegant-color-dark': themeColors.dark,
+    'elegant-color': 'oklch(0.301 0 89.876)',
+    'elegant-color-dark': 'oklch(0.248 0 89.876)',
   },
   'stylish-color': {
-    'stylish-color': '#4b515d',
-    'stylish-color-dark': '#2d333e',
+    'stylish-color': 'oklch(0.434 0.021 264.325)',
+    'stylish-color-dark': 'oklch(0.32 0.021 262.554)',
   },
   'special-color': {
-    'special-color': '#37474f',
-    'special-color-dark': '#263238',
+    'special-color': 'oklch(0.387 0.025 229.789)',
+    'special-color-dark': 'oklch(0.309 0.019 229.784)',
   },
   'unique-color': {
-    'unique-color': '#385870',
-    'unique-color-dark': '#1c2331',
+    'unique-color': 'oklch(0.446 0.055 241.905)',
+    'unique-color-dark': 'oklch(0.36 0.05 242.26)',
   },
 };
 
-export function useBootstrapColorClasses(name: string) {
+export function useMainColorClasses(name: string) {
   return {
     ['bg-' + name]: true,
-    'text-black': [
+    'text-dark': [
       'lime',
       'yellow',
       'amber',
       'white',
       'light',
-      'light-grey',
-      'light-blue',
+      'light-green',
+      'warning',
+      'info',
     ].includes(name),
-    'text-white': ![
+    'text-light': ![
       'lime',
       'yellow',
       'amber',
       'white',
       'light',
-      'light-grey',
-      'light-blue',
+      'light-green',
+      'warning',
+      'info',
     ].includes(name),
   };
 }
 
-export function useGrayColorClasses(name: string | number) {
-  return {
-    [`bg-grey-${name}`]: true,
-    'text-black': ['100', '200', '300', '400', '500'].includes(name as string),
-    'text-white': !['100', '200', '300', '400', '500'].includes(name as string),
-  };
-}
+declare type ColorName = {
+  name: string;
+  value: string;
+};
 
-export function useMaterialColorInfo(color: object) {
-  const keys = Object.keys(color);
-  const values = Object.values(color);
+export function useMaterialColorInfo(color: object): [ColorName, ColorName] {
+  const keys = Object.keys(color) as [string, string];
+  const values = Object.values(color) as [string, string];
 
   return [
     {
-      color: keys[0],
+      name: keys[0],
       value: values[0],
     },
     {
-      color: keys[1],
+      name: keys[1],
       value: values[1],
     },
   ];

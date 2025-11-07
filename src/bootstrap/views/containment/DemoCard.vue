@@ -10,7 +10,7 @@
               <BsCardContent class="mb-3" type="subtitle"> Card Subtitle </BsCardContent>
               <BsCardContent>{{ quickText }}</BsCardContent>
               <BsCardContent>
-                <small class="text-muted">{{ smallText }}</small>
+                <small class="text-subtle-secondary">{{ smallText }}</small>
               </BsCardContent>
             </BsCardBody>
           </BsCard>
@@ -21,7 +21,7 @@
             <BsCardBody>
               <BsCardContent>{{ quickText }}</BsCardContent>
               <BsCardContent>
-                <small class="text-muted">{{ smallText }}</small>
+                <small class="text-subtle-secondary">{{ smallText }}</small>
               </BsCardContent>
             </BsCardBody>
             <BsCardFooter>Card Footer</BsCardFooter>
@@ -37,7 +37,7 @@
             <BsCardBody>
               <BsCardContent>{{ quickText }}</BsCardContent>
               <BsCardContent>
-                <small class="text-muted">{{ smallText }}</small>
+                <small class="text-subtle-secondary">{{ smallText }}</small>
               </BsCardContent>
             </BsCardBody>
           </BsCard>
@@ -58,7 +58,7 @@
                   <BsCardContent class="mb-3" type="subtitle"> Content Subtitle </BsCardContent>
                   <BsCardContent>{{ quickText }}</BsCardContent>
                   <BsCardContent>
-                    <small class="text-muted">{{ smallText }}</small>
+                    <small class="text-subtle-secondary">{{ smallText }}</small>
                   </BsCardContent>
                 </BsCardBody>
               </div>
@@ -179,7 +179,7 @@
             <BsCardContent type="title"> Card title </BsCardContent>
             <BsCardContent>{{ quickText }}</BsCardContent>
             <BsCardContent>
-              <small class="text-muted">{{ smallText }}</small>
+              <small class="text-subtle-secondary">{{ smallText }}</small>
             </BsCardContent>
           </BsCardBody>
         </BsCard>
@@ -207,7 +207,7 @@
             <BsCardContent type="title"> Card title </BsCardContent>
             <BsCardContent>{{ quickText }}</BsCardContent>
             <BsCardContent>
-              <small class="text-muted">{{ smallText }}</small>
+              <small class="text-subtle-secondary">{{ smallText }}</small>
             </BsCardContent>
           </BsCardBody>
         </BsCard>
