@@ -47,10 +47,10 @@
       <div class="flex flex-wrap md-gap-x-3 md-gap-y-4 mb-2">
         <template v-for="(_color, name) in contextColorsLightDark" :key="_color">
           <BsButton
-            :active="buttonOutlined[name] as boolean"
+            :active="buttonOutlined[name]"
             :color="name"
             outlined
-            @click="toggleOutlinedState(name, !buttonOutlined[name])"
+            @click="toggleOutlinedState(name, buttonOutlined[name]!)"
           >
             {{ StringHelper.titleCase(name) }}
           </BsButton>
@@ -62,10 +62,10 @@
       <div class="flex flex-wrap md-gap-x-3 md-gap-y-4 mb-2">
         <template v-for="(_color, name) in contextColorsLightDark" :key="_color">
           <BsButton
-            :active="buttonFlat[name] as boolean"
+            :active="buttonFlat[name]"
             :color="name"
             flat
-            @click="toggleFlatState(name, !buttonFlat[name])"
+            @click="toggleFlatState(name, buttonFlat[name]!)"
           >
             {{ StringHelper.titleCase(name) }}
           </BsButton>
@@ -77,10 +77,10 @@
       <div class="flex flex-wrap md-gap-x-3 md-gap-y-4 mb-2">
         <template v-for="(_color, name) in contextColorsLightDark" :key="_color">
           <BsButton
-            :active="buttonTonal[name] as boolean"
+            :active="buttonTonal[name]"
             :color="name"
             tonal
-            @click="toggleTonalState(name, !buttonTonal[name])"
+            @click="toggleTonalState(name, buttonTonal[name]!)"
           >
             {{ StringHelper.titleCase(name) }}
           </BsButton>
@@ -396,7 +396,7 @@
 
 <script setup lang="ts">
 import { reactive, ref } from 'vue';
-import { StringHelper, type TRecord } from 'vue-mdbootstrap';
+import { StringHelper } from 'vue-mdbootstrap';
 import { contextColorsLightDark } from '@shares/themeColors.ts';
 
 const iconXs = 14;
@@ -411,7 +411,7 @@ const state5 = ref(false);
 const state7 = ref(false);
 const state6 = ref(false);
 
-const buttonOutlined = reactive<TRecord>({
+const buttonOutlined = reactive<Record<string, boolean>>({
   default: false,
   primary: false,
   secondary: false,
@@ -423,7 +423,7 @@ const buttonOutlined = reactive<TRecord>({
   dark: false,
 });
 
-const buttonFlat = reactive<TRecord>({
+const buttonFlat = reactive<Record<string, boolean>>({
   default: false,
   primary: false,
   secondary: false,
@@ -435,7 +435,7 @@ const buttonFlat = reactive<TRecord>({
   dark: false,
 });
 
-const buttonTonal = reactive<TRecord>({
+const buttonTonal = reactive<Record<string, boolean>>({
   default: false,
   primary: false,
   secondary: false,
@@ -448,14 +448,14 @@ const buttonTonal = reactive<TRecord>({
 });
 
 function toggleOutlinedState(name: string, state: boolean) {
-  buttonOutlined[name] = state;
+  buttonOutlined[name] = !state;
 }
 
 function toggleFlatState(name: string, state: boolean) {
-  buttonFlat[name] = state;
+  buttonFlat[name] = !state;
 }
 
 function toggleTonalState(name: string, state: boolean) {
-  buttonTonal[name] = state;
+  buttonTonal[name] = !state;
 }
 </script>

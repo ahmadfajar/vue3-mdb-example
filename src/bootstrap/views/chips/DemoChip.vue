@@ -15,7 +15,7 @@
     <DemoBlock class="docs-demo-ctrl mt-4">
       <div class="flex flex-wrap">
         <template v-for="(_color, name) in contextColorsLight" :key="_color">
-          <BsChip href="javascript:void(0)" :color="name">
+          <BsChip :color="name" href="javascript:void(0)">
             {{ StringHelper.titleCase(name) }}
           </BsChip>
         </template>
@@ -96,9 +96,9 @@
       <div class="flex flex-wrap mb-3">
         <template v-for="(_color, name) in contextColorsLight" :key="_color">
           <BsChip
-            :active="chipState[name] as boolean"
+            :active="chipState[name]"
             :color="name"
-            @click="toggleState(name, !chipState[name])"
+            @click="toggleState(name, chipState[name]!)"
           >
             {{ StringHelper.titleCase(name) }}
           </BsChip>
@@ -107,10 +107,10 @@
       <div class="flex flex-wrap">
         <template v-for="(_color, name) in contextColorsLight" :key="_color">
           <BsChip
-            :active="chipState[name] as boolean"
+            :active="chipState[name]"
             :color="name"
             outlined
-            @click="toggleState(name, !chipState[name])"
+            @click="toggleState(name, chipState[name]!)"
           >
             {{ StringHelper.titleCase(name) }}
           </BsChip>
@@ -407,11 +407,11 @@
 
 <script setup lang="ts">
 import { reactive, ref } from 'vue';
-import { StringHelper, type TRecord } from 'vue-mdbootstrap';
+import { StringHelper } from 'vue-mdbootstrap';
 import { contextColorsLight } from '@shares/themeColors.ts';
 import { IconBullhorn } from '@shares/sharedApi.ts';
 
-const chipState = reactive<TRecord>({
+const chipState = reactive<Record<string, boolean>>({
   default: false,
   primary: false,
   secondary: false,
@@ -425,7 +425,7 @@ const chipState = reactive<TRecord>({
 const showDismissibleChip = ref(true);
 
 function toggleState(name: string, state: boolean) {
-  chipState[name] = state;
+  chipState[name] = !state;
 }
 
 function toggleDismissibleChip() {

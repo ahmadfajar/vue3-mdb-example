@@ -101,23 +101,21 @@ const picker3Show = ref<boolean>(false);
 const colorPicker = ref<BsColorPickerInstance | null>(null);
 
 const swatches1 = [
-  '#e9c46a',
   '#f4a261',
   '#e76f51',
   '#FF0000',
   '#d62828',
   '#AA0000',
-  '#550000',
   '#FFFF00',
-  '#AAAA00',
-  '#555500',
+  '#d5d50a',
+  '#a5a512',
+  '#17dc7a',
   '#00FF00',
   '#00AA00',
   '#005500',
   '#055e8e',
   '#0a80a6',
   '#099fbd',
-  '#27a4bd',
   '#69d9ef',
   '#95e6f6',
 ];

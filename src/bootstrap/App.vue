@@ -1,6 +1,6 @@
 <template>
   <BsApp viewport-height>
-    <BsAppbar v-scroll="onScroll" :class="appbarCls" clipped-left sticky-top>
+    <BsAppbar v-scroll="onScroll" :class="appbarCls" clipped-left fixed-top>
       <BsButton
         color="dark"
         flat
