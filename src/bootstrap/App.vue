@@ -129,7 +129,9 @@ const routeNavB = menuNavs.filter((it) => it.group === 'Reference').sort(compare
 
 <style lang="scss">
 @use 'vue-mdbootstrap/scss/mixins/css3/borders';
+@use 'vue-mdbootstrap/scss/mixins/css3/breakpoints' as media;
 @use 'vue-mdbootstrap/scss/color_vars' as colors;
+@use 'vue-mdbootstrap/scss/variables' as vars;
 
 .fastFade-enter-active,
 .fastFade-leave-active {
@@ -172,7 +174,7 @@ const routeNavB = menuNavs.filter((it) => it.group === 'Reference').sort(compare
       }
 
       ::-webkit-scrollbar-thumb {
-        border-radius: 0.25rem;
+        border-radius: vars.$radius;
         background: oklch(0.593 0.005 271.335);
 
         &:hover {
@@ -191,7 +193,7 @@ body {
 
 #app {
   .md-content-wrap {
-    padding-bottom: 2rem;
+    padding-bottom: vars.$padding-xl;
 
     //@media (min-width: 992px) {
     //  @include borders.top-start-radius(36px);
@@ -226,7 +228,8 @@ body {
 }
 
 .docs-body {
-  padding-top: 2rem;
+  padding-top: vars.$padding-xl;
+  max-width: 860px;
 
   > h2 {
     font-weight: var(--font-weight-medium);
@@ -248,15 +251,56 @@ body {
 
   // screen: 1200px
   @media (min-width: 75rem) {
-    max-width: 1080px;
+    //max-width: 1080px;
     .card-mw-65 {
       max-width: 65%;
     }
   }
 
-  // screen: 1440px
-  @media (min-width: 90rem) {
-    padding-left: 2rem;
+  //// screen: 1440px
+  //@media (min-width: 90rem) {
+  //  padding-left: 2rem;
+  //}
+}
+
+.section-content {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
+
+@include media.breakpoint-up(md) {
+  .section-content {
+    padding-left: vars.$padding-md;
+    padding-right: vars.$padding-md;
+  }
+
+  .section-demo {
+    padding-left: vars.$padding-md;
+    padding-right: vars.$padding-md;
+  }
+}
+
+@include media.breakpoint-up(lg) {
+  .section-content {
+    padding-left: vars.$padding-lg;
+    padding-right: vars.$padding-lg;
+  }
+
+  .section-demo {
+    padding-left: vars.$padding-lg;
+    padding-right: vars.$padding-lg;
+  }
+}
+
+@include media.breakpoint-up(xl) {
+  .section-content {
+    padding-left: vars.$padding-xl;
+    padding-right: vars.$padding-xl;
+  }
+
+  .section-demo {
+    padding-left: vars.$padding-xl;
+    padding-right: vars.$padding-xl;
   }
 }
 
@@ -267,10 +311,6 @@ body {
 }
 
 // Utilities
-.bg-background {
-  background-color: var(--background);
-}
-
 .mobi-card {
   max-width: 25rem; // 400px;
 }

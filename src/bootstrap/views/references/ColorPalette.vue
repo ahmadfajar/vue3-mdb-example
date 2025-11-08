@@ -46,9 +46,9 @@
 
     <div v-else-if="palette === 'fullColor'" class="relative">
       <div class="grid grid-cols-auto md-gap-y-2">
-        <div class="sticky-top bg-background" style="top: 64px">&nbsp;</div>
+        <div class="sticky-top text-bg-surface" style="top: 64px">&nbsp;</div>
         <div
-          class="grid grid-cols-11 color-table-header bg-background font-weight-medium md-gap-x-1 py-1 sticky-top"
+          class="grid grid-cols-11 color-table-header text-bg-surface font-weight-medium md-gap-x-1 py-1 sticky-top"
           style="top: 64px"
         >
           <div>50</div>

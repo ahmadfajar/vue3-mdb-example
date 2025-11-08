@@ -3,7 +3,7 @@ import { fullColors } from '@shares/fullColors.ts';
 export const contextColors = {
   default: 'oklch(0.536 0.12 293.128)',
   primary: 'oklch(0.578 0.228 260.025)',
-  secondary: 'oklch(0.56 0.02 245.595)',
+  secondary: fullColors.gray['500'],
   success: 'oklch(0.552 0.123 156.93)',
   danger: 'oklch(0.592 0.202 21.239)',
   warning: 'oklch(0.834 0.159 79.507)',
@@ -13,7 +13,7 @@ export const contextColors = {
 export const contextColorsLight = {
   default: 'oklch(0.536 0.12 293.128)',
   primary: 'oklch(0.578 0.228 260.025)',
-  secondary: 'oklch(0.56 0.02 245.595)',
+  secondary: fullColors.gray['500'],
   success: 'oklch(0.552 0.123 156.93)',
   danger: 'oklch(0.592 0.202 21.239)',
   warning: 'oklch(0.834 0.159 79.507)',
@@ -24,7 +24,7 @@ export const contextColorsLight = {
 export const contextColorsLightDark = {
   default: 'oklch(0.536 0.12 293.128)',
   primary: 'oklch(0.578 0.228 260.025)',
-  secondary: 'oklch(0.56 0.02 245.595)',
+  secondary: fullColors.gray['500'],
   success: 'oklch(0.552 0.123 156.93)',
   danger: 'oklch(0.592 0.202 21.239)',
   warning: 'oklch(0.834 0.159 79.507)',

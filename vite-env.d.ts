@@ -12,9 +12,20 @@ declare const DemoBlock: {
   };
 };
 
+declare const ShowcaseBox: {
+  new (): {
+    $props: AllowedComponentProps & ComponentCustomProps & VNodeProps;
+    $slots: {
+      content?: () => VNode[];
+      'side-panel'?: () => VNode[];
+    };
+  };
+};
+
 declare module 'vue' {
   interface GlobalComponents {
     DemoBlock: typeof DemoBlock;
+    ShowcaseBox: typeof ShowcaseBox;
   }
 
   // interface ComponentCustomProperties {
