@@ -117,13 +117,6 @@ const btnStates: TDataSource = {
   schema: schemaConfigDefinition,
 };
 
-// const btnStates = [
-//   { value: 'enabled', label: 'Default' },
-//   { value: 'readonly', label: 'Readonly' },
-//   { value: 'disabled', label: 'Disabled' },
-//   { value: 'active', label: 'Active' },
-// ] satisfies TRadioInputProps[];
-
 const iconPositions = [
   { value: 'left', label: 'Left' },
   { value: 'right', label: 'Right' },

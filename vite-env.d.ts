@@ -14,7 +14,9 @@ declare const DemoBlock: {
 
 declare const ShowcaseBox: {
   new (): {
-    $props: AllowedComponentProps & ComponentCustomProps & VNodeProps;
+    $props: AllowedComponentProps &
+      ComponentCustomProps &
+      VNodeProps & { tpl?: string | null; tsc?: string | null };
     $slots: {
       content?: () => VNode[];
       'side-panel'?: () => VNode[];

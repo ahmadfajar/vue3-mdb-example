@@ -49,13 +49,13 @@
       <BsDivider dark />
       <BsListView item-border-variant="left" item-rounded space-around="both">
         <BsListNav>
-          <BsListNavItem v-for="navItem in routeNavA" :key="navItem.label" :label="navItem.label">
+          <BsListNavItem v-for="navItem in routeNavA" :key="navItem.text" :label="navItem.text">
             <BsListNav child>
               <BsListNavItem
                 v-for="child in navItem.children"
-                :key="child.label"
-                :label="child.label"
-                :path-name="StringHelper.kebabCase(child.label)"
+                :key="child.text"
+                :label="child.text"
+                :path-name="StringHelper.kebabCase(child.text)"
               />
             </BsListNav>
           </BsListNavItem>
@@ -64,30 +64,33 @@
         <BsListNav>
           <BsListNavItem
             v-for="navItem in routeNavB"
-            :key="navItem.label"
-            :label="navItem.label"
-            :path-name="StringHelper.kebabCase(navItem.label)"
+            :key="navItem.text"
+            :label="navItem.text"
+            :path-name="StringHelper.kebabCase(navItem.text)"
           />
         </BsListNav>
       </BsListView>
     </BsSideDrawer>
     <BsContainer app @resize="onContainerResize">
       <BsContent>
-        <RouterView v-slot="{ Component }">
-          <Transition mode="out-in" name="fastFade">
-            <component :is="Component" />
-          </Transition>
-        </RouterView>
+        <Suspense>
+          <RouterView v-slot="{ Component }">
+            <Transition mode="out-in" name="fade-fast">
+              <component :is="Component" />
+            </Transition>
+          </RouterView>
+        </Suspense>
       </BsContent>
     </BsContainer>
   </BsApp>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
-import { StringHelper, useBreakpointMax } from 'vue-mdbootstrap';
 import type { TMainNavigation } from '@bs/router/navigation';
 import { menuNavs } from '@bs/router/navigation';
+import { disposeShiki } from '@shares/shikiApi.ts';
+import { ref } from 'vue';
+import { StringHelper, useBreakpointMax } from 'vue-mdbootstrap';
 
 const sideDrawerOpen = ref(true);
 const appbarCls = ref(['border-b']);
@@ -111,8 +114,8 @@ function toggleSideDrawer(value: boolean) {
 }
 
 function compareFn(a: TMainNavigation, b: TMainNavigation) {
-  const labelA = a.label.toUpperCase();
-  const labelB = b.label.toUpperCase();
+  const labelA = a.text.toUpperCase();
+  const labelB = b.text.toUpperCase();
   if (labelA < labelB) {
     return -1;
   }
@@ -125,6 +128,10 @@ function compareFn(a: TMainNavigation, b: TMainNavigation) {
 
 const routeNavA = menuNavs.filter((it) => it.group === 'Components').sort(compareFn);
 const routeNavB = menuNavs.filter((it) => it.group === 'Reference').sort(compareFn);
+
+window.addEventListener('unload', () => {
+  disposeShiki();
+});
 </script>
 
 <style lang="scss">
@@ -133,13 +140,13 @@ const routeNavB = menuNavs.filter((it) => it.group === 'Reference').sort(compare
 @use 'vue-mdbootstrap/scss/color_vars' as colors;
 @use 'vue-mdbootstrap/scss/variables' as vars;
 
-.fastFade-enter-active,
-.fastFade-leave-active {
+.fade-fast-enter-active,
+.fade-fast-leave-active {
   transition: opacity 0.2s ease;
 }
 
-.fastFade-enter-from,
-.fastFade-leave-to {
+.fade-fast-enter-from,
+.fade-fast-leave-to {
   opacity: 0;
 }
 

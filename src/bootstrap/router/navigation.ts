@@ -1,13 +1,13 @@
 import type { RouteComponent } from 'vue-router';
 
 declare type TNavigation = {
-  label: string;
+  text: string;
   path: string;
   view: RouteComponent;
 };
 
 export declare type TMainNavigation = {
-  label: string;
+  text: string;
   hidden?: boolean;
   group?: string;
   path?: string;
@@ -17,295 +17,295 @@ export declare type TMainNavigation = {
 
 export const menuNavs: TMainNavigation[] = [
   {
-    label: 'Home',
+    text: 'Home',
     path: '/home',
     hidden: true,
     view: () => import('@bs/views/home.vue'),
   },
   {
-    label: 'Animations',
+    text: 'Animations',
     group: 'Components',
     children: [
       {
-        label: 'Ripple',
+        text: 'Ripple',
         path: '/animations/ripple',
         view: () => import('@bs/views/animations/DemoRipple.vue'),
       },
       {
-        label: 'Transition Effects',
+        text: 'Transition Effects',
         path: '/animations/transition',
         view: () => import('@bs/views/animations/DemoTransition.vue'),
       },
     ],
   },
   {
-    label: 'Buttons',
+    text: 'Buttons',
     group: 'Components',
     children: [
       {
-        label: 'Button',
+        text: 'Button',
         path: '/buttons/button',
-        view: () => import('@bs/views/buttons/DemoButton.vue'),
+        view: () => import('@bs/views/buttons/ButtonShowcase.vue'),
       },
       {
-        label: 'Toggle Button',
+        text: 'Toggle Button',
         path: '/buttons/toggle-button',
         view: () => import('@bs/views/buttons/DemoToggleButton.vue'),
       },
     ],
   },
   {
-    label: 'Chips',
+    text: 'Chips',
     group: 'Components',
     children: [
       {
-        label: 'Chip',
+        text: 'Chip',
         path: '/chips/chip',
         view: () => import('@bs/views/chips/DemoChip.vue'),
       },
       {
-        label: 'Chip Group',
+        text: 'Chip Group',
         path: '/chips/chip-group',
         view: () => import('@bs/views/chips/DemoChipGroup.vue'),
       },
     ],
   },
   {
-    label: 'Containment',
+    text: 'Containment',
     group: 'Components',
     children: [
       {
-        label: 'AppBar',
+        text: 'AppBar',
         path: '/containment/appbar',
         view: () => import('@bs/views/containment/DemoAppbar.vue'),
       },
       {
-        label: 'SideDrawer',
+        text: 'SideDrawer',
         path: '/containment/side-drawer',
         view: () => import('@bs/views/containment/DemoSideDrawer.vue'),
       },
       {
-        label: 'Card',
+        text: 'Card',
         path: '/containment/card',
         view: () => import('@bs/views/containment/DemoCard.vue'),
       },
     ],
   },
   {
-    label: 'Elements',
+    text: 'Elements',
     group: 'Components',
     children: [
       {
-        label: 'Alert',
+        text: 'Alert',
         path: '/elements/alert',
         view: () => import('@bs/views/elements/DemoAlert.vue'),
       },
       {
-        label: 'Avatar',
+        text: 'Avatar',
         path: '/elements/avatar',
         view: () => import('@bs/views/elements/DemoAvatar.vue'),
       },
       {
-        label: 'Badge',
+        text: 'Badge',
         path: '/elements/badge',
         view: () => import('@bs/views/elements/DemoBadge.vue'),
       },
       {
-        label: 'Dropdown Menu',
+        text: 'Dropdown Menu',
         path: '/elements/dropdown-menu',
         view: () => import('@bs/views/elements/DemoDropdownMenu.vue'),
       },
       {
-        label: 'Image Uploader',
+        text: 'Image Uploader',
         path: '/elements/image-uploader',
         view: () => import('@bs/views/elements/DemoImageUploader.vue'),
       },
       {
-        label: 'List Tile',
+        text: 'List Tile',
         path: '/elements/list-tile',
         view: () => import('@bs/views/elements/DemoListTile.vue'),
       },
     ],
   },
   {
-    label: 'Icons',
+    text: 'Icons',
     group: 'Components',
     children: [
       {
-        label: 'Icon',
+        text: 'Icon',
         path: '/icons/icon',
         view: () => import('@bs/views/icons/DemoIcon.vue'),
       },
     ],
   },
   {
-    label: 'Input Controls',
+    text: 'Input Controls',
     group: 'Components',
     children: [
       {
-        label: 'Checkbox',
+        text: 'Checkbox',
         path: '/inputs/checkbox',
         view: () => import('@bs/views/inputs/DemoCheckbox.vue'),
       },
       {
-        label: 'Radio Button',
+        text: 'Radio Button',
         path: '/inputs/radio',
         view: () => import('@bs/views/inputs/DemoRadio.vue'),
       },
       {
-        label: 'Switch Button',
+        text: 'Switch Button',
         path: '/inputs/switch',
         view: () => import('@bs/views/inputs/DemoSwitch.vue'),
       },
       {
-        label: 'Text Field',
+        text: 'Text Field',
         path: '/inputs/text-field',
         view: () => import('@bs/views/inputs/DemoTextField.vue'),
       },
       {
-        label: 'TextArea Field',
+        text: 'TextArea Field',
         path: '/inputs/text-area',
         view: () => import('@bs/views/inputs/DemoTextArea.vue'),
       },
       {
-        label: 'Numeric Field',
+        text: 'Numeric Field',
         path: '/inputs/numeric-field',
         view: () => import('@bs/views/inputs/DemoNumericField.vue'),
       },
       {
-        label: 'DateTime Field',
+        text: 'DateTime Field',
         path: '/inputs/datetime-field',
         view: () => import('@bs/views/inputs/DemoDateTimeField.vue'),
       },
       {
-        label: 'Chip Field',
+        text: 'Chip Field',
         path: '/inputs/chip-field',
         view: () => import('@bs/views/inputs/DemoChipField.vue'),
       },
       {
-        label: 'Combobox',
+        text: 'Combobox',
         path: '/inputs/combobox',
         view: () => import('@bs/views/inputs/DemoCombobox.vue'),
       },
       {
-        label: 'Listbox',
+        text: 'Listbox',
         path: '/inputs/listbox',
         view: () => import('@bs/views/inputs/DemoListbox.vue'),
       },
       {
-        label: 'Toggle Field',
+        text: 'Toggle Field',
         path: '/inputs/toggle-field',
         view: () => import('@bs/views/inputs/DemoToggleField.vue'),
       },
       {
-        label: 'Search Field',
+        text: 'Search Field',
         path: '/inputs/search-field',
         view: () => import('@bs/views/inputs/DemoSearchField.vue'),
       },
     ],
   },
   {
-    label: 'Navigations',
+    text: 'Navigations',
     group: 'Components',
     children: [
       {
-        label: 'Breadcrumb',
+        text: 'Breadcrumb',
         path: '/navigations/breadcrumb',
         view: () => import('@bs/views/navigations/DemoBreadcrumb.vue'),
       },
       {
-        label: 'List Nav',
+        text: 'List Nav',
         path: '/navigations/list-nav',
         view: () => import('@bs/views/navigations/DemoListNav.vue'),
       },
       {
-        label: 'Tabs',
+        text: 'Tabs',
         path: '/navigations/tabs',
         view: () => import('@bs/views/navigations/DemoTabs.vue'),
       },
     ],
   },
   {
-    label: 'Overlays',
+    text: 'Overlays',
     group: 'Components',
     children: [
       {
-        label: 'Lightbox',
+        text: 'Lightbox',
         path: '/overlays/lightbox',
         view: () => import('@bs/views/overlays/DemoLightbox.vue'),
       },
       {
-        label: 'Mask Loader',
+        text: 'Mask Loader',
         path: '/overlays/mask-loader',
         view: () => import('@bs/views/overlays/DemoMaskLoader.vue'),
       },
       {
-        label: 'Modal',
+        text: 'Modal',
         path: '/overlays/modal',
         view: () => import('@bs/views/overlays/DemoModal.vue'),
       },
       {
-        label: 'Notification',
+        text: 'Notification',
         path: '/overlays/notification',
         view: () => import('@bs/views/overlays/DemoNotification.vue'),
       },
       {
-        label: 'Overlay',
+        text: 'Overlay',
         path: '/overlays/overlay',
         view: () => import('@bs/views/overlays/DemoOverlay.vue'),
       },
       {
-        label: 'Popover',
+        text: 'Popover',
         path: '/overlays/popover',
         view: () => import('@bs/views/overlays/DemoPopover.vue'),
       },
       {
-        label: 'Tooltip',
+        text: 'Tooltip',
         path: '/overlays/tooltip',
         view: () => import('@bs/views/overlays/DemoTooltip.vue'),
       },
     ],
   },
   {
-    label: 'Progress Controls',
+    text: 'Progress Controls',
     group: 'Components',
     children: [
       {
-        label: 'Progress',
+        text: 'Progress',
         path: '/progress-control/progress',
         view: () => import('@bs/views/progress/DemoProgress.vue'),
       },
       {
-        label: 'Progress Bar',
+        text: 'Progress Bar',
         path: '/progress-control/progress-bar',
         view: () => import('@bs/views/progress/DemoProgressBar.vue'),
       },
     ],
   },
   {
-    label: 'Pickers',
+    text: 'Pickers',
     group: 'Components',
     children: [
       {
-        label: 'Color Picker',
+        text: 'Color Picker',
         path: '/pickers/color-picker',
         view: () => import('@bs/views/pickers/DemoColorPicker.vue'),
       },
       {
-        label: 'Date Picker',
+        text: 'Date Picker',
         path: '/pickers/datepicker',
         view: () => import('@bs/views/pickers/DemoDatePicker.vue'),
       },
     ],
   },
   {
-    label: 'Colors',
+    text: 'Colors',
     group: 'Reference',
     path: '/reference/color',
     view: () => import('@bs/views/references/DemoColor.vue'),
   },
   {
-    label: 'Shadows',
+    text: 'Shadows',
     group: 'Reference',
     path: '/reference/shadow',
     view: () => import('@bs/views/references/DemoShadow.vue'),

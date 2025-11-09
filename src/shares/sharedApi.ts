@@ -1,5 +1,5 @@
 import type { VNode } from 'vue';
-import { Color, useRenderSVG, type TRecord } from 'vue-mdbootstrap';
+import { Color, type TRecord, useRenderSVG } from 'vue-mdbootstrap';
 
 export function hexToOklchString(value: string): string {
   return Color.oklchToString(Color.rgbaToOklch(Color.hexToRgba(value)));
@@ -45,4 +45,20 @@ export function IconThreeCircle(props: TRecord): VNode {
     (props.height ?? 32) as number,
     `md-svg-inline ${props.class as string}`
   );
+}
+
+export function parseVueTemplateTag(data: string): string {
+  const endTag = '</template>';
+  const i1 = data.indexOf('<template>');
+  const i2 = data.lastIndexOf(endTag);
+
+  return data.slice(i1, i2 + endTag.length);
+}
+
+export function parseVueScriptTag(data: string): string {
+  const endTag = '</script>';
+  const i1 = data.indexOf('<script');
+  const i2 = data.lastIndexOf(endTag);
+
+  return data.slice(i1, i2 + endTag.length);
 }

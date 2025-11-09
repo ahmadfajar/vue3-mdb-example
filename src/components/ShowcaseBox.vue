@@ -1,14 +1,28 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue';
+import { highlightCode } from '@shares/shikiApi.ts';
+import { computed, ref, watchEffect } from 'vue';
 
-const tplActive = ref(false);
+const props = defineProps<{ tpl?: string; tsc?: string }>();
+
+const templateActive = ref(false);
 const scriptActive = ref(false);
 const panelOpen = ref(true);
-const sourceVisible = computed(() => tplActive.value || scriptActive.value);
+const sourceVisible = computed(() => templateActive.value || scriptActive.value);
+const fmtCodeTpl = ref<string>();
+const fmtCodeTsc = ref<string>();
+
+watchEffect(() => {
+  if (props.tpl) {
+    fmtCodeTpl.value = highlightCode(props.tpl, 'vue');
+  }
+  if (props.tsc) {
+    fmtCodeTsc.value = highlightCode(props.tsc, 'vue');
+  }
+});
 
 function toggleTemplate(state: boolean) {
-  tplActive.value = !state;
-  if (tplActive.value) {
+  templateActive.value = !state;
+  if (templateActive.value) {
     scriptActive.value = false;
   }
 }
@@ -16,7 +30,7 @@ function toggleTemplate(state: boolean) {
 function toggleScript(state: boolean) {
   scriptActive.value = !state;
   if (scriptActive.value) {
-    tplActive.value = false;
+    templateActive.value = false;
   }
 }
 </script>
@@ -32,15 +46,16 @@ function toggleScript(state: boolean) {
         </div>
         <div class="showcase-toolbar bg-gray-100 flex w-full md-gap-x-2 px-3 py-2">
           <BsButton
-            :active="tplActive"
+            :active="templateActive"
             color="secondary"
             flat
             size="sm"
-            @click="toggleTemplate(tplActive)"
+            @click="toggleTemplate(templateActive)"
           >
             Template
           </BsButton>
           <BsButton
+            v-if="fmtCodeTsc"
             :active="scriptActive"
             color="secondary"
             flat
@@ -72,13 +87,11 @@ function toggleScript(state: boolean) {
       </div>
     </div>
     <BsExpandTransition>
-      <div v-if="sourceVisible" class="showcase-source border-t bg-neutral-800 text-light">
-        <div class="p-3">
-          <div>Put example source code here</div>
-          <div>Put example source code here</div>
-          <div>Put example source code here</div>
-          <div>Put example source code here</div>
-        </div>
+      <div v-if="sourceVisible" class="showcase-source border-t">
+        <Transition mode="out-in" name="fade-fast">
+          <div v-if="templateActive" v-html="fmtCodeTpl" class="p-3"></div>
+          <div v-else v-html="fmtCodeTsc" class="p-3"></div>
+        </Transition>
       </div>
     </BsExpandTransition>
   </div>
@@ -130,7 +143,12 @@ function toggleScript(state: boolean) {
 }
 
 .showcase-source {
+  background-color: oklch(0.18 0.019 274.649);
   border-bottom-left-radius: inherit;
   border-bottom-right-radius: inherit;
+
+  pre {
+    margin-bottom: 0;
+  }
 }
 </style>
