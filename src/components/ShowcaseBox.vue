@@ -1,24 +1,26 @@
 <script setup lang="ts">
-import { highlightCode } from '@shares/shikiApi.ts';
-import { computed, ref, watchEffect } from 'vue';
+import { createShikiInstance, disposeShiki, highlightCode } from '@shares/shikiApi.ts';
+import { computed, onBeforeMount, onBeforeUnmount, onMounted, ref, watch } from 'vue';
+import { PopupManager, useBreakpointMax } from 'vue-mdbootstrap';
 
-const props = defineProps<{ tpl?: string; tsc?: string }>();
+const props = defineProps<{ tpl?: string; tsc?: string; open?: boolean }>();
+const emit = defineEmits<{
+  'update:open': [value: boolean];
+}>();
 
+const zIndex = 1024;
 const templateActive = ref(false);
 const scriptActive = ref(false);
 const panelOpen = ref(true);
-const sourceVisible = computed(() => templateActive.value || scriptActive.value);
+const isMobile = ref(true);
 const fmtCodeTpl = ref<string>();
 const fmtCodeTsc = ref<string>();
+const sourceVisible = computed(() => templateActive.value || scriptActive.value);
 
-watchEffect(() => {
-  if (props.tpl) {
-    fmtCodeTpl.value = highlightCode(props.tpl, 'vue');
-  }
-  if (props.tsc) {
-    fmtCodeTsc.value = highlightCode(props.tsc, 'vue');
-  }
-});
+// initialize side-panel state
+isMobile.value = useBreakpointMax('md');
+const initialState = !isMobile.value;
+panelOpen.value = initialState;
 
 function toggleTemplate(state: boolean) {
   templateActive.value = !state;
@@ -33,13 +35,86 @@ function toggleScript(state: boolean) {
     templateActive.value = false;
   }
 }
+
+function toggleSidePanel(state: boolean) {
+  const newState = !state;
+
+  if (newState) {
+    openHandler();
+  } else {
+    closeOverlay();
+  }
+}
+
+function openHandler() {
+  if (isMobile.value) {
+    PopupManager.preventScrolling();
+  }
+
+  panelOpen.value = true;
+  emit('update:open', true);
+}
+
+function closeOverlay() {
+  if (isMobile.value) {
+    PopupManager.allowScrolling();
+  }
+
+  panelOpen.value = false;
+  emit('update:open', false);
+}
+
+function resizeHandler() {
+  isMobile.value = useBreakpointMax('md');
+
+  if (isMobile.value) {
+    panelOpen.value = false;
+    emit('update:open', false);
+  } else {
+    PopupManager.allowScrolling();
+    panelOpen.value = initialState;
+    emit('update:open', initialState);
+  }
+}
+
+watch(
+  () => [props.tpl, props.tsc],
+  async ([tpl, tsc]) => {
+    if (tpl) {
+      fmtCodeTpl.value = await highlightCode(tpl, 'vue');
+    }
+    if (tsc) {
+      fmtCodeTsc.value = await highlightCode(tsc, 'vue');
+    }
+  }
+);
+
+onBeforeMount(async () => {
+  await createShikiInstance();
+  window.addEventListener('resize', resizeHandler);
+});
+
+onMounted(async () => {
+  // Highlight input source codes after this component is fully mounted
+  if (props.tpl) {
+    fmtCodeTpl.value = await highlightCode(props.tpl, 'vue');
+  }
+  if (props.tsc) {
+    fmtCodeTsc.value = await highlightCode(props.tsc, 'vue');
+  }
+});
+
+onBeforeUnmount(() => {
+  disposeShiki();
+  window.removeEventListener('resize', resizeHandler);
+});
 </script>
 
 <template>
   <div class="showcase-container relative rounded-3 border overflow-hidden">
     <div :class="['flex relative', sourceVisible ? 'rounded-top-3' : 'rounded-3']">
       <div class="showcase-body flex flex-col flex-fill">
-        <div class="showcase-content flex-fill text-bg-surface-secondary border-b p-3">
+        <div class="showcase-content flex-fill text-bg-surface-secondary border-b">
           <slot name="content">
             <h5>Put example component here</h5>
           </slot>
@@ -65,26 +140,50 @@ function toggleScript(state: boolean) {
             Script
           </BsButton>
           <BsSpacer />
-          <BsButton
-            :icon="panelOpen ? 'right_panel_close' : 'right_panel_open'"
-            color="secondary"
-            flat
-            mode="icon"
-            style="margin-right: -6px"
-            aria-label="Toggle right panel"
-            @click="panelOpen = !panelOpen"
-          />
+          <BsTooltip :content="panelOpen ? 'Close side panel' : 'Open side panel'" placement="top">
+            <BsButton
+              :icon="panelOpen ? 'right_panel_close' : 'right_panel_open'"
+              color="secondary"
+              flat
+              mode="icon"
+              style="margin-right: -6px"
+              aria-label="Toggle right panel"
+              @click="toggleSidePanel(panelOpen)"
+            />
+          </BsTooltip>
         </div>
       </div>
-      <div
-        :class="['showcase-side text-bg-surface-secondary border-s', panelOpen ? 'open' : 'closed']"
-      >
-        <div class="flex flex-col md-gap-y-4 text-nowrap overflow-x-hidden p-3">
-          <slot name="side-panel">
-            <h6>Put showcase options here</h6>
-          </slot>
+      <template v-if="isMobile">
+        <Teleport to="body">
+          <BsOverlay :show="panelOpen" :z-index="zIndex - 1" fixed @click="closeOverlay()" />
+          <div
+            :class="[
+              'showcase-side text-bg-surface-secondary border-s fixed',
+              panelOpen ? 'open' : 'close',
+            ]"
+          >
+            <div class="flex flex-col md-gap-y-4 text-nowrap overflow-x-hidden p-3">
+              <slot name="side-panel">
+                <h6>Put showcase options here</h6>
+              </slot>
+            </div>
+          </div>
+        </Teleport>
+      </template>
+      <template v-else>
+        <div
+          :class="[
+            'showcase-side text-bg-surface-secondary border-s',
+            panelOpen ? 'open' : 'close',
+          ]"
+        >
+          <div class="flex flex-col md-gap-y-4 text-nowrap overflow-x-hidden p-3">
+            <slot name="side-panel">
+              <h6>Put showcase options here</h6>
+            </slot>
+          </div>
         </div>
-      </div>
+      </template>
     </div>
     <BsExpandTransition>
       <div v-if="sourceVisible" class="showcase-source border-t">
@@ -118,6 +217,7 @@ function toggleScript(state: boolean) {
 
 .showcase-content {
   border-top-left-radius: inherit;
+  padding: 1.5rem 1rem;
 }
 
 .showcase-body {
@@ -133,11 +233,18 @@ function toggleScript(state: boolean) {
   width: 300px;
   transition: 0.45s cubic-bezier(0.4, 0, 0.2, 1);
 
+  &.fixed {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1024;
+  }
+
   &.open {
     margin-right: 0;
   }
 
-  &.closed {
+  &.close {
     margin-right: -301px;
   }
 }

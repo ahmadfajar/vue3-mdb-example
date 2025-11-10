@@ -3,23 +3,50 @@
 
 import { AllowedComponentProps, ComponentCustomProps, VNode, VNodeProps } from 'vue';
 
+declare type VueBaseProps = AllowedComponentProps & ComponentCustomProps & VNodeProps;
+
 declare const DemoBlock: {
   new (): {
-    $props: AllowedComponentProps & ComponentCustomProps & VNodeProps;
+    $props: VueBaseProps;
     $slots: {
       default?: () => VNode[];
     };
   };
 };
 
+export declare interface ShowcaseBoxOptionProps {
+  /**
+   * Vue component template section source code.
+   */
+  tpl?: string | null;
+  /**
+   * Vue component script section source code.
+   */
+  tsc?: string | null;
+  /**
+   * Showcase side-panel state.
+   */
+  open?: boolean;
+  /**
+   * Fired when the component's state is updated.
+   */
+  'onUpdate:open'?: (state: boolean) => void;
+
+  /**
+   * Fired when the component's state is updated.
+   */
+  '@update:open'?: (state: boolean) => void;
+}
+
 declare const ShowcaseBox: {
   new (): {
-    $props: AllowedComponentProps &
-      ComponentCustomProps &
-      VNodeProps & { tpl?: string | null; tsc?: string | null };
+    $props: VueBaseProps & ShowcaseBoxOptionProps;
     $slots: {
       content?: () => VNode[];
       'side-panel'?: () => VNode[];
+    };
+    $emits: {
+      (event: 'update:open', state: boolean): void;
     };
   };
 };

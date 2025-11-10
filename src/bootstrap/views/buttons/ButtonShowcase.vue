@@ -7,8 +7,11 @@ import {
   buttonVariants,
   iconAnimationVariants,
 } from '@shares/dataApi.ts';
-import { parseVueScriptTag, parseVueTemplateTag } from '@shares/sharedApi.ts';
-import * as cheerio from 'cheerio';
+import {
+  parseVueScriptTag,
+  parseVueTemplateTag,
+  stripAndBeautifyTemplate,
+} from '@shares/sharedApi.ts';
 import { nextTick, onBeforeUnmount, onMounted, ref, watch, watchEffect } from 'vue';
 import { type TButtonSize, type TIconPosition } from 'vue-mdbootstrap';
 
@@ -136,8 +139,7 @@ watchEffect(() => {
   rawCode = changeIconAnimation(rawCode);
 
   if (rawCode) {
-    rawCode = rawCode.replace(/(\{\$.*\})[\n\s]+/g, '');
-    fmtVueTpl.value = cheerio.load(rawCode, { xml: true }).root().html()?.replaceAll('=""', '');
+    fmtVueTpl.value = stripAndBeautifyTemplate(rawCode);
   }
 });
 

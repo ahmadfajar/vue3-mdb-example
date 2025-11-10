@@ -1,3 +1,4 @@
+import * as cheerio from 'cheerio';
 import type { VNode } from 'vue';
 import { Color, type TRecord, useRenderSVG } from 'vue-mdbootstrap';
 
@@ -61,4 +62,10 @@ export function parseVueScriptTag(data: string): string {
   const i2 = data.lastIndexOf(endTag);
 
   return data.slice(i1, i2 + endTag.length);
+}
+
+export function stripAndBeautifyTemplate(rawCode: string) {
+  const content = rawCode.replace(/(\{\$.*\})[\n\s]+/g, '');
+
+  return cheerio.load(content, { xml: true }).root().html()?.replaceAll('=""', '');
 }

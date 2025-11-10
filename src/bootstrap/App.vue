@@ -71,7 +71,7 @@
         </BsListNav>
       </BsListView>
     </BsSideDrawer>
-    <BsContainer app @resize="onContainerResize">
+    <BsContainer app>
       <BsContent>
         <Suspense>
           <RouterView v-slot="{ Component }">
@@ -88,18 +88,17 @@
 <script setup lang="ts">
 import type { TMainNavigation } from '@bs/router/navigation';
 import { menuNavs } from '@bs/router/navigation';
-import { disposeShiki } from '@shares/shikiApi.ts';
 import { ref } from 'vue';
-import { StringHelper, useBreakpointMax } from 'vue-mdbootstrap';
+import { StringHelper } from 'vue-mdbootstrap';
 
 const sideDrawerOpen = ref(true);
 const appbarCls = ref(['border-b']);
 
-function onContainerResize() {
-  if (useBreakpointMax('lg')) {
-    sideDrawerOpen.value = false;
-  }
-}
+// function onContainerResize() {
+//   if (useBreakpointMax('lg')) {
+//     sideDrawerOpen.value = false;
+//   }
+// }
 
 function onScroll(target: Element | Window) {
   if ((target as Window).scrollY >= 50) {
@@ -128,10 +127,6 @@ function compareFn(a: TMainNavigation, b: TMainNavigation) {
 
 const routeNavA = menuNavs.filter((it) => it.group === 'Components').sort(compareFn);
 const routeNavB = menuNavs.filter((it) => it.group === 'Reference').sort(compareFn);
-
-window.addEventListener('unload', () => {
-  disposeShiki();
-});
 </script>
 
 <style lang="scss">

@@ -18,21 +18,54 @@ const shikiBundle = createdBundledHighlighter({
   },
 });
 
-const shikiFactory: HighlighterGeneric<
+let shikiFactory: HighlighterGeneric<
   'vue' | 'typescript' | 'javascript' | 'css',
   'material-theme-ocean'
-> = await shikiBundle({
-  langs: ['javascript', 'typescript', 'vue', 'css'],
-  themes: ['material-theme-ocean'],
-});
+> | null;
 
-export function highlightCode(
-  code: string,
-  lang: 'vue' | 'typescript' | 'javascript' | 'css'
-): string {
-  return shikiFactory.codeToHtml(code, { lang: lang, theme: 'material-theme-ocean' });
+/**
+ * Create a singleton Shiki instance from a custom and minimal bundle.
+ *
+ * Shiki instance is big and don't automatically GC, so don't forget to call
+ * {@link disposeShiki} to free resources.
+ */
+export async function createShikiInstance(): Promise<
+  HighlighterGeneric<'vue' | 'typescript' | 'javascript' | 'css', 'material-theme-ocean'>
+> {
+  if (!shikiFactory) {
+    shikiFactory = await shikiBundle({
+      langs: ['javascript', 'typescript', 'vue', 'css'],
+      themes: ['material-theme-ocean'],
+    });
+  }
+
+  return shikiFactory;
 }
 
+/**
+ * Dispose Shiki instance and free resources.
+ */
 export function disposeShiki(): void {
   shikiFactory?.dispose();
+  shikiFactory = null;
+}
+
+/**
+ * Highlight source code with Shiki.
+ *
+ * This method will automatically call {@link createShikiInstance}
+ * if the instance doesn't exist.
+ *
+ * @param code The code to highlight with Shiki
+ * @param lang The language to be used to highlight the code
+ */
+export async function highlightCode(
+  code: string,
+  lang: 'vue' | 'typescript' | 'javascript' | 'css'
+): Promise<string> {
+  if (!shikiFactory) {
+    await createShikiInstance();
+  }
+
+  return shikiFactory!.codeToHtml(code, { lang: lang, theme: 'material-theme-ocean' });
 }
