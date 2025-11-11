@@ -7,12 +7,14 @@ const routes: RouteRecordRaw[] = [];
 
 menuNavs.forEach((it) => {
   if (it.children) {
-    const children: RouteRecordRaw[] = it.children.map((child) => ({
-      path: child.path,
-      name: StringHelper.kebabCase(child.text),
-      component: child.view,
-      meta: { title: child.text },
-    }));
+    const children: RouteRecordRaw[] = it.children.map((child) => {
+      return {
+        path: child.path,
+        name: child.name || StringHelper.kebabCase(child.text),
+        component: child.view,
+        meta: { title: child.text },
+      };
+    });
 
     routes.push(...children);
   } else {
@@ -37,7 +39,6 @@ const router = createRouter({
 
 router.beforeEach((to, _from, next) => {
   document.title = `${to.meta.title} | Vue MDBootstrap Demos`;
-  // window.scrollTo({ top: 0, behavior: 'smooth' });
   next();
 });
 

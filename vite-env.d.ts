@@ -51,10 +51,20 @@ declare const ShowcaseBox: {
   };
 };
 
+declare const ContentLayout: {
+  new (): {
+    $props: VueBaseProps;
+    $slots: {
+      default?: () => VNode[];
+    };
+  };
+};
+
 declare module 'vue' {
   interface GlobalComponents {
     DemoBlock: typeof DemoBlock;
     ShowcaseBox: typeof ShowcaseBox;
+    ContentLayout: typeof ContentLayout;
   }
 
   // interface ComponentCustomProperties {

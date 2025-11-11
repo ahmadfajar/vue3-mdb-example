@@ -1,7 +1,13 @@
 <template>
   <BsApp viewport-height>
-    <BsAppbar v-scroll="onScroll" :class="appbarCls" clipped-left fixed-top>
+    <BsAppbar
+      :class="screenSize === 'desktop' || linkItems.length === 0 ? appbarCls : 'border-b'"
+      :fixed-top="screenSize === 'desktop' || linkItems.length === 0"
+      :sticky-top="linkItems.length === 0 ? false : screenSize === 'tablet'"
+      clipped-left
+    >
       <BsButton
+        :class="linkItems.length > 0 ? ['d-none d-lg-inline'] : undefined"
         color="dark"
         flat
         icon="menu"
@@ -24,6 +30,15 @@
         </div>
         <div class="d-none d-md-block mx-2 border" style="width: 1px; height: 26px"></div>
         <div class="flex">
+          <BsButton
+            class="d-md-none"
+            color="dark"
+            flat
+            icon="home_rounded"
+            mode="icon"
+            aria-label="Home"
+            @click="$router.push({ name: 'home' })"
+          />
           <BsButton
             color="dark"
             flat
@@ -51,12 +66,13 @@
         <BsListNav>
           <BsListNavItem v-for="navItem in routeNavA" :key="navItem.text" :label="navItem.text">
             <BsListNav child>
-              <BsListNavItem
-                v-for="child in navItem.children"
-                :key="child.text"
-                :label="child.text"
-                :path-name="StringHelper.kebabCase(child.text)"
-              />
+              <template v-for="child in navItem.children" :key="child.name || child.text">
+                <BsListNavItem
+                  v-if="!child.hidden"
+                  :label="child.text"
+                  :path-name="StringHelper.kebabCase(child.text)"
+                />
+              </template>
             </BsListNav>
           </BsListNavItem>
         </BsListNav>
@@ -71,16 +87,31 @@
         </BsListNav>
       </BsListView>
     </BsSideDrawer>
-    <BsContainer app>
-      <BsContent>
-        <Suspense>
-          <RouterView v-slot="{ Component }">
-            <Transition mode="out-in" name="fade-fast">
-              <component :is="Component" />
-            </Transition>
-          </RouterView>
-        </Suspense>
-      </BsContent>
+    <div
+      :class="screenSize === 'mobile' ? appbarCls : 'border-b'"
+      class="header-navbar w-full flex items-center justify-between d-lg-none sticky px-3 py-1"
+    >
+      <BsButton
+        color="dark"
+        flat
+        icon="menu"
+        mode="icon"
+        aria-label="Menu"
+        @click="toggleSideDrawer(!sideDrawerOpen)"
+      />
+      <div class="local-navbar-menu inline-flex items-center md-link select-none p-2">
+        <span class="pe-2">On this page</span>
+        <BsIcon icon="chevron-right" />
+      </div>
+    </div>
+    <BsContainer v-scroll="onScroll" app @resize="resizeHandler">
+      <Suspense>
+        <RouterView v-slot="{ Component }">
+          <Transition mode="out-in" name="fade-fast">
+            <component :is="Component" />
+          </Transition>
+        </RouterView>
+      </Suspense>
     </BsContainer>
   </BsApp>
 </template>
@@ -88,23 +119,39 @@
 <script setup lang="ts">
 import type { TMainNavigation } from '@bs/router/navigation';
 import { menuNavs } from '@bs/router/navigation';
-import { ref } from 'vue';
-import { StringHelper } from 'vue-mdbootstrap';
+import { provide, type Ref, ref } from 'vue';
+import { StringHelper, useBreakpointMin } from 'vue-mdbootstrap';
+import type { RouteLocationAsRelativeGeneric } from 'vue-router';
+
+declare type ScreenSize = 'desktop' | 'tablet' | 'mobile';
 
 const sideDrawerOpen = ref(true);
+const screenSize = ref<ScreenSize>('mobile');
 const appbarCls = ref(['border-b']);
+const linkItems = ref<{ text: string; location: string | RouteLocationAsRelativeGeneric }[]>([]);
 
-// function onContainerResize() {
-//   if (useBreakpointMax('lg')) {
-//     sideDrawerOpen.value = false;
-//   }
-// }
+export declare type AppInjection = {
+  screenSize: Ref<ScreenSize>;
+  appbarCls: Ref<string[]>;
+};
+
+provide('MyApp', { screenSize, appbarCls } as AppInjection);
 
 function onScroll(target: Element | Window) {
-  if ((target as Window).scrollY >= 50) {
+  if ((target as Window).scrollY >= 60) {
     appbarCls.value = ['border-b', 'md-shadow'];
   } else {
     appbarCls.value = ['border-b'];
+  }
+}
+
+function resizeHandler() {
+  if (useBreakpointMin('xl')) {
+    screenSize.value = 'desktop';
+  } else if (useBreakpointMin('lg')) {
+    screenSize.value = 'tablet';
+  } else {
+    screenSize.value = 'mobile';
   }
 }
 
@@ -127,6 +174,7 @@ function compareFn(a: TMainNavigation, b: TMainNavigation) {
 
 const routeNavA = menuNavs.filter((it) => it.group === 'Components').sort(compareFn);
 const routeNavB = menuNavs.filter((it) => it.group === 'Reference').sort(compareFn);
+resizeHandler();
 </script>
 
 <style lang="scss">
@@ -149,6 +197,7 @@ const routeNavB = menuNavs.filter((it) => it.group === 'Reference').sort(compare
 :root {
   --background: oklch(0.976 0 89.876);
   --appbar-background: oklch(1 0 0);
+  --appbar-height: 4rem;
   --sidedrawer-background: oklch(0.921 0.009 264.52);
 }
 
@@ -229,16 +278,75 @@ body {
   }
 }
 
+.header-navbar {
+  background-color: var(--appbar-background);
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.local-navbar {
+  background-color: var(--appbar-background);
+  top: var(--appbar-height);
+  z-index: 2;
+}
+
+.local-navbar-menu {
+  &.active,
+  &:hover {
+    font-weight: var(--font-weight-medium);
+    background-color: var(--navigation-item-hover-background);
+    border-radius: vars.$radius-sm;
+  }
+}
+
+.local-nav-aside {
+  padding-top: vars.$padding-xl + 0.5;
+  width: 11.875rem; // 190px;
+  min-width: 11.875rem;
+
+  .local-nav-items {
+    top: vars.$padding-xl + 4;
+    padding-left: vars.$padding-sm;
+    z-index: 2;
+  }
+
+  .md-list {
+    --md-tile-minheight: 1.5rem;
+    --md-tile-padding-x: #{vars.$padding-sm};
+    --md-tile-padding-y: #{vars.$padding-xs};
+
+    .md-list-tile {
+      font-size: 0.875em;
+
+      &.active {
+        font-weight: var(--font-weight-semibold);
+      }
+      + .md-list-tile {
+        margin-top: 3px;
+      }
+    }
+  }
+
+  h6 {
+    font-weight: var(--font-weight-semibold);
+    padding-left: var(--md-tile-padding-x);
+  }
+}
+
 .docs-body {
   padding-top: vars.$padding-xl;
-  max-width: 860px;
+  max-width: 53.75rem; //860px;
 
   > h2 {
     font-weight: var(--font-weight-medium);
   }
 
   // screen: 801px
-  @media (min-width: calc(50rem + 1px)) {
+  @include media.breakpoint-up(md) {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+
     .card-mw-65 {
       max-width: 90%;
     }
@@ -252,17 +360,14 @@ body {
   }
 
   // screen: 1200px
-  @media (min-width: 75rem) {
-    //max-width: 1080px;
+  @include media.breakpoint-up(xl) {
+    padding-left: 2rem;
+    padding-right: 2rem;
+
     .card-mw-65 {
       max-width: 65%;
     }
   }
-
-  //// screen: 1440px
-  //@media (min-width: 90rem) {
-  //  padding-left: 2rem;
-  //}
 }
 
 .section-content {
@@ -272,37 +377,8 @@ body {
 
 @include media.breakpoint-up(md) {
   .section-content {
-    padding-left: vars.$padding-md;
-    padding-right: vars.$padding-md;
-  }
-
-  .section-demo {
-    padding-left: vars.$padding-md;
-    padding-right: vars.$padding-md;
-  }
-}
-
-@include media.breakpoint-up(lg) {
-  .section-content {
-    padding-left: vars.$padding-lg;
-    padding-right: vars.$padding-lg;
-  }
-
-  .section-demo {
-    padding-left: vars.$padding-lg;
-    padding-right: vars.$padding-lg;
-  }
-}
-
-@include media.breakpoint-up(xl) {
-  .section-content {
-    padding-left: vars.$padding-xl;
-    padding-right: vars.$padding-xl;
-  }
-
-  .section-demo {
-    padding-left: vars.$padding-xl;
-    padding-right: vars.$padding-xl;
+    padding-left: 0;
+    padding-right: 0;
   }
 }
 

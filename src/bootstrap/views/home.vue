@@ -135,77 +135,70 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <div class="docs-body">
+  <ContentLayout>
     <div class="section-content">
       <h2>Display list of icons for demos</h2>
     </div>
-    <div class="section-demo mt-4">
-      <ShowcaseBox>
-        <template #side-panel>
-          <h5 class="mt-2">Configuration Options:</h5>
+    <ShowcaseBox class="mt-4">
+      <template #side-panel>
+        <h5 class="mt-2">Configuration Options:</h5>
 
-          <BsCombobox v-model="btnVariant" :data-source="btnVariants" filled floating-label>
-            <label>Variant:</label>
-          </BsCombobox>
-          <BsCombobox v-model="btnShape" :data-source="btnShapes" filled floating-label>
-            <label>Shape:</label>
-          </BsCombobox>
-          <BsCombobox v-model="btnSize" :data-source="btnSizes" filled floating-label>
-            <label>Size:</label>
-          </BsCombobox>
-          <BsCombobox v-model="btnState" :data-source="btnStates" filled floating-label>
-            <label>State:</label>
-          </BsCombobox>
+        <BsCombobox v-model="btnVariant" :data-source="btnVariants" filled floating-label>
+          <label>Variant:</label>
+        </BsCombobox>
+        <BsCombobox v-model="btnShape" :data-source="btnShapes" filled floating-label>
+          <label>Shape:</label>
+        </BsCombobox>
+        <BsCombobox v-model="btnSize" :data-source="btnSizes" filled floating-label>
+          <label>Size:</label>
+        </BsCombobox>
+        <BsCombobox v-model="btnState" :data-source="btnStates" filled floating-label>
+          <label>State:</label>
+        </BsCombobox>
 
-          <div class="flex md-gap-x-2">
-            <BsCheckbox v-model="btnElevated" :value="true"> Elevated </BsCheckbox>
-            <BsCheckbox v-model="hasIcon" :value="true"> Icon </BsCheckbox>
-          </div>
+        <div class="flex md-gap-x-2">
+          <BsCheckbox v-model="btnElevated" :value="true"> Elevated </BsCheckbox>
+          <BsCheckbox v-model="hasIcon" :value="true"> Icon </BsCheckbox>
+        </div>
+        <BsRadioGroup v-model="iconPosition" :disabled="!hasIcon" :items="iconPositions" column="2">
+          <div class="col-form-label select-none">Icon Position:</div>
+        </BsRadioGroup>
+        <div>
+          <BsCheckbox v-model="hasAnimation" :disabled="!hasIcon" :value="true">
+            Icon Animation
+          </BsCheckbox>
           <BsRadioGroup
-            v-model="iconPosition"
-            :disabled="!hasIcon"
-            :items="iconPositions"
+            v-model="iconAnimation"
+            :disabled="!hasIcon || !hasAnimation"
+            :items="iconAnimations"
             column="2"
-          >
-            <div class="col-form-label select-none">Icon Position:</div>
-          </BsRadioGroup>
-          <div>
-            <BsCheckbox v-model="hasAnimation" :disabled="!hasIcon" :value="true">
-              Icon Animation
-            </BsCheckbox>
-            <BsRadioGroup
-              v-model="iconAnimation"
-              :disabled="!hasIcon || !hasAnimation"
-              :items="iconAnimations"
-              column="2"
-            />
-          </div>
-        </template>
+          />
+        </div>
+      </template>
 
-        <template #content>
-          <div class="h-full flex flex-col items-center justify-center">
-            <BsButton
-              :active="btnState === 'active'"
-              :disabled="btnState === 'disabled'"
-              :flat="btnVariant === 'flat'"
-              :icon="btnIcon"
-              :icon-position="iconPosition"
-              :icon-pulse="iconAnimation === 'pulse'"
-              :icon-size="iconSize"
-              :icon-spin="iconAnimation === 'spin'"
-              :outlined="btnVariant === 'outlined'"
-              :pill-off="btnShape === 'pill-off'"
-              :raised="btnElevated"
-              :readonly="btnState === 'readonly'"
-              :rounded="btnShape === 'rounded'"
-              :size="btnSize !== 'md' ? (btnSize as TButtonSize) : undefined"
-              :tonal="btnVariant === 'tonal'"
-            >
-              Button
-            </BsButton>
-          </div>
-        </template>
-      </ShowcaseBox>
-    </div>
-  </div>
+      <template #content>
+        <div class="h-full flex flex-col items-center justify-center">
+          <BsButton
+            :active="btnState === 'active'"
+            :disabled="btnState === 'disabled'"
+            :flat="btnVariant === 'flat'"
+            :icon="btnIcon"
+            :icon-position="iconPosition"
+            :icon-pulse="iconAnimation === 'pulse'"
+            :icon-size="iconSize"
+            :icon-spin="iconAnimation === 'spin'"
+            :outlined="btnVariant === 'outlined'"
+            :pill-off="btnShape === 'pill-off'"
+            :raised="btnElevated"
+            :readonly="btnState === 'readonly'"
+            :rounded="btnShape === 'rounded'"
+            :size="btnSize !== 'md' ? (btnSize as TButtonSize) : undefined"
+            :tonal="btnVariant === 'tonal'"
+          >
+            Button
+          </BsButton>
+        </div>
+      </template>
+    </ShowcaseBox>
+  </ContentLayout>
 </template>

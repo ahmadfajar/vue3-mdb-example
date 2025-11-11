@@ -121,6 +121,7 @@ onBeforeUnmount(() => {
         </div>
         <div class="showcase-toolbar bg-gray-100 flex w-full md-gap-x-2 px-3 py-2">
           <BsButton
+            v-if="fmtCodeTpl"
             :active="templateActive"
             color="secondary"
             flat
@@ -140,25 +141,47 @@ onBeforeUnmount(() => {
             Script
           </BsButton>
           <BsSpacer />
-          <BsTooltip :content="panelOpen ? 'Close side panel' : 'Open side panel'" placement="top">
-            <BsButton
-              :icon="panelOpen ? 'right_panel_close' : 'right_panel_open'"
-              color="secondary"
-              flat
-              mode="icon"
-              style="margin-right: -6px"
-              aria-label="Toggle right panel"
-              @click="toggleSidePanel(panelOpen)"
-            />
-          </BsTooltip>
+          <template v-if="$slots['side-panel']">
+            <BsTooltip
+              :content="panelOpen ? 'Close side panel' : 'Open side panel'"
+              placement="top"
+            >
+              <BsButton
+                :icon="panelOpen ? 'right_panel_close' : 'right_panel_open'"
+                color="secondary"
+                flat
+                mode="icon"
+                style="margin-right: -6px"
+                aria-label="Toggle right panel"
+                @click="toggleSidePanel(panelOpen)"
+              />
+            </BsTooltip>
+          </template>
         </div>
       </div>
-      <template v-if="isMobile">
-        <Teleport to="body">
-          <BsOverlay :show="panelOpen" :z-index="zIndex - 1" fixed @click="closeOverlay()" />
+
+      <template v-if="$slots['side-panel']">
+        <template v-if="isMobile">
+          <Teleport to="body">
+            <BsOverlay :show="panelOpen" :z-index="zIndex - 1" fixed @click="closeOverlay()" />
+            <div
+              :class="[
+                'showcase-side text-bg-surface-secondary border-s fixed',
+                panelOpen ? 'open' : 'close',
+              ]"
+            >
+              <div class="flex flex-col md-gap-y-4 text-nowrap overflow-x-hidden p-3">
+                <slot name="side-panel">
+                  <h6>Put showcase options here</h6>
+                </slot>
+              </div>
+            </div>
+          </Teleport>
+        </template>
+        <template v-else>
           <div
             :class="[
-              'showcase-side text-bg-surface-secondary border-s fixed',
+              'showcase-side text-bg-surface-secondary border-s',
               panelOpen ? 'open' : 'close',
             ]"
           >
@@ -168,21 +191,7 @@ onBeforeUnmount(() => {
               </slot>
             </div>
           </div>
-        </Teleport>
-      </template>
-      <template v-else>
-        <div
-          :class="[
-            'showcase-side text-bg-surface-secondary border-s',
-            panelOpen ? 'open' : 'close',
-          ]"
-        >
-          <div class="flex flex-col md-gap-y-4 text-nowrap overflow-x-hidden p-3">
-            <slot name="side-panel">
-              <h6>Put showcase options here</h6>
-            </slot>
-          </div>
-        </div>
+        </template>
       </template>
     </div>
     <BsExpandTransition>

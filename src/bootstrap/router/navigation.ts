@@ -3,6 +3,8 @@ import type { RouteComponent } from 'vue-router';
 declare type TNavigation = {
   text: string;
   path: string;
+  name?: string;
+  hidden?: boolean;
   view: RouteComponent;
 };
 
@@ -35,6 +37,13 @@ export const menuNavs: TMainNavigation[] = [
         text: 'Transition Effects',
         path: '/animations/transition',
         view: () => import('@bs/views/animations/DemoTransition.vue'),
+      },
+      {
+        text: 'Transition Effects',
+        name: 'transition-effects-id',
+        path: '/animations/transition/:id',
+        hidden: true,
+        view: () => import('@bs/views/animations/DemoTransitionId.vue'),
       },
     ],
   },
