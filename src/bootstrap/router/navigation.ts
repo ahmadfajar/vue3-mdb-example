@@ -36,7 +36,7 @@ export const menuNavs: TMainNavigation[] = [
       {
         text: 'Transition Effects',
         path: '/animations/transition',
-        view: () => import('@bs/views/animations/DemoTransition.vue'),
+        view: () => import('@bs/views/animations/DemoTransitionId.vue'),
       },
       {
         text: 'Transition Effects',

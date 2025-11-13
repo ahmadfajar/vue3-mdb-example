@@ -6,7 +6,7 @@ import {
   buttonStates,
   buttonVariants,
   iconAnimationVariants,
-} from '@shares/dataApi.ts';
+} from '@shares/showcaseDataApi.ts';
 import {
   parseVueScriptTag,
   parseVueTemplateTag,

@@ -1,6 +1,7 @@
 /// <reference types="vite/client" />
 /// <reference types="vue-mdbootstrap/component" />
 
+import type { LinkItem } from '@shares/dataStore.ts';
 import { AllowedComponentProps, ComponentCustomProps, VNode, VNodeProps } from 'vue';
 
 declare type VueBaseProps = AllowedComponentProps & ComponentCustomProps & VNodeProps;
@@ -53,7 +54,7 @@ declare const ShowcaseBox: {
 
 declare const ContentLayout: {
   new (): {
-    $props: VueBaseProps;
+    $props: VueBaseProps & { links?: LinkItem[] };
     $slots: {
       default?: () => VNode[];
     };

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { LinkItem } from '@bs/ContentLayout.vue';
+import { type LinkItem } from '@shares/dataStore.ts';
 import {
   parseVueScriptTag,
   parseVueTemplateTag,
@@ -7,8 +7,7 @@ import {
 } from '@shares/sharedApi.ts';
 import { ref } from 'vue';
 
-const linkItems = ref<LinkItem[]>([]);
-linkItems.value = [
+const linkItems = [
   { text: 'Fade', location: { name: 'transition-effects' } },
   { text: 'Scale', location: { name: 'transition-effects-id', params: { id: 'scale' } } },
   { text: 'Slide Fade', location: { name: 'transition-effects-id', params: { id: 'slide-fade' } } },
@@ -48,7 +47,7 @@ linkItems.value = [
     text: 'Roll In-Out',
     location: { name: 'transition-effects-id', params: { id: 'roll-in-out' } },
   },
-];
+] satisfies LinkItem[];
 
 const example1 = await import('./examples/TransitionExample1.vue?raw');
 const rawTemplate1 = ref<string>();
@@ -68,7 +67,7 @@ const content = "Some quick example text to build on the card title and make up 
 </script>
 
 <template>
-  <ContentLayout :link-items="linkItems">
+  <ContentLayout :links="linkItems">
     <h2 class="section-content">Fade</h2>
     <ShowcaseBox :tpl="fmtVueTpl1" :tsc="fmtVueTsc1" class="mt-4">
       <template #content>

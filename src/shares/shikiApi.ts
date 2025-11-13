@@ -43,11 +43,14 @@ export async function createShikiInstance(): Promise<
 }
 
 /**
- * Dispose Shiki instance and free resources.
+ * Dispose Shiki instance that was created by {@link createShikiInstance} and free resources.
  */
 export function disposeShiki(): void {
-  shikiFactory?.dispose();
-  shikiFactory = null;
+  if (shikiFactory) {
+    console.info('Disposing Shiki instance');
+    shikiFactory.dispose();
+    shikiFactory = null;
+  }
 }
 
 /**

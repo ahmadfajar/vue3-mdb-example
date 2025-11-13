@@ -1,61 +1,7 @@
 <template>
   <BsApp viewport-height>
-    <BsAppbar
-      :class="screenSize === 'desktop' || linkItems.length === 0 ? appbarCls : 'border-b'"
-      :fixed-top="screenSize === 'desktop' || linkItems.length === 0"
-      :sticky-top="linkItems.length === 0 ? false : screenSize === 'tablet'"
-      clipped-left
-    >
-      <BsButton
-        :class="linkItems.length > 0 ? ['d-none d-lg-inline'] : undefined"
-        color="dark"
-        flat
-        icon="menu"
-        mode="icon"
-        aria-label="Menu"
-        @click="toggleSideDrawer(!sideDrawerOpen)"
-      />
-      <BsAppbarTitle :title="$route.meta.title as string" />
-      <BsAppbarItems class="items-center ms-auto">
-        <div class="d-none d-md-flex md-gap-x-6 me-3">
-          <RouterLink class="menu-item" to="/home"> Home </RouterLink>
-          <a
-            class="menu-item"
-            href="https://ahmadfajar.github.io/"
-            target="_blank"
-            aria-label="Component documentation"
-          >
-            Documentation
-          </a>
-        </div>
-        <div class="d-none d-md-block mx-2 border" style="width: 1px; height: 26px"></div>
-        <div class="flex">
-          <BsButton
-            class="d-md-none"
-            color="dark"
-            flat
-            icon="home_rounded"
-            mode="icon"
-            aria-label="Home"
-            @click="$router.push({ name: 'home' })"
-          />
-          <BsButton
-            color="dark"
-            flat
-            href="https://github.com/ahmadfajar/vue3-mdb-example"
-            mode="icon"
-            target="_blank"
-            aria-label="GitHub Repo"
-          >
-            <template #icon>
-              <BsFontawesomeIcon icon="github" mode="icon" variant="brands" />
-            </template>
-          </BsButton>
-          <BsButton color="dark" flat icon="dark_mode" mode="icon" />
-        </div>
-      </BsAppbarItems>
-    </BsAppbar>
-    <BsSideDrawer v-model:open="sideDrawerOpen" class="border-e" fixed-layout>
+    <AppNavbar />
+    <BsSideDrawer v-model:open="provider.sidebar.open" class="border-e" fixed-layout>
       <div class="flex justify-center my-2">
         <RouterLink to="/home">
           <img alt="Vue logo" src="/assets/vue-mdb.png" style="width: 96px" />
@@ -87,23 +33,6 @@
         </BsListNav>
       </BsListView>
     </BsSideDrawer>
-    <div
-      :class="screenSize === 'mobile' ? appbarCls : 'border-b'"
-      class="header-navbar w-full flex items-center justify-between d-lg-none sticky px-3 py-1"
-    >
-      <BsButton
-        color="dark"
-        flat
-        icon="menu"
-        mode="icon"
-        aria-label="Menu"
-        @click="toggleSideDrawer(!sideDrawerOpen)"
-      />
-      <div class="local-navbar-menu inline-flex items-center md-link select-none p-2">
-        <span class="pe-2">On this page</span>
-        <BsIcon icon="chevron-right" />
-      </div>
-    </div>
     <BsContainer v-scroll="onScroll" app @resize="resizeHandler">
       <Suspense>
         <RouterView v-slot="{ Component }">
@@ -117,47 +46,40 @@
 </template>
 
 <script setup lang="ts">
+import AppNavbar from '@bs/AppNavbar.vue';
 import type { TMainNavigation } from '@bs/router/navigation';
 import { menuNavs } from '@bs/router/navigation';
-import { provide, type Ref, ref } from 'vue';
+import { type IMyAppProvider, MyAppProvider } from '@shares/dataStore.ts';
+import { createShikiInstance, disposeShiki } from '@shares/shikiApi.ts';
+import { onBeforeUnmount, onMounted, provide } from 'vue';
 import { StringHelper, useBreakpointMin } from 'vue-mdbootstrap';
-import type { RouteLocationAsRelativeGeneric } from 'vue-router';
 
-declare type ScreenSize = 'desktop' | 'tablet' | 'mobile';
+const provider = new MyAppProvider('mobile', ['border-b']);
+// const sideDrawerOpen = ref(true);
 
-const sideDrawerOpen = ref(true);
-const screenSize = ref<ScreenSize>('mobile');
-const appbarCls = ref(['border-b']);
-const linkItems = ref<{ text: string; location: string | RouteLocationAsRelativeGeneric }[]>([]);
-
-export declare type AppInjection = {
-  screenSize: Ref<ScreenSize>;
-  appbarCls: Ref<string[]>;
-};
-
-provide('MyApp', { screenSize, appbarCls } as AppInjection);
+provide('MyApp', provider as IMyAppProvider);
 
 function onScroll(target: Element | Window) {
   if ((target as Window).scrollY >= 60) {
-    appbarCls.value = ['border-b', 'md-shadow'];
+    provider.appbarClass = ['border-b', 'md-shadow'];
   } else {
-    appbarCls.value = ['border-b'];
+    provider.appbarClass = ['border-b'];
   }
 }
 
 function resizeHandler() {
   if (useBreakpointMin('xl')) {
-    screenSize.value = 'desktop';
+    provider.screenSize = 'desktop';
   } else if (useBreakpointMin('lg')) {
-    screenSize.value = 'tablet';
+    provider.screenSize = 'tablet';
   } else {
-    screenSize.value = 'mobile';
+    provider.screenSize = 'mobile';
   }
 }
 
-function toggleSideDrawer(value: boolean) {
-  sideDrawerOpen.value = value;
-}
+// function toggleSideDrawer(value: boolean) {
+//   sideDrawerOpen.value = value;
+// }
 
 function compareFn(a: TMainNavigation, b: TMainNavigation) {
   const labelA = a.text.toUpperCase();
@@ -175,6 +97,15 @@ function compareFn(a: TMainNavigation, b: TMainNavigation) {
 const routeNavA = menuNavs.filter((it) => it.group === 'Components').sort(compareFn);
 const routeNavB = menuNavs.filter((it) => it.group === 'Reference').sort(compareFn);
 resizeHandler();
+
+onMounted(async () => {
+  await createShikiInstance();
+  window.addEventListener('unload', () => disposeShiki());
+});
+
+onBeforeUnmount(() => {
+  disposeShiki();
+});
 </script>
 
 <style lang="scss">
@@ -317,11 +248,13 @@ body {
     --md-tile-padding-y: #{vars.$padding-xs};
 
     .md-list-tile {
+      border-radius: vars.$radius-sm;
       font-size: 0.875em;
 
       &.active {
         font-weight: var(--font-weight-semibold);
       }
+
       + .md-list-tile {
         margin-top: 3px;
       }
@@ -336,7 +269,7 @@ body {
 
 .docs-body {
   padding-top: vars.$padding-xl;
-  max-width: 53.75rem; //860px;
+  max-width: 56.25rem; //900px;
 
   > h2 {
     font-weight: var(--font-weight-medium);
@@ -359,10 +292,10 @@ body {
     }
   }
 
-  // screen: 1200px
-  @include media.breakpoint-up(xl) {
-    padding-left: 2rem;
-    padding-right: 2rem;
+  // screen: 1328px
+  @media (min-width: 83rem) {
+    padding-left: 1rem;
+    padding-right: 1rem;
 
     .card-mw-65 {
       max-width: 65%;
@@ -375,7 +308,7 @@ body {
   padding-right: 0.75rem;
 }
 
-@include media.breakpoint-up(md) {
+@include media.breakpoint-up(lg) {
   .section-content {
     padding-left: 0;
     padding-right: 0;

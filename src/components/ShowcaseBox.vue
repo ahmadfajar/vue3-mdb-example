@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { createShikiInstance, disposeShiki, highlightCode } from '@shares/shikiApi.ts';
+import { highlightCode } from '@shares/shikiApi.ts';
 import { computed, onBeforeMount, onBeforeUnmount, onMounted, ref, watch } from 'vue';
 import { PopupManager, useBreakpointMax } from 'vue-mdbootstrap';
 
@@ -89,8 +89,8 @@ watch(
   }
 );
 
-onBeforeMount(async () => {
-  await createShikiInstance();
+onBeforeMount(() => {
+  // await createShikiInstance();
   window.addEventListener('resize', resizeHandler);
 });
 
@@ -105,7 +105,7 @@ onMounted(async () => {
 });
 
 onBeforeUnmount(() => {
-  disposeShiki();
+  // disposeShiki();
   window.removeEventListener('resize', resizeHandler);
 });
 </script>
