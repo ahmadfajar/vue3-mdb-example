@@ -1,9 +1,15 @@
+<script setup lang="ts">
+// prettier-ignore
+const quickText = "Some quick example text to build on the card title and make up the bulk of the card's content.";
+const smallText = 'Last updated 3 mins ago';
+</script>
+
 <template>
   <div class="docs-body container-lg mx-auto">
     <h2>Basic Examples</h2>
     <DemoBlock class="mt-4">
-      <div class="row row-cols-1 row-cols-md-2">
-        <div class="col mb-3">
+      <div class="row row-cols-1 row-cols-md-2 gy-4">
+        <div class="col">
           <BsCard shadow>
             <BsCardBody>
               <BsCardContent type="title"> Card Title </BsCardContent>
@@ -15,7 +21,7 @@
             </BsCardBody>
           </BsCard>
         </div>
-        <div class="col mb-3">
+        <div class="col">
           <BsCard shadow>
             <BsCardHeader>Card Header</BsCardHeader>
             <BsCardBody>
@@ -27,10 +33,10 @@
             <BsCardFooter>Card Footer</BsCardFooter>
           </BsCard>
         </div>
-        <div class="col mb-3 mb-md-0">
+        <div class="col">
           <BsCard shadow>
             <BsImageHolder
-              class="card-img-top fs-1 font-weight-light"
+              class="card-img-top text-2xl md:text-3xl xl:text-5xl font-weight-light"
               placeholder-text="Image"
               y-pos="60%"
             />
@@ -47,7 +53,7 @@
             <div class="row g-0">
               <div class="col-4">
                 <BsImageHolder
-                  class="card-img-start fs-2 font-weight-light"
+                  class="card-img-start text-2xl md:text-3xl xl:text-4xl font-weight-light"
                   placeholder-text="Image"
                   y-pos="55%"
                 />
@@ -84,7 +90,7 @@
           </BsCard>
         </div>
         <div class="col">
-          <BsCard border-off class="bg-unique text-white" shadow>
+          <BsCard border-off class="bg-rose-800 text-white" shadow>
             <BsCardMedia subtitle="Image SubTitle" title="Image Title">
               <img alt="image" src="https://picsum.photos/id/25/600/300.jpg" />
             </BsCardMedia>
@@ -107,7 +113,7 @@
           </BsCard>
         </div>
         <div class="col">
-          <BsCard class="bg-stylish-color text-white" shadow>
+          <BsCard class="bg-slate-600 text-white" shadow>
             <BsCardBody>
               <BsCardContent type="title"> Content Title </BsCardContent>
               <BsCardContent>{{ quickText }}</BsCardContent>
@@ -154,7 +160,7 @@
           </BsCard>
         </div>
         <div class="col">
-          <BsCard class="bg-unique text-white" rounded-off shadow>
+          <BsCard class="bg-rose-800 text-white" rounded-off shadow>
             <BsCardHeader>Card with bg-unique</BsCardHeader>
             <BsCardBody>
               <BsCardContent type="title"> Card Title </BsCardContent>
@@ -171,7 +177,7 @@
       <div class="card-group">
         <BsCard>
           <BsImageHolder
-            class="card-img-top fs-2 font-weight-light"
+            class="card-img-top text-2xl xl:text-3xl font-weight-light"
             placeholder-text="Image Caption"
             y-pos="60%"
           />
@@ -185,7 +191,7 @@
         </BsCard>
         <BsCard>
           <BsImageHolder
-            class="card-img-top fs-2 font-weight-light"
+            class="card-img-top text-2xl xl:text-3xl font-weight-light"
             placeholder-text="Image Caption"
             y-pos="60%"
           />
@@ -199,7 +205,7 @@
         </BsCard>
         <BsCard>
           <BsImageHolder
-            class="card-img-top fs-2 font-weight-light"
+            class="card-img-top text-2xl xl:text-3xl font-weight-light"
             placeholder-text="Image Caption"
             y-pos="60%"
           />
@@ -215,9 +221,3 @@
     </DemoBlock>
   </div>
 </template>
-
-<script setup lang="ts">
-// prettier-ignore
-const quickText = "Some quick example text to build on the card title and make up the bulk of the card's content.";
-const smallText = 'Last updated 3 mins ago';
-</script>

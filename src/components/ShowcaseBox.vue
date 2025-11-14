@@ -111,8 +111,13 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <div class="showcase-container relative rounded-3 border overflow-hidden">
-    <div :class="['flex relative', sourceVisible ? 'rounded-top-3' : 'rounded-3']">
+  <div class="showcase-container relative md:rounded-lg rounded-3 border overflow-hidden">
+    <div
+      :class="[
+        'flex relative',
+        sourceVisible ? 'md:rounded-t-lg rounded-top-3' : 'md:rounded-lg rounded-3',
+      ]"
+    >
       <div class="showcase-body flex flex-col flex-fill">
         <div class="showcase-content flex-fill text-bg-surface-secondary border-b">
           <slot name="content">
@@ -197,8 +202,8 @@ onBeforeUnmount(() => {
     <BsExpandTransition>
       <div v-if="sourceVisible" class="showcase-source border-t">
         <Transition mode="out-in" name="fade-fast">
-          <div v-if="templateActive" v-html="fmtCodeTpl" class="p-3"></div>
-          <div v-else v-html="fmtCodeTsc" class="p-3"></div>
+          <div v-if="templateActive" v-html="fmtCodeTpl" class="text-sm"></div>
+          <div v-else v-html="fmtCodeTsc" class="text-sm"></div>
         </Transition>
       </div>
     </BsExpandTransition>
@@ -264,7 +269,9 @@ onBeforeUnmount(() => {
   border-bottom-right-radius: inherit;
 
   pre {
-    margin-bottom: 0;
+    margin: 0;
+    padding: 1rem;
+    overflow: auto;
   }
 }
 </style>

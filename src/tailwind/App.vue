@@ -1,54 +1,7 @@
-<template>
-  <BsApp viewport-height>
-    <AppNavbar />
-    <BsSideDrawer v-model:open="provider.sidebar.open" class="border-e" fixed-layout>
-      <div class="flex justify-center my-2">
-        <RouterLink to="/home">
-          <img alt="Vue logo" src="/assets/vue-mdb.png" style="width: 96px" />
-        </RouterLink>
-      </div>
-      <BsDivider dark />
-      <BsListView item-border-variant="left" item-rounded space-around="both">
-        <BsListNav>
-          <BsListNavItem v-for="navItem in routeNavA" :key="navItem.text" :label="navItem.text">
-            <BsListNav child>
-              <template v-for="child in navItem.children" :key="child.name || child.text">
-                <BsListNavItem
-                  v-if="!child.hidden"
-                  :label="child.text"
-                  :path-name="StringHelper.kebabCase(child.text)"
-                />
-              </template>
-            </BsListNav>
-          </BsListNavItem>
-        </BsListNav>
-        <BsDivider class="my-2" />
-        <BsListNav>
-          <BsListNavItem
-            v-for="navItem in routeNavB"
-            :key="navItem.text"
-            :label="navItem.text"
-            :path-name="StringHelper.kebabCase(navItem.text)"
-          />
-        </BsListNav>
-      </BsListView>
-    </BsSideDrawer>
-    <BsContainer v-scroll="onScroll" app @resize="resizeHandler">
-      <Suspense>
-        <RouterView v-slot="{ Component }">
-          <Transition mode="out-in" name="fade-fast">
-            <component :is="Component" />
-          </Transition>
-        </RouterView>
-      </Suspense>
-    </BsContainer>
-  </BsApp>
-</template>
-
 <script setup lang="ts">
-import AppNavbar from '@bs/AppNavbar.vue';
-import type { TMainNavigation } from '@bs/router/navigation';
-import { menuNavs } from '@bs/router/navigation';
+import AppNavbar from '@tw/AppNavbar.vue';
+import type { TMainNavigation } from '@tw/router/navigation';
+import { menuNavs } from '@tw/router/navigation';
 import { type IMyAppProvider, MyAppProvider } from '@shares/dataStore.ts';
 import { createShikiInstance, disposeShiki } from '@shares/shikiApi.ts';
 import { onBeforeUnmount, onMounted, provide } from 'vue';
@@ -61,7 +14,7 @@ provide('MyApp', provider as IMyAppProvider);
 
 function onScroll(target: Element | Window) {
   if ((target as Window).scrollY >= 60) {
-    provider.appbarClass = ['border-b', 'md-shadow'];
+    provider.appbarClass = ['md-shadow'];
   } else {
     provider.appbarClass = ['border-b'];
   }
@@ -108,6 +61,53 @@ onBeforeUnmount(() => {
 });
 </script>
 
+<template>
+  <BsApp viewport-height>
+    <AppNavbar />
+    <BsSideDrawer v-model:open="provider.sidebar.open" class="border-e" fixed-layout>
+      <div class="flex justify-center mt-4">
+        <RouterLink to="/home">
+          <img alt="Vue logo" src="/assets/logo.png" style="width: 96px" />
+        </RouterLink>
+      </div>
+      <BsDivider dark />
+      <BsListView item-border-variant="left" item-rounded space-around="both">
+        <BsListNav>
+          <BsListNavItem v-for="navItem in routeNavA" :key="navItem.text" :label="navItem.text">
+            <BsListNav child>
+              <template v-for="child in navItem.children" :key="child.name || child.text">
+                <BsListNavItem
+                  v-if="!child.hidden"
+                  :label="child.text"
+                  :path-name="StringHelper.kebabCase(child.text)"
+                />
+              </template>
+            </BsListNav>
+          </BsListNavItem>
+        </BsListNav>
+        <BsDivider class="my-2" />
+        <BsListNav>
+          <BsListNavItem
+            v-for="navItem in routeNavB"
+            :key="navItem.text"
+            :label="navItem.text"
+            :path-name="StringHelper.kebabCase(navItem.text)"
+          />
+        </BsListNav>
+      </BsListView>
+    </BsSideDrawer>
+    <BsContainer v-scroll="onScroll" app @resize="resizeHandler">
+      <Suspense>
+        <RouterView v-slot="{ Component }">
+          <Transition mode="out-in" name="fade-fast">
+            <component :is="Component" />
+          </Transition>
+        </RouterView>
+      </Suspense>
+    </BsContainer>
+  </BsApp>
+</template>
+
 <style lang="scss">
 @use 'vue-mdbootstrap/scss/mixins/css3/borders';
 @use 'vue-mdbootstrap/scss/mixins/css3/breakpoints' as media;
@@ -125,7 +125,7 @@ onBeforeUnmount(() => {
 }
 
 // Override UI aspect global css variables
-//----------------------------------------
+//-----------------------------------------
 :root {
   --background: oklch(0.976 0 89.876);
   --appbar-background: oklch(1 0 0);
@@ -134,7 +134,7 @@ onBeforeUnmount(() => {
 }
 
 // Customize side-drawer menu styles
-//----------------------------------
+//-----------------------------------
 .md-side-drawer {
   .md-nav-item:not(.md-expanded) {
     .md-tile-border-left.active > .md-ripple:before {
@@ -185,6 +185,8 @@ body {
 }
 
 .md-appbar {
+  --border-translucent: oklch(87.2% 0.01 258.338deg);
+
   a.menu-item {
     color: var(--foreground);
     font-weight: var(--font-weight-medium);
@@ -220,7 +222,7 @@ body {
 .local-navbar {
   background-color: var(--appbar-background);
   top: var(--appbar-height);
-  z-index: 2;
+  //z-index: 2;
 }
 
 .local-navbar-menu {
@@ -240,7 +242,7 @@ body {
   .local-nav-items {
     top: vars.$padding-xl + 4;
     padding-left: vars.$padding-sm;
-    z-index: 2;
+    //z-index: 2;
   }
 
   .md-list {
@@ -272,8 +274,21 @@ body {
   padding-top: vars.$padding-xl;
   max-width: 100%;
 
-  > h2 {
+  h2 {
+    font-size: calc(1.325rem + 0.9vw);
     font-weight: var(--font-weight-medium);
+  }
+
+  h3 {
+    font-size: calc(1.3rem + 0.6vw);
+  }
+
+  h4 {
+    font-size: calc(1.275rem + 0.3vw);
+  }
+
+  h5 {
+    font-size: 1.25rem;
   }
 
   // screen: 801px
@@ -290,6 +305,18 @@ body {
   @media (min-width: 64rem) {
     .card-mw-65 {
       max-width: 85%;
+    }
+  }
+
+  @include media.breakpoint-up(xl) {
+    h2 {
+      font-size: 2rem;
+    }
+    h3 {
+      font-size: 1.75rem;
+    }
+    h4 {
+      font-size: 1.5rem;
     }
   }
 
@@ -321,25 +348,5 @@ body {
     padding-left: 0;
     padding-right: 0;
   }
-}
-
-.mobi-card {
-  max-width: 25rem; // 400px;
-}
-
-.grid {
-  display: grid;
-
-  .sticky-top {
-    z-index: 10;
-  }
-}
-
-.grid-cols-auto {
-  grid-template-columns: auto minmax(0, 1fr);
-}
-
-.grid-cols-11 {
-  grid-template-columns: repeat(11, minmax(0, 1fr));
 }
 </style>

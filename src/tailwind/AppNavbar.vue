@@ -18,7 +18,7 @@ const menuOpen = ref(false);
     clipped-left
   >
     <BsButton
-      :class="provider.linksCount > 0 ? ['d-none d-lg-inline'] : undefined"
+      :class="provider.linksCount > 0 ? ['hidden lg:inline'] : undefined"
       color="dark"
       flat
       icon="menu"
@@ -28,7 +28,7 @@ const menuOpen = ref(false);
     />
     <BsAppbarTitle :title="$route.meta.title as string" />
     <BsAppbarItems class="items-center ms-auto">
-      <div class="d-none d-md-flex md-gap-x-6 me-3">
+      <div class="hidden md:flex md-gap-x-6 me-3">
         <RouterLink class="menu-item" to="/home"> Home </RouterLink>
         <a
           class="menu-item"
@@ -39,10 +39,10 @@ const menuOpen = ref(false);
           Documentation
         </a>
       </div>
-      <div class="d-none d-md-block mx-2 border-s" style="width: 1px; height: 26px"></div>
+      <div class="hidden md:block mx-2 border-s" style="width: 1px; height: 26px"></div>
       <div class="flex">
         <BsButton
-          class="d-md-none"
+          class="md:hidden"
           color="dark"
           flat
           icon="home_rounded"
@@ -92,7 +92,7 @@ const menuOpen = ref(false);
         <BsIcon icon="chevron-right" />
       </div>
       <template #content>
-        <BsListView style="--md-tile-minheight: 1.5rem; font-size: 0.875rem">
+        <BsListView class="text-sm" style="--md-tile-minheight: 1.5rem">
           <BsListTile
             v-for="[text, location] in provider.pageLinks"
             :key="text"

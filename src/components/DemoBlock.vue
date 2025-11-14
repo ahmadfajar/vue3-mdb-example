@@ -167,5 +167,6 @@ $radius: 0.75rem;
   margin-right: 6px;
   width: 28px;
   height: 28px;
+  cursor: pointer;
 }
 </style>

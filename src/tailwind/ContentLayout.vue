@@ -16,10 +16,13 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <BsContent tag="div">
+  <BsContent class="max-w-full" tag="div">
     <div
       v-if="provider.screenSize === 'tablet' && links && links.length > 0"
-      :class="['local-navbar w-full flex justify-end sticky px-3 py-1', ...provider.appbarClass]"
+      :class="[
+        'local-navbar w-full flex justify-end sticky px-3 py-1 z-2',
+        ...provider.appbarClass,
+      ]"
     >
       <BsDropdownMenu v-model:open="menuOpen" placement="bottom-right" space="5">
         <div
@@ -32,7 +35,7 @@ onBeforeUnmount(() => {
           <BsIcon icon="chevron-right" />
         </div>
         <template #content>
-          <BsListView style="--md-tile-minheight: 1.5rem; font-size: 0.875rem">
+          <BsListView class="text-sm" style="--md-tile-minheight: 1.5rem">
             <BsListTile v-for="item in links" :key="item.text" :location="item.location">
               <BsListTileTitle> {{ item.text }}</BsListTileTitle>
             </BsListTile>
@@ -45,9 +48,9 @@ onBeforeUnmount(() => {
         <slot></slot>
       </main>
       <div v-if="provider.screenSize === 'desktop'" class="local-nav-aside">
-        <aside v-if="links && links.length > 0" class="local-nav-items border-s fixed">
+        <aside v-if="links && links.length > 0" class="local-nav-items border-s fixed z-2">
           <h6>On this page</h6>
-          <BsListView style="font-size: 0.875rem">
+          <BsListView class="text-sm">
             <BsListTile v-for="item in links" :key="item.text" :location="item.location">
               <BsListTileTitle> {{ item.text }}</BsListTileTitle>
             </BsListTile>
