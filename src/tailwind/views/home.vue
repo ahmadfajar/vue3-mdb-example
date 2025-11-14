@@ -139,7 +139,7 @@ onBeforeUnmount(() => {
     <div class="section-content">
       <h2>Display list of icons for demos</h2>
     </div>
-    <ShowcaseBox class="mt-4">
+    <ShoutBox class="mt-4">
       <template #side-panel>
         <h5 class="mt-2">Configuration Options:</h5>
 
@@ -199,6 +199,6 @@ onBeforeUnmount(() => {
           </BsButton>
         </div>
       </template>
-    </ShowcaseBox>
+    </ShoutBox>
   </ContentLayout>
 </template>

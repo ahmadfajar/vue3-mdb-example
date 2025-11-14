@@ -201,7 +201,7 @@ onBeforeUnmount(() => {
 <template>
   <div class="docs-body">
     <div class="section-demo">
-      <ShowcaseBox :tpl="fmtVueTpl" :tsc="fmtVueTsc">
+      <ShoutBox :tpl="fmtVueTpl" :tsc="fmtVueTsc">
         <template #side-panel>
           <h5 class="mt-2">Configuration Options:</h5>
 
@@ -272,7 +272,7 @@ onBeforeUnmount(() => {
             </BsButton>
           </div>
         </template>
-      </ShowcaseBox>
+      </ShoutBox>
     </div>
   </div>
 </template>

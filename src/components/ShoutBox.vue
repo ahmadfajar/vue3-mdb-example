@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { highlightCode } from '@shares/shikiApi.ts';
-import { computed, onBeforeMount, onBeforeUnmount, onMounted, ref, watch } from 'vue';
+import { onBeforeMount, onBeforeUnmount, onMounted, ref, watch } from 'vue';
 import { PopupManager, useBreakpointMax } from 'vue-mdbootstrap';
 
-const props = defineProps<{ tpl?: string; tsc?: string; open?: boolean }>();
+const props = defineProps<{ tpl?: string; tsc?: string; open?: boolean; expanded?: boolean }>();
 const emit = defineEmits<{
   'update:open': [value: boolean];
 }>();
@@ -13,9 +13,17 @@ const templateActive = ref(false);
 const scriptActive = ref(false);
 const panelOpen = ref(true);
 const isMobile = ref(true);
+const showTplBtn = ref(true);
 const fmtCodeTpl = ref<string>();
 const fmtCodeTsc = ref<string>();
-const sourceVisible = computed(() => templateActive.value || scriptActive.value);
+const sourceVisible = ref(false);
+// const sourceVisible = computed(() => {
+//   if (fmtCodeTpl.value && props.expanded && !fmtCodeTsc.value) {
+//     return true;
+//   }
+//
+//   return templateActive.value || scriptActive.value;
+// });
 
 // initialize side-panel state
 isMobile.value = useBreakpointMax('md');
@@ -27,6 +35,8 @@ function toggleTemplate(state: boolean) {
   if (templateActive.value) {
     scriptActive.value = false;
   }
+
+  sourceVisible.value = templateActive.value;
 }
 
 function toggleScript(state: boolean) {
@@ -34,6 +44,8 @@ function toggleScript(state: boolean) {
   if (scriptActive.value) {
     templateActive.value = false;
   }
+
+  sourceVisible.value = scriptActive.value;
 }
 
 function toggleSidePanel(state: boolean) {
@@ -88,6 +100,12 @@ watch(
     }
   }
 );
+watch(
+  () => props.open,
+  (value) => {
+    panelOpen.value = value;
+  }
+);
 
 onBeforeMount(() => {
   // await createShikiInstance();
@@ -102,10 +120,17 @@ onMounted(async () => {
   if (props.tsc) {
     fmtCodeTsc.value = await highlightCode(props.tsc, 'vue');
   }
+
+  if (fmtCodeTpl.value && props.expanded && !fmtCodeTsc.value) {
+    templateActive.value = true;
+    sourceVisible.value = true;
+    showTplBtn.value = false;
+  } else if (!fmtCodeTpl.value) {
+    showTplBtn.value = false;
+  }
 });
 
 onBeforeUnmount(() => {
-  // disposeShiki();
   window.removeEventListener('resize', resizeHandler);
 });
 </script>
@@ -118,15 +143,24 @@ onBeforeUnmount(() => {
         sourceVisible ? 'md:rounded-t-lg rounded-top-3' : 'md:rounded-lg rounded-3',
       ]"
     >
-      <div class="showcase-body flex flex-col flex-fill">
-        <div class="showcase-content flex-fill text-bg-surface-secondary border-b">
-          <slot name="content">
-            <h5>Put example component here</h5>
-          </slot>
+      <div class="showcase-body bg-gray-200 flex flex-col flex-fill">
+        <div class="h-full flex-fill p-1 md:rounded-lg rounded-3">
+          <div
+            class="showcase-content h-full text-bg-surface-secondary border md:rounded-lg rounded-3"
+          >
+            <slot name="content">
+              <h5>Put example component here</h5>
+            </slot>
+          </div>
         </div>
-        <div class="showcase-toolbar bg-gray-100 flex w-full md-gap-x-2 px-3 py-2">
+        <div
+          :class="[
+            'showcase-toolbar flex w-full md-gap-x-2 px-3',
+            showTplBtn || fmtCodeTsc ? 'py-2' : 'py-1',
+          ]"
+        >
           <BsButton
-            v-if="fmtCodeTpl"
+            v-if="showTplBtn"
             :active="templateActive"
             color="secondary"
             flat
@@ -171,7 +205,7 @@ onBeforeUnmount(() => {
             <BsOverlay :show="panelOpen" :z-index="zIndex - 1" fixed @click="closeOverlay()" />
             <div
               :class="[
-                'showcase-side text-bg-surface-secondary border-s fixed',
+                'showcase-side text-bg-surface-tertiary border-s fixed',
                 panelOpen ? 'open' : 'close',
               ]"
             >
@@ -200,11 +234,13 @@ onBeforeUnmount(() => {
       </template>
     </div>
     <BsExpandTransition>
-      <div v-if="sourceVisible" class="showcase-source border-t">
-        <Transition mode="out-in" name="fade-fast">
-          <div v-if="templateActive" v-html="fmtCodeTpl" class="text-sm"></div>
-          <div v-else v-html="fmtCodeTsc" class="text-sm"></div>
-        </Transition>
+      <div v-if="sourceVisible" class="showcase-source bg-gray-200">
+        <div class="md:rounded-lg rounded-3 p-1">
+          <Transition mode="out-in" name="fade-fast">
+            <div v-if="templateActive" v-html="fmtCodeTpl" class="text-sm"></div>
+            <div v-else v-html="fmtCodeTsc" class="text-sm"></div>
+          </Transition>
+        </div>
       </div>
     </BsExpandTransition>
   </div>
@@ -224,13 +260,8 @@ onBeforeUnmount(() => {
   }
 }
 
-//.showcase-toolbar {
-//  //background-color: oklch(0 0 0 / 0.2);
-//  border-bottom-left-radius: inherit;
-//}
-
 .showcase-content {
-  border-top-left-radius: inherit;
+  --md-border-color: #{colors.$neutral-lighten-2};
   padding: 1.5rem 1rem;
 }
 
@@ -241,7 +272,6 @@ onBeforeUnmount(() => {
 }
 
 .showcase-side {
-  //background-color: oklch(0 0.01 15 / 0.05);
   border-top-right-radius: inherit;
   border-bottom-right-radius: inherit;
   width: 300px;
@@ -264,11 +294,17 @@ onBeforeUnmount(() => {
 }
 
 .showcase-source {
-  background-color: oklch(0.18 0.019 274.649);
   border-bottom-left-radius: inherit;
   border-bottom-right-radius: inherit;
 
+  .text-sm {
+    border-radius: inherit;
+    overflow-x: hidden;
+  }
+
   pre {
+    background-color: oklch(0.187 0 89.876) !important;
+    border-radius: inherit;
     margin: 0;
     padding: 1rem;
     overflow: auto;

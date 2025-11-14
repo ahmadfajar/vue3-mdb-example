@@ -1,35 +1,25 @@
-<template>
-  <div class="docs-body">
-    <h2>Basic Examples</h2>
-    <BsDivider />
-    <div class="row row-cols-2 row-cols-sm-3 mt-2 gy-3">
-      <div class="col">
-        <BsRipple
-          class="flex justify-center items-center text-bg-secondary border rounded-lg mx-auto"
-          style="max-width: 150px; height: 150px"
-        >
-          <b>Click Me</b>
-        </BsRipple>
-      </div>
-      <div class="col">
-        <BsRipple
-          class="flex justify-center items-center text-bg-primary border rounded-lg mx-auto"
-          style="max-width: 150px; height: 150px"
-        >
-          <b>Click Me</b>
-        </BsRipple>
-      </div>
-      <div class="col">
-        <BsRipple
-          centered
-          class="flex justify-center items-center text-bg-success border rounded-lg mx-auto"
-          style="max-width: 150px; height: 150px"
-        >
-          <b>Click Me</b>
-        </BsRipple>
-      </div>
-    </div>
-  </div>
-</template>
+<script setup lang="ts">
+import { parseVueTemplateTag } from '@shares/sharedApi.ts';
+import RippleExample from '@tw/views/animations/examples/RippleExample.vue';
+import { ref } from 'vue';
 
-<script setup lang="ts"></script>
+const fmtVueTpl = ref<string | null | undefined>();
+
+const example1 = await import('./examples/RippleExample.vue?raw');
+fmtVueTpl.value = parseVueTemplateTag(example1.default);
+</script>
+
+<template>
+  <ContentLayout>
+    <div class="section-content mb-5">
+      <h2>Basic Examples</h2>
+    </div>
+    <ShoutBox :tpl="fmtVueTpl" expanded>
+      <template #content>
+        <div class="py-6">
+          <RippleExample />
+        </div>
+      </template>
+    </ShoutBox>
+  </ContentLayout>
+</template>

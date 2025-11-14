@@ -92,7 +92,7 @@ const content = "Some quick example text to build on the card title and make up 
         {{ StringHelper.titleCase($route.params.id as string) || 'Fade' }}
       </h2>
     </transition>
-    <ShowcaseBox
+    <ShoutBox
       :tpl="$route.params.id === 'expand-transition' ? fmtVueTpl2 : fmtVueTpl1"
       :tsc="$route.params.id === 'expand-transition' ? fmtVueTsc2 : fmtVueTsc1"
       class="mt-4"
@@ -127,6 +127,6 @@ const content = "Some quick example text to build on the card title and make up 
           </transition>
         </div>
       </template>
-    </ShowcaseBox>
+    </ShoutBox>
   </ContentLayout>
 </template>

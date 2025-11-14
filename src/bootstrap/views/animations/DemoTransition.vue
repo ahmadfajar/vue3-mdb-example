@@ -69,7 +69,7 @@ const content = "Some quick example text to build on the card title and make up 
 <template>
   <ContentLayout :links="linkItems">
     <h2 class="section-content">Fade</h2>
-    <ShowcaseBox :tpl="fmtVueTpl1" :tsc="fmtVueTsc1" class="mt-4">
+    <ShoutBox :tpl="fmtVueTpl1" :tsc="fmtVueTsc1" class="mt-4">
       <template #content>
         <div class="p-2 p-md-3" style="min-height: 225px">
           <BsButton class="mb-4" @click="active = !active"> Click Me</BsButton>
@@ -83,6 +83,6 @@ const content = "Some quick example text to build on the card title and make up 
           </transition>
         </div>
       </template>
-    </ShowcaseBox>
+    </ShoutBox>
   </ContentLayout>
 </template>

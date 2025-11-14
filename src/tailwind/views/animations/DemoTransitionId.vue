@@ -92,7 +92,7 @@ const content = "Some quick example text to build on the card title and make up 
         {{ StringHelper.titleCase($route.params.id as string) || 'Fade' }}
       </h2>
     </transition>
-    <ShowcaseBox
+    <ShoutBox
       :tpl="$route.params.id === 'expand-transition' ? fmtVueTpl2 : fmtVueTpl1"
       :tsc="$route.params.id === 'expand-transition' ? fmtVueTsc2 : fmtVueTsc1"
       class="mt-4"
@@ -101,7 +101,7 @@ const content = "Some quick example text to build on the card title and make up 
         <div
           v-if="$route.params.id === 'expand-transition'"
           class="p-2 p-md-3"
-          style="min-height: 310px"
+          style="min-height: 250px"
         >
           <BsButton class="mb-4" @click="expandTransition = !expandTransition"> Click Me </BsButton>
           <BsExpandTransition>
@@ -115,7 +115,7 @@ const content = "Some quick example text to build on the card title and make up 
             </BsCard>
           </BsExpandTransition>
         </div>
-        <div v-else class="p-2 p-md-3" style="min-height: 220px">
+        <div v-else class="p-2 p-md-3" style="min-height: 190px">
           <BsButton class="mb-4" @click="active = !active"> Click Me</BsButton>
           <transition :name="(route.params.id as string) || 'fade'">
             <BsCard v-if="active" shadow>
@@ -127,6 +127,6 @@ const content = "Some quick example text to build on the card title and make up 
           </transition>
         </div>
       </template>
-    </ShowcaseBox>
+    </ShoutBox>
   </ContentLayout>
 </template>

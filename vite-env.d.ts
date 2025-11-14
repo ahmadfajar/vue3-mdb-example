@@ -15,7 +15,7 @@ declare const DemoBlock: {
   };
 };
 
-export declare interface ShowcaseBoxOptionProps {
+export declare interface ShoutBoxOptionProps {
   /**
    * Vue component template section source code.
    */
@@ -25,23 +25,30 @@ export declare interface ShowcaseBoxOptionProps {
    */
   tsc?: string | null;
   /**
-   * Showcase side-panel state.
+   * ShoutBox side-panel state.
    */
   open?: boolean;
   /**
-   * Fired when the component's state is updated.
+   * Expand and show template section source code automatically.
+   *
+   * This property will take effect only if script source code is not provided,
+   * and as result, `Template` button will disappear.
+   */
+  expanded?: boolean;
+  /**
+   * Fired when this component's state is updated.
    */
   'onUpdate:open'?: (state: boolean) => void;
 
   /**
-   * Fired when the component's state is updated.
+   * Fired when this component's state is updated.
    */
   '@update:open'?: (state: boolean) => void;
 }
 
-declare const ShowcaseBox: {
+declare const ShoutBox: {
   new (): {
-    $props: VueBaseProps & ShowcaseBoxOptionProps;
+    $props: VueBaseProps & ShoutBoxOptionProps;
     $slots: {
       content?: () => VNode[];
       'side-panel'?: () => VNode[];
@@ -64,7 +71,7 @@ declare const ContentLayout: {
 declare module 'vue' {
   interface GlobalComponents {
     DemoBlock: typeof DemoBlock;
-    ShowcaseBox: typeof ShowcaseBox;
+    ShoutBox: typeof ShoutBox;
     ContentLayout: typeof ContentLayout;
   }
 

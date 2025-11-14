@@ -14,13 +14,13 @@ const shikiBundle = createdBundledHighlighter({
     css: () => import('@shikijs/langs/css'),
   },
   themes: {
-    'material-theme-ocean': () => import('@shikijs/themes/material-theme-ocean'),
+    'slack-dark': () => import('@shikijs/themes/slack-dark'),
   },
 });
 
 let shikiFactory: HighlighterGeneric<
   'vue' | 'typescript' | 'javascript' | 'css',
-  'material-theme-ocean'
+  'slack-dark'
 > | null;
 
 /**
@@ -30,12 +30,12 @@ let shikiFactory: HighlighterGeneric<
  * {@link disposeShiki} to free resources.
  */
 export async function createShikiInstance(): Promise<
-  HighlighterGeneric<'vue' | 'typescript' | 'javascript' | 'css', 'material-theme-ocean'>
+  HighlighterGeneric<'vue' | 'typescript' | 'javascript' | 'css', 'slack-dark'>
 > {
   if (!shikiFactory) {
     shikiFactory = await shikiBundle({
       langs: ['javascript', 'typescript', 'vue', 'css'],
-      themes: ['material-theme-ocean'],
+      themes: ['slack-dark'],
     });
   }
 
@@ -70,5 +70,5 @@ export async function highlightCode(
     await createShikiInstance();
   }
 
-  return shikiFactory!.codeToHtml(code, { lang: lang, theme: 'material-theme-ocean' });
+  return shikiFactory!.codeToHtml(code, { lang: lang, theme: 'slack-dark' });
 }

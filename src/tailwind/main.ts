@@ -1,6 +1,6 @@
 import { createVueMdb } from 'vue-mdbootstrap';
 import DemoBlock from '../components/DemoBlock.vue';
-import ShowcaseBox from '../components/ShowcaseBox.vue';
+import ShoutBox from '../components/ShoutBox.vue';
 import App from './App.vue';
 import ContentLayout from './ContentLayout.vue';
 import router from './router';
@@ -10,7 +10,7 @@ import './assets/main.css';
 
 createVueMdb(App)
   .component('DemoBlock', DemoBlock)
-  .component('ShowcaseBox', ShowcaseBox)
+  .component('ShoutBox', ShoutBox)
   .component('ContentLayout', ContentLayout)
   .use(router)
   .mount('#app');
