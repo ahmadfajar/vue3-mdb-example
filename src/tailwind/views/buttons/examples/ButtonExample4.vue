@@ -1,23 +1,20 @@
 <template>
   <BsButton
-    {$colorName}
     {$icon}
     {$iconAnimation}
-    {$iconFlip}
-    {$iconPosition}
-    {$iconRotation}
     {$iconSize}
     {$iconSpin}
     {$raised}
-    {$shapes}
     {$sizes}
     {$states}
     {$variants}
+    mode="fab"
+    aria-label="FAB Button"
   >
-    Button
+    Navigate
   </BsButton>
 </template>
 
 <script setup lang="ts">
-console.log('Button Example');
+console.log('Extended FAB Button Example');
 </script>

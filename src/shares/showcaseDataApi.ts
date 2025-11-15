@@ -10,6 +10,28 @@ export const schemaConfigDefinition: TDataListSchema = {
   valueField: 'value',
 };
 
+export function buttonColorVariants(): TDataSource {
+  return {
+    proxy: new BsArrayStore(
+      [
+        { value: 'default', label: 'Default' },
+        { value: 'primary', label: 'Primary' },
+        { value: 'secondary', label: 'Secondary' },
+        { value: 'success', label: 'Success' },
+        { value: 'danger', label: 'Danger' },
+        { value: 'warning', label: 'Warning' },
+        { value: 'info', label: 'Info' },
+        { value: 'dark', label: 'Dark' },
+        { value: 'light', label: 'Light' },
+      ],
+      {
+        idProperty: 'value',
+      }
+    ),
+    schema: schemaConfigDefinition,
+  };
+}
+
 export function buttonVariants(): TDataSource {
   return {
     proxy: new BsArrayStore(
@@ -18,6 +40,21 @@ export function buttonVariants(): TDataSource {
         { value: 'tonal', label: 'Tonal' },
         { value: 'outlined', label: 'Outlined' },
         { value: 'flat', label: 'Flat' },
+      ],
+      {
+        idProperty: 'value',
+      }
+    ),
+    schema: schemaConfigDefinition,
+  };
+}
+
+export function fabButtonVariants(): TDataSource {
+  return {
+    proxy: new BsArrayStore(
+      [
+        { value: 'filled', label: 'Filled (Default)' },
+        { value: 'outlined', label: 'Outlined' },
       ],
       {
         idProperty: 'value',
@@ -68,6 +105,38 @@ export function buttonStates(): TDataSource {
         { value: 'active', label: 'Active' },
         { value: 'readonly', label: 'Readonly' },
         { value: 'disabled', label: 'Disabled' },
+      ],
+      {
+        idProperty: 'value',
+      }
+    ),
+    schema: schemaConfigDefinition,
+  };
+}
+
+export function iconFlips(): TDataSource {
+  return {
+    proxy: new BsArrayStore(
+      [
+        { value: 'horizontal', label: 'Horizontal' },
+        { value: 'vertical', label: 'Vertical' },
+        { value: 'both', label: 'Both' },
+      ],
+      {
+        idProperty: 'value',
+      }
+    ),
+    schema: schemaConfigDefinition,
+  };
+}
+
+export function iconRotations(): TDataSource {
+  return {
+    proxy: new BsArrayStore(
+      [
+        { value: '90', label: '90 degree' },
+        { value: '180', label: '180 degree' },
+        { value: '270', label: '270 degree' },
       ],
       {
         idProperty: 'value',

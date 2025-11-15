@@ -49,7 +49,7 @@ onBeforeUnmount(() => {
       </main>
       <div v-if="provider.screenSize === 'desktop'" class="local-nav-aside">
         <aside v-if="links && links.length > 0" class="local-nav-items border-s fixed z-2">
-          <h6>On this page</h6>
+          <h6 class="text-sm">On this page</h6>
           <BsListView class="text-sm">
             <BsListTile v-for="item in links" :key="item.text" :location="item.location">
               <BsListTileTitle> {{ item.text }}</BsListTileTitle>

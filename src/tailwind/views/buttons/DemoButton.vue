@@ -257,7 +257,7 @@ function toggleTonalState(name: string, state: boolean) {
         <div class="col">
           <div class="md-button-group" role="group" style="gap: 2px">
             <BsButton :icon-size="iconSm" icon="mic" mode="icon" />
-            <BsButton :icon-size="iconSm" class="rounded-3" icon="shopping_cart" mode="icon" />
+            <BsButton :icon-size="iconSm" class="rounded-lg!" icon="shopping_cart" mode="icon" />
             <BsButton :icon-size="iconSm" icon="star" rounded> Label </BsButton>
             <BsButton :icon-size="iconSm" icon="delete" mode="icon" />
           </div>
@@ -265,7 +265,7 @@ function toggleTonalState(name: string, state: boolean) {
         <div class="col">
           <div class="md-button-group" role="group" style="gap: 2px">
             <BsButton :icon-size="iconSm" icon="mic" mode="icon" />
-            <BsButton :icon-size="iconSm" class="rounded-3" icon="shopping_cart" mode="icon" />
+            <BsButton :icon-size="iconSm" class="rounded-lg!" icon="shopping_cart" mode="icon" />
             <BsButton
               :icon-size="iconSm"
               icon="shopping_cart"
@@ -280,7 +280,7 @@ function toggleTonalState(name: string, state: boolean) {
         <div class="col">
           <div class="md-button-group" role="group" style="gap: 2px">
             <BsButton :icon-size="iconSm" icon="mic" mode="icon" />
-            <BsButton :icon-size="iconSm" class="rounded-3" icon="shopping_cart" mode="icon" />
+            <BsButton :icon-size="iconSm" class="rounded-lg!" icon="shopping_cart" mode="icon" />
 
             <BsDropdownMenu>
               <BsButton :icon-size="iconSm" dropdown-toggle icon="star"> Label </BsButton>

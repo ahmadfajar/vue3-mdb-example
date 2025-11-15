@@ -1,23 +1,18 @@
 <template>
   <BsButton
-    {$colorName}
     {$icon}
     {$iconAnimation}
-    {$iconFlip}
-    {$iconPosition}
-    {$iconRotation}
     {$iconSize}
     {$iconSpin}
     {$raised}
-    {$shapes}
     {$sizes}
     {$states}
     {$variants}
-  >
-    Button
-  </BsButton>
+    mode="icon"
+    aria-label="Icon Button"
+  />
 </template>
 
 <script setup lang="ts">
-console.log('Button Example');
+console.log('Icon Button Example');
 </script>

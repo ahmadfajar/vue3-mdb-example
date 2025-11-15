@@ -31,19 +31,19 @@ export const menuNavs: TMainNavigation[] = [
       {
         text: 'Ripple',
         path: '/animations/ripple',
-        view: () => import('@tw/views/animations/DemoRipple.vue'),
+        view: () => import('@tw/views/animations/RipplePage.vue'),
       },
       {
         text: 'Transition Effects',
         path: '/animations/transition',
-        view: () => import('@tw/views/animations/DemoTransitionId.vue'),
+        view: () => import('@tw/views/animations/TransitionPage.vue'),
       },
       {
         text: 'Transition Effects',
         name: 'transition-effects-id',
         path: '/animations/transition/:id',
         hidden: true,
-        view: () => import('@tw/views/animations/DemoTransitionId.vue'),
+        view: () => import('@tw/views/animations/TransitionPage.vue'),
       },
     ],
   },
@@ -54,9 +54,20 @@ export const menuNavs: TMainNavigation[] = [
       {
         text: 'Button',
         path: '/buttons/button',
-        view: () => import('@tw/views/buttons/DemoButton.vue'),
-        // view: () => import('@tw/views/buttons/ButtonShowcase.vue'),
+        view: () => import('@tw/views/buttons/ButtonPage.vue'),
       },
+      {
+        text: 'Button',
+        name: 'button-id',
+        path: '/buttons/button/:id',
+        hidden: true,
+        view: () => import('@tw/views/buttons/ButtonPage.vue'),
+      },
+      // {
+      //   text: 'Button Example',
+      //   path: '/buttons/button-example',
+      //   view: () => import('@tw/views/buttons/DemoButton.vue'),
+      // },
       {
         text: 'Toggle Button',
         path: '/buttons/toggle-button',

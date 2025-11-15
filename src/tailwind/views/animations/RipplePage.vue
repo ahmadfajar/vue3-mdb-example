@@ -16,7 +16,7 @@ fmtVueTpl.value = parseVueTemplateTag(example1.default);
     </div>
     <ShoutBox :tpl="fmtVueTpl" expanded>
       <template #content>
-        <div class="py-6">
+        <div class="py-8">
           <RippleExample />
         </div>
       </template>
