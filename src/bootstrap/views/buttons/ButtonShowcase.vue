@@ -3,10 +3,10 @@ import {
   buttonIconPositions,
   buttonShapes,
   buttonSizes,
-  buttonStates,
   buttonVariants,
   iconAnimationVariants,
-} from '@shares/showcaseDataApi.ts';
+} from '@shares/buttonApi.ts';
+import { componentStates } from '@shares/showcaseDataApi.ts';
 import {
   parseVueScriptTag,
   parseVueTemplateTag,
@@ -182,7 +182,7 @@ watch(
 const btnVariants = buttonVariants();
 const btnShapes = buttonShapes();
 const btnSizes = buttonSizes();
-const btnStates = buttonStates();
+const btnStates = componentStates();
 const iconPositions = buttonIconPositions();
 const iconAnimations = iconAnimationVariants();
 

@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { parseVueScriptTag, parseVueTemplateTag } from '@shares/sharedApi.ts';
-import ButtonExample6 from '@tw/views/buttons/examples/ButtonExample6.vue';
+import ButtonExample7 from '@tw/views/buttons/examples/ButtonExample7.vue';
 import { ref } from 'vue';
 
-const example = await import('../examples/ButtonExample6.vue?raw');
+const example = await import('../examples/ButtonExample7.vue?raw');
 const fmtVueTpl = ref<string | null | undefined>();
 const fmtVueTsc = ref<string | null | undefined>();
 
@@ -19,7 +19,7 @@ fmtVueTsc.value = parseVueScriptTag(example.default);
     <ShoutBox :tpl="fmtVueTpl" :tsc="fmtVueTsc">
       <template #content>
         <div class="h-full flex items-center justify-center min-h-40 px-6 py-8 md:rounded-lg">
-          <ButtonExample6 />
+          <ButtonExample7 />
         </div>
       </template>
     </ShoutBox>

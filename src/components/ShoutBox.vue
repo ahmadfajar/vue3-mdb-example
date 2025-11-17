@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { highlightCode } from '@shares/shikiApi.ts';
 import { onBeforeMount, onBeforeUnmount, onMounted, ref, watch } from 'vue';
-import { PopupManager, useBreakpointMax } from 'vue-mdbootstrap';
+import { Helper, PopupManager, useBreakpointMax } from 'vue-mdbootstrap';
 
 const props = defineProps<{ tpl?: string; tsc?: string; open?: boolean; expanded?: boolean }>();
 const emit = defineEmits<{
@@ -17,13 +17,6 @@ const showTplBtn = ref(true);
 const fmtCodeTpl = ref<string>();
 const fmtCodeTsc = ref<string>();
 const sourceVisible = ref(false);
-// const sourceVisible = computed(() => {
-//   if (fmtCodeTpl.value && props.expanded && !fmtCodeTsc.value) {
-//     return true;
-//   }
-//
-//   return templateActive.value || scriptActive.value;
-// });
 
 // initialize side-panel state
 isMobile.value = useBreakpointMax('md');
@@ -86,6 +79,34 @@ function resizeHandler() {
     PopupManager.allowScrolling();
     panelOpen.value = initialState;
     emit('update:open', initialState);
+  }
+}
+
+const msgCls = 'copy-message absolute font-weight-medium';
+const copyMsgCls = ref([msgCls, 'hidden']);
+
+async function copyToClipboard() {
+  const text =
+    templateActive.value && props.tpl
+      ? props.tpl
+      : scriptActive.value && props.tsc
+        ? props.tsc
+        : props.tpl && !props.tsc
+          ? props.tpl
+          : props.tsc;
+
+  if (text) {
+    try {
+      await navigator.clipboard.writeText(text);
+
+      copyMsgCls.value = [msgCls];
+      Helper.defer(() => {
+        copyMsgCls.value = [msgCls, 'hidden'];
+      }, 2500);
+      // console.log('Text copied to clipboard successfully');
+    } catch (error) {
+      console.warn('Unable to copy text to clipboard:', error);
+    }
   }
 }
 
@@ -155,7 +176,7 @@ onBeforeUnmount(() => {
         </div>
         <div
           :class="[
-            'showcase-toolbar flex w-full md-gap-x-2 px-3',
+            'showcase-toolbar flex w-full md-gap-x-1 px-3',
             showTplBtn || fmtCodeTsc ? 'py-2' : 'py-1',
           ]"
         >
@@ -164,6 +185,7 @@ onBeforeUnmount(() => {
             :active="templateActive"
             color="secondary"
             flat
+            rounded
             size="sm"
             @click="toggleTemplate(templateActive)"
           >
@@ -174,6 +196,7 @@ onBeforeUnmount(() => {
             :active="scriptActive"
             color="secondary"
             flat
+            rounded
             size="sm"
             @click="toggleScript(scriptActive)"
           >
@@ -234,7 +257,18 @@ onBeforeUnmount(() => {
       </template>
     </div>
     <BsExpandTransition>
-      <div v-if="sourceVisible" class="showcase-source bg-gray-200">
+      <div v-if="sourceVisible" class="showcase-source relative bg-gray-200">
+        <div :class="copyMsgCls">Copied</div>
+        <BsButton
+          class="absolute"
+          color="light"
+          flat
+          icon="content_copy"
+          mode="icon"
+          title="Copy code"
+          aria-label="Copy code"
+          @click="copyToClipboard()"
+        />
         <div class="md:rounded-lg rounded-3 p-1">
           <Transition mode="out-in" name="fade-fast">
             <div v-if="templateActive" v-html="fmtCodeTpl" class="text-sm"></div>
@@ -247,8 +281,10 @@ onBeforeUnmount(() => {
 </template>
 
 <style lang="scss">
+@use 'sass:color';
 @use 'vue-mdbootstrap/scss/mixins/css3/breakpoints' as media;
 @use 'vue-mdbootstrap/scss/color_vars' as colors;
+@use 'vue-mdbootstrap/scss/variables' as vars;
 
 .showcase-container {
   --border-translucent: #{colors.$gray-300};
@@ -296,6 +332,32 @@ onBeforeUnmount(() => {
 .showcase-source {
   border-bottom-left-radius: inherit;
   border-bottom-right-radius: inherit;
+
+  > .copy-message {
+    background-color: color.change(colors.$neutral-lighten-2, $alpha: 0.2);
+    border-radius: 6px;
+    color: colors.$gray-300;
+    font-size: 14px;
+    line-height: 1;
+    padding: 0.85rem;
+    top: 15px;
+    right: 60px;
+    z-index: 2;
+  }
+
+  > .md-btn-icon {
+    display: none;
+    top: 15px;
+    right: 15px;
+    z-index: 2;
+    transition: vars.$transition-default-easing;
+  }
+
+  &:hover {
+    > .md-btn-icon {
+      display: block;
+    }
+  }
 
   .text-sm {
     border-radius: inherit;

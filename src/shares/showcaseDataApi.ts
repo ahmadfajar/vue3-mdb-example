@@ -1,107 +1,14 @@
-import {
-  BsArrayStore,
-  type TDataListSchema,
-  type TDataSource,
-  type TRadioInputProps,
-} from 'vue-mdbootstrap';
+import { BsArrayStore, type TDataListSchema, type TDataSource } from 'vue-mdbootstrap';
 
 export const schemaConfigDefinition: TDataListSchema = {
   displayField: 'label',
   valueField: 'value',
 };
 
-export function buttonColorVariants(): TDataSource {
+export function componentStates(): TDataSource {
   return {
     proxy: new BsArrayStore(
       [
-        { value: 'default', label: 'Default' },
-        { value: 'primary', label: 'Primary' },
-        { value: 'secondary', label: 'Secondary' },
-        { value: 'success', label: 'Success' },
-        { value: 'danger', label: 'Danger' },
-        { value: 'warning', label: 'Warning' },
-        { value: 'info', label: 'Info' },
-        { value: 'dark', label: 'Dark' },
-        { value: 'light', label: 'Light' },
-      ],
-      {
-        idProperty: 'value',
-      }
-    ),
-    schema: schemaConfigDefinition,
-  };
-}
-
-export function buttonVariants(): TDataSource {
-  return {
-    proxy: new BsArrayStore(
-      [
-        { value: 'filled', label: 'Filled (Default)' },
-        { value: 'tonal', label: 'Tonal' },
-        { value: 'outlined', label: 'Outlined' },
-        { value: 'flat', label: 'Flat' },
-      ],
-      {
-        idProperty: 'value',
-      }
-    ),
-    schema: schemaConfigDefinition,
-  };
-}
-
-export function fabButtonVariants(): TDataSource {
-  return {
-    proxy: new BsArrayStore(
-      [
-        { value: 'filled', label: 'Filled (Default)' },
-        { value: 'outlined', label: 'Outlined' },
-      ],
-      {
-        idProperty: 'value',
-      }
-    ),
-    schema: schemaConfigDefinition,
-  };
-}
-
-export function buttonShapes(): TDataSource {
-  return {
-    proxy: new BsArrayStore(
-      [
-        { value: 'pill', label: 'Pill (Default)' },
-        { value: 'rounded', label: 'Rounded' },
-        { value: 'pill-off', label: 'Rectangle' },
-      ],
-      {
-        idProperty: 'value',
-      }
-    ),
-    schema: schemaConfigDefinition,
-  };
-}
-
-export function buttonSizes(): TDataSource {
-  return {
-    proxy: new BsArrayStore(
-      [
-        { value: 'md', label: 'Default' },
-        { value: 'lg', label: 'Large' },
-        { value: 'sm', label: 'Small' },
-        { value: 'xs', label: 'Extra Small' },
-      ],
-      {
-        idProperty: 'value',
-      }
-    ),
-    schema: schemaConfigDefinition,
-  };
-}
-
-export function buttonStates(): TDataSource {
-  return {
-    proxy: new BsArrayStore(
-      [
-        { value: 'default', label: 'Default' },
         { value: 'active', label: 'Active' },
         { value: 'readonly', label: 'Readonly' },
         { value: 'disabled', label: 'Disabled' },
@@ -114,13 +21,12 @@ export function buttonStates(): TDataSource {
   };
 }
 
-export function iconFlips(): TDataSource {
+export function componentStatesRD(): TDataSource {
   return {
     proxy: new BsArrayStore(
       [
-        { value: 'horizontal', label: 'Horizontal' },
-        { value: 'vertical', label: 'Vertical' },
-        { value: 'both', label: 'Both' },
+        { value: 'readonly', label: 'Readonly' },
+        { value: 'disabled', label: 'Disabled' },
       ],
       {
         idProperty: 'value',
@@ -128,34 +34,4 @@ export function iconFlips(): TDataSource {
     ),
     schema: schemaConfigDefinition,
   };
-}
-
-export function iconRotations(): TDataSource {
-  return {
-    proxy: new BsArrayStore(
-      [
-        { value: '90', label: '90 degree' },
-        { value: '180', label: '180 degree' },
-        { value: '270', label: '270 degree' },
-      ],
-      {
-        idProperty: 'value',
-      }
-    ),
-    schema: schemaConfigDefinition,
-  };
-}
-
-export function buttonIconPositions(): TRadioInputProps[] {
-  return [
-    { value: 'left', label: 'Left' },
-    { value: 'right', label: 'Right' },
-  ];
-}
-
-export function iconAnimationVariants(): TRadioInputProps[] {
-  return [
-    { value: 'spin', label: 'Spin' },
-    { value: 'pulse', label: 'Pulse' },
-  ];
 }

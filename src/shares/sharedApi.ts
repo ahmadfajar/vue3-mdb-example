@@ -1,10 +1,10 @@
-import * as cheerio from 'cheerio';
+import js_beautify from 'js-beautify';
 import type { VNode } from 'vue';
 import { Color, type TRecord, useRenderSVG } from 'vue-mdbootstrap';
 
-export function hexToOklchString(value: string): string {
-  return Color.oklchToString(Color.rgbaToOklch(Color.hexToRgba(value)));
-}
+// export function hexToOklchString(value: string): string {
+//   return Color.oklchToString(Color.rgbaToOklch(Color.hexToRgba(value)));
+// }
 
 export function textCssFromOklchColor(value: string) {
   const yiq = Color.oklchFromString(value);
@@ -64,8 +64,32 @@ export function parseVueScriptTag(data: string): string {
   return data.slice(i1, i2 + endTag.length);
 }
 
-export function stripAndBeautifyTemplate(rawCode: string) {
-  const content = rawCode.replace(/(\{\$.*\})[\n\s]+/g, '');
+const config = {
+  indent_size: 2,
+  indent_char: ' ',
+  max_preserve_newlines: 2,
+  preserve_newlines: true,
+  indent_scripts: 'normal',
+  end_with_newline: false,
+  wrap_attributes: 'force-expand-multiline',
+  wrap_line_length: 80,
+  indent_inner_html: false,
+  indent_empty_lines: false,
+} satisfies js_beautify.HTMLBeautifyOptions;
 
-  return cheerio.load(content, { xml: true }).root().html()?.replaceAll('=""', '');
+/**
+ * Strip replaceable fragment and format the out text result.
+ *
+ * If `beautify` is set to false, then only strip action is done.
+ *
+ * @param rawCode  The input source code to strip and beautify
+ * @param beautify Format the output result or not. Default is `true`.
+ */
+export function stripAndBeautifyTemplate(
+  rawCode: string,
+  beautify: boolean = true
+): string | undefined {
+  const content = rawCode.replace(/\{\$.*\}[\n\s]+/g, '');
+
+  return beautify ? js_beautify.html_beautify(content, config) : content;
 }

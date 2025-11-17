@@ -1,11 +1,14 @@
 <script setup lang="ts">
-import { parseVueTemplateTag, stripAndBeautifyTemplate } from '@shares/sharedApi.ts';
 import {
   buttonSizes,
-  buttonStates,
+  changeButtonSize,
+  changeButtonState,
+  changeIconAnimation,
   fabButtonVariants,
   iconAnimationVariants,
-} from '@shares/showcaseDataApi.ts';
+} from '@shares/buttonApi.ts';
+import { parseVueTemplateTag, stripAndBeautifyTemplate } from '@shares/sharedApi.ts';
+import { componentStates } from '@shares/showcaseDataApi.ts';
 import { nextTick, onBeforeUnmount, onMounted, ref, watch, watchEffect } from 'vue';
 import { type TButtonSize } from 'vue-mdbootstrap';
 
@@ -26,9 +29,9 @@ const fmtVueTpl = ref<string | null | undefined>();
 
 rawTemplate.value = parseVueTemplateTag(example.default);
 
-const btnVariant = ref();
-const btnSize = ref('md');
-const btnState = ref<string>('default');
+const btnVariant = ref<string>();
+const btnSize = ref<string | undefined>('md');
+const btnState = ref<string | undefined>();
 const btnIcon = ref<string>();
 const iconSize = ref(28);
 const hasAnimation = ref(false);
@@ -42,96 +45,57 @@ function changeButtonVariant(data?: string): string | undefined {
   }
 }
 
-function changeButtonSize(data?: string): string | undefined {
-  switch (btnSize.value) {
-    case 'xs':
-    case 'sm':
-    case 'lg':
-      return data?.replace('{$sizes}', `size="${btnSize.value}"`);
-    default:
-      return data;
-  }
-}
-
-function changeButtonState(data?: string): string | undefined {
-  switch (btnState.value) {
-    case 'disabled':
-    case 'readonly':
-    case 'active':
-      return data?.replace('{$states}', btnState.value);
-    default:
-      return data;
-  }
-}
-
 function changeButtonIcon(data?: string): string | undefined {
   const tmp = data?.replace('{$icon}', `icon="${btnIcon.value}"`);
 
   return tmp?.replace('{$iconSize}', `icon-size="${iconSize.value}"`);
 }
 
-function changeIconAnimation(data?: string): string | undefined {
-  if (hasAnimation.value && iconAnimation.value) {
-    return data?.replace('{$iconAnimation}', `icon-${iconAnimation.value}`);
-  }
-
-  return data;
-}
-
 watchEffect(() => {
   let rawCode: string | undefined;
 
   rawCode = changeButtonVariant(rawTemplate.value);
-  rawCode = changeButtonSize(rawCode);
-  rawCode = changeButtonState(rawCode);
+  rawCode = changeButtonSize(btnSize, rawCode);
+  rawCode = changeButtonState(btnState, rawCode);
   rawCode = changeButtonIcon(rawCode);
-  rawCode = changeIconAnimation(rawCode);
+  rawCode = changeIconAnimation(iconAnimation, hasAnimation.value, rawCode);
 
   if (rawCode) {
     fmtVueTpl.value = stripAndBeautifyTemplate(rawCode);
   }
 });
 
-watch(
-  () => btnSize.value,
-  async (value) => {
-    if (value === 'lg') {
-      iconSize.value = 38;
-    } else if (value === 'sm') {
-      iconSize.value = 24;
-    } else if (value === 'xs') {
-      iconSize.value = 18;
-    } else {
-      iconSize.value = 28;
-    }
-
-    btnIcon.value = undefined;
-    await nextTick(() => {
-      btnIcon.value = `${iconName}_${btnVariant.value}`;
-    });
+watch(btnSize, async (value) => {
+  if (value === 'lg') {
+    iconSize.value = 38;
+  } else if (value === 'sm') {
+    iconSize.value = 24;
+  } else if (value === 'xs') {
+    iconSize.value = 18;
+  } else {
+    iconSize.value = 28;
   }
-);
 
-watch(
-  () => btnVariant.value,
-  async (value) => {
-    btnIcon.value = undefined;
-    await nextTick(() => {
-      btnIcon.value = `${iconName}_${value}`;
-    });
-  }
-);
+  btnIcon.value = undefined;
+  await nextTick(() => {
+    btnIcon.value = `${iconName}_${btnVariant.value}`;
+  });
+});
 
-watch(
-  () => hasAnimation.value,
-  (value) => {
-    iconAnimation.value = value ? iconAnimation.value : undefined;
-  }
-);
+watch(btnVariant, async (value) => {
+  btnIcon.value = undefined;
+  await nextTick(() => {
+    btnIcon.value = `${iconName}_${value}`;
+  });
+});
+
+watch(hasAnimation, (value) => {
+  iconAnimation.value = value ? iconAnimation.value : undefined;
+});
 
 const btnVariants = fabButtonVariants();
 const btnSizes = buttonSizes();
-const btnStates = buttonStates();
+const btnStates = componentStates();
 const iconAnimations = iconAnimationVariants();
 
 onMounted(() => {

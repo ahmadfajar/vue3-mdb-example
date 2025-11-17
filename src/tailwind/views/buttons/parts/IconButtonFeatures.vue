@@ -1,11 +1,16 @@
 <script setup lang="ts">
-import { parseVueTemplateTag, stripAndBeautifyTemplate } from '@shares/sharedApi.ts';
 import {
   buttonSizes,
-  buttonStates,
   buttonVariants,
+  changeButtonElevated,
+  changeButtonSize,
+  changeButtonState,
+  changeButtonVariant,
+  changeIconAnimation,
   iconAnimationVariants,
-} from '@shares/showcaseDataApi.ts';
+} from '@shares/buttonApi.ts';
+import { parseVueTemplateTag, stripAndBeautifyTemplate } from '@shares/sharedApi.ts';
+import { componentStates } from '@shares/showcaseDataApi.ts';
 import { nextTick, onBeforeUnmount, onMounted, ref, watch, watchEffect } from 'vue';
 import type { TButtonSize } from 'vue-mdbootstrap';
 
@@ -16,55 +21,14 @@ const fmtVueTpl = ref<string | null | undefined>();
 rawTemplate.value = parseVueTemplateTag(example.default);
 
 const iconName = 'settings';
-const btnVariant = ref();
-const btnSize = ref('md');
-const btnState = ref<string>('default');
+const btnVariant = ref<string>();
+const btnSize = ref<string | undefined>('md');
+const btnState = ref<string | undefined>();
 const btnElevated = ref(false);
 const btnIcon = ref<string>();
 const iconSize = ref(24);
 const hasAnimation = ref(false);
 const iconAnimation = ref<string>();
-
-function changeButtonVariant(data?: string): string | undefined {
-  switch (btnVariant.value) {
-    case 'tonal':
-    case 'outlined':
-    case 'flat':
-      return data?.replace('{$variants}', btnVariant.value);
-    default:
-      return data;
-  }
-}
-
-function changeButtonSize(data?: string): string | undefined {
-  switch (btnSize.value) {
-    case 'xs':
-    case 'sm':
-    case 'lg':
-      return data?.replace('{$sizes}', `size="${btnSize.value}"`);
-    default:
-      return data;
-  }
-}
-
-function changeButtonState(data?: string): string | undefined {
-  switch (btnState.value) {
-    case 'disabled':
-    case 'readonly':
-    case 'active':
-      return data?.replace('{$states}', btnState.value);
-    default:
-      return data;
-  }
-}
-
-function changeButtonElevated(data?: string): string | undefined {
-  if (btnElevated.value) {
-    return data?.replace('{$raised}', 'raised');
-  }
-
-  return data;
-}
 
 function changeButtonIcon(data?: string): string | undefined {
   const tmp = data?.replace('{$icon}', `icon="${iconName}"`);
@@ -79,59 +43,45 @@ function changeButtonIcon(data?: string): string | undefined {
   }
 }
 
-function changeIconAnimation(data?: string): string | undefined {
-  if (hasAnimation.value && iconAnimation.value) {
-    return data?.replace('{$iconAnimation}', `icon-${iconAnimation.value}`);
-  }
-
-  return data;
-}
-
 watchEffect(() => {
   let rawCode: string | undefined;
 
-  rawCode = changeButtonVariant(rawTemplate.value);
-  rawCode = changeButtonSize(rawCode);
-  rawCode = changeButtonState(rawCode);
-  rawCode = changeButtonElevated(rawCode);
+  rawCode = changeButtonVariant(btnVariant, rawTemplate.value);
+  rawCode = changeButtonSize(btnSize, rawCode);
+  rawCode = changeButtonState(btnState, rawCode);
+  rawCode = changeButtonElevated(btnElevated, rawCode);
   rawCode = changeButtonIcon(rawCode);
-  rawCode = changeIconAnimation(rawCode);
+  rawCode = changeIconAnimation(iconAnimation, hasAnimation.value, rawCode);
 
   if (rawCode) {
     fmtVueTpl.value = stripAndBeautifyTemplate(rawCode);
   }
 });
 
-watch(
-  () => btnSize.value,
-  async (value) => {
-    if (value === 'lg') {
-      iconSize.value = 32;
-    } else if (value === 'sm') {
-      iconSize.value = 22;
-    } else if (value === 'xs') {
-      iconSize.value = 16;
-    } else {
-      iconSize.value = 24;
-    }
-
-    btnIcon.value = undefined;
-    await nextTick(() => {
-      btnIcon.value = iconName;
-    });
+watch(btnSize, async (value) => {
+  if (value === 'lg') {
+    iconSize.value = 32;
+  } else if (value === 'sm') {
+    iconSize.value = 22;
+  } else if (value === 'xs') {
+    iconSize.value = 16;
+  } else {
+    iconSize.value = 24;
   }
-);
 
-watch(
-  () => hasAnimation.value,
-  (value) => {
-    iconAnimation.value = value ? iconAnimation.value : undefined;
-  }
-);
+  btnIcon.value = undefined;
+  await nextTick(() => {
+    btnIcon.value = iconName;
+  });
+});
+
+watch(hasAnimation, (value) => {
+  iconAnimation.value = value ? iconAnimation.value : undefined;
+});
 
 const btnVariants = buttonVariants();
 const btnSizes = buttonSizes();
-const btnStates = buttonStates();
+const btnStates = componentStates();
 const iconAnimations = iconAnimationVariants();
 
 onMounted(() => {

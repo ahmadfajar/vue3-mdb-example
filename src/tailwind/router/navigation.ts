@@ -63,15 +63,17 @@ export const menuNavs: TMainNavigation[] = [
         hidden: true,
         view: () => import('@tw/views/buttons/ButtonPage.vue'),
       },
-      // {
-      //   text: 'Button Example',
-      //   path: '/buttons/button-example',
-      //   view: () => import('@tw/views/buttons/DemoButton.vue'),
-      // },
       {
         text: 'Toggle Button',
         path: '/buttons/toggle-button',
-        view: () => import('@tw/views/buttons/DemoToggleButton.vue'),
+        view: () => import('@tw/views/buttons/ToggleButtonPage.vue'),
+      },
+      {
+        text: 'Toggle Button',
+        name: 'toggle-button-id',
+        path: '/buttons/toggle-button/:id',
+        hidden: true,
+        view: () => import('@tw/views/buttons/ToggleButtonPage.vue'),
       },
     ],
   },

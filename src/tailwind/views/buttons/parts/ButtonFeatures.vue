@@ -1,13 +1,20 @@
 <script setup lang="ts">
 import {
-  buttonColorVariants,
+  buttonColors,
   buttonIconPositions,
   buttonShapes,
   buttonSizes,
-  buttonStates,
   buttonVariants,
+  changeButtonColor,
+  changeButtonElevated,
+  changeButtonShape,
+  changeButtonSize,
+  changeButtonState,
+  changeButtonVariant,
+  changeIconAnimation,
   iconAnimationVariants,
-} from '@shares/showcaseDataApi.ts';
+} from '@shares/buttonApi.ts';
+import { componentStates } from '@shares/showcaseDataApi.ts';
 import { parseVueTemplateTag, stripAndBeautifyTemplate } from '@shares/sharedApi.ts';
 import { nextTick, onBeforeUnmount, onMounted, ref, watch, watchEffect } from 'vue';
 import { type TButtonColor, type TButtonSize, type TIconPosition } from 'vue-mdbootstrap';
@@ -26,10 +33,10 @@ if (props.showColor) {
 }
 
 const btnColor = ref<TButtonColor>('default');
-const btnVariant = ref();
-const btnShape = ref('pill');
-const btnSize = ref('md');
-const btnState = ref<string>('default');
+const btnVariant = ref<string>();
+const btnShape = ref<string | undefined>('pill');
+const btnSize = ref<string | undefined>('md');
+const btnState = ref<string | undefined>();
 const btnElevated = ref(false);
 const hasIcon = ref(false);
 const btnIcon = ref<string>();
@@ -37,65 +44,6 @@ const iconPosition = ref<TIconPosition>('left');
 const iconSize = ref(24);
 const hasAnimation = ref(false);
 const iconAnimation = ref<string>();
-
-function changeButtonVariant(data?: string): string | undefined {
-  switch (btnVariant.value) {
-    case 'tonal':
-    case 'outlined':
-    case 'flat':
-      return data?.replace('{$variants}', btnVariant.value);
-    default:
-      return data;
-  }
-}
-
-function changeButtonColor(data?: string): string | undefined {
-  if (data && btnColor.value !== 'default') {
-    return data.replace('{$colorName}', `color="${btnColor.value}"`);
-  }
-
-  return data;
-}
-
-function changeButtonShape(data?: string): string | undefined {
-  switch (btnShape.value) {
-    case 'rounded':
-    case 'pill-off':
-      return data?.replace('{$shapes}', btnShape.value);
-    default:
-      return data;
-  }
-}
-
-function changeButtonSize(data?: string): string | undefined {
-  switch (btnSize.value) {
-    case 'xs':
-    case 'sm':
-    case 'lg':
-      return data?.replace('{$sizes}', `size="${btnSize.value}"`);
-    default:
-      return data;
-  }
-}
-
-function changeButtonState(data?: string): string | undefined {
-  switch (btnState.value) {
-    case 'disabled':
-    case 'readonly':
-    case 'active':
-      return data?.replace('{$states}', btnState.value);
-    default:
-      return data;
-  }
-}
-
-function changeButtonElevated(data?: string): string | undefined {
-  if (btnElevated.value) {
-    return data?.replace('{$raised}', 'raised');
-  }
-
-  return data;
-}
 
 function changeIconSize(data?: string): string | undefined {
   if (hasIcon.value) {
@@ -124,32 +72,24 @@ function changeIconPosition(data?: string): string | undefined {
   return data;
 }
 
-function changeIconAnimation(data?: string): string | undefined {
-  if (hasAnimation.value && iconAnimation.value) {
-    return data?.replace('{$iconAnimation}', `icon-${iconAnimation.value}`);
-  }
-
-  return data;
-}
-
 watchEffect(() => {
   let rawCode: string | undefined;
 
-  rawCode = changeButtonVariant(rawTemplate.value);
+  rawCode = changeButtonVariant(btnVariant, rawTemplate.value);
 
   if (props.showColor) {
-    rawCode = changeButtonColor(rawCode);
+    rawCode = changeButtonColor(btnColor, rawCode);
   }
 
-  rawCode = changeButtonShape(rawCode);
-  rawCode = changeButtonSize(rawCode);
-  rawCode = changeButtonState(rawCode);
-  rawCode = changeButtonElevated(rawCode);
+  rawCode = changeButtonShape(btnShape, rawCode);
+  rawCode = changeButtonSize(btnSize, rawCode);
+  rawCode = changeButtonState(btnState, rawCode);
+  rawCode = changeButtonElevated(btnElevated, rawCode);
   rawCode = changeIconSize(rawCode);
   rawCode = changeIconPosition(rawCode);
 
   if (!props.showColor) {
-    rawCode = changeIconAnimation(rawCode);
+    rawCode = changeIconAnimation(iconAnimation, hasAnimation.value, rawCode);
   }
 
   if (rawCode) {
@@ -157,47 +97,39 @@ watchEffect(() => {
   }
 });
 
-watch(
-  () => btnSize.value,
-  async (value) => {
-    if (value === 'lg') {
-      iconSize.value = 30;
-    } else if (value === 'sm') {
-      iconSize.value = 20;
-    } else if (value === 'xs') {
-      iconSize.value = 16;
-    } else {
-      iconSize.value = 24;
-    }
-
-    if (hasIcon.value) {
-      btnIcon.value = undefined;
-      await nextTick(() => {
-        btnIcon.value = iconName;
-      });
-    }
+watch(btnSize, async (value) => {
+  if (value === 'lg') {
+    iconSize.value = 30;
+  } else if (value === 'sm') {
+    iconSize.value = 20;
+  } else if (value === 'xs') {
+    iconSize.value = 16;
+  } else {
+    iconSize.value = 24;
   }
-);
 
-watch(
-  () => hasIcon.value,
-  (value) => {
-    btnIcon.value = value ? iconName : undefined;
-    iconAnimation.value = value ? iconAnimation.value : undefined;
+  if (hasIcon.value) {
+    btnIcon.value = undefined;
+    await nextTick(() => {
+      btnIcon.value = iconName;
+    });
   }
-);
-watch(
-  () => hasAnimation.value,
-  (value) => {
-    iconAnimation.value = value ? iconAnimation.value : undefined;
-  }
-);
+});
 
-const btnColors = buttonColorVariants();
+watch(hasIcon, (value) => {
+  btnIcon.value = value ? iconName : undefined;
+  iconAnimation.value = value ? iconAnimation.value : undefined;
+});
+
+watch(hasAnimation, (value) => {
+  iconAnimation.value = value ? iconAnimation.value : undefined;
+});
+
+const btnColors = buttonColors();
 const btnVariants = buttonVariants();
 const btnShapes = buttonShapes();
 const btnSizes = buttonSizes();
-const btnStates = buttonStates();
+const btnStates = componentStates();
 const iconPositions = buttonIconPositions();
 const iconAnimations = iconAnimationVariants();
 
@@ -253,7 +185,7 @@ onBeforeUnmount(() => {
         </BsCombobox>
 
         <div class="w-full">
-          <div class="flex md-gap-x-2">
+          <div class="flex md-gap-x-3">
             <BsCheckbox
               v-model="btnElevated"
               :disabled="btnState === 'readonly' || btnState === 'disabled'"
@@ -291,7 +223,7 @@ onBeforeUnmount(() => {
           :class="[
             'h-full flex items-center justify-center min-h-40 px-6 py-8 md:rounded-lg',
             btnColor === 'light' && btnVariant !== 'filled' && btnState !== 'disabled'
-              ? 'bg-slate-800'
+              ? 'bg-gray-800'
               : '',
           ]"
         >

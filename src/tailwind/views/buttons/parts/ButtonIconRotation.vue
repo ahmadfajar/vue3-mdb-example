@@ -1,12 +1,13 @@
 <script setup lang="ts">
-import { parseVueTemplateTag, stripAndBeautifyTemplate } from '@shares/sharedApi.ts';
 import {
   buttonIconPositions,
   buttonSizes,
   buttonVariants,
+  changeButtonVariant,
   iconFlips,
   iconRotations,
-} from '@shares/showcaseDataApi.ts';
+} from '@shares/buttonApi.ts';
+import { parseVueTemplateTag, stripAndBeautifyTemplate } from '@shares/sharedApi.ts';
 import { nextTick, onBeforeUnmount, onMounted, ref, watch, watchEffect } from 'vue';
 import type { TButtonSize, TIconFlip, TIconPosition, TIconRotation } from 'vue-mdbootstrap';
 
@@ -17,24 +18,13 @@ const fmtVueTpl = ref<string | null | undefined>();
 rawTemplate.value = parseVueTemplateTag(example.default);
 
 const iconName = 'shopping_cart';
-const btnVariant = ref();
-const btnSize = ref('md');
+const btnVariant = ref<string>();
+const btnSize = ref<string | undefined>('md');
 const btnIcon = ref<string>();
 const iconPosition = ref<TIconPosition>('left');
 const iconSize = ref(24);
 const iconFlip = ref<TIconFlip>();
 const iconRotation = ref<TIconRotation>();
-
-function changeButtonVariant(data?: string): string | undefined {
-  switch (btnVariant.value) {
-    case 'tonal':
-    case 'outlined':
-    case 'flat':
-      return data?.replace('{$variants}', btnVariant.value);
-    default:
-      return data;
-  }
-}
 
 function changeButtonSize(data?: string): string | undefined {
   let tmp = data?.replace('{$icon}', `icon="${btnIcon.value}"`);
@@ -81,7 +71,7 @@ function changeIconPosition(data?: string): string | undefined {
 watchEffect(() => {
   let rawCode: string | undefined;
 
-  rawCode = changeButtonVariant(rawTemplate.value);
+  rawCode = changeButtonVariant(btnVariant, rawTemplate.value);
   rawCode = changeButtonSize(rawCode);
   rawCode = changeIconFlip(rawCode);
   rawCode = changeIconRotation(rawCode);
@@ -92,25 +82,22 @@ watchEffect(() => {
   }
 });
 
-watch(
-  () => btnSize.value,
-  async (value) => {
-    if (value === 'lg') {
-      iconSize.value = 30;
-    } else if (value === 'sm') {
-      iconSize.value = 20;
-    } else if (value === 'xs') {
-      iconSize.value = 16;
-    } else {
-      iconSize.value = 24;
-    }
-
-    btnIcon.value = undefined;
-    await nextTick(() => {
-      btnIcon.value = iconName;
-    });
+watch(btnSize, async (value) => {
+  if (value === 'lg') {
+    iconSize.value = 30;
+  } else if (value === 'sm') {
+    iconSize.value = 20;
+  } else if (value === 'xs') {
+    iconSize.value = 16;
+  } else {
+    iconSize.value = 24;
   }
-);
+
+  btnIcon.value = undefined;
+  await nextTick(() => {
+    btnIcon.value = iconName;
+  });
+});
 
 const btnVariants = buttonVariants();
 const btnSizes = buttonSizes();

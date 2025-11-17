@@ -1,33 +1,42 @@
-<script setup lang="ts">
-import { ref } from 'vue';
-
-const state1 = ref(false);
-const state2 = ref(false);
-const state3 = ref(false);
-const state4 = ref(false);
-const state5 = ref(false);
-const state6 = ref(false);
-const state7 = ref(false);
-</script>
+<script setup lang="ts"></script>
 
 <template>
-  <div class="md-button-toolbar md-gap-3" role="toolbar">
-    <div class="inline-flex" role="group">
-      <BsButton :active="state1" @click="state1 = !state1"> Start </BsButton>
-      <BsButton :active="state2" @click="state2 = !state2"> 1 </BsButton>
-      <BsButton :active="state3" @click="state3 = !state3"> 2 </BsButton>
-      <BsButton :active="state4" @click="state4 = !state4"> 3 </BsButton>
+  <div class="flex flex-col gap-8">
+    <div class="md-button-group" role="group" style="gap: 2px">
+      <BsButton icon="shopping_cart" mode="icon" />
+      <BsButton icon="favorite" style="border-radius: 50px 16px 16px 50px"> Label </BsButton>
+      <BsButton icon="star" style="border-radius: 16px 50px 50px 16px"> Label </BsButton>
+      <BsButton icon="delete" mode="icon" />
     </div>
-    <div class="inline-flex" role="group">
-      <BsButton :active="state5" outlined @click="state5 = !state5">
-        <BsIcon icon="favorite" />
-      </BsButton>
-      <BsButton :active="state6" outlined @click="state6 = !state6">
-        <BsIcon icon="star" />
-      </BsButton>
-      <BsButton :active="state7" outlined @click="state7 = !state7">
-        <BsIcon icon="delete" />
-      </BsButton>
+    <div class="md-button-group" role="group" style="gap: 2px">
+      <BsButton icon="mic_filled" mode="icon" />
+      <BsButton class="rounded-lg!" icon="shopping_cart_filled" mode="icon" />
+
+      <BsDropdownMenu space="4">
+        <BsButton dropdown-toggle icon="favorite_filled"> Label </BsButton>
+        <template #content>
+          <BsListView>
+            <div class="dropdown-menu">
+              <div class="dropdown-item">First Action</div>
+              <div class="dropdown-item">Second Action</div>
+              <div class="dropdown-item">Third Action</div>
+            </div>
+          </BsListView>
+        </template>
+      </BsDropdownMenu>
+
+      <BsDropdownMenu space="4">
+        <BsButton dropdown-toggle icon="share_filled" />
+        <template #content>
+          <BsListView>
+            <div class="dropdown-menu">
+              <div class="dropdown-item">First Action</div>
+              <div class="dropdown-item">Second Action</div>
+              <div class="dropdown-item">Third Action</div>
+            </div>
+          </BsListView>
+        </template>
+      </BsDropdownMenu>
     </div>
   </div>
 </template>

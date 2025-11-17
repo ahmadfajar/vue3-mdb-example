@@ -222,7 +222,6 @@ body {
 .local-navbar {
   background-color: var(--appbar-background);
   top: var(--appbar-height);
-  //z-index: 2;
 }
 
 .local-navbar-menu {
@@ -242,7 +241,6 @@ body {
   .local-nav-items {
     top: vars.$padding-xl + 4;
     padding-left: vars.$padding-sm;
-    //z-index: 2;
   }
 
   .md-list {
@@ -252,7 +250,6 @@ body {
 
     .md-list-tile {
       border-radius: vars.$radius-sm;
-      //font-size: 0.875em;
 
       &.active {
         font-weight: var(--font-weight-semibold);
@@ -295,17 +292,6 @@ body {
   @include media.breakpoint-up(md) {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
-
-    .card-mw-65 {
-      max-width: 90%;
-    }
-  }
-
-  // screen: 1024px
-  @media (min-width: 64rem) {
-    .card-mw-65 {
-      max-width: 85%;
-    }
   }
 
   @include media.breakpoint-up(xl) {
@@ -325,10 +311,6 @@ body {
     padding-left: 1rem;
     padding-right: 1rem;
     max-width: 56.25rem; //900px;
-
-    .card-mw-65 {
-      max-width: 65%;
-    }
   }
 }
 
