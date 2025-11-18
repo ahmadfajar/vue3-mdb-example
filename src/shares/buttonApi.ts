@@ -3,28 +3,31 @@ import type { Ref } from 'vue';
 import {
   BsArrayStore,
   type TButtonColor,
+  type TContextColor,
   type TDataSource,
+  type TIconFlip,
+  type TIconPosition,
+  type TIconRotation,
   type TRadioInputProps,
 } from 'vue-mdbootstrap';
 
-export function buttonColors(): TDataSource {
+export function buttonColors(excludes: string[] = []): TDataSource {
+  const results = [
+    { value: 'default', label: 'Default' },
+    { value: 'primary', label: 'Primary' },
+    { value: 'secondary', label: 'Secondary' },
+    { value: 'success', label: 'Success' },
+    { value: 'danger', label: 'Danger' },
+    { value: 'warning', label: 'Warning' },
+    { value: 'info', label: 'Info' },
+    { value: 'dark', label: 'Dark' },
+    { value: 'light', label: 'Light' },
+  ].filter((it) => !excludes.includes(it.value));
+
   return {
-    proxy: new BsArrayStore(
-      [
-        { value: 'default', label: 'Default' },
-        { value: 'primary', label: 'Primary' },
-        { value: 'secondary', label: 'Secondary' },
-        { value: 'success', label: 'Success' },
-        { value: 'danger', label: 'Danger' },
-        { value: 'warning', label: 'Warning' },
-        { value: 'info', label: 'Info' },
-        { value: 'dark', label: 'Dark' },
-        { value: 'light', label: 'Light' },
-      ],
-      {
-        idProperty: 'value',
-      }
-    ),
+    proxy: new BsArrayStore(results, {
+      idProperty: 'value',
+    }),
     schema: schemaConfigDefinition,
   };
 }
@@ -158,19 +161,25 @@ export function iconAnimationVariants(): TRadioInputProps[] {
 
 export function changeButtonVariant(
   variantRef: Ref<string | undefined>,
-  data?: string
+  data?: string,
+  replaceAll?: boolean
 ): string | undefined {
   switch (variantRef.value) {
     case 'tonal':
     case 'outlined':
     case 'flat':
-      return data?.replace('{$variants}', variantRef.value);
+      return replaceAll
+        ? data?.replaceAll('{$variants}', variantRef.value)
+        : data?.replace('{$variants}', variantRef.value);
     default:
       return data;
   }
 }
 
-export function changeButtonColor(colorRef: Ref<TButtonColor>, data?: string): string | undefined {
+export function changeButtonColor(
+  colorRef: Ref<TButtonColor | TContextColor>,
+  data?: string
+): string | undefined {
   if (data && colorRef.value !== 'default') {
     return data.replace('{$colorName}', `color="${colorRef.value}"`);
   }
@@ -180,12 +189,16 @@ export function changeButtonColor(colorRef: Ref<TButtonColor>, data?: string): s
 
 export function changeButtonShape(
   shapeRef: Ref<string | undefined>,
-  data?: string
+  data?: string,
+  replaceAll?: boolean
 ): string | undefined {
   switch (shapeRef.value) {
     case 'rounded':
+    case 'pill':
     case 'pill-off':
-      return data?.replace('{$shapes}', shapeRef.value);
+      return replaceAll
+        ? data?.replaceAll('{$shapes}', shapeRef.value)
+        : data?.replace('{$shapes}', shapeRef.value);
     default:
       return data;
   }
@@ -193,13 +206,16 @@ export function changeButtonShape(
 
 export function changeButtonSize(
   sizeRef: Ref<string | undefined>,
-  data?: string
+  data?: string,
+  replaceAll?: boolean
 ): string | undefined {
   switch (sizeRef.value) {
     case 'xs':
     case 'sm':
     case 'lg':
-      return data?.replace('{$sizes}', `size="${sizeRef.value}"`);
+      return replaceAll
+        ? data?.replaceAll('{$sizes}', `size="${sizeRef.value}"`)
+        : data?.replace('{$sizes}', `size="${sizeRef.value}"`);
     default:
       return data;
   }
@@ -207,13 +223,16 @@ export function changeButtonSize(
 
 export function changeButtonState(
   stateRef: Ref<string | undefined>,
-  data?: string
+  data?: string,
+  replaceAll?: boolean
 ): string | undefined {
   switch (stateRef.value) {
     case 'disabled':
     case 'readonly':
     case 'active':
-      return data?.replace('{$states}', stateRef.value);
+      return replaceAll
+        ? data?.replaceAll('{$states}', stateRef.value)
+        : data?.replace('{$states}', stateRef.value);
     default:
       return data;
   }
@@ -227,14 +246,77 @@ export function changeButtonElevated(elevatedRef: Ref<boolean>, data?: string): 
   return data;
 }
 
-export function changeIconAnimation(
-  iconAnimation: Ref<string | undefined>,
-  hasAnimation: boolean,
-  data?: string
+export function changeIconName(
+  iconRef: Ref<string | undefined>,
+  data?: string,
+  replaceAll?: boolean
 ): string | undefined {
-  if (hasAnimation && iconAnimation.value) {
-    return data?.replace('{$iconAnimation}', `icon-${iconAnimation.value}`);
+  if (iconRef.value && data) {
+    return replaceAll
+      ? data.replaceAll('{$icon}', `icon="${iconRef.value}"`)
+      : data.replace('{$icon}', `icon="${iconRef.value}"`);
   }
 
   return data;
+}
+
+export function changeIconAnimation(
+  iconAnimation: Ref<string | undefined>,
+  hasAnimation: boolean,
+  data?: string,
+  replaceAll?: boolean
+): string | undefined {
+  if (hasAnimation && iconAnimation.value) {
+    return replaceAll
+      ? data?.replaceAll('{$iconAnimation}', `icon-${iconAnimation.value}`)
+      : data?.replace('{$iconAnimation}', `icon-${iconAnimation.value}`);
+  }
+
+  return data;
+}
+
+export function changeIconFlip(
+  flipRef: Ref<TIconFlip | undefined>,
+  data?: string,
+  replaceAll?: boolean
+): string | undefined {
+  switch (flipRef.value) {
+    case 'horizontal':
+    case 'vertical':
+    case 'both':
+      return replaceAll
+        ? data?.replaceAll('{$iconFlip}', `icon-flip="${flipRef.value}"`)
+        : data?.replace('{$iconFlip}', `icon-flip="${flipRef.value}"`);
+    default:
+      return data;
+  }
+}
+
+export function changeIconRotation(
+  rotationRef: Ref<TIconRotation | undefined>,
+  data?: string,
+  replaceAll?: boolean
+): string | undefined {
+  switch (rotationRef.value) {
+    case '90':
+    case '180':
+    case '270':
+      return replaceAll
+        ? data?.replaceAll('{$iconRotation}', `icon-rotation="${rotationRef.value}"`)
+        : data?.replace('{$iconRotation}', `icon-rotation="${rotationRef.value}"`);
+    default:
+      return data;
+  }
+}
+
+export function changeIconPosition(
+  positionRef: Ref<TIconPosition | undefined>,
+  data?: string,
+  replaceAll?: boolean
+): string | undefined {
+  return positionRef.value === 'right'
+    ? replaceAll
+      ? data?.replaceAll('{$iconPosition}', `icon-position="right"`)
+      : data?.replace('{$iconPosition}', `icon-position="right"`)
+    : data;
 }

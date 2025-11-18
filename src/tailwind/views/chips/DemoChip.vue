@@ -30,6 +30,7 @@ function toggleDismissibleChip() {
   <div class="docs-body container-lg mx-auto">
     <h2 id="overview">Basic Examples</h2>
     <DemoBlock class="docs-demo-ctrl mt-4">
+      <BsChip> Chip Example </BsChip>
       <div class="flex flex-wrap">
         <template v-for="(_color, name) in contextColorsLight" :key="_color">
           <BsChip :color="name">
@@ -193,7 +194,12 @@ function toggleDismissibleChip() {
           </template>
           Custom Icon
         </BsChip>
-        <BsChip color="success" icon-position="right">
+        <BsChip
+          color="success"
+          dismissible
+          icon-position="right"
+          img-src="https://ahmadfajar.github.io/img/1.jpg"
+        >
           <template #icon>
             <IconBullhorn height="18" width="18" />
           </template>

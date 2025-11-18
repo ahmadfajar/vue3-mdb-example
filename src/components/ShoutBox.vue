@@ -176,32 +176,35 @@ onBeforeUnmount(() => {
         </div>
         <div
           :class="[
-            'showcase-toolbar flex w-full md-gap-x-1 px-3',
+            'showcase-toolbar flex items-center w-full px-3',
             showTplBtn || fmtCodeTsc ? 'py-2' : 'py-1',
           ]"
         >
-          <BsButton
-            v-if="showTplBtn"
-            :active="templateActive"
-            color="secondary"
-            flat
-            rounded
-            size="sm"
-            @click="toggleTemplate(templateActive)"
-          >
-            Template
-          </BsButton>
-          <BsButton
-            v-if="fmtCodeTsc"
-            :active="scriptActive"
-            color="secondary"
-            flat
-            rounded
-            size="sm"
-            @click="toggleScript(scriptActive)"
-          >
-            Script
-          </BsButton>
+          <div class="inline">
+            <BsButton
+              v-if="showTplBtn"
+              :active="templateActive"
+              color="secondary"
+              flat
+              rounded
+              size="sm"
+              @click="toggleTemplate(templateActive)"
+            >
+              Template
+            </BsButton>
+            <BsButton
+              v-if="fmtCodeTsc"
+              :active="scriptActive"
+              class="ms-1"
+              color="secondary"
+              flat
+              rounded
+              size="sm"
+              @click="toggleScript(scriptActive)"
+            >
+              Script
+            </BsButton>
+          </div>
           <BsSpacer />
           <template v-if="$slots['side-panel']">
             <BsTooltip

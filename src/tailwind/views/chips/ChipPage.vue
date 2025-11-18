@@ -1,0 +1,38 @@
+<script setup lang="ts">
+import type { LinkItem } from '@shares/dataStore.ts';
+import ChipClickEvents from '@tw/views/chips/parts/ChipClickEvents.vue';
+import ChipDismissible from '@tw/views/chips/parts/ChipDismissible.vue';
+import ChipDropdownMenus from '@tw/views/chips/parts/ChipDropdownMenus.vue';
+import ChipFeatures from '@tw/views/chips/parts/ChipFeatures.vue';
+
+const linkItems = [
+  { text: 'Overview', location: { name: 'chip' } },
+  { text: 'Icon Features', location: { name: 'chip-id', params: { id: 'icon' } } },
+  { text: 'Avatar Support', location: { name: 'chip-id', params: { id: 'avatar' } } },
+  {
+    text: 'Dropdown Menus',
+    location: { name: 'chip-id', params: { id: 'dropdown-menus' } },
+  },
+  {
+    text: 'Click Events',
+    location: { name: 'chip-id', params: { id: 'click-events' } },
+  },
+  {
+    text: 'Dismissible Support',
+    location: { name: 'chip-id', params: { id: 'dismissible' } },
+  },
+] satisfies LinkItem[];
+</script>
+
+<template>
+  <ContentLayout :links="linkItems">
+    <Transition mode="out-in" name="fade">
+      <ChipFeatures v-if="$route.params.id === 'icon'" show-icon />
+      <ChipFeatures v-else-if="$route.params.id === 'avatar'" show-avatar />
+      <ChipDropdownMenus v-else-if="$route.params.id === 'dropdown-menus'" />
+      <ChipClickEvents v-else-if="$route.params.id === 'click-events'" />
+      <ChipDismissible v-else-if="$route.params.id === 'dismissible'" />
+      <ChipFeatures v-else />
+    </Transition>
+  </ContentLayout>
+</template>

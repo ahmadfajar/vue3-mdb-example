@@ -84,8 +84,20 @@ export const menuNavs: TMainNavigation[] = [
       {
         text: 'Chip',
         path: '/chips/chip',
-        view: () => import('@tw/views/chips/DemoChip.vue'),
+        view: () => import('@tw/views/chips/ChipPage.vue'),
       },
+      {
+        text: 'Chip',
+        name: 'chip-id',
+        path: '/chips/chip/:id',
+        hidden: true,
+        view: () => import('@tw/views/chips/ChipPage.vue'),
+      },
+      // {
+      //   text: 'Chip Example',
+      //   path: '/chips/chip-example',
+      //   view: () => import('@tw/views/chips/DemoChip.vue'),
+      // },
       {
         text: 'Chip Group',
         path: '/chips/chip-group',

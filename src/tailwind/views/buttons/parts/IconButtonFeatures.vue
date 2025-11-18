@@ -124,7 +124,7 @@ onBeforeUnmount(() => {
           >
             Elevated
           </BsCheckbox>
-          <BsCheckbox v-model="hasAnimation" :value="true"> Icon Animation</BsCheckbox>
+          <BsCheckbox v-model="hasAnimation" :value="true" class="mt-3"> Icon Animation</BsCheckbox>
           <BsRadioGroup
             v-model="iconAnimation"
             :disabled="!hasAnimation"

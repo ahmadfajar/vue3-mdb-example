@@ -4,6 +4,9 @@ import {
   buttonSizes,
   buttonVariants,
   changeButtonVariant,
+  changeIconFlip,
+  changeIconPosition,
+  changeIconRotation,
   iconFlips,
   iconRotations,
 } from '@shares/buttonApi.ts';
@@ -40,42 +43,14 @@ function changeButtonSize(data?: string): string | undefined {
   }
 }
 
-function changeIconFlip(data?: string): string | undefined {
-  switch (iconFlip.value) {
-    case 'horizontal':
-    case 'vertical':
-    case 'both':
-      return data?.replace('{$iconFlip}', `icon-flip="${iconFlip.value}"`);
-    default:
-      return data;
-  }
-}
-
-function changeIconRotation(data?: string): string | undefined {
-  switch (iconRotation.value) {
-    case '90':
-    case '180':
-    case '270':
-      return data?.replace('{$iconRotation}', `icon-rotation="${iconRotation.value}"`);
-    default:
-      return data;
-  }
-}
-
-function changeIconPosition(data?: string): string | undefined {
-  return iconPosition.value === 'right'
-    ? data?.replace('{$iconPosition}', `icon-position="right"`)
-    : data;
-}
-
 watchEffect(() => {
   let rawCode: string | undefined;
 
   rawCode = changeButtonVariant(btnVariant, rawTemplate.value);
   rawCode = changeButtonSize(rawCode);
-  rawCode = changeIconFlip(rawCode);
-  rawCode = changeIconRotation(rawCode);
-  rawCode = changeIconPosition(rawCode);
+  rawCode = changeIconFlip(iconFlip, rawCode);
+  rawCode = changeIconRotation(iconRotation, rawCode);
+  rawCode = changeIconPosition(iconPosition, rawCode);
 
   if (rawCode) {
     fmtVueTpl.value = stripAndBeautifyTemplate(rawCode);

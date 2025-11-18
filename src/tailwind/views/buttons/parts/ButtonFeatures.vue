@@ -207,7 +207,7 @@ onBeforeUnmount(() => {
 
         <div v-if="!showColor">
           <BsCheckbox v-model="hasAnimation" :disabled="!hasIcon" :value="true">
-            Icon Animation
+            Animation
           </BsCheckbox>
           <BsRadioGroup
             v-model="iconAnimation"

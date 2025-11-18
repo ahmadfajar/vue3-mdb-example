@@ -112,7 +112,7 @@ const neighborhoods2 = [
       <div class="col col-lg-8">
         <bs-card shadow>
           <bs-card-body>
-            <div class="lead fw-medium mb-2">Choose amenities</div>
+            <div class="text-xl mb-2">Choose amenities</div>
             <bs-chip-group
               v-model="selectedAmenities1"
               :items="amenities"
@@ -123,7 +123,7 @@ const neighborhoods2 = [
           </bs-card-body>
           <bs-divider />
           <bs-card-body>
-            <div class="lead fw-medium mb-2">Choose neighborhoods</div>
+            <div class="text-xl mb-2">Choose neighborhoods</div>
             <bs-chip-group
               v-model="selectedNeighborhoods1"
               :items="neighborhoods"
@@ -141,7 +141,7 @@ const neighborhoods2 = [
       <div class="col col-lg-8">
         <bs-card shadow>
           <bs-card-body>
-            <div class="lead fw-medium mb-2">Choose amenities</div>
+            <div class="text-xl mb-2">Choose amenities</div>
             <bs-chip-group
               v-model="selectedAmenities2"
               :items="amenities2"
@@ -152,7 +152,7 @@ const neighborhoods2 = [
           </bs-card-body>
           <bs-divider />
           <bs-card-body>
-            <div class="lead fw-medium mb-2">Choose neighborhoods</div>
+            <div class="text-xl mb-2">Choose neighborhoods</div>
             <bs-chip-group
               v-model="selectedNeighborhoods2"
               :items="neighborhoods2"

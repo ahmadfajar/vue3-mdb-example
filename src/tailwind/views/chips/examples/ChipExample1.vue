@@ -1,0 +1,19 @@
+<template>
+  <BsChip
+    {$activeClass}
+    {$colorName}
+    {$icon}
+    {$iconAnimation}
+    {$iconFlip}
+    {$iconPosition}
+    {$iconRotation}
+    {$iconSize}
+    {$iconSpin}
+    {$shapes}
+    {$sizes}
+    {$states}
+    {$variants}
+  >
+    Chip Example
+  </BsChip>
+</template>
