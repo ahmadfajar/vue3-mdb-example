@@ -93,15 +93,17 @@ export const menuNavs: TMainNavigation[] = [
         hidden: true,
         view: () => import('@tw/views/chips/ChipPage.vue'),
       },
-      // {
-      //   text: 'Chip Example',
-      //   path: '/chips/chip-example',
-      //   view: () => import('@tw/views/chips/DemoChip.vue'),
-      // },
       {
         text: 'Chip Group',
         path: '/chips/chip-group',
-        view: () => import('@tw/views/chips/DemoChipGroup.vue'),
+        view: () => import('@tw/views/chips/ChipGroupPage.vue'),
+      },
+      {
+        text: 'Chip Group',
+        name: 'chip-group-id',
+        path: '/chips/chip-group/:id',
+        hidden: true,
+        view: () => import('@tw/views/chips/ChipGroupPage.vue'),
       },
     ],
   },

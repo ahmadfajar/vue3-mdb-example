@@ -44,7 +44,7 @@ onBeforeUnmount(() => {
       </BsDropdownMenu>
     </div>
     <div class="flex flex-row">
-      <main class="docs-body flex-fill mx-auto">
+      <main class="docs-body flex-fill mx-auto overflow-x-hidden">
         <slot></slot>
       </main>
       <div v-if="provider.screenSize === 'desktop'" class="local-nav-aside">

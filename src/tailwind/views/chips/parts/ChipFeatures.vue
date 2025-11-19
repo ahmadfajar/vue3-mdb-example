@@ -18,9 +18,9 @@ import {
 import {
   changeChipActiveClass,
   changeChipAvatar,
-  changeChipAvatarShape,
+  enableRoundedChipAvatar,
   changeChipColor,
-  chipSizes,
+  dsChipSizes,
   removeAvatarPadding,
 } from '@shares/chipApi.ts';
 import { componentStates } from '@shares/showcaseDataApi.ts';
@@ -89,7 +89,7 @@ watchEffect(() => {
     rawCode = changeIconRotation(iconRotation, rawCode, true);
   } else if (props.showAvatar) {
     rawCode = changeChipAvatar(avatar, rawCode, true);
-    rawCode = changeChipAvatarShape(avatarRounded, rawCode, true);
+    rawCode = enableRoundedChipAvatar(avatarRounded, rawCode, true);
     rawCode = removeAvatarPadding(avatarPaddingOff, rawCode, true);
   }
 
@@ -99,7 +99,7 @@ watchEffect(() => {
 });
 
 const chipColorSrc = buttonColors(['dark']);
-const chipSizeSrc = chipSizes();
+const chipSizeSrc = dsChipSizes();
 const chipStateSrc = componentStates();
 const iconFlipSrc = iconFlips();
 const iconRotationSrc = iconRotations();

@@ -164,7 +164,7 @@ onBeforeUnmount(() => {
         sourceVisible ? 'md:rounded-t-lg rounded-top-3' : 'md:rounded-lg rounded-3',
       ]"
     >
-      <div class="showcase-body bg-gray-200 flex flex-col flex-fill">
+      <div class="showcase-body bg-gray-200 flex flex-col flex-fill overflow-x-hidden">
         <div class="h-full flex-fill p-1 md:rounded-lg rounded-3">
           <div
             class="showcase-content h-full text-bg-surface-secondary border md:rounded-lg rounded-3"
@@ -186,7 +186,6 @@ onBeforeUnmount(() => {
               :active="templateActive"
               color="secondary"
               flat
-              rounded
               size="sm"
               @click="toggleTemplate(templateActive)"
             >
@@ -198,7 +197,6 @@ onBeforeUnmount(() => {
               class="ms-1"
               color="secondary"
               flat
-              rounded
               size="sm"
               @click="toggleScript(scriptActive)"
             >
@@ -313,6 +311,7 @@ onBeforeUnmount(() => {
 .showcase-side {
   border-top-right-radius: inherit;
   border-bottom-right-radius: inherit;
+  min-width: 300px;
   width: 300px;
   transition: 0.45s cubic-bezier(0.4, 0, 0.2, 1);
 
@@ -329,6 +328,18 @@ onBeforeUnmount(() => {
 
   &.close {
     margin-right: -301px;
+  }
+
+  .md-tabs {
+    --md-tab-item-color: var(--foreground-subtle-secondary);
+    --md-tab-item-active-color: var(--foreground);
+    --md-tab-item-hover-color: var(--md-field-active-indicator);
+    --md-tab-material-indicator-active-color: var(--md-field-active-indicator);
+    --md-tab-content-padding: 1.25rem 0.875rem;
+
+    .tab-sliding {
+      border-bottom: thin solid var(--border-translucent);
+    }
   }
 }
 

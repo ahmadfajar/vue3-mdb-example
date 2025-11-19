@@ -3,11 +3,12 @@ import type { Ref } from 'vue';
 import {
   BsArrayStore,
   Helper,
+  type TChipOptionItem,
   type TContextColorSecondary,
   type TDataSource,
 } from 'vue-mdbootstrap';
 
-export function chipSizes(): TDataSource {
+export function dsChipSizes(): TDataSource {
   return {
     proxy: new BsArrayStore(
       [
@@ -21,6 +22,46 @@ export function chipSizes(): TDataSource {
     ),
     schema: schemaConfigDefinition,
   };
+}
+
+export function dsChipDemoItems(include?: 'icon' | 'avatar'): TChipOptionItem[] {
+  if (include === 'icon') {
+    return [
+      { text: 'Arts', icon: 'wall_art' },
+      { text: 'Creative Writers', icon: 'article_person' },
+      { text: 'Drawers', icon: 'bottom_drawer' },
+      { text: 'Foods', icon: 'flatware' },
+      { text: 'Home', icon: 'home' },
+      { text: 'Shopping', icon: 'shopping_cart' },
+      { text: 'Tech', icon: 'manufacturing' },
+      { text: 'Vacation', icon: 'chair_umbrella' },
+      { text: 'Work', icon: 'workspaces' },
+    ];
+  } else if (include === 'avatar') {
+    return [
+      { text: 'Arts', imgSrc: 'https://ahmadfajar.github.io/img/1.jpg' },
+      { text: 'Creative Writers', imgSrc: 'https://ahmadfajar.github.io/img/2.jpg' },
+      { text: 'Drawers', imgSrc: 'https://ahmadfajar.github.io/img/3.jpg' },
+      { text: 'Foods', imgSrc: 'https://ahmadfajar.github.io/img/4.jpg' },
+      { text: 'Home', imgSrc: 'https://ahmadfajar.github.io/img/5.jpg' },
+      { text: 'Shopping', imgSrc: 'https://ahmadfajar.github.io/img/1.jpg' },
+      { text: 'Tech', imgSrc: 'https://ahmadfajar.github.io/img/2.jpg' },
+      { text: 'Vacation', imgSrc: 'https://ahmadfajar.github.io/img/3.jpg' },
+      { text: 'Work', imgSrc: 'https://ahmadfajar.github.io/img/4.jpg' },
+    ];
+  } else {
+    return [
+      { text: 'Arts' },
+      { text: 'Creative Writers' },
+      { text: 'Drawers' },
+      { text: 'Foods' },
+      { text: 'Home' },
+      { text: 'Shopping' },
+      { text: 'Tech' },
+      { text: 'Vacation' },
+      { text: 'Work' },
+    ];
+  }
 }
 
 export function changeChipColor(
@@ -63,12 +104,12 @@ export function changeChipAvatar(
     : data?.replace('{$avatar}', `img-src="${avatarRef.value}"`);
 }
 
-export function changeChipAvatarShape(
-  circle: Ref<boolean>,
+export function enableRoundedChipAvatar(
+  valueRef: Ref<boolean>,
   data?: string,
   replaceAll?: boolean
 ): string | undefined {
-  if (data && circle.value) {
+  if (data && valueRef.value) {
     return replaceAll
       ? data.replaceAll('{$avatarCircle}', 'img-circle')
       : data.replace('{$avatarCircle}', 'img-circle');
@@ -77,12 +118,39 @@ export function changeChipAvatarShape(
   return data;
 }
 
+export function enableChipGroupMultiRows(
+  valueRef: Ref<boolean>,
+  data?: string
+): string | undefined {
+  if (valueRef.value) {
+    return data?.replace('{$column}', 'column');
+  }
+
+  return data;
+}
+
+export function enableChipGroupFilters(value: boolean, data?: string): string | undefined {
+  if (value) {
+    return data?.replace('{$checkedIcon}', 'checked-icon');
+  }
+
+  return data;
+}
+
+export function enableChipGroupSliders(value: boolean, data?: string): string | undefined {
+  if (value) {
+    return data?.replace('{$sliderButton}', 'slider-button');
+  }
+
+  return data;
+}
+
 export function removeAvatarPadding(
-  paddingOff: Ref<boolean>,
+  valueRef: Ref<boolean>,
   data?: string,
   replaceAll?: boolean
 ): string | undefined {
-  if (data && paddingOff.value) {
+  if (data && valueRef.value) {
     return replaceAll
       ? data.replaceAll('{$avatarPadding}', 'img-padding-off')
       : data.replace('{$avatarPadding}', 'img-padding-off');

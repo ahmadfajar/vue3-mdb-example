@@ -32,6 +32,7 @@ if (props.showColor) {
   iconName = 'favorite_filled';
 }
 
+const tabIndex = ref(0);
 const btnColor = ref<TButtonColor>('default');
 const btnVariant = ref<string>();
 const btnShape = ref<string | undefined>('pill');
@@ -154,67 +155,73 @@ onBeforeUnmount(() => {
     </div>
     <ShoutBox :tpl="fmtVueTpl">
       <template #side-panel>
-        <h5 class="mt-2">Configuration Options:</h5>
+        <div class="min-h-103">
+          <h5 class="mt-2">Configuration Options:</h5>
 
-        <BsCombobox
-          v-if="showColor"
-          v-model="btnColor"
-          :data-source="btnColors"
-          filled
-          floating-label
-        >
-          <label>Color:</label>
-        </BsCombobox>
-        <BsCombobox v-model="btnVariant" :data-source="btnVariants" filled floating-label>
-          <label>Variant:</label>
-        </BsCombobox>
-        <BsCombobox
-          v-if="!showColor"
-          v-model="btnShape"
-          :data-source="btnShapes"
-          filled
-          floating-label
-        >
-          <label>Shape:</label>
-        </BsCombobox>
-        <BsCombobox v-model="btnSize" :data-source="btnSizes" filled floating-label>
-          <label>Size:</label>
-        </BsCombobox>
-        <BsCombobox v-model="btnState" :data-source="btnStates" filled floating-label>
-          <label>State:</label>
-        </BsCombobox>
-
-        <div class="w-full">
-          <div class="flex md-gap-x-3">
-            <BsCheckbox
-              v-model="btnElevated"
-              :disabled="btnState === 'readonly' || btnState === 'disabled'"
-              :value="true"
-            >
-              Elevated
-            </BsCheckbox>
-            <BsCheckbox v-model="hasIcon" :value="true"> Icon</BsCheckbox>
-          </div>
-          <BsRadioGroup
-            v-model="iconPosition"
-            :disabled="!hasIcon"
-            :items="iconPositions"
-            column="2"
-          >
-            <div class="col-form-label select-none">Icon Position:</div>
-          </BsRadioGroup>
-        </div>
-
-        <div v-if="!showColor">
-          <BsCheckbox v-model="hasAnimation" :disabled="!hasIcon" :value="true">
-            Animation
-          </BsCheckbox>
-          <BsRadioGroup
-            v-model="iconAnimation"
-            :disabled="!hasIcon || !hasAnimation"
-            :items="iconAnimations"
-            column="2"
-          />
+          <BsTabs v-model="tabIndex" class="mx-[-12px]" variant="material">
+            <BsTab label="General">
+              <div class="flex flex-col gap-y-4">
+                <BsCombobox
+                  v-if="showColor"
+                  v-model="btnColor"
+                  :data-source="btnColors"
+                  filled
+                  floating-label
+                >
+                  <label>Color:</label>
+                </BsCombobox>
+                <BsCombobox v-model="btnVariant" :data-source="btnVariants" filled floating-label>
+                  <label>Variant:</label>
+                </BsCombobox>
+                <BsCombobox
+                  v-if="!showColor"
+                  v-model="btnShape"
+                  :data-source="btnShapes"
+                  filled
+                  floating-label
+                >
+                  <label>Shape:</label>
+                </BsCombobox>
+                <BsCombobox v-model="btnSize" :data-source="btnSizes" filled floating-label>
+                  <label>Size:</label>
+                </BsCombobox>
+                <BsCombobox v-model="btnState" :data-source="btnStates" filled floating-label>
+                  <label>State:</label>
+                </BsCombobox>
+              </div>
+            </BsTab>
+            <BsTab label="Other">
+              <div class="flex flex-col gap-y-1 mt-2">
+                <BsCheckbox
+                  v-model="btnElevated"
+                  :disabled="btnState === 'readonly' || btnState === 'disabled'"
+                  :value="true"
+                >
+                  Elevated
+                </BsCheckbox>
+                <BsCheckbox v-model="hasIcon" :value="true">Show Icon</BsCheckbox>
+              </div>
+              <BsRadioGroup
+                v-model="iconPosition"
+                :disabled="!hasIcon"
+                :items="iconPositions"
+                column="2"
+              >
+                <div class="col-form-label select-none">Icon Position:</div>
+              </BsRadioGroup>
+              <div v-if="!showColor" class="mt-3">
+                <BsCheckbox v-model="hasAnimation" :disabled="!hasIcon" :value="true">
+                  Animation
+                </BsCheckbox>
+                <BsRadioGroup
+                  v-model="iconAnimation"
+                  :disabled="!hasIcon || !hasAnimation"
+                  :items="iconAnimations"
+                  column="2"
+                />
+              </div>
+            </BsTab>
+          </BsTabs>
         </div>
       </template>
 
