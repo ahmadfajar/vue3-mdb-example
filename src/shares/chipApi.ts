@@ -69,7 +69,7 @@ export function changeChipColor(
   data?: string,
   replaceAll?: boolean
 ): string | undefined {
-  if (data && colorRef.value !== 'secondary') {
+  if (data && colorRef.value && colorRef.value !== 'secondary') {
     if (replaceAll) {
       return data.replaceAll('{$colorName}', `color="${colorRef.value}"`);
     }

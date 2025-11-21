@@ -1,10 +1,5 @@
 <script setup lang="ts">
-import {
-  buttonColors,
-  changeButtonShape,
-  changeButtonSize,
-  changeButtonVariant,
-} from '@shares/buttonApi.ts';
+import { changeButtonShape, changeButtonSize, changeButtonVariant } from '@shares/buttonApi.ts';
 import {
   changeChipActiveClass,
   enableRoundedChipAvatar,
@@ -21,6 +16,7 @@ import {
   parseVueTemplateTag,
   stripAndBeautifyTemplate,
 } from '@shares/sharedApi.ts';
+import { contextColors } from '@shares/showcaseDataApi.ts';
 import { onBeforeUnmount, ref, watch, watchEffect } from 'vue';
 import {
   Helper,
@@ -161,7 +157,7 @@ watchEffect(() => {
   }
 });
 
-const chipColorSrc = buttonColors(['dark']);
+const chipColorSrc = contextColors(['dark']);
 const chipSizeSrc = dsChipSizes();
 
 onBeforeUnmount(() => {
@@ -173,7 +169,9 @@ onBeforeUnmount(() => {
 <template>
   <div class="w-full">
     <div class="section-content mb-5">
-      <h2>Overview</h2>
+      <h2 v-if="showSlider">Sliding Chips</h2>
+      <h2 v-else-if="showFilters">Filter Chips</h2>
+      <h2 v-else>Overview</h2>
     </div>
     <ShoutBox :tpl="fmtVueTpl" :tsc="fmtVueTsc">
       <template #side-panel>
@@ -235,7 +233,12 @@ onBeforeUnmount(() => {
       </template>
 
       <template #content>
-        <div class="h-full flex items-center justify-center min-h-40 py-6 px-3 md:rounded-lg">
+        <div
+          :class="[
+            'h-full flex items-center justify-center min-h-40 py-6 px-3 md:rounded-lg',
+            chipColor === 'light' ? 'bg-gray-800' : '',
+          ]"
+        >
           <BsChipGroup
             v-if="multiSelection"
             v-model="selectedChips"

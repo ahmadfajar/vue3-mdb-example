@@ -11,27 +11,6 @@ import {
   type TRadioInputProps,
 } from 'vue-mdbootstrap';
 
-export function buttonColors(excludes: string[] = []): TDataSource {
-  const results = [
-    { value: 'default', label: 'Default' },
-    { value: 'primary', label: 'Primary' },
-    { value: 'secondary', label: 'Secondary' },
-    { value: 'success', label: 'Success' },
-    { value: 'danger', label: 'Danger' },
-    { value: 'warning', label: 'Warning' },
-    { value: 'info', label: 'Info' },
-    { value: 'dark', label: 'Dark' },
-    { value: 'light', label: 'Light' },
-  ].filter((it) => !excludes.includes(it.value));
-
-  return {
-    proxy: new BsArrayStore(results, {
-      idProperty: 'value',
-    }),
-    schema: schemaConfigDefinition,
-  };
-}
-
 export function buttonVariants(): TDataSource {
   return {
     proxy: new BsArrayStore(
@@ -180,7 +159,7 @@ export function changeButtonColor(
   colorRef: Ref<TButtonColor | TContextColor>,
   data?: string
 ): string | undefined {
-  if (data && colorRef.value !== 'default') {
+  if (data && colorRef.value && colorRef.value !== 'default') {
     return data.replace('{$colorName}', `color="${colorRef.value}"`);
   }
 

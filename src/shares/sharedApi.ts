@@ -67,7 +67,7 @@ export function parseVueScriptTag(data: string): string {
 const config = {
   indent_size: 2,
   indent_char: ' ',
-  max_preserve_newlines: 2,
+  max_preserve_newlines: 0,
   preserve_newlines: true,
   indent_scripts: 'normal',
   end_with_newline: false,
@@ -89,7 +89,7 @@ export function stripAndBeautifyTemplate(
   rawCode: string,
   beautify: boolean = true
 ): string | undefined {
-  const content = rawCode.replace(/\{\$.*\}[\n\s]+/g, '');
+  const content = rawCode.replace(/\{\$.*\}/g, '');
 
   return beautify ? js_beautify.html_beautify(content, config) : content;
 }

@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import {
-  buttonColors,
   buttonIconPositions,
   buttonShapes,
   buttonSizes,
@@ -14,7 +13,7 @@ import {
   changeIconAnimation,
   iconAnimationVariants,
 } from '@shares/buttonApi.ts';
-import { componentStates } from '@shares/showcaseDataApi.ts';
+import { contextColors, componentStates } from '@shares/showcaseDataApi.ts';
 import { parseVueTemplateTag, stripAndBeautifyTemplate } from '@shares/sharedApi.ts';
 import { nextTick, onBeforeUnmount, onMounted, ref, watch, watchEffect } from 'vue';
 import { type TButtonColor, type TButtonSize, type TIconPosition } from 'vue-mdbootstrap';
@@ -126,7 +125,7 @@ watch(hasAnimation, (value) => {
   iconAnimation.value = value ? iconAnimation.value : undefined;
 });
 
-const btnColors = buttonColors();
+const btnColors = contextColors();
 const btnVariants = buttonVariants();
 const btnShapes = buttonShapes();
 const btnSizes = buttonSizes();

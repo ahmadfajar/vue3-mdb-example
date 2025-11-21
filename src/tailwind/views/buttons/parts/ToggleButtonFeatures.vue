@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import {
-  buttonColors,
   buttonIconPositions,
   buttonShapes,
   buttonSizes,
@@ -16,7 +15,7 @@ import {
   parseVueTemplateTag,
   stripAndBeautifyTemplate,
 } from '@shares/sharedApi.ts';
-import { componentStatesRD } from '@shares/showcaseDataApi.ts';
+import { contextColors, componentStatesRD } from '@shares/showcaseDataApi.ts';
 import { nextTick, onBeforeUnmount, onMounted, ref, watch, watchEffect } from 'vue';
 import type { TButtonSize, TIconPosition, TInputOptionItem } from 'vue-mdbootstrap';
 
@@ -26,7 +25,6 @@ const rawTemplate = ref<string>();
 const fmtVueTpl = ref<string | null | undefined>();
 const fmtVueTsc = ref<string | null | undefined>();
 const btnVariant = ref<string>();
-// const btnColor = ref<TButtonColor>('default');
 const btnShape = ref<string | undefined>('pill');
 const btnSize = ref<string | undefined>('md');
 const btnState = ref<string>();
@@ -115,7 +113,7 @@ watch(btnSize, async (value) => {
   }
 });
 
-const btnColors = buttonColors();
+const btnColors = contextColors();
 const btnVariants = toggleButtonVariants();
 const btnShapes = buttonShapes();
 const btnSizes = buttonSizes();

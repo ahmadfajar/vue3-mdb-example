@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import {
-  buttonColors,
   buttonIconPositions,
   changeButtonShape,
   changeButtonSize,
@@ -23,7 +22,7 @@ import {
   dsChipSizes,
   removeAvatarPadding,
 } from '@shares/chipApi.ts';
-import { componentStates } from '@shares/showcaseDataApi.ts';
+import { contextColors, componentStates } from '@shares/showcaseDataApi.ts';
 import { parseVueTemplateTag, stripAndBeautifyTemplate } from '@shares/sharedApi.ts';
 import { onBeforeUnmount, ref, watchEffect } from 'vue';
 import {
@@ -98,7 +97,7 @@ watchEffect(() => {
   }
 });
 
-const chipColorSrc = buttonColors(['dark']);
+const chipColorSrc = contextColors(['dark']);
 const chipSizeSrc = dsChipSizes();
 const chipStateSrc = componentStates();
 const iconFlipSrc = iconFlips();
@@ -210,8 +209,7 @@ onBeforeUnmount(() => {
         <div
           :class="[
             'h-full flex items-center justify-center min-h-40 py-6 px-3 md:rounded-lg',
-            chipColor === 'light' &&
-            (chipState === 'active' || (chipVariant === 'outlined' && chipState !== 'disabled'))
+            chipColor === 'light' && (['active', 'readonly'].includes(chipState!) || !chipState)
               ? 'bg-gray-800'
               : '',
           ]"
