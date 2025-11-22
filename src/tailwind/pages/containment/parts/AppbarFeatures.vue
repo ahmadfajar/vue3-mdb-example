@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { parseVueTemplateTag } from '@shares/sharedApi.ts';
-import AppbarExample1 from '@tw/views/containment/examples/AppbarExample1.vue';
-import AppbarExample2 from '@tw/views/containment/examples/AppbarExample2.vue';
+import AppbarExample1 from '@tw/pages/containment/examples/AppbarExample1.vue';
+import AppbarExample2 from '@tw/pages/containment/examples/AppbarExample2.vue';
 import { ref } from 'vue';
 
 const props = defineProps<{ advance?: boolean }>();

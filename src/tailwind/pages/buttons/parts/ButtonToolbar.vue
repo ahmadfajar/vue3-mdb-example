@@ -1,10 +1,9 @@
 <script setup lang="ts">
 import { parseVueScriptTag, parseVueTemplateTag } from '@shares/sharedApi.ts';
-import ChipExample4 from '@tw/views/chips/examples/ChipExample4.vue';
+import ButtonExample7 from '@tw/pages/buttons/examples/ButtonExample7.vue';
 import { ref } from 'vue';
 
-const example = await import('../examples/ChipExample4.vue?raw');
-
+const example = await import('../examples/ButtonExample7.vue?raw');
 const fmtVueTpl = ref<string | null | undefined>();
 const fmtVueTsc = ref<string | null | undefined>();
 
@@ -15,12 +14,12 @@ fmtVueTsc.value = parseVueScriptTag(example.default);
 <template>
   <div class="w-full">
     <div class="section-content mb-5">
-      <h2>Click Events Support</h2>
+      <h2>Button Toolbar</h2>
     </div>
     <ShoutBox :tpl="fmtVueTpl" :tsc="fmtVueTsc">
       <template #content>
         <div class="h-full flex items-center justify-center min-h-40 px-6 py-8 md:rounded-lg">
-          <ChipExample4 />
+          <ButtonExample7 />
         </div>
       </template>
     </ShoutBox>

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { LinkItem } from '@shares/dataStore.ts';
-import ChipGroupFeatures from '@tw/views/chips/parts/ChipGroupFeatures.vue';
+import ChipGroupFeatures from '@tw/pages/chips/parts/ChipGroupFeatures.vue';
 
 const linkItems = [
   { text: 'Overview', location: { name: 'chip-group' } },

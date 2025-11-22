@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import type { LinkItem } from '@shares/dataStore.ts';
-import ButtonBlock from '@tw/views/buttons/parts/ButtonBlock.vue';
-import ButtonFeatures from '@tw/views/buttons/parts/ButtonFeatures.vue';
-import ButtonGroups from '@tw/views/buttons/parts/ButtonGroups.vue';
-import ButtonIconRotation from '@tw/views/buttons/parts/ButtonIconRotation.vue';
-import ButtonToolbar from '@tw/views/buttons/parts/ButtonToolbar.vue';
-import FabFeatures from '@tw/views/buttons/parts/FabFeatures.vue';
-import IconButtonFeatures from '@tw/views/buttons/parts/IconButtonFeatures.vue';
+import ButtonBlock from '@tw/pages/buttons/parts/ButtonBlock.vue';
+import ButtonFeatures from '@tw/pages/buttons/parts/ButtonFeatures.vue';
+import ButtonGroups from '@tw/pages/buttons/parts/ButtonGroups.vue';
+import ButtonIconRotation from '@tw/pages/buttons/parts/ButtonIconRotation.vue';
+import ButtonToolbar from '@tw/pages/buttons/parts/ButtonToolbar.vue';
+import FabFeatures from '@tw/pages/buttons/parts/FabFeatures.vue';
+import IconButtonFeatures from '@tw/pages/buttons/parts/IconButtonFeatures.vue';
 
 const linkItems = [
   { text: 'Overview', location: { name: 'button' } },

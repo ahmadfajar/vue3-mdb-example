@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { parseVueTemplateTag } from '@shares/sharedApi.ts';
-import RippleExample from '@tw/views/animations/examples/RippleExample.vue';
+import RippleExample from '@tw/pages/animations/examples/RippleExample.vue';
 import { ref } from 'vue';
 
 const fmtVueTpl = ref<string | null | undefined>();

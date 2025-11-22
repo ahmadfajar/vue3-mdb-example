@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { parseVueTemplateTag } from '@shares/sharedApi.ts';
-import ButtonExample6 from '@tw/views/buttons/examples/ButtonExample6.vue';
+import ButtonExample6 from '@tw/pages/buttons/examples/ButtonExample6.vue';
 import { ref } from 'vue';
 
 const example = await import('../examples/ButtonExample6.vue?raw');

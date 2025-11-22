@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { parseVueTemplateTag } from '@shares/sharedApi.ts';
-import CardExample10 from '@tw/views/containment/examples/CardExample10.vue';
-import CardExample9 from '@tw/views/containment/examples/CardExample9.vue';
+import CardExample10 from '@tw/pages/containment/examples/CardExample10.vue';
+import CardExample9 from '@tw/pages/containment/examples/CardExample9.vue';
 import { ref } from 'vue';
 
 const props = defineProps<{ grid?: boolean }>();

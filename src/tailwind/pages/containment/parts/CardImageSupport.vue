@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { cardImagePositions } from '@shares/cardApi.ts';
 import { parseVueTemplateTag } from '@shares/sharedApi.ts';
-import CardExample3 from '@tw/views/containment/examples/CardExample3.vue';
-import CardExample4 from '@tw/views/containment/examples/CardExample4.vue';
-import CardExample5 from '@tw/views/containment/examples/CardExample5.vue';
-import CardExample6 from '@tw/views/containment/examples/CardExample6.vue';
+import CardExample3 from '@tw/pages/containment/examples/CardExample3.vue';
+import CardExample4 from '@tw/pages/containment/examples/CardExample4.vue';
+import CardExample5 from '@tw/pages/containment/examples/CardExample5.vue';
+import CardExample6 from '@tw/pages/containment/examples/CardExample6.vue';
 import { ref, watchEffect } from 'vue';
 
 const example1 = await import('../examples/CardExample3.vue?raw');

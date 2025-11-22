@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import type { LinkItem } from '@shares/dataStore.ts';
-import ChipClickEvents from '@tw/views/chips/parts/ChipClickEvents.vue';
-import ChipDismissible from '@tw/views/chips/parts/ChipDismissible.vue';
-import ChipDropdownMenus from '@tw/views/chips/parts/ChipDropdownMenus.vue';
-import ChipFeatures from '@tw/views/chips/parts/ChipFeatures.vue';
+import ChipClickEvents from '@tw/pages/chips/parts/ChipClickEvents.vue';
+import ChipDismissible from '@tw/pages/chips/parts/ChipDismissible.vue';
+import ChipDropdownMenus from '@tw/pages/chips/parts/ChipDropdownMenus.vue';
+import ChipFeatures from '@tw/pages/chips/parts/ChipFeatures.vue';
 
 const linkItems = [
   { text: 'Overview', location: { name: 'chip' } },

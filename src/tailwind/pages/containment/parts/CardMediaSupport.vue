@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { cardMediaPositions } from '@shares/cardApi.ts';
 import { parseVueTemplateTag } from '@shares/sharedApi.ts';
-import CardExample7 from '@tw/views/containment/examples/CardExample7.vue';
-import CardExample8 from '@tw/views/containment/examples/CardExample8.vue';
+import CardExample7 from '@tw/pages/containment/examples/CardExample7.vue';
+import CardExample8 from '@tw/pages/containment/examples/CardExample8.vue';
 import { ref, watchEffect } from 'vue';
 
 const example1 = await import('../examples/CardExample7.vue?raw');

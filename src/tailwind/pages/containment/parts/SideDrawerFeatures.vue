@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { parseVueScriptTag, parseVueTemplateTag } from '@shares/sharedApi.ts';
-import SideDrawerExample1 from '@tw/views/containment/examples/SideDrawerExample1.vue';
-import SideDrawerExample2 from '@tw/views/containment/examples/SideDrawerExample2.vue';
-import SideDrawerExample3 from '@tw/views/containment/examples/SideDrawerExample3.vue';
-import SideDrawerExample4 from '@tw/views/containment/examples/SideDrawerExample4.vue';
-import SideDrawerExample5 from '@tw/views/containment/examples/SideDrawerExample5.vue';
+import SideDrawerExample1 from '@tw/pages/containment/examples/SideDrawerExample1.vue';
+import SideDrawerExample2 from '@tw/pages/containment/examples/SideDrawerExample2.vue';
+import SideDrawerExample3 from '@tw/pages/containment/examples/SideDrawerExample3.vue';
+import SideDrawerExample4 from '@tw/pages/containment/examples/SideDrawerExample4.vue';
+import SideDrawerExample5 from '@tw/pages/containment/examples/SideDrawerExample5.vue';
 import { ref } from 'vue';
 
 const props = defineProps<{

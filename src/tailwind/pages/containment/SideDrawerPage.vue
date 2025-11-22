@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { LinkItem } from '@shares/dataStore.ts';
-import SideDrawerFeatures from '@tw/views/containment/parts/SideDrawerFeatures.vue';
+import SideDrawerFeatures from '@tw/pages/containment/parts/SideDrawerFeatures.vue';
 
 const linkItems = [
   { text: 'Basic Example', location: { name: 'side-drawer' } },
