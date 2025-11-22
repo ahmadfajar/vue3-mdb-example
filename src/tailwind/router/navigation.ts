@@ -135,15 +135,17 @@ export const menuNavs: TMainNavigation[] = [
         hidden: true,
         view: () => import('@tw/views/containment/CardPage.vue'),
       },
-      // {
-      //   text: 'Card Example',
-      //   path: '/containment/card-example',
-      //   view: () => import('@tw/views/containment/DemoCard.vue'),
-      // },
       {
         text: 'SideDrawer',
         path: '/containment/side-drawer',
-        view: () => import('@tw/views/containment/DemoSideDrawer.vue'),
+        view: () => import('@tw/views/containment/SideDrawerPage.vue'),
+      },
+      {
+        text: 'SideDrawer',
+        name: 'side-drawer-id',
+        path: '/containment/side-drawer/:id',
+        hidden: true,
+        view: () => import('@tw/views/containment/SideDrawerPage.vue'),
       },
     ],
   },
