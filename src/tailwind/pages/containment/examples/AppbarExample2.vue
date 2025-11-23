@@ -3,7 +3,7 @@
 <template>
   <BsApp>
     <BsAppbar class="bg-indigo-600" shadow>
-      <BsButton color="light" flat icon="menu" mode="icon" />
+      <BsButton color="light" flat icon="menu" mode="icon" aria-label="menu" />
       <BsAppbarTitle class="text-white" title="Page Title" />
       <BsSpacer />
       <BsAppbarItems>

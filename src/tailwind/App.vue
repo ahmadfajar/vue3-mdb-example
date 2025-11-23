@@ -2,7 +2,7 @@
 import AppNavbar from '@tw/AppNavbar.vue';
 import type { TMainNavigation } from '@tw/router/navigation';
 import { menuNavs } from '@tw/router/navigation';
-import { type IMyAppProvider, MyAppProvider } from '@shares/dataStore.ts';
+import { type IMyAppProvider, MyAppProvider } from '@shares/provider.ts';
 import { createShikiInstance, disposeShiki } from '@shares/shikiApi.ts';
 import { onBeforeUnmount, onMounted, provide } from 'vue';
 import { StringHelper, useBreakpointMin } from 'vue-mdbootstrap';

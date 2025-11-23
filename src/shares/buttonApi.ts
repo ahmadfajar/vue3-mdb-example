@@ -1,9 +1,7 @@
 import { schemaConfigDefinition } from '@shares/showcaseDataApi.ts';
-import type { Ref } from 'vue';
+import { type Ref } from 'vue';
 import {
   BsArrayStore,
-  type TButtonColor,
-  type TContextColor,
   type TDataSource,
   type TIconFlip,
   type TIconPosition,
@@ -11,7 +9,7 @@ import {
   type TRadioInputProps,
 } from 'vue-mdbootstrap';
 
-export function buttonVariants(): TDataSource {
+export function dsButtonVariants(): TDataSource {
   return {
     proxy: new BsArrayStore(
       [
@@ -28,7 +26,7 @@ export function buttonVariants(): TDataSource {
   };
 }
 
-export function toggleButtonVariants(): TDataSource {
+export function dsToggleButtonVariants(): TDataSource {
   return {
     proxy: new BsArrayStore(
       [
@@ -44,7 +42,7 @@ export function toggleButtonVariants(): TDataSource {
   };
 }
 
-export function fabButtonVariants(): TDataSource {
+export function dsFabButtonVariants(): TDataSource {
   return {
     proxy: new BsArrayStore(
       [
@@ -59,7 +57,7 @@ export function fabButtonVariants(): TDataSource {
   };
 }
 
-export function buttonShapes(): TDataSource {
+export function dsButtonShapes(): TDataSource {
   return {
     proxy: new BsArrayStore(
       [
@@ -75,12 +73,12 @@ export function buttonShapes(): TDataSource {
   };
 }
 
-export function buttonSizes(): TDataSource {
+export function dsButtonSizes(): TDataSource {
   return {
     proxy: new BsArrayStore(
       [
-        { value: 'md', label: 'Default' },
         { value: 'lg', label: 'Large' },
+        { value: 'md', label: 'Medium (Default)' },
         { value: 'sm', label: 'Small' },
         { value: 'xs', label: 'Extra Small' },
       ],
@@ -92,7 +90,7 @@ export function buttonSizes(): TDataSource {
   };
 }
 
-export function iconFlips(): TDataSource {
+export function dsIconFlips(): TDataSource {
   return {
     proxy: new BsArrayStore(
       [
@@ -108,7 +106,7 @@ export function iconFlips(): TDataSource {
   };
 }
 
-export function iconRotations(): TDataSource {
+export function dsIconRotations(): TDataSource {
   return {
     proxy: new BsArrayStore(
       [
@@ -155,17 +153,6 @@ export function changeButtonVariant(
   }
 }
 
-export function changeButtonColor(
-  colorRef: Ref<TButtonColor | TContextColor>,
-  data?: string
-): string | undefined {
-  if (data && colorRef.value && colorRef.value !== 'default') {
-    return data.replace('{$colorName}', `color="${colorRef.value}"`);
-  }
-
-  return data;
-}
-
 export function changeButtonShape(
   shapeRef: Ref<string | undefined>,
   data?: string,
@@ -173,7 +160,7 @@ export function changeButtonShape(
 ): string | undefined {
   switch (shapeRef.value) {
     case 'rounded':
-    case 'pill':
+    // case 'pill':
     case 'pill-off':
       return replaceAll
         ? data?.replaceAll('{$shapes}', shapeRef.value)

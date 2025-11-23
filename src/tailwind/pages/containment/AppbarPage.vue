@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { LinkItem } from '@shares/dataStore.ts';
+import type { LinkItem } from '@shares/provider.ts';
 import AppbarFeatures from '@tw/pages/containment/parts/AppbarFeatures.vue';
 
 const linkItems = [

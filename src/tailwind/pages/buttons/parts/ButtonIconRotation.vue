@@ -1,17 +1,18 @@
 <script setup lang="ts">
 import {
   buttonIconPositions,
-  buttonSizes,
-  buttonVariants,
   changeButtonVariant,
   changeIconFlip,
   changeIconPosition,
   changeIconRotation,
-  iconFlips,
-  iconRotations,
+  dsButtonSizes,
+  dsButtonVariants,
+  dsIconFlips,
+  dsIconRotations,
 } from '@shares/buttonApi.ts';
 import { parseVueTemplateTag, stripAndBeautifyTemplate } from '@shares/sharedApi.ts';
-import { nextTick, onBeforeUnmount, onMounted, ref, watch, watchEffect } from 'vue';
+import { addWatcherForDefaultValue } from '@shares/showcaseDataApi.ts';
+import { nextTick, onBeforeUnmount, ref, watch, watchEffect } from 'vue';
 import type { TButtonSize, TIconFlip, TIconPosition, TIconRotation } from 'vue-mdbootstrap';
 
 const example = await import('../examples/ButtonExample1.vue?raw');
@@ -21,9 +22,9 @@ const fmtVueTpl = ref<string | null | undefined>();
 rawTemplate.value = parseVueTemplateTag(example.default);
 
 const iconName = 'shopping_cart';
-const btnVariant = ref<string>();
+const btnVariant = ref<string | undefined>('filled');
 const btnSize = ref<string | undefined>('md');
-const btnIcon = ref<string>();
+const btnIcon = ref<string | undefined>(iconName);
 const iconPosition = ref<TIconPosition>('left');
 const iconSize = ref(24);
 const iconFlip = ref<TIconFlip>();
@@ -71,20 +72,19 @@ watch(btnSize, async (value) => {
   btnIcon.value = undefined;
   await nextTick(() => {
     btnIcon.value = iconName;
+    if (!value) {
+      btnSize.value = 'md';
+    }
   });
 });
 
-const btnVariants = buttonVariants();
-const btnSizes = buttonSizes();
-const iconFlipSrc = iconFlips();
-const iconRotationSrc = iconRotations();
-const iconPositions = buttonIconPositions();
+addWatcherForDefaultValue({ refObj: btnVariant, default: 'filled' });
 
-onMounted(() => {
-  // trigger reactivity on first load
-  btnVariant.value = 'filled';
-  btnIcon.value = iconName;
-});
+const btnVariants = dsButtonVariants();
+const btnSizes = dsButtonSizes();
+const iconFlipSrc = dsIconFlips();
+const iconRotationSrc = dsIconRotations();
+const iconPositions = buttonIconPositions();
 
 onBeforeUnmount(() => {
   btnVariants.proxy.destroy();
@@ -109,16 +109,30 @@ onBeforeUnmount(() => {
         <BsCombobox v-model="btnSize" :data-source="btnSizes" filled floating-label>
           <label>Size:</label>
         </BsCombobox>
-        <BsCombobox v-model="iconFlip" :data-source="iconFlipSrc" filled floating-label>
+        <BsCombobox
+          v-model="iconFlip"
+          :data-source="iconFlipSrc"
+          :disabled="!!iconRotation"
+          filled
+          floating-label
+        >
           <label>Flip Icon</label>
         </BsCombobox>
-        <BsCombobox v-model="iconRotation" :data-source="iconRotationSrc" filled floating-label>
+        <BsCombobox
+          v-model="iconRotation"
+          :data-source="iconRotationSrc"
+          :disabled="!!iconFlip"
+          filled
+          floating-label
+        >
           <label>Rotate Icon</label>
         </BsCombobox>
 
-        <BsRadioGroup v-model="iconPosition" :items="iconPositions" column="2">
-          <div class="col-form-label select-none">Icon Position:</div>
-        </BsRadioGroup>
+        <div class="ps-2">
+          <BsRadioGroup v-model="iconPosition" :items="iconPositions" column="2">
+            <div class="col-form-label select-none">Icon Position:</div>
+          </BsRadioGroup>
+        </div>
       </template>
 
       <template #content>

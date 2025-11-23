@@ -1,24 +1,26 @@
 <script setup lang="ts">
 import {
   buttonIconPositions,
-  buttonShapes,
-  buttonSizes,
-  buttonVariants,
-  changeButtonColor,
   changeButtonElevated,
   changeButtonShape,
   changeButtonSize,
   changeButtonState,
   changeButtonVariant,
   changeIconAnimation,
+  dsButtonShapes,
+  dsButtonSizes,
+  dsButtonVariants,
   iconAnimationVariants,
 } from '@shares/buttonApi.ts';
-import { contextColors, componentStates } from '@shares/showcaseDataApi.ts';
 import { parseVueTemplateTag, stripAndBeautifyTemplate } from '@shares/sharedApi.ts';
-import { nextTick, onBeforeUnmount, onMounted, ref, watch, watchEffect } from 'vue';
+import {
+  addWatcherForDefaultValue,
+  changeComponentColor,
+  dsComponentStates,
+  dsContextColors,
+} from '@shares/showcaseDataApi.ts';
+import { nextTick, onBeforeUnmount, ref, watch, watchEffect } from 'vue';
 import { type TButtonColor, type TButtonSize, type TIconPosition } from 'vue-mdbootstrap';
-
-const props = defineProps<{ showColor?: boolean }>();
 
 const example = await import('../examples/ButtonExample1.vue?raw');
 const rawTemplate = ref<string>();
@@ -26,14 +28,10 @@ const fmtVueTpl = ref<string | null | undefined>();
 
 rawTemplate.value = parseVueTemplateTag(example.default);
 
-let iconName = 'settings';
-if (props.showColor) {
-  iconName = 'favorite_filled';
-}
-
+const iconName = 'settings';
 const tabIndex = ref(0);
 const btnColor = ref<TButtonColor>('default');
-const btnVariant = ref<string>();
+const btnVariant = ref<string | undefined>('filled');
 const btnShape = ref<string | undefined>('pill');
 const btnSize = ref<string | undefined>('md');
 const btnState = ref<string | undefined>();
@@ -76,26 +74,24 @@ watchEffect(() => {
   let rawCode: string | undefined;
 
   rawCode = changeButtonVariant(btnVariant, rawTemplate.value);
-
-  if (props.showColor) {
-    rawCode = changeButtonColor(btnColor, rawCode);
-  }
-
+  rawCode = changeComponentColor(btnColor, rawCode!);
   rawCode = changeButtonShape(btnShape, rawCode);
   rawCode = changeButtonSize(btnSize, rawCode);
   rawCode = changeButtonState(btnState, rawCode);
   rawCode = changeButtonElevated(btnElevated, rawCode);
   rawCode = changeIconSize(rawCode);
   rawCode = changeIconPosition(rawCode);
-
-  if (!props.showColor) {
-    rawCode = changeIconAnimation(iconAnimation, hasAnimation.value, rawCode);
-  }
+  rawCode = changeIconAnimation(iconAnimation, hasAnimation.value, rawCode);
 
   if (rawCode) {
     fmtVueTpl.value = stripAndBeautifyTemplate(rawCode);
   }
 });
+
+addWatcherForDefaultValue(
+  { refObj: btnVariant, default: 'filled' },
+  { refObj: btnShape, default: 'pill' }
+);
 
 watch(btnSize, async (value) => {
   if (value === 'lg') {
@@ -106,6 +102,12 @@ watch(btnSize, async (value) => {
     iconSize.value = 16;
   } else {
     iconSize.value = 24;
+  }
+
+  if (!value) {
+    await nextTick(() => {
+      btnSize.value = 'md';
+    });
   }
 
   if (hasIcon.value) {
@@ -125,18 +127,13 @@ watch(hasAnimation, (value) => {
   iconAnimation.value = value ? iconAnimation.value : undefined;
 });
 
-const btnColors = contextColors();
-const btnVariants = buttonVariants();
-const btnShapes = buttonShapes();
-const btnSizes = buttonSizes();
-const btnStates = componentStates();
+const btnColors = dsContextColors();
+const btnVariants = dsButtonVariants();
+const btnShapes = dsButtonShapes();
+const btnSizes = dsButtonSizes();
+const btnStates = dsComponentStates();
 const iconPositions = buttonIconPositions();
 const iconAnimations = iconAnimationVariants();
-
-onMounted(() => {
-  // trigger reactivity on first load
-  btnVariant.value = 'filled';
-});
 
 onBeforeUnmount(() => {
   btnColors.proxy.destroy();
@@ -150,36 +147,21 @@ onBeforeUnmount(() => {
 <template>
   <div class="w-full">
     <div class="section-content mb-5">
-      <h2>{{ showColor ? 'Color Variants' : 'Overview' }}</h2>
+      <h2>Overview</h2>
     </div>
     <ShoutBox :tpl="fmtVueTpl">
       <template #side-panel>
-        <div class="min-h-103">
+        <div class="min-h-112">
           <h5 class="mt-2">Configuration Options:</h5>
 
-          <BsTabs v-model="tabIndex" class="mx-[-12px]" variant="material">
+          <BsTabs v-model="tabIndex" class="mx-[-12px] mt-2" variant="material">
             <BsTab label="General">
               <div class="flex flex-col gap-y-4">
-                <BsCombobox
-                  v-if="showColor"
-                  v-model="btnColor"
-                  :data-source="btnColors"
-                  filled
-                  floating-label
-                >
-                  <label>Color:</label>
-                </BsCombobox>
                 <BsCombobox v-model="btnVariant" :data-source="btnVariants" filled floating-label>
                   <label>Variant:</label>
                 </BsCombobox>
-                <BsCombobox
-                  v-if="!showColor"
-                  v-model="btnShape"
-                  :data-source="btnShapes"
-                  filled
-                  floating-label
-                >
-                  <label>Shape:</label>
+                <BsCombobox v-model="btnColor" :data-source="btnColors" filled floating-label>
+                  <label>Color:</label>
                 </BsCombobox>
                 <BsCombobox v-model="btnSize" :data-source="btnSizes" filled floating-label>
                   <label>Size:</label>
@@ -190,34 +172,39 @@ onBeforeUnmount(() => {
               </div>
             </BsTab>
             <BsTab label="Other">
-              <div class="flex flex-col gap-y-1 mt-2">
-                <BsCheckbox
-                  v-model="btnElevated"
-                  :disabled="btnState === 'readonly' || btnState === 'disabled'"
-                  :value="true"
-                >
-                  Elevated
-                </BsCheckbox>
-                <BsCheckbox v-model="hasIcon" :value="true">Show Icon</BsCheckbox>
-              </div>
-              <BsRadioGroup
-                v-model="iconPosition"
-                :disabled="!hasIcon"
-                :items="iconPositions"
-                column="2"
-              >
-                <div class="col-form-label select-none">Icon Position:</div>
-              </BsRadioGroup>
-              <div v-if="!showColor" class="mt-3">
-                <BsCheckbox v-model="hasAnimation" :disabled="!hasIcon" :value="true">
-                  Animation
-                </BsCheckbox>
+              <BsCombobox v-model="btnShape" :data-source="btnShapes" filled floating-label>
+                <label>Shape:</label>
+              </BsCombobox>
+              <div class="ps-2 mt-4">
+                <div class="flex flex-col gap-y-1">
+                  <BsCheckbox
+                    v-model="btnElevated"
+                    :disabled="btnState === 'readonly' || btnState === 'disabled'"
+                    :value="true"
+                  >
+                    Elevated
+                  </BsCheckbox>
+                  <BsCheckbox v-model="hasIcon" :value="true">Show Icon</BsCheckbox>
+                </div>
                 <BsRadioGroup
-                  v-model="iconAnimation"
-                  :disabled="!hasIcon || !hasAnimation"
-                  :items="iconAnimations"
+                  v-model="iconPosition"
+                  :disabled="!hasIcon"
+                  :items="iconPositions"
                   column="2"
-                />
+                >
+                  <div class="col-form-label select-none">Icon Position:</div>
+                </BsRadioGroup>
+                <div class="mt-2">
+                  <BsCheckbox v-model="hasAnimation" :disabled="!hasIcon" :value="true">
+                    Animation
+                  </BsCheckbox>
+                  <BsRadioGroup
+                    v-model="iconAnimation"
+                    :disabled="!hasIcon || !hasAnimation"
+                    :items="iconAnimations"
+                    column="2"
+                  />
+                </div>
               </div>
             </BsTab>
           </BsTabs>

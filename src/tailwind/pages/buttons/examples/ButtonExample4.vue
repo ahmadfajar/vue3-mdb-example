@@ -1,5 +1,6 @@
 <template>
   <BsButton
+    {$colorName}
     {$icon}
     {$iconAnimation}
     {$iconSize}
@@ -9,7 +10,7 @@
     {$states}
     {$variants}
     mode="fab"
-    aria-label="FAB Button"
+    aria-label="Extended FAB Button"
   >
     Navigate
   </BsButton>

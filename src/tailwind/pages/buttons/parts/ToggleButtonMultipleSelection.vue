@@ -1,20 +1,20 @@
 <script setup lang="ts">
 import {
   buttonIconPositions,
-  buttonShapes,
   changeButtonElevated,
   changeButtonShape,
   changeButtonState,
   changeButtonVariant,
-  toggleButtonVariants,
+  dsButtonShapes,
+  dsToggleButtonVariants,
 } from '@shares/buttonApi.ts';
 import {
   parseVueScriptTag,
   parseVueTemplateTag,
   stripAndBeautifyTemplate,
 } from '@shares/sharedApi.ts';
-import { componentStatesRD } from '@shares/showcaseDataApi.ts';
-import { onBeforeUnmount, onMounted, ref, watchEffect } from 'vue';
+import { addWatcherForDefaultValue, dsComponentStatesRD } from '@shares/showcaseDataApi.ts';
+import { onBeforeUnmount, ref, watchEffect } from 'vue';
 import type { TIconPosition, TInputOptionItem } from 'vue-mdbootstrap';
 
 const example1 = await import('../examples/ToggleButtonExample5.vue?raw');
@@ -25,7 +25,7 @@ const example4 = await import('../examples/ToggleButtonExample8.vue?raw');
 const rawTemplate = ref<string>();
 const fmtVueTpl = ref<string | null | undefined>();
 const fmtVueTsc = ref<string | null | undefined>();
-const btnVariant = ref<string>();
+const btnVariant = ref<string | undefined>('filled');
 const btnShape = ref<string | undefined>('pill');
 const btnState = ref<string>();
 const btnElevated = ref(false);
@@ -88,9 +88,14 @@ watchEffect(() => {
   }
 });
 
-const btnVariants = toggleButtonVariants();
-const btnShapes = buttonShapes();
-const btnStates = componentStatesRD();
+addWatcherForDefaultValue(
+  { refObj: btnVariant, default: 'filled' },
+  { refObj: btnShape, default: 'pill' }
+);
+
+const btnVariants = dsToggleButtonVariants();
+const btnShapes = dsButtonShapes();
+const btnStates = dsComponentStatesRD();
 const iconPositions = buttonIconPositions();
 const drinkSrc1: TInputOptionItem[] = [{ value: 'Tea' }, { value: 'Coffee' }, { value: 'Beer' }];
 const drinkSrc2: TInputOptionItem[] = [
@@ -98,11 +103,6 @@ const drinkSrc2: TInputOptionItem[] = [
   { value: 'Coffee', icon: 'coffee' },
   { value: 'Beer', icon: 'liquor' },
 ];
-
-onMounted(() => {
-  // trigger reactivity on first load
-  btnVariant.value = 'filled';
-});
 
 onBeforeUnmount(() => {
   btnVariants.proxy.destroy();
@@ -130,7 +130,7 @@ onBeforeUnmount(() => {
           <label>State:</label>
         </BsCombobox>
 
-        <div class="w-full">
+        <div class="w-full ps-2">
           <div class="flex flex-col md-gap-x-3">
             <BsCheckbox v-model="useCheckedMark" :value="true"> Use Check Mark </BsCheckbox>
             <BsCheckbox v-model="showIcon" :value="true"> Show Icon </BsCheckbox>

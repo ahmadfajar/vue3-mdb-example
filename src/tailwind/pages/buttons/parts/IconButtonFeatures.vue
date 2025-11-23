@@ -1,17 +1,17 @@
 <script setup lang="ts">
 import {
-  buttonSizes,
-  buttonVariants,
   changeButtonElevated,
   changeButtonSize,
   changeButtonState,
   changeButtonVariant,
   changeIconAnimation,
+  dsButtonSizes,
+  dsButtonVariants,
   iconAnimationVariants,
 } from '@shares/buttonApi.ts';
 import { parseVueTemplateTag, stripAndBeautifyTemplate } from '@shares/sharedApi.ts';
-import { componentStates } from '@shares/showcaseDataApi.ts';
-import { nextTick, onBeforeUnmount, onMounted, ref, watch, watchEffect } from 'vue';
+import { addWatcherForDefaultValue, dsComponentStates } from '@shares/showcaseDataApi.ts';
+import { nextTick, onBeforeUnmount, ref, watch, watchEffect } from 'vue';
 import type { TButtonSize } from 'vue-mdbootstrap';
 
 const example = await import('../examples/ButtonExample2.vue?raw');
@@ -21,11 +21,11 @@ const fmtVueTpl = ref<string | null | undefined>();
 rawTemplate.value = parseVueTemplateTag(example.default);
 
 const iconName = 'settings';
-const btnVariant = ref<string>();
+const btnVariant = ref<string | undefined>('filled');
 const btnSize = ref<string | undefined>('md');
 const btnState = ref<string | undefined>();
 const btnElevated = ref(false);
-const btnIcon = ref<string>();
+const btnIcon = ref<string | undefined>(iconName);
 const iconSize = ref(24);
 const hasAnimation = ref(false);
 const iconAnimation = ref<string>();
@@ -58,6 +58,8 @@ watchEffect(() => {
   }
 });
 
+addWatcherForDefaultValue({ refObj: btnVariant, default: 'filled' });
+
 watch(btnSize, async (value) => {
   if (value === 'lg') {
     iconSize.value = 32;
@@ -72,6 +74,9 @@ watch(btnSize, async (value) => {
   btnIcon.value = undefined;
   await nextTick(() => {
     btnIcon.value = iconName;
+    if (!value) {
+      btnSize.value = 'md';
+    }
   });
 });
 
@@ -79,16 +84,10 @@ watch(hasAnimation, (value) => {
   iconAnimation.value = value ? iconAnimation.value : undefined;
 });
 
-const btnVariants = buttonVariants();
-const btnSizes = buttonSizes();
-const btnStates = componentStates();
+const btnVariants = dsButtonVariants();
+const btnSizes = dsButtonSizes();
+const btnStates = dsComponentStates();
 const iconAnimations = iconAnimationVariants();
-
-onMounted(() => {
-  // trigger reactivity on first load
-  btnVariant.value = 'filled';
-  btnIcon.value = iconName;
-});
 
 onBeforeUnmount(() => {
   btnVariants.proxy.destroy();
@@ -116,7 +115,7 @@ onBeforeUnmount(() => {
           <label>State:</label>
         </BsCombobox>
 
-        <div class="flex flex-col">
+        <div class="flex flex-col ps-2">
           <BsCheckbox
             v-model="btnElevated"
             :disabled="btnState === 'readonly' || btnState === 'disabled'"

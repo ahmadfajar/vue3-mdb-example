@@ -1,23 +1,24 @@
 <script setup lang="ts">
-import { changeButtonShape, changeButtonSize, changeButtonVariant } from '@shares/buttonApi.ts';
+import { changeButtonSize, changeButtonVariant } from '@shares/buttonApi.ts';
 import {
   changeChipActiveClass,
-  enableRoundedChipAvatar,
   changeChipColor,
-  enableChipGroupMultiRows,
-  dsChipSizes,
-  removeAvatarPadding,
+  changeChipShape,
   dsChipDemoItems,
+  dsChipSizes,
   enableChipGroupFilters,
+  enableChipGroupMultiRows,
   enableChipGroupSliders,
+  enableRoundedChipAvatar,
+  removeAvatarPadding,
 } from '@shares/chipApi.ts';
 import {
   parseVueScriptTag,
   parseVueTemplateTag,
   stripAndBeautifyTemplate,
 } from '@shares/sharedApi.ts';
-import { contextColors } from '@shares/showcaseDataApi.ts';
-import { onBeforeUnmount, ref, watch, watchEffect } from 'vue';
+import { addWatcherForDefaultValue, dsContextColors } from '@shares/showcaseDataApi.ts';
+import { nextTick, onBeforeUnmount, ref, watch, watchEffect } from 'vue';
 import {
   Helper,
   type TChipOptionItem,
@@ -85,7 +86,7 @@ const selectedChip = ref<TChipValue>();
 const selectedChips = ref<TChipValue[]>([]);
 const chipSources = ref<TChipOptionItem[]>(dsChipDemoItems());
 
-watch(chipSize, (newValue, oldValue) => {
+watch(chipSize, async (newValue, oldValue) => {
   if (newValue !== oldValue) {
     const oldVal1 = selectedChip.value;
     const oldVal2 = selectedChips.value;
@@ -101,7 +102,15 @@ watch(chipSize, (newValue, oldValue) => {
       }
     });
   }
+
+  if (!newValue) {
+    await nextTick(() => {
+      chipSize.value = 'md';
+    });
+  }
 });
+
+addWatcherForDefaultValue({ refObj: chipColor, default: 'secondary' });
 
 watchEffect(() => {
   let rawCode: string | undefined;
@@ -137,7 +146,7 @@ watchEffect(() => {
 
   rawCode = changeChipColor(chipColor, rawTemplate.value);
   rawCode = changeButtonVariant(chipVariant, rawCode);
-  rawCode = changeButtonShape(chipShape, rawCode);
+  rawCode = changeChipShape(chipShape, rawCode);
   rawCode = changeButtonSize(chipSize, rawCode);
   rawCode = changeChipActiveClass(activeClass, rawCode);
   rawCode = enableChipGroupMultiRows(multiRows, rawCode);
@@ -157,7 +166,7 @@ watchEffect(() => {
   }
 });
 
-const chipColorSrc = contextColors(['dark']);
+const chipColorSrc = dsContextColors(['dark']);
 const chipSizeSrc = dsChipSizes();
 
 onBeforeUnmount(() => {
@@ -178,7 +187,7 @@ onBeforeUnmount(() => {
         <div class="min-h-121">
           <h5 class="mt-2">Configuration Options:</h5>
 
-          <BsTabs v-model="tabIndex" class="mx-[-12px]" variant="material">
+          <BsTabs v-model="tabIndex" class="mx-[-12px] mt-2" variant="material">
             <BsTab label="General">
               <div class="flex flex-col gap-y-4">
                 <BsCombobox v-model="chipColor" :data-source="chipColorSrc" filled floating-label>
@@ -198,7 +207,7 @@ onBeforeUnmount(() => {
               </div>
             </BsTab>
             <BsTab label="Other">
-              <div class="flex flex-col gap-2">
+              <div class="flex flex-col gap-2 ps-2">
                 <BsCheckbox v-model="chipVariant" value="outlined"> Outlined </BsCheckbox>
                 <BsCheckbox v-model="chipShape" value="pill"> Rounded Pill </BsCheckbox>
                 <BsCheckbox v-if="!showSlider" v-model="multiRows" :value="true">

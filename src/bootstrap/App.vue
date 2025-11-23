@@ -49,7 +49,7 @@
 import AppNavbar from '@bs/AppNavbar.vue';
 import type { TMainNavigation } from '@bs/router/navigation';
 import { menuNavs } from '@bs/router/navigation';
-import { type IMyAppProvider, MyAppProvider } from '@shares/dataStore.ts';
+import { type IMyAppProvider, MyAppProvider } from '@shares/provider.ts';
 import { createShikiInstance, disposeShiki } from '@shares/shikiApi.ts';
 import { onBeforeUnmount, onMounted, provide } from 'vue';
 import { StringHelper, useBreakpointMin } from 'vue-mdbootstrap';

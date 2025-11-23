@@ -1,20 +1,20 @@
 <script setup lang="ts">
 import {
   buttonIconPositions,
-  buttonShapes,
   changeButtonElevated,
   changeButtonShape,
   changeButtonState,
   changeButtonVariant,
-  toggleButtonVariants,
+  dsButtonShapes,
+  dsToggleButtonVariants,
 } from '@shares/buttonApi.ts';
 import {
   parseVueScriptTag,
   parseVueTemplateTag,
   stripAndBeautifyTemplate,
 } from '@shares/sharedApi.ts';
-import { componentStatesRD } from '@shares/showcaseDataApi.ts';
-import { onBeforeUnmount, onMounted, ref, watch, watchEffect } from 'vue';
+import { addWatcherForDefaultValue, dsComponentStatesRD } from '@shares/showcaseDataApi.ts';
+import { onBeforeUnmount, ref, watch, watchEffect } from 'vue';
 import type { TIconPosition, TInputOptionItem } from 'vue-mdbootstrap';
 
 const example1 = await import('../examples/ToggleButtonExample3.vue?raw');
@@ -22,7 +22,7 @@ const example2 = await import('../examples/ToggleButtonExample4.vue?raw');
 const rawTemplate = ref<string>();
 const fmtVueTpl = ref<string | null | undefined>();
 const fmtVueTsc = ref<string | null | undefined>();
-const btnVariant = ref<string>();
+const btnVariant = ref<string | undefined>('filled');
 const btnShape = ref<string | undefined>('pill');
 const btnState = ref<string>();
 const btnElevated = ref(false);
@@ -64,6 +64,11 @@ watchEffect(() => {
   }
 });
 
+addWatcherForDefaultValue(
+  { refObj: btnVariant, default: 'filled' },
+  { refObj: btnShape, default: 'pill' }
+);
+
 watch(showIcon, (value) => {
   if (value) {
     parseSourceWithIcon();
@@ -72,9 +77,9 @@ watch(showIcon, (value) => {
   }
 });
 
-const btnVariants = toggleButtonVariants();
-const btnShapes = buttonShapes();
-const btnStates = componentStatesRD();
+const btnVariants = dsToggleButtonVariants();
+const btnShapes = dsButtonShapes();
+const btnStates = dsComponentStatesRD();
 const iconPositions = buttonIconPositions();
 const drinkSrc1: TInputOptionItem[] = [{ value: 'Tea' }, { value: 'Coffee' }, { value: 'Beer' }];
 const drinkSrc2: TInputOptionItem[] = [
@@ -85,10 +90,10 @@ const drinkSrc2: TInputOptionItem[] = [
 
 parseSourceWithoutIcon();
 
-onMounted(() => {
-  // trigger reactivity on first load
-  btnVariant.value = 'filled';
-});
+// onMounted(() => {
+//   // trigger reactivity on first load
+//   btnVariant.value = 'filled';
+// });
 
 onBeforeUnmount(() => {
   btnVariants.proxy.destroy();
@@ -116,7 +121,7 @@ onBeforeUnmount(() => {
           <label>State:</label>
         </BsCombobox>
 
-        <div class="w-full">
+        <div class="w-full ps-2">
           <div class="flex md-gap-x-3">
             <BsCheckbox
               v-model="btnElevated"

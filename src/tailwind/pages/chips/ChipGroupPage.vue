@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { LinkItem } from '@shares/dataStore.ts';
+import type { LinkItem } from '@shares/provider.ts';
 import ChipGroupFeatures from '@tw/pages/chips/parts/ChipGroupFeatures.vue';
 
 const linkItems = [

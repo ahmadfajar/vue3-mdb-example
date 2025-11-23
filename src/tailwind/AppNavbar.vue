@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { IMyAppProvider } from '@shares/dataStore.ts';
+import type { IMyAppProvider } from '@shares/provider.ts';
 import { inject, ref } from 'vue';
 
 const provider = inject('MyApp') as IMyAppProvider;

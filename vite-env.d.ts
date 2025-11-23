@@ -1,7 +1,7 @@
 /// <reference types="vite/client" />
 /// <reference types="vue-mdbootstrap/component" />
 
-import type { LinkItem } from '@shares/dataStore.ts';
+import type { LinkItem } from '@shares/provider.ts';
 import { AllowedComponentProps, ComponentCustomProps, VNode, VNodeProps } from 'vue';
 
 declare type VueBaseProps = AllowedComponentProps & ComponentCustomProps & VNodeProps;

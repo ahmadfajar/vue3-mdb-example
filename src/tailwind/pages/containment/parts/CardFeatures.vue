@@ -6,7 +6,7 @@ import {
   showCardHeader,
 } from '@shares/cardApi.ts';
 import { parseVueTemplateTag, stripAndBeautifyTemplate } from '@shares/sharedApi.ts';
-import { contextColors } from '@shares/showcaseDataApi.ts';
+import { dsContextColors } from '@shares/showcaseDataApi.ts';
 import { onBeforeUnmount, ref, watchEffect } from 'vue';
 
 const example1 = await import('../examples/CardExample1.vue?raw');
@@ -40,8 +40,8 @@ watchEffect(() => {
   );
 });
 
-const cardColorSrc = contextColors(['dark', 'light']);
-const cardBorderSrc = contextColors(['dark', 'light']);
+const cardColorSrc = dsContextColors(['dark', 'light']);
+const cardBorderSrc = dsContextColors(['dark', 'light']);
 
 onBeforeUnmount(() => {
   cardColorSrc.proxy.destroy();

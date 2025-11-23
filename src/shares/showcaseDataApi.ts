@@ -1,3 +1,4 @@
+import { nextTick, type Ref, watch } from 'vue';
 import { BsArrayStore, type TDataListSchema, type TDataSource } from 'vue-mdbootstrap';
 
 export const schemaConfigDefinition: TDataListSchema = {
@@ -5,7 +6,7 @@ export const schemaConfigDefinition: TDataListSchema = {
   valueField: 'value',
 };
 
-export function componentStates(): TDataSource {
+export function dsComponentStates(): TDataSource {
   return {
     proxy: new BsArrayStore(
       [
@@ -21,7 +22,7 @@ export function componentStates(): TDataSource {
   };
 }
 
-export function componentStatesRD(): TDataSource {
+export function dsComponentStatesRD(): TDataSource {
   return {
     proxy: new BsArrayStore(
       [
@@ -35,7 +36,8 @@ export function componentStatesRD(): TDataSource {
     schema: schemaConfigDefinition,
   };
 }
-export function contextColors(excludes: string[] = []): TDataSource {
+
+export function dsContextColors(excludes: string[] = []): TDataSource {
   const results = [
     { value: 'default', label: 'Default' },
     { value: 'primary', label: 'Primary' },
@@ -54,4 +56,36 @@ export function contextColors(excludes: string[] = []): TDataSource {
     }),
     schema: schemaConfigDefinition,
   };
+}
+
+export function changeComponentColor(colorRef: Ref<string | undefined>, data: string): string {
+  if (colorRef.value) {
+    return data.replace('{$colorName}', `color="${colorRef.value}"`);
+  }
+
+  return data;
+}
+
+export function changeComponentVariant(variantRef: Ref<string | undefined>, data: string): string {
+  if (variantRef.value) {
+    return data.replace('{$variants}', variantRef.value);
+  }
+
+  return data;
+}
+declare type WatcherDefaultValue<T> = {
+  refObj: Ref<T>;
+  default: T;
+};
+
+export function addWatcherForDefaultValue<T>(...args: WatcherDefaultValue<T>[]): void {
+  for (const obj of args) {
+    watch(obj.refObj, async (value) => {
+      if (!value) {
+        await nextTick(() => {
+          obj.refObj.value = obj.default;
+        });
+      }
+    });
+  }
 }

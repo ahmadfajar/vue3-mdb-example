@@ -8,7 +8,7 @@ const miniOpen = ref(false);
 </script>
 
 <template>
-  <BsApp class="md-shadow-2 rounded-lg mt-4">
+  <BsApp class="md-shadow-2 rounded-lg">
     <BsSideDrawer v-model:open="miniOpen" mini>
       <div class="flex flex-row p-2 w[250px]">
         <img

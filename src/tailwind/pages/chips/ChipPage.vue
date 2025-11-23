@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { LinkItem } from '@shares/dataStore.ts';
+import type { LinkItem } from '@shares/provider.ts';
 import ChipClickEvents from '@tw/pages/chips/parts/ChipClickEvents.vue';
 import ChipDismissible from '@tw/pages/chips/parts/ChipDismissible.vue';
 import ChipDropdownMenus from '@tw/pages/chips/parts/ChipDropdownMenus.vue';

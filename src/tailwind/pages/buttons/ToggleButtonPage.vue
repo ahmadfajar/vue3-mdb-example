@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { LinkItem } from '@shares/dataStore.ts';
+import type { LinkItem } from '@shares/provider.ts';
 import ToggleButtonCheckedIcon from '@tw/pages/buttons/parts/ToggleButtonCheckedIcon.vue';
 import ToggleButtonFeatures from '@tw/pages/buttons/parts/ToggleButtonFeatures.vue';
 import ToggleButtonMultipleSelection from '@tw/pages/buttons/parts/ToggleButtonMultipleSelection.vue';

@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import {
   buttonIconPositions,
-  buttonShapes,
-  buttonSizes,
-  buttonVariants,
+  dsButtonShapes,
+  dsButtonSizes,
+  dsButtonVariants,
   iconAnimationVariants,
 } from '@shares/buttonApi.ts';
-import { componentStates } from '@shares/showcaseDataApi.ts';
+import { dsComponentStates } from '@shares/showcaseDataApi.ts';
 import {
   parseVueScriptTag,
   parseVueTemplateTag,
@@ -179,10 +179,10 @@ watch(
   }
 );
 
-const btnVariants = buttonVariants();
-const btnShapes = buttonShapes();
-const btnSizes = buttonSizes();
-const btnStates = componentStates();
+const btnVariants = dsButtonVariants();
+const btnShapes = dsButtonShapes();
+const btnSizes = dsButtonSizes();
+const btnStates = dsComponentStates();
 const iconPositions = buttonIconPositions();
 const iconAnimations = iconAnimationVariants();
 

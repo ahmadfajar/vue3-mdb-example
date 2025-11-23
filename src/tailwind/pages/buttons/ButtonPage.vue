@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { LinkItem } from '@shares/dataStore.ts';
+import type { LinkItem } from '@shares/provider.ts';
 import ButtonBlock from '@tw/pages/buttons/parts/ButtonBlock.vue';
 import ButtonFeatures from '@tw/pages/buttons/parts/ButtonFeatures.vue';
 import ButtonGroups from '@tw/pages/buttons/parts/ButtonGroups.vue';
@@ -16,10 +16,10 @@ const linkItems = [
     text: 'Extended FAB',
     location: { name: 'button-id', params: { id: 'extended-fab-button' } },
   },
-  {
-    text: 'Color Variants',
-    location: { name: 'button-id', params: { id: 'color-variants' } },
-  },
+  // {
+  //   text: 'Color Variants',
+  //   location: { name: 'button-id', params: { id: 'color-variants' } },
+  // },
   {
     text: 'Icon Rotation',
     location: { name: 'button-id', params: { id: 'icon-rotation' } },
@@ -45,7 +45,6 @@ const linkItems = [
       <IconButtonFeatures v-if="$route.params.id === 'icon-button'" />
       <FabFeatures v-else-if="$route.params.id === 'fab-button'" />
       <FabFeatures v-else-if="$route.params.id === 'extended-fab-button'" extended />
-      <ButtonFeatures v-else-if="$route.params.id === 'color-variants'" show-color />
       <ButtonIconRotation v-else-if="$route.params.id === 'icon-rotation'" />
       <ButtonBlock v-else-if="$route.params.id === 'button-block'" />
       <ButtonGroups v-else-if="$route.params.id === 'button-groups'" />

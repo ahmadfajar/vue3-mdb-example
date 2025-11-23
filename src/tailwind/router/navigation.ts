@@ -156,6 +156,18 @@ export const menuNavs: TMainNavigation[] = [
       {
         text: 'Alert',
         path: '/elements/alert',
+        view: () => import('@tw/pages/elements/AlertPage.vue'),
+      },
+      {
+        text: 'Alert',
+        name: 'alert-id',
+        path: '/elements/alert/:id',
+        hidden: true,
+        view: () => import('@tw/pages/elements/AlertPage.vue'),
+      },
+      {
+        text: 'Alert Example',
+        path: '/elements/alert-example',
         view: () => import('@tw/pages/elements/DemoAlert.vue'),
       },
       {

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { LinkItem } from '@shares/dataStore.ts';
+import type { LinkItem } from '@shares/provider.ts';
 import CardFeatures from '@tw/pages/containment/parts/CardFeatures.vue';
 import CardGroup from '@tw/pages/containment/parts/CardGroup.vue';
 import CardImageSupport from '@tw/pages/containment/parts/CardImageSupport.vue';

@@ -2,9 +2,9 @@
 
 <template>
   <BsCard
+    border-off
     class="bg-yellow-50 max-w-100"
     img-top-src="https://ahmadfajar.github.io/img/pork-buns.jpg"
-    shadow
   >
     <BsCardBody>
       <BsCardContent class="flex items-center justify-between" type="title">

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { type IMyAppProvider, type LinkItem } from '@shares/dataStore.ts';
+import { type IMyAppProvider, type LinkItem } from '@shares/provider.ts';
 import { inject, onBeforeUnmount, ref, unref } from 'vue';
 
 const props = defineProps<{ links?: Readonly<LinkItem[]> }>();

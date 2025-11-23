@@ -64,6 +64,20 @@ export function dsChipDemoItems(include?: 'icon' | 'avatar'): TChipOptionItem[] 
   }
 }
 
+export function changeChipShape(
+  shapeRef: Ref<string | undefined>,
+  data?: string,
+  replaceAll?: boolean
+): string | undefined {
+  if (shapeRef.value && shapeRef.value === 'pill') {
+    return replaceAll
+      ? data?.replaceAll('{$shapes}', shapeRef.value)
+      : data?.replace('{$shapes}', shapeRef.value);
+  }
+
+  return data;
+}
+
 export function changeChipColor(
   colorRef: Ref<TContextColorSecondary>,
   data?: string,

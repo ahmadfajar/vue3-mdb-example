@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import {
   buttonIconPositions,
-  changeButtonShape,
   changeButtonSize,
   changeButtonState,
   changeButtonVariant,
@@ -10,20 +9,25 @@ import {
   changeIconName,
   changeIconPosition,
   changeIconRotation,
+  dsIconFlips,
+  dsIconRotations,
   iconAnimationVariants,
-  iconFlips,
-  iconRotations,
 } from '@shares/buttonApi.ts';
 import {
   changeChipActiveClass,
   changeChipAvatar,
-  enableRoundedChipAvatar,
   changeChipColor,
+  changeChipShape,
   dsChipSizes,
+  enableRoundedChipAvatar,
   removeAvatarPadding,
 } from '@shares/chipApi.ts';
-import { contextColors, componentStates } from '@shares/showcaseDataApi.ts';
 import { parseVueTemplateTag, stripAndBeautifyTemplate } from '@shares/sharedApi.ts';
+import {
+  addWatcherForDefaultValue,
+  dsComponentStates,
+  dsContextColors,
+} from '@shares/showcaseDataApi.ts';
 import { onBeforeUnmount, ref, watchEffect } from 'vue';
 import {
   Helper,
@@ -75,7 +79,7 @@ watchEffect(() => {
 
   rawCode = changeChipColor(chipColor, rawTemplate.value, true);
   rawCode = changeButtonVariant(chipVariant, rawCode, true);
-  rawCode = changeButtonShape(chipShape, rawCode, true);
+  rawCode = changeChipShape(chipShape, rawCode, true);
   rawCode = changeButtonSize(chipSize, rawCode, true);
   rawCode = changeChipActiveClass(activeClass, rawCode);
   rawCode = changeButtonState(chipState, rawCode, true);
@@ -97,11 +101,16 @@ watchEffect(() => {
   }
 });
 
-const chipColorSrc = contextColors(['dark']);
+addWatcherForDefaultValue(
+  { refObj: chipColor, default: 'secondary' },
+  { refObj: chipSize, default: 'md' }
+);
+
+const chipColorSrc = dsContextColors(['dark']);
 const chipSizeSrc = dsChipSizes();
-const chipStateSrc = componentStates();
-const iconFlipSrc = iconFlips();
-const iconRotationSrc = iconRotations();
+const chipStateSrc = dsComponentStates();
+const iconFlipSrc = dsIconFlips();
+const iconRotationSrc = dsIconRotations();
 const iconPositions = buttonIconPositions();
 const iconAnimations = iconAnimationVariants();
 
@@ -171,7 +180,7 @@ onBeforeUnmount(() => {
           </BsCombobox>
         </template>
 
-        <div v-if="!showAvatar" class="flex justify-between">
+        <div v-if="!showAvatar" class="flex justify-between ps-2">
           <BsCheckbox v-model="chipVariant" value="outlined"> Outlined</BsCheckbox>
           <BsCheckbox v-model="chipShape" value="pill"> Rounded Pill</BsCheckbox>
         </div>
@@ -180,13 +189,13 @@ onBeforeUnmount(() => {
           v-if="showIcon"
           v-model="iconPosition"
           :items="iconPositions"
-          class="mt-[-10px]"
+          class="mt-[-10px] ps-2"
           column="2"
         >
           <div class="col-form-label select-none">Icon Position:</div>
         </BsRadioGroup>
 
-        <div v-if="showIcon" class="mt-[-10px]">
+        <div v-if="showIcon" class="mt-[-10px] ps-2">
           <BsCheckbox v-model="hasAnimation" :value="true"> Animation </BsCheckbox>
           <BsRadioGroup
             v-model="iconAnimation"
@@ -195,7 +204,7 @@ onBeforeUnmount(() => {
             column="2"
           />
         </div>
-        <div v-else-if="showAvatar" class="flex flex-col gap-y-1">
+        <div v-else-if="showAvatar" class="flex flex-col gap-y-1 ps-2">
           <BsCheckbox v-model="chipVariant" value="outlined"> Outlined</BsCheckbox>
           <BsCheckbox v-model="chipShape" value="pill"> Rounded Pill</BsCheckbox>
           <BsCheckbox v-model="avatarRounded" :disabled="chipShape === 'pill'" :value="true">

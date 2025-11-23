@@ -1,5 +1,6 @@
 <template>
   <BsButton
+    {$colorName}
     {$icon}
     {$iconAnimation}
     {$iconSize}

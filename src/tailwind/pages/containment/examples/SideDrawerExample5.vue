@@ -12,7 +12,7 @@ function toggleSideDrawer(value: boolean) {
 </script>
 
 <template>
-  <BsApp class="bg-gray-400 md-shadow-2 rounded-lg mt-4">
+  <BsApp class="bg-gray-400 md-shadow-2 rounded-lg">
     <BsAppbar shadow>
       <BsButton
         color="dark"

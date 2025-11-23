@@ -89,7 +89,7 @@ export function stripAndBeautifyTemplate(
   rawCode: string,
   beautify: boolean = true
 ): string | undefined {
-  const content = rawCode.replace(/\{\$.*\}/g, '');
+  const content = rawCode.replace(/\{\$[a-zA-Z_][a-zA-Z0-9_]*\}/g, '');
 
   return beautify ? js_beautify.html_beautify(content, config) : content;
 }

@@ -1,22 +1,26 @@
 <script setup lang="ts">
 import {
   buttonIconPositions,
-  buttonShapes,
-  buttonSizes,
   changeButtonElevated,
   changeButtonShape,
   changeButtonSize,
   changeButtonState,
   changeButtonVariant,
-  toggleButtonVariants,
+  dsButtonShapes,
+  dsButtonSizes,
+  dsToggleButtonVariants,
 } from '@shares/buttonApi.ts';
 import {
   parseVueScriptTag,
   parseVueTemplateTag,
   stripAndBeautifyTemplate,
 } from '@shares/sharedApi.ts';
-import { contextColors, componentStatesRD } from '@shares/showcaseDataApi.ts';
-import { nextTick, onBeforeUnmount, onMounted, ref, watch, watchEffect } from 'vue';
+import {
+  addWatcherForDefaultValue,
+  dsComponentStatesRD,
+  dsContextColors,
+} from '@shares/showcaseDataApi.ts';
+import { nextTick, onBeforeUnmount, ref, watch, watchEffect } from 'vue';
 import type { TButtonSize, TIconPosition, TInputOptionItem } from 'vue-mdbootstrap';
 
 const example1 = await import('../examples/ToggleButtonExample1.vue?raw');
@@ -24,7 +28,7 @@ const example2 = await import('../examples/ToggleButtonExample2.vue?raw');
 const rawTemplate = ref<string>();
 const fmtVueTpl = ref<string | null | undefined>();
 const fmtVueTsc = ref<string | null | undefined>();
-const btnVariant = ref<string>();
+const btnVariant = ref<string | undefined>('filled');
 const btnShape = ref<string | undefined>('pill');
 const btnSize = ref<string | undefined>('md');
 const btnState = ref<string>();
@@ -105,6 +109,11 @@ watch(btnSize, async (value) => {
     iconSize.value = 24;
   }
 
+  if (!value) {
+    await nextTick(() => {
+      btnSize.value = 'md';
+    });
+  }
   if (showIcon.value) {
     drinkSrc2Ref.value = [];
     await nextTick(() => {
@@ -113,11 +122,16 @@ watch(btnSize, async (value) => {
   }
 });
 
-const btnColors = contextColors();
-const btnVariants = toggleButtonVariants();
-const btnShapes = buttonShapes();
-const btnSizes = buttonSizes();
-const btnStates = componentStatesRD();
+addWatcherForDefaultValue(
+  { refObj: btnVariant, default: 'filled' },
+  { refObj: btnShape, default: 'pill' }
+);
+
+const btnColors = dsContextColors();
+const btnVariants = dsToggleButtonVariants();
+const btnShapes = dsButtonShapes();
+const btnSizes = dsButtonSizes();
+const btnStates = dsComponentStatesRD();
 const iconPositions = buttonIconPositions();
 const drinkSrc1: TInputOptionItem[] = [{ value: 'Tea' }, { value: 'Coffee' }, { value: 'Beer' }];
 const drinkSrc2: TInputOptionItem[] = [
@@ -129,10 +143,10 @@ drinkSrc2Ref.value = drinkSrc2;
 
 parseSourceWithoutIcon();
 
-onMounted(() => {
-  // trigger reactivity on first load
-  btnVariant.value = 'filled';
-});
+// onMounted(() => {
+//   // trigger reactivity on first load
+//   btnVariant.value = 'filled';
+// });
 
 onBeforeUnmount(() => {
   btnColors.proxy.destroy();
@@ -165,7 +179,7 @@ onBeforeUnmount(() => {
           <label>State:</label>
         </BsCombobox>
 
-        <div class="w-full">
+        <div class="w-full ps-2">
           <div class="flex md-gap-x-3">
             <BsCheckbox
               v-model="btnElevated"

@@ -1,16 +1,20 @@
 <script setup lang="ts">
 import {
-  buttonSizes,
   changeButtonSize,
   changeButtonState,
   changeIconAnimation,
-  fabButtonVariants,
+  dsButtonSizes,
+  dsFabButtonVariants,
   iconAnimationVariants,
 } from '@shares/buttonApi.ts';
 import { parseVueTemplateTag, stripAndBeautifyTemplate } from '@shares/sharedApi.ts';
-import { componentStates } from '@shares/showcaseDataApi.ts';
+import {
+  changeComponentColor,
+  dsComponentStates,
+  dsContextColors,
+} from '@shares/showcaseDataApi.ts';
 import { nextTick, onBeforeUnmount, onMounted, ref, watch, watchEffect } from 'vue';
-import { type TButtonSize } from 'vue-mdbootstrap';
+import { type TButtonColor, type TButtonSize } from 'vue-mdbootstrap';
 
 const props = defineProps<{ extended?: boolean }>();
 
@@ -30,6 +34,7 @@ const fmtVueTpl = ref<string | null | undefined>();
 rawTemplate.value = parseVueTemplateTag(example.default);
 
 const btnVariant = ref<string>();
+const btnColor = ref<TButtonColor | undefined>('default');
 const btnSize = ref<string | undefined>('md');
 const btnState = ref<string | undefined>();
 const btnIcon = ref<string>();
@@ -55,6 +60,7 @@ watchEffect(() => {
   let rawCode: string | undefined;
 
   rawCode = changeButtonVariant(rawTemplate.value);
+  rawCode = changeComponentColor(btnColor, rawCode!);
   rawCode = changeButtonSize(btnSize, rawCode);
   rawCode = changeButtonState(btnState, rawCode);
   rawCode = changeButtonIcon(rawCode);
@@ -79,13 +85,20 @@ watch(btnSize, async (value) => {
   btnIcon.value = undefined;
   await nextTick(() => {
     btnIcon.value = `${iconName}_${btnVariant.value}`;
+    if (!value) {
+      btnSize.value = 'md';
+    }
   });
 });
 
 watch(btnVariant, async (value) => {
   btnIcon.value = undefined;
+
   await nextTick(() => {
-    btnIcon.value = `${iconName}_${value}`;
+    if (!value) {
+      btnVariant.value = 'filled';
+    }
+    btnIcon.value = `${iconName}_${btnVariant.value}`;
   });
 });
 
@@ -93,10 +106,12 @@ watch(hasAnimation, (value) => {
   iconAnimation.value = value ? iconAnimation.value : undefined;
 });
 
-const btnVariants = fabButtonVariants();
-const btnSizes = buttonSizes();
-const btnStates = componentStates();
+const btnVariants = dsFabButtonVariants();
+const btnColors = dsContextColors();
+const btnSizes = dsButtonSizes();
+const btnStates = dsComponentStates();
 const iconAnimations = iconAnimationVariants();
+const contentCls = ['h-full flex items-center justify-center min-h-40 px-6 py-8 md:rounded-lg'];
 
 onMounted(() => {
   // trigger reactivity on first load
@@ -106,6 +121,7 @@ onMounted(() => {
 
 onBeforeUnmount(() => {
   btnVariants.proxy.destroy();
+  btnColors.proxy.destroy();
   btnSizes.proxy.destroy();
   btnStates.proxy.destroy();
 });
@@ -114,7 +130,7 @@ onBeforeUnmount(() => {
 <template>
   <div class="w-full">
     <div class="section-content mb-5">
-      <h2>{{ extended ? 'Extended ' : '' }}FAB Button</h2>
+      <h2>{{ extended ? 'Extended FAB' : 'FAB' }} Button</h2>
     </div>
     <ShoutBox :tpl="fmtVueTpl">
       <template #side-panel>
@@ -123,6 +139,9 @@ onBeforeUnmount(() => {
         <BsCombobox v-model="btnVariant" :data-source="btnVariants" filled floating-label>
           <label>Variant:</label>
         </BsCombobox>
+        <BsCombobox v-model="btnColor" :data-source="btnColors" filled floating-label>
+          <label>Color:</label>
+        </BsCombobox>
         <BsCombobox v-model="btnSize" :data-source="btnSizes" filled floating-label>
           <label>Size:</label>
         </BsCombobox>
@@ -130,8 +149,8 @@ onBeforeUnmount(() => {
           <label>State:</label>
         </BsCombobox>
 
-        <div class="flex flex-col">
-          <BsCheckbox v-model="hasAnimation" :value="true"> Icon Animation</BsCheckbox>
+        <div class="flex flex-col ps-2">
+          <BsCheckbox v-model="hasAnimation" :value="true"> Icon Animation </BsCheckbox>
           <BsRadioGroup
             v-model="iconAnimation"
             :disabled="!hasAnimation"
@@ -143,10 +162,16 @@ onBeforeUnmount(() => {
       </template>
 
       <template #content>
-        <div class="h-full flex items-center justify-center min-h-40 px-6 py-8">
+        <div
+          :class="[
+            ...contentCls,
+            btnColor === 'light' && btnState !== 'disabled' ? 'bg-gray-800' : '',
+          ]"
+        >
           <BsButton
             v-if="extended"
             :active="btnState === 'active'"
+            :color="btnColor"
             :disabled="btnState === 'disabled'"
             :icon="btnIcon"
             :icon-pulse="iconAnimation === 'pulse'"
@@ -163,6 +188,7 @@ onBeforeUnmount(() => {
           <BsButton
             v-else
             :active="btnState === 'active'"
+            :color="btnColor"
             :disabled="btnState === 'disabled'"
             :icon="btnIcon"
             :icon-pulse="iconAnimation === 'pulse'"
