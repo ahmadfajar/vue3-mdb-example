@@ -1,6 +1,29 @@
 import { schemaConfigDefinition } from '@shares/showcaseDataApi.ts';
 import type { Ref } from 'vue';
-import { BsArrayStore, type TDataSource, type TIconVariant } from 'vue-mdbootstrap';
+import {
+  BsArrayStore,
+  type TAlertVariant,
+  type TDataSource,
+  type TIconVariant,
+} from 'vue-mdbootstrap';
+
+export function dsAlertContextual(): TDataSource {
+  return {
+    proxy: new BsArrayStore(
+      [
+        { value: 'success', label: 'Success' },
+        { value: 'info', label: 'Info' },
+        { value: 'warning', label: 'Warning' },
+        { value: 'danger', label: 'Danger' },
+        { value: 'help', label: 'Help' },
+      ],
+      {
+        idProperty: 'value',
+      }
+    ),
+    schema: schemaConfigDefinition,
+  };
+}
 
 export function dsAlertVariants(): TDataSource {
   return {
@@ -25,6 +48,8 @@ export function dsIconVariants(): TDataSource {
         { value: 'filled', label: 'Filled' },
         { value: 'rounded', label: 'Rounded' },
         { value: 'sharp', label: 'Sharp' },
+        { value: 'rounded_filled', label: 'Rounded Filled' },
+        { value: 'sharp_filled', label: 'Sharp Filled' },
       ],
       {
         idProperty: 'value',
@@ -32,6 +57,17 @@ export function dsIconVariants(): TDataSource {
     ),
     schema: schemaConfigDefinition,
   };
+}
+
+export function changeAlertContext(
+  variantRef: Ref<TAlertVariant | undefined>,
+  data?: string
+): string | undefined {
+  if (variantRef.value) {
+    return data?.replace('{$alertVariant}', `variant="${variantRef.value}"`);
+  }
+
+  return data;
 }
 
 export function changeIconVariant(

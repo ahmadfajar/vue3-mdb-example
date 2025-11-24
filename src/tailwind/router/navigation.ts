@@ -166,11 +166,6 @@ export const menuNavs: TMainNavigation[] = [
         view: () => import('@tw/pages/elements/AlertPage.vue'),
       },
       {
-        text: 'Alert Example',
-        path: '/elements/alert-example',
-        view: () => import('@tw/pages/elements/DemoAlert.vue'),
-      },
-      {
         text: 'Avatar',
         path: '/elements/avatar',
         view: () => import('@tw/pages/elements/DemoAvatar.vue'),

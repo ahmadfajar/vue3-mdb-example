@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import type { LinkItem } from '@shares/provider.ts';
+import AlertContents from '@tw/pages/elements/parts/AlertContents.vue';
+import AlertContextual from '@tw/pages/elements/parts/AlertContextual.vue';
 import AlertFeatures from '@tw/pages/elements/parts/AlertFeatures.vue';
 
 const linkItems = [
@@ -12,7 +14,8 @@ const linkItems = [
 <template>
   <ContentLayout :links="linkItems">
     <Transition mode="out-in" name="fade">
-      <AlertFeatures v-if="$route.params.id === 'contextual'" />
+      <AlertContextual v-if="$route.params.id === 'contextual'" />
+      <AlertContents v-else-if="$route.params.id === 'contents'" />
       <AlertFeatures v-else />
     </Transition>
   </ContentLayout>
