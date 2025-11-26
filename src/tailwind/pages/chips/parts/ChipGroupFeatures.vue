@@ -24,7 +24,7 @@ import {
   type TChipOptionItem,
   type TChipSize,
   type TChipValue,
-  type TContextColorSecondary,
+  type TExtendedContextColor,
 } from 'vue-mdbootstrap';
 
 const props = defineProps<{ showFilters?: boolean; showSlider?: boolean }>();
@@ -71,7 +71,7 @@ function parseSourceWithAvatar(multiselection: boolean) {
 }
 
 const tabIndex = ref(0);
-const chipColor = ref<TContextColorSecondary>('secondary');
+const chipColor = ref<TExtendedContextColor>('secondary');
 const chipSize = ref<string | undefined>('md');
 const chipVariant = ref<string>();
 const chipShape = ref<string>();

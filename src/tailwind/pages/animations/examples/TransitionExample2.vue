@@ -8,14 +8,14 @@ const content =
 </script>
 
 <template>
-  <div style="min-height: 250px">
+  <div class="min-h-63">
     <BsButton class="mb-3" @click="active = !active"> Click Me </BsButton>
     <BsExpandTransition>
       <BsCard v-if="active" shadow>
         <BsCardBody>
           <BsCardContent type="title">{{ title }}</BsCardContent>
-          <div>{{ content }}</div>
-          <div>{{ content }}</div>
+          <div class="mb-3">{{ content }}</div>
+          <div class="mb-3">{{ content }}</div>
           <div>{{ content }}</div>
         </BsCardBody>
       </BsCard>

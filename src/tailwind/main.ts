@@ -6,6 +6,7 @@ import ContentLayout from './ContentLayout.vue';
 import router from './router';
 
 import 'vue-mdbootstrap/css-core';
+import 'vue-mdbootstrap/theme-light';
 import './assets/main.css';
 
 createVueMdb(App)

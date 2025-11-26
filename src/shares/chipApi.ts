@@ -4,8 +4,8 @@ import {
   BsArrayStore,
   Helper,
   type TChipOptionItem,
-  type TContextColorSecondary,
   type TDataSource,
+  type TExtendedContextColor,
 } from 'vue-mdbootstrap';
 
 export function dsChipSizes(): TDataSource {
@@ -79,7 +79,7 @@ export function changeChipShape(
 }
 
 export function changeChipColor(
-  colorRef: Ref<TContextColorSecondary>,
+  colorRef: Ref<TExtendedContextColor>,
   data?: string,
   replaceAll?: boolean
 ): string | undefined {

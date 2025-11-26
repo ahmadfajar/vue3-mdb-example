@@ -1,13 +1,7 @@
 <script setup lang="ts">
 import { type LinkItem } from '@shares/provider.ts';
-import {
-  parseVueScriptTag,
-  parseVueTemplateTag,
-  stripAndBeautifyTemplate,
-} from '@shares/sharedApi.ts';
-import { ref, watchEffect } from 'vue';
-import { StringHelper } from 'vue-mdbootstrap';
-import { useRoute } from 'vue-router';
+import TransitionView1 from '@tw/pages/animations/parts/TransitionView1.vue';
+import TransitionView2 from '@tw/pages/animations/parts/TransitionView2.vue';
 
 const linkItems = [
   { text: 'Fade', location: { name: 'transition-effects' } },
@@ -50,87 +44,44 @@ const linkItems = [
     location: { name: 'transition-effects-id', params: { id: 'roll-in-out' } },
   },
 ] satisfies LinkItem[];
-
-const example1 = await import('./examples/TransitionExample1.vue?raw');
-const example2 = await import('./examples/TransitionExample2.vue?raw');
-const rawTemplate1 = ref<string>();
-const fmtVueTpl1 = ref<string | null | undefined>();
-const fmtVueTpl2 = ref<string | null | undefined>();
-const fmtVueTsc1 = ref<string | null | undefined>();
-const fmtVueTsc2 = ref<string | null | undefined>();
-const route = useRoute();
-
-rawTemplate1.value = parseVueTemplateTag(example1.default);
-fmtVueTpl2.value = parseVueTemplateTag(example2.default);
-fmtVueTsc1.value = parseVueScriptTag(example1.default);
-fmtVueTsc2.value = parseVueScriptTag(example2.default);
-
-watchEffect(() => {
-  if (route.params.id !== 'expand-transition') {
-    const rawCode = rawTemplate1.value?.replace(
-      '{$transition}',
-      `name="${(route.params.id as string) || 'fade'}"`
-    );
-
-    if (rawCode) {
-      fmtVueTpl1.value = stripAndBeautifyTemplate(rawCode);
-    }
-  }
-});
-
-const active = ref(false);
-const expandTransition = ref(false);
-const title = 'Content Title';
-// prettier-ignore
-const content = "Some quick example text to build on the card title and make up the bulk of the card's content.";
 </script>
 
 <template>
   <ContentLayout :links="linkItems">
-    <transition mode="out-in" name="fade">
-      <h2 :key="(route.params.id as string) || 'fade'" class="section-content">
-        {{ StringHelper.titleCase($route.params.id as string) || 'Fade' }}
-      </h2>
-    </transition>
-    <ShoutBox
-      :tpl="$route.params.id === 'expand-transition' ? fmtVueTpl2 : fmtVueTpl1"
-      :tsc="$route.params.id === 'expand-transition' ? fmtVueTsc2 : fmtVueTsc1"
-      class="mt-4"
-    >
-      <template #content>
-        <div class="p-6">
-          <div
-            v-if="$route.params.id === 'expand-transition'"
-            class="p-2 p-md-3"
-            style="min-height: 250px"
-          >
-            <BsButton class="mb-4" @click="expandTransition = !expandTransition">
-              Click Me</BsButton
-            >
-            <BsExpandTransition>
-              <BsCard v-if="expandTransition" shadow>
-                <BsCardBody>
-                  <BsCardContent type="title"> {{ title }}</BsCardContent>
-                  <div>{{ content }}</div>
-                  <div>{{ content }}</div>
-                  <div>{{ content }}</div>
-                </BsCardBody>
-              </BsCard>
-            </BsExpandTransition>
-          </div>
-          <div v-else class="p-2 p-md-3" style="min-height: 190px">
-            <BsButton class="mb-4" @click="active = !active"> Click Me</BsButton>
-            <transition :name="(route.params.id as string) || 'fade'">
-              <BsCard v-if="active" shadow>
-                <BsCardBody>
-                  <BsCardContent type="title"> {{ title }}</BsCardContent>
-                  <div>{{ content }}</div>
-                </BsCardBody>
-              </BsCard>
-            </transition>
-          </div>
-        </div>
-      </template>
-    </ShoutBox>
+    <Transition mode="out-in" name="fade">
+      <TransitionView2 v-if="$route.params.id === 'expand-transition'" />
+      <TransitionView1 v-else-if="$route.params.id === 'scale'" transition="scale" />
+      <TransitionView1 v-else-if="$route.params.id === 'slide-fade'" transition="slide-fade" />
+      <TransitionView1
+        v-else-if="$route.params.id === 'slide-fade-reverse'"
+        transition="slide-fade-reverse"
+      />
+      <TransitionView1
+        v-else-if="$route.params.id === 'slide-left-right'"
+        transition="slide-left-right"
+      />
+      <TransitionView1
+        v-else-if="$route.params.id === 'slide-right-left'"
+        transition="slide-right-left"
+      />
+      <TransitionView1
+        v-else-if="$route.params.id === 'slide-top-bottom'"
+        transition="slide-top-bottom"
+      />
+      <TransitionView1
+        v-else-if="$route.params.id === 'slide-bottom-top'"
+        transition="slide-bottom-top"
+      />
+      <TransitionView1
+        v-else-if="$route.params.id === 'rotate-clock-wise'"
+        transition="rotate-clock-wise"
+      />
+      <TransitionView1
+        v-else-if="$route.params.id === 'rotate-clock-reverse'"
+        transition="rotate-clock-reverse"
+      />
+      <TransitionView1 v-else-if="$route.params.id === 'roll-in-out'" transition="roll-in-out" />
+      <TransitionView1 v-else transition="fade" />
+    </Transition>
   </ContentLayout>
 </template>

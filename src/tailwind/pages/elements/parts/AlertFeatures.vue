@@ -81,10 +81,9 @@ onBeforeUnmount(() => {
           v-model="alertIcon"
           filled
           floating-label
-          help-text="Ex: verified, notifications"
-          placeholder="Enter icon name"
+          placeholder="Ex: verified, notifications"
         >
-          <label>Show icon</label>
+          <label>Enter icon name</label>
         </BsTextField>
         <BsCombobox
           v-model="iconVariant"

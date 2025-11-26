@@ -32,7 +32,7 @@ import { onBeforeUnmount, ref, watchEffect } from 'vue';
 import {
   Helper,
   type TChipSize,
-  type TContextColorSecondary,
+  type TExtendedContextColor,
   type TIconFlip,
   type TIconPosition,
   type TIconRotation,
@@ -55,7 +55,7 @@ rawTemplate.value = parseVueTemplateTag(example.default);
 
 const iconName = 'local_shipping';
 const avatarUrl = 'https://ahmadfajar.github.io/img/2.jpg';
-const chipColor = ref<TContextColorSecondary>('secondary');
+const chipColor = ref<TExtendedContextColor>('secondary');
 const chipVariant = ref<string>();
 const chipShape = ref<string | undefined>();
 const chipSize = ref<string | undefined>('md');

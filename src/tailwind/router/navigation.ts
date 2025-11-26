@@ -168,7 +168,14 @@ export const menuNavs: TMainNavigation[] = [
       {
         text: 'Avatar',
         path: '/elements/avatar',
-        view: () => import('@tw/pages/elements/DemoAvatar.vue'),
+        view: () => import('@tw/pages/elements/AvatarPage.vue'),
+      },
+      {
+        text: 'Avatar',
+        name: 'avatar-id',
+        path: '/elements/avatar/:id',
+        hidden: true,
+        view: () => import('@tw/pages/elements/AvatarPage.vue'),
       },
       {
         text: 'Badge',
