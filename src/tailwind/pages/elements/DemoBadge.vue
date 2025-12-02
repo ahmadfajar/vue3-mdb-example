@@ -7,7 +7,7 @@ import { StringHelper } from 'vue-mdbootstrap';
   <div class="docs-body container-lg mx-auto">
     <h2>Basic Examples</h2>
     <DemoBlock class="mt-3">
-      <h2>Example heading <BsBadge variant="secondary">New</BsBadge></h2>
+      <h2>Example heading <BsBadge>New</BsBadge></h2>
       <h3>Example heading <BsBadge variant="secondary">New</BsBadge></h3>
       <h4>Example heading <BsBadge variant="secondary">New</BsBadge></h4>
       <h5>Example heading <BsBadge variant="secondary">New</BsBadge></h5>
@@ -25,7 +25,7 @@ import { StringHelper } from 'vue-mdbootstrap';
     <h2 class="mt-5">Color Variants</h2>
     <h4 class="mt-4">Contextual Colors</h4>
     <DemoBlock class="mt-3">
-      <div class="flex flex-wrap md-gap-2">
+      <div class="flex flex-wrap md-gap-1">
         <template v-for="(_color, name) in contextColorsLight" :key="_color">
           <BsBadge :variant="name"> {{ StringHelper.titleCase(name) }} </BsBadge>
         </template>
@@ -33,15 +33,15 @@ import { StringHelper } from 'vue-mdbootstrap';
     </DemoBlock>
     <h4 class="mt-4">Custom Colors</h4>
     <DemoBlock class="mt-3">
-      <div class="flex flex-wrap md-gap-2">
-        <BsBadge color="bg-violet-800 text-white"> violet-800 </BsBadge>
+      <div class="flex flex-wrap md-gap-1">
+        <BsBadge color="text-violet-800" outlined> violet-800 </BsBadge>
+        <BsBadge class="text-purple-600" outlined> purple-600 </BsBadge>
         <BsBadge color="bg-blue-800 text-white"> blue-800 </BsBadge>
         <BsBadge color="bg-slate-600 text-white"> slate-600 </BsBadge>
         <BsBadge color="bg-gray-800 text-white"> gray-800 </BsBadge>
         <BsBadge color="bg-red-700 text-white"> red-700 </BsBadge>
         <BsBadge color="bg-pink-600 text-white"> pink-600 </BsBadge>
         <BsBadge color="bg-fuchsia-600 text-white"> fuchsia-600 </BsBadge>
-        <BsBadge color="bg-purple-600 text-white"> purple-600 </BsBadge>
       </div>
     </DemoBlock>
 

@@ -271,9 +271,17 @@ body {
   padding-top: vars.$padding-xl;
   max-width: 100%;
 
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: var(--font-weight-medium);
+  }
+
   h2 {
     font-size: calc(1.325rem + 0.9vw);
-    font-weight: var(--font-weight-medium);
   }
 
   h3 {

@@ -180,7 +180,14 @@ export const menuNavs: TMainNavigation[] = [
       {
         text: 'Badge',
         path: '/elements/badge',
-        view: () => import('@tw/pages/elements/DemoBadge.vue'),
+        view: () => import('@tw/pages/elements/BadgePage.vue'),
+      },
+      {
+        text: 'Badge',
+        name: 'badge-id',
+        path: '/elements/badge/:id',
+        hidden: true,
+        view: () => import('@tw/pages/elements/BadgePage.vue'),
       },
       {
         text: 'Dropdown Menu',
