@@ -202,6 +202,18 @@ export const menuNavs: TMainNavigation[] = [
         view: () => import('@tw/pages/elements/DropdownMenuPage.vue'),
       },
       {
+        text: 'Image Placeholder',
+        path: '/elements/image-placeholder',
+        view: () => import('@tw/pages/elements/ImageHolderPage.vue'),
+      },
+      {
+        text: 'Image Placeholder',
+        name: 'image-placeholder-id',
+        path: '/elements/image-placeholder/:id',
+        hidden: true,
+        view: () => import('@tw/pages/elements/ImageHolderPage.vue'),
+      },
+      {
         text: 'Image Uploader',
         path: '/elements/image-uploader',
         view: () => import('@tw/pages/elements/DemoImageUploader.vue'),

@@ -235,8 +235,8 @@ body {
 
 .local-nav-aside {
   padding-top: vars.$padding-xl + 0.5;
-  width: 11.875rem; // 190px;
-  min-width: 11.875rem;
+  width: 13rem; // 208px;
+  min-width: 13rem;
 
   .local-nav-items {
     top: vars.$padding-xl + 4;
