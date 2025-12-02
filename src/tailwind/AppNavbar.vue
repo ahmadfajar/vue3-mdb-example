@@ -76,7 +76,7 @@ const menuOpen = ref(false);
     <BsButton
       color="dark"
       flat
-      icon="menu"
+      icon="menu_open"
       mode="icon"
       aria-label="Menu"
       @click="provider.toggleSidebar()"

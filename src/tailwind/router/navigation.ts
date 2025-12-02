@@ -192,7 +192,14 @@ export const menuNavs: TMainNavigation[] = [
       {
         text: 'Dropdown Menu',
         path: '/elements/dropdown-menu',
-        view: () => import('@tw/pages/elements/DemoDropdownMenu.vue'),
+        view: () => import('@tw/pages/elements/DropdownMenuPage.vue'),
+      },
+      {
+        text: 'Dropdown Menu',
+        name: 'dropdown-menu-id',
+        path: '/elements/dropdown-menu/:id',
+        hidden: true,
+        view: () => import('@tw/pages/elements/DropdownMenuPage.vue'),
       },
       {
         text: 'Image Uploader',

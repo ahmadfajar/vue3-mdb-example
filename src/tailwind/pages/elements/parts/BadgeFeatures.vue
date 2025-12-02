@@ -50,7 +50,7 @@ const contentCls = [
         <h5 class="mt-2">Configuration Options:</h5>
 
         <BsCombobox v-model="badgeType" :data-source="typeVariantSrc" filled floating-label>
-          <label>Shape:</label>
+          <label>Variant:</label>
         </BsCombobox>
         <div class="flex flex-col ps-2">
           <BsSwitch
