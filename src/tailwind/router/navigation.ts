@@ -216,7 +216,7 @@ export const menuNavs: TMainNavigation[] = [
       {
         text: 'Image Uploader',
         path: '/elements/image-uploader',
-        view: () => import('@tw/pages/elements/DemoImageUploader.vue'),
+        view: () => import('@tw/pages/elements/ImageUploaderPage.vue'),
       },
       {
         text: 'List Tile',
