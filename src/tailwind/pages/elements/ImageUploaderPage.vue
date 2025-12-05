@@ -14,7 +14,7 @@ fmtVueTsc.value = parseVueScriptTag(example.default);
 <template>
   <ContentLayout>
     <div class="section-content mb-5">
-      <h2>Basic Example</h2>
+      <h2>Usage Example</h2>
     </div>
     <ShoutBox :tpl="fmtVueTpl" :tsc="fmtVueTsc">
       <template #content>

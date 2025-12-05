@@ -115,9 +115,13 @@ watch(
   async ([tpl, tsc]) => {
     if (tpl) {
       fmtCodeTpl.value = await highlightCode(tpl, 'vue');
+    } else {
+      fmtCodeTpl.value = undefined;
     }
     if (tsc) {
       fmtCodeTsc.value = await highlightCode(tsc, 'vue');
+    } else {
+      fmtCodeTsc.value = undefined;
     }
   }
 );

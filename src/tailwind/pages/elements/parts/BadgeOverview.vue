@@ -15,7 +15,7 @@ const contentCls = ['min-h-40', 'py-8 px-3 lg:px-6 md:rounded-lg gap-3'];
 <template>
   <div class="w-full">
     <div class="section-content mb-5">
-      <h2>Overview</h2>
+      <h2>Basic Examples</h2>
     </div>
     <ShoutBox :tpl="fmtVueTpl">
       <template #content>

@@ -221,7 +221,14 @@ export const menuNavs: TMainNavigation[] = [
       {
         text: 'List Tile',
         path: '/elements/list-tile',
-        view: () => import('@tw/pages/elements/DemoListTile.vue'),
+        view: () => import('@tw/pages/elements/ListTilePage.vue'),
+      },
+      {
+        text: 'List Tile',
+        name: 'list-tile-id',
+        path: '/elements/list-tile/:id',
+        hidden: true,
+        view: () => import('@tw/pages/elements/ListTilePage.vue'),
       },
     ],
   },

@@ -5,7 +5,7 @@ import BadgeFeatures from '@tw/pages/elements/parts/BadgeFeatures.vue';
 import BadgeOverview from '@tw/pages/elements/parts/BadgeOverview.vue';
 
 const linkItems = [
-  { text: 'Overview', location: { name: 'badge' } },
+  { text: 'Examples', location: { name: 'badge' } },
   { text: 'Styles', location: { name: 'badge-id', params: { id: 'styles' } } },
   { text: 'Actionable Badges', location: { name: 'badge-id', params: { id: 'actionable' } } },
 ] satisfies LinkItem[];

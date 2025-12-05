@@ -4,7 +4,7 @@ import SideDrawerFeatures from '@tw/pages/containment/parts/SideDrawerFeatures.v
 
 const linkItems = [
   { text: 'Basic Example', location: { name: 'side-drawer' } },
-  { text: 'Location', location: { name: 'side-drawer-id', params: { id: 'location' } } },
+  { text: 'SideDrawer Location', location: { name: 'side-drawer-id', params: { id: 'location' } } },
   { text: 'Mini SideDrawer', location: { name: 'side-drawer-id', params: { id: 'mini' } } },
   { text: 'With Appbar', location: { name: 'side-drawer-id', params: { id: 'with-appbar' } } },
   { text: 'Clipped SideDrawer', location: { name: 'side-drawer-id', params: { id: 'clipped' } } },

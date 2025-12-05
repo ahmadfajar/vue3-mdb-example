@@ -97,6 +97,7 @@ const menuOpen = ref(false);
             v-for="[text, location] in provider.pageLinks"
             :key="text"
             :location="location"
+            class="[.active]:font-medium"
           >
             <BsListTileTitle> {{ text }}</BsListTileTitle>
           </BsListTile>

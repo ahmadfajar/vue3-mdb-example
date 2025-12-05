@@ -39,7 +39,7 @@ const contentCls = ['flex items-center min-h-40', 'py-8 px-3 lg:px-6 md:rounded-
       <h2 v-else-if="variant === 'example3'">Display Placement</h2>
       <h2 v-else-if="variant === 'example4'">Custom Color</h2>
       <h2 v-else-if="variant === 'example5'">Popup Container</h2>
-      <h2 v-else>Overview</h2>
+      <h2 v-else>Basic Examples</h2>
     </div>
     <ShoutBox :tpl="fmtVueTpl" :tsc="fmtVueTsc">
       <template #content>
