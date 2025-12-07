@@ -55,7 +55,7 @@ const position2Src: TDataSource = {
       <BsProgressBar v-model="progress1" />
       <BsProgressBar v-model="progress1" class="mt-3" color="indigo" show-value height="1.5rem" />
       <h6 class="mb-3 mt-4">
-        Value: <span class="text-orange-800 font-semibold">{{ progress1 }}%</span>
+        Value: <span class="text-orange-800 font-weight-semibold">{{ progress1 }}%</span>
       </h6>
       <input v-model.number="progress1" class="w-100" type="range" />
     </DemoBlock>

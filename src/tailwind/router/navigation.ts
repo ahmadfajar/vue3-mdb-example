@@ -239,7 +239,31 @@ export const menuNavs: TMainNavigation[] = [
       {
         text: 'Icon',
         path: '/icons/icon',
-        view: () => import('@tw/pages/icons/DemoIcon.vue'),
+        view: () => import('@tw/pages/icons/IconPage.vue'),
+      },
+      {
+        text: 'Icon',
+        name: 'icon-id',
+        path: '/icons/icon/:id',
+        hidden: true,
+        view: () => import('@tw/pages/icons/IconPage.vue'),
+      },
+      {
+        text: 'Fontawesome Icon',
+        path: '/icons/fontawesome',
+        view: () => import('@tw/pages/icons/FontawesomePage.vue'),
+      },
+      {
+        text: 'Fontawesome Icon',
+        name: 'fontawesome-icon-id',
+        path: '/icons/fontawesome/:id',
+        hidden: true,
+        view: () => import('@tw/pages/icons/FontawesomePage.vue'),
+      },
+      {
+        text: 'Spinner Icon',
+        path: '/icons/spinner',
+        view: () => import('@tw/pages/icons/SpinnerIconPage.vue'),
       },
     ],
   },

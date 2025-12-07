@@ -154,7 +154,7 @@ onBeforeUnmount(() => {
           ]"
         >
           <div class="row gy-2">
-            <div class="sm:w-36 pt-2 font-medium">Favorite Drinks</div>
+            <div class="sm:w-36 pt-2 font-weight-medium">Favorite Drinks</div>
             <div class="col-sm">
               <BsToggleButton
                 v-model="selectedDrinks"

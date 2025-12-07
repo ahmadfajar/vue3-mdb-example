@@ -12,7 +12,7 @@ const drinks: TInputOptionItem[] = [
 
 <template>
   <div class="row">
-    <div class="sm:w-36 pt-2 font-medium">Favorite Drink</div>
+    <div class="sm:w-36 pt-2 font-weight-medium">Favorite Drink</div>
     <div class="col-sm">
       <BsToggleButton
         v-model="selectedDrink"

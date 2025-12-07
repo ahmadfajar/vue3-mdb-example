@@ -209,7 +209,7 @@ onBeforeUnmount(() => {
           ]"
         >
           <div class="row gy-2">
-            <div class="sm:w-33 pt-2 font-medium">Favorite Drink</div>
+            <div class="sm:w-33 pt-2 font-weight-medium">Favorite Drink</div>
             <div class="col-sm">
               <BsToggleButton
                 v-if="showIcon"
