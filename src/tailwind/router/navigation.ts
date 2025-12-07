@@ -340,7 +340,14 @@ export const menuNavs: TMainNavigation[] = [
       {
         text: 'Breadcrumb',
         path: '/navigations/breadcrumb',
-        view: () => import('@tw/pages/navigations/DemoBreadcrumb.vue'),
+        view: () => import('@tw/pages/navigations/BreadcrumbPage.vue'),
+      },
+      {
+        text: 'Breadcrumb',
+        name: 'breadcrumb-id',
+        path: '/navigations/breadcrumb/:id',
+        hidden: true,
+        view: () => import('@tw/pages/navigations/BreadcrumbPage.vue'),
       },
       {
         text: 'List Nav',
