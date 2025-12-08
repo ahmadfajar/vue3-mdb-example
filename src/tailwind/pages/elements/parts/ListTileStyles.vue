@@ -1,16 +1,8 @@
 <script setup lang="ts">
-import {
-  changeItemBorderVariant,
-  changeItemPadding,
-  changeItemStyle,
-  dsItemBorderVariants,
-  dsItemStyles,
-  dsSpaceAroundTypes,
-} from '@shares/listTileApi.ts';
-import { parseVueTemplateTag, stripAndBeautifyTemplate } from '@shares/sharedApi.ts';
-import { addWatcherForDefaultValue } from '@shares/showcaseDataApi.ts';
-import { computed, onBeforeUnmount, ref, watchEffect } from 'vue';
-import type { TListItemBorder, TSpaceAround } from 'vue-mdbootstrap';
+import { setupListViewNavigation } from '@shares/listTileApi.ts';
+import { parseVueTemplateTag } from '@shares/sharedApi.ts';
+import { ref } from 'vue';
+import type { TSpaceAround } from 'vue-mdbootstrap';
 
 const example = await import('../examples/ListTileExample9.vue?raw');
 const rawTemplate = ref<string>();
@@ -21,38 +13,10 @@ const itemStyle = ref<string>('none');
 
 rawTemplate.value = parseVueTemplateTag(example.default);
 
-const itemBorderVariant = computed<TListItemBorder | undefined>(() =>
-  borderVariant.value === 'none' ? undefined : (borderVariant.value as TListItemBorder)
-);
+const { itemBorderVariant, spaceAroundSrc, borderVariantSrc, itemStyleSrc } =
+  setupListViewNavigation(rawTemplate, fmtVueTpl, spaceAround, borderVariant, itemStyle);
 
-addWatcherForDefaultValue(
-  { refObj: spaceAround, default: 'none' },
-  { refObj: borderVariant, default: 'none' },
-  { refObj: itemStyle, default: 'none' }
-);
-
-watchEffect(() => {
-  let rawCode: string | undefined;
-
-  rawCode = changeItemBorderVariant(itemBorderVariant, rawTemplate.value!);
-  rawCode = changeItemStyle(itemStyle, rawCode);
-  rawCode = changeItemPadding(spaceAround, rawCode);
-
-  fmtVueTpl.value = stripAndBeautifyTemplate(rawCode, false)
-    ?.replace(/\s+(>)/g, '>')
-    ?.replace(/(ListView)\s{2,}/g, 'ListView ');
-});
-
-const spaceAroundSrc = dsSpaceAroundTypes();
-const borderVariantSrc = dsItemBorderVariants();
-const itemStyleSrc = dsItemStyles();
 const contentCls = ['min-h-40 py-8 px-3 lg:px-8 md:rounded-lg text-bg-surface'];
-
-onBeforeUnmount(() => {
-  spaceAroundSrc.proxy.destroy();
-  borderVariantSrc.proxy.destroy();
-  itemStyleSrc.proxy.destroy();
-});
 </script>
 
 <template>

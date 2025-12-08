@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { LinkItem } from '@shares/provider.ts';
-import BreadcrumbFeatures from '@tw/pages/navigations/parts/BreadcrumbFeatures.vue';
+import BreadcrumbUsages from '@tw/pages/navigations/parts/BreadcrumbUsages.vue';
 
 const linkItems = [
   { text: 'Basic Example', location: { name: 'breadcrumb' } },
@@ -12,9 +12,9 @@ const linkItems = [
 <template>
   <ContentLayout :links="linkItems">
     <Transition mode="out-in" name="fade">
-      <BreadcrumbFeatures v-if="$route.params.id === 'icon'" section="icon" />
-      <BreadcrumbFeatures v-else-if="$route.params.id === 'separator'" section="separator" />
-      <BreadcrumbFeatures v-else />
+      <BreadcrumbUsages v-if="$route.params.id === 'icon'" section="icon" />
+      <BreadcrumbUsages v-else-if="$route.params.id === 'separator'" section="separator" />
+      <BreadcrumbUsages v-else />
     </Transition>
   </ContentLayout>
 </template>

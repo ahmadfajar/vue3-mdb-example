@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { LinkItem } from '@shares/provider.ts';
-import ListTileNavigation from '@tw/pages/elements/parts/ListTileNavigation.vue';
+import ListTileStyles from '@tw/pages/elements/parts/ListTileStyles.vue';
 import ListTileState from '@tw/pages/elements/parts/ListTileState.vue';
 import ListTileUsages from '@tw/pages/elements/parts/ListTileUsages.vue';
 
@@ -41,7 +41,7 @@ const linkItems = [
   <ContentLayout :links="linkItems">
     <Transition mode="out-in" name="fade">
       <ListTileState v-if="$route.params.id === 'listview-state'" />
-      <ListTileNavigation v-else-if="$route.params.id === 'navigation-styles'" />
+      <ListTileStyles v-else-if="$route.params.id === 'navigation-styles'" />
       <ListTileUsages v-else-if="$route.params.id === 'images'" usage="image" />
       <ListTileUsages v-else-if="$route.params.id === 'image-icon'" usage="image-icon" />
       <ListTileUsages v-else-if="$route.params.id === 'contact-details'" usage="contact-details" />

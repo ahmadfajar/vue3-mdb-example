@@ -137,7 +137,7 @@ onBeforeUnmount(() => {
 //-----------------------------------
 .md-side-drawer {
   .md-nav-item:not(.md-expanded) {
-    .md-tile-border-left.active > .md-ripple:before {
+    &.active > .md-nav-border-left > .md-ripple:before {
       --md-tile-indicator-border-width: 5px;
       height: 70%;
       top: 15%;
