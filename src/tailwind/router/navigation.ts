@@ -382,7 +382,14 @@ export const menuNavs: TMainNavigation[] = [
       {
         text: 'Lightbox',
         path: '/overlays/lightbox',
-        view: () => import('@tw/pages/overlays/DemoLightbox.vue'),
+        view: () => import('@tw/pages/overlays/LightboxPage.vue'),
+      },
+      {
+        text: 'Lightbox',
+        name: 'lightbox-id',
+        path: '/overlays/lightbox/:id',
+        hidden: true,
+        view: () => import('@tw/pages/overlays/LightboxPage.vue'),
       },
       {
         text: 'Mask Loader',
