@@ -364,7 +364,14 @@ export const menuNavs: TMainNavigation[] = [
       {
         text: 'Tabs',
         path: '/navigations/tabs',
-        view: () => import('@tw/pages/navigations/DemoTabs.vue'),
+        view: () => import('@tw/pages/navigations/TabsPage.vue'),
+      },
+      {
+        text: 'Tabs',
+        name: 'tabs-id',
+        path: '/navigations/tabs/:id',
+        hidden: true,
+        view: () => import('@tw/pages/navigations/TabsPage.vue'),
       },
     ],
   },

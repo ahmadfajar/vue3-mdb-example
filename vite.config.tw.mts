@@ -13,5 +13,6 @@ export default defineConfig({
       '@tw': fileURLToPath(new URL('./src/tailwind', import.meta.url)),
       '@shares': fileURLToPath(new URL('./src/shares', import.meta.url)),
     },
+    preserveSymlinks: true,
   },
 });
