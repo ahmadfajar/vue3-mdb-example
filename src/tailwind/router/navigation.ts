@@ -406,7 +406,14 @@ export const menuNavs: TMainNavigation[] = [
       {
         text: 'Modal',
         path: '/overlays/modal',
-        view: () => import('@tw/pages/overlays/DemoModal.vue'),
+        view: () => import('@tw/pages/overlays/ModalPage.vue'),
+      },
+      {
+        text: 'Modal',
+        name: 'modal-id',
+        path: '/overlays/modal/:id',
+        hidden: true,
+        view: () => import('@tw/pages/overlays/ModalPage.vue'),
       },
       {
         text: 'Notification',
