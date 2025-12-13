@@ -11,8 +11,8 @@
           <div class="absolute" style="right: 8px; top: 8px; z-index: 2">
             <BsCloseButton color="dark" flat />
           </div>
-          <div class="md-dialog-message flex-fill self-center">
-            Hello, I am a notification message.
+          <div class="md-dialog-message flex-fill self-center" style="padding-right: 1.5rem">
+            Example default notification message.
           </div>
         </div>
       </div>

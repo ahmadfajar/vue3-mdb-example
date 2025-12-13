@@ -10,22 +10,6 @@ import type { RouteLocationAsRelativeGeneric } from 'vue-router';
 
 export declare type LinkItem = { text: string; location: RouteLocationAsRelativeGeneric };
 
-// export const useLinkItems = defineStore('linkItemStore', () => {
-//   const items = ref<LinkItem[]>([]);
-//
-//   function clear(): void {
-//     items.value = [];
-//   }
-//
-//   function saveItems(data: LinkItem[]): void {
-//     items.value = data;
-//   }
-//
-//   return { items, clear, saveItems };
-// });
-
-// export const dsLinkItems = new BsArrayStore([]);
-
 export declare type ScreenSize = 'desktop' | 'tablet' | 'mobile';
 
 export declare interface IMyAppProvider {

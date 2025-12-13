@@ -418,7 +418,7 @@ export const menuNavs: TMainNavigation[] = [
       {
         text: 'Notification',
         path: '/overlays/notification',
-        view: () => import('@tw/pages/overlays/DemoNotification.vue'),
+        view: () => import('@tw/pages/overlays/NotificationPage.vue'),
       },
       {
         text: 'Overlay',

@@ -1,11 +1,11 @@
 import {
-  createdBundledHighlighter,
+  createBundledHighlighter,
   createJavaScriptRegexEngine,
   type HighlighterGeneric,
 } from 'shiki';
 
 // create custom shiki bundle and loads the themes and languages specified.
-const shikiBundle = createdBundledHighlighter({
+const shikiBundle = createBundledHighlighter({
   engine: () => createJavaScriptRegexEngine({ target: 'ES2025' }),
   langs: {
     javascript: () => import('@shikijs/langs/javascript'),
