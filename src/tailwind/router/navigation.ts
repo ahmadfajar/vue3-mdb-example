@@ -394,7 +394,14 @@ export const menuNavs: TMainNavigation[] = [
       {
         text: 'Mask Loader',
         path: '/overlays/mask-loader',
-        view: () => import('@tw/pages/overlays/DemoMaskLoader.vue'),
+        view: () => import('@tw/pages/overlays/MaskLoaderPage.vue'),
+      },
+      {
+        text: 'Mask Loader',
+        name: 'mask-loader-id',
+        path: '/overlays/mask-loader/:id',
+        hidden: true,
+        view: () => import('@tw/pages/overlays/MaskLoaderPage.vue'),
       },
       {
         text: 'Modal',
