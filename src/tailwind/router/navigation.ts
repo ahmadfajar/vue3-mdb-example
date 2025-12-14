@@ -440,7 +440,14 @@ export const menuNavs: TMainNavigation[] = [
       {
         text: 'Tooltip',
         path: '/overlays/tooltip',
-        view: () => import('@tw/pages/overlays/DemoTooltip.vue'),
+        view: () => import('@tw/pages/overlays/TooltipPage.vue'),
+      },
+      {
+        text: 'Tooltip',
+        name: 'tooltip-id',
+        path: '/overlays/tooltip/:id',
+        hidden: true,
+        view: () => import('@tw/pages/overlays/TooltipPage.vue'),
       },
     ],
   },
