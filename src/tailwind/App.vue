@@ -339,4 +339,34 @@ body {
     padding-right: 0;
   }
 }
+
+.picked-color {
+  @include borders.radius(50%);
+  background-image:
+    repeating-linear-gradient(45deg, #aaa 25%, transparent 25%, transparent 75%, #aaa 75%, #aaa),
+    repeating-linear-gradient(45deg, #aaa 25%, #fff 25%, #fff 75%, #aaa 75%, #aaa);
+
+  // prettier-ignore
+  background-position: 0 0, 4px 4px;
+  background-size: 8px 8px;
+  border: 0;
+  padding: 0;
+  overflow: hidden;
+  position: relative;
+  white-space: nowrap;
+
+  &:after {
+    background-color: currentColor;
+    border-radius: inherit;
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1);
+    content: '';
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    display: block;
+    position: absolute;
+    pointer-events: none;
+  }
+}
 </style>

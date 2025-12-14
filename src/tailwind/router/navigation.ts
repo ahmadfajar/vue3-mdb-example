@@ -474,7 +474,14 @@ export const menuNavs: TMainNavigation[] = [
       {
         text: 'Color Picker',
         path: '/pickers/color-picker',
-        view: () => import('@tw/pages/pickers/DemoColorPicker.vue'),
+        view: () => import('@tw/pages/pickers/ColorPickerPage.vue'),
+      },
+      {
+        text: 'Color Picker',
+        name: 'color-picker-id',
+        path: '/pickers/color-picker/:id',
+        hidden: true,
+        view: () => import('@tw/pages/pickers/ColorPickerPage.vue'),
       },
       {
         text: 'Date Picker',
