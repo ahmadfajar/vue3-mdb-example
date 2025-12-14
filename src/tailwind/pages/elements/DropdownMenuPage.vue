@@ -23,10 +23,10 @@ const linkItems = [
 <template>
   <ContentLayout :links="linkItems">
     <Transition mode="out-in" name="fade">
-      <DropdownMenuOverview v-if="$route.params.id === 'on-hover'" variant="example2" />
-      <DropdownMenuOverview v-else-if="$route.params.id === 'placement'" variant="example3" />
-      <DropdownMenuOverview v-else-if="$route.params.id === 'custom-color'" variant="example4" />
-      <DropdownMenuOverview v-else-if="$route.params.id === 'popup-container'" variant="example5" />
+      <DropdownMenuOverview v-if="$route.params.id === 'on-hover'" section="example2" />
+      <DropdownMenuOverview v-else-if="$route.params.id === 'placement'" section="example3" />
+      <DropdownMenuOverview v-else-if="$route.params.id === 'custom-color'" section="example4" />
+      <DropdownMenuOverview v-else-if="$route.params.id === 'popup-container'" section="example5" />
       <DropdownMenuOverview v-else />
     </Transition>
   </ContentLayout>

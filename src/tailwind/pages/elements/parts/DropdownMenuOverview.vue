@@ -7,17 +7,22 @@ import DropdownMenuExample4 from '@tw/pages/elements/examples/DropdownMenuExampl
 import DropdownMenuExample5 from '@tw/pages/elements/examples/DropdownMenuExample5.vue';
 import { ref } from 'vue';
 
-const props = defineProps<{ variant?: string }>();
+const props = defineProps<{ section?: string }>();
 
 let example;
+const pageTitle = ref('Basic Example');
 
-if (props.variant === 'example2') {
+if (props.section === 'example2') {
+  pageTitle.value = 'Display on Hover';
   example = await import('../examples/DropdownMenuExample2.vue?raw');
-} else if (props.variant === 'example3') {
+} else if (props.section === 'example3') {
+  pageTitle.value = 'Display Placement';
   example = await import('../examples/DropdownMenuExample3.vue?raw');
-} else if (props.variant === 'example4') {
+} else if (props.section === 'example4') {
+  pageTitle.value = 'Custom Color';
   example = await import('../examples/DropdownMenuExample4.vue?raw');
-} else if (props.variant === 'example5') {
+} else if (props.section === 'example5') {
+  pageTitle.value = 'Popup Container';
   example = await import('../examples/DropdownMenuExample5.vue?raw');
 } else {
   example = await import('../examples/DropdownMenuExample1.vue?raw');
@@ -35,20 +40,16 @@ const contentCls = ['flex items-center min-h-40', 'py-8 px-3 lg:px-6 md:rounded-
 <template>
   <div class="w-full">
     <div class="section-content mb-5">
-      <h2 v-if="variant === 'example2'">Display on Hover</h2>
-      <h2 v-else-if="variant === 'example3'">Display Placement</h2>
-      <h2 v-else-if="variant === 'example4'">Custom Color</h2>
-      <h2 v-else-if="variant === 'example5'">Popup Container</h2>
-      <h2 v-else>Basic Examples</h2>
+      <h2>{{ pageTitle }}</h2>
     </div>
     <ShoutBox :tpl="fmtVueTpl" :tsc="fmtVueTsc">
       <template #content>
         <div :class="contentCls">
           <div class="w-full">
-            <DropdownMenuExample2 v-if="variant === 'example2'" />
-            <DropdownMenuExample3 v-else-if="variant === 'example3'" />
-            <DropdownMenuExample4 v-else-if="variant === 'example4'" />
-            <DropdownMenuExample5 v-else-if="variant === 'example5'" />
+            <DropdownMenuExample2 v-if="section === 'example2'" />
+            <DropdownMenuExample3 v-else-if="section === 'example3'" />
+            <DropdownMenuExample4 v-else-if="section === 'example4'" />
+            <DropdownMenuExample5 v-else-if="section === 'example5'" />
             <DropdownMenuExample1 v-else />
           </div>
         </div>

@@ -423,12 +423,19 @@ export const menuNavs: TMainNavigation[] = [
       {
         text: 'Overlay',
         path: '/overlays/overlay',
-        view: () => import('@tw/pages/overlays/DemoOverlay.vue'),
+        view: () => import('@tw/pages/overlays/OverlayPage.vue'),
       },
       {
         text: 'Popover',
         path: '/overlays/popover',
-        view: () => import('@tw/pages/overlays/DemoPopover.vue'),
+        view: () => import('@tw/pages/overlays/PopoverPage.vue'),
+      },
+      {
+        text: 'Popover',
+        name: 'popover-id',
+        path: '/overlays/popover/:id',
+        hidden: true,
+        view: () => import('@tw/pages/overlays/PopoverPage.vue'),
       },
       {
         text: 'Tooltip',
