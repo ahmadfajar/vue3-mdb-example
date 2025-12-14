@@ -20,7 +20,7 @@ const fmtVueTpl = ref<string>();
 const fmtVueTsc = ref<string>();
 const maskLoaderType = ref<string>('linear');
 const showLoader = ref<boolean>(false);
-const pageTitle = ref('Basic Example');
+const pageTitle = ref('Overview');
 
 if (props.section === 'color-size') {
   example = await import('../examples/MaskLoaderExample2.vue?raw');

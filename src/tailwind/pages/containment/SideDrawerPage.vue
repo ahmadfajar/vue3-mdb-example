@@ -3,7 +3,7 @@ import type { LinkItem } from '@shares/provider.ts';
 import SideDrawerFeatures from '@tw/pages/containment/parts/SideDrawerFeatures.vue';
 
 const linkItems = [
-  { text: 'Basic Example', location: { name: 'side-drawer' } },
+  { text: 'Overview', location: { name: 'side-drawer' } },
   { text: 'SideDrawer Location', location: { name: 'side-drawer-id', params: { id: 'location' } } },
   { text: 'Mini SideDrawer', location: { name: 'side-drawer-id', params: { id: 'mini' } } },
   { text: 'With Appbar', location: { name: 'side-drawer-id', params: { id: 'with-appbar' } } },

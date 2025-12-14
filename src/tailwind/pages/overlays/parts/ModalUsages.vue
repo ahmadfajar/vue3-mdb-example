@@ -11,7 +11,7 @@ const props = defineProps<{ section?: string }>();
 let example;
 const fmtVueTpl = ref<string>();
 const fmtVueTsc = ref<string>();
-const pageTitle = ref('Basic Example');
+const pageTitle = ref('Overview');
 
 if (props.section === 'true-modal') {
   example = await import('../examples/ModalExample2.vue?raw');

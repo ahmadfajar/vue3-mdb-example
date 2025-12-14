@@ -96,7 +96,7 @@ onBeforeUnmount(() => {
 <template>
   <div class="w-full">
     <div class="section-content mb-5">
-      <h2>Features Example</h2>
+      <h2>Overview</h2>
     </div>
     <ShoutBox :tpl="fmtVueTpl" :tsc="fmtVueTsc">
       <template #side-panel>
@@ -114,7 +114,13 @@ onBeforeUnmount(() => {
         <BsCombobox v-model="iconPosition" :data-source="tabsIconPositionSrc" filled floating-label>
           <label>Icon Position:</label>
         </BsCombobox>
-        <BsCombobox v-model="iconLabel" :data-source="tabsIconAndLabelSrc" filled floating-label>
+        <BsCombobox
+          v-model="iconLabel"
+          :data-source="tabsIconAndLabelSrc"
+          class="mb-3"
+          filled
+          floating-label
+        >
           <label>Icon & Label:</label>
         </BsCombobox>
       </template>

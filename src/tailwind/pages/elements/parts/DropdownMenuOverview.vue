@@ -10,7 +10,7 @@ import { ref } from 'vue';
 const props = defineProps<{ section?: string }>();
 
 let example;
-const pageTitle = ref('Basic Example');
+const pageTitle = ref('Overview');
 
 if (props.section === 'example2') {
   pageTitle.value = 'Display on Hover';

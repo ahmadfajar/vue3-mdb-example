@@ -3,7 +3,7 @@ import type { LinkItem } from '@shares/provider.ts';
 import DropdownMenuOverview from '@tw/pages/elements/parts/DropdownMenuOverview.vue';
 
 const linkItems = [
-  { text: 'Basic Examples', location: { name: 'dropdown-menu' } },
+  { text: 'Overview', location: { name: 'dropdown-menu' } },
   { text: 'Display on Hover', location: { name: 'dropdown-menu-id', params: { id: 'on-hover' } } },
   {
     text: 'Display Placement',

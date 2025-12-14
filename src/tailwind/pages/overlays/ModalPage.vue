@@ -3,7 +3,7 @@ import type { LinkItem } from '@shares/provider.ts';
 import ModalUsages from '@tw/pages/overlays/parts/ModalUsages.vue';
 
 const linkItems = [
-  { text: 'Basic Example', location: { name: 'modal' } },
+  { text: 'Overview', location: { name: 'modal' } },
   {
     text: 'True Modal Dialog',
     location: { name: 'modal-id', params: { id: 'true-modal' } },

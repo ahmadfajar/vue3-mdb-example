@@ -3,7 +3,7 @@ import type { LinkItem } from '@shares/provider.ts';
 import LightboxUsages from '@tw/pages/overlays/parts/LightboxUsages.vue';
 
 const linkItems = [
-  { text: 'Basic Example', location: { name: 'lightbox' } },
+  { text: 'Overview', location: { name: 'lightbox' } },
   { text: 'Images and Videos', location: { name: 'lightbox-id', params: { id: 'images-videos' } } },
   { text: 'Single Image', location: { name: 'lightbox-id', params: { id: 'single-image' } } },
   {

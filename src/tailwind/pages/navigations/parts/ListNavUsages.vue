@@ -11,7 +11,7 @@ const props = defineProps<{ section: string }>();
 
 const fmtVueTpl = ref<string>();
 const fmtVueTsc = ref<string>();
-const pageTitle = ref<string>('Basic Example');
+const pageTitle = ref<string>('Overview');
 let example;
 
 switch (props.section) {

@@ -4,7 +4,7 @@ import TabsExtraSlot from '@tw/pages/navigations/parts/TabsExtraSlot.vue';
 import TabsFeatures from '@tw/pages/navigations/parts/TabsFeatures.vue';
 
 const linkItems = [
-  { text: 'Features', location: { name: 'tabs' } },
+  { text: 'Overview', location: { name: 'tabs' } },
   { text: 'Using Extra Slot', location: { name: 'tabs-id', params: { id: 'extra-slot' } } },
 ] satisfies LinkItem[];
 </script>

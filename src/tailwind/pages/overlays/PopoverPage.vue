@@ -3,7 +3,7 @@ import type { LinkItem } from '@shares/provider.ts';
 import PopoverUsages from '@tw/pages/overlays/parts/PopoverUsages.vue';
 
 const linkItems = [
-  { text: 'Basic Example', location: { name: 'popover' } },
+  { text: 'Overview', location: { name: 'popover' } },
   {
     text: 'Display Placement',
     location: { name: 'popover-id', params: { id: 'placement' } },

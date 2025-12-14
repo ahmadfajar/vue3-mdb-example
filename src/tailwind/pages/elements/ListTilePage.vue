@@ -5,7 +5,7 @@ import ListTileState from '@tw/pages/elements/parts/ListTileState.vue';
 import ListTileUsages from '@tw/pages/elements/parts/ListTileUsages.vue';
 
 const linkItems = [
-  { text: 'Example', location: { name: 'list-tile' } },
+  { text: 'Basic Example', location: { name: 'list-tile' } },
   {
     text: 'with Images',
     location: { name: 'list-tile-id', params: { id: 'images' } },

@@ -14,15 +14,20 @@ const props = defineProps<{
   clipped?: boolean;
 }>();
 
+const pageTitle = ref('Overview');
 let example;
 
 if (props.location) {
+  pageTitle.value = 'SideDrawer Location';
   example = await import('../examples/SideDrawerExample2.vue?raw');
 } else if (props.mini) {
+  pageTitle.value = 'Mini SideDrawer';
   example = await import('../examples/SideDrawerExample3.vue?raw');
 } else if (props.appbar) {
+  pageTitle.value = 'Use with Appbar';
   example = await import('../examples/SideDrawerExample4.vue?raw');
 } else if (props.clipped) {
+  pageTitle.value = 'Clipped SideDrawer';
   example = await import('../examples/SideDrawerExample5.vue?raw');
 } else {
   example = await import('../examples/SideDrawerExample1.vue?raw');
@@ -43,11 +48,7 @@ const contentCls = [
 <template>
   <div class="w-full">
     <div class="section-content mb-5">
-      <h2 v-if="clipped">Clipped SideDrawer</h2>
-      <h2 v-else-if="appbar">Use with Appbar</h2>
-      <h2 v-else-if="mini">Mini SideDrawer</h2>
-      <h2 v-else-if="location">SideDrawer Location</h2>
-      <h2 v-else>Basic Example</h2>
+      <h2>{{ pageTitle }}</h2>
     </div>
     <ShoutBox :tpl="fmtVueTpl" :tsc="fmtVueTsc">
       <template #content>
