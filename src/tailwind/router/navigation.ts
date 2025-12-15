@@ -486,7 +486,14 @@ export const menuNavs: TMainNavigation[] = [
       {
         text: 'Date Picker',
         path: '/pickers/datepicker',
-        view: () => import('@tw/pages/pickers/DemoDatePicker.vue'),
+        view: () => import('@tw/pages/pickers/DatePickerPage.vue'),
+      },
+      {
+        text: 'Date Picker',
+        name: 'date-picker-id',
+        path: '/pickers/datepicker/:id',
+        hidden: true,
+        view: () => import('@tw/pages/pickers/DatePickerPage.vue'),
       },
     ],
   },
