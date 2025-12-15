@@ -187,7 +187,7 @@ onBeforeUnmount(() => {
         <div class="min-h-121">
           <h5 class="mt-2">Configuration Options:</h5>
 
-          <BsTabs v-model="tabIndex" class="mx-[-12px] mt-2" variant="material">
+          <BsTabs v-model="tabIndex" class="-mx-3 mt-2" variant="material">
             <BsTab label="General">
               <div class="flex flex-col gap-y-4">
                 <BsCombobox v-model="chipColor" :data-source="chipColorSrc" filled floating-label>

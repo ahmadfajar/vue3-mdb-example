@@ -20,11 +20,11 @@ const linkItems = [
   <ContentLayout :links="linkItems">
     <Transition mode="out-in" name="fade">
       <ListNavStyles v-if="$route.params.id === 'navigation-styles'" />
-      <ListNavUsages v-else-if="$route.params.id === 'nested-1'" section="nested-1" />
-      <ListNavUsages v-else-if="$route.params.id === 'nested-2'" section="nested-2" />
-      <ListNavUsages v-else-if="$route.params.id === 'mixed'" section="mixed" />
-      <ListNavUsages v-else-if="$route.params.id === 'side-drawer'" section="side-drawer" />
-      <ListNavUsages v-else section="basic" />
+      <ListNavUsages
+        v-else
+        :key="$route.params.id as string"
+        :section="($route.params.id as string) || 'basic'"
+      />
     </Transition>
   </ContentLayout>
 </template>

@@ -16,10 +16,6 @@ const linkItems = [
     text: 'Extended FAB',
     location: { name: 'button-id', params: { id: 'extended-fab-button' } },
   },
-  // {
-  //   text: 'Color Variants',
-  //   location: { name: 'button-id', params: { id: 'color-variants' } },
-  // },
   {
     text: 'Icon Rotation',
     location: { name: 'button-id', params: { id: 'icon-rotation' } },

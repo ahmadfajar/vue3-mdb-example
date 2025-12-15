@@ -12,16 +12,16 @@ const props = defineProps<{ section?: string }>();
 let example;
 const pageTitle = ref('Overview');
 
-if (props.section === 'example2') {
+if (props.section === 'on-hover') {
   pageTitle.value = 'Display on Hover';
   example = await import('../examples/DropdownMenuExample2.vue?raw');
-} else if (props.section === 'example3') {
+} else if (props.section === 'placement') {
   pageTitle.value = 'Display Placement';
   example = await import('../examples/DropdownMenuExample3.vue?raw');
-} else if (props.section === 'example4') {
+} else if (props.section === 'custom-color') {
   pageTitle.value = 'Custom Color';
   example = await import('../examples/DropdownMenuExample4.vue?raw');
-} else if (props.section === 'example5') {
+} else if (props.section === 'popup-container') {
   pageTitle.value = 'Popup Container';
   example = await import('../examples/DropdownMenuExample5.vue?raw');
 } else {
@@ -46,10 +46,10 @@ const contentCls = ['flex items-center min-h-40', 'py-8 px-3 lg:px-6 md:rounded-
       <template #content>
         <div :class="contentCls">
           <div class="w-full">
-            <DropdownMenuExample2 v-if="section === 'example2'" />
-            <DropdownMenuExample3 v-else-if="section === 'example3'" />
-            <DropdownMenuExample4 v-else-if="section === 'example4'" />
-            <DropdownMenuExample5 v-else-if="section === 'example5'" />
+            <DropdownMenuExample2 v-if="section === 'on-hover'" />
+            <DropdownMenuExample3 v-else-if="section === 'placement'" />
+            <DropdownMenuExample4 v-else-if="section === 'custom-color'" />
+            <DropdownMenuExample5 v-else-if="section === 'popup-container'" />
             <DropdownMenuExample1 v-else />
           </div>
         </div>

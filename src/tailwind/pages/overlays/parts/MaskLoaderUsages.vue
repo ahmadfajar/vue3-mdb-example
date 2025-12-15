@@ -9,8 +9,8 @@ import {
   parseVueTemplateTag,
   stripAndBeautifyTemplate,
 } from '@shares/sharedApi.ts';
-import { addWatcherForDefaultValue, loremIpsumText } from '@shares/showcaseDataApi.ts';
-import { onBeforeUnmount, ref, watchEffect } from 'vue';
+import { loremIpsumText } from '@shares/showcaseDataApi.ts';
+import { ref, watchEffect } from 'vue';
 
 const props = defineProps<{ section?: string }>();
 
@@ -32,8 +32,6 @@ if (props.section === 'color-size') {
 rawTemplate.value = parseVueTemplateTag(example.default);
 fmtVueTsc.value = parseVueScriptTag(example.default);
 
-addWatcherForDefaultValue({ refObj: maskLoaderType, default: 'linear' });
-
 watchEffect(() => {
   let rawCode = changeMaskLoaderType(maskLoaderType, rawTemplate.value!);
 
@@ -49,10 +47,6 @@ const contentCls = [
   'h-full min-h-40 flex items-center justify-center',
   'py-8 px-3 lg:px-8 md:rounded-lg',
 ];
-
-onBeforeUnmount(() => {
-  maskLoaderTypes.proxy.destroy();
-});
 </script>
 
 <template>
@@ -62,11 +56,11 @@ onBeforeUnmount(() => {
     </div>
     <ShoutBox :tpl="fmtVueTpl" :tsc="fmtVueTsc">
       <template #side-panel>
-        <h5 class="mt-2">Configuration options:</h5>
-
-        <BsCombobox v-model="maskLoaderType" :data-source="maskLoaderTypes" filled floating-label>
-          <label>Type Variant:</label>
-        </BsCombobox>
+        <div class="ps-2 mt-2">
+          <BsRadioGroup v-model="maskLoaderType" :items="maskLoaderTypes" column="1">
+            <div class="col-form-label">Select mask loader type</div>
+          </BsRadioGroup>
+        </div>
       </template>
 
       <template #content>
@@ -75,7 +69,7 @@ onBeforeUnmount(() => {
             <BsCard class="overflow-hidden max-w-120" shadow>
               <BsCardBody>
                 <BsCardContent type="title">
-                  {{ maskLoaderTypes.proxy.find('value', maskLoaderType)?.label }} Loader
+                  {{ maskLoaderTypes.find((it) => it.value === maskLoaderType)?.label }} Loader
                 </BsCardContent>
                 <p>{{ loremIpsumText }}</p>
               </BsCardBody>
@@ -94,7 +88,7 @@ onBeforeUnmount(() => {
             <BsCard class="overflow-hidden max-w-120" shadow>
               <BsCardBody>
                 <BsCardContent type="title">
-                  {{ maskLoaderTypes.proxy.find('value', maskLoaderType)?.label }} Loader
+                  {{ maskLoaderTypes.find((it) => it.value === maskLoaderType)?.label }} Loader
                 </BsCardContent>
                 <p>{{ loremIpsumText }}</p>
               </BsCardBody>

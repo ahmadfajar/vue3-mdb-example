@@ -14,8 +14,7 @@ const linkItems = [
 <template>
   <ContentLayout :links="linkItems">
     <Transition mode="out-in" name="fade">
-      <TooltipUsages v-if="$route.params.id === 'placement'" section="placement" />
-      <TooltipUsages v-else />
+      <TooltipUsages :key="$route.params.id as string" :section="$route.params.id as string" />
     </Transition>
   </ContentLayout>
 </template>

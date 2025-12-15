@@ -14,8 +14,7 @@ const linkItems = [
 <template>
   <ContentLayout :links="linkItems">
     <Transition mode="out-in" name="fade">
-      <MaskLoaderUsages v-if="$route.params.id === 'color-size'" section="color-size" />
-      <MaskLoaderUsages v-else section="basic" />
+      <MaskLoaderUsages :key="$route.params.id as string" :section="$route.params.id as string" />
     </Transition>
   </ContentLayout>
 </template>

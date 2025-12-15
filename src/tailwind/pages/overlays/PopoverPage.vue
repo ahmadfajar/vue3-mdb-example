@@ -14,8 +14,7 @@ const linkItems = [
 <template>
   <ContentLayout :links="linkItems">
     <Transition mode="out-in" name="fade">
-      <PopoverUsages v-if="$route.params.id === 'placement'" section="placement" />
-      <PopoverUsages v-else />
+      <PopoverUsages :key="$route.params.id as string" :section="$route.params.id as string" />
     </Transition>
   </ContentLayout>
 </template>

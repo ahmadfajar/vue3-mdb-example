@@ -12,9 +12,7 @@ const linkItems = [
 <template>
   <ContentLayout :links="linkItems">
     <Transition mode="out-in" name="fade">
-      <BreadcrumbUsages v-if="$route.params.id === 'icon'" section="icon" />
-      <BreadcrumbUsages v-else-if="$route.params.id === 'separator'" section="separator" />
-      <BreadcrumbUsages v-else />
+      <BreadcrumbUsages :key="$route.params.id as string" :section="$route.params.id as string" />
     </Transition>
   </ContentLayout>
 </template>

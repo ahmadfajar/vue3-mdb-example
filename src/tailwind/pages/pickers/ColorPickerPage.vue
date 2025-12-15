@@ -18,9 +18,7 @@ const linkItems = [
 <template>
   <ContentLayout :links="linkItems">
     <Transition mode="out-in" name="fade">
-      <ColorPickerUsages v-if="$route.params.id === 'swatches'" section="swatches" />
-      <ColorPickerUsages v-else-if="$route.params.id === 'popup'" section="popup" />
-      <ColorPickerUsages v-else />
+      <ColorPickerUsages :key="$route.params.id as string" :section="$route.params.id as string" />
     </Transition>
   </ContentLayout>
 </template>

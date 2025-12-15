@@ -1,29 +1,20 @@
-import { schemaConfigDefinition } from '@shares/showcaseDataApi.ts';
 import type { Ref } from 'vue';
-import { BsArrayStore, type TDataSource } from 'vue-mdbootstrap';
+import { type TRadioInputProps } from 'vue-mdbootstrap';
 
-export function dsMaskLoaderTypes(): TDataSource {
-  return {
-    proxy: new BsArrayStore(
-      [
-        { label: 'Linear', value: 'linear' },
-        { label: 'Linear-Alt', value: 'linear-alt' },
-        { label: 'Spinner', value: 'spinner' },
-        { label: 'Growing Blink', value: 'grow' },
-      ],
-      {
-        idProperty: 'value',
-      }
-    ),
-    schema: schemaConfigDefinition,
-  };
+export function dsMaskLoaderTypes(): TRadioInputProps[] {
+  return [
+    { label: 'Linear', value: 'linear' },
+    { label: 'Linear-Alt', value: 'linear-alt' },
+    { label: 'Spinner', value: 'spinner' },
+    { label: 'Growing Blink', value: 'grow' },
+  ];
 }
 
 export function changeMaskLoaderType(typeRef: Ref<string | undefined>, data: string): string {
   if (typeRef.value) {
     const tmp = data.replace('{$types}', `type="${typeRef.value}"`);
-    const name = dsMaskLoaderTypes().proxy.find('value', typeRef.value)?.label || 'Linear';
-    return tmp.replace('{$types_name}', name as string);
+    const name = dsMaskLoaderTypes().find((it) => it.value === typeRef.value)?.label || 'Linear';
+    return tmp.replace('{$types_name}', name);
   }
 
   return data;

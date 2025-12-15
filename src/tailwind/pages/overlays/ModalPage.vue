@@ -22,10 +22,7 @@ const linkItems = [
 <template>
   <ContentLayout :links="linkItems">
     <Transition mode="out-in" name="fade">
-      <ModalUsages v-if="$route.params.id === 'true-modal'" section="true-modal" />
-      <ModalUsages v-else-if="$route.params.id === 'long-content'" section="long-content" />
-      <ModalUsages v-else-if="$route.params.id === 'hide-backdrop'" section="hide-backdrop" />
-      <ModalUsages v-else />
+      <ModalUsages :key="$route.params.id as string" :section="$route.params.id as string" />
     </Transition>
   </ContentLayout>
 </template>

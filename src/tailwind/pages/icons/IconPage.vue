@@ -13,10 +13,7 @@ const linkItems = [
 <template>
   <ContentLayout :links="linkItems">
     <Transition mode="out-in" name="fade">
-      <IconFeatures v-if="$route.params.id === 'styling'" section="styling" />
-      <IconFeatures v-else-if="$route.params.id === 'rotation'" section="rotation" />
-      <IconFeatures v-else-if="$route.params.id === 'animation'" section="animation" />
-      <IconFeatures v-else />
+      <IconFeatures :key="$route.params.id as string" :section="$route.params.id as string" />
     </Transition>
   </ContentLayout>
 </template>

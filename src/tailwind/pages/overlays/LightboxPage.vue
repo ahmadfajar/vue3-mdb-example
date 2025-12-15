@@ -16,10 +16,7 @@ const linkItems = [
 <template>
   <ContentLayout :links="linkItems">
     <Transition mode="out-in" name="fade">
-      <LightboxUsages v-if="$route.params.id === 'images-videos'" section="images-videos" />
-      <LightboxUsages v-else-if="$route.params.id === 'single-image'" section="single-image" />
-      <LightboxUsages v-else-if="$route.params.id === 'custom-toolbar'" section="custom-toolbar" />
-      <LightboxUsages v-else section="basic" />
+      <LightboxUsages :key="$route.params.id as string" :section="$route.params.id as string" />
     </Transition>
   </ContentLayout>
 </template>
