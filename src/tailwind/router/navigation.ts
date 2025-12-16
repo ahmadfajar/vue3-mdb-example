@@ -458,12 +458,26 @@ export const menuNavs: TMainNavigation[] = [
       {
         text: 'Progress',
         path: '/progress-control/progress',
-        view: () => import('@tw/pages/progress/DemoProgress.vue'),
+        view: () => import('@tw/pages/progress/ProgressPage.vue'),
+      },
+      {
+        text: 'Progress',
+        name: 'progress-id',
+        path: '/progress-control/progress/:id',
+        hidden: true,
+        view: () => import('@tw/pages/progress/ProgressPage.vue'),
       },
       {
         text: 'Progress Bar',
         path: '/progress-control/progress-bar',
-        view: () => import('@tw/pages/progress/DemoProgressBar.vue'),
+        view: () => import('@tw/pages/progress/ProgressBarPage.vue'),
+      },
+      {
+        text: 'Progress Bar',
+        name: 'progress-bar-id',
+        path: '/progress-control/progress-bar/:id',
+        hidden: true,
+        view: () => import('@tw/pages/progress/ProgressBarPage.vue'),
       },
     ],
   },
