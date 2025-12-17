@@ -16,7 +16,7 @@ import {
   stripAndBeautifyTemplate,
 } from '@shares/sharedApi.ts';
 import {
-  addWatcherForDefaultValue,
+  useWatcherDefaultValue,
   dsComponentStatesRD,
   dsContextColors,
 } from '@shares/showcaseDataApi.ts';
@@ -122,7 +122,7 @@ watch(btnSize, async (value) => {
   }
 });
 
-addWatcherForDefaultValue(
+useWatcherDefaultValue(
   { refObj: btnVariant, default: 'filled' },
   { refObj: btnShape, default: 'pill' }
 );

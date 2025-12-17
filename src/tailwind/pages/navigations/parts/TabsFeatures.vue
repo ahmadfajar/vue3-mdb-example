@@ -5,7 +5,7 @@ import {
   stripAndBeautifyTemplate,
 } from '@shares/sharedApi.ts';
 import {
-  addWatcherForDefaultValue,
+  useWatcherDefaultValue,
   etsyMixtapeText,
   foodTruckText,
   rawDenimText,
@@ -47,7 +47,7 @@ const innerClass = computed(() => {
   return undefined;
 });
 
-addWatcherForDefaultValue(
+useWatcherDefaultValue(
   { refObj: tabVariant, default: 'tabs' },
   { refObj: tabAlignment, default: 'start' },
   { refObj: tabPlacement, default: 'top' },

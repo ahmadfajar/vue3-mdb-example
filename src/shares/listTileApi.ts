@@ -1,5 +1,5 @@
 import { stripAndBeautifyTemplate } from '@shares/sharedApi.ts';
-import { addWatcherForDefaultValue, schemaConfigDefinition } from '@shares/showcaseDataApi.ts';
+import { schemaConfigDefinition, useWatcherDefaultValue } from '@shares/showcaseDataApi.ts';
 import { computed, type ComputedRef, onBeforeUnmount, type Ref, watchEffect } from 'vue';
 import {
   BsArrayStore,
@@ -99,7 +99,7 @@ export function setupListViewNavigation(
     borderVariant.value === 'none' ? undefined : (borderVariant.value as TListItemBorder)
   );
 
-  addWatcherForDefaultValue(
+  useWatcherDefaultValue(
     { refObj: spaceAround, default: 'none' },
     { refObj: borderVariant, default: 'none' },
     { refObj: itemStyle, default: 'none' }

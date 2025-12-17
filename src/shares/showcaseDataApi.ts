@@ -79,7 +79,7 @@ declare type WatcherDefaultValue<T> = {
   default: T;
 };
 
-export function addWatcherForDefaultValue<T>(...args: WatcherDefaultValue<T>[]): void {
+export function useWatcherDefaultValue<T>(...args: WatcherDefaultValue<T>[]): void {
   for (const obj of args) {
     watch(obj.refObj, async (value) => {
       if (!value) {

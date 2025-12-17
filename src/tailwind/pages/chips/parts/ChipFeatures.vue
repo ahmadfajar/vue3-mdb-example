@@ -24,7 +24,7 @@ import {
 } from '@shares/chipApi.ts';
 import { parseVueTemplateTag, stripAndBeautifyTemplate } from '@shares/sharedApi.ts';
 import {
-  addWatcherForDefaultValue,
+  useWatcherDefaultValue,
   dsComponentStates,
   dsContextColors,
 } from '@shares/showcaseDataApi.ts';
@@ -101,7 +101,7 @@ watchEffect(() => {
   }
 });
 
-addWatcherForDefaultValue(
+useWatcherDefaultValue(
   { refObj: chipColor, default: 'secondary' },
   { refObj: chipSize, default: 'md' }
 );

@@ -9,7 +9,7 @@ import {
 } from '@shares/progressApi.ts';
 import { parseVueTemplateTag, stripAndBeautifyTemplate } from '@shares/sharedApi.ts';
 import {
-  addWatcherForDefaultValue,
+  useWatcherDefaultValue,
   changeComponentColor,
   dsContextColors,
 } from '@shares/showcaseDataApi.ts';
@@ -38,7 +38,7 @@ if (props.section === 'spinner') {
   pageTitle.value = 'Spinner';
 }
 
-addWatcherForDefaultValue(
+useWatcherDefaultValue(
   { refObj: color, default: 'default' },
   { refObj: mode, default: 'indeterminate' }
 );

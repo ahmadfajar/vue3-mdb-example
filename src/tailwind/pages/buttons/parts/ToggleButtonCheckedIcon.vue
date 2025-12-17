@@ -13,7 +13,7 @@ import {
   parseVueTemplateTag,
   stripAndBeautifyTemplate,
 } from '@shares/sharedApi.ts';
-import { addWatcherForDefaultValue, dsComponentStatesRD } from '@shares/showcaseDataApi.ts';
+import { useWatcherDefaultValue, dsComponentStatesRD } from '@shares/showcaseDataApi.ts';
 import { onBeforeUnmount, ref, watch, watchEffect } from 'vue';
 import type { TIconPosition, TInputOptionItem } from 'vue-mdbootstrap';
 
@@ -64,7 +64,7 @@ watchEffect(() => {
   }
 });
 
-addWatcherForDefaultValue(
+useWatcherDefaultValue(
   { refObj: btnVariant, default: 'filled' },
   { refObj: btnShape, default: 'pill' }
 );

@@ -3,7 +3,14 @@ import { highlightCode } from '@shares/shikiApi.ts';
 import { onBeforeMount, onBeforeUnmount, onMounted, ref, watch } from 'vue';
 import { Helper, PopupManager, useBreakpointMax } from 'vue-mdbootstrap';
 
-const props = defineProps<{ tpl?: string; tsc?: string; open?: boolean; expanded?: boolean }>();
+const props = defineProps<{
+  tpl?: string;
+  tsc?: string;
+  styl?: string;
+  open?: boolean;
+  expanded?: boolean;
+}>();
+
 const emit = defineEmits<{
   'update:open': [value: boolean];
 }>();
@@ -11,11 +18,13 @@ const emit = defineEmits<{
 const zIndex = 1024;
 const templateActive = ref(false);
 const scriptActive = ref(false);
+const styleActive = ref(false);
 const panelOpen = ref(true);
 const isMobile = ref(true);
 const showTplBtn = ref(true);
 const fmtCodeTpl = ref<string>();
 const fmtCodeTsc = ref<string>();
+const fmtStyle = ref<string>();
 const sourceVisible = ref(false);
 
 // initialize side-panel state
@@ -27,6 +36,7 @@ function toggleTemplate(state: boolean) {
   templateActive.value = !state;
   if (templateActive.value) {
     scriptActive.value = false;
+    styleActive.value = false;
   }
 
   sourceVisible.value = templateActive.value;
@@ -36,9 +46,20 @@ function toggleScript(state: boolean) {
   scriptActive.value = !state;
   if (scriptActive.value) {
     templateActive.value = false;
+    styleActive.value = false;
   }
 
   sourceVisible.value = scriptActive.value;
+}
+
+function toggleStyle(state: boolean) {
+  styleActive.value = !state;
+  if (styleActive.value) {
+    templateActive.value = false;
+    scriptActive.value = false;
+  }
+
+  sourceVisible.value = styleActive.value;
 }
 
 function toggleSidePanel(state: boolean) {
@@ -87,13 +108,25 @@ const copyMsgCls = ref([msgCls, 'hidden']);
 
 async function copyToClipboard() {
   const text =
-    templateActive.value && props.tpl
-      ? props.tpl
+    styleActive.value && props.styl
+      ? props.styl
       : scriptActive.value && props.tsc
         ? props.tsc
-        : props.tpl && !props.tsc
+        : templateActive.value && props.tpl
           ? props.tpl
-          : props.tsc;
+          : props.tsc && !props.tpl && !props.styl
+            ? props.tsc
+            : props.styl && !props.tpl && !props.tsc
+              ? props.styl
+              : props.tpl;
+  // const text =
+  //   templateActive.value && props.tpl
+  //     ? props.tpl
+  //     : scriptActive.value && props.tsc
+  //       ? props.tsc
+  //       : props.tpl && !props.tsc
+  //         ? props.tpl
+  //         : props.tsc;
 
   if (text) {
     try {
@@ -111,8 +144,8 @@ async function copyToClipboard() {
 }
 
 watch(
-  () => [props.tpl, props.tsc],
-  async ([tpl, tsc]) => {
+  () => [props.tpl, props.tsc, props.styl],
+  async ([tpl, tsc, styl]) => {
     if (tpl) {
       fmtCodeTpl.value = await highlightCode(tpl, 'vue');
     } else {
@@ -122,6 +155,11 @@ watch(
       fmtCodeTsc.value = await highlightCode(tsc, 'vue');
     } else {
       fmtCodeTsc.value = undefined;
+    }
+    if (styl) {
+      fmtStyle.value = await highlightCode(styl, 'vue');
+    } else {
+      fmtStyle.value = undefined;
     }
   }
 );
@@ -145,8 +183,11 @@ onMounted(async () => {
   if (props.tsc) {
     fmtCodeTsc.value = await highlightCode(props.tsc, 'vue');
   }
+  if (props.styl) {
+    fmtStyle.value = await highlightCode(props.styl, 'vue');
+  }
 
-  if (fmtCodeTpl.value && props.expanded && !fmtCodeTsc.value) {
+  if (fmtCodeTpl.value && props.expanded && !fmtCodeTsc.value && !fmtStyle.value) {
     templateActive.value = true;
     sourceVisible.value = true;
     showTplBtn.value = false;
@@ -181,7 +222,7 @@ onBeforeUnmount(() => {
         <div
           :class="[
             'shoutbox-toolbar flex items-center w-full px-3',
-            showTplBtn || fmtCodeTsc ? 'py-2' : 'py-1',
+            showTplBtn || fmtCodeTsc || fmtStyle ? 'py-2' : 'py-1',
           ]"
         >
           <div class="inline">
@@ -205,6 +246,17 @@ onBeforeUnmount(() => {
               @click="toggleScript(scriptActive)"
             >
               Script
+            </BsButton>
+            <BsButton
+              v-if="fmtStyle"
+              :active="styleActive"
+              class="ms-1"
+              color="secondary"
+              flat
+              size="sm"
+              @click="toggleStyle(styleActive)"
+            >
+              Style
             </BsButton>
           </div>
           <BsSpacer />
@@ -276,8 +328,9 @@ onBeforeUnmount(() => {
         />
         <div class="md:rounded-lg rounded-3 p-1">
           <Transition mode="out-in" name="fade-fast">
-            <div v-if="templateActive" v-html="fmtCodeTpl" class="text-sm"></div>
-            <div v-else v-html="fmtCodeTsc" class="text-sm"></div>
+            <div v-if="styleActive" v-html="fmtStyle" class="text-sm"></div>
+            <div v-else-if="scriptActive" v-html="fmtCodeTsc" class="text-sm"></div>
+            <div v-else v-html="fmtCodeTpl" class="text-sm"></div>
           </Transition>
         </div>
       </div>

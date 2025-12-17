@@ -17,7 +17,7 @@ import {
   parseVueTemplateTag,
   stripAndBeautifyTemplate,
 } from '@shares/sharedApi.ts';
-import { addWatcherForDefaultValue, dsContextColors } from '@shares/showcaseDataApi.ts';
+import { useWatcherDefaultValue, dsContextColors } from '@shares/showcaseDataApi.ts';
 import { nextTick, onBeforeUnmount, ref, watch, watchEffect } from 'vue';
 import {
   Helper,
@@ -110,7 +110,7 @@ watch(chipSize, async (newValue, oldValue) => {
   }
 });
 
-addWatcherForDefaultValue({ refObj: chipColor, default: 'secondary' });
+useWatcherDefaultValue({ refObj: chipColor, default: 'secondary' });
 
 watchEffect(() => {
   let rawCode: string | undefined;

@@ -8,7 +8,7 @@ import {
 } from '@shares/progressApi.ts';
 import { parseVueTemplateTag, stripAndBeautifyTemplate } from '@shares/sharedApi.ts';
 import {
-  addWatcherForDefaultValue,
+  useWatcherDefaultValue,
   changeComponentColor,
   dsContextColors,
 } from '@shares/showcaseDataApi.ts';
@@ -24,7 +24,7 @@ const textLabel = ref('Marketing Performance');
 const labelAlignment = ref('center');
 const labelPosition = ref('top');
 
-addWatcherForDefaultValue(
+useWatcherDefaultValue(
   { refObj: color, default: 'primary' },
   { refObj: labelAlignment, default: 'center' },
   { refObj: labelPosition, default: 'top' }

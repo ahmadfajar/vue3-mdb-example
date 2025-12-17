@@ -25,6 +25,10 @@ export declare interface ShoutBoxOptionProps {
    */
   tsc?: string | null;
   /**
+   * Vue component style section source code.
+   */
+  styl?: string | null;
+  /**
    * ShoutBox side-panel state.
    */
   open?: boolean;
@@ -74,9 +78,4 @@ declare module 'vue' {
     ShoutBox: typeof ShoutBox;
     ContentLayout: typeof ContentLayout;
   }
-
-  // interface ComponentCustomProperties {
-  //   $route: RouteLocationNormalizedLoaded;
-  //   $router: Router;
-  // }
 }

@@ -274,7 +274,14 @@ export const menuNavs: TMainNavigation[] = [
       {
         text: 'Checkbox',
         path: '/inputs/checkbox',
-        view: () => import('@tw/pages/inputs/DemoCheckbox.vue'),
+        view: () => import('@tw/pages/inputs/CheckboxPage.vue'),
+      },
+      {
+        text: 'Checkbox',
+        name: 'checkbox-id',
+        path: '/inputs/checkbox/:id',
+        hidden: true,
+        view: () => import('@tw/pages/inputs/CheckboxPage.vue'),
       },
       {
         text: 'Radio Button',

@@ -7,7 +7,7 @@ import {
   dsIconVariants,
 } from '@shares/alertApi.ts';
 import { parseVueTemplateTag, stripAndBeautifyTemplate } from '@shares/sharedApi.ts';
-import { addWatcherForDefaultValue, changeComponentVariant } from '@shares/showcaseDataApi.ts';
+import { useWatcherDefaultValue, changeComponentVariant } from '@shares/showcaseDataApi.ts';
 import { onBeforeUnmount, ref, watchEffect } from 'vue';
 import { type TAlertVariant, type TIconVariant } from 'vue-mdbootstrap';
 
@@ -34,7 +34,7 @@ watchEffect(() => {
   }
 });
 
-addWatcherForDefaultValue(
+useWatcherDefaultValue(
   { refObj: contextVariant, default: 'success' },
   { refObj: iconVariant, default: 'outlined' }
 );

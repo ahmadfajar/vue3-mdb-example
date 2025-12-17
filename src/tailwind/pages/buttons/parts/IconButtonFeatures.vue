@@ -10,7 +10,7 @@ import {
   iconAnimationVariants,
 } from '@shares/buttonApi.ts';
 import { parseVueTemplateTag, stripAndBeautifyTemplate } from '@shares/sharedApi.ts';
-import { addWatcherForDefaultValue, dsComponentStates } from '@shares/showcaseDataApi.ts';
+import { useWatcherDefaultValue, dsComponentStates } from '@shares/showcaseDataApi.ts';
 import { nextTick, onBeforeUnmount, ref, watch, watchEffect } from 'vue';
 import type { TButtonSize } from 'vue-mdbootstrap';
 
@@ -58,7 +58,7 @@ watchEffect(() => {
   }
 });
 
-addWatcherForDefaultValue({ refObj: btnVariant, default: 'filled' });
+useWatcherDefaultValue({ refObj: btnVariant, default: 'filled' });
 
 watch(btnSize, async (value) => {
   if (value === 'lg') {

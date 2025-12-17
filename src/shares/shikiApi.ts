@@ -11,6 +11,7 @@ const shikiBundle = createBundledHighlighter({
     javascript: () => import('@shikijs/langs/javascript'),
     typescript: () => import('@shikijs/langs/typescript'),
     vue: () => import('@shikijs/langs/vue'),
+    scss: () => import('@shikijs/langs/scss'),
     css: () => import('@shikijs/langs/css'),
   },
   themes: {
@@ -19,7 +20,7 @@ const shikiBundle = createBundledHighlighter({
 });
 
 let shikiFactory: HighlighterGeneric<
-  'vue' | 'typescript' | 'javascript' | 'css',
+  'vue' | 'typescript' | 'javascript' | 'scss' | 'css',
   'material-theme-darker'
 > | null;
 
@@ -30,11 +31,11 @@ let shikiFactory: HighlighterGeneric<
  * {@link disposeShiki} to free resources.
  */
 export async function createShikiInstance(): Promise<
-  HighlighterGeneric<'vue' | 'typescript' | 'javascript' | 'css', 'material-theme-darker'>
+  HighlighterGeneric<'vue' | 'typescript' | 'javascript' | 'scss' | 'css', 'material-theme-darker'>
 > {
   if (!shikiFactory) {
     shikiFactory = await shikiBundle({
-      langs: ['javascript', 'typescript', 'vue', 'css'],
+      langs: ['javascript', 'typescript', 'vue', 'scss', 'css'],
       themes: ['material-theme-darker'],
     });
   }
@@ -64,7 +65,7 @@ export function disposeShiki(): void {
  */
 export async function highlightCode(
   code: string,
-  lang: 'vue' | 'typescript' | 'javascript' | 'css'
+  lang: 'vue' | 'typescript' | 'javascript' | 'scss' | 'css'
 ): Promise<string> {
   if (!shikiFactory) {
     await createShikiInstance();

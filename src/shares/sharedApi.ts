@@ -64,6 +64,14 @@ export function parseVueScriptTag(data: string): string {
   return data.slice(i1, i2 + endTag.length);
 }
 
+export function parseVueStyleTag(data: string): string {
+  const endTag = '</style>';
+  const i1 = data.indexOf('<style');
+  const i2 = data.lastIndexOf(endTag);
+
+  return data.slice(i1, i2 + endTag.length);
+}
+
 const config = {
   indent_size: 2,
   indent_char: ' ',

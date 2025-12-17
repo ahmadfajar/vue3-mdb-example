@@ -9,7 +9,7 @@ import {
 } from '@shares/progressApi.ts';
 import { parseVueTemplateTag, stripAndBeautifyTemplate } from '@shares/sharedApi.ts';
 import {
-  addWatcherForDefaultValue,
+  useWatcherDefaultValue,
   changeComponentColor,
   dsContextColors,
 } from '@shares/showcaseDataApi.ts';
@@ -27,7 +27,7 @@ const thickness = ref<number>();
 const showValue = ref(false);
 const valuePosition = ref('inside');
 
-addWatcherForDefaultValue(
+useWatcherDefaultValue(
   { refObj: color, default: 'primary' },
   { refObj: variant, default: 'default' },
   { refObj: valuePosition, default: 'inside' }

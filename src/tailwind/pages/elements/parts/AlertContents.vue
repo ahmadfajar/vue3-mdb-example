@@ -4,7 +4,7 @@ import { changeIconName } from '@shares/buttonApi';
 import { useRefDebounced } from '@shares/debounceRef.ts';
 import { parseVueTemplateTag, stripAndBeautifyTemplate } from '@shares/sharedApi.ts';
 import {
-  addWatcherForDefaultValue,
+  useWatcherDefaultValue,
   changeComponentColor,
   changeComponentVariant,
   dsContextColors,
@@ -38,7 +38,7 @@ watchEffect(() => {
   }
 });
 
-addWatcherForDefaultValue({ refObj: iconVariant, default: 'outlined' });
+useWatcherDefaultValue({ refObj: iconVariant, default: 'outlined' });
 
 const alertColorSrc = dsContextColors(['dark']);
 const alertVariantSrc = dsAlertVariants();

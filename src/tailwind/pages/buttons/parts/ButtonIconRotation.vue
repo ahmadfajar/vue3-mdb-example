@@ -11,7 +11,7 @@ import {
   dsIconRotations,
 } from '@shares/buttonApi.ts';
 import { parseVueTemplateTag, stripAndBeautifyTemplate } from '@shares/sharedApi.ts';
-import { addWatcherForDefaultValue } from '@shares/showcaseDataApi.ts';
+import { useWatcherDefaultValue } from '@shares/showcaseDataApi.ts';
 import { nextTick, onBeforeUnmount, ref, watch, watchEffect } from 'vue';
 import type { TButtonSize, TIconFlip, TIconPosition, TIconRotation } from 'vue-mdbootstrap';
 
@@ -78,7 +78,7 @@ watch(btnSize, async (value) => {
   });
 });
 
-addWatcherForDefaultValue({ refObj: btnVariant, default: 'filled' });
+useWatcherDefaultValue({ refObj: btnVariant, default: 'filled' });
 
 const btnVariants = dsButtonVariants();
 const btnSizes = dsButtonSizes();

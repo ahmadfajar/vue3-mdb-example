@@ -6,7 +6,7 @@ import {
   useShowNotification,
 } from '@shares/notificationApi.ts';
 import { parseVueTemplateTag, stripAndBeautifyTemplate } from '@shares/sharedApi.ts';
-import { addWatcherForDefaultValue } from '@shares/showcaseDataApi.ts';
+import { useWatcherDefaultValue } from '@shares/showcaseDataApi.ts';
 import { onBeforeUnmount, ref, watchEffect } from 'vue';
 import type { TNotificationPosition, TNotificationVariant } from 'vue-mdbootstrap';
 
@@ -21,7 +21,7 @@ const hideTitle = ref(false);
 
 rawTemplate.value = parseVueTemplateTag(example.default);
 
-addWatcherForDefaultValue(
+useWatcherDefaultValue(
   { refObj: notificationVariant, default: 'default' },
   { refObj: notificationPosition, default: 'bottom-right' }
 );
