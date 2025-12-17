@@ -286,7 +286,14 @@ export const menuNavs: TMainNavigation[] = [
       {
         text: 'Radio Button',
         path: '/inputs/radio',
-        view: () => import('@tw/pages/inputs/DemoRadio.vue'),
+        view: () => import('@tw/pages/inputs/RadioPage.vue'),
+      },
+      {
+        text: 'Radio Button',
+        name: 'radio-button-id',
+        path: '/inputs/radio/:id',
+        hidden: true,
+        view: () => import('@tw/pages/inputs/RadioPage.vue'),
       },
       {
         text: 'Switch Button',

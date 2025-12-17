@@ -5,17 +5,17 @@ import {
   stripAndBeautifyTemplate,
 } from '@shares/sharedApi.ts';
 import {
-  useWatcherDefaultValue,
-  dsContextColors,
   changeComponentColor,
+  dsContextColors,
+  useWatcherDefaultValue,
 } from '@shares/showcaseDataApi.ts';
 import { onBeforeUnmount, ref, watchEffect } from 'vue';
-import Example from '../examples/CheckboxExample1.vue?raw';
+import Example from '../examples/RadioExample1.vue?raw';
 
 const fmtVueTpl = ref<string>();
 const fmtVueTsc = ref<string>();
 const color = ref<string>('default');
-const checkbox1 = ref();
+const radio1 = ref();
 
 const rawTemplate = parseVueTemplateTag(Example);
 fmtVueTsc.value = parseVueScriptTag(Example);
@@ -29,7 +29,7 @@ watchEffect(() => {
 });
 
 const colorSrc = dsContextColors(['dark', 'light']);
-const contentCls = ['h-full flex items-center justify-center min-h-40', 'py-8 px-4 md:px-8'];
+const contentCls = ['h-full min-h-40 flex flex-col', 'py-8 px-4 md:px-8'];
 
 onBeforeUnmount(() => {
   colorSrc.proxy.destroy();
@@ -52,9 +52,13 @@ onBeforeUnmount(() => {
 
       <template #content>
         <div :class="contentCls">
-          <BsCheckbox v-model="checkbox1" :color="color" value="accepted">
-            Accept the terms and use
-          </BsCheckbox>
+          <div class="col-form-label">Select an option:</div>
+          <div v-for="idx in 3" :key="'option-' + idx">
+            <BsRadio v-model="radio1" :color="color" :value="idx"> Option {{ idx }} </BsRadio>
+          </div>
+          <div class="mt-4">
+            Value: <b>{{ radio1 }}</b>
+          </div>
         </div>
       </template>
     </ShoutBox>
