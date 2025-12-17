@@ -127,7 +127,7 @@ onBeforeUnmount(() => {
 
       <template #content>
         <div :class="contentCls">
-          <BsCard v-if="['modern', 'material'].includes(tabVariant)" shadow>
+          <BsCard v-if="['modern', 'material'].includes(tabVariant)" class="shadow">
             <BsApp style="min-height: 380px">
               <BsAppbar class="bg-violet-800">
                 <BsButton color="light" flat icon="menu" mode="icon" />
