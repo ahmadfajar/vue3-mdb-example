@@ -50,38 +50,11 @@ const linkItems = [
   <ContentLayout :links="linkItems">
     <Transition mode="out-in" name="fade">
       <TransitionView2 v-if="$route.params.id === 'expand-transition'" />
-      <TransitionView1 v-else-if="$route.params.id === 'scale'" transition="scale" />
-      <TransitionView1 v-else-if="$route.params.id === 'slide-fade'" transition="slide-fade" />
       <TransitionView1
-        v-else-if="$route.params.id === 'slide-fade-reverse'"
-        transition="slide-fade-reverse"
+        v-else
+        :key="$route.params.id as string"
+        :transition="($route.params.id as string) || 'fade'"
       />
-      <TransitionView1
-        v-else-if="$route.params.id === 'slide-left-right'"
-        transition="slide-left-right"
-      />
-      <TransitionView1
-        v-else-if="$route.params.id === 'slide-right-left'"
-        transition="slide-right-left"
-      />
-      <TransitionView1
-        v-else-if="$route.params.id === 'slide-top-bottom'"
-        transition="slide-top-bottom"
-      />
-      <TransitionView1
-        v-else-if="$route.params.id === 'slide-bottom-top'"
-        transition="slide-bottom-top"
-      />
-      <TransitionView1
-        v-else-if="$route.params.id === 'rotate-clock-wise'"
-        transition="rotate-clock-wise"
-      />
-      <TransitionView1
-        v-else-if="$route.params.id === 'rotate-clock-reverse'"
-        transition="rotate-clock-reverse"
-      />
-      <TransitionView1 v-else-if="$route.params.id === 'roll-in-out'" transition="roll-in-out" />
-      <TransitionView1 v-else transition="fade" />
     </Transition>
   </ContentLayout>
 </template>

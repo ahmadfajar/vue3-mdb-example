@@ -16,7 +16,7 @@ const contentCls = ['h-full min-h-40', 'py-8 px-3 lg:px-8 md:rounded-lg'];
 <template>
   <div class="w-full">
     <div class="section-content mb-5">
-      <h2>Advanced Usage</h2>
+      <h2>Advance Usage</h2>
     </div>
     <ShoutBox :tpl="fmtVueTpl" :tsc="fmtVueTsc">
       <template #content>

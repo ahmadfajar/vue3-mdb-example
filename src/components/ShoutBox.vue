@@ -161,17 +161,17 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <div class="showcase-container relative md:rounded-lg rounded-3 border overflow-hidden">
+  <div class="shoutbox-container relative md:rounded-lg rounded-3 border overflow-hidden">
     <div
       :class="[
         'flex relative',
         sourceVisible ? 'md:rounded-t-lg rounded-top-3' : 'md:rounded-lg rounded-3',
       ]"
     >
-      <div class="showcase-body bg-gray-200 flex flex-col flex-fill overflow-x-hidden">
+      <div class="shoutbox-body bg-gray-200 flex flex-col flex-fill overflow-x-hidden">
         <div class="h-full flex-fill p-1 md:rounded-lg rounded-3">
           <div
-            class="showcase-content h-full text-bg-surface-secondary border md:rounded-lg rounded-3"
+            class="shoutbox-content h-full text-bg-surface-secondary border md:rounded-lg rounded-3"
           >
             <slot name="content">
               <h5>Put example component here</h5>
@@ -180,7 +180,7 @@ onBeforeUnmount(() => {
         </div>
         <div
           :class="[
-            'showcase-toolbar flex items-center w-full px-3',
+            'shoutbox-toolbar flex items-center w-full px-3',
             showTplBtn || fmtCodeTsc ? 'py-2' : 'py-1',
           ]"
         >
@@ -233,7 +233,7 @@ onBeforeUnmount(() => {
             <BsOverlay :show="panelOpen" :z-index="zIndex - 1" fixed @click="closeOverlay()" />
             <div
               :class="[
-                'showcase-side text-bg-surface-tertiary border-s fixed',
+                'shoutbox-side text-bg-surface-tertiary border-s fixed',
                 panelOpen ? 'open' : 'close',
               ]"
             >
@@ -248,7 +248,7 @@ onBeforeUnmount(() => {
         <template v-else>
           <div
             :class="[
-              'showcase-side text-bg-surface-secondary border-s',
+              'shoutbox-side text-bg-surface-secondary border-s',
               panelOpen ? 'open' : 'close',
             ]"
           >
@@ -262,7 +262,7 @@ onBeforeUnmount(() => {
       </template>
     </div>
     <BsExpandTransition>
-      <div v-if="sourceVisible" class="showcase-source relative bg-gray-200">
+      <div v-if="sourceVisible" class="shoutbox-source relative bg-gray-200">
         <div :class="copyMsgCls">Copied</div>
         <BsButton
           class="absolute"
@@ -291,7 +291,7 @@ onBeforeUnmount(() => {
 @use 'vue-mdbootstrap/scss/color_vars' as colors;
 @use 'vue-mdbootstrap/scss/variables' as vars;
 
-.showcase-container {
+.shoutbox-container {
   --border-translucent: #{colors.$gray-300};
   --bs-border-color: var(--border-translucent);
   --bs-border-radius-lg: 0;
@@ -301,18 +301,17 @@ onBeforeUnmount(() => {
   }
 }
 
-.showcase-content {
+.shoutbox-content {
   --md-border-color: #{colors.$neutral-lighten-2};
-  //padding: 1.5rem 1rem;
 }
 
-.showcase-body {
+.shoutbox-body {
   border-top-left-radius: inherit;
   border-bottom-left-radius: inherit;
   transition: 0.45s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.showcase-side {
+.shoutbox-side {
   border-top-right-radius: inherit;
   border-bottom-right-radius: inherit;
   min-width: 300px;
@@ -339,15 +338,57 @@ onBeforeUnmount(() => {
     --md-tab-item-active-color: var(--foreground);
     --md-tab-item-hover-color: var(--md-field-active-indicator);
     --md-tab-material-indicator-active-color: var(--md-field-active-indicator);
+    --md-tab-md3-indicator-active-color: var(--md-field-active-indicator);
+    --md-tab-md3-indicator-border: 4px;
+    --md-tab-md3-indicator-radius: 6px;
+    --md-tab-md3-padding: 0.75rem 1.25rem;
     --md-tab-content-padding: 1.25rem 0.875rem;
 
     .tab-sliding {
       border-bottom: thin solid var(--border-translucent);
     }
   }
+
+  .md-tabs-md3 {
+    position: relative;
+
+    .tab-item-link {
+      background-color: transparent;
+      border: 0 solid transparent;
+      position: relative;
+      transition: vars.$transition-default;
+
+      > .#{vars.$prefix}ripple {
+        padding: var(--md-tab-md3-padding);
+      }
+    }
+
+    &.md-tab-top {
+      box-shadow: var(--md-tab-placement-top-shadow);
+
+      .tab-item-link {
+        &:before {
+          content: '';
+          border-top-left-radius: var(--md-tab-md3-indicator-radius);
+          border-top-right-radius: var(--md-tab-md3-indicator-radius);
+          left: 0.75rem;
+          right: 0.75rem;
+          bottom: -1px;
+          position: absolute;
+          height: var(--md-tab-md3-indicator-border);
+        }
+
+        &.active {
+          &:before {
+            background-color: var(--md-tab-md3-indicator-active-color);
+          }
+        }
+      }
+    }
+  }
 }
 
-.showcase-source {
+.shoutbox-source {
   border-bottom-left-radius: inherit;
   border-bottom-right-radius: inherit;
 

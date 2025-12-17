@@ -11,7 +11,7 @@ const linkItems = [
     location: { name: 'progress-bar-id', params: { id: 'text-label' } },
   },
   {
-    text: 'Advanced Usage',
+    text: 'Advance Usage',
     location: { name: 'progress-bar-id', params: { id: 'usage' } },
   },
 ] satisfies LinkItem[];
