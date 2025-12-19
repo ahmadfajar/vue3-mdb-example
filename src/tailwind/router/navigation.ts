@@ -298,7 +298,7 @@ export const menuNavs: TMainNavigation[] = [
       {
         text: 'Switch Button',
         path: '/inputs/switch',
-        view: () => import('@tw/pages/inputs/DemoSwitch.vue'),
+        view: () => import('@tw/pages/inputs/SwitchPage.vue'),
       },
       {
         text: 'Text Field',

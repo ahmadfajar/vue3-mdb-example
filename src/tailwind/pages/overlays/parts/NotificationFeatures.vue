@@ -55,7 +55,7 @@ onBeforeUnmount(() => {
 <template>
   <div class="w-full">
     <div class="section-content mb-5">
-      <h2>Features Example</h2>
+      <h2>Features Overview</h2>
     </div>
     <ShoutBox :tpl="fmtVueTpl">
       <template #side-panel>
