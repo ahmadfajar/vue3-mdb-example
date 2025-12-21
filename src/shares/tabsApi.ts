@@ -17,9 +17,7 @@ export function dsTabVariants(): TDataSource {
         { label: 'Material', value: 'material' },
         { label: 'Modern', value: 'modern' },
       ],
-      {
-        idProperty: 'value',
-      }
+      { idProperty: 'value' }
     ),
     schema: schemaConfigDefinition,
   };
@@ -34,9 +32,7 @@ export function dsTabAlignments(): TDataSource {
         { label: 'End', value: 'end' },
         { label: 'Justified', value: 'justified' },
       ],
-      {
-        idProperty: 'value',
-      }
+      { idProperty: 'value' }
     ),
     schema: schemaConfigDefinition,
   };
@@ -51,9 +47,7 @@ export function dsTabPositions(): TDataSource {
         { label: 'Left', value: 'left' },
         { label: 'Right', value: 'right' },
       ],
-      {
-        idProperty: 'value',
-      }
+      { idProperty: 'value' }
     ),
     schema: schemaConfigDefinition,
   };
@@ -67,9 +61,7 @@ export function dsTabIconAndLabel(): TDataSource {
         { label: 'Label Only', value: 'label' },
         { label: 'Icon Only', value: 'icon' },
       ],
-      {
-        idProperty: 'value',
-      }
+      { idProperty: 'value' }
     ),
     schema: schemaConfigDefinition,
   };

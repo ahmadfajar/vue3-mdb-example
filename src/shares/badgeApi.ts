@@ -9,9 +9,7 @@ export function dsBadgeTypes(): TDataSource {
         { value: 'pill', label: 'Pill' },
         { value: 'label', label: 'Label' },
       ],
-      {
-        idProperty: 'value',
-      }
+      { idProperty: 'value' }
     ),
     schema: schemaConfigDefinition,
   };

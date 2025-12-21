@@ -18,9 +18,7 @@ export function dsNotificationVariants(): TDataSource {
         { value: 'warning', label: 'Warning' },
         { value: 'error', label: 'Error' },
       ],
-      {
-        idProperty: 'value',
-      }
+      { idProperty: 'value' }
     ),
     schema: schemaConfigDefinition,
   };
@@ -39,9 +37,7 @@ export function dsNotificationPositions(): TDataSource {
         { value: 'bottom-right', label: 'Bottom Right' },
         { value: 'bottom-full-width', label: 'Bottom FullWidth' },
       ],
-      {
-        idProperty: 'value',
-      }
+      { idProperty: 'value' }
     ),
     schema: schemaConfigDefinition,
   };

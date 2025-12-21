@@ -17,9 +17,7 @@ function dsSpaceAroundTypes(): TDataSource {
         { label: 'Right', value: 'right' },
         { label: 'Both', value: 'both' },
       ],
-      {
-        idProperty: 'value',
-      }
+      { idProperty: 'value' }
     ),
     schema: schemaConfigDefinition,
   };
@@ -37,9 +35,7 @@ function dsItemBorderVariants(): TDataSource {
         { label: 'Bottom', value: 'bottom' },
         { label: 'Top & Bottom', value: 'top-bottom' },
       ],
-      {
-        idProperty: 'value',
-      }
+      { idProperty: 'value' }
     ),
     schema: schemaConfigDefinition,
   };
@@ -53,9 +49,7 @@ function dsItemStyles(): TDataSource {
         { label: 'Rounded', value: 'rounded' },
         { label: 'Rounded Pill', value: 'rounded-pill' },
       ],
-      {
-        idProperty: 'value',
-      }
+      { idProperty: 'value' }
     ),
     schema: schemaConfigDefinition,
   };

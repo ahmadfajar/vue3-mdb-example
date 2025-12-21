@@ -14,9 +14,7 @@ export function dsComponentStates(): TDataSource {
         { value: 'readonly', label: 'Readonly' },
         { value: 'disabled', label: 'Disabled' },
       ],
-      {
-        idProperty: 'value',
-      }
+      { idProperty: 'value' }
     ),
     schema: schemaConfigDefinition,
   };
@@ -29,9 +27,7 @@ export function dsComponentStatesRD(): TDataSource {
         { value: 'readonly', label: 'Readonly' },
         { value: 'disabled', label: 'Disabled' },
       ],
-      {
-        idProperty: 'value',
-      }
+      { idProperty: 'value' }
     ),
     schema: schemaConfigDefinition,
   };
@@ -51,9 +47,7 @@ export function dsContextColors(excludes: string[] = []): TDataSource {
   ].filter((it) => !excludes.includes(it.value));
 
   return {
-    proxy: new BsArrayStore(results, {
-      idProperty: 'value',
-    }),
+    proxy: new BsArrayStore(results, { idProperty: 'value' }),
     schema: schemaConfigDefinition,
   };
 }

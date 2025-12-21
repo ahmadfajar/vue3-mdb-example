@@ -26,9 +26,7 @@ export function dsProgressBarValuePosition(): TDataSource {
         { value: 'top', label: 'Top' },
         { value: 'bottom', label: 'Bottom' },
       ],
-      {
-        idProperty: 'value',
-      }
+      { idProperty: 'value' }
     ),
     schema: schemaConfigDefinition,
   };
@@ -42,9 +40,7 @@ export function dsProgressBarLabelAlignment(): TDataSource {
         { value: 'center', label: 'Center' },
         { value: 'end', label: 'End' },
       ],
-      {
-        idProperty: 'value',
-      }
+      { idProperty: 'value' }
     ),
     schema: schemaConfigDefinition,
   };
@@ -59,9 +55,7 @@ export function dsProgressBarLabelPosition(): TDataSource {
         { value: 'start', label: 'Start' },
         { value: 'end', label: 'End' },
       ],
-      {
-        idProperty: 'value',
-      }
+      { idProperty: 'value' }
     ),
     schema: schemaConfigDefinition,
   };
@@ -75,9 +69,7 @@ export function dsProgressBarVariants(): TDataSource {
         { value: 'striped', label: 'Stripes' },
         { value: 'striped-animation', label: 'Animated Stripes' },
       ],
-      {
-        idProperty: 'value',
-      }
+      { idProperty: 'value' }
     ),
     schema: schemaConfigDefinition,
   };

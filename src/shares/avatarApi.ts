@@ -9,9 +9,7 @@ export function dsAvatarShapes(): TDataSource {
         { value: 'rounded', label: 'Rounded' },
         { value: 'circle', label: 'Circle' },
       ],
-      {
-        idProperty: 'value',
-      }
+      { idProperty: 'value' }
     ),
     schema: schemaConfigDefinition,
   };

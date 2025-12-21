@@ -17,9 +17,7 @@ export function dsAlertContextual(): TDataSource {
         { value: 'danger', label: 'Danger' },
         { value: 'help', label: 'Help' },
       ],
-      {
-        idProperty: 'value',
-      }
+      { idProperty: 'value' }
     ),
     schema: schemaConfigDefinition,
   };
@@ -32,9 +30,7 @@ export function dsAlertVariants(): TDataSource {
         { value: 'filled', label: 'Solid' },
         { value: 'outlined', label: 'Outlined' },
       ],
-      {
-        idProperty: 'value',
-      }
+      { idProperty: 'value' }
     ),
     schema: schemaConfigDefinition,
   };
@@ -51,9 +47,7 @@ export function dsIconVariants(): TDataSource {
         { value: 'rounded_filled', label: 'Rounded Filled' },
         { value: 'sharp_filled', label: 'Sharp Filled' },
       ],
-      {
-        idProperty: 'value',
-      }
+      { idProperty: 'value' }
     ),
     schema: schemaConfigDefinition,
   };

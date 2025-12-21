@@ -18,9 +18,7 @@ export function dsButtonVariants(): TDataSource {
         { value: 'outlined', label: 'Outlined' },
         { value: 'flat', label: 'Flat' },
       ],
-      {
-        idProperty: 'value',
-      }
+      { idProperty: 'value' }
     ),
     schema: schemaConfigDefinition,
   };
@@ -34,9 +32,7 @@ export function dsToggleButtonVariants(): TDataSource {
         { value: 'tonal', label: 'Tonal' },
         { value: 'outlined', label: 'Outlined' },
       ],
-      {
-        idProperty: 'value',
-      }
+      { idProperty: 'value' }
     ),
     schema: schemaConfigDefinition,
   };
@@ -49,9 +45,7 @@ export function dsFabButtonVariants(): TDataSource {
         { value: 'filled', label: 'Filled (Default)' },
         { value: 'outlined', label: 'Outlined' },
       ],
-      {
-        idProperty: 'value',
-      }
+      { idProperty: 'value' }
     ),
     schema: schemaConfigDefinition,
   };
@@ -65,9 +59,7 @@ export function dsButtonShapes(): TDataSource {
         { value: 'rounded', label: 'Rounded' },
         { value: 'pill-off', label: 'Rectangle' },
       ],
-      {
-        idProperty: 'value',
-      }
+      { idProperty: 'value' }
     ),
     schema: schemaConfigDefinition,
   };
@@ -82,9 +74,7 @@ export function dsButtonSizes(): TDataSource {
         { value: 'sm', label: 'Small' },
         { value: 'xs', label: 'Extra Small' },
       ],
-      {
-        idProperty: 'value',
-      }
+      { idProperty: 'value' }
     ),
     schema: schemaConfigDefinition,
   };
@@ -98,9 +88,7 @@ export function dsIconFlips(): TDataSource {
         { value: 'vertical', label: 'Vertical' },
         { value: 'both', label: 'Both' },
       ],
-      {
-        idProperty: 'value',
-      }
+      { idProperty: 'value' }
     ),
     schema: schemaConfigDefinition,
   };
@@ -114,9 +102,7 @@ export function dsIconRotations(): TDataSource {
         { value: '180', label: '180 degree' },
         { value: '270', label: '270 degree' },
       ],
-      {
-        idProperty: 'value',
-      }
+      { idProperty: 'value' }
     ),
     schema: schemaConfigDefinition,
   };

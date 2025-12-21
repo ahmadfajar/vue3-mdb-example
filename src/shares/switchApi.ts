@@ -10,9 +10,7 @@ export function dsSwitchVariants(): TDataSource {
         { value: 'inset', label: 'Inset' },
         { value: 'inset-outlined', label: 'Inset Outlined' },
       ],
-      {
-        idProperty: 'value',
-      }
+      { idProperty: 'value' }
     ),
     schema: schemaConfigDefinition,
   };

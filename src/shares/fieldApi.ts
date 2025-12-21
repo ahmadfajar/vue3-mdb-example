@@ -1,0 +1,99 @@
+import { schemaConfigDefinition } from '@shares/showcaseDataApi.ts';
+import { BsArrayStore, Helper, type TDataSource } from 'vue-mdbootstrap';
+
+export function dsFieldStyleVariants(excludes: string[] = []): TDataSource {
+  const variants = [
+    { value: 'default', label: 'Default' },
+    { value: 'filled', label: 'Filled' },
+    { value: 'outlined', label: 'Outlined' },
+    { value: 'filled rounded', label: 'Rounded Filled' },
+    { value: 'outlined rounded', label: 'Rounded Outlined' },
+  ].filter((it) => !excludes.includes(it.value));
+
+  return {
+    proxy: new BsArrayStore(variants, { idProperty: 'value' }),
+    schema: schemaConfigDefinition,
+  };
+}
+
+export function dsFieldIconPlacements(): TDataSource {
+  return {
+    proxy: new BsArrayStore(
+      [
+        { value: 'append-icon', label: 'Append' },
+        { value: 'append-icon-outer', label: 'Append Outer' },
+        { value: 'prepend-icon', label: 'Prepend' },
+        { value: 'prepend-icon-outer', label: 'Prepend Outer' },
+      ],
+      { idProperty: 'value' }
+    ),
+    schema: schemaConfigDefinition,
+  };
+}
+
+export function changeFieldIcon(
+  placement: string,
+  iconName: string | undefined,
+  data: string,
+  replaceAll?: boolean
+): string {
+  if (!Helper.isEmpty(iconName)) {
+    return replaceAll
+      ? data.replaceAll('{$icon_placement}', `${placement}="${iconName}"`)
+      : data.replace('{$icon_placement}', `${placement}="${iconName}"`);
+  }
+
+  return data;
+}
+
+export function changeFieldHelpText(
+  text: string | undefined,
+  data: string,
+  replaceAll?: boolean
+): string {
+  if (!Helper.isEmpty(text)) {
+    return replaceAll
+      ? data.replaceAll('{$help_text}', `help-text="${text}"`)
+      : data.replace('{$help_text}', `help-text="${text}"`);
+  }
+
+  return data;
+}
+
+export function disableFieldPersistentHelpText(
+  state: boolean,
+  data: string,
+  replaceAll?: boolean
+): string {
+  if (state) {
+    return replaceAll
+      ? data.replaceAll('{$persistent_help_off}', 'persistent-help-off')
+      : data.replace('{$persistent_help_off}', 'persistent-help-off');
+  }
+
+  return data;
+}
+
+export function changeFieldPlaceholder(
+  text: string | undefined,
+  data: string,
+  replaceAll?: boolean
+): string {
+  if (!Helper.isEmpty(text)) {
+    return replaceAll
+      ? data.replaceAll('{$placeholder}', `placeholder="${text}"`)
+      : data.replace('{$placeholder}', `placeholder="${text}"`);
+  }
+
+  return data;
+}
+
+export function enableFieldClearable(state: boolean, data: string, replaceAll?: boolean): string {
+  if (state) {
+    return replaceAll
+      ? data.replaceAll('{$clear_button}', 'clear-button')
+      : data.replace('{$clear_button}', 'clear-button');
+  }
+
+  return data;
+}

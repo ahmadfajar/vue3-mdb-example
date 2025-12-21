@@ -16,9 +16,7 @@ export function dsChipSizes(): TDataSource {
         { value: 'md', label: 'Medium (Default)' },
         { value: 'sm', label: 'Small' },
       ],
-      {
-        idProperty: 'value',
-      }
+      { idProperty: 'value' }
     ),
     schema: schemaConfigDefinition,
   };
