@@ -5,33 +5,49 @@ import {
   changeFieldHelpText,
   changeFieldIcon,
   changeFieldPlaceholder,
+  changeTextAreaRows,
   disableFieldPersistentHelpText,
+  disableTextAreaResizeHandle,
   dsFieldIconPlacements,
   dsFieldStyleVariants,
   enableFieldClearable,
+  enableTextAreaAutoGrow,
 } from '@shares/fieldApi.ts';
-import { parseVueTemplateTag, stripAndBeautifyTemplate } from '@shares/sharedApi.ts';
+import {
+  parseVueScriptTag,
+  parseVueTemplateTag,
+  stripAndBeautifyTemplate,
+} from '@shares/sharedApi.ts';
 import {
   changeComponentVariant,
   dsComponentStatesRD,
+  loremIpsumText,
   useWatcherDefaultValue,
 } from '@shares/showcaseDataApi.ts';
 import { onBeforeUnmount, ref, watchEffect } from 'vue';
-import Example from '../examples/TextFieldExample1.vue?raw';
+import Example from '../examples/TextAreaExample1.vue?raw';
 
 const fmtVueTpl = ref<string>();
+const fmtVueTsc = ref<string>();
 const tabIndex = ref(0);
 const variant = ref('default');
 const state = ref<string>();
 const showIcon = ref(false);
-const iconName = ref('person');
+const iconName = ref('article');
 const deferredIcon = useRefDebounced(iconName, 800);
 const iconPlacement = ref('prepend-icon');
 const placeholder = ref<string>();
 const helpText = ref<string>();
 const persistentHelpOff = ref(false);
 const clearable = ref(false);
+const autogrow = ref(false);
+const disableResizeHandle = ref(false);
+const displayRows = ref(2);
+const fieldValue1 = ref(loremIpsumText);
+const fieldValue2 = ref(loremIpsumText);
+
 const rawTemplate = parseVueTemplateTag(Example);
+fmtVueTsc.value = parseVueScriptTag(Example);
 
 useWatcherDefaultValue(
   { refObj: variant, default: 'default' },
@@ -39,6 +55,10 @@ useWatcherDefaultValue(
 );
 
 watchEffect(() => {
+  if (autogrow.value) {
+    displayRows.value = 2;
+  }
+
   let rawCode = rawTemplate;
 
   if (variant.value !== 'default') {
@@ -52,6 +72,9 @@ watchEffect(() => {
     rawCode = changeFieldIcon(iconPlacement.value, iconName.value, rawCode, true);
   }
 
+  rawCode = changeTextAreaRows(displayRows.value, rawCode, true);
+  rawCode = disableTextAreaResizeHandle(disableResizeHandle.value, rawCode, true);
+  rawCode = enableTextAreaAutoGrow(autogrow.value, rawCode, true);
   rawCode = enableFieldClearable(clearable.value, rawCode, true);
   rawCode = changeFieldPlaceholder(placeholder.value, rawCode, true);
   rawCode = changeFieldHelpText(helpText.value, rawCode, true);
@@ -60,9 +83,9 @@ watchEffect(() => {
   fmtVueTpl.value = stripAndBeautifyTemplate(rawCode);
 });
 
-const variantSrc = dsFieldStyleVariants();
-const iconPlacementSrc = dsFieldIconPlacements();
+const variantSrc = dsFieldStyleVariants(['filled rounded', 'outlined rounded']);
 const stateSrc = dsComponentStatesRD();
+const iconPlacementSrc = dsFieldIconPlacements();
 const contentCls = ['h-full min-h-40 flex flex-col justify-center', 'py-8 px-4 md:px-8'];
 
 onBeforeUnmount(() => {
@@ -77,9 +100,9 @@ onBeforeUnmount(() => {
     <div class="section-content mb-5">
       <h2>Overview</h2>
     </div>
-    <ShoutBox :tpl="fmtVueTpl">
+    <ShoutBox :tpl="fmtVueTpl" :tsc="fmtVueTsc">
       <template #side-panel>
-        <div class="min-h-110">
+        <div class="min-h-128">
           <h5 class="mt-2">Configuration Options:</h5>
 
           <BsTabs v-model="tabIndex" class="-mx-3 mt-2" variant="md3">
@@ -91,10 +114,40 @@ onBeforeUnmount(() => {
                 <BsCombobox v-model="state" :data-source="stateSrc" filled floating-label>
                   <label>Field State:</label>
                 </BsCombobox>
-                <BsTextField v-model="placeholder" filled floating-label>
-                  <label>Enter placeholder text</label>
-                </BsTextField>
+                <BsNumericField
+                  v-model="displayRows"
+                  :disabled="autogrow"
+                  filled
+                  floating-label
+                  max-value="20"
+                  min-value="2"
+                >
+                  <label>Display Rows</label>
+                </BsNumericField>
+
                 <div class="ps-2">
+                  <BsSwitch
+                    v-model="autogrow"
+                    :disabled="disableResizeHandle"
+                    :value="true"
+                    checked-icon
+                    inset-outlined
+                    label-class="flex-fill"
+                    label-position="left"
+                  >
+                    Enable Auto Grow
+                  </BsSwitch>
+                  <BsSwitch
+                    v-model="disableResizeHandle"
+                    :disabled="autogrow"
+                    :value="true"
+                    checked-icon
+                    inset-outlined
+                    label-class="flex-fill"
+                    label-position="left"
+                  >
+                    Disable Resize Handle
+                  </BsSwitch>
                   <BsSwitch
                     v-model="clearable"
                     :value="true"
@@ -109,6 +162,11 @@ onBeforeUnmount(() => {
               </div>
             </BsTab>
             <BsTab label="Other">
+              <div class="mb-4">
+                <BsTextField v-model="placeholder" filled floating-label>
+                  <label>Enter placeholder text</label>
+                </BsTextField>
+              </div>
               <div class="mb-4">
                 <BsTextField v-model="helpText" filled floating-label>
                   <label>Enter help text</label>
@@ -144,16 +202,19 @@ onBeforeUnmount(() => {
       <template #content>
         <div :class="contentCls">
           <div class="mb-4">
-            <BsTextField
+            <BsTextArea
+              v-model="fieldValue1"
               :append-icon="showIcon && iconPlacement === 'append-icon' ? deferredIcon : undefined"
               :append-icon-outer="
                 showIcon && iconPlacement === 'append-icon-outer' ? deferredIcon : undefined
               "
+              :auto-grow="autogrow"
               :clear-button="clearable"
               :disabled="state === 'disabled'"
-              :filled="variant?.startsWith('filled')"
+              :filled="variant === 'filled'"
               :help-text="helpText"
-              :outlined="variant?.startsWith('outlined')"
+              :no-resize="disableResizeHandle"
+              :outlined="variant === 'outlined'"
               :persistent-help-off="persistentHelpOff"
               :placeholder="placeholder"
               :prepend-icon="
@@ -163,23 +224,26 @@ onBeforeUnmount(() => {
                 showIcon && iconPlacement === 'prepend-icon-outer' ? deferredIcon : undefined
               "
               :readonly="state === 'readonly'"
-              :rounded="variant?.endsWith('rounded')"
+              :rows="displayRows > 2 ? displayRows : undefined"
             >
               <label class="col-sm-4 col-md-3 col-form-label">Classic Field</label>
-            </BsTextField>
+            </BsTextArea>
           </div>
           <BsDivider />
           <div class="mt-4">
-            <BsTextField
+            <BsTextArea
+              v-model="fieldValue2"
               :append-icon="showIcon && iconPlacement === 'append-icon' ? deferredIcon : undefined"
               :append-icon-outer="
                 showIcon && iconPlacement === 'append-icon-outer' ? deferredIcon : undefined
               "
+              :auto-grow="autogrow"
               :clear-button="clearable"
               :disabled="state === 'disabled'"
-              :filled="variant?.startsWith('filled')"
+              :filled="variant === 'filled'"
               :help-text="helpText"
-              :outlined="variant?.startsWith('outlined')"
+              :no-resize="disableResizeHandle"
+              :outlined="variant === 'outlined'"
               :persistent-help-off="persistentHelpOff"
               :placeholder="placeholder"
               :prepend-icon="showIcon && iconPlacement === 'prepend-icon' ? iconName : undefined"
@@ -187,11 +251,11 @@ onBeforeUnmount(() => {
                 showIcon && iconPlacement === 'prepend-icon-outer' ? iconName : undefined
               "
               :readonly="state === 'readonly'"
-              :rounded="variant?.endsWith('rounded')"
+              :rows="displayRows > 2 ? displayRows : undefined"
               floating-label
             >
               <label>Floating Label</label>
-            </BsTextField>
+            </BsTextArea>
           </div>
         </div>
       </template>

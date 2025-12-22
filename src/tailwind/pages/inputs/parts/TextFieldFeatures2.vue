@@ -20,13 +20,12 @@ const iconName1 = ref(props.section === 'prefix-suffix' ? 'public' : 'person_fil
 const iconName2 = ref(props.section === 'prefix-suffix' ? 'email' : 'email_filled');
 const iconPlacement = ref('prepend-icon');
 const clearable = ref(false);
+const rawTemplate = parseVueTemplateTag(props.section === 'prefix-suffix' ? Example2 : Example1);
 
 useWatcherDefaultValue(
   { refObj: variant, default: 'default' },
   { refObj: iconPlacement, default: 'prepend-icon' }
 );
-
-const rawTemplate = parseVueTemplateTag(props.section === 'prefix-suffix' ? Example2 : Example1);
 
 watchEffect(() => {
   let rawCode = rawTemplate;

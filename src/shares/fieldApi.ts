@@ -46,6 +46,20 @@ export function changeFieldIcon(
   return data;
 }
 
+export function changeFieldPlaceholder(
+  text: string | undefined,
+  data: string,
+  replaceAll?: boolean
+): string {
+  if (!Helper.isEmpty(text)) {
+    return replaceAll
+      ? data.replaceAll('{$placeholder}', `placeholder="${text}"`)
+      : data.replace('{$placeholder}', `placeholder="${text}"`);
+  }
+
+  return data;
+}
+
 export function changeFieldHelpText(
   text: string | undefined,
   data: string,
@@ -74,25 +88,45 @@ export function disableFieldPersistentHelpText(
   return data;
 }
 
-export function changeFieldPlaceholder(
-  text: string | undefined,
-  data: string,
-  replaceAll?: boolean
-): string {
-  if (!Helper.isEmpty(text)) {
-    return replaceAll
-      ? data.replaceAll('{$placeholder}', `placeholder="${text}"`)
-      : data.replace('{$placeholder}', `placeholder="${text}"`);
-  }
-
-  return data;
-}
-
 export function enableFieldClearable(state: boolean, data: string, replaceAll?: boolean): string {
   if (state) {
     return replaceAll
       ? data.replaceAll('{$clear_button}', 'clear-button')
       : data.replace('{$clear_button}', 'clear-button');
+  }
+
+  return data;
+}
+
+export function changeTextAreaRows(rows: number, data: string, replaceAll?: boolean): string {
+  if (rows > 2) {
+    return replaceAll
+      ? data.replaceAll('{$display_rows}', `rows="${rows}"`)
+      : data.replace('{$display_rows}', `rows="${rows}"`);
+  }
+
+  return data;
+}
+
+export function disableTextAreaResizeHandle(
+  state: boolean,
+  data: string,
+  replaceAll?: boolean
+): string {
+  if (state) {
+    return replaceAll
+      ? data.replaceAll('{$no_resize}', 'no-resize')
+      : data.replace('{$no_resize}', 'no-resize');
+  }
+
+  return data;
+}
+
+export function enableTextAreaAutoGrow(state: boolean, data: string, replaceAll?: boolean): string {
+  if (state) {
+    return replaceAll
+      ? data.replaceAll('{$auto_grow}', 'auto-grow')
+      : data.replace('{$auto_grow}', 'auto-grow');
   }
 
   return data;

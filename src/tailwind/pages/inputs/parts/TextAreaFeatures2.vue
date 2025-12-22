@@ -12,13 +12,14 @@ import {
 } from '@shares/sharedApi.ts';
 import { changeComponentVariant, useWatcherDefaultValue } from '@shares/showcaseDataApi.ts';
 import { onBeforeUnmount, ref, watchEffect } from 'vue';
-import Example from '../examples/TextFieldExample3.vue?raw';
+import Example from '../examples/TextAreaExample2.vue?raw';
 
 const fmtVueTpl = ref<string>();
 const fmtVueTsc = ref<string>();
+const fieldValue = ref<string>();
 const variant = ref('default');
 const showIcon = ref(false);
-const iconName = ref('responsive_layout_filled');
+const iconName = ref('place');
 const iconPlacement = ref('prepend-icon');
 const clearable = ref(false);
 
@@ -35,7 +36,6 @@ watchEffect(() => {
 
   if (variant.value !== 'default') {
     rawCode = changeComponentVariant(variant, rawCode);
-    rawCode = changeComponentVariant(variant, rawCode);
   }
   if (showIcon.value) {
     rawCode = changeFieldIcon(iconPlacement.value, iconName.value, rawCode);
@@ -45,10 +45,9 @@ watchEffect(() => {
   fmtVueTpl.value = stripAndBeautifyTemplate(rawCode);
 });
 
-const variantSrc = dsFieldStyleVariants();
+const variantSrc = dsFieldStyleVariants(['filled rounded', 'outlined rounded']);
 const iconPlacementSrc = dsFieldIconPlacements();
-const sizes = ['Small', 'Medium', 'Large', 'Extra Large'];
-const contentCls = ['h-full min-h-40 flex flex-col justify-center', 'py-8 px-4 md:px-8'];
+const contentCls = ['h-full min-h-40 flex items-center', 'py-8 px-4 md:px-8'];
 
 onBeforeUnmount(() => {
   variantSrc.proxy.destroy();
@@ -59,8 +58,9 @@ onBeforeUnmount(() => {
 <template>
   <div class="w-full">
     <div class="section-content mb-5">
-      <h2>Data List</h2>
+      <h2>Browser Autocomplete</h2>
     </div>
+
     <ShoutBox :tpl="fmtVueTpl" :tsc="fmtVueTsc">
       <template #side-panel>
         <h5 class="mt-2">Configuration Options:</h5>
@@ -97,30 +97,26 @@ onBeforeUnmount(() => {
 
       <template #content>
         <div :class="contentCls">
-          <BsTextField
+          <BsTextArea
+            v-model="fieldValue"
             :append-icon="showIcon && iconPlacement === 'append-icon' ? iconName : undefined"
             :append-icon-outer="
               showIcon && iconPlacement === 'append-icon-outer' ? iconName : undefined
             "
             :clear-button="clearable"
-            :filled="variant?.startsWith('filled')"
-            :outlined="variant?.startsWith('outlined')"
+            :filled="variant === 'filled'"
+            :outlined="variant === 'outlined'"
             :prepend-icon="showIcon && iconPlacement === 'prepend-icon' ? iconName : undefined"
             :prepend-icon-outer="
               showIcon && iconPlacement === 'prepend-icon-outer' ? iconName : undefined
             "
-            :rounded="variant?.endsWith('rounded')"
             action-icon-variant="filled"
-            datalist="my-datalist"
+            autocomplete="address"
+            class="flex-fill"
             floating-label
           >
-            <label>Select Size</label>
-          </BsTextField>
-          <datalist id="my-datalist">
-            <option v-for="size in sizes" :key="size">
-              {{ size }}
-            </option>
-          </datalist>
+            <label>Address</label>
+          </BsTextArea>
         </div>
       </template>
     </ShoutBox>

@@ -315,7 +315,14 @@ export const menuNavs: TMainNavigation[] = [
       {
         text: 'TextArea Field',
         path: '/inputs/text-area',
-        view: () => import('@tw/pages/inputs/DemoTextArea.vue'),
+        view: () => import('@tw/pages/inputs/TextAreaPage.vue'),
+      },
+      {
+        text: 'TextArea Field',
+        name: 'text-area-field-id',
+        path: '/inputs/text-area/:id',
+        hidden: true,
+        view: () => import('@tw/pages/inputs/TextAreaPage.vue'),
       },
       {
         text: 'Numeric Field',
