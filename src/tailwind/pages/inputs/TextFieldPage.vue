@@ -26,10 +26,13 @@ const linkItems = [
 <template>
   <ContentLayout :links="linkItems">
     <Transition mode="out-in" name="fade">
-      <TextFieldFeatures2 v-if="$route.params.id === 'prefix-suffix'" section="prefix-suffix" />
-      <TextFieldFeatures2 v-else-if="$route.params.id === 'autocomplete'" />
+      <TextFieldValidation v-if="$route.params.id === 'validation-example'" />
       <TextFieldDataList v-else-if="$route.params.id === 'datalist'" />
-      <TextFieldValidation v-else-if="$route.params.id === 'validation-example'" />
+      <TextFieldFeatures2
+        v-else-if="$route.params.id === 'prefix-suffix'"
+        section="prefix-suffix"
+      />
+      <TextFieldFeatures2 v-else-if="$route.params.id === 'autocomplete'" />
       <TextFieldFeatures1 v-else />
     </Transition>
   </ContentLayout>

@@ -175,7 +175,7 @@ function submit(notification: INotificationProvider) {
         </div>
         <div class="flex flex-col md-gap-3 pt-3">
           <BsButton @click="submit($notification)">
-            <BsSpinLoader v-if="loading" thickness="3" size="24" />
+            <BsSpinLoader v-if="loading" tag="span" thickness="3" size="24" />
             <span v-else>Create account</span>
           </BsButton>
           <BsButton tonal>

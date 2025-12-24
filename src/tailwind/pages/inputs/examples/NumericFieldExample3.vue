@@ -1,27 +1,30 @@
 <script setup lang="ts">
 import type { Validation } from '@vuelidate/core';
-import { email, required } from '@vuelidate/validators';
+import { email, maxValue, required } from '@vuelidate/validators';
 import { useVuelidate } from '@vuelidate/core';
 import type { Ref, ComputedRef } from 'vue';
 import { computed, reactive, ref, unref } from 'vue';
 import { Helper, type INotificationProvider } from 'vue-mdbootstrap';
 
 const loading = ref(false);
-const contact = reactive({
+const person = reactive({
   fullName: null,
-  email: null,
-  address: null,
-  city: null,
+  emailAddress: null,
+  age: null,
+  gender: 'male',
 });
-const contactRules = {
+const personRules = {
   fullName: { required },
-  email: { required, email },
-  address: { required },
-  city: { required },
+  emailAddress: { required, email },
+  age: { required, maxAge: maxValue(50) },
 };
+const genders = [
+  { value: 'male', label: 'MALE' },
+  { value: 'female', label: 'FEMALE' },
+];
 
 function requiredFieldValidator(
-  v$: Ref<Validation>,
+  validator: Ref<Validation>,
   field: string
 ): ComputedRef<{
   dirty: boolean;
@@ -29,7 +32,7 @@ function requiredFieldValidator(
   messages: { required: string };
   hasError: boolean;
 }> {
-  const obj = unref(v$)[field];
+  const obj = unref(validator)[field];
 
   return computed(() => ({
     hasError: unref(obj.$error),
@@ -41,16 +44,13 @@ function requiredFieldValidator(
   }));
 }
 
-function emailFieldValidator(
-  v$: Ref<Validation>,
-  field: string
-): ComputedRef<{
+function emailFieldValidator(validator: Ref<Validation>): ComputedRef<{
   dirty: boolean;
   validators: { required: boolean; email: boolean };
   messages: { required: string; email: string };
   hasError: boolean;
 }> {
-  const obj = unref(v$)[field];
+  const obj = unref(validator)['emailAddress'];
 
   return computed(() => ({
     hasError: unref(obj.$error),
@@ -66,11 +66,32 @@ function emailFieldValidator(
   }));
 }
 
-const v$ = useVuelidate(contactRules, contact);
+function ageFieldValidator(validator: Ref<Validation>): ComputedRef<{
+  dirty: boolean;
+  validators: { required: boolean; maxAge: boolean };
+  messages: { required: string; maxAge: string };
+  hasError: boolean;
+}> {
+  const obj = unref(validator)['age'];
+
+  return computed(() => ({
+    hasError: unref(obj.$error),
+    messages: {
+      required: obj.required.$message,
+      maxAge: obj.maxAge.$message,
+    },
+    dirty: unref(obj.$dirty),
+    validators: {
+      required: unref(obj.required.$invalid),
+      maxAge: unref(obj.maxAge.$invalid),
+    },
+  }));
+}
+
+const v$ = useVuelidate(personRules, person);
 const fullNameValidator = requiredFieldValidator(v$, 'fullName');
-const emailValidator = emailFieldValidator(v$, 'email');
-const addressValidator = requiredFieldValidator(v$, 'address');
-const cityValidator = requiredFieldValidator(v$, 'city');
+const emailValidator = emailFieldValidator(v$);
+const ageValidator = ageFieldValidator(v$);
 
 function submit(notification: INotificationProvider) {
   const validator = unref(v$);
@@ -80,17 +101,17 @@ function submit(notification: INotificationProvider) {
     loading.value = true;
     Helper.defer(() => {
       loading.value = false;
-      notification.success('Data has been sent.');
+      notification.success('Data has been submitted.');
     }, 1000);
   }
 }
 
-function cancel() {
+function clear() {
   unref(v$).$reset();
-  contact.fullName = null;
-  contact.email = null;
-  contact.address = null;
-  contact.city = null;
+  person.fullName = null;
+  person.emailAddress = null;
+  person.age = null;
+  person.gender = 'male';
 }
 </script>
 
@@ -98,7 +119,7 @@ function cancel() {
   <BsCard class="w-full max-w-100 mx-auto" shadow>
     <BsCardHeader class="flex items-center bg-violet-800 py-3">
       <BsButton color="light" flat icon="arrow_back" mode="icon" />
-      <span class="text-xl text-white ps-3">Edit Contact</span>
+      <span class="text-xl text-white ps-3">Contact Details</span>
       <BsSpacer />
       <BsButton color="light" flat icon="more_vert" mode="icon" />
     </BsCardHeader>
@@ -106,62 +127,63 @@ function cancel() {
       <form novalidate>
         <div class="mb-4 mt-3">
           <BsTextField
-            v-model="contact.fullName"
+            v-model="person.fullName"
             :validator="fullNameValidator"
+            action-icon-variant="filled"
             floating-label
             outlined
+            prepend-icon="person"
             required
             validation-icon
           >
-            <label>Full Name</label>
+            <label>Your Name</label>
           </BsTextField>
         </div>
         <div class="mb-4">
           <BsTextField
-            v-model="contact.email"
+            v-model="person.emailAddress"
             :validator="emailValidator"
+            action-icon-variant="filled"
             floating-label
             outlined
+            prepend-icon="email"
             required
             type="email"
             validation-icon
           >
-            <label>Email</label>
+            <label>Your Email</label>
           </BsTextField>
         </div>
         <div class="mb-4">
-          <BsTextArea
-            v-model="contact.address"
-            :validator="addressValidator"
-            auto-grow
+          <BsNumericField
+            v-model="person.age"
+            :validator="ageValidator"
+            action-icon-variant="filled"
             floating-label
+            min-value="10"
             outlined
+            prepend-icon="manage_accounts"
             required
             validation-icon
           >
-            <label>Address</label>
-          </BsTextArea>
+            <label>Your Age</label>
+          </BsNumericField>
         </div>
         <div class="mb-2">
-          <BsTextField
-            v-model="contact.city"
-            :validator="cityValidator"
-            floating-label
-            outlined
-            required
-            validation-icon
-          >
-            <label>City</label>
-          </BsTextField>
+          <BsToggleButton v-model="person.gender" :items="genders" color="primary" outlined>
+            <template #icon="item">
+              <BsSvgIcon v-if="item?.value === person.gender" icon="check" />
+            </template>
+          </BsToggleButton>
         </div>
       </form>
     </BsCardBody>
     <BsCardBody class="flex justify-between">
       <BsButton style="width: 106px" @click="submit($notification)">
         <BsSpinLoader v-if="loading" tag="span" thickness="3" size="24" />
-        <span v-else>Submit</span>
+        <span v-else>Save</span>
       </BsButton>
-      <BsButton tonal @click="cancel()">Clear</BsButton>
+      <BsButton tonal @click="clear()"> Clear </BsButton>
     </BsCardBody>
   </BsCard>
   <BsNotification />

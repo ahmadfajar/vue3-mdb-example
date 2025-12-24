@@ -327,7 +327,14 @@ export const menuNavs: TMainNavigation[] = [
       {
         text: 'Numeric Field',
         path: '/inputs/numeric-field',
-        view: () => import('@tw/pages/inputs/DemoNumericField.vue'),
+        view: () => import('@tw/pages/inputs/NumericFieldPage.vue'),
+      },
+      {
+        text: 'Numeric Field',
+        name: 'numeric-field-id',
+        path: '/inputs/numeric-field/:id',
+        hidden: true,
+        view: () => import('@tw/pages/inputs/NumericFieldPage.vue'),
       },
       {
         text: 'DateTime Field',

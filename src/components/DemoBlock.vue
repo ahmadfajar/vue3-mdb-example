@@ -59,12 +59,13 @@ watch(
   (value) => {
     const textColor = contrastTextColor(value!);
     styles.color = textColor;
-    styles['--md-field-button-color'] = textColor;
+    // styles['--md-field-button-color'] = textColor;
 
     if (textColor === '#fafafa') {
       styles['--md-field-active-indicator'] = 'var(--md-field-accent-indicator)';
       styles['--md-field-button-active-bg'] = 'rgba(250,250,250,.25)';
       styles['--md-field-button-hover-bg'] = 'rgba(180,180,180,.15)';
+      styles['--md-field-button-hover-color'] = 'currentColor';
       cssClasses.value = ['demo-block-content', 'dark'];
     } else {
       styles['--md-field-active-indicator'] = 'var(--md-field-primary-indicator)';

@@ -216,9 +216,9 @@ const numField5 = ref<number>(1500);
         <div class="col">
           <BsNumericField
             v-model="numField3"
+            action-button-placement="left"
             clear-button
             floating-label
-            spin-button-placement="left"
           >
             <label>Field Label</label>
           </BsNumericField>
@@ -231,10 +231,10 @@ const numField5 = ref<number>(1500);
         <div class="col">
           <BsNumericField
             v-model="numField3"
+            action-button-placement="left"
             clear-button
             filled
             floating-label
-            spin-button-placement="left"
           >
             <label>Field Label</label>
           </BsNumericField>
@@ -247,10 +247,10 @@ const numField5 = ref<number>(1500);
         <div class="col">
           <BsNumericField
             v-model="numField3"
+            action-button-placement="left"
             clear-button
             floating-label
             outlined
-            spin-button-placement="left"
           >
             <label>Field Label</label>
           </BsNumericField>
@@ -264,8 +264,7 @@ const numField5 = ref<number>(1500);
         <div class="col">
           <BsNumericField
             v-model="numField4"
-            :spin-button="false"
-            action-button
+            action-button="plus-minus"
             clear-button
             floating-label
           >
@@ -275,8 +274,7 @@ const numField5 = ref<number>(1500);
         <div class="col">
           <BsNumericField
             v-model="numField4"
-            :spin-button="false"
-            action-button
+            action-button="plus-minus"
             action-button-placement="both"
             clear-button
             floating-label
@@ -287,8 +285,7 @@ const numField5 = ref<number>(1500);
         <div class="col">
           <BsNumericField
             v-model="numField4"
-            :spin-button="false"
-            action-button
+            action-button="plus-minus"
             clear-button
             filled
             floating-label
@@ -299,8 +296,7 @@ const numField5 = ref<number>(1500);
         <div class="col">
           <BsNumericField
             v-model="numField4"
-            :spin-button="false"
-            action-button
+            action-button="plus-minus"
             action-button-placement="both"
             clear-button
             filled
@@ -312,8 +308,7 @@ const numField5 = ref<number>(1500);
         <div class="col">
           <BsNumericField
             v-model="numField4"
-            :spin-button="false"
-            action-button
+            action-button="plus-minus"
             clear-button
             floating-label
             outlined
@@ -324,8 +319,7 @@ const numField5 = ref<number>(1500);
         <div class="col">
           <BsNumericField
             v-model="numField4"
-            :spin-button="false"
-            action-button
+            action-button="plus-minus"
             action-button-placement="both"
             clear-button
             floating-label

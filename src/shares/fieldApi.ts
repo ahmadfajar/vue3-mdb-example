@@ -1,5 +1,11 @@
 import { schemaConfigDefinition } from '@shares/showcaseDataApi.ts';
-import { BsArrayStore, Helper, type TDataSource } from 'vue-mdbootstrap';
+import {
+  BsArrayStore,
+  Helper,
+  type TActionButtonPlacement,
+  type TActionButtonType,
+  type TDataSource,
+} from 'vue-mdbootstrap';
 
 export function dsFieldStyleVariants(excludes: string[] = []): TDataSource {
   const variants = [
@@ -24,6 +30,33 @@ export function dsFieldIconPlacements(): TDataSource {
         { value: 'append-icon-outer', label: 'Append Outer' },
         { value: 'prepend-icon', label: 'Prepend' },
         { value: 'prepend-icon-outer', label: 'Prepend Outer' },
+      ],
+      { idProperty: 'value' }
+    ),
+    schema: schemaConfigDefinition,
+  };
+}
+
+export function dsNumericFieldButtonActions(): TDataSource {
+  return {
+    proxy: new BsArrayStore(
+      [
+        { value: 'up-down', label: 'Up-Down' },
+        { value: 'plus-minus', label: 'Plus-Minus' },
+      ],
+      { idProperty: 'value' }
+    ),
+    schema: schemaConfigDefinition,
+  };
+}
+
+export function dsNumericFieldButtonPlacements(): TDataSource {
+  return {
+    proxy: new BsArrayStore(
+      [
+        { value: 'left', label: 'Left' },
+        { value: 'right', label: 'Right' },
+        { value: 'both', label: 'Both' },
       ],
       { idProperty: 'value' }
     ),
@@ -93,6 +126,34 @@ export function enableFieldClearable(state: boolean, data: string, replaceAll?: 
     return replaceAll
       ? data.replaceAll('{$clear_button}', 'clear-button')
       : data.replace('{$clear_button}', 'clear-button');
+  }
+
+  return data;
+}
+
+export function changeNumericFieldButton(
+  type: TActionButtonType,
+  data: string,
+  replaceAll?: boolean
+): string {
+  if (type !== 'up-down') {
+    return replaceAll
+      ? data.replaceAll('{$button_action}', `action-button="${type}"`)
+      : data.replace('{$button_action}', `action-button="${type}"`);
+  }
+
+  return data;
+}
+
+export function changeNumericFieldButtonPlacement(
+  placement: TActionButtonPlacement,
+  data: string,
+  replaceAll?: boolean
+): string {
+  if (placement !== 'right') {
+    return replaceAll
+      ? data.replaceAll('{$button_placement}', `action-button-placement="${placement}"`)
+      : data.replace('{$button_placement}', `action-button-placement="${placement}"`);
   }
 
   return data;

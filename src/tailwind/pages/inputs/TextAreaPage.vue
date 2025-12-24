@@ -20,8 +20,8 @@ const linkItems = [
 <template>
   <ContentLayout :links="linkItems">
     <Transition mode="out-in" name="fade">
-      <TextAreaFeatures2 v-if="$route.params.id === 'autocomplete'" />
-      <TextAreaValidation v-else-if="$route.params.id === 'validation-example'" />
+      <TextAreaValidation v-if="$route.params.id === 'validation-example'" />
+      <TextAreaFeatures2 v-else-if="$route.params.id === 'autocomplete'" />
       <TextAreaFeatures1 v-else />
     </Transition>
   </ContentLayout>
