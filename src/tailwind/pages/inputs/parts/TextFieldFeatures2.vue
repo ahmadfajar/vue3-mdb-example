@@ -31,12 +31,10 @@ watchEffect(() => {
   let rawCode = rawTemplate;
 
   if (variant.value !== 'default') {
-    rawCode = changeComponentVariant(variant, rawCode);
-    rawCode = changeComponentVariant(variant, rawCode);
+    rawCode = changeComponentVariant(variant, rawCode, true);
   }
   if (showIcon.value) {
-    rawCode = changeFieldIcon(iconPlacement.value, iconName1.value, rawCode);
-    rawCode = changeFieldIcon(iconPlacement.value, iconName2.value, rawCode);
+    rawCode = changeFieldIcon(iconPlacement.value, iconName1.value, rawCode, true);
   }
 
   rawCode = enableFieldClearable(clearable.value, rawCode, true);

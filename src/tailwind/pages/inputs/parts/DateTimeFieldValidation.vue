@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { parseVueScriptTag, parseVueTemplateTag } from '@shares/sharedApi.ts';
-import TextFieldExample5 from '@tw/pages/inputs/examples/TextFieldExample5.vue';
+import DateTimeFieldExample3 from '@tw/pages/inputs/examples/DateTimeFieldExample3.vue';
 import { ref } from 'vue';
-import Example from '../examples/TextFieldExample5.vue?raw';
+import Example from '../examples/DateTimeFieldExample3.vue?raw';
 
 const fmtVueTpl = ref<string>();
 const fmtVueTsc = ref<string>();
@@ -19,8 +19,8 @@ fmtVueTsc.value = parseVueScriptTag(Example);
     </div>
     <ShoutBox :tpl="fmtVueTpl" :tsc="fmtVueTsc">
       <template #content>
-        <div :class="contentCls">
-          <TextFieldExample5 />
+        <div :class="contentCls" style="--md-border-color: var(--border-translucent)">
+          <DateTimeFieldExample3 />
         </div>
       </template>
     </ShoutBox>

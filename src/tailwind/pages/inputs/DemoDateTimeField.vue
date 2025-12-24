@@ -387,7 +387,7 @@ const field12 = ref();
             display-format="DDD"
             filled
             floating-label
-            header-color="bg-orange"
+            header-color="bg-amber-500"
             picker-button="light"
             picker-selected-color="warning"
             surface-cls="bg-dark text-white"

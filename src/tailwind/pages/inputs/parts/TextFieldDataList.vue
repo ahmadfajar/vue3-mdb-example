@@ -35,7 +35,6 @@ watchEffect(() => {
 
   if (variant.value !== 'default') {
     rawCode = changeComponentVariant(variant, rawCode);
-    rawCode = changeComponentVariant(variant, rawCode);
   }
   if (showIcon.value) {
     rawCode = changeFieldIcon(iconPlacement.value, iconName.value, rawCode);

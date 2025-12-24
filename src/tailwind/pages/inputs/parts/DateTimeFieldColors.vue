@@ -1,26 +1,29 @@
 <script setup lang="ts">
 import { parseVueScriptTag, parseVueTemplateTag } from '@shares/sharedApi.ts';
-import TextFieldExample5 from '@tw/pages/inputs/examples/TextFieldExample5.vue';
+import DateTimeFieldExample2 from '@tw/pages/inputs/examples/DateTimeFieldExample2.vue';
 import { ref } from 'vue';
-import Example from '../examples/TextFieldExample5.vue?raw';
+import Example from '../examples/DateTimeFieldExample2.vue?raw';
 
 const fmtVueTpl = ref<string>();
 const fmtVueTsc = ref<string>();
-const contentCls = ['h-full min-h-40', 'py-8 px-4 md:px-8'];
 
 fmtVueTpl.value = parseVueTemplateTag(Example);
 fmtVueTsc.value = parseVueScriptTag(Example);
+
+const contentCls = ['h-full min-h-40 flex items-center justify-center', 'py-8 px-4 md:px-8'];
 </script>
 
 <template>
   <div class="w-full">
     <div class="section-content mb-5">
-      <h2>Validation Example</h2>
+      <h2>Custom Color</h2>
     </div>
     <ShoutBox :tpl="fmtVueTpl" :tsc="fmtVueTsc">
       <template #content>
         <div :class="contentCls">
-          <TextFieldExample5 />
+          <div class="w-full max-w-80">
+            <DateTimeFieldExample2 />
+          </div>
         </div>
       </template>
     </ShoutBox>

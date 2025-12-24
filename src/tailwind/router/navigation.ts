@@ -339,7 +339,14 @@ export const menuNavs: TMainNavigation[] = [
       {
         text: 'DateTime Field',
         path: '/inputs/datetime-field',
-        view: () => import('@tw/pages/inputs/DemoDateTimeField.vue'),
+        view: () => import('@tw/pages/inputs/DateTimeFieldPage.vue'),
+      },
+      {
+        text: 'DateTime Field',
+        name: 'date-time-field-id',
+        path: '/inputs/datetime-field/:id',
+        hidden: true,
+        view: () => import('@tw/pages/inputs/DateTimeFieldPage.vue'),
       },
       {
         text: 'Chip Field',

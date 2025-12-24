@@ -42,16 +42,13 @@ watchEffect(() => {
   let rawCode = rawTemplate;
 
   if (variant.value !== 'default') {
-    rawCode = changeComponentVariant(variant, rawCode);
-    rawCode = changeComponentVariant(variant, rawCode);
+    rawCode = changeComponentVariant(variant, rawCode, true);
   }
-  rawCode = changeButtonState(state, rawCode) as string;
-  rawCode = changeButtonState(state, rawCode) as string;
-
   if (showIcon.value) {
     rawCode = changeFieldIcon(iconPlacement.value, iconName.value, rawCode, true);
   }
 
+  rawCode = changeButtonState(state, rawCode, true) as string;
   rawCode = enableFieldClearable(clearable.value, rawCode, true);
   rawCode = changeFieldPlaceholder(placeholder.value, rawCode, true);
   rawCode = changeFieldHelpText(helpText.value, rawCode, true);

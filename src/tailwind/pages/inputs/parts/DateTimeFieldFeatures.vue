@@ -2,16 +2,16 @@
 import { changeButtonState } from '@shares/buttonApi.ts';
 import { useRefDebounced } from '@shares/debounceRef.ts';
 import {
+  changeDateFieldPickerMode,
   changeFieldHelpText,
   changeFieldIcon,
   changeFieldPlaceholder,
-  changeTextAreaRows,
   disableFieldPersistentHelpText,
-  disableTextAreaResizeHandle,
+  dsDateFieldModes,
   dsFieldIconPlacements,
   dsFieldStyleVariants,
+  enableDateFieldLandscapeMode,
   enableFieldClearable,
-  enableTextAreaAutoGrow,
 } from '@shares/fieldApi.ts';
 import {
   parseVueScriptTag,
@@ -21,42 +21,68 @@ import {
 import {
   changeComponentVariant,
   dsComponentStatesRD,
-  loremIpsumText,
   useWatcherDefaultValue,
 } from '@shares/showcaseDataApi.ts';
 import { onBeforeUnmount, ref, watchEffect } from 'vue';
-import Example from '../examples/TextAreaExample1.vue?raw';
+import type { TDateTimePickerMode } from 'vue-mdbootstrap';
+import Example from '../examples/DateTimeFieldExample1.vue?raw';
 
 const fmtVueTpl = ref<string>();
 const fmtVueTsc = ref<string>();
+const fieldValue1 = ref<string>();
+const fieldValue2 = ref<string>();
+const displayFormat = ref('DDD');
+const valueFormat = ref('yyyy-MM-dd');
 const tabIndex = ref(0);
 const variant = ref('default');
 const state = ref<string>();
+const pickerMode = ref<TDateTimePickerMode>('date');
+const landscape = ref(false);
 const showIcon = ref(false);
-const iconName = ref('article');
+const iconName = ref('event');
 const deferredIcon = useRefDebounced(iconName, 800);
 const iconPlacement = ref('prepend-icon');
 const placeholder = ref<string>();
 const helpText = ref<string>();
 const persistentHelpOff = ref(false);
 const clearable = ref(false);
-const autogrow = ref(false);
-const disableResizeHandle = ref(false);
-const displayRows = ref(2);
-const fieldValue1 = ref(loremIpsumText);
-const fieldValue2 = ref(loremIpsumText);
 
 const rawTemplate = parseVueTemplateTag(Example);
 fmtVueTsc.value = parseVueScriptTag(Example);
 
 useWatcherDefaultValue(
   { refObj: variant, default: 'default' },
+  { refObj: pickerMode, default: 'date' },
   { refObj: iconPlacement, default: 'prepend-icon' }
 );
 
 watchEffect(() => {
-  if (autogrow.value) {
-    displayRows.value = 2;
+  if (pickerMode.value != null) {
+    fieldValue1.value = undefined;
+    fieldValue2.value = undefined;
+  }
+
+  switch (pickerMode.value) {
+    case 'datetime':
+      displayFormat.value = 'DDD HH:mm:ss';
+      valueFormat.value = 'yyyy-MM-dd HH:mm:ss';
+      break;
+    case 'month':
+      displayFormat.value = 'MMMM yyyy';
+      valueFormat.value = 'yyyy-MM';
+      break;
+    case 'year':
+      displayFormat.value = 'yyyy';
+      valueFormat.value = 'yyyy';
+      break;
+    case 'time':
+      displayFormat.value = 'HH:mm:ss';
+      valueFormat.value = 'HH:mm:ss';
+      break;
+    default:
+      displayFormat.value = 'DDD';
+      valueFormat.value = 'yyyy-MM-dd';
+      break;
   }
 
   let rawCode = rawTemplate;
@@ -64,15 +90,13 @@ watchEffect(() => {
   if (variant.value !== 'default') {
     rawCode = changeComponentVariant(variant, rawCode, true);
   }
-
   if (showIcon.value) {
     rawCode = changeFieldIcon(iconPlacement.value, iconName.value, rawCode, true);
   }
 
   rawCode = changeButtonState(state, rawCode, true) as string;
-  rawCode = changeTextAreaRows(displayRows.value, rawCode, true);
-  rawCode = disableTextAreaResizeHandle(disableResizeHandle.value, rawCode, true);
-  rawCode = enableTextAreaAutoGrow(autogrow.value, rawCode, true);
+  rawCode = enableDateFieldLandscapeMode(landscape.value, rawCode, true);
+  rawCode = changeDateFieldPickerMode(pickerMode.value, rawCode, true);
   rawCode = enableFieldClearable(clearable.value, rawCode, true);
   rawCode = changeFieldPlaceholder(placeholder.value, rawCode, true);
   rawCode = changeFieldHelpText(helpText.value, rawCode, true);
@@ -82,13 +106,15 @@ watchEffect(() => {
 });
 
 const variantSrc = dsFieldStyleVariants(['filled rounded', 'outlined rounded']);
-const stateSrc = dsComponentStatesRD();
+const pickerModeSrc = dsDateFieldModes();
 const iconPlacementSrc = dsFieldIconPlacements();
+const stateSrc = dsComponentStatesRD();
 const contentCls = ['h-full min-h-40 flex flex-col justify-center', 'py-8 px-4 md:px-8'];
 
 onBeforeUnmount(() => {
-  variantSrc.proxy.destroy();
   stateSrc.proxy.destroy();
+  variantSrc.proxy.destroy();
+  pickerModeSrc.proxy.destroy();
   iconPlacementSrc.proxy.destroy();
 });
 </script>
@@ -109,42 +135,23 @@ onBeforeUnmount(() => {
                 <BsCombobox v-model="variant" :data-source="variantSrc" filled floating-label>
                   <label>Style Variant:</label>
                 </BsCombobox>
+                <BsCombobox v-model="pickerMode" :data-source="pickerModeSrc" filled floating-label>
+                  <label>Picker Mode:</label>
+                </BsCombobox>
                 <BsCombobox v-model="state" :data-source="stateSrc" filled floating-label>
                   <label>Field State:</label>
                 </BsCombobox>
-                <BsNumericField
-                  v-model="displayRows"
-                  :disabled="autogrow"
-                  filled
-                  floating-label
-                  max-value="20"
-                  min-value="2"
-                >
-                  <label>Display Rows</label>
-                </BsNumericField>
 
                 <div class="ps-2">
                   <BsSwitch
-                    v-model="autogrow"
-                    :disabled="disableResizeHandle"
+                    v-model="landscape"
                     :value="true"
                     checked-icon
                     inset-outlined
                     label-class="flex-fill"
                     label-position="left"
                   >
-                    Enable Auto Grow
-                  </BsSwitch>
-                  <BsSwitch
-                    v-model="disableResizeHandle"
-                    :disabled="autogrow"
-                    :value="true"
-                    checked-icon
-                    inset-outlined
-                    label-class="flex-fill"
-                    label-position="left"
-                  >
-                    Disable Resize Handle
+                    Landscape Orientation
                   </BsSwitch>
                   <BsSwitch
                     v-model="clearable"
@@ -200,20 +207,21 @@ onBeforeUnmount(() => {
       <template #content>
         <div :class="contentCls">
           <div class="mb-4">
-            <BsTextArea
+            <BsDateTimeField
               v-model="fieldValue1"
               :append-icon="showIcon && iconPlacement === 'append-icon' ? deferredIcon : undefined"
               :append-icon-outer="
                 showIcon && iconPlacement === 'append-icon-outer' ? deferredIcon : undefined
               "
-              :auto-grow="autogrow"
               :clear-button="clearable"
               :disabled="state === 'disabled'"
+              :display-format="displayFormat"
               :filled="variant === 'filled'"
               :help-text="helpText"
-              :no-resize="disableResizeHandle"
+              :landscape-mode="landscape"
               :outlined="variant === 'outlined'"
               :persistent-help-off="persistentHelpOff"
+              :picker-mode="pickerMode"
               :placeholder="placeholder"
               :prepend-icon="
                 showIcon && iconPlacement === 'prepend-icon' ? deferredIcon : undefined
@@ -222,38 +230,39 @@ onBeforeUnmount(() => {
                 showIcon && iconPlacement === 'prepend-icon-outer' ? deferredIcon : undefined
               "
               :readonly="state === 'readonly'"
-              :rows="displayRows > 2 ? displayRows : undefined"
+              :value-format="valueFormat"
             >
               <label class="col-sm-4 col-md-3 col-form-label">Classic Field</label>
-            </BsTextArea>
+            </BsDateTimeField>
           </div>
           <BsDivider />
           <div class="mt-4">
-            <BsTextArea
+            <BsDateTimeField
               v-model="fieldValue2"
               :append-icon="showIcon && iconPlacement === 'append-icon' ? deferredIcon : undefined"
               :append-icon-outer="
                 showIcon && iconPlacement === 'append-icon-outer' ? deferredIcon : undefined
               "
-              :auto-grow="autogrow"
               :clear-button="clearable"
               :disabled="state === 'disabled'"
+              :display-format="displayFormat"
               :filled="variant === 'filled'"
               :help-text="helpText"
-              :no-resize="disableResizeHandle"
+              :landscape-mode="landscape"
               :outlined="variant === 'outlined'"
               :persistent-help-off="persistentHelpOff"
+              :picker-mode="pickerMode"
               :placeholder="placeholder"
               :prepend-icon="showIcon && iconPlacement === 'prepend-icon' ? iconName : undefined"
               :prepend-icon-outer="
                 showIcon && iconPlacement === 'prepend-icon-outer' ? iconName : undefined
               "
               :readonly="state === 'readonly'"
-              :rows="displayRows > 2 ? displayRows : undefined"
+              :value-format="valueFormat"
               floating-label
             >
               <label>Floating Label</label>
-            </BsTextArea>
+            </BsDateTimeField>
           </div>
         </div>
       </template>

@@ -6,10 +6,10 @@ import Example from '../examples/NumericFieldExample3.vue?raw';
 
 const fmtVueTpl = ref<string>();
 const fmtVueTsc = ref<string>();
+const contentCls = ['h-full min-h-40', 'py-8 px-4 md:px-8'];
+
 fmtVueTpl.value = parseVueTemplateTag(Example);
 fmtVueTsc.value = parseVueScriptTag(Example);
-
-const contentCls = ['h-full min-h-40', 'py-8 px-4 md:px-8'];
 </script>
 
 <template>

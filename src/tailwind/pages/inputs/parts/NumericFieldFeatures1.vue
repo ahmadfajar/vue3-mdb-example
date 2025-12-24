@@ -21,7 +21,7 @@ import {
   useWatcherDefaultValue,
 } from '@shares/showcaseDataApi.ts';
 import { onBeforeUnmount, ref, watchEffect } from 'vue';
-import type { TActionButtonPlacement, TActionButtonType } from '../../../../../../vue-mdbootstrap';
+import type { TActionButtonPlacement, TActionButtonType } from 'vue-mdbootstrap';
 import Example from '../examples/NumericFieldExample1.vue?raw';
 
 const fmtVueTpl = ref<string>();
@@ -51,17 +51,13 @@ watchEffect(() => {
   let rawCode = rawTemplate;
 
   if (variant.value !== 'default') {
-    rawCode = changeComponentVariant(variant, rawCode);
-    rawCode = changeComponentVariant(variant, rawCode);
+    rawCode = changeComponentVariant(variant, rawCode, true);
   }
-
-  rawCode = changeButtonState(state, rawCode) as string;
-  rawCode = changeButtonState(state, rawCode) as string;
-
   if (showIcon.value) {
     rawCode = changeFieldIcon(iconPlacement.value, iconName.value, rawCode, true);
   }
 
+  rawCode = changeButtonState(state, rawCode, true) as string;
   rawCode = changeNumericFieldButton(buttonAction.value, rawCode, true);
   rawCode = changeNumericFieldButtonPlacement(buttonPlacement.value, rawCode, true);
   rawCode = enableFieldClearable(clearable.value, rawCode, true);

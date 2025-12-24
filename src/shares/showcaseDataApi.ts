@@ -60,9 +60,15 @@ export function changeComponentColor(colorRef: Ref<string | undefined>, data: st
   return data;
 }
 
-export function changeComponentVariant(variantRef: Ref<string | undefined>, data: string): string {
+export function changeComponentVariant(
+  variantRef: Ref<string | undefined>,
+  data: string,
+  replaceAll?: boolean
+): string {
   if (variantRef.value) {
-    return data.replace('{$variants}', variantRef.value);
+    return replaceAll
+      ? data.replaceAll('{$variants}', variantRef.value)
+      : data.replace('{$variants}', variantRef.value);
   }
 
   return data;

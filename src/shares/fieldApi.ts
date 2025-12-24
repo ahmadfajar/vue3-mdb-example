@@ -5,7 +5,24 @@ import {
   type TActionButtonPlacement,
   type TActionButtonType,
   type TDataSource,
+  type TDateTimePickerMode,
 } from 'vue-mdbootstrap';
+
+export function dsDateFieldModes(): TDataSource {
+  return {
+    proxy: new BsArrayStore(
+      [
+        { value: 'date', label: 'Date' },
+        { value: 'datetime', label: 'DateTime' },
+        { value: 'month', label: 'Month' },
+        { value: 'year', label: 'Year' },
+        { value: 'time', label: 'Time' },
+      ],
+      { idProperty: 'value' }
+    ),
+    schema: schemaConfigDefinition,
+  };
+}
 
 export function dsFieldStyleVariants(excludes: string[] = []): TDataSource {
   const variants = [
@@ -188,6 +205,67 @@ export function enableTextAreaAutoGrow(state: boolean, data: string, replaceAll?
     return replaceAll
       ? data.replaceAll('{$auto_grow}', 'auto-grow')
       : data.replace('{$auto_grow}', 'auto-grow');
+  }
+
+  return data;
+}
+
+export function changeDateFieldPickerMode(
+  mode: TDateTimePickerMode,
+  data: string,
+  replaceAll?: boolean
+): string {
+  let temp = data;
+
+  if (mode) {
+    temp = replaceAll
+      ? data.replaceAll('{$picker_mode}', `picker-mode="${mode}"`)
+      : data.replace('{$picker_mode}', `picker-mode="${mode}"`);
+  }
+
+  if (mode === 'datetime') {
+    temp = replaceAll
+      ? temp.replaceAll('{$display_format}', 'display-format="DDD HH:mm:ss"')
+      : temp.replace('{$display_format}', 'display-format="DDD HH:mm:ss"');
+    temp = replaceAll
+      ? temp.replaceAll('{$value_format}', 'value-format="yyyy-MM-dd HH:mm:ss"')
+      : temp.replace('{$value_format}', 'value-format="yyyy-MM-dd HH:mm:ss"');
+  } else if (mode === 'month') {
+    temp = replaceAll
+      ? temp.replaceAll('{$display_format}', 'display-format="MMMM yyyy"')
+      : temp.replace('{$display_format}', 'display-format="MMMM yyyy"');
+    temp = replaceAll
+      ? temp.replaceAll('{$value_format}', 'value-format="yyyy-MM"')
+      : temp.replace('{$value_format}', 'value-format="yyyy-MM"');
+  } else if (mode === 'year') {
+    temp = replaceAll
+      ? temp.replaceAll('{$value_format}', 'value-format="yyyy"')
+      : temp.replace('{$value_format}', 'value-format="yyyy"');
+  } else if (mode === 'time') {
+    temp = replaceAll
+      ? temp.replaceAll('{$value_format}', 'value-format="HH:mm:ss"')
+      : temp.replace('{$value_format}', 'value-format="HH:mm:ss"');
+  } else if (mode === 'date') {
+    temp = replaceAll
+      ? temp.replaceAll('{$display_format}', 'display-format="DDD"')
+      : temp.replace('{$display_format}', 'display-format="DDD"');
+    temp = replaceAll
+      ? temp.replaceAll('{$value_format}', 'value-format="yyyy-MM-dd"')
+      : temp.replace('{$value_format}', 'value-format="yyyy-MM-dd"');
+  }
+
+  return temp;
+}
+
+export function enableDateFieldLandscapeMode(
+  value: boolean,
+  data: string,
+  replaceAll?: boolean
+): string {
+  if (value) {
+    return replaceAll
+      ? data.replaceAll('{$landscape_mode}', 'landscape-mode')
+      : data.replace('{$landscape_mode}', 'landscape-mode');
   }
 
   return data;

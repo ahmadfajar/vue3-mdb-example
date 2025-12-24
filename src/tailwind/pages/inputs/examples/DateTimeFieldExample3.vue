@@ -11,13 +11,13 @@ const contact = reactive({
   fullName: null,
   email: null,
   address: null,
-  city: null,
+  bornDate: null,
 });
 const contactRules = {
   fullName: { required },
   email: { required, email },
   address: { required },
-  city: { required },
+  bornDate: { required },
 };
 
 function requiredFieldValidator(
@@ -70,7 +70,7 @@ const v$ = useVuelidate(contactRules, contact);
 const fullNameValidator = requiredFieldValidator(v$, 'fullName');
 const emailValidator = emailFieldValidator(v$, 'email');
 const addressValidator = requiredFieldValidator(v$, 'address');
-const cityValidator = requiredFieldValidator(v$, 'city');
+const bornDateValidator = requiredFieldValidator(v$, 'bornDate');
 
 function submit(notification: INotificationProvider) {
   const validator = unref(v$);
@@ -90,7 +90,7 @@ function cancel() {
   contact.fullName = null;
   contact.email = null;
   contact.address = null;
-  contact.city = null;
+  contact.bornDate = null;
 }
 </script>
 
@@ -143,16 +143,18 @@ function cancel() {
           </BsTextArea>
         </div>
         <div class="mb-2">
-          <BsTextField
-            v-model="contact.city"
-            :validator="cityValidator"
+          <BsDateTimeField
+            v-model="contact.bornDate"
+            :validator="bornDateValidator"
+            display-format="DDD"
             floating-label
             outlined
             required
             validation-icon
+            value-format="yyyy-MM-dd"
           >
-            <label>City</label>
-          </BsTextField>
+            <label>Born Date</label>
+          </BsDateTimeField>
         </div>
       </form>
     </BsCardBody>
