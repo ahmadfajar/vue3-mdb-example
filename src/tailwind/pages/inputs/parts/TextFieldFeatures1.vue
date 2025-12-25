@@ -105,7 +105,7 @@ onBeforeUnmount(() => {
                 </div>
               </div>
             </BsTab>
-            <BsTab label="Other">
+            <BsTab label="Others">
               <div class="mb-4">
                 <BsTextField v-model="helpText" filled floating-label>
                   <label>Enter help text</label>

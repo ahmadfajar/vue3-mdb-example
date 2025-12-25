@@ -351,7 +351,14 @@ export const menuNavs: TMainNavigation[] = [
       {
         text: 'Chip Field',
         path: '/inputs/chip-field',
-        view: () => import('@tw/pages/inputs/DemoChipField.vue'),
+        view: () => import('@tw/pages/inputs/ChipFieldPage.vue'),
+      },
+      {
+        text: 'Chip Field',
+        name: 'chip-field-id',
+        path: '/inputs/chip-field/:id',
+        hidden: true,
+        view: () => import('@tw/pages/inputs/ChipFieldPage.vue'),
       },
       {
         text: 'Combobox',

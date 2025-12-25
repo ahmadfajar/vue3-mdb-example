@@ -23,7 +23,7 @@ import {
   dsComponentStatesRD,
   useWatcherDefaultValue,
 } from '@shares/showcaseDataApi.ts';
-import { onBeforeUnmount, ref, watchEffect } from 'vue';
+import { nextTick, onBeforeUnmount, ref, watch, watchEffect } from 'vue';
 import type { TDateTimePickerMode } from 'vue-mdbootstrap';
 import Example from '../examples/DateTimeFieldExample1.vue?raw';
 
@@ -52,39 +52,50 @@ fmtVueTsc.value = parseVueScriptTag(Example);
 
 useWatcherDefaultValue(
   { refObj: variant, default: 'default' },
-  { refObj: pickerMode, default: 'date' },
   { refObj: iconPlacement, default: 'prepend-icon' }
 );
 
+watch(
+  pickerMode,
+  async (newValue, oldValue) => {
+    if (!newValue) {
+      await nextTick(() => {
+        pickerMode.value = 'date';
+      });
+    }
+
+    if (newValue !== oldValue) {
+      fieldValue1.value = undefined;
+      fieldValue2.value = undefined;
+    }
+
+    switch (newValue) {
+      case 'datetime':
+        displayFormat.value = 'DDD HH:mm:ss';
+        valueFormat.value = 'yyyy-MM-dd HH:mm:ss';
+        break;
+      case 'month':
+        displayFormat.value = 'MMMM yyyy';
+        valueFormat.value = 'yyyy-MM';
+        break;
+      case 'year':
+        displayFormat.value = 'yyyy';
+        valueFormat.value = 'yyyy';
+        break;
+      case 'time':
+        displayFormat.value = 'HH:mm:ss';
+        valueFormat.value = 'HH:mm:ss';
+        break;
+      default:
+        displayFormat.value = 'DDD';
+        valueFormat.value = 'yyyy-MM-dd';
+        break;
+    }
+  },
+  { immediate: true }
+);
+
 watchEffect(() => {
-  if (pickerMode.value != null) {
-    fieldValue1.value = undefined;
-    fieldValue2.value = undefined;
-  }
-
-  switch (pickerMode.value) {
-    case 'datetime':
-      displayFormat.value = 'DDD HH:mm:ss';
-      valueFormat.value = 'yyyy-MM-dd HH:mm:ss';
-      break;
-    case 'month':
-      displayFormat.value = 'MMMM yyyy';
-      valueFormat.value = 'yyyy-MM';
-      break;
-    case 'year':
-      displayFormat.value = 'yyyy';
-      valueFormat.value = 'yyyy';
-      break;
-    case 'time':
-      displayFormat.value = 'HH:mm:ss';
-      valueFormat.value = 'HH:mm:ss';
-      break;
-    default:
-      displayFormat.value = 'DDD';
-      valueFormat.value = 'yyyy-MM-dd';
-      break;
-  }
-
   let rawCode = rawTemplate;
 
   if (variant.value !== 'default') {
@@ -166,7 +177,7 @@ onBeforeUnmount(() => {
                 </div>
               </div>
             </BsTab>
-            <BsTab label="Other">
+            <BsTab label="Others">
               <div class="mb-4">
                 <BsTextField v-model="placeholder" filled floating-label>
                   <label>Enter placeholder text</label>

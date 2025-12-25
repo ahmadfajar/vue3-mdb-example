@@ -4,6 +4,7 @@ import {
   Helper,
   type TActionButtonPlacement,
   type TActionButtonType,
+  type TContextColor,
   type TDataSource,
   type TDateTimePickerMode,
 } from 'vue-mdbootstrap';
@@ -205,6 +206,62 @@ export function enableTextAreaAutoGrow(state: boolean, data: string, replaceAll?
     return replaceAll
       ? data.replaceAll('{$auto_grow}', 'auto-grow')
       : data.replace('{$auto_grow}', 'auto-grow');
+  }
+
+  return data;
+}
+
+export function changeFieldChipColor(
+  color: TContextColor,
+  data: string,
+  replaceAll?: boolean
+): string {
+  if (color && color !== 'secondary') {
+    return replaceAll
+      ? data.replaceAll('{$chip_color}', `chip-color="${color}"`)
+      : data.replace('{$chip_color}', `chip-color="${color}"`);
+  }
+
+  return data;
+}
+
+export function enableFieldChipDeletable(
+  value: boolean,
+  data: string,
+  replaceAll?: boolean
+): string {
+  if (value) {
+    return replaceAll
+      ? data.replaceAll('{$chip_deletable}', 'chip-deletable')
+      : data.replace('{$chip_deletable}', 'chip-deletable');
+  }
+
+  return data;
+}
+
+export function enableFieldChipOutlined(
+  value: boolean,
+  data: string,
+  replaceAll?: boolean
+): string {
+  if (value) {
+    return replaceAll
+      ? data.replaceAll('{$chip_outlined}', 'chip-outlined')
+      : data.replace('{$chip_outlined}', 'chip-outlined');
+  }
+
+  return data;
+}
+
+export function enableFieldChipRoundedPill(
+  value: boolean,
+  data: string,
+  replaceAll?: boolean
+): string {
+  if (value) {
+    return replaceAll
+      ? data.replaceAll('{$chip_pill}', 'chip-pill')
+      : data.replace('{$chip_pill}', 'chip-pill');
   }
 
   return data;

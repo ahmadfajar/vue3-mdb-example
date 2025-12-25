@@ -52,9 +52,15 @@ export function dsContextColors(excludes: string[] = []): TDataSource {
   };
 }
 
-export function changeComponentColor(colorRef: Ref<string | undefined>, data: string): string {
+export function changeComponentColor(
+  colorRef: Ref<string | undefined>,
+  data: string,
+  replaceAll?: boolean
+): string {
   if (colorRef.value) {
-    return data.replace('{$colorName}', `color="${colorRef.value}"`);
+    return replaceAll
+      ? data.replaceAll('{$colorName}', `color="${colorRef.value}"`)
+      : data.replace('{$colorName}', `color="${colorRef.value}"`);
   }
 
   return data;

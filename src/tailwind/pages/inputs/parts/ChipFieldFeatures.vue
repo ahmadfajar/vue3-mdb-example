@@ -2,48 +2,59 @@
 import { changeButtonState } from '@shares/buttonApi.ts';
 import { useRefDebounced } from '@shares/debounceRef.ts';
 import {
+  changeFieldChipColor,
   changeFieldHelpText,
   changeFieldIcon,
   changeFieldPlaceholder,
-  changeNumericFieldButton,
-  changeNumericFieldButtonPlacement,
   disableFieldPersistentHelpText,
   dsFieldIconPlacements,
   dsFieldStyleVariants,
-  dsNumericFieldButtonActions,
-  dsNumericFieldButtonPlacements,
+  enableFieldChipDeletable,
+  enableFieldChipOutlined,
+  enableFieldChipRoundedPill,
   enableFieldClearable,
 } from '@shares/fieldApi.ts';
-import { parseVueTemplateTag, stripAndBeautifyTemplate } from '@shares/sharedApi.ts';
+import {
+  parseVueScriptTag,
+  parseVueTemplateTag,
+  stripAndBeautifyTemplate,
+} from '@shares/sharedApi.ts';
 import {
   changeComponentVariant,
   dsComponentStatesRD,
+  dsContextColors,
   useWatcherDefaultValue,
 } from '@shares/showcaseDataApi.ts';
 import { onBeforeUnmount, ref, watchEffect } from 'vue';
-import type { TActionButtonPlacement, TActionButtonType } from 'vue-mdbootstrap';
-import Example from '../examples/NumericFieldExample1.vue?raw';
+import type { TContextColor } from 'vue-mdbootstrap';
+import Example from '../examples/ChipFieldExample1.vue?raw';
 
 const fmtVueTpl = ref<string>();
+const fmtVueTsc = ref<string>();
+const fieldValue1 = ref<string[]>([]);
+const fieldValue2 = ref<string[]>([]);
 const tabIndex = ref(0);
 const variant = ref('default');
 const state = ref<string>();
 const showIcon = ref(false);
-const iconName = ref('person');
+const iconName = ref('bookmarks');
 const deferredIcon = useRefDebounced(iconName, 800);
-const buttonAction = ref<TActionButtonType>('up-down');
-const buttonPlacement = ref<TActionButtonPlacement>('right');
 const iconPlacement = ref('prepend-icon');
-const placeholder = ref<string>();
+const placeholder = ref<string | undefined>('Add tags...');
 const helpText = ref<string>();
 const persistentHelpOff = ref(false);
 const clearable = ref(false);
+const chipColor = ref<TContextColor>('secondary');
+const chipDeletable = ref(false);
+const chipOutlined = ref(false);
+const chipPill = ref(false);
+
 const rawTemplate = parseVueTemplateTag(Example);
+fmtVueTsc.value = parseVueScriptTag(Example);
 
 useWatcherDefaultValue(
   { refObj: variant, default: 'default' },
-  { refObj: buttonAction, default: 'up-down' },
-  { refObj: buttonPlacement, default: 'right' },
+  { refObj: chipColor, default: 'secondary' },
   { refObj: iconPlacement, default: 'prepend-icon' }
 );
 
@@ -58,8 +69,10 @@ watchEffect(() => {
   }
 
   rawCode = changeButtonState(state, rawCode, true) as string;
-  rawCode = changeNumericFieldButton(buttonAction.value, rawCode, true);
-  rawCode = changeNumericFieldButtonPlacement(buttonPlacement.value, rawCode, true);
+  rawCode = changeFieldChipColor(chipColor.value, rawCode, true);
+  rawCode = enableFieldChipDeletable(chipDeletable.value, rawCode, true);
+  rawCode = enableFieldChipOutlined(chipOutlined.value, rawCode, true);
+  rawCode = enableFieldChipRoundedPill(chipPill.value, rawCode, true);
   rawCode = enableFieldClearable(clearable.value, rawCode, true);
   rawCode = changeFieldPlaceholder(placeholder.value, rawCode, true);
   rawCode = changeFieldHelpText(helpText.value, rawCode, true);
@@ -68,18 +81,16 @@ watchEffect(() => {
   fmtVueTpl.value = stripAndBeautifyTemplate(rawCode);
 });
 
-const variantSrc = dsFieldStyleVariants();
+const variantSrc = dsFieldStyleVariants(['filled rounded', 'outlined rounded']);
+const chipColorSrc = dsContextColors(['dark', 'light']);
 const iconPlacementSrc = dsFieldIconPlacements();
-const buttonActionSrc = dsNumericFieldButtonActions();
-const buttonPlacementSrc = dsNumericFieldButtonPlacements();
 const stateSrc = dsComponentStatesRD();
 const contentCls = ['h-full min-h-40 flex flex-col justify-center', 'py-8 px-4 md:px-8'];
 
 onBeforeUnmount(() => {
   stateSrc.proxy.destroy();
   variantSrc.proxy.destroy();
-  buttonActionSrc.proxy.destroy();
-  buttonPlacementSrc.proxy.destroy();
+  chipColorSrc.proxy.destroy();
   iconPlacementSrc.proxy.destroy();
 });
 </script>
@@ -87,59 +98,83 @@ onBeforeUnmount(() => {
 <template>
   <div class="w-full">
     <div class="section-content mb-5">
-      <h2>Overview</h2>
+      <h2>Features Overview</h2>
     </div>
-    <ShoutBox :tpl="fmtVueTpl">
+    <ShoutBox :tpl="fmtVueTpl" :tsc="fmtVueTsc">
       <template #side-panel>
-        <div class="min-h-128">
+        <div class="min-h-110">
           <h5 class="mt-2">Configuration Options:</h5>
 
           <BsTabs v-model="tabIndex" class="-mx-3 mt-2" variant="md3">
             <BsTab label="General">
-              <div class="flex flex-col gap-y-4">
+              <div class="mb-4">
                 <BsCombobox v-model="variant" :data-source="variantSrc" filled floating-label>
                   <label>Style Variant:</label>
                 </BsCombobox>
-                <BsCombobox
-                  v-model="buttonAction"
-                  :data-source="buttonActionSrc"
-                  filled
-                  floating-label
-                >
-                  <label>Action Button:</label>
-                </BsCombobox>
-                <BsCombobox
-                  v-model="buttonPlacement"
-                  :data-source="buttonPlacementSrc"
-                  filled
-                  floating-label
-                >
-                  <label>Action Button Placement:</label>
-                </BsCombobox>
+              </div>
+              <div class="mb-4">
                 <BsCombobox v-model="state" :data-source="stateSrc" filled floating-label>
                   <label>Field State:</label>
                 </BsCombobox>
-
-                <div class="ps-2">
-                  <BsSwitch
-                    v-model="clearable"
-                    :value="true"
-                    checked-icon
-                    inset-outlined
-                    label-class="flex-fill"
-                    label-position="left"
-                  >
-                    Clearable
-                  </BsSwitch>
-                </div>
               </div>
-            </BsTab>
-            <BsTab label="Others">
-              <div class="mb-4">
+              <div class="mb-3">
                 <BsTextField v-model="placeholder" filled floating-label>
                   <label>Enter placeholder text</label>
                 </BsTextField>
               </div>
+              <div class="ps-2">
+                <BsSwitch
+                  v-model="clearable"
+                  :value="true"
+                  checked-icon
+                  inset-outlined
+                  label-class="flex-fill"
+                  label-position="left"
+                >
+                  Clearable
+                </BsSwitch>
+              </div>
+            </BsTab>
+            <BsTab label="Chips">
+              <div class="mb-3">
+                <BsCombobox v-model="chipColor" :data-source="chipColorSrc" filled floating-label>
+                  <label>Color Variant:</label>
+                </BsCombobox>
+              </div>
+              <div class="ps-2">
+                <BsSwitch
+                  v-model="chipOutlined"
+                  :value="true"
+                  checked-icon
+                  inset-outlined
+                  label-class="flex-fill"
+                  label-position="left"
+                >
+                  Outlined
+                </BsSwitch>
+                <BsSwitch
+                  v-model="chipPill"
+                  :value="true"
+                  checked-icon
+                  inset-outlined
+                  label-class="flex-fill"
+                  label-position="left"
+                >
+                  Rounded Pill
+                </BsSwitch>
+                <BsSwitch
+                  v-model="chipDeletable"
+                  :value="true"
+                  checked-icon
+                  inset-outlined
+                  label-class="flex-fill"
+                  label-position="left"
+                >
+                  Deletable
+                </BsSwitch>
+              </div>
+            </BsTab>
+            <BsTab label="Others">
               <div class="mb-4">
                 <BsTextField v-model="helpText" filled floating-label>
                   <label>Enter help text</label>
@@ -175,18 +210,21 @@ onBeforeUnmount(() => {
       <template #content>
         <div :class="contentCls">
           <div class="mb-4">
-            <BsNumericField
-              :action-button="buttonAction"
-              :action-button-placement="buttonPlacement"
+            <BsChipField
+              v-model="fieldValue1"
               :append-icon="showIcon && iconPlacement === 'append-icon' ? deferredIcon : undefined"
               :append-icon-outer="
                 showIcon && iconPlacement === 'append-icon-outer' ? deferredIcon : undefined
               "
+              :chip-color="chipColor"
+              :chip-deletable="chipDeletable"
+              :chip-outlined="chipOutlined"
+              :chip-pill="chipPill"
               :clear-button="clearable"
               :disabled="state === 'disabled'"
-              :filled="variant?.startsWith('filled')"
+              :filled="variant === 'filled'"
               :help-text="helpText"
-              :outlined="variant?.startsWith('outlined')"
+              :outlined="variant === 'outlined'"
               :persistent-help-off="persistentHelpOff"
               :placeholder="placeholder"
               :prepend-icon="
@@ -196,25 +234,35 @@ onBeforeUnmount(() => {
                 showIcon && iconPlacement === 'prepend-icon-outer' ? deferredIcon : undefined
               "
               :readonly="state === 'readonly'"
-              :rounded="variant?.endsWith('rounded')"
             >
-              <label class="col-sm-4 col-md-3 col-form-label">Classic Field</label>
-            </BsNumericField>
+              <label
+                :class="[
+                  'col-sm-4 col-md-3',
+                  'col-form-label',
+                  variant === 'filled' ? 'pt-3' : variant === 'outlined' ? 'pt-4' : '',
+                ]"
+              >
+                Classic Field
+              </label>
+            </BsChipField>
           </div>
           <BsDivider />
           <div class="mt-4">
-            <BsNumericField
-              :action-button="buttonAction"
-              :action-button-placement="buttonPlacement"
+            <BsChipField
+              v-model="fieldValue2"
               :append-icon="showIcon && iconPlacement === 'append-icon' ? deferredIcon : undefined"
               :append-icon-outer="
                 showIcon && iconPlacement === 'append-icon-outer' ? deferredIcon : undefined
               "
+              :chip-color="chipColor"
+              :chip-deletable="chipDeletable"
+              :chip-outlined="chipOutlined"
+              :chip-pill="chipPill"
               :clear-button="clearable"
               :disabled="state === 'disabled'"
-              :filled="variant?.startsWith('filled')"
+              :filled="variant === 'filled'"
               :help-text="helpText"
-              :outlined="variant?.startsWith('outlined')"
+              :outlined="variant === 'outlined'"
               :persistent-help-off="persistentHelpOff"
               :placeholder="placeholder"
               :prepend-icon="showIcon && iconPlacement === 'prepend-icon' ? iconName : undefined"
@@ -222,11 +270,10 @@ onBeforeUnmount(() => {
                 showIcon && iconPlacement === 'prepend-icon-outer' ? iconName : undefined
               "
               :readonly="state === 'readonly'"
-              :rounded="variant?.endsWith('rounded')"
               floating-label
             >
               <label>Floating Label</label>
-            </BsNumericField>
+            </BsChipField>
           </div>
         </div>
       </template>

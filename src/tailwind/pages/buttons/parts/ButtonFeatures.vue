@@ -171,7 +171,7 @@ onBeforeUnmount(() => {
                 </BsCombobox>
               </div>
             </BsTab>
-            <BsTab label="Other">
+            <BsTab label="Others">
               <BsCombobox v-model="btnShape" :data-source="btnShapes" filled floating-label>
                 <label>Shape:</label>
               </BsCombobox>

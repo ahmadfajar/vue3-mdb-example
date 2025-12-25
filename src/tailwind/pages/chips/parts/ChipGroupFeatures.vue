@@ -206,7 +206,7 @@ onBeforeUnmount(() => {
                 </BsTextField>
               </div>
             </BsTab>
-            <BsTab label="Other">
+            <BsTab label="Others">
               <div class="flex flex-col gap-2 ps-2">
                 <BsCheckbox v-model="chipVariant" value="outlined"> Outlined </BsCheckbox>
                 <BsCheckbox v-model="chipShape" value="pill"> Rounded Pill </BsCheckbox>
