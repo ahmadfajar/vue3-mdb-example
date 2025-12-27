@@ -455,21 +455,44 @@ export function changeComboboxSelectionMode(
   return data;
 }
 
-export function changeComboboxImageShape(
-  shape: string,
-  data: string,
-  replaceAll?: boolean
-): string {
-  return replaceAll
-    ? data.replaceAll('{$image_shape}', `${shape}`)
-    : data.replaceAll('{$image_shape}', `${shape}`);
+export function changeListboxImageShape(shape: string, data: string, replaceAll?: boolean): string {
+  if (shape) {
+    return replaceAll
+      ? data.replaceAll('{$image_shape}', `${shape}`)
+      : data.replaceAll('{$image_shape}', `${shape}`);
+  }
+
+  return data;
 }
 
-export function changeComboboxImageSize(size: number, data: string, replaceAll?: boolean): string {
+export function changeListboxImageSize(size: number, data: string, replaceAll?: boolean): string {
   if (size !== 48) {
     return replaceAll
       ? data.replaceAll('{$image_size}', `image-size="${size}"`)
       : data.replaceAll('{$image_size}', `image-size="${size}"`);
+  }
+
+  return data;
+}
+
+export function changeListboxSelectionMode(
+  multiple: boolean,
+  data: string,
+  script: boolean,
+  replaceAll?: boolean
+): string {
+  if (multiple) {
+    if (script) {
+      return data.replaceAll('ref<string>()', 'ref<string[]>([])');
+    } else {
+      const temp = replaceAll
+        ? data.replaceAll(' value:', ' values:')
+        : data.replace(' value:', ' values:');
+
+      return replaceAll
+        ? temp.replaceAll('{$multiple}', 'multiple')
+        : temp.replace('{$multiple}', 'multiple');
+    }
   }
 
   return data;
@@ -498,6 +521,16 @@ export function changeListboxCheckboxPosition(
     return replaceAll
       ? data.replaceAll('{$checkbox_position}', `checkbox-position="${position}"`)
       : data.replace('{$checkbox_position}', `checkbox-position="${position}"`);
+  }
+
+  return data;
+}
+
+export function enableListboxCheckbox(value: boolean, data: string, replaceAll?: boolean): string {
+  if (value) {
+    return replaceAll
+      ? data.replaceAll('{$checkbox_enabled}', 'use-checkbox')
+      : data.replace('{$checkbox_enabled}', 'use-checkbox');
   }
 
   return data;

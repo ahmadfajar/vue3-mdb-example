@@ -368,7 +368,14 @@ export const menuNavs: TMainNavigation[] = [
       {
         text: 'Listbox',
         path: '/inputs/listbox',
-        view: () => import('@tw/pages/inputs/DemoListbox.vue'),
+        view: () => import('@tw/pages/inputs/ListboxPage.vue'),
+      },
+      {
+        text: 'Listbox',
+        name: 'listbox-id',
+        path: '/inputs/listbox/:id',
+        hidden: true,
+        view: () => import('@tw/pages/inputs/ListboxPage.vue'),
       },
       {
         text: 'Toggle Field',

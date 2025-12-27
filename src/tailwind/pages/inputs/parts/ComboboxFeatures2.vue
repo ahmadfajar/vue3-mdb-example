@@ -2,14 +2,14 @@
 import { changeButtonState } from '@shares/buttonApi.ts';
 import { useRefDebounced } from '@shares/debounceRef.ts';
 import {
-  changeComboboxImageShape,
-  changeComboboxImageSize,
   changeFieldHelpText,
   changeFieldIcon,
+  changeListboxImageShape,
+  changeListboxImageSize,
   disableFieldPersistentHelpText,
-  dsListboxImageShapes,
   dsFieldIconPlacements,
   dsFieldStyleVariants,
+  dsListboxImageShapes,
   dsPeopleSrc,
   enableFieldClearable,
 } from '@shares/fieldApi.ts';
@@ -47,7 +47,6 @@ fmtVueTsc.value = parseVueScriptTag(Example);
 
 useWatcherDefaultValue(
   { refObj: variant, default: 'default' },
-  { refObj: imageShape, default: 'circle-image' },
   { refObj: iconPlacement, default: 'prepend-icon' }
 );
 
@@ -62,8 +61,8 @@ watchEffect(() => {
   }
 
   rawCode = changeButtonState(state, rawCode) as string;
-  rawCode = changeComboboxImageShape(imageShape.value, rawCode);
-  rawCode = changeComboboxImageSize(imageSize.value, rawCode);
+  rawCode = changeListboxImageShape(imageShape.value, rawCode);
+  rawCode = changeListboxImageSize(imageSize.value, rawCode);
   rawCode = enableFieldClearable(clearable.value, rawCode);
   rawCode = changeFieldHelpText(helpText.value, rawCode);
   rawCode = disableFieldPersistentHelpText(persistentHelpOff.value, rawCode);

@@ -108,6 +108,7 @@ function cancel() {
           <BsTextField
             v-model="contact.fullName"
             :validator="fullNameValidator"
+            action-icon-variant="filled"
             floating-label
             outlined
             required
@@ -120,6 +121,7 @@ function cancel() {
           <BsTextField
             v-model="contact.email"
             :validator="emailValidator"
+            action-icon-variant="filled"
             floating-label
             outlined
             required
@@ -133,6 +135,7 @@ function cancel() {
           <BsTextArea
             v-model="contact.address"
             :validator="addressValidator"
+            action-icon-variant="filled"
             auto-grow
             floating-label
             outlined
@@ -146,6 +149,7 @@ function cancel() {
           <BsTextField
             v-model="contact.city"
             :validator="cityValidator"
+            action-icon-variant="filled"
             floating-label
             outlined
             required

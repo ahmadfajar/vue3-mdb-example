@@ -256,9 +256,9 @@ onBeforeUnmount(() => {
           max-height="300"
         >
           <template #option-item="{ item }">
-            <bs-list-tile-title>
-              <span>{{ item.ProductName }}</span>
-              <span class="float-end fw-light small">${{ item.UnitPrice }}</span>
+            <bs-list-tile-title class="flex justify-between">
+              <div>{{ item.ProductName }}</div>
+              <div class="font-weight-light text-sm">${{ item.UnitPrice }}</div>
             </bs-list-tile-title>
             <bs-list-tile-subtitle>Stock : {{ item.UnitsInStock }}</bs-list-tile-subtitle>
           </template>

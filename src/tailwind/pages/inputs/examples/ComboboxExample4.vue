@@ -125,6 +125,7 @@ onBeforeUnmount(() => {
           <BsTextField
             v-model="contact.fullName"
             :validator="fullNameValidator"
+            action-icon-variant="filled"
             floating-label
             outlined
             required
@@ -137,6 +138,7 @@ onBeforeUnmount(() => {
           <BsTextField
             v-model="contact.email"
             :validator="emailValidator"
+            action-icon-variant="filled"
             floating-label
             outlined
             required
@@ -150,6 +152,7 @@ onBeforeUnmount(() => {
           <BsTextArea
             v-model="contact.address"
             :validator="addressValidator"
+            action-icon-variant="filled"
             auto-grow
             floating-label
             outlined
@@ -164,6 +167,7 @@ onBeforeUnmount(() => {
             v-model="contact.state"
             :data-source="statesSrc"
             :validator="countryStateValidator"
+            action-icon-variant="filled"
             floating-label
             outlined
             required
