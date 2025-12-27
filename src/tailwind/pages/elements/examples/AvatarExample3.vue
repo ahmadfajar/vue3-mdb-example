@@ -23,7 +23,7 @@
       <BsDivider />
       <BsListTile>
         <BsListTileLeading size="42">
-          <BsAvatar circle class="bg-purple-700 text-white" text="MD" size="40" />
+          <BsAvatar circle class="bg-purple-800 text-white" text="MD" size="40" />
         </BsListTileLeading>
         <BsListTileContent>
           <BsListTileTitle>This avatar created using ShortText</BsListTileTitle>

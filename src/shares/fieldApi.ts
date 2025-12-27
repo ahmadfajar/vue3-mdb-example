@@ -1,10 +1,13 @@
 import { schemaConfigDefinition } from '@shares/showcaseDataApi.ts';
 import {
   BsArrayStore,
+  BsStore,
   Helper,
   type TActionButtonPlacement,
   type TActionButtonType,
+  type TCheckboxPosition,
   type TContextColor,
+  type TDataListSchema,
   type TDataSource,
   type TDateTimePickerMode,
 } from 'vue-mdbootstrap';
@@ -79,6 +82,98 @@ export function dsNumericFieldButtonPlacements(): TDataSource {
       { idProperty: 'value' }
     ),
     schema: schemaConfigDefinition,
+  };
+}
+
+export function dsListboxCheckboxPositions(): TDataSource {
+  return {
+    proxy: new BsArrayStore(
+      [
+        { value: 'left', label: 'Left' },
+        { value: 'right', label: 'Right' },
+      ],
+      { idProperty: 'value' }
+    ),
+    schema: schemaConfigDefinition,
+  };
+}
+
+export function dsListboxImageShapes(): TDataSource {
+  return {
+    proxy: new BsArrayStore(
+      [
+        { value: 'circle-image', label: 'Circle' },
+        { value: 'rounded-image', label: 'Rounded' },
+      ],
+      { idProperty: 'value' }
+    ),
+    schema: schemaConfigDefinition,
+  };
+}
+
+export function dsPeopleSrc(): TDataSource {
+  return {
+    proxy: new BsArrayStore(
+      [
+        {
+          id: 1,
+          name: 'Sandra Adams',
+          avatar: 'https://ahmadfajar.github.io/img/1.jpg',
+        },
+        {
+          id: 2,
+          name: 'Ali Connors',
+          avatar: 'https://ahmadfajar.github.io/img/2.jpg',
+        },
+        {
+          id: 3,
+          name: 'Trevor Hansen',
+          avatar: 'https://ahmadfajar.github.io/img/3.jpg',
+        },
+        {
+          id: 4,
+          name: 'Tucker Smith',
+          avatar: 'https://ahmadfajar.github.io/img/4.jpg',
+        },
+        {
+          id: 5,
+          name: 'Britta Holt',
+          avatar: 'https://ahmadfajar.github.io/img/5.jpg',
+        },
+        {
+          id: 6,
+          name: 'Jane Smith',
+          avatar: 'https://ahmadfajar.github.io/img/3.jpg',
+        },
+        {
+          id: 7,
+          name: 'John Smith',
+          avatar: 'https://ahmadfajar.github.io/img/2.jpg',
+        },
+        {
+          id: 8,
+          name: 'Sandra Williams',
+          avatar: 'https://ahmadfajar.github.io/img/4.jpg',
+        },
+      ],
+      { idProperty: 'id' }
+    ),
+    schema: { displayField: 'name', valueField: 'id', imageField: 'avatar' } as TDataListSchema,
+  };
+}
+
+export function dsCountrySrc(): TDataSource {
+  return {
+    proxy: new BsStore({
+      idProperty: 'value',
+      dataProperty: 'data',
+      totalProperty: 'total',
+      remoteSort: false,
+      remoteFilter: false,
+      restProxy: {
+        browse: 'https://ahmadfajar.github.io/data/states.json',
+      },
+    }),
   };
 }
 
@@ -323,6 +418,86 @@ export function enableDateFieldLandscapeMode(
     return replaceAll
       ? data.replaceAll('{$landscape_mode}', 'landscape-mode')
       : data.replace('{$landscape_mode}', 'landscape-mode');
+  }
+
+  return data;
+}
+
+export function enableComboboxChipMode(value: boolean, data: string, replaceAll?: boolean): string {
+  if (value) {
+    return replaceAll
+      ? data.replaceAll('{$chip_enabled}', 'chip-enabled')
+      : data.replace('{$chip_enabled}', 'chip-enabled');
+  }
+
+  return data;
+}
+
+export function changeComboboxSelectionMode(
+  multiple: boolean,
+  data: string,
+  script: boolean,
+  replaceAll?: boolean
+): string {
+  if (multiple) {
+    if (script) {
+      let temp = data.replaceAll('ref<string>()', 'ref<string[]>([])');
+      temp = temp.replaceAll("value: 'CA',", "value: 'US',");
+
+      return temp;
+    } else {
+      return replaceAll
+        ? data.replaceAll('{$multiple}', 'multiple')
+        : data.replace('{$multiple}', 'multiple');
+    }
+  }
+
+  return data;
+}
+
+export function changeComboboxImageShape(
+  shape: string,
+  data: string,
+  replaceAll?: boolean
+): string {
+  return replaceAll
+    ? data.replaceAll('{$image_shape}', `${shape}`)
+    : data.replaceAll('{$image_shape}', `${shape}`);
+}
+
+export function changeComboboxImageSize(size: number, data: string, replaceAll?: boolean): string {
+  if (size !== 48) {
+    return replaceAll
+      ? data.replaceAll('{$image_size}', `image-size="${size}"`)
+      : data.replaceAll('{$image_size}', `image-size="${size}"`);
+  }
+
+  return data;
+}
+
+export function changeListboxCheckboxColor(
+  color: TContextColor,
+  data: string,
+  replaceAll?: boolean
+): string {
+  if (color !== 'default') {
+    return replaceAll
+      ? data.replaceAll('{$checkbox_color}', `checkbox-color="${color}"`)
+      : data.replace('{$checkbox_color}', `checkbox-color="${color}"`);
+  }
+
+  return data;
+}
+
+export function changeListboxCheckboxPosition(
+  position: TCheckboxPosition,
+  data: string,
+  replaceAll?: boolean
+): string {
+  if (position !== 'left') {
+    return replaceAll
+      ? data.replaceAll('{$checkbox_position}', `checkbox-position="${position}"`)
+      : data.replace('{$checkbox_position}', `checkbox-position="${position}"`);
   }
 
   return data;
