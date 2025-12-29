@@ -1,11 +1,14 @@
+import { parseVueScriptTag, parseVueTemplateTag } from '@shares/sharedApi.ts';
 import { schemaConfigDefinition } from '@shares/showcaseDataApi.ts';
 import { type Ref } from 'vue';
 import {
   BsArrayStore,
+  type TButtonSize,
   type TDataSource,
   type TIconFlip,
   type TIconPosition,
   type TIconRotation,
+  type TInputOptionItem,
   type TRadioInputProps,
 } from 'vue-mdbootstrap';
 
@@ -108,6 +111,18 @@ export function dsIconRotations(): TDataSource {
   };
 }
 
+export function dsFavoriteDrinks(): TInputOptionItem[] {
+  return [{ value: 'Tea' }, { value: 'Coffee' }, { value: 'Beer' }] satisfies TInputOptionItem[];
+}
+
+export function dsFavoriteDrinksWithIcon(): TInputOptionItem[] {
+  return [
+    { value: 'Tea', icon: 'glass_cup' },
+    { value: 'Coffee', icon: 'coffee' },
+    { value: 'Beer', icon: 'liquor' },
+  ] satisfies TInputOptionItem[];
+}
+
 export function buttonIconPositions(): TRadioInputProps[] {
   return [
     { value: 'left', label: 'Left' },
@@ -157,7 +172,7 @@ export function changeButtonShape(
 }
 
 export function changeButtonSize(
-  sizeRef: Ref<string | undefined>,
+  sizeRef: Ref<TButtonSize | undefined>,
   data?: string,
   replaceAll?: boolean
 ): string | undefined {
@@ -193,6 +208,28 @@ export function changeButtonState(
 export function changeButtonElevated(elevatedRef: Ref<boolean>, data?: string): string | undefined {
   if (elevatedRef.value) {
     return data?.replace('{$raised}', 'raised');
+  }
+
+  return data;
+}
+
+export function changeButtonIconSize(
+  iconSize: Ref<number>,
+  btnSize: Ref<TButtonSize | undefined>,
+  data?: string,
+  replaceAll?: boolean
+): string | undefined {
+  if (data && iconSize.value) {
+    switch (btnSize.value) {
+      case 'xs':
+      case 'sm':
+      case 'lg':
+        return replaceAll
+          ? data.replaceAll('{$iconSize}', `icon-size="${iconSize.value}"`)
+          : data.replace('{$iconSize}', `icon-size="${iconSize.value}"`);
+      default:
+        return data;
+    }
   }
 
   return data;
@@ -271,4 +308,13 @@ export function changeIconPosition(
       ? data?.replaceAll('{$iconPosition}', `icon-position="right"`)
       : data?.replace('{$iconPosition}', `icon-position="right"`)
     : data;
+}
+
+export function parseExampleSourceCode(
+  data: string,
+  vueTpl: Ref<string | undefined>,
+  vueTsc: Ref<string | undefined>
+): void {
+  vueTpl.value = parseVueTemplateTag(data);
+  vueTsc.value = parseVueScriptTag(data);
 }

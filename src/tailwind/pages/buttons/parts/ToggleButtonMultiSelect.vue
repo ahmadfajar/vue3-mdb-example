@@ -5,26 +5,25 @@ import {
   changeButtonShape,
   changeButtonState,
   changeButtonVariant,
+  changeIconPosition,
   dsButtonShapes,
+  dsFavoriteDrinks,
+  dsFavoriteDrinksWithIcon,
   dsToggleButtonVariants,
+  parseExampleSourceCode,
 } from '@shares/buttonApi.ts';
-import {
-  parseVueScriptTag,
-  parseVueTemplateTag,
-  stripAndBeautifyTemplate,
-} from '@shares/sharedApi.ts';
-import { useWatcherDefaultValue, dsComponentStatesRD } from '@shares/showcaseDataApi.ts';
+import { stripAndBeautifyTemplate } from '@shares/sharedApi.ts';
+import { dsComponentStatesRD, useWatcherDefaultValue } from '@shares/showcaseDataApi.ts';
 import { onBeforeUnmount, ref, watchEffect } from 'vue';
-import type { TIconPosition, TInputOptionItem } from 'vue-mdbootstrap';
+import type { TIconPosition } from 'vue-mdbootstrap';
+import Example1 from '../examples/ToggleButtonExample5.vue?raw';
+import Example2 from '../examples/ToggleButtonExample6.vue?raw';
+import Example3 from '../examples/ToggleButtonExample7.vue?raw';
+import Example4 from '../examples/ToggleButtonExample8.vue?raw';
 
-const example1 = await import('../examples/ToggleButtonExample5.vue?raw');
-const example2 = await import('../examples/ToggleButtonExample6.vue?raw');
-const example3 = await import('../examples/ToggleButtonExample7.vue?raw');
-const example4 = await import('../examples/ToggleButtonExample8.vue?raw');
-
+const fmtVueTpl = ref<string>();
+const fmtVueTsc = ref<string>();
 const rawTemplate = ref<string>();
-const fmtVueTpl = ref<string | null | undefined>();
-const fmtVueTsc = ref<string | null | undefined>();
 const btnVariant = ref<string | undefined>('filled');
 const btnShape = ref<string | undefined>('pill');
 const btnState = ref<string>();
@@ -34,45 +33,20 @@ const useCheckedMark = ref(false);
 const iconPosition = ref<TIconPosition>('left');
 const selectedDrinks = ref<string[]>([]);
 
-function parseSource() {
-  rawTemplate.value = parseVueTemplateTag(example1.default);
-  fmtVueTsc.value = parseVueScriptTag(example1.default);
-}
-
-function parseSourceWithIcon() {
-  rawTemplate.value = parseVueTemplateTag(example2.default);
-  fmtVueTsc.value = parseVueScriptTag(example2.default);
-}
-
-function parseSourceWithCheckedMark() {
-  rawTemplate.value = parseVueTemplateTag(example3.default);
-  fmtVueTsc.value = parseVueScriptTag(example3.default);
-}
-
-function parseSourceWithCheckedIcon() {
-  rawTemplate.value = parseVueTemplateTag(example4.default);
-  fmtVueTsc.value = parseVueScriptTag(example4.default);
-}
-
-function changeIconPosition(data?: string): string | undefined {
-  if (showIcon.value && iconPosition.value) {
-    return iconPosition.value === 'right'
-      ? data?.replace('{$iconPosition}', `icon-position="right"`)
-      : data;
-  }
-
-  return data;
-}
+useWatcherDefaultValue(
+  { refObj: btnVariant, default: 'filled' },
+  { refObj: btnShape, default: 'pill' }
+);
 
 watchEffect(() => {
   if (showIcon.value && useCheckedMark.value) {
-    parseSourceWithCheckedIcon();
+    parseExampleSourceCode(Example4, rawTemplate, fmtVueTsc);
   } else if (!showIcon.value && useCheckedMark.value) {
-    parseSourceWithCheckedMark();
+    parseExampleSourceCode(Example3, rawTemplate, fmtVueTsc);
   } else if (showIcon.value && !useCheckedMark.value) {
-    parseSourceWithIcon();
+    parseExampleSourceCode(Example2, rawTemplate, fmtVueTsc);
   } else {
-    parseSource();
+    parseExampleSourceCode(Example1, rawTemplate, fmtVueTsc);
   }
 
   let rawCode: string | undefined;
@@ -81,28 +55,23 @@ watchEffect(() => {
   rawCode = changeButtonShape(btnShape, rawCode);
   rawCode = changeButtonState(btnState, rawCode);
   rawCode = changeButtonElevated(btnElevated, rawCode);
-  rawCode = changeIconPosition(rawCode);
+
+  if (showIcon.value) {
+    rawCode = changeIconPosition(iconPosition, rawCode);
+  }
 
   if (rawCode) {
     fmtVueTpl.value = stripAndBeautifyTemplate(rawCode);
   }
 });
 
-useWatcherDefaultValue(
-  { refObj: btnVariant, default: 'filled' },
-  { refObj: btnShape, default: 'pill' }
-);
-
 const btnVariants = dsToggleButtonVariants();
 const btnShapes = dsButtonShapes();
 const btnStates = dsComponentStatesRD();
 const iconPositions = buttonIconPositions();
-const drinkSrc1: TInputOptionItem[] = [{ value: 'Tea' }, { value: 'Coffee' }, { value: 'Beer' }];
-const drinkSrc2: TInputOptionItem[] = [
-  { value: 'Tea', icon: 'glass_cup' },
-  { value: 'Coffee', icon: 'coffee' },
-  { value: 'Beer', icon: 'liquor' },
-];
+const drinkSrc1 = dsFavoriteDrinks();
+const drinkSrc2 = dsFavoriteDrinksWithIcon();
+const contentCls = ['h-full min-h-40', 'flex items-center', 'py-8'];
 
 onBeforeUnmount(() => {
   btnVariants.proxy.destroy();
@@ -114,7 +83,7 @@ onBeforeUnmount(() => {
 <template>
   <div class="w-full">
     <div class="section-content mb-5">
-      <h2>Multiple Selection</h2>
+      <h2>Multi Select</h2>
     </div>
     <ShoutBox :tpl="fmtVueTpl" :tsc="fmtVueTsc">
       <template #side-panel>
@@ -147,12 +116,7 @@ onBeforeUnmount(() => {
       </template>
 
       <template #content>
-        <div
-          :class="[
-            'h-full flex items-center justify-center min-h-40 md:rounded-lg py-8',
-            showIcon ? 'px-3 lg:px-6' : 'px-8',
-          ]"
-        >
+        <div :class="showIcon ? contentCls.concat('px-3 lg:px-6') : contentCls.concat('px-8')">
           <div class="row gy-2">
             <div class="sm:w-36 pt-2 font-weight-medium">Favorite Drinks</div>
             <div class="col-sm">

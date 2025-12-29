@@ -14,10 +14,12 @@ import {
 } from '@shares/buttonApi.ts';
 import { stripAndBeautifyTemplate } from '@shares/sharedApi.ts';
 import { dsComponentStatesRD, useWatcherDefaultValue } from '@shares/showcaseDataApi.ts';
-import { onBeforeUnmount, type Ref, ref, watch, watchEffect } from 'vue';
+import { onBeforeUnmount, ref, watchEffect } from 'vue';
 import type { TIconPosition } from 'vue-mdbootstrap';
-import Example1 from '../examples/ToggleButtonExample3.vue?raw';
-import Example2 from '../examples/ToggleButtonExample4.vue?raw';
+import Example1 from '../examples/ToggleFieldExample5.vue?raw';
+import Example2 from '../examples/ToggleFieldExample6.vue?raw';
+import Example3 from '../examples/ToggleFieldExample7.vue?raw';
+import Example4 from '../examples/ToggleFieldExample8.vue?raw';
 
 const fmtVueTpl = ref<string>();
 const fmtVueTsc = ref<string>();
@@ -27,23 +29,26 @@ const btnShape = ref<string | undefined>('pill');
 const btnState = ref<string>();
 const btnElevated = ref(false);
 const showIcon = ref(false);
+const useCheckedMark = ref(false);
 const iconPosition = ref<TIconPosition>('left');
-const selectedDrink = ref<string>();
+const selectedDrinks = ref<string[]>([]);
 
 useWatcherDefaultValue(
   { refObj: btnVariant, default: 'filled' },
   { refObj: btnShape, default: 'pill' }
 );
 
-watch(showIcon, (value) => {
-  if (value) {
+watchEffect(() => {
+  if (showIcon.value && useCheckedMark.value) {
+    parseExampleSourceCode(Example4, rawTemplate, fmtVueTsc);
+  } else if (!showIcon.value && useCheckedMark.value) {
+    parseExampleSourceCode(Example3, rawTemplate, fmtVueTsc);
+  } else if (showIcon.value && !useCheckedMark.value) {
     parseExampleSourceCode(Example2, rawTemplate, fmtVueTsc);
   } else {
     parseExampleSourceCode(Example1, rawTemplate, fmtVueTsc);
   }
-});
 
-watchEffect(() => {
   let rawCode: string | undefined;
 
   rawCode = changeButtonVariant(btnVariant, rawTemplate.value);
@@ -52,7 +57,7 @@ watchEffect(() => {
   rawCode = changeButtonElevated(btnElevated, rawCode);
 
   if (showIcon.value) {
-    rawCode = changeIconPosition(iconPosition as Ref<TIconPosition | undefined>, rawCode);
+    rawCode = changeIconPosition(iconPosition, rawCode);
   }
 
   if (rawCode) {
@@ -68,8 +73,6 @@ const drinkSrc1 = dsFavoriteDrinks();
 const drinkSrc2 = dsFavoriteDrinksWithIcon();
 const contentCls = ['h-full min-h-40', 'flex items-center', 'py-8'];
 
-parseExampleSourceCode(Example1, rawTemplate, fmtVueTsc);
-
 onBeforeUnmount(() => {
   btnVariants.proxy.destroy();
   btnShapes.proxy.destroy();
@@ -80,7 +83,7 @@ onBeforeUnmount(() => {
 <template>
   <div class="w-full">
     <div class="section-content mb-5">
-      <h2>Checked Icon</h2>
+      <h2>Multi Select</h2>
     </div>
     <ShoutBox :tpl="fmtVueTpl" :tsc="fmtVueTsc">
       <template #side-panel>
@@ -97,15 +100,9 @@ onBeforeUnmount(() => {
         </BsCombobox>
 
         <div class="w-full ps-2">
-          <div class="flex md-gap-x-3">
-            <BsCheckbox
-              v-model="btnElevated"
-              :disabled="btnState === 'readonly' || btnState === 'disabled'"
-              :value="true"
-            >
-              Elevated
-            </BsCheckbox>
-            <BsCheckbox v-model="showIcon" :value="true"> Show Icon</BsCheckbox>
+          <div class="flex flex-col md-gap-x-3">
+            <BsCheckbox v-model="useCheckedMark" :value="true"> Use Check Mark </BsCheckbox>
+            <BsCheckbox v-model="showIcon" :value="true"> Show Icon </BsCheckbox>
           </div>
           <BsRadioGroup
             v-model="iconPosition"
@@ -120,30 +117,30 @@ onBeforeUnmount(() => {
 
       <template #content>
         <div :class="showIcon ? contentCls.concat('px-3 lg:px-6') : contentCls.concat('px-8')">
-          <div class="row gy-2">
-            <div class="sm:w-36 pt-2 font-weight-medium">Favorite Drink</div>
-            <div class="col-sm">
-              <BsToggleButton
-                v-model="selectedDrink"
-                :disabled="btnState === 'disabled'"
-                :icon-position="iconPosition"
-                :items="showIcon ? drinkSrc2 : drinkSrc1"
-                :outlined="btnVariant === 'outlined'"
-                :pill-off="btnShape === 'pill-off'"
-                :raised="btnElevated"
-                :readonly="btnState === 'readonly'"
-                :rounded="btnShape === 'rounded'"
-                :tonal="btnVariant === 'tonal'"
-              >
-                <template v-if="showIcon" #icon="item">
-                  <BsSvgIcon :icon="item?.value === selectedDrink ? 'check' : item?.icon!" />
-                </template>
-                <template v-else #icon="item">
-                  <BsSvgIcon v-if="item?.value === selectedDrink" icon="check" />
-                </template>
-              </BsToggleButton>
-            </div>
-          </div>
+          <BsToggleField
+            v-model="selectedDrinks"
+            :disabled="btnState === 'disabled'"
+            :icon-position="iconPosition"
+            :items="showIcon ? drinkSrc2 : drinkSrc1"
+            :outlined="btnVariant === 'outlined'"
+            :pill-off="btnShape === 'pill-off'"
+            :raised="btnElevated"
+            :readonly="btnState === 'readonly'"
+            :rounded="btnShape === 'rounded'"
+            :tonal="btnVariant === 'tonal'"
+            multiple
+          >
+            <template v-if="showIcon && useCheckedMark" #icon="item">
+              <BsSvgIcon
+                :icon="selectedDrinks.includes(item?.value as string) ? 'check' : item?.icon!"
+              />
+            </template>
+            <template v-else-if="!showIcon && useCheckedMark" #icon="item">
+              <BsSvgIcon v-if="selectedDrinks.includes(item?.value as string)" icon="check" />
+            </template>
+
+            <div class="sm:w-36 col-form-label font-weight-medium">Favorite Drinks</div>
+          </BsToggleField>
         </div>
       </template>
     </ShoutBox>

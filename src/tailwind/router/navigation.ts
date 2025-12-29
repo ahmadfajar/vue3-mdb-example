@@ -380,7 +380,14 @@ export const menuNavs: TMainNavigation[] = [
       {
         text: 'Toggle Field',
         path: '/inputs/toggle-field',
-        view: () => import('@tw/pages/inputs/DemoToggleField.vue'),
+        view: () => import('@tw/pages/inputs/ToggleFieldPage.vue'),
+      },
+      {
+        text: 'Toggle Field',
+        name: 'toggle-field-id',
+        path: '/inputs/toggle-field/:id',
+        hidden: true,
+        view: () => import('@tw/pages/inputs/ToggleFieldPage.vue'),
       },
       {
         text: 'Search Field',
