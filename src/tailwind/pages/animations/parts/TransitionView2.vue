@@ -2,14 +2,13 @@
 import TransitionExample2 from '@tw/pages/animations/examples/TransitionExample2.vue';
 import { parseVueScriptTag, parseVueTemplateTag } from '@shares/sharedApi.ts';
 import { ref } from 'vue';
-
-const example = await import('../examples/TransitionExample2.vue?raw');
+import Example from '../examples/TransitionExample2.vue?raw';
 
 const fmtVueTpl = ref<string | null | undefined>();
 const fmtVueTsc = ref<string | null | undefined>();
 
-fmtVueTpl.value = parseVueTemplateTag(example.default);
-fmtVueTsc.value = parseVueScriptTag(example.default);
+fmtVueTpl.value = parseVueTemplateTag(Example);
+fmtVueTsc.value = parseVueScriptTag(Example);
 </script>
 
 <template>

@@ -6,18 +6,17 @@ import {
 } from '@shares/sharedApi.ts';
 import { ref, watchEffect } from 'vue';
 import { StringHelper } from 'vue-mdbootstrap';
+import Example from '../examples/TransitionExample1.vue?raw';
 
 const props = defineProps<{ transition: string }>();
-
-const example = await import('../examples/TransitionExample1.vue?raw');
 
 const rawTemplate = ref<string>();
 const fmtVueTpl = ref<string | null | undefined>();
 const fmtVueTsc = ref<string | null | undefined>();
 const active = ref(false);
 
-rawTemplate.value = parseVueTemplateTag(example.default);
-fmtVueTsc.value = parseVueScriptTag(example.default);
+rawTemplate.value = parseVueTemplateTag(Example);
+fmtVueTsc.value = parseVueScriptTag(Example);
 
 watchEffect(() => {
   if (props.transition !== 'expand-transition') {
