@@ -1,3 +1,4 @@
+<script setup lang="ts"></script>
 <template>
   <div class="mb-4">
     <BsTextField
@@ -9,7 +10,7 @@
       {$states}
       {$variants}
     >
-      <label class="col-sm-4 col-md-3 col-form-label">Classic Field</label>
+      <label class="sm:w-30 col-form-label">Classic Field</label>
     </BsTextField>
   </div>
   <BsDivider />

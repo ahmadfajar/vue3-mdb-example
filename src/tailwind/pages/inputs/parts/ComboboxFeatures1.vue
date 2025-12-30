@@ -121,9 +121,13 @@ watchEffect(() => {
   rawCode = enableComboboxChipMode(chipMode.value, rawCode, true);
   rawCode = changeListboxCheckboxColor(checkboxColor.value, rawCode, true);
   rawCode = changeListboxCheckboxPosition(checkboxPosition.value, rawCode, true);
-  rawCode = changeFieldChipColor(chipColor.value, rawCode, true);
-  rawCode = enableFieldChipOutlined(chipOutlined.value, rawCode, true);
-  rawCode = enableFieldChipRoundedPill(chipPill.value, rawCode, true);
+
+  if (chipMode.value) {
+    rawCode = changeFieldChipColor(chipColor.value, rawCode, true);
+    rawCode = enableFieldChipOutlined(chipOutlined.value, rawCode, true);
+    rawCode = enableFieldChipRoundedPill(chipPill.value, rawCode, true);
+  }
+
   rawCode = enableFieldClearable(clearable.value, rawCode, true);
   rawCode = changeFieldPlaceholder(placeholder.value, rawCode, true);
   rawCode = changeFieldHelpText(helpText.value, rawCode, true);
@@ -337,7 +341,7 @@ onBeforeUnmount(() => {
               "
               :readonly="state === 'readonly'"
             >
-              <label class="col-sm-4 col-md-3 col-form-label">Classic Field</label>
+              <label class="sm:w-30 col-form-label">Classic Field</label>
             </BsCombobox>
           </div>
           <BsDivider />

@@ -1,6 +1,15 @@
-import { parseVueScriptTag, parseVueTemplateTag } from '@shares/sharedApi.ts';
-import { schemaConfigDefinition } from '@shares/showcaseDataApi.ts';
-import { type Ref } from 'vue';
+import { changeFieldHelpText, disableFieldPersistentHelpText } from '@shares/fieldApi.ts';
+import {
+  parseVueScriptTag,
+  parseVueTemplateTag,
+  stripAndBeautifyTemplate,
+} from '@shares/sharedApi.ts';
+import {
+  dsComponentStatesRD,
+  schemaConfigDefinition,
+  useWatcherDefaultValue,
+} from '@shares/showcaseDataApi.ts';
+import { nextTick, onBeforeUnmount, ref, type Ref, watch, watchEffect } from 'vue';
 import {
   BsArrayStore,
   type TButtonSize,
@@ -317,4 +326,336 @@ export function parseExampleSourceCode(
 ): void {
   vueTpl.value = parseVueTemplateTag(data);
   vueTsc.value = parseVueScriptTag(data);
+}
+
+declare type ToggleButtonOverviewResult = {
+  fmtVueTpl: Ref<string | undefined>;
+  fmtVueTsc: Ref<string | undefined>;
+  btnVariant: Ref<string | undefined>;
+  btnShape: Ref<string | undefined>;
+  btnSize: Ref<string | undefined>;
+  btnState: Ref<string | undefined>;
+  btnElevated: Ref<boolean>;
+  showIcon: Ref<boolean>;
+  iconPosition: Ref<TIconPosition>;
+  iconSize: Ref<number>;
+  helpText: Ref<string | undefined>;
+  showHelpText: Ref<boolean>;
+  disablePersistentHelpText: Ref<boolean>;
+  drinkSrc2Ref: Ref<TInputOptionItem[]>;
+  btnVariantSrc: TDataSource;
+  btnShapeSrc: TDataSource;
+  btnSizeSrc: TDataSource;
+  btnStateSrc: TDataSource;
+};
+
+export function setupToggleButtonOverview(
+  page: 'ToggleButton' | 'ToggleField',
+  example1: string,
+  example2: string
+): ToggleButtonOverviewResult {
+  const fmtVueTpl = ref<string>();
+  const fmtVueTsc = ref<string>();
+  const rawTemplate = ref<string>();
+  const btnVariant = ref<string | undefined>('filled');
+  const btnShape = ref<string | undefined>('pill');
+  const btnSize = ref<string | undefined>('md');
+  const btnState = ref<string>();
+  const btnElevated = ref(false);
+  const showIcon = ref(false);
+  const iconPosition = ref<TIconPosition>('left');
+  const iconSize = ref(24);
+  const drinkSrc2Ref = ref<TInputOptionItem[]>([]);
+  const drinkSrc2 = dsFavoriteDrinksWithIcon();
+  const helpText = ref<string>('Select one of the options above as your favorite drink');
+  const showHelpText = ref(false);
+  const disablePersistentHelpText = ref(false);
+
+  if (page === 'ToggleField') {
+    useWatcherDefaultValue(
+      { refObj: btnVariant, default: 'filled' },
+      { refObj: btnShape, default: 'pill' },
+      { refObj: iconPosition, default: 'left' }
+    );
+  } else {
+    useWatcherDefaultValue(
+      { refObj: btnVariant, default: 'filled' },
+      { refObj: btnShape, default: 'pill' }
+    );
+  }
+
+  watch(showIcon, (value) => {
+    if (value) {
+      parseExampleSourceCode(example2, rawTemplate, fmtVueTsc);
+    } else {
+      parseExampleSourceCode(example1, rawTemplate, fmtVueTsc);
+    }
+  });
+
+  watch(btnSize, async (value) => {
+    if (value === 'lg') {
+      iconSize.value = 30;
+    } else if (value === 'sm') {
+      iconSize.value = 20;
+    } else if (value === 'xs') {
+      iconSize.value = 16;
+    } else {
+      iconSize.value = 24;
+    }
+
+    if (!value) {
+      await nextTick(() => {
+        btnSize.value = 'md';
+      });
+    }
+    if (showIcon.value) {
+      drinkSrc2Ref.value = [];
+      await nextTick(() => {
+        drinkSrc2Ref.value = drinkSrc2;
+      });
+    }
+  });
+
+  watchEffect(() => {
+    let rawCode: string | undefined;
+
+    rawCode = changeButtonVariant(btnVariant, rawTemplate.value);
+    rawCode = changeButtonShape(btnShape, rawCode);
+    rawCode = changeButtonSize(btnSize as Ref<TButtonSize | undefined>, rawCode);
+    rawCode = changeButtonState(btnState, rawCode);
+    rawCode = changeButtonElevated(btnElevated, rawCode);
+
+    if (showIcon.value) {
+      rawCode = changeButtonIconSize(iconSize, btnSize as Ref<TButtonSize | undefined>, rawCode);
+      rawCode = changeIconPosition(iconPosition as Ref<TIconPosition | undefined>, rawCode);
+    }
+    if (page === 'ToggleField') {
+      if (showHelpText.value && rawCode) {
+        rawCode = changeFieldHelpText(helpText.value, rawCode);
+        rawCode = disableFieldPersistentHelpText(disablePersistentHelpText.value, rawCode);
+      } else {
+        disablePersistentHelpText.value = false;
+      }
+    }
+    if (rawCode) {
+      fmtVueTpl.value = stripAndBeautifyTemplate(rawCode);
+    }
+  });
+
+  const btnVariantSrc = dsToggleButtonVariants();
+  const btnShapeSrc = dsButtonShapes();
+  const btnSizeSrc = dsButtonSizes();
+  const btnStateSrc = dsComponentStatesRD();
+
+  drinkSrc2Ref.value = drinkSrc2;
+  parseExampleSourceCode(example1, rawTemplate, fmtVueTsc);
+
+  onBeforeUnmount(() => {
+    btnVariantSrc.proxy.destroy();
+    btnShapeSrc.proxy.destroy();
+    btnSizeSrc.proxy.destroy();
+    btnStateSrc.proxy.destroy();
+  });
+
+  return {
+    fmtVueTpl,
+    fmtVueTsc,
+    btnVariant,
+    btnShape,
+    btnSize,
+    btnState,
+    btnElevated,
+    showIcon,
+    iconPosition,
+    iconSize,
+    helpText,
+    showHelpText,
+    disablePersistentHelpText,
+    drinkSrc2Ref,
+    btnVariantSrc,
+    btnShapeSrc,
+    btnSizeSrc,
+    btnStateSrc,
+  };
+}
+
+declare type ToggleButtonCheckedIconResult = {
+  fmtVueTpl: Ref<string | undefined>;
+  fmtVueTsc: Ref<string | undefined>;
+  btnVariant: Ref<string | undefined>;
+  btnShape: Ref<string | undefined>;
+  btnState: Ref<string | undefined>;
+  btnElevated: Ref<boolean>;
+  showIcon: Ref<boolean>;
+  iconPosition: Ref<TIconPosition>;
+  btnVariantSrc: TDataSource;
+  btnShapeSrc: TDataSource;
+  btnStateSrc: TDataSource;
+  iconPositionSrc: TRadioInputProps[];
+};
+
+export function setupToggleButtonCheckedIcon(
+  example1: string,
+  example2: string
+): ToggleButtonCheckedIconResult {
+  const fmtVueTpl = ref<string>();
+  const fmtVueTsc = ref<string>();
+  const rawTemplate = ref<string>();
+  const btnVariant = ref<string | undefined>('filled');
+  const btnShape = ref<string | undefined>('pill');
+  const btnState = ref<string>();
+  const btnElevated = ref(false);
+  const showIcon = ref(false);
+  const iconPosition = ref<TIconPosition>('left');
+
+  useWatcherDefaultValue(
+    { refObj: btnVariant, default: 'filled' },
+    { refObj: btnShape, default: 'pill' }
+  );
+
+  watch(showIcon, (value) => {
+    if (value) {
+      parseExampleSourceCode(example2, rawTemplate, fmtVueTsc);
+    } else {
+      parseExampleSourceCode(example1, rawTemplate, fmtVueTsc);
+    }
+  });
+
+  watchEffect(() => {
+    let rawCode: string | undefined;
+
+    rawCode = changeButtonVariant(btnVariant, rawTemplate.value);
+    rawCode = changeButtonShape(btnShape, rawCode);
+    rawCode = changeButtonState(btnState, rawCode);
+    rawCode = changeButtonElevated(btnElevated, rawCode);
+
+    if (showIcon.value) {
+      rawCode = changeIconPosition(iconPosition as Ref<TIconPosition | undefined>, rawCode);
+    }
+
+    if (rawCode) {
+      fmtVueTpl.value = stripAndBeautifyTemplate(rawCode);
+    }
+  });
+
+  parseExampleSourceCode(example1, rawTemplate, fmtVueTsc);
+
+  const btnVariantSrc = dsToggleButtonVariants();
+  const btnShapeSrc = dsButtonShapes();
+  const btnStateSrc = dsComponentStatesRD();
+  const iconPositionSrc = buttonIconPositions();
+
+  onBeforeUnmount(() => {
+    btnVariantSrc.proxy.destroy();
+    btnShapeSrc.proxy.destroy();
+    btnStateSrc.proxy.destroy();
+  });
+
+  return {
+    fmtVueTpl,
+    fmtVueTsc,
+    btnVariant,
+    btnShape,
+    btnState,
+    btnElevated,
+    showIcon,
+    iconPosition,
+    btnVariantSrc,
+    btnShapeSrc,
+    btnStateSrc,
+    iconPositionSrc,
+  };
+}
+
+declare type ToggleButtonMultiSelectResult = {
+  fmtVueTpl: Ref<string | undefined>;
+  fmtVueTsc: Ref<string | undefined>;
+  btnVariant: Ref<string | undefined>;
+  btnShape: Ref<string | undefined>;
+  btnState: Ref<string | undefined>;
+  btnElevated: Ref<boolean>;
+  useCheckedMark: Ref<boolean>;
+  showIcon: Ref<boolean>;
+  iconPosition: Ref<TIconPosition>;
+  btnVariantSrc: TDataSource;
+  btnShapeSrc: TDataSource;
+  btnStateSrc: TDataSource;
+  iconPositionSrc: TRadioInputProps[];
+};
+
+export function setupToggleButtonMultiSelect(
+  example1: string,
+  example2: string,
+  example3: string,
+  example4: string
+): ToggleButtonMultiSelectResult {
+  const fmtVueTpl = ref<string>();
+  const fmtVueTsc = ref<string>();
+  const rawTemplate = ref<string>();
+  const btnVariant = ref<string | undefined>('filled');
+  const btnShape = ref<string | undefined>('pill');
+  const btnState = ref<string>();
+  const btnElevated = ref(false);
+  const showIcon = ref(false);
+  const useCheckedMark = ref(false);
+  const iconPosition = ref<TIconPosition>('left');
+
+  useWatcherDefaultValue(
+    { refObj: btnVariant, default: 'filled' },
+    { refObj: btnShape, default: 'pill' }
+  );
+
+  watchEffect(() => {
+    if (showIcon.value && useCheckedMark.value) {
+      parseExampleSourceCode(example4, rawTemplate, fmtVueTsc);
+    } else if (!showIcon.value && useCheckedMark.value) {
+      parseExampleSourceCode(example3, rawTemplate, fmtVueTsc);
+    } else if (showIcon.value && !useCheckedMark.value) {
+      parseExampleSourceCode(example2, rawTemplate, fmtVueTsc);
+    } else {
+      parseExampleSourceCode(example1, rawTemplate, fmtVueTsc);
+    }
+
+    let rawCode: string | undefined;
+
+    rawCode = changeButtonVariant(btnVariant, rawTemplate.value);
+    rawCode = changeButtonShape(btnShape, rawCode);
+    rawCode = changeButtonState(btnState, rawCode);
+    rawCode = changeButtonElevated(btnElevated, rawCode);
+
+    if (showIcon.value) {
+      rawCode = changeIconPosition(iconPosition, rawCode);
+    }
+
+    if (rawCode) {
+      fmtVueTpl.value = stripAndBeautifyTemplate(rawCode);
+    }
+  });
+
+  const btnVariantSrc = dsToggleButtonVariants();
+  const btnShapeSrc = dsButtonShapes();
+  const btnStateSrc = dsComponentStatesRD();
+  const iconPositionSrc = buttonIconPositions();
+
+  onBeforeUnmount(() => {
+    btnVariantSrc.proxy.destroy();
+    btnShapeSrc.proxy.destroy();
+    btnStateSrc.proxy.destroy();
+  });
+
+  return {
+    fmtVueTpl,
+    fmtVueTsc,
+    btnVariant,
+    btnShape,
+    btnState,
+    btnElevated,
+    useCheckedMark,
+    showIcon,
+    iconPosition,
+    btnVariantSrc,
+    btnShapeSrc,
+    btnStateSrc,
+    iconPositionSrc,
+  };
 }

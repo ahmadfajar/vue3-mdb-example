@@ -5,7 +5,7 @@ import App from './App.vue';
 import ContentLayout from './ContentLayout.vue';
 import router from './router';
 
-import 'vue-mdbootstrap/css-core';
+import 'vue-mdbootstrap/styles';
 import 'vue-mdbootstrap/theme-light';
 import './assets/main.css';
 

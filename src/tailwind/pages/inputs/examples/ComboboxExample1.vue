@@ -59,7 +59,7 @@ onBeforeUnmount(() => {
       {$states}
       {$variants}
     >
-      <label class="col-sm-4 col-md-3 col-form-label">Classic Field</label>
+      <label class="sm:w-30 col-form-label">Classic Field</label>
     </BsCombobox>
   </div>
   <BsDivider />

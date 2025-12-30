@@ -224,7 +224,7 @@ onBeforeUnmount(() => {
               :readonly="state === 'readonly'"
               :rows="displayRows > 2 ? displayRows : undefined"
             >
-              <label class="col-sm-4 col-md-3 col-form-label">Classic Field</label>
+              <label class="sm:w-30 col-form-label">Classic Field</label>
             </BsTextArea>
           </div>
           <BsDivider />

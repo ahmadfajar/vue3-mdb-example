@@ -1,80 +1,32 @@
 <script setup lang="ts">
 import {
-  buttonIconPositions,
-  changeButtonElevated,
-  changeButtonShape,
-  changeButtonState,
-  changeButtonVariant,
-  changeIconPosition,
-  dsButtonShapes,
   dsFavoriteDrinks,
   dsFavoriteDrinksWithIcon,
-  dsToggleButtonVariants,
-  parseExampleSourceCode,
+  setupToggleButtonCheckedIcon,
 } from '@shares/buttonApi.ts';
-import { stripAndBeautifyTemplate } from '@shares/sharedApi.ts';
-import { dsComponentStatesRD, useWatcherDefaultValue } from '@shares/showcaseDataApi.ts';
-import { onBeforeUnmount, type Ref, ref, watch, watchEffect } from 'vue';
-import type { TIconPosition } from 'vue-mdbootstrap';
+import { ref } from 'vue';
 import Example1 from '../examples/ToggleButtonExample3.vue?raw';
 import Example2 from '../examples/ToggleButtonExample4.vue?raw';
 
-const fmtVueTpl = ref<string>();
-const fmtVueTsc = ref<string>();
-const rawTemplate = ref<string>();
-const btnVariant = ref<string | undefined>('filled');
-const btnShape = ref<string | undefined>('pill');
-const btnState = ref<string>();
-const btnElevated = ref(false);
-const showIcon = ref(false);
-const iconPosition = ref<TIconPosition>('left');
+const {
+  fmtVueTpl,
+  fmtVueTsc,
+  btnVariant,
+  btnShape,
+  btnState,
+  btnElevated,
+  showIcon,
+  iconPosition,
+  btnVariantSrc,
+  btnShapeSrc,
+  btnStateSrc,
+  iconPositionSrc,
+} = setupToggleButtonCheckedIcon(Example1, Example2);
+
 const selectedDrink = ref<string>();
-
-useWatcherDefaultValue(
-  { refObj: btnVariant, default: 'filled' },
-  { refObj: btnShape, default: 'pill' }
-);
-
-watch(showIcon, (value) => {
-  if (value) {
-    parseExampleSourceCode(Example2, rawTemplate, fmtVueTsc);
-  } else {
-    parseExampleSourceCode(Example1, rawTemplate, fmtVueTsc);
-  }
-});
-
-watchEffect(() => {
-  let rawCode: string | undefined;
-
-  rawCode = changeButtonVariant(btnVariant, rawTemplate.value);
-  rawCode = changeButtonShape(btnShape, rawCode);
-  rawCode = changeButtonState(btnState, rawCode);
-  rawCode = changeButtonElevated(btnElevated, rawCode);
-
-  if (showIcon.value) {
-    rawCode = changeIconPosition(iconPosition as Ref<TIconPosition | undefined>, rawCode);
-  }
-
-  if (rawCode) {
-    fmtVueTpl.value = stripAndBeautifyTemplate(rawCode);
-  }
-});
-
-const btnVariants = dsToggleButtonVariants();
-const btnShapes = dsButtonShapes();
-const btnStates = dsComponentStatesRD();
-const iconPositions = buttonIconPositions();
 const drinkSrc1 = dsFavoriteDrinks();
 const drinkSrc2 = dsFavoriteDrinksWithIcon();
 const contentCls = ['h-full min-h-40', 'flex items-center', 'py-8'];
-
-parseExampleSourceCode(Example1, rawTemplate, fmtVueTsc);
-
-onBeforeUnmount(() => {
-  btnVariants.proxy.destroy();
-  btnShapes.proxy.destroy();
-  btnStates.proxy.destroy();
-});
 </script>
 
 <template>
@@ -86,13 +38,13 @@ onBeforeUnmount(() => {
       <template #side-panel>
         <h5 class="mt-2">Configuration Options:</h5>
 
-        <BsCombobox v-model="btnVariant" :data-source="btnVariants" filled floating-label>
+        <BsCombobox v-model="btnVariant" :data-source="btnVariantSrc" filled floating-label>
           <label>Variant:</label>
         </BsCombobox>
-        <BsCombobox v-model="btnShape" :data-source="btnShapes" filled floating-label>
+        <BsCombobox v-model="btnShape" :data-source="btnShapeSrc" filled floating-label>
           <label>Shape:</label>
         </BsCombobox>
-        <BsCombobox v-model="btnState" :data-source="btnStates" filled floating-label>
+        <BsCombobox v-model="btnState" :data-source="btnStateSrc" filled floating-label>
           <label>State:</label>
         </BsCombobox>
 
@@ -110,7 +62,7 @@ onBeforeUnmount(() => {
           <BsRadioGroup
             v-model="iconPosition"
             :disabled="!showIcon"
-            :items="iconPositions"
+            :items="iconPositionSrc"
             column="2"
           >
             <div class="col-form-label select-none">Icon Position:</div>

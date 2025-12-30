@@ -198,7 +198,7 @@ onBeforeUnmount(() => {
               :readonly="state === 'readonly'"
               :rounded="variant?.endsWith('rounded')"
             >
-              <label class="col-sm-4 col-md-3 col-form-label">Classic Field</label>
+              <label class="sm:w-30 col-form-label">Classic Field</label>
             </BsNumericField>
           </div>
           <BsDivider />

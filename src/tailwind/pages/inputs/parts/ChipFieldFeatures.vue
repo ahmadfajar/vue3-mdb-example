@@ -237,7 +237,7 @@ onBeforeUnmount(() => {
             >
               <label
                 :class="[
-                  'col-sm-4 col-md-3',
+                  'sm:w-30',
                   'col-form-label',
                   variant === 'filled' ? 'pt-3' : variant === 'outlined' ? 'pt-4' : '',
                 ]"
