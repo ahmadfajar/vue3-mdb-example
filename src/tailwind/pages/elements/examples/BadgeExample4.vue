@@ -1,5 +1,3 @@
-<script setup lang="ts"></script>
-
 <template>
   <div class="flex flex-wrap md-gap-1">
     <BsBadge href="#" tag="a" variant="default"> Default </BsBadge>

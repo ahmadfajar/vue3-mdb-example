@@ -1,5 +1,3 @@
-<script setup lang="ts"></script>
-
 <template>
   <BsCard border-off class="bg-slate-600 text-white">
     <BsCardBody>

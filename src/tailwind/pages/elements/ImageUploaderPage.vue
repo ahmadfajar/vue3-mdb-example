@@ -2,13 +2,13 @@
 import { parseVueScriptTag, parseVueTemplateTag } from '@shares/sharedApi.ts';
 import ImageUploaderExample from '@tw/pages/elements/examples/ImageUploaderExample.vue';
 import { ref } from 'vue';
+import Example from './examples/ImageUploaderExample.vue?raw';
 
-const example = await import('./examples/ImageUploaderExample.vue?raw');
 const fmtVueTpl = ref<string>();
 const fmtVueTsc = ref<string>();
 
-fmtVueTpl.value = parseVueTemplateTag(example.default);
-fmtVueTsc.value = parseVueScriptTag(example.default);
+fmtVueTpl.value = parseVueTemplateTag(Example);
+fmtVueTsc.value = parseVueScriptTag(Example);
 </script>
 
 <template>

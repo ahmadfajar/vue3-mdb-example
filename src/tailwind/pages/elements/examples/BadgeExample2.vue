@@ -1,5 +1,3 @@
-<script setup lang="ts"></script>
-
 <template>
   <div class="flex flex-wrap md-gap-1">
     <BsBadge {$outlined} {$shape_type} variant="default"> Default </BsBadge>

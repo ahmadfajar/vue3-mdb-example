@@ -3,15 +3,13 @@ import { setupListViewNavigation } from '@shares/listTileApi.ts';
 import { parseVueTemplateTag } from '@shares/sharedApi.ts';
 import { ref } from 'vue';
 import type { TSpaceAround } from 'vue-mdbootstrap';
+import Example from '../examples/ListNavExample6.vue?raw';
 
-const example = await import('../examples/ListNavExample6.vue?raw');
-const rawTemplate = ref<string>();
 const fmtVueTpl = ref<string>();
 const spaceAround = ref<TSpaceAround>('none');
 const borderVariant = ref<string>('none');
 const itemStyle = ref<string>('none');
-
-rawTemplate.value = parseVueTemplateTag(example.default);
+const rawTemplate = parseVueTemplateTag(Example);
 
 const { itemBorderVariant, spaceAroundSrc, borderVariantSrc, itemStyleSrc } =
   setupListViewNavigation(rawTemplate, fmtVueTpl, spaceAround, borderVariant, itemStyle);

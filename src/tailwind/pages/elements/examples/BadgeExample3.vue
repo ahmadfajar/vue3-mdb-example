@@ -1,5 +1,3 @@
-<script setup lang="ts"></script>
-
 <template>
   <div class="flex flex-wrap md-gap-1">
     <BsBadge {$outlined} {$shape_type} color="bg-gray-800"> gray-800 </BsBadge>

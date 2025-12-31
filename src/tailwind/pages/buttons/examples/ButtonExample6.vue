@@ -1,5 +1,3 @@
-<script setup lang="ts"></script>
-
 <template>
   <div class="flex flex-col gap-8">
     <div class="md-button-group" role="group" style="gap: 2px">

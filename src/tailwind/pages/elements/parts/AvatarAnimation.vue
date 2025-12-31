@@ -2,18 +2,14 @@
 import { changeIconAnimation, iconAnimationVariants } from '@shares/buttonApi.ts';
 import { parseVueTemplateTag, stripAndBeautifyTemplate } from '@shares/sharedApi.ts';
 import { ref, watchEffect } from 'vue';
+import Example from '../examples/AvatarExample2.vue?raw';
 
-const example = await import('../examples/AvatarExample2.vue?raw');
-
-const rawTemplate = ref<string>();
 const fmtVueTpl = ref<string>();
-
-rawTemplate.value = parseVueTemplateTag(example.default);
-
 const animation = ref<string>();
+const rawTemplate = parseVueTemplateTag(Example);
 
 watchEffect(() => {
-  const rawCode = changeIconAnimation(animation, !!animation.value, rawTemplate.value);
+  const rawCode = changeIconAnimation(animation, !!animation.value, rawTemplate);
 
   if (rawCode) {
     fmtVueTpl.value = stripAndBeautifyTemplate(rawCode);
@@ -21,10 +17,7 @@ watchEffect(() => {
 });
 
 const iconAnimations = iconAnimationVariants();
-const contentCls = [
-  'h-full flex items-center justify-center min-h-40',
-  'py-8 px-3 lg:px-6 md:rounded-lg gap-3',
-];
+const contentCls = ['h-full min-h-40 flex items-center justify-center', 'py-8 px-3 lg:px-6 gap-3'];
 </script>
 
 <template>

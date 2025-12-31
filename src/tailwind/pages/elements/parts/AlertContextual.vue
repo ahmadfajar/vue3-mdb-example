@@ -10,22 +10,23 @@ import { parseVueTemplateTag, stripAndBeautifyTemplate } from '@shares/sharedApi
 import { useWatcherDefaultValue, changeComponentVariant } from '@shares/showcaseDataApi.ts';
 import { onBeforeUnmount, ref, watchEffect } from 'vue';
 import { type TAlertVariant, type TIconVariant } from 'vue-mdbootstrap';
+import Example from '../examples/AlertExample2.vue?raw';
 
-const example = await import('../examples/AlertExample2.vue?raw');
-
-const rawTemplate = ref<string>();
 const fmtVueTpl = ref<string>();
-
-rawTemplate.value = parseVueTemplateTag(example.default);
-
-const contextVariant = ref<TAlertVariant | undefined>('success');
 const alertVariant = ref<string>();
+const contextVariant = ref<TAlertVariant | undefined>('success');
 const iconVariant = ref<TIconVariant | undefined>('outlined');
+const rawTemplate = parseVueTemplateTag(Example);
+
+useWatcherDefaultValue(
+  { refObj: contextVariant, default: 'success' },
+  { refObj: iconVariant, default: 'outlined' }
+);
 
 watchEffect(() => {
   let rawCode: string | undefined;
 
-  rawCode = changeAlertContext(contextVariant, rawTemplate.value);
+  rawCode = changeAlertContext(contextVariant, rawTemplate);
   rawCode = changeComponentVariant(alertVariant, rawCode!);
   rawCode = changeIconVariant(iconVariant, rawCode);
 
@@ -34,19 +35,11 @@ watchEffect(() => {
   }
 });
 
-useWatcherDefaultValue(
-  { refObj: contextVariant, default: 'success' },
-  { refObj: iconVariant, default: 'outlined' }
-);
-
 const alertContextSrc = dsAlertContextual();
 const alertVariantSrc = dsAlertVariants();
 const iconVariantSrc = dsIconVariants();
 
-const contentCls = [
-  'h-full flex items-center justify-center min-h-40',
-  'py-8 px-3 lg:px-8 md:rounded-lg',
-];
+const contentCls = ['h-full min-h-40 flex items-center justify-center', 'py-8 px-3 lg:px-8'];
 
 onBeforeUnmount(() => {
   alertContextSrc.proxy.destroy();

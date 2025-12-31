@@ -1,5 +1,3 @@
-<script setup lang="ts"></script>
-
 <template>
   <h2>Example heading <BsBadge>New</BsBadge></h2>
   <h3>Example heading <BsBadge>New</BsBadge></h3>

@@ -2,17 +2,12 @@
 import { parseVueTemplateTag } from '@shares/sharedApi.ts';
 import AvatarExample3 from '@tw/pages/elements/examples/AvatarExample3.vue';
 import { ref } from 'vue';
-
-const example = await import('../examples/AvatarExample3.vue?raw');
+import Example from '../examples/AvatarExample3.vue?raw';
 
 const fmtVueTpl = ref<string>();
+fmtVueTpl.value = parseVueTemplateTag(Example);
 
-fmtVueTpl.value = parseVueTemplateTag(example.default);
-
-const contentCls = [
-  'h-full flex items-center justify-center min-h-40',
-  'py-8 px-3 lg:px-6 md:rounded-lg gap-3',
-];
+const contentCls = ['h-full min-h-40 flex items-center justify-center', 'py-8 px-3 lg:px-6 gap-3'];
 </script>
 
 <template>

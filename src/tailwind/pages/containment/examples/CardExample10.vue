@@ -1,5 +1,3 @@
-<script setup lang="ts"></script>
-
 <template>
   <div class="row row-cols-1 row-cols-sm-2 g-4">
     <div class="col">

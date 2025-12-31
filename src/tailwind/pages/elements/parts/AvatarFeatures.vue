@@ -11,25 +11,21 @@ import { useRefDebounced } from '@shares/debounceRef.ts';
 import { parseVueTemplateTag, stripAndBeautifyTemplate } from '@shares/sharedApi.ts';
 import { dsContextColors } from '@shares/showcaseDataApi.ts';
 import { ref, watchEffect } from 'vue';
+import Example from '../examples/AvatarExample1.vue?raw';
 
-const example = await import('../examples/AvatarExample1.vue?raw');
-
-const rawTemplate = ref<string>();
 const fmtVueTpl = ref<string>();
-
-rawTemplate.value = parseVueTemplateTag(example.default);
-
 const shape = ref<string>();
 const border = ref<number>();
 const borderColor = ref<string>();
 const size = ref<string>();
 const fontSize = ref<number>(100);
 const sizeDebounced = useRefDebounced(size, 800);
+const rawTemplate = parseVueTemplateTag(Example);
 
 watchEffect(() => {
   let rawCode: string | undefined;
 
-  rawCode = changeAvatarShape(shape, rawTemplate.value, true);
+  rawCode = changeAvatarShape(shape, rawTemplate, true);
   rawCode = changeAvatarBorderThickness(border, rawCode, true);
   rawCode = changeAvatarBorderColor(borderColor, rawCode, true);
   rawCode = changeAvatarSize(size, rawCode, true);
@@ -43,8 +39,8 @@ watchEffect(() => {
 const shapeVariantSrc = dsAvatarShapes();
 const borderColorSrc = dsContextColors(['light']);
 const contentCls = [
-  'h-full flex items-center justify-center min-h-40',
-  'py-8 px-3 lg:px-6 max-sm:flex-col md:rounded-lg gap-3',
+  'h-full min-h-40 flex items-center justify-center',
+  'py-8 px-3 lg:px-6 max-sm:flex-col gap-3',
 ];
 </script>
 

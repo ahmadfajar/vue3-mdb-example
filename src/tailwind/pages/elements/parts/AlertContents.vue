@@ -11,24 +11,28 @@ import {
 } from '@shares/showcaseDataApi.ts';
 import { onBeforeUnmount, ref, watchEffect } from 'vue';
 import { Helper, type TIconVariant } from 'vue-mdbootstrap';
+import Example from '../examples/AlertExample3.vue?raw';
 
-const example = await import('../examples/AlertExample3.vue?raw');
-
-const rawTemplate = ref<string>();
 const fmtVueTpl = ref<string>();
-
-rawTemplate.value = parseVueTemplateTag(example.default);
-
 const color = ref<string | undefined>('default');
 const variant = ref<string>();
 const alertIcon = ref<string>();
 const debouncedIcon = useRefDebounced(alertIcon, 800);
 const iconVariant = ref<TIconVariant | undefined>('outlined');
+const rawTemplate = parseVueTemplateTag(Example);
+
+useWatcherDefaultValue(
+  { refObj: color, default: 'default' },
+  { refObj: iconVariant, default: 'outlined' }
+);
 
 watchEffect(() => {
-  let rawCode: string | undefined;
+  let rawCode: string | undefined = rawTemplate;
 
-  rawCode = changeComponentColor(color, rawTemplate.value!);
+  if (color.value && color.value !== 'default') {
+    rawCode = changeComponentColor(color, rawTemplate);
+  }
+
   rawCode = changeComponentVariant(variant, rawCode);
   rawCode = changeIconName(alertIcon, rawCode);
   rawCode = changeIconVariant(iconVariant, rawCode);
@@ -38,15 +42,10 @@ watchEffect(() => {
   }
 });
 
-useWatcherDefaultValue({ refObj: iconVariant, default: 'outlined' });
-
 const alertColorSrc = dsContextColors(['dark']);
 const alertVariantSrc = dsAlertVariants();
 const iconVariantSrc = dsIconVariants();
-const contentCls = [
-  'h-full flex items-center justify-center min-h-40',
-  'py-8 px-3 lg:px-8 md:rounded-lg',
-];
+const contentCls = ['h-full min-h-40 flex items-center justify-center', 'py-8 px-3 lg:px-8'];
 
 onBeforeUnmount(() => {
   alertColorSrc.proxy.destroy();
@@ -58,7 +57,7 @@ onBeforeUnmount(() => {
 <template>
   <div class="w-full">
     <div class="section-content mb-5">
-      <h2>Overview</h2>
+      <h2>Additional Contents</h2>
     </div>
     <ShoutBox :tpl="fmtVueTpl">
       <template #side-panel>
@@ -74,10 +73,9 @@ onBeforeUnmount(() => {
           v-model="alertIcon"
           filled
           floating-label
-          help-text="Ex: verified, notifications"
-          placeholder="Enter icon name"
+          placeholder="Ex: verified, notifications"
         >
-          <label>Show icon</label>
+          <label>Enter icon name</label>
         </BsTextField>
         <BsCombobox
           v-model="iconVariant"

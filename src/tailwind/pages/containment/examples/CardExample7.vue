@@ -1,5 +1,3 @@
-<script setup lang="ts"></script>
-
 <template>
   <BsCard border-off class="bg-rose-800 text-white">
     <BsCardMedia subtitle="Image SubTitle" title="Image Title">

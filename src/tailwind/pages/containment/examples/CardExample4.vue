@@ -1,5 +1,3 @@
-<script setup lang="ts"></script>
-
 <template>
   <BsCard img-bottom-alt="Image Bottom" img-bottom-src="https://picsum.photos/id/425/600/300.jpg">
     <BsCardBody>

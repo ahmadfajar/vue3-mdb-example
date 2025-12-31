@@ -3,22 +3,20 @@ import { parseVueTemplateTag } from '@shares/sharedApi.ts';
 import ImageHolderExample1 from '@tw/pages/elements/examples/ImageHolderExample1.vue';
 import ImageHolderExample2 from '@tw/pages/elements/examples/ImageHolderExample2.vue';
 import { ref } from 'vue';
+import Example1 from '../examples/ImageHolderExample1.vue?raw';
+import Example2 from '../examples/ImageHolderExample2.vue?raw';
 
 const props = defineProps<{ nonRectangle?: boolean }>();
 
-let example;
-
-if (props.nonRectangle) {
-  example = await import('../examples/ImageHolderExample2.vue?raw');
-} else {
-  example = await import('../examples/ImageHolderExample1.vue?raw');
-}
-
 const fmtVueTpl = ref<string>();
 
-fmtVueTpl.value = parseVueTemplateTag(example.default);
+if (props.nonRectangle) {
+  fmtVueTpl.value = parseVueTemplateTag(Example2);
+} else {
+  fmtVueTpl.value = parseVueTemplateTag(Example1);
+}
 
-const contentCls = ['flex items-center min-h-40', 'py-8 px-3 lg:px-6 md:rounded-lg'];
+const contentCls = ['min-h-40 flex items-center', 'py-8 px-3 lg:px-6'];
 </script>
 
 <template>

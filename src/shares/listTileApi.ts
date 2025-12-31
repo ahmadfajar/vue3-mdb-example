@@ -83,7 +83,7 @@ function changeItemPadding(paddingRef: Ref<string | undefined>, data: string): s
 }
 
 export function setupListViewNavigation(
-  rawTpl: Ref<string | undefined>,
+  rawTpl: string,
   vueTpl: Ref<string | undefined>,
   spaceAround: Ref<TSpaceAround>,
   borderVariant: Ref<string>,
@@ -102,7 +102,7 @@ export function setupListViewNavigation(
   watchEffect(() => {
     let rawCode: string | undefined;
 
-    rawCode = changeItemBorderVariant(itemBorderVariant, rawTpl.value!);
+    rawCode = changeItemBorderVariant(itemBorderVariant, rawTpl);
     rawCode = changeItemStyle(itemStyle, rawCode);
     rawCode = changeItemPadding(spaceAround, rawCode);
 

@@ -2,14 +2,12 @@
 import { parseVueTemplateTag } from '@shares/sharedApi.ts';
 import BadgeExample1 from '@tw/pages/elements/examples/BadgeExample1.vue';
 import { ref } from 'vue';
-
-const example = await import('../examples/BadgeExample1.vue?raw');
+import Example from '../examples/BadgeExample1.vue?raw';
 
 const fmtVueTpl = ref<string>();
+const contentCls = ['min-h-40', 'py-8 px-3 lg:px-6 gap-3'];
 
-fmtVueTpl.value = parseVueTemplateTag(example.default);
-
-const contentCls = ['min-h-40', 'py-8 px-3 lg:px-6 md:rounded-lg gap-3'];
+fmtVueTpl.value = parseVueTemplateTag(Example);
 </script>
 
 <template>

@@ -42,12 +42,11 @@ const linkItems = [
     <Transition mode="out-in" name="fade">
       <ListTileState v-if="$route.params.id === 'listview-state'" />
       <ListTileStyles v-else-if="$route.params.id === 'navigation-styles'" />
-      <ListTileUsages v-else-if="$route.params.id === 'images'" usage="image" />
-      <ListTileUsages v-else-if="$route.params.id === 'image-icon'" usage="image-icon" />
-      <ListTileUsages v-else-if="$route.params.id === 'contact-details'" usage="contact-details" />
-      <ListTileUsages v-else-if="$route.params.id === 'input-controls'" usage="input-controls" />
-      <ListTileUsages v-else-if="$route.params.id === 'side-drawer'" usage="side-drawer" />
-      <ListTileUsages v-else usage="simple" />
+      <ListTileUsages
+        v-else
+        :key="$route.params.id as string"
+        :section="$route.params.id as string"
+      />
     </Transition>
   </ContentLayout>
 </template>

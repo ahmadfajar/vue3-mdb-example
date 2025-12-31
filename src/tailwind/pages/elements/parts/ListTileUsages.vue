@@ -7,52 +7,51 @@ import ListTileExample4 from '@tw/pages/elements/examples/ListTileExample4.vue';
 import ListTileExample5 from '@tw/pages/elements/examples/ListTileExample5.vue';
 import ListTileExample6 from '@tw/pages/elements/examples/ListTileExample6.vue';
 import { ref } from 'vue';
+import Example1 from '../examples/ListTileExample1.vue?raw';
+import Example2 from '../examples/ListTileExample2.vue?raw';
+import Example3 from '../examples/ListTileExample3.vue?raw';
+import Example4 from '../examples/ListTileExample4.vue?raw';
+import Example5 from '../examples/ListTileExample5.vue?raw';
+import Example6 from '../examples/ListTileExample6.vue?raw';
 
-const props = defineProps<{ usage: string }>();
+const props = defineProps<{ section?: string }>();
 
 const fmtVueTpl = ref<string>();
 const fmtVueTsc = ref<string>();
 const pageTitle = ref<string>('Basic Example');
-let example;
 
-switch (props.usage) {
-  case 'image':
-    example = await import('../examples/ListTileExample2.vue?raw');
-    fmtVueTpl.value = parseVueTemplateTag(example.default);
-    fmtVueTsc.value = parseVueScriptTag(example.default);
+switch (props.section) {
+  case 'images':
+    fmtVueTpl.value = parseVueTemplateTag(Example2);
+    fmtVueTsc.value = parseVueScriptTag(Example2);
     pageTitle.value = 'with Images';
     break;
   case 'image-icon':
-    example = await import('../examples/ListTileExample3.vue?raw');
-    fmtVueTpl.value = parseVueTemplateTag(example.default);
-    fmtVueTsc.value = parseVueScriptTag(example.default);
+    fmtVueTpl.value = parseVueTemplateTag(Example3);
+    fmtVueTsc.value = parseVueScriptTag(Example3);
     pageTitle.value = 'with Images & Icons';
     break;
   case 'contact-details':
-    example = await import('../examples/ListTileExample4.vue?raw');
-    fmtVueTpl.value = parseVueTemplateTag(example.default);
+    fmtVueTpl.value = parseVueTemplateTag(Example4);
     pageTitle.value = 'Contact Details';
     break;
   case 'input-controls':
-    example = await import('../examples/ListTileExample5.vue?raw');
-    fmtVueTpl.value = parseVueTemplateTag(example.default);
-    fmtVueTsc.value = parseVueScriptTag(example.default);
+    fmtVueTpl.value = parseVueTemplateTag(Example5);
+    fmtVueTsc.value = parseVueScriptTag(Example5);
     pageTitle.value = 'Used with Input Controls';
     break;
   case 'side-drawer':
-    example = await import('../examples/ListTileExample6.vue?raw');
-    fmtVueTpl.value = parseVueTemplateTag(example.default);
-    fmtVueTsc.value = parseVueScriptTag(example.default);
+    fmtVueTpl.value = parseVueTemplateTag(Example6);
+    fmtVueTsc.value = parseVueScriptTag(Example6);
     pageTitle.value = 'Used inside SideDrawer';
     break;
   default:
-    example = await import('../examples/ListTileExample1.vue?raw');
-    fmtVueTpl.value = parseVueTemplateTag(example.default);
+    fmtVueTpl.value = parseVueTemplateTag(Example1);
     break;
 }
 
 const contentCls = [
-  'h-full flex items-center justify-center min-h-40',
+  'h-full min-h-40 flex items-center justify-center',
   'py-8 px-3 lg:px-8 md:rounded-lg text-bg-surface',
 ];
 </script>
@@ -65,11 +64,11 @@ const contentCls = [
     <ShoutBox :tpl="fmtVueTpl" :tsc="fmtVueTsc">
       <template #content>
         <div :class="contentCls">
-          <ListTileExample2 v-if="usage === 'image'" />
-          <ListTileExample3 v-else-if="usage === 'image-icon'" />
-          <ListTileExample4 v-else-if="usage === 'contact-details'" />
-          <ListTileExample5 v-else-if="usage === 'input-controls'" />
-          <ListTileExample6 v-else-if="usage === 'side-drawer'" />
+          <ListTileExample2 v-if="section === 'images'" />
+          <ListTileExample3 v-else-if="section === 'image-icon'" />
+          <ListTileExample4 v-else-if="section === 'contact-details'" />
+          <ListTileExample5 v-else-if="section === 'input-controls'" />
+          <ListTileExample6 v-else-if="section === 'side-drawer'" />
           <ListTileExample1 v-else />
         </div>
       </template>

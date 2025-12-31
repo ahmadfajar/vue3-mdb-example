@@ -1,5 +1,3 @@
-<script setup lang="ts"></script>
-
 <template>
   <div class="flex flex-col gap-y-4">
     <div class="flex items-center">

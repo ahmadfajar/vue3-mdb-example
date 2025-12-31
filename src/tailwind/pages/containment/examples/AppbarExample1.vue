@@ -1,5 +1,3 @@
-<script setup lang="ts"></script>
-
 <template>
   <BsApp>
     <BsAppbar class="bg-default" shadow>

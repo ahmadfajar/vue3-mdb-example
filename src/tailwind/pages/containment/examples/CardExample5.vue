@@ -1,5 +1,3 @@
-<script setup lang="ts"></script>
-
 <template>
   <BsCard>
     <div class="row g-0">
