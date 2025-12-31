@@ -1,5 +1,3 @@
-<script setup lang="ts"></script>
-
 <template>
   <div class="row row-cols-2 gx-5">
     <div class="col flex flex-col items-center">

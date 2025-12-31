@@ -1,5 +1,3 @@
-<script setup lang="ts"></script>
-
 <template>
   <div class="flex md-gap-4">
     <div class="flex items-center justify-center bg-indigo-700 rounded-xl size-20">

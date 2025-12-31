@@ -2,15 +2,12 @@
 import { parseVueTemplateTag } from '@shares/sharedApi.ts';
 import SpinnerIconExample from '@tw/pages/icons/examples/SpinnerIconExample.vue';
 import { ref } from 'vue';
+import Example from './examples/SpinnerIconExample.vue?raw';
 
 const fmtVueTpl = ref<string>();
+const contentCls = ['h-full min-h-40 flex items-center justify-center', 'py-8 px-3 lg:px-8'];
 
-const example = await import('./examples/SpinnerIconExample.vue?raw');
-fmtVueTpl.value = parseVueTemplateTag(example.default);
-const contentCls = [
-  'h-full min-h-40 flex items-center justify-center',
-  'py-8 px-3 lg:px-8 md:rounded-lg',
-];
+fmtVueTpl.value = parseVueTemplateTag(Example);
 </script>
 
 <template>
