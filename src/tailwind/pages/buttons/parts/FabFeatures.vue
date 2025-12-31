@@ -2,10 +2,10 @@
 import {
   changeButtonSize,
   changeButtonState,
+  changeButtonVariant,
   changeIconAnimation,
   dsButtonSizes,
   dsFabButtonVariants,
-  iconAnimationVariants,
 } from '@shares/buttonApi.ts';
 import { parseVueTemplateTag, stripAndBeautifyTemplate } from '@shares/sharedApi.ts';
 import {
@@ -13,42 +13,33 @@ import {
   dsComponentStates,
   dsContextColors,
 } from '@shares/showcaseDataApi.ts';
-import { nextTick, onBeforeUnmount, onMounted, ref, watch, watchEffect } from 'vue';
+import { nextTick, onBeforeUnmount, type Ref, ref, watch, watchEffect } from 'vue';
 import { type TButtonColor, type TButtonSize } from 'vue-mdbootstrap';
+import Example1 from '../examples/ButtonExample3.vue?raw';
+import Example2 from '../examples/ButtonExample4.vue?raw';
 
 const props = defineProps<{ extended?: boolean }>();
 
-let example, iconName: string | undefined;
-
-if (props.extended) {
-  example = await import('../examples/ButtonExample4.vue?raw');
-  iconName = 'navigation';
-} else {
-  example = await import('../examples/ButtonExample3.vue?raw');
-  iconName = 'shopping_cart';
-}
-
+let iconName: string | undefined;
 const rawTemplate = ref<string>();
 const fmtVueTpl = ref<string | null | undefined>();
 
-rawTemplate.value = parseVueTemplateTag(example.default);
+if (props.extended) {
+  rawTemplate.value = parseVueTemplateTag(Example2);
+  iconName = 'navigation';
+} else {
+  rawTemplate.value = parseVueTemplateTag(Example1);
+  iconName = 'shopping_cart';
+}
 
-const btnVariant = ref<string>();
+const btnVariant = ref<string | undefined>('filled');
 const btnColor = ref<TButtonColor | undefined>('default');
 const btnSize = ref<string | undefined>('md');
 const btnState = ref<string | undefined>();
-const btnIcon = ref<string>();
+const btnIcon = ref<string | undefined>(`${iconName}_${btnVariant.value}`);
 const iconSize = ref(28);
 const hasAnimation = ref(false);
 const iconAnimation = ref<string>();
-
-function changeButtonVariant(data?: string): string | undefined {
-  if (btnVariant.value === 'outlined') {
-    return data?.replace('{$variants}', 'outlined');
-  } else {
-    return data;
-  }
-}
 
 function changeButtonIcon(data?: string): string | undefined {
   const tmp = data?.replace('{$icon}', `icon="${btnIcon.value}"`);
@@ -56,20 +47,10 @@ function changeButtonIcon(data?: string): string | undefined {
   return tmp?.replace('{$iconSize}', `icon-size="${iconSize.value}"`);
 }
 
-watchEffect(() => {
-  let rawCode: string | undefined;
-
-  rawCode = changeButtonVariant(rawTemplate.value);
-  rawCode = changeComponentColor(btnColor, rawCode!);
-  rawCode = changeButtonSize(btnSize, rawCode);
-  rawCode = changeButtonState(btnState, rawCode);
-  rawCode = changeButtonIcon(rawCode);
-  rawCode = changeIconAnimation(iconAnimation, hasAnimation.value, rawCode);
-
-  if (rawCode) {
-    fmtVueTpl.value = stripAndBeautifyTemplate(rawCode);
-  }
-});
+function stopAnimation() {
+  hasAnimation.value = false;
+  iconAnimation.value = undefined;
+}
 
 watch(btnSize, async (value) => {
   if (value === 'lg') {
@@ -102,22 +83,34 @@ watch(btnVariant, async (value) => {
   });
 });
 
-watch(hasAnimation, (value) => {
-  iconAnimation.value = value ? iconAnimation.value : undefined;
+watchEffect(() => {
+  let rawCode = rawTemplate.value;
+
+  btnColor.value = !btnColor.value ? 'default' : btnColor.value;
+  hasAnimation.value = !!iconAnimation.value;
+
+  if (btnVariant.value === 'outlined') {
+    rawCode = changeButtonVariant(btnVariant, rawTemplate.value);
+  }
+  if (btnColor.value !== 'default') {
+    rawCode = changeComponentColor(btnColor, rawCode!);
+  }
+
+  rawCode = changeButtonSize(btnSize as Ref<TButtonSize>, rawCode);
+  rawCode = changeButtonState(btnState, rawCode);
+  rawCode = changeButtonIcon(rawCode);
+  rawCode = changeIconAnimation(iconAnimation, hasAnimation.value, rawCode);
+
+  if (rawCode) {
+    fmtVueTpl.value = stripAndBeautifyTemplate(rawCode);
+  }
 });
 
 const btnVariants = dsFabButtonVariants();
 const btnColors = dsContextColors();
 const btnSizes = dsButtonSizes();
 const btnStates = dsComponentStates();
-const iconAnimations = iconAnimationVariants();
-const contentCls = ['h-full flex items-center justify-center min-h-40 px-6 py-8 md:rounded-lg'];
-
-onMounted(() => {
-  // trigger reactivity on first load
-  btnVariant.value = 'filled';
-  btnIcon.value = `${iconName}_${btnVariant.value}`;
-});
+const contentCls = ['h-full min-h-40 flex items-center justify-center px-6 py-8 md:rounded-lg'];
 
 onBeforeUnmount(() => {
   btnVariants.proxy.destroy();
@@ -149,15 +142,19 @@ onBeforeUnmount(() => {
           <label>State:</label>
         </BsCombobox>
 
-        <div class="flex flex-col ps-2">
-          <BsCheckbox v-model="hasAnimation" :value="true"> Icon Animation </BsCheckbox>
-          <BsRadioGroup
-            v-model="iconAnimation"
-            :disabled="!hasAnimation"
-            :items="iconAnimations"
-            class="mt-2"
-            column="2"
-          />
+        <div class="ps-2">
+          <div class="mt-3 mb-1 select-none font-weight-medium">Animation:</div>
+          <div class="row row-cols-2">
+            <div class="col">
+              <BsRadio v-model="iconAnimation" value="spin"> Spin </BsRadio>
+            </div>
+            <div class="col">
+              <BsRadio v-model="iconAnimation" value="pulse"> Pulse </BsRadio>
+            </div>
+          </div>
+        </div>
+        <div class="grid mb-4">
+          <BsButton :disabled="!hasAnimation" @click="stopAnimation()"> Stop Animation </BsButton>
         </div>
       </template>
 

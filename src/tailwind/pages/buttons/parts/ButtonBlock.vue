@@ -2,11 +2,10 @@
 import { parseVueTemplateTag } from '@shares/sharedApi.ts';
 import ButtonExample5 from '@tw/pages/buttons/examples/ButtonExample5.vue';
 import { ref } from 'vue';
+import Example from '../examples/ButtonExample5.vue?raw';
 
-const example = await import('../examples/ButtonExample5.vue?raw');
-const fmtVueTpl = ref<string | null | undefined>();
-
-fmtVueTpl.value = parseVueTemplateTag(example.default);
+const fmtVueTpl = ref<string>();
+fmtVueTpl.value = parseVueTemplateTag(Example);
 </script>
 
 <template>

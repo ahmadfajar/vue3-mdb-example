@@ -1,33 +1,28 @@
 <script setup lang="ts">
 import {
-  buttonIconPositions,
   changeButtonElevated,
   changeButtonShape,
   changeButtonSize,
   changeButtonState,
   changeButtonVariant,
   changeIconAnimation,
+  changeIconPosition,
   dsButtonShapes,
   dsButtonSizes,
   dsButtonVariants,
-  iconAnimationVariants,
 } from '@shares/buttonApi.ts';
 import { parseVueTemplateTag, stripAndBeautifyTemplate } from '@shares/sharedApi.ts';
 import {
-  useWatcherDefaultValue,
   changeComponentColor,
   dsComponentStates,
   dsContextColors,
+  useWatcherDefaultValue,
 } from '@shares/showcaseDataApi.ts';
-import { nextTick, onBeforeUnmount, ref, watch, watchEffect } from 'vue';
+import { nextTick, onBeforeUnmount, type Ref, ref, watch, watchEffect } from 'vue';
 import { type TButtonColor, type TButtonSize, type TIconPosition } from 'vue-mdbootstrap';
+import Example from '../examples/ButtonExample1.vue?raw';
 
-const example = await import('../examples/ButtonExample1.vue?raw');
-const rawTemplate = ref<string>();
-const fmtVueTpl = ref<string | null | undefined>();
-
-rawTemplate.value = parseVueTemplateTag(example.default);
-
+const fmtVueTpl = ref<string>();
 const iconName = 'settings';
 const tabIndex = ref(0);
 const btnColor = ref<TButtonColor>('default');
@@ -36,15 +31,16 @@ const btnShape = ref<string | undefined>('pill');
 const btnSize = ref<string | undefined>('md');
 const btnState = ref<string | undefined>();
 const btnElevated = ref(false);
-const hasIcon = ref(false);
+const showIcon = ref(false);
 const btnIcon = ref<string>();
 const iconPosition = ref<TIconPosition>('left');
 const iconSize = ref(24);
 const hasAnimation = ref(false);
 const iconAnimation = ref<string>();
+const rawTemplate = parseVueTemplateTag(Example);
 
 function changeIconSize(data?: string): string | undefined {
-  if (hasIcon.value) {
+  if (showIcon.value) {
     const tmp = data?.replace('{$icon}', `icon="${btnIcon.value}"`);
 
     switch (btnSize.value) {
@@ -60,36 +56,14 @@ function changeIconSize(data?: string): string | undefined {
   return data;
 }
 
-function changeIconPosition(data?: string): string | undefined {
-  if (hasIcon.value && iconPosition.value) {
-    return iconPosition.value === 'right'
-      ? data?.replace('{$iconPosition}', `icon-position="right"`)
-      : data;
-  }
-
-  return data;
+function stopAnimation() {
+  hasAnimation.value = false;
+  iconAnimation.value = undefined;
 }
-
-watchEffect(() => {
-  let rawCode: string | undefined;
-
-  rawCode = changeButtonVariant(btnVariant, rawTemplate.value);
-  rawCode = changeComponentColor(btnColor, rawCode!);
-  rawCode = changeButtonShape(btnShape, rawCode);
-  rawCode = changeButtonSize(btnSize, rawCode);
-  rawCode = changeButtonState(btnState, rawCode);
-  rawCode = changeButtonElevated(btnElevated, rawCode);
-  rawCode = changeIconSize(rawCode);
-  rawCode = changeIconPosition(rawCode);
-  rawCode = changeIconAnimation(iconAnimation, hasAnimation.value, rawCode);
-
-  if (rawCode) {
-    fmtVueTpl.value = stripAndBeautifyTemplate(rawCode);
-  }
-});
 
 useWatcherDefaultValue(
   { refObj: btnVariant, default: 'filled' },
+  { refObj: btnColor, default: 'default' },
   { refObj: btnShape, default: 'pill' }
 );
 
@@ -110,7 +84,7 @@ watch(btnSize, async (value) => {
     });
   }
 
-  if (hasIcon.value) {
+  if (showIcon.value) {
     btnIcon.value = undefined;
     await nextTick(() => {
       btnIcon.value = iconName;
@@ -118,13 +92,31 @@ watch(btnSize, async (value) => {
   }
 });
 
-watch(hasIcon, (value) => {
-  btnIcon.value = value ? iconName : undefined;
-  iconAnimation.value = value ? iconAnimation.value : undefined;
-});
+watchEffect(() => {
+  let rawCode: string | undefined;
 
-watch(hasAnimation, (value) => {
-  iconAnimation.value = value ? iconAnimation.value : undefined;
+  btnIcon.value = showIcon.value ? iconName : undefined;
+  iconAnimation.value = showIcon.value ? iconAnimation.value : undefined;
+  hasAnimation.value = !!iconAnimation.value;
+
+  rawCode = changeButtonVariant(btnVariant, rawTemplate);
+  if (btnColor.value !== 'default') {
+    rawCode = changeComponentColor(btnColor, rawCode!);
+  }
+
+  rawCode = changeButtonShape(btnShape, rawCode);
+  rawCode = changeButtonSize(btnSize as Ref<TButtonSize | undefined>, rawCode);
+  rawCode = changeButtonState(btnState, rawCode);
+  rawCode = changeButtonElevated(btnElevated, rawCode);
+  rawCode = changeIconSize(rawCode);
+  rawCode = changeIconAnimation(iconAnimation, hasAnimation.value, rawCode);
+
+  if (showIcon.value) {
+    rawCode = changeIconPosition(iconPosition, rawCode);
+  }
+  if (rawCode) {
+    fmtVueTpl.value = stripAndBeautifyTemplate(rawCode);
+  }
 });
 
 const btnColors = dsContextColors();
@@ -132,8 +124,6 @@ const btnVariants = dsButtonVariants();
 const btnShapes = dsButtonShapes();
 const btnSizes = dsButtonSizes();
 const btnStates = dsComponentStates();
-const iconPositions = buttonIconPositions();
-const iconAnimations = iconAnimationVariants();
 
 onBeforeUnmount(() => {
   btnColors.proxy.destroy();
@@ -151,7 +141,7 @@ onBeforeUnmount(() => {
     </div>
     <ShoutBox :tpl="fmtVueTpl">
       <template #side-panel>
-        <div class="min-h-112">
+        <div class="min-h-124">
           <h5 class="mt-2">Configuration Options:</h5>
 
           <BsTabs v-model="tabIndex" class="-mx-3 mt-2" variant="md3">
@@ -159,6 +149,9 @@ onBeforeUnmount(() => {
               <div class="flex flex-col gap-y-4">
                 <BsCombobox v-model="btnVariant" :data-source="btnVariants" filled floating-label>
                   <label>Variant:</label>
+                </BsCombobox>
+                <BsCombobox v-model="btnShape" :data-source="btnShapes" filled floating-label>
+                  <label>Shape:</label>
                 </BsCombobox>
                 <BsCombobox v-model="btnColor" :data-source="btnColors" filled floating-label>
                   <label>Color:</label>
@@ -172,10 +165,7 @@ onBeforeUnmount(() => {
               </div>
             </BsTab>
             <BsTab label="Others">
-              <BsCombobox v-model="btnShape" :data-source="btnShapes" filled floating-label>
-                <label>Shape:</label>
-              </BsCombobox>
-              <div class="ps-2 mt-4">
+              <div class="ps-2">
                 <div class="flex flex-col gap-y-1">
                   <BsCheckbox
                     v-model="btnElevated"
@@ -184,27 +174,37 @@ onBeforeUnmount(() => {
                   >
                     Elevated
                   </BsCheckbox>
-                  <BsCheckbox v-model="hasIcon" :value="true">Show Icon</BsCheckbox>
+                  <BsCheckbox v-model="showIcon" :value="true">Show Icon</BsCheckbox>
                 </div>
-                <BsRadioGroup
-                  v-model="iconPosition"
-                  :disabled="!hasIcon"
-                  :items="iconPositions"
-                  column="2"
-                >
-                  <div class="col-form-label select-none">Icon Position:</div>
-                </BsRadioGroup>
-                <div class="mt-2">
-                  <BsCheckbox v-model="hasAnimation" :disabled="!hasIcon" :value="true">
-                    Animation
-                  </BsCheckbox>
-                  <BsRadioGroup
-                    v-model="iconAnimation"
-                    :disabled="!hasIcon || !hasAnimation"
-                    :items="iconAnimations"
-                    column="2"
-                  />
+
+                <div class="mt-3 mb-1 select-none font-weight-medium">Icon Position:</div>
+                <div class="row row-cols-2">
+                  <div class="col">
+                    <BsRadio v-model="iconPosition" value="left"> Left </BsRadio>
+                  </div>
+                  <div class="col">
+                    <BsRadio v-model="iconPosition" value="right"> Right </BsRadio>
+                  </div>
                 </div>
+
+                <div class="mt-3 mb-1 select-none font-weight-medium">Animation:</div>
+                <div class="row row-cols-2">
+                  <div class="col">
+                    <BsRadio v-model="iconAnimation" :disabled="!showIcon" value="spin">
+                      Spin
+                    </BsRadio>
+                  </div>
+                  <div class="col">
+                    <BsRadio v-model="iconAnimation" :disabled="!showIcon" value="pulse">
+                      Pulse
+                    </BsRadio>
+                  </div>
+                </div>
+              </div>
+              <div class="grid mt-5">
+                <BsButton :disabled="!hasAnimation" @click="stopAnimation()">
+                  Stop Animation
+                </BsButton>
               </div>
             </BsTab>
           </BsTabs>
@@ -214,7 +214,7 @@ onBeforeUnmount(() => {
       <template #content>
         <div
           :class="[
-            'h-full flex items-center justify-center min-h-40 px-6 py-8 md:rounded-lg',
+            'h-full min-h-40 flex items-center justify-center px-6 py-8 md:rounded-lg',
             btnColor === 'light' && btnVariant !== 'filled' && btnState !== 'disabled'
               ? 'bg-gray-800'
               : '',

@@ -2,11 +2,10 @@
 import { parseVueTemplateTag } from '@shares/sharedApi.ts';
 import ButtonExample6 from '@tw/pages/buttons/examples/ButtonExample6.vue';
 import { ref } from 'vue';
+import Example from '../examples/ButtonExample6.vue?raw';
 
-const example = await import('../examples/ButtonExample6.vue?raw');
-const fmtVueTpl = ref<string | null | undefined>();
-
-fmtVueTpl.value = parseVueTemplateTag(example.default);
+const fmtVueTpl = ref<string>();
+fmtVueTpl.value = parseVueTemplateTag(Example);
 </script>
 
 <template>
@@ -16,7 +15,7 @@ fmtVueTpl.value = parseVueTemplateTag(example.default);
     </div>
     <ShoutBox :tpl="fmtVueTpl">
       <template #content>
-        <div class="h-full flex items-center justify-center min-h-40 px-6 py-8 md:rounded-lg">
+        <div class="h-full min-h-40 flex items-center justify-center px-6 py-8">
           <ButtonExample6 />
         </div>
       </template>

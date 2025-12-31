@@ -7,19 +7,14 @@ import {
   changeIconAnimation,
   dsButtonSizes,
   dsButtonVariants,
-  iconAnimationVariants,
 } from '@shares/buttonApi.ts';
 import { parseVueTemplateTag, stripAndBeautifyTemplate } from '@shares/sharedApi.ts';
-import { useWatcherDefaultValue, dsComponentStates } from '@shares/showcaseDataApi.ts';
-import { nextTick, onBeforeUnmount, ref, watch, watchEffect } from 'vue';
+import { dsComponentStates, useWatcherDefaultValue } from '@shares/showcaseDataApi.ts';
+import { nextTick, onBeforeUnmount, type Ref, ref, watch, watchEffect } from 'vue';
 import type { TButtonSize } from 'vue-mdbootstrap';
+import Example from '../examples/ButtonExample2.vue?raw';
 
-const example = await import('../examples/ButtonExample2.vue?raw');
-const rawTemplate = ref<string>();
 const fmtVueTpl = ref<string | null | undefined>();
-
-rawTemplate.value = parseVueTemplateTag(example.default);
-
 const iconName = 'settings';
 const btnVariant = ref<string | undefined>('filled');
 const btnSize = ref<string | undefined>('md');
@@ -29,6 +24,7 @@ const btnIcon = ref<string | undefined>(iconName);
 const iconSize = ref(24);
 const hasAnimation = ref(false);
 const iconAnimation = ref<string>();
+const rawTemplate = parseVueTemplateTag(Example);
 
 function changeButtonIcon(data?: string): string | undefined {
   const tmp = data?.replace('{$icon}', `icon="${iconName}"`);
@@ -43,20 +39,10 @@ function changeButtonIcon(data?: string): string | undefined {
   }
 }
 
-watchEffect(() => {
-  let rawCode: string | undefined;
-
-  rawCode = changeButtonVariant(btnVariant, rawTemplate.value);
-  rawCode = changeButtonSize(btnSize, rawCode);
-  rawCode = changeButtonState(btnState, rawCode);
-  rawCode = changeButtonElevated(btnElevated, rawCode);
-  rawCode = changeButtonIcon(rawCode);
-  rawCode = changeIconAnimation(iconAnimation, hasAnimation.value, rawCode);
-
-  if (rawCode) {
-    fmtVueTpl.value = stripAndBeautifyTemplate(rawCode);
-  }
-});
+function stopAnimation() {
+  hasAnimation.value = false;
+  iconAnimation.value = undefined;
+}
 
 useWatcherDefaultValue({ refObj: btnVariant, default: 'filled' });
 
@@ -80,14 +66,25 @@ watch(btnSize, async (value) => {
   });
 });
 
-watch(hasAnimation, (value) => {
-  iconAnimation.value = value ? iconAnimation.value : undefined;
+watchEffect(() => {
+  let rawCode: string | undefined;
+
+  hasAnimation.value = !!iconAnimation.value;
+  rawCode = changeButtonVariant(btnVariant, rawTemplate);
+  rawCode = changeButtonSize(btnSize as Ref<TButtonSize>, rawCode);
+  rawCode = changeButtonState(btnState, rawCode);
+  rawCode = changeButtonElevated(btnElevated, rawCode);
+  rawCode = changeButtonIcon(rawCode);
+  rawCode = changeIconAnimation(iconAnimation, hasAnimation.value, rawCode);
+
+  if (rawCode) {
+    fmtVueTpl.value = stripAndBeautifyTemplate(rawCode);
+  }
 });
 
 const btnVariants = dsButtonVariants();
 const btnSizes = dsButtonSizes();
 const btnStates = dsComponentStates();
-const iconAnimations = iconAnimationVariants();
 
 onBeforeUnmount(() => {
   btnVariants.proxy.destroy();
@@ -123,19 +120,23 @@ onBeforeUnmount(() => {
           >
             Elevated
           </BsCheckbox>
-          <BsCheckbox v-model="hasAnimation" :value="true" class="mt-3"> Icon Animation</BsCheckbox>
-          <BsRadioGroup
-            v-model="iconAnimation"
-            :disabled="!hasAnimation"
-            :items="iconAnimations"
-            class="mt-2"
-            column="2"
-          />
+          <div class="mt-3 mb-1 select-none font-weight-medium">Animation:</div>
+          <div class="row row-cols-2">
+            <div class="col">
+              <BsRadio v-model="iconAnimation" value="spin"> Spin </BsRadio>
+            </div>
+            <div class="col">
+              <BsRadio v-model="iconAnimation" value="pulse"> Pulse </BsRadio>
+            </div>
+          </div>
+        </div>
+        <div class="grid mb-4">
+          <BsButton :disabled="!hasAnimation" @click="stopAnimation()"> Stop Animation </BsButton>
         </div>
       </template>
 
       <template #content>
-        <div class="h-full flex items-center justify-center min-h-40 px-6 py-8">
+        <div class="h-full min-h-40 flex items-center justify-center px-6 py-8">
           <BsButton
             :active="btnState === 'active'"
             :disabled="btnState === 'disabled'"

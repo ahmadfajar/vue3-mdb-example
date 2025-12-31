@@ -14,13 +14,9 @@ import { parseVueTemplateTag, stripAndBeautifyTemplate } from '@shares/sharedApi
 import { useWatcherDefaultValue } from '@shares/showcaseDataApi.ts';
 import { nextTick, onBeforeUnmount, ref, watch, watchEffect } from 'vue';
 import type { TButtonSize, TIconFlip, TIconPosition, TIconRotation } from 'vue-mdbootstrap';
+import Example from '../examples/ButtonExample1.vue?raw';
 
-const example = await import('../examples/ButtonExample1.vue?raw');
-const rawTemplate = ref<string>();
-const fmtVueTpl = ref<string | null | undefined>();
-
-rawTemplate.value = parseVueTemplateTag(example.default);
-
+const fmtVueTpl = ref<string>();
 const iconName = 'shopping_cart';
 const btnVariant = ref<string | undefined>('filled');
 const btnSize = ref<string | undefined>('md');
@@ -29,6 +25,7 @@ const iconPosition = ref<TIconPosition>('left');
 const iconSize = ref(24);
 const iconFlip = ref<TIconFlip>();
 const iconRotation = ref<TIconRotation>();
+const rawTemplate = parseVueTemplateTag(Example);
 
 function changeButtonSize(data?: string): string | undefined {
   let tmp = data?.replace('{$icon}', `icon="${btnIcon.value}"`);
@@ -44,19 +41,7 @@ function changeButtonSize(data?: string): string | undefined {
   }
 }
 
-watchEffect(() => {
-  let rawCode: string | undefined;
-
-  rawCode = changeButtonVariant(btnVariant, rawTemplate.value);
-  rawCode = changeButtonSize(rawCode);
-  rawCode = changeIconFlip(iconFlip, rawCode);
-  rawCode = changeIconRotation(iconRotation, rawCode);
-  rawCode = changeIconPosition(iconPosition, rawCode);
-
-  if (rawCode) {
-    fmtVueTpl.value = stripAndBeautifyTemplate(rawCode);
-  }
-});
+useWatcherDefaultValue({ refObj: btnVariant, default: 'filled' });
 
 watch(btnSize, async (value) => {
   if (value === 'lg') {
@@ -78,7 +63,19 @@ watch(btnSize, async (value) => {
   });
 });
 
-useWatcherDefaultValue({ refObj: btnVariant, default: 'filled' });
+watchEffect(() => {
+  let rawCode: string | undefined;
+
+  rawCode = changeButtonVariant(btnVariant, rawTemplate);
+  rawCode = changeButtonSize(rawCode);
+  rawCode = changeIconFlip(iconFlip, rawCode);
+  rawCode = changeIconRotation(iconRotation, rawCode);
+  rawCode = changeIconPosition(iconPosition, rawCode);
+
+  if (rawCode) {
+    fmtVueTpl.value = stripAndBeautifyTemplate(rawCode);
+  }
+});
 
 const btnVariants = dsButtonVariants();
 const btnSizes = dsButtonSizes();
@@ -136,7 +133,7 @@ onBeforeUnmount(() => {
       </template>
 
       <template #content>
-        <div class="h-full flex items-center justify-center min-h-40 px-6 py-8 md:rounded-lg">
+        <div class="h-full min-h-40 flex items-center justify-center px-6 py-8">
           <BsButton
             :flat="btnVariant === 'flat'"
             :icon="btnIcon"
