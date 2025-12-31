@@ -5,31 +5,35 @@ import LightboxExample2 from '@tw/pages/overlays/examples/LightboxExample2.vue';
 import LightboxExample3 from '@tw/pages/overlays/examples/LightboxExample3.vue';
 import LightboxExample4 from '@tw/pages/overlays/examples/LightboxExample4.vue';
 import { ref } from 'vue';
+import Example1 from '../examples/LightboxExample1.vue?raw';
+import Example2 from '../examples/LightboxExample2.vue?raw';
+import Example3 from '../examples/LightboxExample3.vue?raw';
+import Example4 from '../examples/LightboxExample4.vue?raw';
 
 const props = defineProps<{ section?: string }>();
 
-let example;
 const fmtVueTpl = ref<string>();
 const fmtVueTsc = ref<string>();
 const pageTitle = ref('Overview');
 
 if (props.section === 'images-videos') {
-  example = await import('../examples/LightboxExample2.vue?raw');
   pageTitle.value = 'Images and Videos Example';
+  fmtVueTpl.value = parseVueTemplateTag(Example2);
+  fmtVueTsc.value = parseVueScriptTag(Example2);
 } else if (props.section === 'single-image') {
-  example = await import('../examples/LightboxExample3.vue?raw');
   pageTitle.value = 'Single Image Example';
+  fmtVueTpl.value = parseVueTemplateTag(Example3);
+  fmtVueTsc.value = parseVueScriptTag(Example3);
 } else if (props.section === 'custom-toolbar') {
-  example = await import('../examples/LightboxExample4.vue?raw');
   pageTitle.value = 'Custom Toolbar Example';
+  fmtVueTpl.value = parseVueTemplateTag(Example4);
+  fmtVueTsc.value = parseVueScriptTag(Example4);
 } else {
-  example = await import('../examples/LightboxExample1.vue?raw');
+  fmtVueTpl.value = parseVueTemplateTag(Example1);
+  fmtVueTsc.value = parseVueScriptTag(Example1);
 }
 
-fmtVueTpl.value = parseVueTemplateTag(example.default);
-fmtVueTsc.value = parseVueScriptTag(example.default);
-
-const contentCls = ['h-full min-h-40 flex items-center', 'py-8 px-3 lg:px-8 md:rounded-lg'];
+const contentCls = ['h-full min-h-40 flex items-center', 'py-8 px-3 lg:px-8'];
 </script>
 
 <template>

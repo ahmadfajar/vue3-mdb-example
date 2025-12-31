@@ -9,9 +9,8 @@ import { parseVueTemplateTag, stripAndBeautifyTemplate } from '@shares/sharedApi
 import { useWatcherDefaultValue } from '@shares/showcaseDataApi.ts';
 import { onBeforeUnmount, ref, watchEffect } from 'vue';
 import type { TNotificationPosition, TNotificationVariant } from 'vue-mdbootstrap';
+import Example from '../examples/NotificationExample1.vue?raw';
 
-const example = await import('../examples/NotificationExample1.vue?raw');
-const rawTemplate = ref<string>();
 const fmtVueTpl = ref<string>();
 const notificationVariant = ref<TNotificationVariant>('default');
 const notificationPosition = ref<TNotificationPosition>('bottom-right');
@@ -19,7 +18,7 @@ const showProgressBar = ref(false);
 const hideIcon = ref(false);
 const hideTitle = ref(false);
 
-rawTemplate.value = parseVueTemplateTag(example.default);
+const rawTemplate = parseVueTemplateTag(Example);
 
 useWatcherDefaultValue(
   { refObj: notificationVariant, default: 'default' },
@@ -33,7 +32,7 @@ watchEffect(() => {
     showProgressBar.value,
     hideIcon.value,
     hideTitle.value,
-    rawTemplate.value!
+    rawTemplate
   );
 
   fmtVueTpl.value = stripAndBeautifyTemplate(rawCode);
@@ -41,10 +40,7 @@ watchEffect(() => {
 
 const notificationVariantSrc = dsNotificationVariants();
 const notificationPositionSrc = dsNotificationPositions();
-const contentCls = [
-  'h-full min-h-40 flex items-center justify-center',
-  'py-8 px-3 lg:px-8 md:rounded-lg',
-];
+const contentCls = ['h-full min-h-40 flex items-center justify-center', 'py-8 px-3 lg:px-8'];
 
 onBeforeUnmount(() => {
   notificationVariantSrc.proxy.destroy();

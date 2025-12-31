@@ -11,10 +11,11 @@ import {
 } from '@shares/sharedApi.ts';
 import { loremIpsumText } from '@shares/showcaseDataApi.ts';
 import { ref, watchEffect } from 'vue';
+import Example1 from '../examples/MaskLoaderExample1.vue?raw';
+import Example2 from '../examples/MaskLoaderExample2.vue?raw';
 
 const props = defineProps<{ section?: string }>();
 
-let example;
 const rawTemplate = ref<string>();
 const fmtVueTpl = ref<string>();
 const fmtVueTsc = ref<string>();
@@ -23,14 +24,13 @@ const showLoader = ref<boolean>(false);
 const pageTitle = ref('Overview');
 
 if (props.section === 'color-size') {
-  example = await import('../examples/MaskLoaderExample2.vue?raw');
   pageTitle.value = 'Color and Size Example';
+  rawTemplate.value = parseVueTemplateTag(Example2);
+  fmtVueTsc.value = parseVueScriptTag(Example2);
 } else {
-  example = await import('../examples/MaskLoaderExample1.vue?raw');
+  rawTemplate.value = parseVueTemplateTag(Example1);
+  fmtVueTsc.value = parseVueScriptTag(Example1);
 }
-
-rawTemplate.value = parseVueTemplateTag(example.default);
-fmtVueTsc.value = parseVueScriptTag(example.default);
 
 watchEffect(() => {
   let rawCode = changeMaskLoaderType(maskLoaderType, rawTemplate.value!);
@@ -43,10 +43,7 @@ watchEffect(() => {
 });
 
 const maskLoaderTypes = dsMaskLoaderTypes();
-const contentCls = [
-  'h-full min-h-40 flex items-center justify-center',
-  'py-8 px-3 lg:px-8 md:rounded-lg',
-];
+const contentCls = ['h-full min-h-40 flex items-center justify-center', 'py-8 px-3 lg:px-8'];
 </script>
 
 <template>
