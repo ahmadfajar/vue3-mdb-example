@@ -18,23 +18,23 @@ import {
   stripAndBeautifyTemplate,
 } from '@shares/sharedApi.ts';
 import { useWatcherDefaultValue, dsContextColors } from '@shares/showcaseDataApi.ts';
-import { nextTick, onBeforeUnmount, ref, watch, watchEffect } from 'vue';
+import { nextTick, onBeforeUnmount, type Ref, ref, watch, watchEffect } from 'vue';
 import {
   Helper,
+  type TButtonSize,
   type TChipOptionItem,
   type TChipSize,
   type TChipValue,
   type TExtendedContextColor,
 } from 'vue-mdbootstrap';
+import Example1 from '../examples/ChipGroupExample1.vue?raw';
+import Example2 from '../examples/ChipGroupExample2.vue?raw';
+import Example3 from '../examples/ChipGroupExample3.vue?raw';
+import Example4 from '../examples/ChipGroupExample4.vue?raw';
+import Example5 from '../examples/ChipGroupExample5.vue?raw';
+import Example6 from '../examples/ChipGroupExample6.vue?raw';
 
 const props = defineProps<{ showFilters?: boolean; showSlider?: boolean }>();
-
-const example1 = await import('../examples/ChipGroupExample1.vue?raw');
-const example2 = await import('../examples/ChipGroupExample2.vue?raw');
-const example3 = await import('../examples/ChipGroupExample3.vue?raw');
-const example4 = await import('../examples/ChipGroupExample4.vue?raw');
-const example5 = await import('../examples/ChipGroupExample5.vue?raw');
-const example6 = await import('../examples/ChipGroupExample6.vue?raw');
 
 const rawTemplate = ref<string>();
 const fmtVueTpl = ref<string | null | undefined>();
@@ -42,31 +42,31 @@ const fmtVueTsc = ref<string | null | undefined>();
 
 function parseSource(multiselection: boolean) {
   if (multiselection) {
-    rawTemplate.value = parseVueTemplateTag(example4.default);
-    fmtVueTsc.value = parseVueScriptTag(example4.default);
+    rawTemplate.value = parseVueTemplateTag(Example4);
+    fmtVueTsc.value = parseVueScriptTag(Example4);
   } else {
-    rawTemplate.value = parseVueTemplateTag(example1.default);
-    fmtVueTsc.value = parseVueScriptTag(example1.default);
+    rawTemplate.value = parseVueTemplateTag(Example1);
+    fmtVueTsc.value = parseVueScriptTag(Example1);
   }
 }
 
 function parseSourceWithIcon(multiselection: boolean) {
   if (multiselection) {
-    rawTemplate.value = parseVueTemplateTag(example5.default);
-    fmtVueTsc.value = parseVueScriptTag(example5.default);
+    rawTemplate.value = parseVueTemplateTag(Example5);
+    fmtVueTsc.value = parseVueScriptTag(Example5);
   } else {
-    rawTemplate.value = parseVueTemplateTag(example2.default);
-    fmtVueTsc.value = parseVueScriptTag(example2.default);
+    rawTemplate.value = parseVueTemplateTag(Example2);
+    fmtVueTsc.value = parseVueScriptTag(Example2);
   }
 }
 
 function parseSourceWithAvatar(multiselection: boolean) {
   if (multiselection) {
-    rawTemplate.value = parseVueTemplateTag(example6.default);
-    fmtVueTsc.value = parseVueScriptTag(example6.default);
+    rawTemplate.value = parseVueTemplateTag(Example6);
+    fmtVueTsc.value = parseVueScriptTag(Example6);
   } else {
-    rawTemplate.value = parseVueTemplateTag(example3.default);
-    fmtVueTsc.value = parseVueScriptTag(example3.default);
+    rawTemplate.value = parseVueTemplateTag(Example3);
+    fmtVueTsc.value = parseVueScriptTag(Example3);
   }
 }
 
@@ -147,7 +147,7 @@ watchEffect(() => {
   rawCode = changeChipColor(chipColor, rawTemplate.value);
   rawCode = changeButtonVariant(chipVariant, rawCode);
   rawCode = changeChipShape(chipShape, rawCode);
-  rawCode = changeButtonSize(chipSize, rawCode);
+  rawCode = changeButtonSize(chipSize as Ref<TButtonSize>, rawCode);
   rawCode = changeChipActiveClass(activeClass, rawCode);
   rawCode = enableChipGroupMultiRows(multiRows, rawCode);
 

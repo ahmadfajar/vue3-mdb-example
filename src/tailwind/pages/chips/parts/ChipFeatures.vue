@@ -28,30 +28,29 @@ import {
   dsComponentStates,
   dsContextColors,
 } from '@shares/showcaseDataApi.ts';
-import { onBeforeUnmount, ref, watchEffect } from 'vue';
+import { onBeforeUnmount, type Ref, ref, watchEffect } from 'vue';
 import {
   Helper,
+  type TButtonSize,
   type TChipSize,
   type TExtendedContextColor,
   type TIconFlip,
   type TIconPosition,
   type TIconRotation,
 } from 'vue-mdbootstrap';
+import Example1 from '../examples/ChipExample1.vue?raw';
+import Example2 from '../examples/ChipExample2.vue?raw';
 
 const props = defineProps<{ showIcon?: boolean; showAvatar?: boolean }>();
 
-let example;
+const fmtVueTpl = ref<string | null | undefined>();
+const rawTemplate = ref<string>();
 
 if (props.showIcon || props.showAvatar) {
-  example = await import('../examples/ChipExample2.vue?raw');
+  rawTemplate.value = parseVueTemplateTag(Example2);
 } else {
-  example = await import('../examples/ChipExample1.vue?raw');
+  rawTemplate.value = parseVueTemplateTag(Example1);
 }
-
-const rawTemplate = ref<string>();
-const fmtVueTpl = ref<string | null | undefined>();
-
-rawTemplate.value = parseVueTemplateTag(example.default);
 
 const iconName = 'local_shipping';
 const avatarUrl = 'https://ahmadfajar.github.io/img/2.jpg';
@@ -71,6 +70,11 @@ const iconAnimation = ref<string>();
 const iconFlip = ref<TIconFlip>();
 const iconRotation = ref<TIconRotation>();
 
+useWatcherDefaultValue(
+  { refObj: chipColor, default: 'secondary' },
+  { refObj: chipSize, default: 'md' }
+);
+
 watchEffect(() => {
   let rawCode: string | undefined;
 
@@ -80,7 +84,7 @@ watchEffect(() => {
   rawCode = changeChipColor(chipColor, rawTemplate.value, true);
   rawCode = changeButtonVariant(chipVariant, rawCode, true);
   rawCode = changeChipShape(chipShape, rawCode, true);
-  rawCode = changeButtonSize(chipSize, rawCode, true);
+  rawCode = changeButtonSize(chipSize as Ref<TButtonSize>, rawCode, true);
   rawCode = changeChipActiveClass(activeClass, rawCode);
   rawCode = changeButtonState(chipState, rawCode, true);
 
@@ -100,11 +104,6 @@ watchEffect(() => {
     fmtVueTpl.value = stripAndBeautifyTemplate(rawCode);
   }
 });
-
-useWatcherDefaultValue(
-  { refObj: chipColor, default: 'secondary' },
-  { refObj: chipSize, default: 'md' }
-);
 
 const chipColorSrc = dsContextColors(['dark']);
 const chipSizeSrc = dsChipSizes();
@@ -189,13 +188,13 @@ onBeforeUnmount(() => {
           v-if="showIcon"
           v-model="iconPosition"
           :items="iconPositions"
-          class="mt-[-10px] ps-2"
+          class="-mt-2.5 ps-2"
           column="2"
         >
           <div class="col-form-label select-none">Icon Position:</div>
         </BsRadioGroup>
 
-        <div v-if="showIcon" class="mt-[-10px] ps-2">
+        <div v-if="showIcon" class="-mt-2.5 ps-2">
           <BsCheckbox v-model="hasAnimation" :value="true"> Animation </BsCheckbox>
           <BsRadioGroup
             v-model="iconAnimation"
@@ -217,7 +216,7 @@ onBeforeUnmount(() => {
       <template #content>
         <div
           :class="[
-            'h-full flex items-center justify-center min-h-40 py-6 px-3 md:rounded-lg',
+            'h-full min-h-40 flex items-center justify-center py-6 px-3 md:rounded-lg',
             chipColor === 'light' && (['active', 'readonly'].includes(chipState!) || !chipState)
               ? 'bg-gray-800'
               : '',
