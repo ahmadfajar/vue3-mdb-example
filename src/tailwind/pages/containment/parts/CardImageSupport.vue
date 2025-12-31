@@ -6,24 +6,23 @@ import CardExample4 from '@tw/pages/containment/examples/CardExample4.vue';
 import CardExample5 from '@tw/pages/containment/examples/CardExample5.vue';
 import CardExample6 from '@tw/pages/containment/examples/CardExample6.vue';
 import { ref, watchEffect } from 'vue';
+import Example1 from '../examples/CardExample3.vue?raw';
+import Example2 from '../examples/CardExample4.vue?raw';
+import Example3 from '../examples/CardExample5.vue?raw';
+import Example4 from '../examples/CardExample6.vue?raw';
 
-const example1 = await import('../examples/CardExample3.vue?raw');
-const example2 = await import('../examples/CardExample4.vue?raw');
-const example3 = await import('../examples/CardExample5.vue?raw');
-const example4 = await import('../examples/CardExample6.vue?raw');
-
-const fmtVueTpl = ref<string | null | undefined>();
+const fmtVueTpl = ref<string>();
 const position = ref('top');
 
 watchEffect(() => {
   if (position.value === 'right') {
-    fmtVueTpl.value = parseVueTemplateTag(example4.default);
+    fmtVueTpl.value = parseVueTemplateTag(Example4);
   } else if (position.value === 'left') {
-    fmtVueTpl.value = parseVueTemplateTag(example3.default);
+    fmtVueTpl.value = parseVueTemplateTag(Example3);
   } else if (position.value === 'bottom') {
-    fmtVueTpl.value = parseVueTemplateTag(example2.default);
+    fmtVueTpl.value = parseVueTemplateTag(Example2);
   } else {
-    fmtVueTpl.value = parseVueTemplateTag(example1.default);
+    fmtVueTpl.value = parseVueTemplateTag(Example1);
   }
 });
 
@@ -45,9 +44,7 @@ const imagePositions = cardImagePositions();
       </template>
 
       <template #content>
-        <div
-          class="h-full flex items-center justify-center min-h-40 py-8 px-3 lg:px-8 md:rounded-lg"
-        >
+        <div class="h-full min-h-40 flex items-center justify-center py-8 px-3 lg:px-8">
           <CardExample6 v-if="position === 'right'" />
           <CardExample5 v-else-if="position === 'left'" />
           <CardExample4 v-else-if="position === 'bottom'" />

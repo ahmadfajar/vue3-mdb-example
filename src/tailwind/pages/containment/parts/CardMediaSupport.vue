@@ -4,18 +4,17 @@ import { parseVueTemplateTag } from '@shares/sharedApi.ts';
 import CardExample7 from '@tw/pages/containment/examples/CardExample7.vue';
 import CardExample8 from '@tw/pages/containment/examples/CardExample8.vue';
 import { ref, watchEffect } from 'vue';
+import Example1 from '../examples/CardExample7.vue?raw';
+import Example2 from '../examples/CardExample8.vue?raw';
 
-const example1 = await import('../examples/CardExample7.vue?raw');
-const example2 = await import('../examples/CardExample8.vue?raw');
-
-const fmtVueTpl = ref<string | null | undefined>();
+const fmtVueTpl = ref<string>();
 const position = ref('top');
 
 watchEffect(() => {
   if (position.value === 'bottom') {
-    fmtVueTpl.value = parseVueTemplateTag(example2.default);
+    fmtVueTpl.value = parseVueTemplateTag(Example2);
   } else {
-    fmtVueTpl.value = parseVueTemplateTag(example1.default);
+    fmtVueTpl.value = parseVueTemplateTag(Example1);
   }
 });
 
@@ -37,9 +36,7 @@ const mediaPositions = cardMediaPositions();
       </template>
 
       <template #content>
-        <div
-          class="h-full flex items-center justify-center min-h-40 py-8 px-3 lg:px-8 md:rounded-lg"
-        >
+        <div class="h-full min-h-40 flex items-center justify-center py-8 px-3 lg:px-8">
           <CardExample8 v-if="position === 'bottom'" />
           <CardExample7 v-else />
         </div>

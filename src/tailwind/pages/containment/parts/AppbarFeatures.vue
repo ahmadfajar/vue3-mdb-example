@@ -3,20 +3,17 @@ import { parseVueTemplateTag } from '@shares/sharedApi.ts';
 import AppbarExample1 from '@tw/pages/containment/examples/AppbarExample1.vue';
 import AppbarExample2 from '@tw/pages/containment/examples/AppbarExample2.vue';
 import { ref } from 'vue';
+import Example1 from '../examples/AppbarExample1.vue?raw';
+import Example2 from '../examples/AppbarExample2.vue?raw';
 
 const props = defineProps<{ advance?: boolean }>();
 
-let example;
-
-if (props.advance) {
-  example = await import('../examples/AppbarExample2.vue?raw');
-} else {
-  example = await import('../examples/AppbarExample1.vue?raw');
-}
-
 const fmtVueTpl = ref<string | null | undefined>();
-
-fmtVueTpl.value = parseVueTemplateTag(example.default);
+if (props.advance) {
+  fmtVueTpl.value = parseVueTemplateTag(Example2);
+} else {
+  fmtVueTpl.value = parseVueTemplateTag(Example1);
+}
 </script>
 
 <template>
@@ -27,9 +24,7 @@ fmtVueTpl.value = parseVueTemplateTag(example.default);
     </div>
     <ShoutBox :tpl="fmtVueTpl">
       <template #content>
-        <div
-          class="h-full flex items-center justify-center min-h-40 py-6 px-3 lg:px-6 md:rounded-lg"
-        >
+        <div class="h-full min-h-40 flex items-center justify-center py-6 px-3 lg:px-6">
           <AppbarExample2 v-if="advance" />
           <AppbarExample1 v-else />
         </div>

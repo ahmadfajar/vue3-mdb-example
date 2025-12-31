@@ -8,12 +8,11 @@ import {
 import { parseVueTemplateTag, stripAndBeautifyTemplate } from '@shares/sharedApi.ts';
 import { dsContextColors } from '@shares/showcaseDataApi.ts';
 import { onBeforeUnmount, ref, watchEffect } from 'vue';
+import Example1 from '../examples/CardExample1.vue?raw';
+import Example2 from '../examples/CardExample2.vue?raw';
 
-const example1 = await import('../examples/CardExample1.vue?raw');
-const example2 = await import('../examples/CardExample2.vue?raw');
-
+const fmtVueTpl = ref<string>();
 const rawTemplate = ref<string>();
-const fmtVueTpl = ref<string | null | undefined>();
 const shadow = ref(false);
 const showHeader = ref(false);
 const showFooter = ref(false);
@@ -22,9 +21,9 @@ const borderColor = ref<string>();
 
 watchEffect(() => {
   if (showHeader.value || showFooter.value || backgroundColor.value) {
-    rawTemplate.value = parseVueTemplateTag(example2.default);
+    rawTemplate.value = parseVueTemplateTag(Example2);
   } else {
-    rawTemplate.value = parseVueTemplateTag(example1.default);
+    rawTemplate.value = parseVueTemplateTag(Example1);
   }
 
   let rawCode: string | undefined;
@@ -72,9 +71,7 @@ onBeforeUnmount(() => {
       </template>
 
       <template #content>
-        <div
-          class="h-full flex items-center justify-center min-h-40 py-8 px-3 lg:px-8 md:rounded-lg"
-        >
+        <div class="h-full min-h-40 flex items-center justify-center py-8 px-3 lg:px-8">
           <BsCard
             :class="{
               [`text-bg-${backgroundColor}`]: backgroundColor,

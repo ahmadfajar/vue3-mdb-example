@@ -3,19 +3,17 @@ import { parseVueTemplateTag } from '@shares/sharedApi.ts';
 import CardExample10 from '@tw/pages/containment/examples/CardExample10.vue';
 import CardExample9 from '@tw/pages/containment/examples/CardExample9.vue';
 import { ref } from 'vue';
+import Example1 from '../examples/CardExample9.vue?raw';
+import Example2 from '../examples/CardExample10.vue?raw';
 
 const props = defineProps<{ grid?: boolean }>();
 
-let example;
-
+const fmtVueTpl = ref<string>();
 if (props.grid) {
-  example = await import('../examples/CardExample10.vue?raw');
+  fmtVueTpl.value = parseVueTemplateTag(Example2);
 } else {
-  example = await import('../examples/CardExample9.vue?raw');
+  fmtVueTpl.value = parseVueTemplateTag(Example1);
 }
-
-const fmtVueTpl = ref<string | null | undefined>();
-fmtVueTpl.value = parseVueTemplateTag(example.default);
 </script>
 
 <template>
@@ -26,9 +24,7 @@ fmtVueTpl.value = parseVueTemplateTag(example.default);
     </div>
     <ShoutBox :tpl="fmtVueTpl">
       <template #content>
-        <div
-          class="h-full flex items-center justify-center min-h-40 py-8 px-3 lg:px-8 md:rounded-lg"
-        >
+        <div class="h-full min-h-40 flex items-center justify-center py-8 px-3 lg:px-8">
           <CardExample10 v-if="grid" />
           <CardExample9 v-else />
         </div>

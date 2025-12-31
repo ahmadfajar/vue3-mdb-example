@@ -6,6 +6,11 @@ import SideDrawerExample3 from '@tw/pages/containment/examples/SideDrawerExample
 import SideDrawerExample4 from '@tw/pages/containment/examples/SideDrawerExample4.vue';
 import SideDrawerExample5 from '@tw/pages/containment/examples/SideDrawerExample5.vue';
 import { ref } from 'vue';
+import Example1 from '../examples/SideDrawerExample1.vue?raw';
+import Example2 from '../examples/SideDrawerExample2.vue?raw';
+import Example3 from '../examples/SideDrawerExample3.vue?raw';
+import Example4 from '../examples/SideDrawerExample4.vue?raw';
+import Example5 from '../examples/SideDrawerExample5.vue?raw';
 
 const props = defineProps<{
   location?: boolean;
@@ -15,29 +20,29 @@ const props = defineProps<{
 }>();
 
 const pageTitle = ref('Overview');
-let example;
-
-if (props.location) {
-  pageTitle.value = 'SideDrawer Location';
-  example = await import('../examples/SideDrawerExample2.vue?raw');
-} else if (props.mini) {
-  pageTitle.value = 'Mini SideDrawer';
-  example = await import('../examples/SideDrawerExample3.vue?raw');
-} else if (props.appbar) {
-  pageTitle.value = 'Use with Appbar';
-  example = await import('../examples/SideDrawerExample4.vue?raw');
-} else if (props.clipped) {
-  pageTitle.value = 'Clipped SideDrawer';
-  example = await import('../examples/SideDrawerExample5.vue?raw');
-} else {
-  example = await import('../examples/SideDrawerExample1.vue?raw');
-}
-
 const fmtVueTpl = ref<string | null | undefined>();
 const fmtVueTsc = ref<string | null | undefined>();
 
-fmtVueTpl.value = parseVueTemplateTag(example.default);
-fmtVueTsc.value = parseVueScriptTag(example.default);
+if (props.location) {
+  pageTitle.value = 'SideDrawer Location';
+  fmtVueTpl.value = parseVueTemplateTag(Example2);
+  fmtVueTsc.value = parseVueScriptTag(Example2);
+} else if (props.mini) {
+  pageTitle.value = 'Mini SideDrawer';
+  fmtVueTpl.value = parseVueTemplateTag(Example3);
+  fmtVueTsc.value = parseVueScriptTag(Example3);
+} else if (props.appbar) {
+  pageTitle.value = 'Use with Appbar';
+  fmtVueTpl.value = parseVueTemplateTag(Example4);
+  fmtVueTsc.value = parseVueScriptTag(Example4);
+} else if (props.clipped) {
+  pageTitle.value = 'Clipped SideDrawer';
+  fmtVueTpl.value = parseVueTemplateTag(Example5);
+  fmtVueTsc.value = parseVueScriptTag(Example5);
+} else {
+  fmtVueTpl.value = parseVueTemplateTag(Example1);
+  fmtVueTsc.value = parseVueScriptTag(Example1);
+}
 
 const contentCls = [
   'h-full flex items-center justify-center min-h-40',
