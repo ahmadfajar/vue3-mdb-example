@@ -2,18 +2,15 @@
 import { parseVueScriptTag, parseVueTemplateTag } from '@shares/sharedApi.ts';
 import DatePickerExample4 from '@tw/pages/pickers/examples/DatePickerExample4.vue';
 import { ref } from 'vue';
+import Example from '../examples/DatePickerExample4.vue?raw';
 
-const example = await import('../examples/DatePickerExample4.vue?raw');
 const fmtVueTpl = ref<string>();
 const fmtVueTsc = ref<string>();
 
-fmtVueTpl.value = parseVueTemplateTag(example.default);
-fmtVueTsc.value = parseVueScriptTag(example.default);
+fmtVueTpl.value = parseVueTemplateTag(Example);
+fmtVueTsc.value = parseVueScriptTag(Example);
 
-const contentCls = [
-  'h-full min-h-40 flex items-center justify-center',
-  'py-8 px-3 lg:px-8 md:rounded-lg',
-];
+const contentCls = ['h-full min-h-40 flex items-center justify-center', 'py-8 px-3 lg:px-8'];
 </script>
 
 <template>

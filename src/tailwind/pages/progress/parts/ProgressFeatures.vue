@@ -14,29 +14,29 @@ import {
   dsContextColors,
 } from '@shares/showcaseDataApi.ts';
 import { onBeforeUnmount, ref, watchEffect } from 'vue';
+import Example1 from '../examples/ProgressExample1.vue?raw';
+import Example2 from '../examples/ProgressExample2.vue?raw';
 
 const props = defineProps<{ section?: string }>();
 
-let example;
+let rawTemplate;
+const pageTitle = ref('Bar');
+
 if (props.section === 'spinner') {
-  example = await import('../examples/ProgressExample2.vue?raw');
+  pageTitle.value = 'Spinner';
+  rawTemplate = parseVueTemplateTag(Example2);
 } else {
-  example = await import('../examples/ProgressExample1.vue?raw');
+  rawTemplate = parseVueTemplateTag(Example1);
 }
-const rawTemplate = parseVueTemplateTag(example.default);
 
 const fmtVueTpl = ref<string>();
-const pageTitle = ref('Bar');
+
 const mode = ref('indeterminate');
 const color = ref('default');
 const thickness = ref(5);
 const diameter = ref(60);
 const barBuffer = ref(50);
 const progressValue = ref(25);
-
-if (props.section === 'spinner') {
-  pageTitle.value = 'Spinner';
-}
 
 useWatcherDefaultValue(
   { refObj: color, default: 'default' },
@@ -60,10 +60,7 @@ watchEffect(() => {
 
 const modeSrc = dsProgressModes(props.section ?? 'bar');
 const colorSrc = dsContextColors(['dark', 'light']);
-const contentCls = [
-  'h-full min-h-40 flex items-center justify-center',
-  'py-8 px-3 lg:px-8 md:rounded-lg',
-];
+const contentCls = ['h-full min-h-40 flex items-center justify-center', 'py-8 px-3 lg:px-8'];
 
 onBeforeUnmount(() => {
   modeSrc.proxy.destroy();

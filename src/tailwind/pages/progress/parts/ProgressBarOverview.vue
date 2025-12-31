@@ -14,9 +14,7 @@ import {
   dsContextColors,
 } from '@shares/showcaseDataApi.ts';
 import { onBeforeUnmount, ref, watchEffect } from 'vue';
-
-const example = await import('../examples/ProgressBarExample1.vue?raw');
-const rawTemplate = parseVueTemplateTag(example.default);
+import Example from '../examples/ProgressBarExample1.vue?raw';
 
 const fmtVueTpl = ref<string>();
 const tabIndex = ref(0);
@@ -26,6 +24,7 @@ const color = ref('primary');
 const thickness = ref<number>();
 const showValue = ref(false);
 const valuePosition = ref('inside');
+const rawTemplate = parseVueTemplateTag(Example);
 
 useWatcherDefaultValue(
   { refObj: color, default: 'primary' },
@@ -46,7 +45,7 @@ watchEffect(() => {
 const colorSrc = dsContextColors(['dark', 'light']);
 const positionSrc = dsProgressBarValuePosition();
 const variantSrc = dsProgressBarVariants();
-const contentCls = ['h-full min-h-40 flex items-center', 'py-8 px-3 lg:px-8 md:rounded-lg'];
+const contentCls = ['h-full min-h-40 flex items-center', 'py-8 px-3 lg:px-8'];
 
 onBeforeUnmount(() => {
   colorSrc.proxy.destroy();

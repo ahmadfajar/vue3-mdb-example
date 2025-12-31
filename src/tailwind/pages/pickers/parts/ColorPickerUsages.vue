@@ -4,31 +4,30 @@ import ColorPickerExample1 from '@tw/pages/pickers/examples/ColorPickerExample1.
 import ColorPickerExample2 from '@tw/pages/pickers/examples/ColorPickerExample2.vue';
 import ColorPickerExample3 from '@tw/pages/pickers/examples/ColorPickerExample3.vue';
 import { ref } from 'vue';
+import Example1 from '../examples/ColorPickerExample1.vue?raw';
+import Example2 from '../examples/ColorPickerExample2.vue?raw';
+import Example3 from '../examples/ColorPickerExample3.vue?raw';
 
 const props = defineProps<{ section?: string }>();
 
-let example;
 const fmtVueTpl = ref<string>();
 const fmtVueTsc = ref<string>();
 const pageTitle = ref('Overview');
 
 if (props.section === 'swatches') {
   pageTitle.value = 'Color Swatches';
-  example = await import('../examples/ColorPickerExample2.vue?raw');
+  fmtVueTpl.value = parseVueTemplateTag(Example2);
+  fmtVueTsc.value = parseVueScriptTag(Example2);
 } else if (props.section === 'popup') {
   pageTitle.value = 'Popup Color Picker';
-  example = await import('../examples/ColorPickerExample3.vue?raw');
+  fmtVueTpl.value = parseVueTemplateTag(Example3);
+  fmtVueTsc.value = parseVueScriptTag(Example3);
 } else {
-  example = await import('../examples/ColorPickerExample1.vue?raw');
+  fmtVueTpl.value = parseVueTemplateTag(Example1);
+  fmtVueTsc.value = parseVueScriptTag(Example1);
 }
 
-fmtVueTpl.value = parseVueTemplateTag(example.default);
-fmtVueTsc.value = parseVueScriptTag(example.default);
-
-const contentCls = [
-  'h-full min-h-40 flex items-center justify-center',
-  'py-8 px-3 lg:px-8 md:rounded-lg',
-];
+const contentCls = ['h-full min-h-40 flex items-center justify-center', 'py-8 px-3 lg:px-8'];
 </script>
 
 <template>

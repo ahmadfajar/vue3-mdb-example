@@ -3,9 +3,8 @@ import { parseVueScriptTag, parseVueTemplateTag } from '@shares/sharedApi.ts';
 import DatePickerExample1 from '@tw/pages/pickers/examples/DatePickerExample1.vue';
 import DatePickerExample2 from '@tw/pages/pickers/examples/DatePickerExample2.vue';
 import { ref, watchEffect } from 'vue';
-
-const example1 = await import('../examples/DatePickerExample1.vue?raw');
-const example2 = await import('../examples/DatePickerExample2.vue?raw');
+import Example1 from '../examples/DatePickerExample1.vue?raw';
+import Example2 from '../examples/DatePickerExample2.vue?raw';
 
 const fmtVueTpl = ref<string>();
 const fmtVueTsc = ref<string>();
@@ -13,18 +12,15 @@ const orientation = ref('portrait');
 
 watchEffect(() => {
   if (orientation.value === 'landscape') {
-    fmtVueTpl.value = parseVueTemplateTag(example2.default);
-    fmtVueTsc.value = parseVueScriptTag(example2.default);
+    fmtVueTpl.value = parseVueTemplateTag(Example2);
+    fmtVueTsc.value = parseVueScriptTag(Example2);
   } else {
-    fmtVueTpl.value = parseVueTemplateTag(example1.default);
-    fmtVueTsc.value = parseVueScriptTag(example1.default);
+    fmtVueTpl.value = parseVueTemplateTag(Example1);
+    fmtVueTsc.value = parseVueScriptTag(Example1);
   }
 });
 
-const contentCls = [
-  'h-full min-h-40 flex items-center justify-center',
-  'py-8 px-3 lg:px-8 md:rounded-lg',
-];
+const contentCls = ['h-full min-h-40 flex items-center justify-center', 'py-8 px-3 lg:px-8'];
 </script>
 
 <template>

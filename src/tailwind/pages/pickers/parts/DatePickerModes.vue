@@ -5,18 +5,17 @@ import {
   stripAndBeautifyTemplate,
 } from '@shares/sharedApi.ts';
 import { ref, watchEffect } from 'vue';
-
-const example3 = await import('../examples/DatePickerExample3.vue?raw');
+import Example from '../examples/DatePickerExample3.vue?raw';
 
 const fmtVueTpl = ref<string>();
 const fmtVueTsc = ref<string>();
 const mode = ref('date');
 const picker1 = ref<string>();
 
-fmtVueTsc.value = parseVueScriptTag(example3.default);
+fmtVueTsc.value = parseVueScriptTag(Example);
 
 watchEffect(() => {
-  let rawCode = parseVueTemplateTag(example3.default);
+  let rawCode = parseVueTemplateTag(Example);
 
   picker1.value = undefined;
   if (mode.value !== 'date') {
@@ -26,10 +25,7 @@ watchEffect(() => {
   fmtVueTpl.value = stripAndBeautifyTemplate(rawCode, false);
 });
 
-const contentCls = [
-  'h-full min-h-40 flex items-center justify-center',
-  'py-8 px-3 lg:px-8 md:rounded-lg',
-];
+const contentCls = ['h-full min-h-40 flex items-center justify-center', 'py-8 px-3 lg:px-8'];
 </script>
 
 <template>
