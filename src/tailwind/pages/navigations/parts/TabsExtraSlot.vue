@@ -2,14 +2,14 @@
 import { parseVueScriptTag, parseVueTemplateTag } from '@shares/sharedApi.ts';
 import TabsExample3 from '@tw/pages/navigations/examples/TabsExample3.vue';
 import { ref } from 'vue';
+import Example from '../examples/TabsExample3.vue?raw';
 
-const example = await import('../examples/TabsExample3.vue?raw');
 const fmtVueTpl = ref<string>();
 const fmtVueTsc = ref<string>();
-const contentCls = ['h-full min-h-40', 'py-8 px-3 lg:px-8 md:rounded-lg'];
+const contentCls = ['h-full min-h-40', 'py-8 px-3 lg:px-8'];
 
-fmtVueTpl.value = parseVueTemplateTag(example.default);
-fmtVueTsc.value = parseVueScriptTag(example.default);
+fmtVueTpl.value = parseVueTemplateTag(Example);
+fmtVueTsc.value = parseVueScriptTag(Example);
 </script>
 
 <template>

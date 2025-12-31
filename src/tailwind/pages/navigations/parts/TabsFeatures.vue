@@ -23,9 +23,8 @@ import {
 } from '@shares/tabsApi.ts';
 import { computed, onBeforeUnmount, ref, watchEffect } from 'vue';
 import type { TAlignment, TPlacementPosition, TTabsVariant } from 'vue-mdbootstrap';
-
-const example1 = await import('../examples/TabsExample1.vue?raw');
-const example2 = await import('../examples/TabsExample2.vue?raw');
+import Example1 from '../examples/TabsExample1.vue?raw';
+import Example2 from '../examples/TabsExample2.vue?raw';
 
 const rawTemplate = ref<string>();
 const fmtVueTpl = ref<string>();
@@ -59,11 +58,11 @@ watchEffect(() => {
   let rawCode: string | undefined;
 
   if (tabVariant.value === 'material' || tabVariant.value === 'modern') {
-    rawTemplate.value = parseVueTemplateTag(example2.default);
-    fmtVueTsc.value = parseVueScriptTag(example2.default);
+    rawTemplate.value = parseVueTemplateTag(Example2);
+    fmtVueTsc.value = parseVueScriptTag(Example2);
   } else {
-    rawTemplate.value = parseVueTemplateTag(example1.default);
-    fmtVueTsc.value = parseVueScriptTag(example1.default);
+    rawTemplate.value = parseVueTemplateTag(Example1);
+    fmtVueTsc.value = parseVueScriptTag(Example1);
   }
 
   rawCode = changeTabsVariant(tabVariant, rawTemplate.value);
@@ -82,7 +81,7 @@ const tabsAlignmentSrc = dsTabAlignments();
 const tabsPlacementSrc = dsTabPositions();
 const tabsIconPositionSrc = dsTabPositions();
 const tabsIconAndLabelSrc = dsTabIconAndLabel();
-const contentCls = ['h-full min-h-40', 'py-8 px-3 lg:px-8 md:rounded-lg'];
+const contentCls = ['h-full min-h-40', 'py-8 px-3 lg:px-8'];
 
 onBeforeUnmount(() => {
   tabsVariantSrc.proxy.destroy();

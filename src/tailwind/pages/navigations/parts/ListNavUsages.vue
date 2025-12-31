@@ -6,39 +6,38 @@ import ListNavExample3 from '@tw/pages/navigations/examples/ListNavExample3.vue'
 import ListNavExample4 from '@tw/pages/navigations/examples/ListNavExample4.vue';
 import ListNavExample5 from '@tw/pages/navigations/examples/ListNavExample5.vue';
 import { ref } from 'vue';
+import Example1 from '../examples/ListNavExample1.vue?raw';
+import Example2 from '../examples/ListNavExample2.vue?raw';
+import Example3 from '../examples/ListNavExample3.vue?raw';
+import Example4 from '../examples/ListNavExample4.vue?raw';
+import Example5 from '../examples/ListNavExample5.vue?raw';
 
 const props = defineProps<{ section: string }>();
 
 const fmtVueTpl = ref<string>();
 const fmtVueTsc = ref<string>();
 const pageTitle = ref<string>('Overview');
-let example;
 
 switch (props.section) {
   case 'nested-1':
-    example = await import('../examples/ListNavExample2.vue?raw');
-    fmtVueTpl.value = parseVueTemplateTag(example.default);
     pageTitle.value = 'Nested Navigation';
+    fmtVueTpl.value = parseVueTemplateTag(Example2);
     break;
   case 'nested-2':
-    example = await import('../examples/ListNavExample3.vue?raw');
-    fmtVueTpl.value = parseVueTemplateTag(example.default);
     pageTitle.value = 'Nested Navigation without Icons';
+    fmtVueTpl.value = parseVueTemplateTag(Example3);
     break;
   case 'mixed':
-    example = await import('../examples/ListNavExample4.vue?raw');
-    fmtVueTpl.value = parseVueTemplateTag(example.default);
     pageTitle.value = 'Mixed with ListTile';
+    fmtVueTpl.value = parseVueTemplateTag(Example4);
     break;
   case 'side-drawer':
-    example = await import('../examples/ListNavExample5.vue?raw');
-    fmtVueTpl.value = parseVueTemplateTag(example.default);
-    fmtVueTsc.value = parseVueScriptTag(example.default);
     pageTitle.value = 'Used inside SideDrawer';
+    fmtVueTpl.value = parseVueTemplateTag(Example5);
+    fmtVueTsc.value = parseVueScriptTag(Example5);
     break;
   default:
-    example = await import('../examples/ListNavExample1.vue?raw');
-    fmtVueTpl.value = parseVueTemplateTag(example.default);
+    fmtVueTpl.value = parseVueTemplateTag(Example1);
     break;
 }
 
