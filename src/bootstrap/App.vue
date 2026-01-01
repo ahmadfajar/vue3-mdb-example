@@ -1,50 +1,3 @@
-<template>
-  <BsApp viewport-height>
-    <AppNavbar />
-    <BsSideDrawer v-model:open="provider.sidebar.open" class="border-e" fixed-layout>
-      <div class="flex justify-center my-2">
-        <RouterLink to="/home">
-          <img alt="Vue logo" src="/assets/vue-mdb.png" style="width: 96px" />
-        </RouterLink>
-      </div>
-      <BsDivider dark />
-      <BsListView item-border-variant="left" item-rounded space-around="both">
-        <BsListNav>
-          <BsListNavItem v-for="navItem in routeNavA" :key="navItem.text" :label="navItem.text">
-            <BsListNav child>
-              <template v-for="child in navItem.children" :key="child.name || child.text">
-                <BsListNavItem
-                  v-if="!child.hidden"
-                  :label="child.text"
-                  :path-name="StringHelper.kebabCase(child.text)"
-                />
-              </template>
-            </BsListNav>
-          </BsListNavItem>
-        </BsListNav>
-        <BsDivider class="my-2" />
-        <BsListNav>
-          <BsListNavItem
-            v-for="navItem in routeNavB"
-            :key="navItem.text"
-            :label="navItem.text"
-            :path-name="StringHelper.kebabCase(navItem.text)"
-          />
-        </BsListNav>
-      </BsListView>
-    </BsSideDrawer>
-    <BsContainer v-scroll="onScroll" app @resize="resizeHandler">
-      <Suspense>
-        <RouterView v-slot="{ Component }">
-          <Transition mode="out-in" name="fade-fast">
-            <component :is="Component" />
-          </Transition>
-        </RouterView>
-      </Suspense>
-    </BsContainer>
-  </BsApp>
-</template>
-
 <script setup lang="ts">
 import AppNavbar from '@bs/AppNavbar.vue';
 import type { TMainNavigation } from '@bs/router/navigation';
@@ -55,13 +8,12 @@ import { onBeforeUnmount, onMounted, provide } from 'vue';
 import { StringHelper, useBreakpointMin } from 'vue-mdbootstrap';
 
 const provider = new MyAppProvider('mobile', ['border-b']);
-// const sideDrawerOpen = ref(true);
 
 provide('MyApp', provider as IMyAppProvider);
 
 function onScroll(target: Element | Window) {
   if ((target as Window).scrollY >= 60) {
-    provider.appbarClass = ['border-b', 'md-shadow'];
+    provider.appbarClass = ['md-shadow'];
   } else {
     provider.appbarClass = ['border-b'];
   }
@@ -76,10 +28,6 @@ function resizeHandler() {
     provider.screenSize = 'mobile';
   }
 }
-
-// function toggleSideDrawer(value: boolean) {
-//   sideDrawerOpen.value = value;
-// }
 
 function compareFn(a: TMainNavigation, b: TMainNavigation) {
   const labelA = a.text.toUpperCase();
@@ -108,6 +56,52 @@ onBeforeUnmount(() => {
 });
 </script>
 
+<template>
+  <BsApp viewport-height>
+    <AppNavbar />
+    <BsSideDrawer v-model:open="provider.sidebar.open" class="border-e" fixed-layout>
+      <div class="flex justify-center mt-4">
+        <RouterLink to="/home">
+          <img alt="Vue logo" src="/assets/logo.png" style="width: 96px" />
+        </RouterLink>
+      </div>
+      <BsDivider dark />
+      <BsListView item-border-variant="left" item-rounded space-around="both">
+        <BsListNav>
+          <BsListNavItem v-for="navItem in routeNavA" :key="navItem.text" :label="navItem.text">
+            <BsListNav child>
+              <template v-for="child in navItem.children" :key="child.name || child.text">
+                <BsListNavItem
+                  v-if="!child.hidden"
+                  :label="child.text"
+                  :path-name="StringHelper.kebabCase(child.text)"
+                />
+              </template>
+            </BsListNav>
+          </BsListNavItem>
+        </BsListNav>
+        <BsDivider class="my-2" />
+        <BsListNav>
+          <template v-for="navItem in routeNavB" :key="navItem.path || navItem.text">
+            <BsListNavItem
+              v-if="!navItem.hidden"
+              :label="navItem.text"
+              :path-name="StringHelper.kebabCase(navItem.text)"
+            />
+          </template>
+        </BsListNav>
+      </BsListView>
+    </BsSideDrawer>
+    <BsContainer v-scroll="onScroll" app @resize="resizeHandler">
+      <RouterView v-slot="{ Component }">
+        <Transition mode="out-in" name="fade-fast">
+          <component :is="Component" />
+        </Transition>
+      </RouterView>
+    </BsContainer>
+  </BsApp>
+</template>
+
 <style lang="scss">
 @use 'vue-mdbootstrap/scss/mixins/css3/borders';
 @use 'vue-mdbootstrap/scss/mixins/css3/breakpoints' as media;
@@ -125,7 +119,7 @@ onBeforeUnmount(() => {
 }
 
 // Override UI aspect global css variables
-//----------------------------------------
+//-----------------------------------------
 :root {
   --background: oklch(0.976 0 89.876);
   --appbar-background: oklch(1 0 0);
@@ -134,10 +128,10 @@ onBeforeUnmount(() => {
 }
 
 // Customize side-drawer menu styles
-//----------------------------------
+//-----------------------------------
 .md-side-drawer {
   .md-nav-item:not(.md-expanded) {
-    .md-tile-border-left.active > .md-ripple:before {
+    &.active > .md-nav-border-left > .md-ripple:before {
       --md-tile-indicator-border-width: 5px;
       height: 70%;
       top: 15%;
@@ -185,6 +179,8 @@ body {
 }
 
 .md-appbar {
+  --border-translucent: oklch(87.2% 0.01 258.338deg);
+
   a.menu-item {
     color: var(--foreground);
     font-weight: var(--font-weight-medium);
@@ -220,7 +216,6 @@ body {
 .local-navbar {
   background-color: var(--appbar-background);
   top: var(--appbar-height);
-  z-index: 2;
 }
 
 .local-navbar-menu {
@@ -234,13 +229,12 @@ body {
 
 .local-nav-aside {
   padding-top: vars.$padding-xl + 0.5;
-  width: 11.875rem; // 190px;
-  min-width: 11.875rem;
+  width: 13rem; // 208px;
+  min-width: 13rem;
 
   .local-nav-items {
     top: vars.$padding-xl + 4;
     padding-left: vars.$padding-sm;
-    z-index: 2;
   }
 
   .md-list {
@@ -250,7 +244,6 @@ body {
 
     .md-list-tile {
       border-radius: vars.$radius-sm;
-      //font-size: 0.875em;
 
       &.active {
         font-weight: var(--font-weight-semibold);
@@ -272,36 +265,54 @@ body {
   padding-top: vars.$padding-xl;
   max-width: 100%;
 
-  > h2 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     font-weight: var(--font-weight-medium);
   }
+
+  //h2 {
+  //  font-size: calc(1.325rem + 0.9vw);
+  //}
+  //
+  //h3 {
+  //  font-size: calc(1.3rem + 0.6vw);
+  //}
+  //
+  //h4 {
+  //  font-size: calc(1.275rem + 0.3vw);
+  //}
+  //
+  //h5 {
+  //  font-size: 1.25rem;
+  //}
 
   // screen: 801px
   @include media.breakpoint-up(md) {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
-
-    .card-mw-65 {
-      max-width: 90%;
-    }
   }
 
-  // screen: 1024px
-  @media (min-width: 64rem) {
-    .card-mw-65 {
-      max-width: 85%;
-    }
-  }
+  //@include media.breakpoint-up(xl) {
+  //  h2 {
+  //    font-size: 2rem;
+  //  }
+  //  h3 {
+  //    font-size: 1.75rem;
+  //  }
+  //  h4 {
+  //    font-size: 1.5rem;
+  //  }
+  //}
 
   // screen: 1328px
   @media (min-width: 83rem) {
     padding-left: 1rem;
     padding-right: 1rem;
     max-width: 56.25rem; //900px;
-
-    .card-mw-65 {
-      max-width: 65%;
-    }
   }
 }
 
@@ -323,23 +334,33 @@ body {
   }
 }
 
-.mobi-card {
-  max-width: 25rem; // 400px;
-}
+.picked-color {
+  @include borders.radius(50%);
+  background-image:
+    repeating-linear-gradient(45deg, #aaa 25%, transparent 25%, transparent 75%, #aaa 75%, #aaa),
+    repeating-linear-gradient(45deg, #aaa 25%, #fff 25%, #fff 75%, #aaa 75%, #aaa);
 
-.grid {
-  display: grid;
+  // prettier-ignore
+  background-position: 0 0, 4px 4px;
+  background-size: 8px 8px;
+  border: 0;
+  padding: 0;
+  overflow: hidden;
+  position: relative;
+  white-space: nowrap;
 
-  .sticky-top {
-    z-index: 10;
+  &:after {
+    background-color: currentColor;
+    border-radius: inherit;
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1);
+    content: '';
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    display: block;
+    position: absolute;
+    pointer-events: none;
   }
-}
-
-.grid-cols-auto {
-  grid-template-columns: auto minmax(0, 1fr);
-}
-
-.grid-cols-11 {
-  grid-template-columns: repeat(11, minmax(0, 1fr));
 }
 </style>

@@ -1,0 +1,20 @@
+<script setup lang="ts">
+import type { LinkItem } from '@shares/provider.ts';
+import ChipGroupFeatures from '@bs/pages/chips/parts/ChipGroupFeatures.vue';
+
+const linkItems = [
+  { text: 'Overview', location: { name: 'chip-group' } },
+  { text: 'Filter Chips', location: { name: 'chip-group-id', params: { id: 'filters' } } },
+  { text: 'Sliding Chips', location: { name: 'chip-group-id', params: { id: 'sliding' } } },
+] satisfies LinkItem[];
+</script>
+
+<template>
+  <ContentLayout :links="linkItems">
+    <Transition mode="out-in" name="fade">
+      <ChipGroupFeatures v-if="$route.params.id === 'filters'" show-filters />
+      <ChipGroupFeatures v-else-if="$route.params.id === 'sliding'" show-slider />
+      <ChipGroupFeatures v-else />
+    </Transition>
+  </ContentLayout>
+</template>

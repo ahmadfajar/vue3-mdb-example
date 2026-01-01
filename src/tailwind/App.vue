@@ -316,11 +316,11 @@ body {
   }
 }
 
-.demo-block-content {
-  .md-breadcrumb {
-    --md-breadcrumb-padding-x: 0;
-  }
-}
+//.demo-block-content {
+//  .md-breadcrumb {
+//    --md-breadcrumb-padding-x: 0;
+//  }
+//}
 
 // Utilities
 //----------
