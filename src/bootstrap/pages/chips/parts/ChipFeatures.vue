@@ -188,13 +188,14 @@ onBeforeUnmount(() => {
           v-if="showIcon"
           v-model="iconPosition"
           :items="iconPositions"
-          class="-mt-2.5 ps-2"
+          class="ps-2"
           column="2"
+          style="margin-top: -10px"
         >
           <div class="col-form-label select-none">Icon Position:</div>
         </BsRadioGroup>
 
-        <div v-if="showIcon" class="-mt-2.5 ps-2">
+        <div v-if="showIcon" class="ps-2" style="margin-top: -10px">
           <BsCheckbox v-model="hasAnimation" :value="true"> Animation </BsCheckbox>
           <BsRadioGroup
             v-model="iconAnimation"
@@ -203,7 +204,7 @@ onBeforeUnmount(() => {
             column="2"
           />
         </div>
-        <div v-else-if="showAvatar" class="flex flex-col gap-y-1 ps-2">
+        <div v-else-if="showAvatar" class="flex flex-col md-gap-y-1 ps-2">
           <BsCheckbox v-model="chipVariant" value="outlined"> Outlined</BsCheckbox>
           <BsCheckbox v-model="chipShape" value="pill"> Rounded Pill</BsCheckbox>
           <BsCheckbox v-model="avatarRounded" :disabled="chipShape === 'pill'" :value="true">
@@ -216,7 +217,7 @@ onBeforeUnmount(() => {
       <template #content>
         <div
           :class="[
-            'h-full min-h-40 flex items-center justify-center py-6 px-3 rounded-3',
+            'h-full min-h-40 flex items-center justify-center py-4 px-3 rounded-3',
             chipColor === 'light' && (['active', 'readonly'].includes(chipState!) || !chipState)
               ? 'bg-gray-700'
               : '',

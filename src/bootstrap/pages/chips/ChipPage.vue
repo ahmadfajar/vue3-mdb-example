@@ -27,11 +27,11 @@ const linkItems = [
 <template>
   <ContentLayout :links="linkItems">
     <Transition mode="out-in" name="fade">
-      <ChipFeatures v-if="$route.params.id === 'icon'" show-icon />
-      <ChipFeatures v-else-if="$route.params.id === 'avatar'" show-avatar />
-      <ChipDropdownMenus v-else-if="$route.params.id === 'dropdown-menus'" />
+      <ChipDropdownMenus v-if="$route.params.id === 'dropdown-menus'" />
       <ChipClickEvents v-else-if="$route.params.id === 'click-events'" />
       <ChipDismissible v-else-if="$route.params.id === 'dismissible'" />
+      <ChipFeatures v-else-if="$route.params.id === 'icon'" show-icon />
+      <ChipFeatures v-else-if="$route.params.id === 'avatar'" show-avatar />
       <ChipFeatures v-else />
     </Transition>
   </ContentLayout>

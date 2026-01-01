@@ -184,12 +184,12 @@ onBeforeUnmount(() => {
     </div>
     <ShoutBox :tpl="fmtVueTpl" :tsc="fmtVueTsc">
       <template #side-panel>
-        <div class="min-h-121">
+        <div class="min-h-124">
           <h5 class="mt-2">Configuration Options:</h5>
 
           <BsTabs v-model="tabIndex" class="mt-2" style="margin-inline: -16px" variant="md3">
             <BsTab label="General">
-              <div class="flex flex-col gap-y-4">
+              <div class="flex flex-col md-gap-y-4">
                 <BsCombobox v-model="chipColor" :data-source="chipColorSrc" filled floating-label>
                   <label>Color:</label>
                 </BsCombobox>
@@ -207,7 +207,7 @@ onBeforeUnmount(() => {
               </div>
             </BsTab>
             <BsTab label="Others">
-              <div class="flex flex-col gap-2 ps-2">
+              <div class="flex flex-col md-gap-2 ps-2">
                 <BsCheckbox v-model="chipVariant" value="outlined"> Outlined </BsCheckbox>
                 <BsCheckbox v-model="chipShape" value="pill"> Rounded Pill </BsCheckbox>
                 <BsCheckbox v-if="!showSlider" v-model="multiRows" :value="true">
@@ -244,7 +244,7 @@ onBeforeUnmount(() => {
       <template #content>
         <div
           :class="[
-            'h-full flex items-center justify-center min-h-40 py-6 px-3 rounded-3',
+            'h-full flex items-center justify-center min-h-40 py-4 px-3 rounded-3',
             chipColor === 'light' ? 'bg-gray-700' : '',
           ]"
         >

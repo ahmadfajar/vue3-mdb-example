@@ -15,7 +15,7 @@ fmtVueTpl.value = parseVueTemplateTag(Example);
     </div>
     <ShoutBox :tpl="fmtVueTpl">
       <template #content>
-        <div class="h-full min-h-40 flex items-center justify-center px-6 py-8">
+        <div class="h-full min-h-40 flex items-center justify-center py-4 px-3">
           <ChipExample3 />
         </div>
       </template>

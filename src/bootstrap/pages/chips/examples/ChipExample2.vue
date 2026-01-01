@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col gap-y-4 items-center">
+  <div class="flex flex-col md-gap-y-4 items-center">
     <BsChip
       {$avatar}
       {$avatarCircle}
@@ -61,5 +61,3 @@
     </BsChip>
   </div>
 </template>
-
-<script setup lang="ts"></script>

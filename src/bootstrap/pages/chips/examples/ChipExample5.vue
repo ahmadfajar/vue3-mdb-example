@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col gap-y-4">
+  <div class="flex flex-col md-gap-y-4">
     <div class="flex items-center">
       <BsChip dismissible> Chip Action </BsChip>
       <BsChip color="primary" dismissible pill> Chip Action </BsChip>

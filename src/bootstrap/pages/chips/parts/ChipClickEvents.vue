@@ -18,7 +18,7 @@ fmtVueTsc.value = parseVueScriptTag(Example);
     </div>
     <ShoutBox :tpl="fmtVueTpl" :tsc="fmtVueTsc">
       <template #content>
-        <div class="h-full min-h-40 flex items-center justify-center px-6 py-8">
+        <div class="h-full min-h-40 flex items-center justify-center py-4 px-3">
           <ChipExample4 />
         </div>
       </template>

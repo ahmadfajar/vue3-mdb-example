@@ -1,6 +1,6 @@
 <template>
-  <div class="flex flex-col gap-y-4">
-    <div class="flex items-center gap-2">
+  <div class="flex flex-col md-gap-y-4">
+    <div class="flex items-center md-gap-2">
       <BsDropdownMenu>
         <BsChip> Chip Action <span class="caret-down ms-2"></span></BsChip>
         <template #content>
@@ -28,7 +28,7 @@
         </template>
       </BsDropdownMenu>
     </div>
-    <div class="flex items-center gap-2">
+    <div class="flex items-center md-gap-2">
       <BsDropdownMenu>
         <BsChip outlined> Chip Action <span class="caret-down ms-2"></span></BsChip>
         <template #content>
