@@ -10,6 +10,7 @@ declare type TNavigation = {
 
 export declare type TMainNavigation = {
   text: string;
+  name?: string;
   hidden?: boolean;
   group?: string;
   path?: string;
@@ -284,6 +285,59 @@ export const menuNavs: TMainNavigation[] = [
         view: () => import('@tw/pages/inputs/CheckboxPage.vue'),
       },
       {
+        text: 'Chip Field',
+        path: '/inputs/chip-field',
+        view: () => import('@tw/pages/inputs/ChipFieldPage.vue'),
+      },
+      {
+        text: 'Combobox',
+        path: '/inputs/combobox',
+        view: () => import('@tw/pages/inputs/ComboboxPage.vue'),
+      },
+      {
+        text: 'Combobox',
+        name: 'combobox-id',
+        path: '/inputs/combobox/:id',
+        hidden: true,
+        view: () => import('@tw/pages/inputs/ComboboxPage.vue'),
+      },
+      {
+        text: 'DateTime Field',
+        path: '/inputs/datetime-field',
+        view: () => import('@tw/pages/inputs/DateTimeFieldPage.vue'),
+      },
+      {
+        text: 'DateTime Field',
+        name: 'date-time-field-id',
+        path: '/inputs/datetime-field/:id',
+        hidden: true,
+        view: () => import('@tw/pages/inputs/DateTimeFieldPage.vue'),
+      },
+      {
+        text: 'Listbox',
+        path: '/inputs/listbox',
+        view: () => import('@tw/pages/inputs/ListboxPage.vue'),
+      },
+      {
+        text: 'Listbox',
+        name: 'listbox-id',
+        path: '/inputs/listbox/:id',
+        hidden: true,
+        view: () => import('@tw/pages/inputs/ListboxPage.vue'),
+      },
+      {
+        text: 'Numeric Field',
+        path: '/inputs/numeric-field',
+        view: () => import('@tw/pages/inputs/NumericFieldPage.vue'),
+      },
+      {
+        text: 'Numeric Field',
+        name: 'numeric-field-id',
+        path: '/inputs/numeric-field/:id',
+        hidden: true,
+        view: () => import('@tw/pages/inputs/NumericFieldPage.vue'),
+      },
+      {
         text: 'Radio Button',
         path: '/inputs/radio',
         view: () => import('@tw/pages/inputs/RadioPage.vue'),
@@ -294,6 +348,18 @@ export const menuNavs: TMainNavigation[] = [
         path: '/inputs/radio/:id',
         hidden: true,
         view: () => import('@tw/pages/inputs/RadioPage.vue'),
+      },
+      {
+        text: 'Search Field',
+        path: '/inputs/search-field',
+        view: () => import('@tw/pages/inputs/SearchFieldPage.vue'),
+      },
+      {
+        text: 'Search Field',
+        name: 'search-field-id',
+        path: '/inputs/search-field/:id',
+        hidden: true,
+        view: () => import('@tw/pages/inputs/SearchFieldPage.vue'),
       },
       {
         text: 'Switch Button',
@@ -325,59 +391,6 @@ export const menuNavs: TMainNavigation[] = [
         view: () => import('@tw/pages/inputs/TextAreaPage.vue'),
       },
       {
-        text: 'Numeric Field',
-        path: '/inputs/numeric-field',
-        view: () => import('@tw/pages/inputs/NumericFieldPage.vue'),
-      },
-      {
-        text: 'Numeric Field',
-        name: 'numeric-field-id',
-        path: '/inputs/numeric-field/:id',
-        hidden: true,
-        view: () => import('@tw/pages/inputs/NumericFieldPage.vue'),
-      },
-      {
-        text: 'DateTime Field',
-        path: '/inputs/datetime-field',
-        view: () => import('@tw/pages/inputs/DateTimeFieldPage.vue'),
-      },
-      {
-        text: 'DateTime Field',
-        name: 'date-time-field-id',
-        path: '/inputs/datetime-field/:id',
-        hidden: true,
-        view: () => import('@tw/pages/inputs/DateTimeFieldPage.vue'),
-      },
-      {
-        text: 'Chip Field',
-        path: '/inputs/chip-field',
-        view: () => import('@tw/pages/inputs/ChipFieldPage.vue'),
-      },
-      {
-        text: 'Combobox',
-        path: '/inputs/combobox',
-        view: () => import('@tw/pages/inputs/ComboboxPage.vue'),
-      },
-      {
-        text: 'Combobox',
-        name: 'combobox-id',
-        path: '/inputs/combobox/:id',
-        hidden: true,
-        view: () => import('@tw/pages/inputs/ComboboxPage.vue'),
-      },
-      {
-        text: 'Listbox',
-        path: '/inputs/listbox',
-        view: () => import('@tw/pages/inputs/ListboxPage.vue'),
-      },
-      {
-        text: 'Listbox',
-        name: 'listbox-id',
-        path: '/inputs/listbox/:id',
-        hidden: true,
-        view: () => import('@tw/pages/inputs/ListboxPage.vue'),
-      },
-      {
         text: 'Toggle Field',
         path: '/inputs/toggle-field',
         view: () => import('@tw/pages/inputs/ToggleFieldPage.vue'),
@@ -388,11 +401,6 @@ export const menuNavs: TMainNavigation[] = [
         path: '/inputs/toggle-field/:id',
         hidden: true,
         view: () => import('@tw/pages/inputs/ToggleFieldPage.vue'),
-      },
-      {
-        text: 'Search Field',
-        path: '/inputs/search-field',
-        view: () => import('@tw/pages/inputs/DemoSearchField.vue'),
       },
     ],
   },
@@ -578,6 +586,14 @@ export const menuNavs: TMainNavigation[] = [
     text: 'Shadows',
     group: 'Reference',
     path: '/reference/shadow',
-    view: () => import('@tw/pages/references/DemoShadow.vue'),
+    view: () => import('@tw/pages/references/ShadowPage.vue'),
+  },
+  {
+    text: 'Shadows',
+    name: 'shadows-id',
+    // group: 'Reference',
+    path: '/reference/shadow/:id',
+    hidden: true,
+    view: () => import('@tw/pages/references/ShadowPage.vue'),
   },
 ];

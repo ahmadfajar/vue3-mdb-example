@@ -20,7 +20,7 @@ menuNavs.forEach((it) => {
   } else {
     const home: RouteRecordRaw = {
       path: it.path as string,
-      name: StringHelper.kebabCase(it.text),
+      name: it.name || StringHelper.kebabCase(it.text),
       component: it.view as RouteComponent,
       meta: { title: it.text },
     };

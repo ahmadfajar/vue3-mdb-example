@@ -8,7 +8,6 @@ import { onBeforeUnmount, onMounted, provide } from 'vue';
 import { StringHelper, useBreakpointMin } from 'vue-mdbootstrap';
 
 const provider = new MyAppProvider('mobile', ['border-b']);
-// const sideDrawerOpen = ref(true);
 
 provide('MyApp', provider as IMyAppProvider);
 
@@ -29,10 +28,6 @@ function resizeHandler() {
     provider.screenSize = 'mobile';
   }
 }
-
-// function toggleSideDrawer(value: boolean) {
-//   sideDrawerOpen.value = value;
-// }
 
 function compareFn(a: TMainNavigation, b: TMainNavigation) {
   const labelA = a.text.toUpperCase();
@@ -87,23 +82,22 @@ onBeforeUnmount(() => {
         </BsListNav>
         <BsDivider class="my-2" />
         <BsListNav>
-          <BsListNavItem
-            v-for="navItem in routeNavB"
-            :key="navItem.text"
-            :label="navItem.text"
-            :path-name="StringHelper.kebabCase(navItem.text)"
-          />
+          <template v-for="navItem in routeNavB" :key="navItem.path || navItem.text">
+            <BsListNavItem
+              v-if="!navItem.hidden"
+              :label="navItem.text"
+              :path-name="StringHelper.kebabCase(navItem.text)"
+            />
+          </template>
         </BsListNav>
       </BsListView>
     </BsSideDrawer>
     <BsContainer v-scroll="onScroll" app @resize="resizeHandler">
-      <Suspense>
-        <RouterView v-slot="{ Component }">
-          <Transition mode="out-in" name="fade-fast">
-            <component :is="Component" />
-          </Transition>
-        </RouterView>
-      </Suspense>
+      <RouterView v-slot="{ Component }">
+        <Transition mode="out-in" name="fade-fast">
+          <component :is="Component" />
+        </Transition>
+      </RouterView>
     </BsContainer>
   </BsApp>
 </template>
