@@ -8,7 +8,7 @@ const content =
 </script>
 
 <template>
-  <div class="min-h-63">
+  <div style="min-height: 250px">
     <BsButton class="mb-3" @click="active = !active"> Click Me </BsButton>
     <BsExpandTransition>
       <BsCard v-if="active" shadow>

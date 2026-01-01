@@ -29,12 +29,12 @@ const {
 const selectedDrinks = ref<string[]>([]);
 const drinkSrc1 = dsFavoriteDrinks();
 const drinkSrc2 = dsFavoriteDrinksWithIcon();
-const contentCls = ['h-full min-h-40', 'flex items-center', 'py-8'];
+const contentCls = ['h-full min-h-40', 'flex items-center', 'py-4 py-md-5 px-3 px-md-4'];
 </script>
 
 <template>
   <div class="w-full">
-    <div class="section-content mb-5">
+    <div class="section-content mb-4">
       <h2>Multi Select</h2>
     </div>
     <ShoutBox :tpl="fmtVueTpl" :tsc="fmtVueTsc">
@@ -68,10 +68,10 @@ const contentCls = ['h-full min-h-40', 'flex items-center', 'py-8'];
       </template>
 
       <template #content>
-        <div :class="showIcon ? contentCls.concat('px-3 lg:px-6') : contentCls.concat('px-8')">
-          <div class="row gy-2">
-            <div class="sm:w-36 pt-2 font-weight-medium">Favorite Drinks</div>
-            <div class="col-sm">
+        <div :class="contentCls">
+          <div class="w-full row gy-2">
+            <div class="col-md-3 col-xl-4 pt-2 font-weight-medium">Favorite Drinks</div>
+            <div class="col-md-9 col-xl-8">
               <BsToggleButton
                 v-model="selectedDrinks"
                 :disabled="btnState === 'disabled'"

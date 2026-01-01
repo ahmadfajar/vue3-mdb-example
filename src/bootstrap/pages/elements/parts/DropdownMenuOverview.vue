@@ -46,7 +46,7 @@ const contentCls = ['min-h-40 flex items-center', 'py-8 px-3 lg:px-6'];
 
 <template>
   <div class="w-full">
-    <div class="section-content mb-5">
+    <div class="section-content mb-4">
       <h2>{{ pageTitle }}</h2>
     </div>
     <ShoutBox :styl="fmtVueStyle" :tpl="fmtVueTpl" :tsc="fmtVueTsc">

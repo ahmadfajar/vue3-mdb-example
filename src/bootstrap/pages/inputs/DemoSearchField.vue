@@ -19,7 +19,7 @@
     </div>
 
     <h2 class="mt-5">Advance Search</h2>
-    <div class="demo-block-content bg-gray-800 rounded-3 mt-4">
+    <div class="demo-block-content bg-gray-700 rounded-3 mt-4">
       <div class="flex justify-center">
         <div class="col-12 col-lg-9 col-xl-7">
           <BsSearchField

@@ -41,7 +41,7 @@ const contentCls = ['h-full min-h-40', 'py-8 px-4 md:px-8'];
 
 <template>
   <div class="w-full">
-    <div class="section-content mb-5">
+    <div class="section-content mb-4">
       <h2>Checkbox Group</h2>
     </div>
     <ShoutBox :tpl="fmtVueTpl" :tsc="fmtVueTsc">

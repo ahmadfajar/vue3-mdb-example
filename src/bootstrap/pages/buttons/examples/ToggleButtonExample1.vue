@@ -8,8 +8,8 @@ const drinks: TInputOptionItem[] = [{ value: 'Tea' }, { value: 'Coffee' }, { val
 
 <template>
   <div class="row">
-    <div class="sm:w-36 pt-2 font-weight-medium">Favorite Drink</div>
-    <div class="col-sm">
+    <div class="col-md-4 pt-2 font-weight-medium">Favorite Drink</div>
+    <div class="col-md-8">
       <BsToggleButton
         v-model="selectedDrink"
         :items="drinks"

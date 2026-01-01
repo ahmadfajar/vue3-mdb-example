@@ -46,13 +46,13 @@ if (props.location) {
 
 const contentCls = [
   'h-full flex items-center justify-center min-h-40',
-  'py-8 px-3 lg:px-8 md:rounded-lg text-bg-surface',
+  'py-8 px-3 lg:px-8 rounded-3 text-bg-surface',
 ];
 </script>
 
 <template>
   <div class="w-full">
-    <div class="section-content mb-5">
+    <div class="section-content mb-4">
       <h2>{{ pageTitle }}</h2>
     </div>
     <ShoutBox :tpl="fmtVueTpl" :tsc="fmtVueTsc">

@@ -39,7 +39,7 @@ const contentCls = ['h-full min-h-40', 'flex items-center', 'py-8'];
 
 <template>
   <div class="w-full">
-    <div class="section-content mb-5">
+    <div class="section-content mb-4">
       <h2>Overview</h2>
     </div>
     <ShoutBox :tpl="fmtVueTpl" :tsc="fmtVueTsc">
@@ -47,7 +47,7 @@ const contentCls = ['h-full min-h-40', 'flex items-center', 'py-8'];
         <div class="min-h-116">
           <h5 class="mt-2">Configuration Options:</h5>
 
-          <BsTabs v-model="tabIndex" class="-mx-3 mt-2" variant="md3">
+          <BsTabs v-model="tabIndex" class="mt-2" style="margin-inline: -16px" variant="md3">
             <BsTab label="General">
               <div class="mb-4">
                 <BsCombobox v-model="btnVariant" :data-source="btnVariantSrc" filled floating-label>

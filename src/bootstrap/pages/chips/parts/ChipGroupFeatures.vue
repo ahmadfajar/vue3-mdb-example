@@ -177,7 +177,7 @@ onBeforeUnmount(() => {
 
 <template>
   <div class="w-full">
-    <div class="section-content mb-5">
+    <div class="section-content mb-4">
       <h2 v-if="showSlider">Sliding Chips</h2>
       <h2 v-else-if="showFilters">Filter Chips</h2>
       <h2 v-else>Overview</h2>
@@ -187,7 +187,7 @@ onBeforeUnmount(() => {
         <div class="min-h-121">
           <h5 class="mt-2">Configuration Options:</h5>
 
-          <BsTabs v-model="tabIndex" class="-mx-3 mt-2" variant="md3">
+          <BsTabs v-model="tabIndex" class="mt-2" style="margin-inline: -16px" variant="md3">
             <BsTab label="General">
               <div class="flex flex-col gap-y-4">
                 <BsCombobox v-model="chipColor" :data-source="chipColorSrc" filled floating-label>
@@ -244,8 +244,8 @@ onBeforeUnmount(() => {
       <template #content>
         <div
           :class="[
-            'h-full flex items-center justify-center min-h-40 py-6 px-3 md:rounded-lg',
-            chipColor === 'light' ? 'bg-gray-800' : '',
+            'h-full flex items-center justify-center min-h-40 py-6 px-3 rounded-3',
+            chipColor === 'light' ? 'bg-gray-700' : '',
           ]"
         >
           <BsChipGroup

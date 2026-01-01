@@ -18,7 +18,7 @@ if (props.advance) {
 
 <template>
   <div class="w-full">
-    <div class="section-content mb-5">
+    <div class="section-content mb-4">
       <h2 v-if="advance">Advance Usage</h2>
       <h2 v-else>Basic Usage</h2>
     </div>

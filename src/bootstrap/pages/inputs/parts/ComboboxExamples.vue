@@ -23,7 +23,7 @@ if (props.section === 'validation-example') {
 
 <template>
   <div class="w-full">
-    <div class="section-content mb-5">
+    <div class="section-content mb-4">
       <h2 v-if="section === 'validation-example'">Validation Example</h2>
       <h2 v-else>Cascade Example</h2>
     </div>

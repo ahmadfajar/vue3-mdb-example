@@ -18,7 +18,7 @@ if (props.grid) {
 
 <template>
   <div class="w-full">
-    <div class="section-content mb-5">
+    <div class="section-content mb-4">
       <h2 v-if="grid">Card Grid</h2>
       <h2 v-else>Card Group</h2>
     </div>

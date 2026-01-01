@@ -53,7 +53,7 @@ onBeforeUnmount(() => {
 
 <template>
   <div class="w-full">
-    <div class="section-content mb-5">
+    <div class="section-content mb-4">
       <h2 v-if="section === 'prefix-suffix'">Prefix and Suffix</h2>
       <h2 v-else>Browser Autocomplete</h2>
     </div>

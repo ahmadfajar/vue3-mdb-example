@@ -14,7 +14,7 @@ const styles = {
 </script>
 
 <template>
-  <BsApp :style="styles" class="md-shadow-2 rounded-lg">
+  <BsApp :style="styles" class="md-shadow-2 rounded-3">
     <BsAppbar clipped-left shadow>
       <BsButton
         color="light"

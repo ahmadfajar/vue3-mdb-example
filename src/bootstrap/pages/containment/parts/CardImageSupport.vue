@@ -31,7 +31,7 @@ const imagePositions = cardImagePositions();
 
 <template>
   <div class="w-full">
-    <div class="section-content mb-5">
+    <div class="section-content mb-4">
       <h2>Image Position</h2>
     </div>
     <ShoutBox :tpl="fmtVueTpl">

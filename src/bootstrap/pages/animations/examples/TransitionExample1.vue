@@ -8,7 +8,7 @@ const content =
 </script>
 
 <template>
-  <div class="min-h-55 overflow-hidden">
+  <div class="overflow-hidden" style="min-height: 220px">
     <BsButton class="mb-3" @click="active = !active"> Click Me </BsButton>
     <transition {$transition}>
       <BsCard v-if="active" shadow>

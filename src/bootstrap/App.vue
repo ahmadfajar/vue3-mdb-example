@@ -192,6 +192,16 @@ body {
   }
 }
 
+.md-popover-dropdown-menu {
+  .md-list-tile {
+    &.active {
+      .md-list-tile-title {
+        font-weight: var(--font-weight-medium);
+      }
+    }
+  }
+}
+
 .md-card {
   > .md-application-wrap:first-child {
     @include borders.radius(inherit);
@@ -316,14 +326,30 @@ body {
   }
 }
 
-.demo-block-content {
-  .md-breadcrumb {
-    --md-breadcrumb-padding-x: 0;
-  }
-}
+//.demo-block-content {
+//  .md-breadcrumb {
+//    --md-breadcrumb-padding-x: 0;
+//  }
+//}
 
 // Utilities
 //----------
+.max-w-125 {
+  max-width: 31.25rem; // 500px
+}
+
+.min-h-40 {
+  min-height: 10rem; // 160px
+}
+
+.min-h-65 {
+  min-height: 18rem; // 288px
+}
+
+.min-h-124 {
+  min-height: 29.5rem; // 472px
+}
+
 .section-content {
   padding-left: 0.75rem;
   padding-right: 0.75rem;

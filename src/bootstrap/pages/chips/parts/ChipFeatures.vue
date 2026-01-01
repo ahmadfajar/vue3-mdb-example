@@ -130,7 +130,7 @@ onBeforeUnmount(() => {
 
 <template>
   <div class="w-full">
-    <div class="section-content mb-5">
+    <div class="section-content mb-4">
       <h2 v-if="showIcon">Icon Features</h2>
       <h2 v-else-if="showAvatar">Avatar Support</h2>
       <h2 v-else>Overview</h2>
@@ -216,9 +216,9 @@ onBeforeUnmount(() => {
       <template #content>
         <div
           :class="[
-            'h-full min-h-40 flex items-center justify-center py-6 px-3 md:rounded-lg',
+            'h-full min-h-40 flex items-center justify-center py-6 px-3 rounded-3',
             chipColor === 'light' && (['active', 'readonly'].includes(chipState!) || !chipState)
-              ? 'bg-gray-800'
+              ? 'bg-gray-700'
               : '',
           ]"
         >

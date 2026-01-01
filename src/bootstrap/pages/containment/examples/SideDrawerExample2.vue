@@ -2,7 +2,7 @@
 import { ref } from 'vue';
 
 const navPillCls = ['flex flex-col list-none'];
-const navItemCls = ['flex px-2 py-2 rounded-lg', 'not-[.active]:hover:bg-blue-100'];
+const navItemCls = ['flex px-2 py-2 rounded-3', 'not-[.active]:hover:bg-blue-100'];
 
 const sideDrawerOpen = ref(true);
 
@@ -12,7 +12,7 @@ function toggleSideDrawer(value: boolean) {
 </script>
 
 <template>
-  <BsApp class="md-shadow-2 rounded-lg">
+  <BsApp class="md-shadow-2 rounded-3">
     <BsSideDrawer v-model:open="sideDrawerOpen" position="right" shadow>
       <div class="p-3">
         <img

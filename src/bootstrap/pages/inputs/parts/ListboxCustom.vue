@@ -16,7 +16,7 @@ fmtVueStyle.value = parseVueStyleTag(Example);
 
 <template>
   <div class="w-full">
-    <div class="section-content mb-5">
+    <div class="section-content mb-4">
       <h2>Customizing Listbox</h2>
     </div>
     <ShoutBox :styl="fmtVueStyle" :tpl="fmtVueTpl" :tsc="fmtVueTsc">

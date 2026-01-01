@@ -116,7 +116,7 @@ onBeforeUnmount(() => {
 
 <template>
   <div class="w-full">
-    <div class="section-content mb-5">
+    <div class="section-content mb-4">
       <h2>{{ section === 'image-support' ? 'Image Support' : 'Overview' }}</h2>
     </div>
     <ShoutBox :tpl="fmtVueTpl" :tsc="fmtVueTsc">

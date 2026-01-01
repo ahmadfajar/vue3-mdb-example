@@ -356,6 +356,7 @@ onBeforeUnmount(() => {
 
 .shoutbox-content {
   --md-border-color: #{colors.$neutral-lighten-2};
+  --bs-border-color: var(--md-border-color);
 }
 
 .shoutbox-body {

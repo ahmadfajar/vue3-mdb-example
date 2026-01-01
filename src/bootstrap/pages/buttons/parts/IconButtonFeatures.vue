@@ -95,7 +95,7 @@ onBeforeUnmount(() => {
 
 <template>
   <div class="w-full">
-    <div class="section-content mb-5">
+    <div class="section-content mb-4">
       <h2>Icon Button</h2>
     </div>
     <ShoutBox :tpl="fmtVueTpl">
@@ -130,7 +130,7 @@ onBeforeUnmount(() => {
             </div>
           </div>
         </div>
-        <div class="grid mb-4">
+        <div class="d-grid mb-2">
           <BsButton :disabled="!hasAnimation" @click="stopAnimation()"> Stop Animation </BsButton>
         </div>
       </template>

@@ -10,7 +10,7 @@ fmtVueTpl.value = parseVueTemplateTag(Example);
 
 <template>
   <div class="w-full">
-    <div class="section-content mb-5">
+    <div class="section-content mb-4">
       <h2>Dismissible Support</h2>
     </div>
     <ShoutBox :tpl="fmtVueTpl">

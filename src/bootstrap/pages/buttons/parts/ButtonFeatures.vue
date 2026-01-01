@@ -136,7 +136,7 @@ onBeforeUnmount(() => {
 
 <template>
   <div class="w-full">
-    <div class="section-content mb-5">
+    <div class="section-content mb-4">
       <h2>Overview</h2>
     </div>
     <ShoutBox :tpl="fmtVueTpl">
@@ -144,9 +144,9 @@ onBeforeUnmount(() => {
         <div class="min-h-124">
           <h5 class="mt-2">Configuration Options:</h5>
 
-          <BsTabs v-model="tabIndex" class="-mx-3 mt-2" variant="md3">
+          <BsTabs v-model="tabIndex" class="mt-2" style="margin-inline: -16px" variant="md3">
             <BsTab label="General">
-              <div class="flex flex-col gap-y-4">
+              <div class="flex flex-col md-gap-y-4">
                 <BsCombobox v-model="btnVariant" :data-source="btnVariants" filled floating-label>
                   <label>Variant:</label>
                 </BsCombobox>
@@ -166,7 +166,7 @@ onBeforeUnmount(() => {
             </BsTab>
             <BsTab label="Others">
               <div class="ps-2">
-                <div class="flex flex-col gap-y-1">
+                <div class="flex flex-col md-gap-y-1">
                   <BsCheckbox
                     v-model="btnElevated"
                     :disabled="btnState === 'readonly' || btnState === 'disabled'"
@@ -201,7 +201,7 @@ onBeforeUnmount(() => {
                   </div>
                 </div>
               </div>
-              <div class="grid mt-5">
+              <div class="d-grid mt-4">
                 <BsButton :disabled="!hasAnimation" @click="stopAnimation()">
                   Stop Animation
                 </BsButton>
@@ -214,9 +214,9 @@ onBeforeUnmount(() => {
       <template #content>
         <div
           :class="[
-            'h-full min-h-40 flex items-center justify-center px-6 py-8 md:rounded-lg',
+            'h-full min-h-40 flex items-center justify-center px-6 py-8 rounded-3',
             btnColor === 'light' && btnVariant !== 'filled' && btnState !== 'disabled'
-              ? 'bg-gray-800'
+              ? 'bg-gray-700'
               : '',
           ]"
         >

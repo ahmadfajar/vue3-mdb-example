@@ -13,12 +13,12 @@ fmtVueTsc.value = parseVueScriptTag(Example);
 
 <template>
   <div class="w-full">
-    <div class="section-content mb-5">
+    <div class="section-content mb-4">
       <h2>Expand Transition</h2>
     </div>
     <ShoutBox :tpl="fmtVueTpl" :tsc="fmtVueTsc">
       <template #content>
-        <div class="px-3 py-6 md:p-8">
+        <div class="px-3 py-4 p-md-5">
           <TransitionExample2 />
         </div>
       </template>

@@ -15,7 +15,7 @@ const contentCls = ['h-full min-h-40 flex justify-center', 'py-8 px-3 lg:px-8'];
 
 <template>
   <div class="w-full">
-    <div class="section-content mb-5">
+    <div class="section-content mb-4">
       <h2>Advance Usage</h2>
     </div>
     <ShoutBox :tpl="fmtVueTpl" :tsc="fmtVueTsc">

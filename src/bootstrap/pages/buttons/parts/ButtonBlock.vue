@@ -10,12 +10,12 @@ fmtVueTpl.value = parseVueTemplateTag(Example);
 
 <template>
   <div class="w-full">
-    <div class="section-content mb-5">
+    <div class="section-content mb-4">
       <h2>Button Block</h2>
     </div>
     <ShoutBox :tpl="fmtVueTpl">
       <template #content>
-        <div class="h-full flex items-center justify-center bg-gray-800 px-6 py-8 md:rounded-lg">
+        <div class="h-full flex items-center justify-center bg-gray-700 p-4 py-md-5 rounded-3">
           <ButtonExample5 />
         </div>
       </template>

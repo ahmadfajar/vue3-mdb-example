@@ -38,14 +38,14 @@ const content = "Some quick example text to build on the card title and make up 
 
 <template>
   <div class="w-full">
-    <div class="section-content mb-5">
+    <div class="section-content mb-4">
       <h2>
         {{ StringHelper.titleCase(transition) || 'Fade' }}
       </h2>
     </div>
     <ShoutBox :tpl="fmtVueTpl" :tsc="fmtVueTsc">
       <template #content>
-        <div class="px-3 py-6 md:p-8 min-h-65 overflow-hidden">
+        <div class="px-3 py-4 p-md-5 min-h-65 overflow-hidden">
           <BsButton class="mb-4" @click="active = !active"> Click Me</BsButton>
           <transition :name="transition || 'fade'">
             <BsCard v-if="active" class="max-w-125" shadow>

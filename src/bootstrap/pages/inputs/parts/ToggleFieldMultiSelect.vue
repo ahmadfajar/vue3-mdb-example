@@ -34,7 +34,7 @@ const contentCls = ['h-full min-h-40', 'flex items-center', 'py-8'];
 
 <template>
   <div class="w-full">
-    <div class="section-content mb-5">
+    <div class="section-content mb-4">
       <h2>Multi Select</h2>
     </div>
     <ShoutBox :tpl="fmtVueTpl" :tsc="fmtVueTsc">

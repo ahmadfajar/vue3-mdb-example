@@ -17,7 +17,7 @@ const contentCls = ['h-full min-h-40 flex justify-center', 'py-8 px-4 md:px-8'];
 
 <template>
   <div class="w-full">
-    <div class="section-content mb-5">
+    <div class="section-content mb-4">
       <h2>Custom Checkbox</h2>
     </div>
     <ShoutBox :styl="fmtVueStyle" :tpl="fmtVueTpl" :tsc="fmtVueTsc">

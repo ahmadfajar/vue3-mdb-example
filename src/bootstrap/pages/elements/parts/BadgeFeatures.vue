@@ -39,7 +39,7 @@ const contentCls = ['h-full min-h-40 flex items-center justify-center', 'py-8 px
 
 <template>
   <div class="w-full">
-    <div class="section-content mb-5">
+    <div class="section-content mb-4">
       <h2>Styles</h2>
     </div>
     <ShoutBox :tpl="fmtVueTpl">
@@ -77,7 +77,7 @@ const contentCls = ['h-full min-h-40 flex items-center justify-center', 'py-8 px
         <div :class="contentCls">
           <div v-if="customColor" class="flex flex-wrap md-gap-x-1 md-gap-y-2">
             <BsBadge
-              :color="outlined ? 'text-gray-800' : 'bg-gray-800'"
+              :color="outlined ? 'text-gray-800' : 'bg-gray-700'"
               :outlined="outlined"
               :type="badgeType"
             >

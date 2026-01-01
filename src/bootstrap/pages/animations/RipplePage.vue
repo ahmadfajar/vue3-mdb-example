@@ -10,12 +10,12 @@ fmtVueTpl.value = parseVueTemplateTag(Example1);
 
 <template>
   <ContentLayout>
-    <div class="section-content mb-5">
+    <div class="section-content mb-4">
       <h2>Basic Example</h2>
     </div>
     <ShoutBox :tpl="fmtVueTpl" expanded>
       <template #content>
-        <div class="py-8">
+        <div class="py-5">
           <RippleExample />
         </div>
       </template>

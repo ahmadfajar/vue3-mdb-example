@@ -110,7 +110,7 @@ const btnVariants = dsFabButtonVariants();
 const btnColors = dsContextColors();
 const btnSizes = dsButtonSizes();
 const btnStates = dsComponentStates();
-const contentCls = ['h-full min-h-40 flex items-center justify-center px-6 py-8 md:rounded-lg'];
+const contentCls = ['h-full min-h-40 flex items-center justify-center px-6 py-8 rounded-3'];
 
 onBeforeUnmount(() => {
   btnVariants.proxy.destroy();
@@ -122,7 +122,7 @@ onBeforeUnmount(() => {
 
 <template>
   <div class="w-full">
-    <div class="section-content mb-5">
+    <div class="section-content mb-4">
       <h2>{{ extended ? 'Extended FAB' : 'FAB' }} Button</h2>
     </div>
     <ShoutBox :tpl="fmtVueTpl">
@@ -153,7 +153,7 @@ onBeforeUnmount(() => {
             </div>
           </div>
         </div>
-        <div class="grid mb-4">
+        <div class="d-grid mb-2">
           <BsButton :disabled="!hasAnimation" @click="stopAnimation()"> Stop Animation </BsButton>
         </div>
       </template>
@@ -162,7 +162,7 @@ onBeforeUnmount(() => {
         <div
           :class="[
             ...contentCls,
-            btnColor === 'light' && btnState !== 'disabled' ? 'bg-gray-800' : '',
+            btnColor === 'light' && btnState !== 'disabled' ? 'bg-gray-700' : '',
           ]"
         >
           <BsButton

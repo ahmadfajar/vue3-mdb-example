@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col gap-8">
+  <div class="flex flex-col md-gap-8">
     <div class="md-button-group" role="group" style="gap: 2px">
       <BsButton icon="shopping_cart" mode="icon" />
       <BsButton icon="favorite" style="border-radius: 50px 16px 16px 50px"> Label </BsButton>
@@ -8,7 +8,7 @@
     </div>
     <div class="md-button-group" role="group" style="gap: 2px">
       <BsButton icon="mic_filled" mode="icon" />
-      <BsButton class="rounded-lg!" icon="shopping_cart_filled" mode="icon" />
+      <BsButton class="rounded-3!" icon="shopping_cart_filled" mode="icon" />
 
       <BsDropdownMenu space="4">
         <BsButton dropdown-toggle icon="favorite_filled"> Label </BsButton>

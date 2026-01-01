@@ -14,12 +14,12 @@ const rawTemplate = parseVueTemplateTag(Example);
 const { itemBorderVariant, spaceAroundSrc, borderVariantSrc, itemStyleSrc } =
   setupListViewNavigation(rawTemplate, fmtVueTpl, spaceAround, borderVariant, itemStyle);
 
-const contentCls = ['min-h-40 py-8 px-3 lg:px-8 md:rounded-lg text-bg-surface'];
+const contentCls = ['min-h-40 py-8 px-3 lg:px-8 rounded-3 text-bg-surface'];
 </script>
 
 <template>
   <div class="w-full">
-    <div class="section-content mb-5">
+    <div class="section-content mb-4">
       <h2>Navigation Styles</h2>
     </div>
     <ShoutBox :tpl="fmtVueTpl">
