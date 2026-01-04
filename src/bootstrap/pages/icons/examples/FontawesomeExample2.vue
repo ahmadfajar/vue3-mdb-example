@@ -11,9 +11,10 @@ const iconSize = 36;
         <div
           v-for="name in icons"
           :key="name"
-          class="size-16 flex items-center justify-center bg-gray-200 rounded"
+          class="flex items-center justify-center bg-gray-200 rounded"
+          style="width: 64px; height: 64px"
         >
-          <BsFontawesomeIcon :icon="name" :size="iconSize" class="text-purple-600" />
+          <BsFontawesomeIcon :icon="name" :size="iconSize" class="text-purple" />
         </div>
       </div>
     </div>
@@ -23,7 +24,8 @@ const iconSize = 36;
         <div
           v-for="name in icons"
           :key="name"
-          class="size-16 flex items-center justify-center bg-gray-200 rounded"
+          class="flex items-center justify-center bg-gray-200 rounded"
+          style="width: 64px; height: 64px"
         >
           <BsFontawesomeIcon :icon="name" :size="iconSize" class="text-primary" variant="regular" />
         </div>

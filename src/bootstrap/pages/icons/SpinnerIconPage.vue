@@ -5,7 +5,7 @@ import { ref } from 'vue';
 import Example from './examples/SpinnerIconExample.vue?raw';
 
 const fmtVueTpl = ref<string>();
-const contentCls = ['h-full min-h-40 flex items-center justify-center', 'py-8 px-3 lg:px-8'];
+const contentCls = ['h-full min-h-40 flex items-center justify-center', 'p-3 p-md-5'];
 
 fmtVueTpl.value = parseVueTemplateTag(Example);
 </script>

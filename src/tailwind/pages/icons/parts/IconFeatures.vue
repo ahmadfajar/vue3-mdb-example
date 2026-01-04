@@ -19,15 +19,17 @@ const pageTitle = ref('Overview');
 if (props.section === 'styling') {
   pageTitle.value = 'Styling an Icon';
   fmtVueTpl.value = parseVueTemplateTag(Example2);
+  fmtVueTsc.value = parseVueScriptTag(Example2);
 } else if (props.section === 'rotation') {
   pageTitle.value = 'Rotating an Icon';
   fmtVueTpl.value = parseVueTemplateTag(Example3);
+  fmtVueTsc.value = parseVueScriptTag(Example3);
 } else if (props.section === 'animation') {
   pageTitle.value = 'Animating an Icon';
   fmtVueTpl.value = parseVueTemplateTag(Example4);
-  fmtVueTsc.value = parseVueScriptTag(Example4);
 } else {
   fmtVueTpl.value = parseVueTemplateTag(Example1);
+  fmtVueTsc.value = parseVueScriptTag(Example1);
 }
 
 const contentCls = ['h-full min-h-40 flex justify-center', 'py-8 px-3 lg:px-8'];

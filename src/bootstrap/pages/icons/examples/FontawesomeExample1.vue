@@ -12,7 +12,8 @@ const iconSize = 36;
         <div
           v-for="name in icons"
           :key="name"
-          class="size-16 flex items-center justify-center bg-gray-200 rounded"
+          class="flex items-center justify-center bg-gray-200 rounded"
+          style="width: 64px; height: 64px"
         >
           <BsFontawesomeIcon :icon="name" :size="iconSize" />
         </div>
@@ -22,7 +23,8 @@ const iconSize = 36;
         <div
           v-for="name in icons"
           :key="name"
-          class="size-16 flex items-center justify-center bg-gray-200 rounded"
+          class="flex items-center justify-center bg-gray-200 rounded"
+          style="width: 64px; height: 64px"
         >
           <BsFontawesomeIcon :icon="name" :size="iconSize" variant="light" />
         </div>
@@ -34,7 +36,8 @@ const iconSize = 36;
         <div
           v-for="name in icons"
           :key="name"
-          class="size-16 flex items-center justify-center bg-gray-200 rounded"
+          class="flex items-center justify-center bg-gray-200 rounded"
+          style="width: 64px; height: 64px"
         >
           <BsFontawesomeIcon :icon="name" :size="iconSize" variant="regular" />
         </div>
@@ -44,7 +47,8 @@ const iconSize = 36;
         <div
           v-for="name in brands"
           :key="name"
-          class="size-16 flex items-center justify-center bg-gray-200 rounded"
+          class="flex items-center justify-center bg-gray-200 rounded"
+          style="width: 64px; height: 64px"
         >
           <BsFontawesomeIcon :icon="name" :size="iconSize" variant="brands" />
         </div>
