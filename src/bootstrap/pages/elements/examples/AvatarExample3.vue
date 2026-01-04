@@ -1,7 +1,5 @@
-<script setup lang="ts"></script>
-
 <template>
-  <BsCard class="max-w-100">
+  <BsCard style="max-width: 400px">
     <BsListView class="rounded">
       <BsListTile>
         <BsListTileLeading size="42">
@@ -23,7 +21,7 @@
       <BsDivider />
       <BsListTile>
         <BsListTileLeading size="42">
-          <BsAvatar circle class="bg-purple-800 text-white" text="MD" size="40" />
+          <BsAvatar circle class="bg-purple-600 text-white" text="MD" size="40" />
         </BsListTileLeading>
         <BsListTileContent>
           <BsListTileTitle>This avatar created using ShortText</BsListTileTitle>

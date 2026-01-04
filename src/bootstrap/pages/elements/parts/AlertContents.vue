@@ -45,7 +45,7 @@ watchEffect(() => {
 const alertColorSrc = dsContextColors(['dark']);
 const alertVariantSrc = dsAlertVariants();
 const iconVariantSrc = dsIconVariants();
-const contentCls = ['h-full min-h-40 flex items-center justify-center', 'py-8 px-3 lg:px-8'];
+const contentCls = ['h-full min-h-40 flex items-center justify-center', 'p-3 p-md-5'];
 
 onBeforeUnmount(() => {
   alertColorSrc.proxy.destroy();
@@ -97,14 +97,14 @@ onBeforeUnmount(() => {
             :icon="debouncedIcon"
             :icon-variant="iconVariant"
             :outlined="variant === 'outlined'"
-            class="mt-4"
+            class="mt-3"
           >
             <p>
               Aww yeah, you successfully read this alert message. This is an example how to
               construct <b>Alert</b> with additional contents.
             </p>
             <hr class="my-3" />
-            <ul class="list-disc ms-4">
+            <ul>
               <li>This is just example bullet list.</li>
               <li>
                 This is

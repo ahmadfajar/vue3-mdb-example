@@ -22,8 +22,8 @@ function toggleEnableWidget() {
 
 <template>
   <BsApp class="p-2">
-    <BsCard class="w-full max-w-100 mx-auto" shadow>
-      <BsAppbar class="bg-indigo-700">
+    <BsCard class="w-full mx-auto" shadow style="max-width: 400px">
+      <BsAppbar class="bg-indigo">
         <BsButton color="light" flat icon="arrow_back" mode="icon"></BsButton>
         <BsAppbarTitle class="text-white" title="Setting"></BsAppbarTitle>
       </BsAppbar>

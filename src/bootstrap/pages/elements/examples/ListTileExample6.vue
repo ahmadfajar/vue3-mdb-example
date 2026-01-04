@@ -29,10 +29,11 @@ const styles = {
       <div class="p-3">
         <img
           alt="image"
-          class="inline rounded-circle size-10"
+          class="rounded-circle"
           src="https://ahmadfajar.github.io/img/kitty-1.jpg"
+          style="width: 40px; height: 40px"
         />
-        <span class="text-xl ps-4">Kitty Doe</span>
+        <span class="h5 ps-4">Kitty Doe</span>
       </div>
       <BsDivider />
       <BsListView>
@@ -90,7 +91,7 @@ const styles = {
         </BsListTile>
       </BsListView>
     </BsSideDrawer>
-    <BsContainer app class="h-80">
+    <BsContainer app style="height: 340px">
       <div class="flex justify-center items-center"></div>
     </BsContainer>
   </BsApp>

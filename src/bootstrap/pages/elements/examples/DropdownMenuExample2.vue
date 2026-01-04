@@ -5,7 +5,7 @@ const show1 = ref(false);
 </script>
 
 <template>
-  <div class="flex max-sm:flex-col max-sm:items-center justify-around gap-y-3">
+  <div class="flex flex-col flex-sm-row items-center justify-around md-gap-y-3">
     <BsDropdownMenu v-model:open="show1" open-on-hover space="2">
       <BsButton dropdown-toggle>Dropdown</BsButton>
       <template #content>

@@ -28,7 +28,7 @@ const miniOpen = ref(false);
           @click="miniOpen = false"
         />
       </div>
-      <hr class="mb-2 mt-0" />
+      <BsDivider />
       <div class="p-2">
         <ul class="nav nav-pills flex-column" style="--bs-nav-link-padding-x: 0.5rem">
           <li class="nav-item">

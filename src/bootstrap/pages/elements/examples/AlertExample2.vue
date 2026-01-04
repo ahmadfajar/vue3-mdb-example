@@ -1,5 +1,3 @@
-<script setup lang="ts"></script>
-
 <template>
   <BsAlert {$alertVariant} {$colorName} {$dismissible} {$icon} {$iconVariant} {$variants}>
     Aww yeah, you successfully read this alert message. This is an example how to construct a

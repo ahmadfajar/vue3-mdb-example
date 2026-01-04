@@ -14,7 +14,7 @@ const rawTemplate = parseVueTemplateTag(Example);
 const { itemBorderVariant, spaceAroundSrc, borderVariantSrc, itemStyleSrc } =
   setupListViewNavigation(rawTemplate, fmtVueTpl, spaceAround, borderVariant, itemStyle);
 
-const contentCls = ['min-h-40 py-8 px-3 lg:px-8 rounded-3 text-bg-surface'];
+const contentCls = ['min-h-40 p-3 p-md-5 rounded-3 text-bg-surface'];
 </script>
 
 <template>
@@ -40,8 +40,8 @@ const contentCls = ['min-h-40 py-8 px-3 lg:px-8 rounded-3 text-bg-surface'];
       <template #content>
         <div :class="contentCls">
           <BsApp class="p-2">
-            <BsCard class="w-full max-w-100 mx-auto" shadow>
-              <BsAppbar class="bg-indigo-700" clipped-left>
+            <BsCard class="w-full mx-auto" shadow style="max-width: 400px">
+              <BsAppbar class="bg-indigo" clipped-left>
                 <BsButton color="light" flat icon="menu" mode="icon" />
                 <BsAppbarTitle class="text-white" title="Menus" />
                 <BsSpacer />

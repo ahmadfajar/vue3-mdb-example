@@ -23,7 +23,7 @@ const content =
 </script>
 
 <template>
-  <BsCard class="w-full max-w-100" shadow>
+  <BsCard class="w-full" shadow style="max-width: 400px">
     <BsListView>
       <BsSubheader>Today</BsSubheader>
       <template v-for="(item, index) in listItems1" :key="item.title">

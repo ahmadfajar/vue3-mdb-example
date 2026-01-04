@@ -1,5 +1,3 @@
-<script setup lang="ts"></script>
-
 <template>
   <div class="flex items-center justify-center md-gap-3">
     <BsAvatar
@@ -14,7 +12,7 @@
       {$border}
       {$shapes}
       {$sizes}
-      class="bg-purple-800 text-white"
+      class="bg-purple-600 text-white"
       icon="account_circle"
     />
     <BsAvatar

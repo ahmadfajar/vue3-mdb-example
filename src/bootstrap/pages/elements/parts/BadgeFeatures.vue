@@ -34,7 +34,7 @@ watchEffect(() => {
 });
 
 const typeVariantSrc = dsBadgeTypes();
-const contentCls = ['h-full min-h-40 flex items-center justify-center', 'py-8 px-3 lg:px-8'];
+const contentCls = ['h-full min-h-40 flex items-center justify-center', 'p-3 p-md-5'];
 </script>
 
 <template>
@@ -49,13 +49,13 @@ const contentCls = ['h-full min-h-40 flex items-center justify-center', 'py-8 px
         <BsCombobox v-model="badgeType" :data-source="typeVariantSrc" filled floating-label>
           <label>Variant:</label>
         </BsCombobox>
-        <div class="flex flex-col ps-2">
+        <div>
           <BsSwitch
             v-model="outlined"
             :value="true"
             checked-icon
             inset-outlined
-            label-class="w-full"
+            label-class="flex-fill"
             label-position="left"
           >
             Outlined
@@ -65,7 +65,7 @@ const contentCls = ['h-full min-h-40 flex items-center justify-center', 'py-8 px
             :value="true"
             checked-icon
             inset-outlined
-            label-class="w-full"
+            label-class="flex-fill"
             label-position="left"
           >
             Custom color examples
@@ -76,55 +76,15 @@ const contentCls = ['h-full min-h-40 flex items-center justify-center', 'py-8 px
       <template #content>
         <div :class="contentCls">
           <div v-if="customColor" class="flex flex-wrap md-gap-x-1 md-gap-y-2">
-            <BsBadge
-              :color="outlined ? 'text-gray-800' : 'bg-gray-700'"
-              :outlined="outlined"
-              :type="badgeType"
-            >
-              gray-800
+            <BsBadge :outlined="outlined" :type="badgeType" color="gray"> gray </BsBadge>
+            <BsBadge :outlined="outlined" :type="badgeType" color="blue"> blue </BsBadge>
+            <BsBadge :outlined="outlined" :type="badgeType" color="indigo"> indigo </BsBadge>
+            <BsBadge :outlined="outlined" :type="badgeType" color="deep-purple">
+              deep-purple
             </BsBadge>
-            <BsBadge
-              :color="outlined ? 'text-slate-600' : 'bg-slate-600'"
-              :outlined="outlined"
-              :type="badgeType"
-            >
-              slate-600
-            </BsBadge>
-            <BsBadge
-              :color="outlined ? 'text-violet-800' : 'bg-violet-800'"
-              :outlined="outlined"
-              :type="badgeType"
-            >
-              violet-800
-            </BsBadge>
-            <BsBadge
-              :color="outlined ? 'text-purple-600' : 'bg-purple-600'"
-              :outlined="outlined"
-              :type="badgeType"
-            >
-              purple-600
-            </BsBadge>
-            <BsBadge
-              :color="outlined ? 'text-fuchsia-600' : 'bg-fuchsia-600'"
-              :outlined="outlined"
-              :type="badgeType"
-            >
-              fuchsia-600
-            </BsBadge>
-            <BsBadge
-              :color="outlined ? 'text-pink-600' : 'bg-pink-600'"
-              :outlined="outlined"
-              :type="badgeType"
-            >
-              pink-600
-            </BsBadge>
-            <BsBadge
-              :color="outlined ? 'text-red-700' : 'bg-red-700'"
-              :outlined="outlined"
-              :type="badgeType"
-            >
-              red-700
-            </BsBadge>
+            <BsBadge :outlined="outlined" :type="badgeType" color="purple"> purple </BsBadge>
+            <BsBadge :outlined="outlined" :type="badgeType" color="red"> red </BsBadge>
+            <BsBadge :outlined="outlined" :type="badgeType" color="pink"> pink </BsBadge>
           </div>
           <div v-else class="flex flex-wrap md-gap-x-1 md-gap-y-2">
             <template v-for="(_color, name) in contextColorsLight" :key="_color">

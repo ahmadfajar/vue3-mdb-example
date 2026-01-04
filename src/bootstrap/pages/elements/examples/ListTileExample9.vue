@@ -1,9 +1,7 @@
-<script setup lang="ts"></script>
-
 <template>
   <BsApp class="p-2">
-    <BsCard class="w-full max-w-100 mx-auto" shadow>
-      <BsAppbar class="bg-indigo-700" clipped-left>
+    <BsCard class="w-full mx-auto" shadow style="max-width: 400px">
+      <BsAppbar class="bg-indigo" clipped-left>
         <BsButton color="light" flat icon="menu" mode="icon" />
         <BsAppbarTitle class="text-white" title="Menus" />
         <BsSpacer />

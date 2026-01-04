@@ -1,7 +1,5 @@
-<script setup lang="ts"></script>
-
 <template>
-  <BsCard class="max-w-100" shadow>
+  <BsCard shadow style="max-width: 400px">
     <BsCardMedia title="Jonathan Smith">
       <img
         alt="image"

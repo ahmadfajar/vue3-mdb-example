@@ -16,7 +16,7 @@ if (props.nonRectangle) {
   fmtVueTpl.value = parseVueTemplateTag(Example1);
 }
 
-const contentCls = ['min-h-40 flex items-center', 'py-8 px-3 lg:px-6'];
+const contentCls = ['min-h-40 flex items-center', 'p-3 p-md-4'];
 </script>
 
 <template>

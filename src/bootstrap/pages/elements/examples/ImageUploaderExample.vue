@@ -35,11 +35,11 @@ async function doUpload(notification: INotificationProvider) {
     limit="0.4"
     @error="(error: TUploadError) => $notification.error(error.message)"
   />
-  <ul class="list-disc mt-3 ms-4">
-    <li class="text-sm">Valid image types: *.jpg, *.jpeg, *.png</li>
-    <li class="text-sm">Maximum image filesize: 400KB</li>
+  <ul class="mt-2" style="padding-inline-start: 1.25rem">
+    <li class="small">Valid image types: *.jpg, *.jpeg, *.png</li>
+    <li class="small">Maximum image filesize: 400KB</li>
   </ul>
-  <BsDivider class="my-4!" />
+  <BsDivider class="my-3" />
   <BsButton :disabled="!btnEnabled" color="primary" @click="btnEnabled && doUpload($notification)">
     Upload
   </BsButton>

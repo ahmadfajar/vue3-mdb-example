@@ -5,7 +5,7 @@ import { ref } from 'vue';
 import Example from '../examples/BadgeExample1.vue?raw';
 
 const fmtVueTpl = ref<string>();
-const contentCls = ['min-h-40', 'py-8 px-3 lg:px-6 gap-3'];
+const contentCls = ['min-h-40', 'p-3 p-md-5'];
 
 fmtVueTpl.value = parseVueTemplateTag(Example);
 </script>

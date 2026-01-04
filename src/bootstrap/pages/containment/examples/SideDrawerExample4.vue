@@ -35,7 +35,7 @@ function toggleSideDrawer(value: boolean) {
         />
         <span class="h5 ps-3">Kitty Doe</span>
       </div>
-      <hr class="mb-2 mt-0" />
+      <BsDivider />
       <div class="p-2">
         <ul class="nav nav-pills flex-column">
           <li class="nav-item">

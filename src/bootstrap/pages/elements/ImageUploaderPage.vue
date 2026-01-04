@@ -18,7 +18,7 @@ fmtVueTsc.value = parseVueScriptTag(Example);
     </div>
     <ShoutBox :tpl="fmtVueTpl" :tsc="fmtVueTsc">
       <template #content>
-        <div class="p-4 md:p-8">
+        <div class="p-3 p-md-4">
           <ImageUploaderExample />
         </div>
       </template>

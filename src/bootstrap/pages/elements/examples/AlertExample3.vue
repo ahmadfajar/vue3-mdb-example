@@ -1,5 +1,3 @@
-<script setup lang="ts"></script>
-
 <template>
   <BsAlert {$colorName} {$dismissible} {$icon} {$iconVariant} {$variants}>
     <p>
@@ -7,7 +5,7 @@
       <b>Alert</b> with additional contents.
     </p>
     <hr class="my-3" />
-    <ul class="list-disc ms-4">
+    <ul>
       <li>This is just example bullet list.</li>
       <li>
         This is

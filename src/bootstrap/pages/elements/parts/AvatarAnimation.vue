@@ -17,7 +17,7 @@ watchEffect(() => {
 });
 
 const iconAnimations = iconAnimationVariants();
-const contentCls = ['h-full min-h-40 flex items-center justify-center', 'py-8 px-3 lg:px-6 gap-3'];
+const contentCls = ['h-full min-h-40 flex items-center justify-center', 'p-3 p-md-5'];
 </script>
 
 <template>
