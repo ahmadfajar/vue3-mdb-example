@@ -44,7 +44,7 @@ const imagePositions = cardImagePositions();
       </template>
 
       <template #content>
-        <div class="h-full min-h-40 flex items-center justify-center py-8 px-3 lg:px-8">
+        <div class="h-full min-h-40 flex items-center justify-center p-3 p-md-5">
           <CardExample6 v-if="position === 'right'" />
           <CardExample5 v-else-if="position === 'left'" />
           <CardExample4 v-else-if="position === 'bottom'" />

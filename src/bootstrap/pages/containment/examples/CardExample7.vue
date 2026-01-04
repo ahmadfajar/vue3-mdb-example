@@ -1,5 +1,5 @@
 <template>
-  <BsCard border-off class="bg-rose-800 text-white">
+  <BsCard border-off class="bg-unique text-white">
     <BsCardMedia subtitle="Image SubTitle" title="Image Title">
       <img alt="image" src="https://picsum.photos/id/25/600/300.jpg" />
     </BsCardMedia>

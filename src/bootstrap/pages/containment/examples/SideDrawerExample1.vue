@@ -1,56 +1,54 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 
-const navPillCls = ['flex flex-col list-none'];
-const navItemCls = ['flex px-2 py-2 rounded-3', 'not-[.active]:hover:bg-blue-100'];
-
 const sideDrawerOpen = ref(true);
 
 function toggleSideDrawer(value: boolean) {
-  sideDrawerOpen.value = value;
+  sideDrawerOpen.value = !value;
 }
 </script>
 
 <template>
-  <BsApp class="md-shadow-2 rounded-3">
+  <BsApp class="md-shadow-2 rounded-4">
     <BsSideDrawer v-model:open="sideDrawerOpen" shadow>
       <div class="p-3">
         <img
           alt="image"
-          class="inline rounded-circle size-10"
+          class="rounded-circle"
           src="https://ahmadfajar.github.io/img/kitty-1.jpg"
+          style="width: 40px; height: 40px"
         />
-        <span class="text-xl ps-3">Kitty Doe</span>
+        <span class="h5 ps-3">Kitty Doe</span>
       </div>
-      <BsDivider />
+      <hr class="mb-2 mt-0" />
       <div class="p-2">
-        <ul :class="navPillCls">
-          <li>
-            <a :class="[...navItemCls, 'active text-bg-primary']" href="#">
+        <ul class="nav nav-pills flex-column">
+          <li class="nav-item">
+            <a class="nav-link d-flex active" href="#">
               <BsIcon icon="home_outlined" /><span class="ps-3">Home</span>
             </a>
           </li>
-          <li class="pt-1">
-            <a :class="navItemCls" href="#">
+          <li class="nav-item">
+            <a class="nav-link d-flex" href="#">
               <BsIcon icon="view_list_outlined" /><span class="ps-3">Orders</span>
             </a>
           </li>
-          <li class="pt-1">
-            <a :class="navItemCls" href="#">
+          <li class="nav-item">
+            <a class="nav-link d-flex" href="#">
               <BsIcon icon="redeem_outlined" /><span class="ps-3">Products</span>
             </a>
           </li>
-          <li class="pt-1">
-            <a :class="navItemCls" href="#">
+          <li class="nav-item">
+            <a class="nav-link d-flex" href="#">
               <BsIcon icon="account_circle_outlined" /><span class="ps-3">Customers</span>
             </a>
           </li>
         </ul>
       </div>
     </BsSideDrawer>
-    <BsContainer app class="bg-slate-400 h-70">
+    <BsContainer app class="bg-blue-grey-800" style="height: 280px">
       <div class="h-full flex justify-center items-center">
-        <BsButton @click="toggleSideDrawer(!sideDrawerOpen)"> TOGGLE </BsButton>
+        <BsButton @click="toggleSideDrawer(sideDrawerOpen)"> TOGGLE </BsButton>
       </div>
     </BsContainer>
   </BsApp>

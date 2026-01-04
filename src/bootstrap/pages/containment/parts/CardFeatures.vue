@@ -71,7 +71,7 @@ onBeforeUnmount(() => {
       </template>
 
       <template #content>
-        <div class="h-full min-h-40 flex items-center justify-center py-8 px-3 lg:px-8">
+        <div class="h-full min-h-40 flex items-center justify-center p-3 p-md-5">
           <BsCard
             :class="{
               [`text-bg-${backgroundColor}`]: backgroundColor,

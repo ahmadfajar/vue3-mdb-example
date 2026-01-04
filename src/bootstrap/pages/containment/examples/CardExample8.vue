@@ -1,5 +1,5 @@
 <template>
-  <BsCard border-off class="bg-slate-600 text-white">
+  <BsCard border-off class="bg-stylish-color text-white">
     <BsCardBody>
       <BsCardContent type="title"> Content Title </BsCardContent>
       <BsCardContent>

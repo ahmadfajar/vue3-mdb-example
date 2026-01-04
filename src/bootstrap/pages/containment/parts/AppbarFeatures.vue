@@ -24,7 +24,7 @@ if (props.advance) {
     </div>
     <ShoutBox :tpl="fmtVueTpl">
       <template #content>
-        <div class="h-full min-h-40 flex items-center justify-center py-6 px-3 lg:px-6">
+        <div class="h-full min-h-40 flex items-center justify-center py-4 px-3 px-lg-4">
           <AppbarExample2 v-if="advance" />
           <AppbarExample1 v-else />
         </div>

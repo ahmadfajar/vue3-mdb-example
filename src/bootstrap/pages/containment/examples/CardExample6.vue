@@ -14,7 +14,11 @@
         </BsCardBody>
       </div>
       <div class="col-4">
-        <img alt="image" class="card-img-end" src="https://picsum.photos/id/25/600/300.jpg" />
+        <img
+          alt="image"
+          class="card-img-end w-full"
+          src="https://picsum.photos/id/25/600/300.jpg"
+        />
       </div>
     </div>
   </BsCard>

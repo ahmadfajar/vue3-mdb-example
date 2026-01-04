@@ -2,7 +2,11 @@
   <BsCard>
     <div class="row g-0">
       <div class="col-4">
-        <img alt="image" class="card-img-start" src="https://picsum.photos/id/25/600/300.jpg" />
+        <img
+          alt="image"
+          class="card-img-start w-full"
+          src="https://picsum.photos/id/25/600/300.jpg"
+        />
       </div>
       <div class="col-8">
         <BsCardBody>

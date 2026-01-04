@@ -1,24 +1,22 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 
-const navPillCls = ['flex flex-col list-none'];
-const navItemCls = ['flex px-2 py-2 rounded-3', 'not-[.active]:hover:bg-blue-100'];
-
 const miniOpen = ref(false);
 </script>
 
 <template>
   <BsApp class="md-shadow-2 rounded-3">
     <BsSideDrawer v-model:open="miniOpen" mini>
-      <div class="flex flex-row p-2 w[250px]">
+      <div class="flex flex-row p-2" style="width: 250px">
         <img
           alt="image"
-          class="rounded-circle md-link size-10"
+          class="rounded-circle md-link"
           src="https://ahmadfajar.github.io/img/kitty-1.jpg"
+          style="width: 40px; height: 40px"
           @click="miniOpen = true"
         />
         <transition name="fade">
-          <div v-if="miniOpen" class="flex items-center flex-fill text-xl text-nowrap mb-0 ps-3">
+          <div v-if="miniOpen" class="flex items-center flex-fill text-nowrap h5 mb-0 ps-3">
             Kitty Doe
           </div>
         </transition>
@@ -30,35 +28,35 @@ const miniOpen = ref(false);
           @click="miniOpen = false"
         />
       </div>
-      <BsDivider />
+      <hr class="mb-2 mt-0" />
       <div class="p-2">
-        <ul :class="navPillCls">
+        <ul class="nav nav-pills flex-column" style="--bs-nav-link-padding-x: 0.5rem">
           <li class="nav-item">
-            <a :class="[...navItemCls, 'active text-bg-primary']" href="#">
+            <a class="nav-link d-flex active" href="#">
               <BsIcon icon="home_outlined" />
               <transition name="fade">
                 <span v-if="miniOpen" class="ps-3">Home</span>
               </transition>
             </a>
           </li>
-          <li class="pt-1">
-            <a :class="navItemCls" href="#">
+          <li class="nav-item">
+            <a class="nav-link d-flex" href="#">
               <BsIcon icon="view_list_outlined" />
               <transition name="fade">
                 <span v-if="miniOpen" class="ps-3">Orders</span>
               </transition>
             </a>
           </li>
-          <li class="pt-1">
-            <a :class="navItemCls" href="#">
+          <li class="nav-item">
+            <a class="nav-link d-flex" href="#">
               <BsIcon icon="redeem_outlined" />
               <transition name="fade">
                 <span v-if="miniOpen" class="ps-3">Products</span>
               </transition>
             </a>
           </li>
-          <li class="pt-1">
-            <a :class="navItemCls" href="#">
+          <li class="nav-item">
+            <a class="nav-link d-flex" href="#">
               <BsIcon icon="account_circle_outlined" />
               <transition name="fade">
                 <span v-if="miniOpen" class="ps-3">Customers</span>
@@ -68,6 +66,6 @@ const miniOpen = ref(false);
         </ul>
       </div>
     </BsSideDrawer>
-    <BsContainer app class="bg-slate-400 h-70" />
+    <BsContainer app class="bg-blue-grey-800" style="height: 280px" />
   </BsApp>
 </template>

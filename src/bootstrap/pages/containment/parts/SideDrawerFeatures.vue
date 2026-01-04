@@ -45,8 +45,8 @@ if (props.location) {
 }
 
 const contentCls = [
-  'h-full flex items-center justify-center min-h-40',
-  'py-8 px-3 lg:px-8 rounded-3 text-bg-surface',
+  'h-full min-h-40 flex items-center justify-center',
+  'p-3 p-md-5 rounded-3 text-bg-surface',
 ];
 </script>
 
