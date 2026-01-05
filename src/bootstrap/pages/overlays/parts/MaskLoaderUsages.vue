@@ -43,7 +43,7 @@ watchEffect(() => {
 });
 
 const maskLoaderTypes = dsMaskLoaderTypes();
-const contentCls = ['h-full min-h-40 flex items-center justify-center', 'py-8 px-3 lg:px-8'];
+const contentCls = ['h-full min-h-40 flex items-center justify-center', 'p-3 p-md-4'];
 </script>
 
 <template>
@@ -63,7 +63,7 @@ const contentCls = ['h-full min-h-40 flex items-center justify-center', 'py-8 px
       <template #content>
         <div :class="contentCls">
           <div v-if="section === 'color-size'">
-            <BsCard class="overflow-hidden max-w-120" shadow>
+            <BsCard class="overflow-hidden" shadow style="max-width: 480px">
               <BsCardBody>
                 <BsCardContent type="title">
                   {{ maskLoaderTypes.find((it) => it.value === maskLoaderType)?.label }} Loader
@@ -79,10 +79,10 @@ const contentCls = ['h-full min-h-40 flex items-center justify-center', 'py-8 px
                 spinner-diameter="60"
               />
             </BsCard>
-            <BsButton class="mt-4" @click="showLoader = !showLoader"> Toggle Loader</BsButton>
+            <BsButton class="mt-3" @click="showLoader = !showLoader"> Toggle Loader</BsButton>
           </div>
           <div v-else>
-            <BsCard class="overflow-hidden max-w-120" shadow>
+            <BsCard class="overflow-hidden" shadow style="max-width: 480px">
               <BsCardBody>
                 <BsCardContent type="title">
                   {{ maskLoaderTypes.find((it) => it.value === maskLoaderType)?.label }} Loader
@@ -91,7 +91,7 @@ const contentCls = ['h-full min-h-40 flex items-center justify-center', 'py-8 px
               </BsCardBody>
               <BsMaskLoader v-model:show="showLoader" :type="maskLoaderType" />
             </BsCard>
-            <BsButton class="mt-4" @click="showLoader = !showLoader"> Toggle Loader</BsButton>
+            <BsButton class="mt-3" @click="showLoader = !showLoader"> Toggle Loader</BsButton>
           </div>
         </div>
       </template>

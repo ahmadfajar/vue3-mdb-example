@@ -14,7 +14,11 @@ const galleryItems = [
 
 <template>
   <div class="w-full flex justify-center">
-    <div class="size-30 rounded md-link md-shadow-2" @click="showGallery = true">
+    <div
+      class="rounded md-link md-shadow-2"
+      style="height: 120px; width: 120px"
+      @click="showGallery = true"
+    >
       <img
         alt="First Image"
         class="h-full w-full rounded"

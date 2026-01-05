@@ -35,7 +35,11 @@ const galleryItems = [
 
 <template>
   <div class="w-full flex flex-wrap justify-center md-gap-5">
-    <div class="size-30 rounded md-link md-shadow-2" @click="lightbox?.openAt(0)">
+    <div
+      class="rounded md-link md-shadow-2"
+      style="height: 120px; width: 120px"
+      @click="lightbox?.openAt(0)"
+    >
       <img
         alt="First Image"
         class="h-full w-full rounded"
@@ -43,7 +47,11 @@ const galleryItems = [
         style="object-fit: cover"
       />
     </div>
-    <div class="size-30 rounded md-link md-shadow-2" @click="lightbox?.openAt(1)">
+    <div
+      class="rounded md-link md-shadow-2"
+      style="height: 120px; width: 120px"
+      @click="lightbox?.openAt(1)"
+    >
       <img
         alt="First Image"
         class="h-full w-full rounded"
@@ -51,7 +59,11 @@ const galleryItems = [
         style="object-fit: cover"
       />
     </div>
-    <div class="size-30 rounded md-link md-shadow-2" @click="lightbox?.openAt(2)">
+    <div
+      class="rounded md-link md-shadow-2"
+      style="height: 120px; width: 120px"
+      @click="lightbox?.openAt(2)"
+    >
       <img
         alt="First Image"
         class="h-full w-full rounded"
@@ -59,7 +71,11 @@ const galleryItems = [
         style="object-fit: cover"
       />
     </div>
-    <div class="size-30 rounded md-link md-shadow-2" @click="lightbox?.openAt(3)">
+    <div
+      class="rounded md-link md-shadow-2"
+      style="height: 120px; width: 120px"
+      @click="lightbox?.openAt(3)"
+    >
       <img
         alt="First Image"
         class="h-full w-full rounded"

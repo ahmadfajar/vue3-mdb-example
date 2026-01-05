@@ -137,7 +137,7 @@ onBeforeUnmount(() => {
           </BsListTile>
         </BsListView>
         <BsDivider />
-        <div class="px-4">
+        <div class="px-3">
           <BsSwitch
             v-model="item.enableMessage"
             :value="true"
@@ -159,8 +159,8 @@ onBeforeUnmount(() => {
         </div>
         <BsDivider />
         <div class="flex justify-end md-gap-1 p-3">
-          <BsButton color="primary" size="sm" @click="item.show = false"> Save </BsButton>
           <BsButton color="primary" flat size="sm" @click="item.show = false"> Cancel </BsButton>
+          <BsButton color="primary" size="sm" @click="item.show = false"> Save </BsButton>
         </div>
       </BsPopover>
     </div>
