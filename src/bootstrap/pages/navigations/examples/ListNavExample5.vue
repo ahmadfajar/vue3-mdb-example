@@ -7,7 +7,7 @@ function toggleSideDrawer(state: boolean) {
   openSideDrawer.value = state;
 }
 const styles = {
-  '--appbar-background': 'var(--color-purple-800)',
+  '--appbar-background': 'var(--bs-purple)',
   '--appbar-foreground': 'oklch(1 0 89.876)',
   '--sidedrawer-background': 'oklch(1 0 89.876)',
 };
@@ -34,10 +34,11 @@ const styles = {
       <div class="p-3">
         <img
           alt="image"
-          class="inline rounded-circle size-10"
+          class="rounded-circle"
           src="https://ahmadfajar.github.io/img/kitty-1.jpg"
+          style="width: 40px; height: 40px"
         />
-        <span class="text-xl ps-4">Kitty Doe</span>
+        <span class="h5 ps-4">Kitty Doe</span>
       </div>
       <BsDivider />
       <BsListView>
@@ -80,7 +81,7 @@ const styles = {
         </BsListNav>
       </BsListView>
     </BsSideDrawer>
-    <BsContainer app class="h-80">
+    <BsContainer app style="height: 340px">
       <div class="container-fluid"></div>
     </BsContainer>
   </BsApp>

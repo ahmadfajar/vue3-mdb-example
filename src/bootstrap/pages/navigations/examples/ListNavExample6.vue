@@ -2,8 +2,8 @@
 
 <template>
   <BsApp class="p-2">
-    <BsCard class="w-full max-w-100 mx-auto" shadow>
-      <BsAppbar class="bg-purple-800" shadow>
+    <BsCard class="w-full mx-auto" shadow style="max-width: 400px">
+      <BsAppbar class="bg-indigo" shadow>
         <BsButton color="light" flat icon="menu" mode="icon" />
         <BsAppbarTitle class="text-white" title="Menus" />
         <BsSpacer />

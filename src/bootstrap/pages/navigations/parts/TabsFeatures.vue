@@ -81,7 +81,7 @@ const tabsAlignmentSrc = dsTabAlignments();
 const tabsPlacementSrc = dsTabPositions();
 const tabsIconPositionSrc = dsTabPositions();
 const tabsIconAndLabelSrc = dsTabIconAndLabel();
-const contentCls = ['h-full min-h-40', 'py-8 px-3 lg:px-8'];
+const contentCls = ['h-full min-h-40 flex items-center', 'p-3 p-md-4'];
 
 onBeforeUnmount(() => {
   tabsVariantSrc.proxy.destroy();
@@ -128,7 +128,7 @@ onBeforeUnmount(() => {
         <div :class="contentCls">
           <BsCard v-if="['modern', 'material'].includes(tabVariant)" class="shadow">
             <BsApp style="min-height: 380px">
-              <BsAppbar class="bg-violet-800">
+              <BsAppbar class="bg-indigo-600">
                 <BsButton color="light" flat icon="menu" mode="icon" />
                 <BsAppbarTitle class="text-white" title="Page Title" />
                 <BsSpacer />
@@ -141,7 +141,7 @@ onBeforeUnmount(() => {
                 :inner-class="innerClass"
                 :tab-position="tabPlacement"
                 :variant="tabVariant"
-                color="bg-violet-800"
+                color="bg-indigo-600"
                 content-class="flex-grow"
               >
                 <BsTab

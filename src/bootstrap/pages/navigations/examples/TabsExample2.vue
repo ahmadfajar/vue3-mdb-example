@@ -7,7 +7,7 @@ const activeTab = ref(0);
 <template>
   <BsCard shadow>
     <BsApp style="min-height: 380px">
-      <BsAppbar class="bg-violet-800">
+      <BsAppbar class="bg-indigo-600">
         <BsButton color="light" flat icon="menu" mode="icon" />
         <BsAppbarTitle class="text-white" title="Page Title" />
         <BsSpacer />
@@ -21,7 +21,8 @@ const activeTab = ref(0);
         {$tabs_alignment}
         {$tabs_position}
         {$tabs_variant}
-        color="bg-violet-800"
+        color="bg-indigo-600"
+        content-class="flex-grow"
       >
       <BsTab {$tab_icon1} {$tab_label1}>
         Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh aliquip quis cardigan american apparel, butcher voluptate nisi qui.

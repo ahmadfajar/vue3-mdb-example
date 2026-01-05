@@ -6,7 +6,7 @@ import Example from '../examples/TabsExample3.vue?raw';
 
 const fmtVueTpl = ref<string>();
 const fmtVueTsc = ref<string>();
-const contentCls = ['h-full min-h-40', 'py-8 px-3 lg:px-8'];
+const contentCls = ['h-full min-h-40', 'p-3 p-md-4'];
 
 fmtVueTpl.value = parseVueTemplateTag(Example);
 fmtVueTsc.value = parseVueScriptTag(Example);

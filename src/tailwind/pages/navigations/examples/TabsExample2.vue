@@ -22,6 +22,7 @@ const activeTab = ref(0);
         {$tabs_position}
         {$tabs_variant}
         color="bg-violet-800"
+        content-class="flex-grow"
       >
       <BsTab {$tab_icon1} {$tab_label1}>
         Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh aliquip quis cardigan american apparel, butcher voluptate nisi qui.

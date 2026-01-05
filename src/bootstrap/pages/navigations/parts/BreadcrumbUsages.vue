@@ -15,22 +15,19 @@ const fmtVueTsc = ref<string>();
 const pageTitle = ref('Basic Example');
 
 if (props.section === 'icon') {
-  // example = await import('../examples/BreadcrumbExample2.vue?raw');
   pageTitle.value = 'Icon Example';
   fmtVueTpl.value = parseVueTemplateTag(Example2);
   fmtVueTsc.value = parseVueScriptTag(Example2);
 } else if (props.section === 'separator') {
-  // example = await import('../examples/BreadcrumbExample3.vue?raw');
   pageTitle.value = 'Custom Separator Example';
   fmtVueTpl.value = parseVueTemplateTag(Example3);
   fmtVueTsc.value = parseVueScriptTag(Example3);
 } else {
-  // example = await import('../examples/BreadcrumbExample1.vue?raw');
   fmtVueTpl.value = parseVueTemplateTag(Example1);
   fmtVueTsc.value = parseVueScriptTag(Example1);
 }
 
-const contentCls = ['h-full min-h-40 flex items-center', 'py-8 lg:px-3'];
+const contentCls = ['h-full min-h-40 flex items-center', 'py-4'];
 </script>
 
 <template>

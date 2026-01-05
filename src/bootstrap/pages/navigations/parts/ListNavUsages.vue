@@ -41,7 +41,7 @@ switch (props.section) {
     break;
 }
 
-const contentCls = ['h-full min-h-40', 'py-8 px-3 lg:px-8 rounded-3 text-bg-surface'];
+const contentCls = ['h-full min-h-40', 'p-3 p-md-5 rounded-3 text-bg-surface'];
 </script>
 
 <template>

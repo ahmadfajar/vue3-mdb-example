@@ -14,7 +14,7 @@ const rawTemplate = parseVueTemplateTag(Example);
 const { itemBorderVariant, spaceAroundSrc, borderVariantSrc, itemStyleSrc } =
   setupListViewNavigation(rawTemplate, fmtVueTpl, spaceAround, borderVariant, itemStyle);
 
-const contentCls = ['min-h-40 p-3 p-md-5 rounded-3 text-bg-surface'];
+const contentCls = ['min-h-40 p-2 p-md-5 rounded-3 text-bg-surface'];
 </script>
 
 <template>
