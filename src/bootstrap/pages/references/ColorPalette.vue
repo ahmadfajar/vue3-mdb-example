@@ -1,14 +1,49 @@
+<script setup lang="ts">
+import { fullColors } from '@shares/fullColors.ts';
+import { textCssFromOklchColor } from '@shares/sharedApi.ts';
+import {
+  contextColorsLightDark,
+  materialColors,
+  themeColors,
+  useMainColorClasses,
+  useMaterialColorInfo,
+} from '@shares/themeColors.ts';
+import { reactive } from 'vue';
+import { Helper, StringHelper, type TRecord } from 'vue-mdbootstrap';
+
+defineProps<{ palette: string }>();
+
+const colorFulls = reactive<TRecord>({});
+const colorAccents = reactive<TRecord>({});
+
+Object.entries(fullColors).forEach(([key, value]) => {
+  const full: TRecord = {};
+  const accents: TRecord = {};
+
+  Object.entries(value).forEach(([prop, color]) => {
+    if (prop.startsWith('accent-')) {
+      accents[prop] = color;
+    } else {
+      full[prop] = color;
+    }
+  });
+
+  colorFulls[key] = full;
+  if (!Helper.isEmptyObject(accents)) {
+    colorAccents[key] = accents;
+  }
+});
+</script>
+
 <template>
   <div class="docs-color-table">
     <div v-if="palette === 'contextual'" class="row gy-4">
       <div v-for="(value, key) in contextColorsLightDark" :key="key" class="col-md-6 col-xl-4">
-        <div
-          :class="useMainColorClasses(key)"
-          class="flex items-center px-3 md-shadow-1"
-          style="height: 64px"
-        >
-          <span class="flex-grow font-weight-semibold">{{ key }}</span>
-          <span class="opacity-75 small"> {{ value }} </span>
+        <div :class="useMainColorClasses(key)" class="p-4 lh-1 relative md-shadow-1">
+          <div class="font-weight-semibold">{{ key }}</div>
+          <div class="opacity-75 absolute" style="font-size: 13px; bottom: 10px; right: 10px">
+            {{ value }}
+          </div>
         </div>
       </div>
     </div>
@@ -17,10 +52,10 @@
       <div v-for="(value, key) in themeColors" :key="value" class="col-6 col-md-4 col-xl-3">
         <div
           :class="useMainColorClasses(key)"
-          class="flex items-center text-center px-3 md-shadow-1"
+          class="flex items-center justify-center px-3 md-shadow-1"
           style="height: 64px"
         >
-          <span class="flex-grow font-weight-semibold">{{ key }}</span>
+          <span class="font-weight-medium">{{ key }}</span>
         </div>
       </div>
     </div>
@@ -30,14 +65,19 @@
         <div class="md-shadow-2">
           <div
             :class="[
-              'p-4 text-center',
+              'p-4 text-center small',
               'bg-' + useMaterialColorInfo(item)[0].name,
               textCssFromOklchColor(useMaterialColorInfo(item)[0].value),
             ]"
           >
             <div>{{ useMaterialColorInfo(item)[0].name }}</div>
           </div>
-          <div :class="['p-4 text-center text-light', 'bg-' + useMaterialColorInfo(item)[1].name]">
+          <div
+            :class="[
+              'p-4 text-center text-light small',
+              'bg-' + useMaterialColorInfo(item)[1].name,
+            ]"
+          >
             <div>{{ useMaterialColorInfo(item)[1].name }}</div>
           </div>
         </div>
@@ -93,48 +133,23 @@
   </div>
 </template>
 
-<script setup lang="ts">
-import { fullColors } from '@shares/fullColors.ts';
-import { textCssFromOklchColor } from '@shares/sharedApi.ts';
-import {
-  contextColorsLightDark,
-  materialColors,
-  themeColors,
-  useMainColorClasses,
-  useMaterialColorInfo,
-} from '@shares/themeColors.ts';
-import { reactive } from 'vue';
-import { Helper, StringHelper, type TRecord } from 'vue-mdbootstrap';
-
-defineProps<{ palette: string }>();
-
-const colorFulls = reactive<TRecord>({});
-const colorAccents = reactive<TRecord>({});
-
-Object.entries(fullColors).forEach(([key, value]) => {
-  const full: TRecord = {};
-  const accents: TRecord = {};
-
-  Object.entries(value).forEach(([prop, color]) => {
-    if (prop.startsWith('accent-')) {
-      accents[prop] = color;
-    } else {
-      full[prop] = color;
-    }
-  });
-
-  colorFulls[key] = full;
-  if (!Helper.isEmptyObject(accents)) {
-    colorAccents[key] = accents;
-  }
-});
-</script>
-
 <style lang="scss">
-//.docs-color-block {
-//  padding: 1.5rem;
-//  text-align: center;
-//}
+.grid {
+  display: grid;
+
+  .sticky-top {
+    z-index: 10;
+  }
+}
+
+.grid-cols-auto {
+  grid-template-columns: auto minmax(0, 1fr);
+}
+
+.grid-cols-11 {
+  grid-template-columns: repeat(11, minmax(0, 1fr));
+}
+
 .color-table-header {
   justify-items: start;
   padding-bottom: 0.5rem !important;

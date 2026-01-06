@@ -284,39 +284,11 @@ body {
     font-weight: var(--font-weight-medium);
   }
 
-  //h2 {
-  //  font-size: calc(1.325rem + 0.9vw);
-  //}
-  //
-  //h3 {
-  //  font-size: calc(1.3rem + 0.6vw);
-  //}
-  //
-  //h4 {
-  //  font-size: calc(1.275rem + 0.3vw);
-  //}
-  //
-  //h5 {
-  //  font-size: 1.25rem;
-  //}
-
   // screen: 801px
   @include media.breakpoint-up(md) {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
   }
-
-  //@include media.breakpoint-up(xl) {
-  //  h2 {
-  //    font-size: 2rem;
-  //  }
-  //  h3 {
-  //    font-size: 1.75rem;
-  //  }
-  //  h4 {
-  //    font-size: 1.5rem;
-  //  }
-  //}
 
   // screen: 1328px
   @media (min-width: 83rem) {
