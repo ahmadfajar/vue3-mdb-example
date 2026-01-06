@@ -27,16 +27,16 @@ const swatches = [
 
 <template>
   <div>
-    <BsColorPicker v-model="color" v-model:mode="mode" :swatches="swatches" class="border shadow" />
-    <table class="text-sm mt-3">
+    <BsColorPicker v-model="color" v-model:mode="mode" :swatches="swatches" class="shadow" />
+    <table class="table small mt-3">
       <thead>
-        <tr class="*:px-2 text-left">
-          <th class="w-17">Mode</th>
+        <tr class="text-start">
+          <th style="width: 70px">Mode</th>
           <th>Value</th>
         </tr>
       </thead>
       <tbody>
-        <tr class="*:px-2">
+        <tr>
           <td>{{ mode }}</td>
           <td>{{ color }}</td>
         </tr>

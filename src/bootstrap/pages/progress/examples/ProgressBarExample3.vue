@@ -8,57 +8,57 @@ const singapore = ref(61);
 </script>
 
 <template>
-  <BsCard class="w-full max-w-100 shadow">
-    <BsCardHeader class="flex items-center bg-indigo-700 text-white">
-      <div class="text-xl">Revenue</div>
+  <BsCard class="w-full" shadow style="max-width: 400px">
+    <BsCardHeader class="flex items-center bg-indigo text-white">
+      <div class="h5">Revenue</div>
       <BsSpacer />
       <BsButton color="light" flat icon="more_vert" mode="icon" />
     </BsCardHeader>
     <BsCardBody>
       <BsCardContent type="title">By Location</BsCardContent>
-      <div class="flex items-end mt-4">
+      <div class="flex items-end mt-3">
         <BsProgressBar
           v-model="newYork"
-          class="grow"
+          class="flex-fill"
           inner-cls="rounded"
           label="New York"
           label-alignment="start"
           height="12"
         />
-        <div class="text-sm font-weight-semibold ps-2">{{ newYork }}k</div>
+        <div class="font-weight-semibold ps-2" style="font-size: 12px">{{ newYork }}k</div>
       </div>
       <div class="flex items-end mt-4">
         <BsProgressBar
           v-model="sanFransisco"
-          class="grow"
+          class="flex-fill"
           inner-cls="rounded"
           label="San Fransisco"
           label-alignment="start"
           height="12"
         />
-        <div class="text-sm font-weight-semibold ps-2">{{ sanFransisco }}k</div>
+        <div class="font-weight-semibold ps-2" style="font-size: 12px">{{ sanFransisco }}k</div>
       </div>
-      <div class="flex items-end mt-4">
+      <div class="flex items-end mt-3">
         <BsProgressBar
           v-model="sydney"
-          class="grow"
+          class="flex-fill"
           inner-cls="rounded"
           label="Sydney"
           label-alignment="start"
           height="12"
         />
-        <div class="text-sm font-weight-semibold ps-2">{{ sydney }}k</div>
+        <div class="font-weight-semibold ps-2" style="font-size: 12px">{{ sydney }}k</div>
       </div>
-      <div class="flex items-end my-4">
+      <div class="flex items-end my-3">
         <BsProgressBar
           v-model="singapore"
-          class="grow"
+          class="flex-fill"
           inner-cls="rounded"
           label="Singapore"
           label-alignment="start"
           height="12"
         />
-        <div class="text-sm font-weight-semibold ps-2">{{ singapore }}k</div>
+        <div class="font-weight-semibold ps-2" style="font-size: 12px">{{ singapore }}k</div>
       </div>
     </BsCardBody>
   </BsCard>

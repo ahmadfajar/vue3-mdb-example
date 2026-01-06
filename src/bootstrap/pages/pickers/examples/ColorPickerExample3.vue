@@ -18,7 +18,11 @@ const activator = useTemplateRef<ComponentPublicInstance>('activator');
       @click="show = !show"
     >
       <template #icon>
-        <span :style="{ color: selectedColor }" class="picked-color size-6 inline-block" />
+        <span
+          :style="{ color: selectedColor }"
+          class="picked-color inline-block"
+          style="width: 24px"
+        />
       </template>
     </BsButton>
     <BsColorPicker

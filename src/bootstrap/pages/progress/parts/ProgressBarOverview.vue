@@ -45,7 +45,7 @@ watchEffect(() => {
 const colorSrc = dsContextColors(['dark', 'light']);
 const positionSrc = dsProgressBarValuePosition();
 const variantSrc = dsProgressBarVariants();
-const contentCls = ['h-full min-h-40 flex items-center', 'py-8 px-3 lg:px-8'];
+const contentCls = ['h-full min-h-40 flex items-center', 'p-3 p-md-5'];
 
 onBeforeUnmount(() => {
   colorSrc.proxy.destroy();
@@ -61,12 +61,12 @@ onBeforeUnmount(() => {
     </div>
     <ShoutBox :tpl="fmtVueTpl">
       <template #side-panel>
-        <div class="min-h-84">
+        <div style="min-height: 330px">
           <h5 class="mt-2">Configuration Options:</h5>
 
           <BsTabs v-model="tabIndex" class="mt-2" style="margin-inline: -16px" variant="md3">
             <BsTab label="General">
-              <div class="flex flex-col gap-y-3">
+              <div class="flex flex-col md-gap-y-3">
                 <BsNumericField
                   v-model="progress1"
                   filled
@@ -92,7 +92,7 @@ onBeforeUnmount(() => {
               </div>
             </BsTab>
             <BsTab label="Styles">
-              <div class="flex flex-col gap-y-4">
+              <div class="flex flex-col md-gap-y-4">
                 <BsCombobox v-model="variant" :data-source="variantSrc" filled floating-label>
                   <label>Style Variant:</label>
                 </BsCombobox>
