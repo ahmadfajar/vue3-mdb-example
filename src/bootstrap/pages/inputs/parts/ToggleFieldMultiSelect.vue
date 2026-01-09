@@ -29,7 +29,7 @@ const {
 const selectedDrinks = ref<string[]>([]);
 const drinkSrc1 = dsFavoriteDrinks();
 const drinkSrc2 = dsFavoriteDrinksWithIcon();
-const contentCls = ['h-full min-h-40', 'flex items-center', 'py-8'];
+const contentCls = ['h-full min-h-40', 'flex items-center', 'py-4 py-md-5 px-3'];
 </script>
 
 <template>
@@ -68,7 +68,7 @@ const contentCls = ['h-full min-h-40', 'flex items-center', 'py-8'];
       </template>
 
       <template #content>
-        <div :class="showIcon ? contentCls.concat('px-3 lg:px-6') : contentCls.concat('px-8')">
+        <div :class="contentCls">
           <BsToggleField
             v-model="selectedDrinks"
             :disabled="btnState === 'disabled'"
@@ -80,6 +80,7 @@ const contentCls = ['h-full min-h-40', 'flex items-center', 'py-8'];
             :readonly="btnState === 'readonly'"
             :rounded="btnShape === 'rounded'"
             :tonal="btnVariant === 'tonal'"
+            class="w-full ms-sm-0"
             multiple
           >
             <template v-if="showIcon && useCheckedMark" #icon="item">
@@ -91,7 +92,7 @@ const contentCls = ['h-full min-h-40', 'flex items-center', 'py-8'];
               <BsSvgIcon v-if="selectedDrinks.includes(item?.value as string)" icon="check" />
             </template>
 
-            <div class="sm:w-36 col-form-label font-weight-medium">Favorite Drinks</div>
+            <div class="col-sm-3 col-form-label font-weight-medium pe-0">Favorite Drinks</div>
           </BsToggleField>
         </div>
       </template>

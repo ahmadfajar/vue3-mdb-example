@@ -44,7 +44,7 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <div class="w-full max-w-100 mx-auto flex flex-col md-gap-y-4">
+  <div class="w-full mx-auto flex flex-col md-gap-y-4" style="max-width: 400px">
     <BsCombobox v-model="category" :data-source="categorySrc" filled floating-label>
       <label>Product Category</label>
     </BsCombobox>

@@ -5,5 +5,5 @@ const fieldValue = ref<string>();
 </script>
 
 <template>
-  <BsSearchField v-model="fieldValue" class="max-w-120 mx-auto" />
+  <BsSearchField v-model="fieldValue" class="mx-auto" style="max-width: 480px" />
 </template>

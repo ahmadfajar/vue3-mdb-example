@@ -51,7 +51,7 @@ watchEffect(() => {
 const variantSrc = dsSwitchVariants();
 const colorSrc = dsContextColors(['dark', 'light']);
 const stateSrc = dsComponentStatesRD();
-const contentCls = ['h-full min-h-40 flex items-center justify-center', 'py-8 px-4 md:px-8'];
+const contentCls = ['h-full min-h-40 flex items-center justify-center', 'p-3 p-md-5'];
 
 onBeforeUnmount(() => {
   variantSrc.proxy.destroy();
@@ -87,7 +87,7 @@ onBeforeUnmount(() => {
 
       <template #content>
         <div :class="contentCls">
-          <div class="w-full max-w-60">
+          <div class="w-full" style="max-width: 240px">
             <BsSwitch
               v-if="variant === 'inset-outlined'"
               v-model="switch1"

@@ -105,16 +105,16 @@ function submit(notification: INotificationProvider) {
 </script>
 
 <template>
-  <BsCard class="w-full max-w-100 mx-auto" shadow>
-    <BsCardHeader class="flex items-center bg-violet-800 py-3">
+  <BsCard class="w-full mx-auto" shadow style="max-width: 400px">
+    <BsCardHeader class="flex items-center bg-indigo py-3">
       <BsButton color="light" flat icon="arrow_back" mode="icon" />
-      <span class="text-xl text-white ps-3">Sign Up</span>
+      <span class="h4 text-white mb-0 ps-3">Sign Up</span>
       <BsSpacer />
       <BsButton color="light" flat icon="more_vert" mode="icon" />
     </BsCardHeader>
     <BsCardBody>
       <form novalidate>
-        <div class="mb-4 mt-3">
+        <div class="my-3">
           <BsTextField
             v-model="member.fullName"
             :validator="fullNameValidator"
@@ -128,7 +128,7 @@ function submit(notification: INotificationProvider) {
             <label>Your Name</label>
           </BsTextField>
         </div>
-        <div class="mb-4">
+        <div class="mb-3">
           <BsTextField
             v-model="member.emailAddress"
             :validator="emailValidator"
@@ -143,7 +143,7 @@ function submit(notification: INotificationProvider) {
             <label>Your Email</label>
           </BsTextField>
         </div>
-        <div class="mb-4">
+        <div class="mb-3">
           <BsTextField
             v-model="member.password"
             :validator="passwordValidator"
@@ -158,7 +158,7 @@ function submit(notification: INotificationProvider) {
             <label>Password</label>
           </BsTextField>
         </div>
-        <div class="mb-4">
+        <div class="mb-3">
           <BsTextField
             v-model="member.confirm"
             :validator="confirmValidator"
@@ -186,13 +186,21 @@ function submit(notification: INotificationProvider) {
             />
             <span class="ps-2">Sign up with Google</span>
           </BsButton>
-          <div class="text-subtle-secondary text-xs">
+          <div class="text-subtle-secondary small mt-2">
             By submitting your information, you agree to our
-            <a class="underline-offset-2 underline decoration-dotted text-primary" href="#">
+            <a
+              class="text-primary"
+              href="#"
+              style="text-decoration: underline dotted; text-underline-offset: 3px"
+            >
               Term & Conditions
             </a>
             and
-            <a class="underline-offset-2 underline decoration-dotted text-primary" href="#">
+            <a
+              class="text-primary"
+              href="#"
+              style="text-decoration: underline dotted; text-underline-offset: 3px"
+            >
               Privacy Policy.
             </a>
           </div>

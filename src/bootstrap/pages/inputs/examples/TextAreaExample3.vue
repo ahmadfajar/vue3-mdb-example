@@ -95,16 +95,16 @@ function cancel() {
 </script>
 
 <template>
-  <BsCard class="w-full max-w-100 mx-auto" shadow>
-    <BsCardHeader class="flex items-center bg-violet-800 py-3">
+  <BsCard class="w-full mx-auto" shadow style="max-width: 400px">
+    <BsCardHeader class="flex items-center bg-indigo py-3">
       <BsButton color="light" flat icon="arrow_back" mode="icon" />
-      <span class="text-xl text-white ps-3">Contact Details</span>
+      <span class="h4 text-white mb-0 ps-3">Contact Details</span>
       <BsSpacer />
       <BsButton color="light" flat icon="more_vert" mode="icon" />
     </BsCardHeader>
     <BsCardBody class="border-b">
       <form novalidate>
-        <div class="mb-4 mt-3">
+        <div class="my-3">
           <BsTextField
             v-model="contact.fullName"
             :validator="fullNameValidator"
@@ -117,7 +117,7 @@ function cancel() {
             <label>Full Name</label>
           </BsTextField>
         </div>
-        <div class="mb-4">
+        <div class="mb-3">
           <BsTextField
             v-model="contact.email"
             :validator="emailValidator"
@@ -131,7 +131,7 @@ function cancel() {
             <label>Email</label>
           </BsTextField>
         </div>
-        <div class="mb-4">
+        <div class="mb-3">
           <BsTextArea
             v-model="contact.address"
             :validator="addressValidator"

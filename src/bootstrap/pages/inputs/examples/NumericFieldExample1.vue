@@ -1,6 +1,5 @@
-<script setup lang="ts"></script>
 <template>
-  <div class="mb-4">
+  <div class="mb-3">
     <BsNumericField
       {$button_action}
       {$button_placement}
@@ -12,11 +11,11 @@
       {$states}
       {$variants}
     >
-      <label class="sm:w-30 col-form-label">Classic Field</label>
+      <label class="col-sm-3 col-form-label">Classic Field</label>
     </BsNumericField>
   </div>
   <BsDivider />
-  <div class="mt-4">
+  <div class="mt-3">
     <BsNumericField
       {$button_action}
       {$button_placement}

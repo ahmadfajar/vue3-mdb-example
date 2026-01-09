@@ -29,7 +29,7 @@ watchEffect(() => {
 });
 
 const colorSrc = dsContextColors(['dark', 'light']);
-const contentCls = ['h-full min-h-40 flex flex-col', 'py-8 px-4 md:px-8'];
+const contentCls = ['h-full min-h-40 flex flex-col', 'p-3 p-md-5'];
 
 onBeforeUnmount(() => {
   colorSrc.proxy.destroy();
@@ -43,7 +43,7 @@ onBeforeUnmount(() => {
     </div>
     <ShoutBox :tpl="fmtVueTpl" :tsc="fmtVueTsc">
       <template #side-panel>
-        <div class="mt-4">
+        <div class="mt-3">
           <BsCombobox v-model="color" :data-source="colorSrc" filled floating-label>
             <label>Select Color:</label>
           </BsCombobox>
@@ -56,7 +56,7 @@ onBeforeUnmount(() => {
           <div v-for="idx in 3" :key="'option-' + idx">
             <BsRadio v-model="radio1" :color="color" :value="idx"> Option {{ idx }} </BsRadio>
           </div>
-          <div class="mt-4">
+          <div class="mt-3">
             Value: <b>{{ radio1 }}</b>
           </div>
         </div>

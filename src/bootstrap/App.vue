@@ -108,6 +108,8 @@ onBeforeUnmount(() => {
 @use 'vue-mdbootstrap/scss/color_vars' as colors;
 @use 'vue-mdbootstrap/scss/variables' as vars;
 
+// Page animation transition
+//---------------------------
 .fade-fast-enter-active,
 .fade-fast-leave-active {
   transition: opacity 0.2s ease;
@@ -306,20 +308,8 @@ body {
 
 // Utilities
 //----------
-.max-w-125 {
-  max-width: 31.25rem; // 500px
-}
-
 .min-h-40 {
   min-height: 10rem; // 160px
-}
-
-.min-h-65 {
-  min-height: 18rem; // 288px
-}
-
-.min-h-124 {
-  min-height: 29.5rem; // 472px
 }
 
 .section-content {

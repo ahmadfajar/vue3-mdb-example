@@ -8,7 +8,7 @@ const checkbox1 = ref();
   <BsCheckbox v-model="checkbox1" class="rounded-checkbox" value="accepted">
     Accept the terms and use
   </BsCheckbox>
-  <div class="mt-3">
+  <div class="mt-2">
     Value: <b>{{ checkbox1 }}</b>
   </div>
 </template>

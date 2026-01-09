@@ -40,7 +40,7 @@ watchEffect(() => {
 
 const variantSrc = dsFieldStyleVariants();
 const iconPlacementSrc = dsFieldIconPlacements();
-const contentCls = ['h-full min-h-40 flex flex-col justify-center', 'py-8 px-4 md:px-8'];
+const contentCls = ['h-full min-h-40 flex flex-col md-gap-y-4 justify-center', 'p-3 p-md-5'];
 
 onBeforeUnmount(() => {
   variantSrc.proxy.destroy();
@@ -89,26 +89,24 @@ onBeforeUnmount(() => {
 
       <template #content>
         <div :class="contentCls">
-          <div class="mb-4">
-            <BsNumericField
-              :append-icon="showIcon && iconPlacement === 'append-icon' ? iconName1 : undefined"
-              :append-icon-outer="
-                showIcon && iconPlacement === 'append-icon-outer' ? iconName1 : undefined
-              "
-              :clear-button="clearable"
-              :filled="variant?.startsWith('filled')"
-              :outlined="variant?.startsWith('outlined')"
-              :prepend-icon="showIcon && iconPlacement === 'prepend-icon' ? iconName1 : undefined"
-              :prepend-icon-outer="
-                showIcon && iconPlacement === 'prepend-icon-outer' ? iconName1 : undefined
-              "
-              :rounded="variant?.endsWith('rounded')"
-              floating-label
-              prefix="Rp."
-            >
-              <label>Unit Price</label>
-            </BsNumericField>
-          </div>
+          <BsNumericField
+            :append-icon="showIcon && iconPlacement === 'append-icon' ? iconName1 : undefined"
+            :append-icon-outer="
+              showIcon && iconPlacement === 'append-icon-outer' ? iconName1 : undefined
+            "
+            :clear-button="clearable"
+            :filled="variant?.startsWith('filled')"
+            :outlined="variant?.startsWith('outlined')"
+            :prepend-icon="showIcon && iconPlacement === 'prepend-icon' ? iconName1 : undefined"
+            :prepend-icon-outer="
+              showIcon && iconPlacement === 'prepend-icon-outer' ? iconName1 : undefined
+            "
+            :rounded="variant?.endsWith('rounded')"
+            floating-label
+            prefix="Rp."
+          >
+            <label>Unit Price</label>
+          </BsNumericField>
           <BsNumericField
             :append-icon="showIcon && iconPlacement === 'append-icon' ? iconName2 : undefined"
             :append-icon-outer="

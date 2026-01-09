@@ -20,7 +20,7 @@ const templateActive = ref(false);
 const scriptActive = ref(false);
 const styleActive = ref(false);
 const panelOpen = ref(true);
-const isMobile = ref(true);
+const isTablet = ref(true);
 const showTplBtn = ref(true);
 const fmtCodeTpl = ref<string>();
 const fmtCodeTsc = ref<string>();
@@ -28,8 +28,8 @@ const fmtStyle = ref<string>();
 const sourceVisible = ref(false);
 
 // initialize side-panel state
-isMobile.value = useBreakpointMax('md');
-const initialState = !isMobile.value;
+isTablet.value = useBreakpointMax('lg');
+const initialState = !isTablet.value;
 panelOpen.value = initialState;
 
 function toggleTemplate(state: boolean) {
@@ -73,7 +73,7 @@ function toggleSidePanel(state: boolean) {
 }
 
 function openHandler() {
-  if (isMobile.value) {
+  if (isTablet.value) {
     PopupManager.preventScrolling();
   }
 
@@ -82,7 +82,7 @@ function openHandler() {
 }
 
 function closeOverlay() {
-  if (isMobile.value) {
+  if (isTablet.value) {
     PopupManager.allowScrolling();
   }
 
@@ -91,9 +91,9 @@ function closeOverlay() {
 }
 
 function resizeHandler() {
-  isMobile.value = useBreakpointMax('md');
+  isTablet.value = useBreakpointMax('lg');
 
-  if (isMobile.value) {
+  if (isTablet.value) {
     panelOpen.value = false;
     emit('update:open', false);
   } else {
@@ -280,7 +280,7 @@ onBeforeUnmount(() => {
       </div>
 
       <template v-if="$slots['side-panel']">
-        <template v-if="isMobile">
+        <template v-if="isTablet">
           <Teleport to="body">
             <BsOverlay :show="panelOpen" :z-index="zIndex - 1" fixed @click="closeOverlay()" />
             <div

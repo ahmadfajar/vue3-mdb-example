@@ -26,18 +26,19 @@ function doCustomSearch() {
 </script>
 
 <template>
-  <div class="w-full bg-gray-600 p-6 rounded">
+  <div class="w-full bg-gray-600 p-4 rounded">
     <BsSearchField
       v-model="fieldValue"
       :popover-open="panelOpen"
       advance-search
-      class="max-w-120 mx-auto"
+      class="mx-auto"
       dark-mode
+      style="max-width: 480px"
       @close="panelOpen = false"
       @open="panelOpen = true"
     >
       <template #popover>
-        <div class="p-4">
+        <div class="p-3">
           <BsTextField v-model="fieldValue" floating-label>
             <label>Full Name</label>
           </BsTextField>
@@ -51,7 +52,7 @@ function doCustomSearch() {
               </BsDateTimeField>
             </div>
           </div>
-          <div class="flex justify-end mt-4">
+          <div class="flex justify-end mt-3">
             <BsButton color="primary" @click="doCustomSearch()"> Search</BsButton>
           </div>
         </div>

@@ -6,7 +6,7 @@ const fieldValue2 = ref<string[]>([]);
 </script>
 
 <template>
-  <div class="mb-4">
+  <div class="mb-3">
     <BsChipField
       v-model="fieldValue1"
       {$chip_color}
@@ -21,11 +21,11 @@ const fieldValue2 = ref<string[]>([]);
       {$states}
       {$variants}
     >
-      <label class="sm:w-30 col-form-label">Classic Field</label>
+      <label class="col-sm-3 col-form-label">Classic Field</label>
     </BsChipField>
   </div>
   <BsDivider />
-  <div class="mt-4">
+  <div class="mt-3">
     <BsChipField
       v-model="fieldValue2"
       {$chip_color}

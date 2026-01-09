@@ -12,7 +12,7 @@ fmtVueTpl.value = parseVueTemplateTag(Example);
 fmtVueTsc.value = parseVueScriptTag(Example);
 fmtVueStyle.value = parseVueStyleTag(Example);
 
-const contentCls = ['h-full min-h-40 flex justify-center', 'py-8 px-4 md:px-8'];
+const contentCls = ['h-full min-h-40 flex justify-center items-center', 'p-3 p-md-5'];
 </script>
 
 <template>

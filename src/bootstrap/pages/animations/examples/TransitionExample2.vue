@@ -8,10 +8,10 @@ const content =
 </script>
 
 <template>
-  <div style="min-height: 250px">
+  <div style="min-height: 302px">
     <BsButton class="mb-3" @click="active = !active"> Click Me </BsButton>
     <BsExpandTransition>
-      <BsCard v-if="active" shadow>
+      <BsCard v-if="active" shadow style="max-width: 500px">
         <BsCardBody>
           <BsCardContent type="title">{{ title }}</BsCardContent>
           <div class="mb-3">{{ content }}</div>

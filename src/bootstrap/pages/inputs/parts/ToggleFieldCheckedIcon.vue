@@ -26,7 +26,7 @@ const {
 const selectedDrink = ref<string>();
 const drinkSrc1 = dsFavoriteDrinks();
 const drinkSrc2 = dsFavoriteDrinksWithIcon();
-const contentCls = ['h-full min-h-40', 'flex items-center', 'py-8'];
+const contentCls = ['h-full min-h-40', 'flex items-center', 'py-4 py-md-5 px-3'];
 </script>
 
 <template>
@@ -71,7 +71,7 @@ const contentCls = ['h-full min-h-40', 'flex items-center', 'py-8'];
       </template>
 
       <template #content>
-        <div :class="showIcon ? contentCls.concat('px-3 lg:px-6') : contentCls.concat('px-8')">
+        <div :class="contentCls">
           <BsToggleField
             v-model="selectedDrink"
             :disabled="btnState === 'disabled'"
@@ -83,6 +83,7 @@ const contentCls = ['h-full min-h-40', 'flex items-center', 'py-8'];
             :readonly="btnState === 'readonly'"
             :rounded="btnShape === 'rounded'"
             :tonal="btnVariant === 'tonal'"
+            class="w-full ms-sm-0"
           >
             <template v-if="showIcon" #icon="item">
               <BsSvgIcon :icon="item?.value === selectedDrink ? 'check' : item?.icon!" />
@@ -90,7 +91,7 @@ const contentCls = ['h-full min-h-40', 'flex items-center', 'py-8'];
             <template v-else #icon="item">
               <BsSvgIcon v-if="item?.value === selectedDrink" icon="check" />
             </template>
-            <div class="sm:w-33 col-form-label font-weight-medium">Favorite Drink</div>
+            <div class="col-sm-3 col-form-label font-weight-medium">Favorite Drink</div>
           </BsToggleField>
         </div>
       </template>

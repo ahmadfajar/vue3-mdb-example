@@ -5,7 +5,7 @@ const fieldValue = ref<string>();
 </script>
 
 <template>
-  <div class="w-full bg-indigo-600 p-6 rounded">
-    <BsSearchField v-model="fieldValue" class="max-w-120 mx-auto" dark-mode />
+  <div class="w-full bg-indigo p-4 rounded">
+    <BsSearchField v-model="fieldValue" class="mx-auto" dark-mode style="max-width: 480px" />
   </div>
 </template>

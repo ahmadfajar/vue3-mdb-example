@@ -23,7 +23,7 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <div class="w-full max-w-100 mx-auto">
+  <div class="w-full mx-auto" style="max-width: 400px">
     <BsListbox
       v-model="product"
       :data-source="productSrc"
@@ -35,7 +35,7 @@ onBeforeUnmount(() => {
       <template #option-item="{ item }">
         <BsListTileTitle class="flex justify-between">
           <div>{{ item.ProductName }}</div>
-          <div class="font-weight-light text-sm">${{ item.UnitPrice }}</div>
+          <div class="font-weight-light small">${{ item.UnitPrice }}</div>
         </BsListTileTitle>
         <BsListTileSubtitle>Stock : {{ item.UnitsInStock }}</BsListTileSubtitle>
       </template>

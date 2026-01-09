@@ -102,7 +102,7 @@ const checkboxPositionSrc = dsListboxCheckboxPositions();
 const imageShapeSrc = dsListboxImageShapes();
 const fieldStateSrc = dsComponentStatesRD();
 const peopleSrc = dsPeopleSrc();
-const contentCls = ['h-full min-h-40', 'py-8 px-4 md:px-8'];
+const contentCls = ['h-full min-h-40', 'p-3 p-md-5'];
 
 onBeforeUnmount(() => {
   fieldStateSrc.proxy.destroy();
@@ -208,7 +208,7 @@ onBeforeUnmount(() => {
             :readonly="state === 'readonly'"
             :use-checkbox="checkboxEnabled"
           />
-          <p class="mt-2">
+          <p class="mt-2 mb-0">
             Selected {{ multipleMode ? 'values' : 'value' }}:
             <span class="font-weight-semibold">
               {{ section === 'image-support' ? fieldValue2 : fieldValue1 }}

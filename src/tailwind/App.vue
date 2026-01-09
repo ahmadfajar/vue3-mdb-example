@@ -108,6 +108,8 @@ onBeforeUnmount(() => {
 @use 'vue-mdbootstrap/scss/color_vars' as colors;
 @use 'vue-mdbootstrap/scss/variables' as vars;
 
+// Page animation transition
+//---------------------------
 .fade-fast-enter-active,
 .fade-fast-leave-active {
   transition: opacity 0.2s ease;

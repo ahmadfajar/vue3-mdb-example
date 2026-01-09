@@ -26,6 +26,6 @@ const drinks: TInputOptionItem[] = [
     <template #icon="item">
       <BsSvgIcon :icon="item?.value === selectedDrink ? 'check' : item?.icon!" />
     </template>
-    <div class="sm:w-33 col-form-label font-weight-medium">Favorite Drink</div>
+    <div class="col-sm-3 col-form-label font-weight-medium">Favorite Drink</div>
   </BsToggleField>
 </template>

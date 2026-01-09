@@ -84,7 +84,7 @@ watchEffect(() => {
 const variantSrc = dsFieldStyleVariants(['filled rounded', 'outlined rounded']);
 const stateSrc = dsComponentStatesRD();
 const iconPlacementSrc = dsFieldIconPlacements();
-const contentCls = ['h-full min-h-40 flex flex-col justify-center', 'py-8 px-4 md:px-8'];
+const contentCls = ['h-full min-h-40 flex flex-col justify-center', 'p-3 p-md-5'];
 
 onBeforeUnmount(() => {
   variantSrc.proxy.destroy();
@@ -100,12 +100,12 @@ onBeforeUnmount(() => {
     </div>
     <ShoutBox :tpl="fmtVueTpl" :tsc="fmtVueTsc">
       <template #side-panel>
-        <div class="min-h-128">
+        <div style="min-height: 508px">
           <h5 class="mt-2">Configuration Options:</h5>
 
           <BsTabs v-model="tabIndex" class="mt-2" style="margin-inline: -16px" variant="md3">
             <BsTab label="General">
-              <div class="flex flex-col gap-y-4">
+              <div class="flex flex-col md-gap-y-4">
                 <BsCombobox v-model="variant" :data-source="variantSrc" filled floating-label>
                   <label>Style Variant:</label>
                 </BsCombobox>
@@ -160,12 +160,12 @@ onBeforeUnmount(() => {
               </div>
             </BsTab>
             <BsTab label="Others">
-              <div class="mb-4">
+              <div class="mb-3">
                 <BsTextField v-model="placeholder" filled floating-label>
                   <label>Enter placeholder text</label>
                 </BsTextField>
               </div>
-              <div class="mb-4">
+              <div class="mb-3">
                 <BsTextField v-model="helpText" filled floating-label>
                   <label>Enter help text</label>
                 </BsTextField>
@@ -175,11 +175,11 @@ onBeforeUnmount(() => {
                   Disable persistent help text
                 </BsCheckbox>
               </div>
-              <BsDivider class="-mx-3" />
-              <div class="ps-2 mt-2 mb-4">
+              <BsDivider style="margin: 0 -1rem" />
+              <div class="ps-2 mt-2 mb-3">
                 <BsCheckbox v-model="showIcon" :value="true">Show Icon</BsCheckbox>
               </div>
-              <div class="mb-4">
+              <div class="mb-3">
                 <BsTextField v-model="iconName" filled floating-label>
                   <label>Enter icon name</label>
                 </BsTextField>
@@ -199,7 +199,7 @@ onBeforeUnmount(() => {
 
       <template #content>
         <div :class="contentCls">
-          <div class="mb-4">
+          <div class="mb-3">
             <BsTextArea
               v-model="fieldValue1"
               :append-icon="showIcon && iconPlacement === 'append-icon' ? deferredIcon : undefined"
@@ -224,11 +224,11 @@ onBeforeUnmount(() => {
               :readonly="state === 'readonly'"
               :rows="displayRows > 2 ? displayRows : undefined"
             >
-              <label class="sm:w-30 col-form-label">Classic Field</label>
+              <label class="col-sm-3 col-form-label">Classic Field</label>
             </BsTextArea>
           </div>
           <BsDivider />
-          <div class="mt-4">
+          <div class="mt-3">
             <BsTextArea
               v-model="fieldValue2"
               :append-icon="showIcon && iconPlacement === 'append-icon' ? deferredIcon : undefined"

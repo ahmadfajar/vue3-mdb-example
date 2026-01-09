@@ -43,7 +43,7 @@ watchEffect(() => {
 
 const variantSrc = dsFieldStyleVariants();
 const iconPlacementSrc = dsFieldIconPlacements();
-const contentCls = ['h-full min-h-40 flex flex-col justify-center', 'py-8 px-4 md:px-8'];
+const contentCls = ['h-full min-h-40 flex flex-col md-gap-4 justify-center', 'p-3 p-md-5'];
 
 onBeforeUnmount(() => {
   variantSrc.proxy.destroy();
@@ -93,26 +93,24 @@ onBeforeUnmount(() => {
 
       <template #content>
         <div v-if="section === 'prefix-suffix'" :class="contentCls">
-          <div class="mb-4">
-            <BsTextField
-              :append-icon="showIcon && iconPlacement === 'append-icon' ? iconName1 : undefined"
-              :append-icon-outer="
-                showIcon && iconPlacement === 'append-icon-outer' ? iconName1 : undefined
-              "
-              :clear-button="clearable"
-              :filled="variant?.startsWith('filled')"
-              :outlined="variant?.startsWith('outlined')"
-              :prepend-icon="showIcon && iconPlacement === 'prepend-icon' ? iconName1 : undefined"
-              :prepend-icon-outer="
-                showIcon && iconPlacement === 'prepend-icon-outer' ? iconName1 : undefined
-              "
-              :rounded="variant?.endsWith('rounded')"
-              floating-label
-              prefix="www."
-            >
-              <label>Website</label>
-            </BsTextField>
-          </div>
+          <BsTextField
+            :append-icon="showIcon && iconPlacement === 'append-icon' ? iconName1 : undefined"
+            :append-icon-outer="
+              showIcon && iconPlacement === 'append-icon-outer' ? iconName1 : undefined
+            "
+            :clear-button="clearable"
+            :filled="variant?.startsWith('filled')"
+            :outlined="variant?.startsWith('outlined')"
+            :prepend-icon="showIcon && iconPlacement === 'prepend-icon' ? iconName1 : undefined"
+            :prepend-icon-outer="
+              showIcon && iconPlacement === 'prepend-icon-outer' ? iconName1 : undefined
+            "
+            :rounded="variant?.endsWith('rounded')"
+            floating-label
+            prefix="www."
+          >
+            <label>Website</label>
+          </BsTextField>
           <BsTextField
             :append-icon="showIcon && iconPlacement === 'append-icon' ? iconName2 : undefined"
             :append-icon-outer="
@@ -133,27 +131,25 @@ onBeforeUnmount(() => {
           </BsTextField>
         </div>
         <div v-else :class="contentCls">
-          <div class="mb-4">
-            <BsTextField
-              :append-icon="showIcon && iconPlacement === 'append-icon' ? iconName1 : undefined"
-              :append-icon-outer="
-                showIcon && iconPlacement === 'append-icon-outer' ? iconName1 : undefined
-              "
-              :clear-button="clearable"
-              :filled="variant?.startsWith('filled')"
-              :outlined="variant?.startsWith('outlined')"
-              :prepend-icon="showIcon && iconPlacement === 'prepend-icon' ? iconName1 : undefined"
-              :prepend-icon-outer="
-                showIcon && iconPlacement === 'prepend-icon-outer' ? iconName1 : undefined
-              "
-              :rounded="variant?.endsWith('rounded')"
-              action-icon-variant="filled"
-              autocomplete="name"
-              floating-label
-            >
-              <label>Full Name</label>
-            </BsTextField>
-          </div>
+          <BsTextField
+            :append-icon="showIcon && iconPlacement === 'append-icon' ? iconName1 : undefined"
+            :append-icon-outer="
+              showIcon && iconPlacement === 'append-icon-outer' ? iconName1 : undefined
+            "
+            :clear-button="clearable"
+            :filled="variant?.startsWith('filled')"
+            :outlined="variant?.startsWith('outlined')"
+            :prepend-icon="showIcon && iconPlacement === 'prepend-icon' ? iconName1 : undefined"
+            :prepend-icon-outer="
+              showIcon && iconPlacement === 'prepend-icon-outer' ? iconName1 : undefined
+            "
+            :rounded="variant?.endsWith('rounded')"
+            action-icon-variant="filled"
+            autocomplete="name"
+            floating-label
+          >
+            <label>Full Name</label>
+          </BsTextField>
           <BsTextField
             :append-icon="showIcon && iconPlacement === 'append-icon' ? iconName2 : undefined"
             :append-icon-outer="

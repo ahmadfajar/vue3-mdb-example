@@ -34,7 +34,7 @@ const tabIndex = ref(0);
 const selectedDrink = ref<string>();
 const drinkSrc1 = dsFavoriteDrinks();
 const iconPositionSrc = buttonIconPositions();
-const contentCls = ['h-full min-h-40', 'flex items-center', 'py-8'];
+const contentCls = ['h-full min-h-40', 'flex items-center', 'py-4 py-md-5 px-3'];
 </script>
 
 <template>
@@ -44,22 +44,22 @@ const contentCls = ['h-full min-h-40', 'flex items-center', 'py-8'];
     </div>
     <ShoutBox :tpl="fmtVueTpl" :tsc="fmtVueTsc">
       <template #side-panel>
-        <div class="min-h-116">
+        <div style="min-height: 460px">
           <h5 class="mt-2">Configuration Options:</h5>
 
           <BsTabs v-model="tabIndex" class="mt-2" style="margin-inline: -16px" variant="md3">
             <BsTab label="General">
-              <div class="mb-4">
+              <div class="mb-3">
                 <BsCombobox v-model="btnVariant" :data-source="btnVariantSrc" filled floating-label>
                   <label>Variant:</label>
                 </BsCombobox>
               </div>
-              <div class="mb-4">
+              <div class="mb-3">
                 <BsCombobox v-model="btnShape" :data-source="btnShapeSrc" filled floating-label>
                   <label>Shape:</label>
                 </BsCombobox>
               </div>
-              <div class="mb-4">
+              <div class="mb-3">
                 <BsCombobox v-model="btnSize" :data-source="btnSizeSrc" filled floating-label>
                   <label>Size:</label>
                 </BsCombobox>
@@ -88,7 +88,7 @@ const contentCls = ['h-full min-h-40', 'flex items-center', 'py-8'];
                   <label>Enter Help Text</label>
                 </BsTextField>
               </div>
-              <div class="mb-4 flex flex-col ps-2">
+              <div class="mb-3 flex flex-col ps-2">
                 <BsCheckbox v-model="showHelpText" :value="true"> Show Help Text</BsCheckbox>
                 <BsCheckbox
                   v-model="disablePersistentHelpText"
@@ -113,7 +113,7 @@ const contentCls = ['h-full min-h-40', 'flex items-center', 'py-8'];
       </template>
 
       <template #content>
-        <div :class="showIcon ? contentCls.concat('px-3 lg:px-6') : contentCls.concat('px-8')">
+        <div :class="contentCls">
           <BsToggleField
             v-if="showIcon"
             v-model="selectedDrink"
@@ -130,8 +130,9 @@ const contentCls = ['h-full min-h-40', 'flex items-center', 'py-8'];
             :rounded="btnShape === 'rounded'"
             :size="btnSize !== 'md' ? (btnSize as TButtonSize) : undefined"
             :tonal="btnVariant === 'tonal'"
+            class="w-full ms-sm-0"
           >
-            <div class="sm:w-33 col-form-label font-weight-medium">Favorite Drink</div>
+            <div class="col-sm-3 col-form-label font-weight-medium">Favorite Drink</div>
           </BsToggleField>
           <BsToggleField
             v-else
@@ -149,8 +150,9 @@ const contentCls = ['h-full min-h-40', 'flex items-center', 'py-8'];
             :rounded="btnShape === 'rounded'"
             :size="btnSize !== 'md' ? (btnSize as TButtonSize) : undefined"
             :tonal="btnVariant === 'tonal'"
+            class="w-full ms-sm-0"
           >
-            <div class="sm:w-33 col-form-label font-weight-medium">Favorite Drink</div>
+            <div class="col-sm-3 col-form-label font-weight-medium">Favorite Drink</div>
           </BsToggleField>
         </div>
       </template>

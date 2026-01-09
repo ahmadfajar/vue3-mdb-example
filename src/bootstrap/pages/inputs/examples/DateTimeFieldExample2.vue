@@ -11,7 +11,7 @@ const fieldValue = ref<string>();
     display-format="DDD"
     filled
     floating-label
-    header-color="bg-amber-500"
+    header-color="bg-amber-600"
     picker-button="light"
     picker-selected-color="warning"
     surface-cls="bg-dark text-white"

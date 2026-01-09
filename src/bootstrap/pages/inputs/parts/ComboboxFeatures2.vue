@@ -74,7 +74,7 @@ const imageShapeSrc = dsListboxImageShapes();
 const iconPlacementSrc = dsFieldIconPlacements();
 const fieldStateSrc = dsComponentStatesRD();
 const peopleSrc = dsPeopleSrc();
-const contentCls = ['h-full min-h-40 flex items-center', 'py-8 px-4 md:px-8'];
+const contentCls = ['h-full min-h-40 flex items-center', 'p-3 p-md-5'];
 
 onBeforeUnmount(() => {
   peopleSrc.proxy.destroy();
@@ -92,22 +92,22 @@ onBeforeUnmount(() => {
     </div>
     <ShoutBox :tpl="fmtVueTpl" :tsc="fmtVueTsc">
       <template #side-panel>
-        <div class="min-h-116">
+        <div style="min-height: 464px">
           <h5 class="mt-2">Configuration Options:</h5>
 
           <BsTabs v-model="tabIndex" class="mt-2" style="margin-inline: -16px" variant="md3">
             <BsTab label="General">
-              <div class="mb-4">
+              <div class="mb-3">
                 <BsCombobox v-model="variant" :data-source="variantSrc" filled floating-label>
                   <label>Style Variant:</label>
                 </BsCombobox>
               </div>
-              <div class="mb-4">
+              <div class="mb-3">
                 <BsCombobox v-model="state" :data-source="fieldStateSrc" filled floating-label>
                   <label>Field State:</label>
                 </BsCombobox>
               </div>
-              <div class="mb-4">
+              <div class="mb-3">
                 <BsCombobox v-model="imageShape" :data-source="imageShapeSrc" filled floating-label>
                   <label>Image Shape:</label>
                 </BsCombobox>
@@ -139,7 +139,7 @@ onBeforeUnmount(() => {
               </div>
             </BsTab>
             <BsTab label="Others">
-              <div class="mb-4">
+              <div class="mb-3">
                 <BsTextField v-model="helpText" filled floating-label>
                   <label>Enter help text</label>
                 </BsTextField>
@@ -149,11 +149,11 @@ onBeforeUnmount(() => {
                   Disable persistent help text
                 </BsCheckbox>
               </div>
-              <BsDivider class="-mx-3" />
-              <div class="ps-2 mt-2 mb-4">
+              <BsDivider style="margin: 0 -1rem" />
+              <div class="ps-2 mt-2 mb-3">
                 <BsCheckbox v-model="showIcon" :value="true">Show Icon</BsCheckbox>
               </div>
-              <div class="mb-4">
+              <div class="mb-3">
                 <BsTextField v-model="iconName" filled floating-label>
                   <label>Enter icon name</label>
                 </BsTextField>

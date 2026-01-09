@@ -29,7 +29,7 @@ watchEffect(() => {
 });
 
 const colorSrc = dsContextColors(['dark', 'light']);
-const contentCls = ['h-full flex items-center justify-center min-h-40', 'py-8 px-4 md:px-8'];
+const contentCls = ['h-full flex items-center justify-center min-h-40', 'p-3 p-md-5'];
 
 onBeforeUnmount(() => {
   colorSrc.proxy.destroy();

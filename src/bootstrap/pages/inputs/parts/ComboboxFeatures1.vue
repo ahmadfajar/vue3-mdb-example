@@ -142,7 +142,7 @@ const checkboxColorSrc = dsContextColors(['dark', 'light']);
 const checkboxPositionSrc = dsListboxCheckboxPositions();
 const iconPlacementSrc = dsFieldIconPlacements();
 const fieldStateSrc = dsComponentStatesRD();
-const contentCls = ['h-full min-h-40 flex flex-col justify-center', 'py-8 px-4 md:px-8'];
+const contentCls = ['h-full min-h-40 flex flex-col justify-center', 'p-3 p-md-5'];
 
 onBeforeUnmount(() => {
   variantSrc.proxy.destroy();
@@ -163,17 +163,17 @@ onBeforeUnmount(() => {
     </div>
     <ShoutBox :tpl="fmtVueTpl" :tsc="fmtVueTsc">
       <template #side-panel>
-        <div class="min-h-134">
+        <div style="min-height: 530px">
           <h5 class="mt-2">Configuration Options:</h5>
 
           <BsTabs v-model="tabIndex" class="mt-2" style="margin-inline: -16px" variant="md3">
             <BsTab label="General">
-              <div class="mb-4">
+              <div class="mb-3">
                 <BsCombobox v-model="variant" :data-source="variantSrc" filled floating-label>
                   <label>Style Variant:</label>
                 </BsCombobox>
               </div>
-              <div class="mb-4">
+              <div class="mb-3">
                 <BsCombobox v-model="state" :data-source="fieldStateSrc" filled floating-label>
                   <label>Field State:</label>
                 </BsCombobox>
@@ -197,7 +197,7 @@ onBeforeUnmount(() => {
               </div>
             </BsTab>
             <BsTab label="Selection">
-              <div class="mb-4 ps-2">
+              <div class="mb-3 ps-2">
                 <BsSwitch
                   v-model="multipleMode"
                   :value="true"
@@ -242,7 +242,7 @@ onBeforeUnmount(() => {
                   Rounded Pill Chips
                 </BsSwitch>
               </div>
-              <div class="mb-4">
+              <div class="mb-3">
                 <BsCombobox
                   v-model="chipColor"
                   :data-source="chipColorSrc"
@@ -253,7 +253,7 @@ onBeforeUnmount(() => {
                   <label>Chip Color:</label>
                 </BsCombobox>
               </div>
-              <div class="mb-4">
+              <div class="mb-3">
                 <BsCombobox
                   v-model="checkboxColor"
                   :data-source="checkboxColorSrc"
@@ -277,7 +277,7 @@ onBeforeUnmount(() => {
               </div>
             </BsTab>
             <BsTab label="Others">
-              <div class="mb-4">
+              <div class="mb-3">
                 <BsTextField v-model="helpText" filled floating-label>
                   <label>Enter help text</label>
                 </BsTextField>
@@ -287,8 +287,8 @@ onBeforeUnmount(() => {
                   Disable persistent help text
                 </BsCheckbox>
               </div>
-              <BsDivider class="-mx-3" />
-              <div class="ps-2 mt-2 mb-4">
+              <BsDivider style="margin: 0 -1rem" />
+              <div class="ps-2 mt-2 mb-3">
                 <BsCheckbox v-model="showIcon" :value="true">Show Icon</BsCheckbox>
               </div>
               <div class="mb-4">
@@ -311,7 +311,7 @@ onBeforeUnmount(() => {
 
       <template #content>
         <div :class="contentCls">
-          <div class="mb-4">
+          <div class="mb-3">
             <BsCombobox
               v-model="fieldValue1"
               :append-icon="showIcon && iconPlacement === 'append-icon' ? deferredIcon : undefined"
@@ -341,11 +341,13 @@ onBeforeUnmount(() => {
               "
               :readonly="state === 'readonly'"
             >
-              <label class="sm:w-30 col-form-label">Classic Field</label>
+              <label :class="['col-sm-3 col-form-label', chipMode ? 'pt-3' : '']">
+                Classic Field
+              </label>
             </BsCombobox>
           </div>
           <BsDivider />
-          <div class="mt-4">
+          <div class="my-3">
             <BsCombobox
               v-model="fieldValue2"
               :append-icon="showIcon && iconPlacement === 'append-icon' ? deferredIcon : undefined"

@@ -40,7 +40,7 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <div class="mb-4">
+  <div class="mb-3">
     <BsCombobox
       v-model="fieldValue1"
       :data-source="countryState1"
@@ -59,11 +59,11 @@ onBeforeUnmount(() => {
       {$states}
       {$variants}
     >
-      <label class="sm:w-30 col-form-label">Classic Field</label>
+      <label class="col-sm-3 col-form-label">Classic Field</label>
     </BsCombobox>
   </div>
   <BsDivider />
-  <div class="mt-4">
+  <div class="mt-3">
     <BsCombobox
       v-model="fieldValue2"
       :data-source="countryState2"

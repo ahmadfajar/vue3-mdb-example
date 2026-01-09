@@ -6,7 +6,7 @@ const fieldValue2 = ref<string>();
 </script>
 
 <template>
-  <div class="mb-4">
+  <div class="mb-3">
     <BsDateTimeField
       v-model="fieldValue1"
       {$clear_button}
@@ -25,7 +25,7 @@ const fieldValue2 = ref<string>();
     </BsDateTimeField>
   </div>
   <BsDivider />
-  <div class="mt-4">
+  <div class="mt-3">
     <BsDateTimeField
       v-model="fieldValue2"
       {$clear_button}

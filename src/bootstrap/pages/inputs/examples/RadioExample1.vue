@@ -9,7 +9,7 @@ const radio1 = ref();
   <div v-for="idx in 3" :key="'option-' + idx">
     <BsRadio v-model="radio1" :value="idx" {$colorName}> Option {{ idx }} </BsRadio>
   </div>
-  <div class="mt-4">
+  <div class="mt-3">
     Value: <b>{{ radio1 }}</b>
   </div>
 </template>

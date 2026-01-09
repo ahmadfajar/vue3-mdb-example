@@ -24,6 +24,6 @@ const drinks: TInputOptionItem[] = [
     {$variants}
     multiple
   >
-    <div class="sm:w-36 col-form-label font-weight-medium">Favorite Drinks</div>
+    <div class="col-sm-3 col-form-label font-weight-medium">Favorite Drinks</div>
   </BsToggleField>
 </template>

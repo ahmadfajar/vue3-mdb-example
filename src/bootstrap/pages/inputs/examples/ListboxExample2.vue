@@ -58,7 +58,7 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <div class="w-full max-w-100">
+  <div class="w-full" style="max-width: 400px">
     <BsListbox
       v-model="fieldValue1"
       :data-source="peopleSrc"

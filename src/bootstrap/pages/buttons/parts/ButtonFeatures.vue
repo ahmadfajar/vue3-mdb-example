@@ -141,7 +141,7 @@ onBeforeUnmount(() => {
     </div>
     <ShoutBox :tpl="fmtVueTpl">
       <template #side-panel>
-        <div class="min-h-124">
+        <div style="min-height: 472px">
           <h5 class="mt-2">Configuration Options:</h5>
 
           <BsTabs v-model="tabIndex" class="mt-2" style="margin-inline: -16px" variant="md3">

@@ -10,7 +10,7 @@ const props = defineProps<{ section: string }>();
 
 const fmtVueTpl = ref<string>();
 const fmtVueTsc = ref<string>();
-const contentCls = ['h-full min-h-40 flex items-center', 'py-8 px-4 md:px-8'];
+const contentCls = ['h-full min-h-40 flex items-center', 'p-3 p-md-5'];
 
 if (props.section === 'validation-example') {
   fmtVueTpl.value = parseVueTemplateTag(Example2);

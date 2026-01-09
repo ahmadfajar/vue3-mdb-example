@@ -23,6 +23,6 @@ const drinks: TInputOptionItem[] = [{ value: 'Tea' }, { value: 'Coffee' }, { val
     <template #icon="item">
       <BsSvgIcon v-if="selectedDrinks.includes(item?.value as string)" icon="check" />
     </template>
-    <div class="sm:w-36 col-form-label font-weight-medium">Favorite Drinks</div>
+    <div class="col-sm-3 col-form-label font-weight-medium">Favorite Drinks</div>
   </BsToggleField>
 </template>

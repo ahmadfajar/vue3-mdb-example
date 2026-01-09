@@ -36,7 +36,7 @@ const exampleVariants = [
   { value: 'multi-color', label: 'Multi column : multiple colors' },
 ] satisfies TRadioInputProps[];
 
-const contentCls = ['h-full min-h-40', 'py-8 px-4 md:px-8'];
+const contentCls = ['h-full min-h-40', 'p-3 p-md-5'];
 </script>
 
 <template>

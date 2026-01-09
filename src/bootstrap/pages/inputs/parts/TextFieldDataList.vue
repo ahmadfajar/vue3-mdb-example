@@ -47,7 +47,7 @@ watchEffect(() => {
 const variantSrc = dsFieldStyleVariants();
 const iconPlacementSrc = dsFieldIconPlacements();
 const sizes = ['Small', 'Medium', 'Large', 'Extra Large'];
-const contentCls = ['h-full min-h-40 flex flex-col justify-center', 'py-8 px-4 md:px-8'];
+const contentCls = ['h-full min-h-40 flex flex-col justify-center', 'p-3 p-md-5'];
 
 onBeforeUnmount(() => {
   variantSrc.proxy.destroy();
