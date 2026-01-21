@@ -65,6 +65,11 @@ export const menuNavs: TMainNavigation[] = [
         view: () => import('@tw/pages/buttons/ButtonPage.vue'),
       },
       {
+        text: 'Button Example',
+        path: '/buttons/button-example',
+        view: () => import('@tw/pages/buttons/DemoButton.vue'),
+      },
+      {
         text: 'Toggle Button',
         path: '/buttons/toggle-button',
         view: () => import('@tw/pages/buttons/ToggleButtonPage.vue'),
@@ -93,6 +98,11 @@ export const menuNavs: TMainNavigation[] = [
         path: '/chips/chip/:id',
         hidden: true,
         view: () => import('@tw/pages/chips/ChipPage.vue'),
+      },
+      {
+        text: 'Chip Example',
+        path: '/chips/chip-example',
+        view: () => import('@tw/pages/chips/DemoChip.vue'),
       },
       {
         text: 'Chip Group',
@@ -165,6 +175,11 @@ export const menuNavs: TMainNavigation[] = [
         path: '/elements/alert/:id',
         hidden: true,
         view: () => import('@tw/pages/elements/AlertPage.vue'),
+      },
+      {
+        text: 'Alert Example',
+        path: '/elements/alert-example',
+        view: () => import('@tw/pages/elements/DemoAlert.vue'),
       },
       {
         text: 'Avatar',
@@ -595,5 +610,11 @@ export const menuNavs: TMainNavigation[] = [
     path: '/reference/shadow/:id',
     hidden: true,
     view: () => import('@tw/pages/references/ShadowPage.vue'),
+  },
+  {
+    text: 'Color Sample',
+    group: 'Reference',
+    path: '/reference/colors',
+    view: () => import('@tw/pages/references/DemoColorPage.vue'),
   },
 ];

@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { highlightCode } from '@shares/shikiApi.ts';
-import { onBeforeMount, onBeforeUnmount, onMounted, ref, watch } from 'vue';
+import { themeNameFrom, useTheme } from '@shares/themeApi.ts';
+import { onBeforeMount, onBeforeUnmount, onMounted, ref, watch, watchEffect } from 'vue';
 import { Helper, PopupManager, useBreakpointMax } from 'vue-mdbootstrap';
 
 const props = defineProps<{
@@ -15,6 +16,8 @@ const emit = defineEmits<{
   'update:open': [value: boolean];
 }>();
 
+const { theme } = useTheme();
+
 const zIndex = 1024;
 const templateActive = ref(false);
 const scriptActive = ref(false);
@@ -26,6 +29,7 @@ const fmtCodeTpl = ref<string>();
 const fmtCodeTsc = ref<string>();
 const fmtStyle = ref<string>();
 const sourceVisible = ref(false);
+const color = ref('secondary');
 
 // initialize side-panel state
 isTablet.value = useBreakpointMax('lg');
@@ -170,6 +174,15 @@ watch(
   }
 );
 
+watchEffect(() => {
+  const name = themeNameFrom(theme.value);
+  if (name === 'dark') {
+    color.value = 'light';
+  } else {
+    color.value = 'secondary';
+  }
+});
+
 onBeforeMount(() => {
   // await createShikiInstance();
   window.addEventListener('resize', resizeHandler);
@@ -209,11 +222,9 @@ onBeforeUnmount(() => {
         sourceVisible ? 'md:rounded-t-lg rounded-top-3' : 'md:rounded-lg rounded-3',
       ]"
     >
-      <div class="shoutbox-body bg-gray-200 flex flex-col flex-fill overflow-x-hidden">
+      <div class="shoutbox-body flex flex-col flex-fill overflow-x-hidden">
         <div class="h-full flex-fill p-1 md:rounded-lg rounded-3">
-          <div
-            class="shoutbox-content h-full text-bg-surface-secondary border md:rounded-lg rounded-3"
-          >
+          <div class="shoutbox-content h-full border md:rounded-lg rounded-3">
             <slot name="content">
               <h5>Put example component here</h5>
             </slot>
@@ -266,8 +277,8 @@ onBeforeUnmount(() => {
               placement="top"
             >
               <BsButton
+                :color="color"
                 :icon="panelOpen ? 'right_panel_close' : 'right_panel_open'"
-                color="secondary"
                 flat
                 mode="icon"
                 style="margin-right: -6px"
@@ -285,7 +296,7 @@ onBeforeUnmount(() => {
             <BsOverlay :show="panelOpen" :z-index="zIndex - 1" fixed @click="closeOverlay()" />
             <div
               :class="[
-                'shoutbox-side text-bg-surface-tertiary border-s fixed',
+                'shoutbox-side text-bg-surface-secondary border-s fixed',
                 panelOpen ? 'open' : 'close',
               ]"
             >
@@ -314,7 +325,7 @@ onBeforeUnmount(() => {
       </template>
     </div>
     <BsExpandTransition>
-      <div v-if="sourceVisible" class="shoutbox-source relative bg-gray-200">
+      <div v-if="sourceVisible" class="shoutbox-source relative">
         <div :class="copyMsgCls">Copied</div>
         <BsButton
           class="absolute"
@@ -345,8 +356,8 @@ onBeforeUnmount(() => {
 @use 'vue-mdbootstrap/scss/variables' as vars;
 
 .shoutbox-container {
-  --border-translucent: #{colors.$gray-300};
-  --bs-border-color: var(--border-translucent);
+  --md-border-color: #{colors.$gray-300};
+  --bs-border-color: var(--md-border-color);
   --bs-border-radius-lg: 0;
 
   @include media.breakpoint-up(md) {
@@ -357,9 +368,12 @@ onBeforeUnmount(() => {
 .shoutbox-content {
   --md-border-color: #{colors.$neutral-lighten-2};
   --bs-border-color: var(--md-border-color);
+  background-color: var(--background-secondary);
+  color: var(--foreground-secondary);
 }
 
 .shoutbox-body {
+  background-color: oklch(92.8% 0.006 264.531);
   border-top-left-radius: inherit;
   border-bottom-left-radius: inherit;
   transition: 0.45s cubic-bezier(0.4, 0, 0.2, 1);
@@ -418,7 +432,7 @@ onBeforeUnmount(() => {
     }
 
     &.md-tab-top {
-      box-shadow: var(--md-tab-placement-top-shadow);
+      //box-shadow: var(--md-tab-placement-top-shadow);
 
       .tab-item-link {
         &:before {
@@ -443,6 +457,7 @@ onBeforeUnmount(() => {
 }
 
 .shoutbox-source {
+  background-color: oklch(92.8% 0.006 264.531);
   border-bottom-left-radius: inherit;
   border-bottom-right-radius: inherit;
 
@@ -473,6 +488,7 @@ onBeforeUnmount(() => {
   }
 
   .text-sm {
+    border: 1px solid var(--border-translucent);
     border-radius: inherit;
     overflow-x: hidden;
   }
@@ -483,6 +499,31 @@ onBeforeUnmount(() => {
     margin: 0;
     padding: 1rem;
     overflow: auto;
+  }
+}
+
+.dark {
+  $border-color: color.change(colors.$gray-300, $alpha: 0.15);
+
+  .shoutbox-container {
+    --md-border-color: #{$border-color};
+  }
+
+  .shoutbox-content {
+    --md-border-color: #{$border-color};
+    background-color: oklch(0.2 0 0);
+    color: var(--foreground);
+  }
+
+  .shoutbox-body,
+  .shoutbox-source {
+    background-color: oklch(0.22 0 0);
+  }
+
+  .shoutbox-source {
+    .text-sm {
+      border-color: $border-color;
+    }
   }
 }
 </style>

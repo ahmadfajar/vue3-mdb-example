@@ -7,13 +7,19 @@ const iconSize = 36;
     <div class="col">
       <div class="font-weight-semibold mb-3">Flip</div>
       <div class="flex flex-wrap md-gap-3">
-        <div class="size-16 flex items-center justify-center bg-gray-200 rounded">
+        <div
+          class="size-16 flex items-center justify-center bg-gray-200 dark:bg-neutral-800 rounded"
+        >
           <BsFontawesomeIcon :size="iconSize" flip="vertical" icon="cart-shopping" />
         </div>
-        <div class="size-16 flex items-center justify-center bg-gray-200 rounded">
+        <div
+          class="size-16 flex items-center justify-center bg-gray-200 dark:bg-neutral-800 rounded"
+        >
           <BsFontawesomeIcon :size="iconSize" flip="horizontal" icon="cart-shopping" />
         </div>
-        <div class="size-16 flex items-center justify-center bg-gray-200 rounded">
+        <div
+          class="size-16 flex items-center justify-center bg-gray-200 dark:bg-neutral-800 rounded"
+        >
           <BsFontawesomeIcon :size="iconSize" flip="both" icon="cart-shopping" />
         </div>
       </div>
@@ -21,13 +27,19 @@ const iconSize = 36;
     <div class="col">
       <div class="font-weight-semibold mb-3">Rotate</div>
       <div class="flex flex-wrap md-gap-3">
-        <div class="size-16 flex items-center justify-center bg-gray-200 rounded">
+        <div
+          class="size-16 flex items-center justify-center bg-gray-200 dark:bg-neutral-800 rounded"
+        >
           <BsFontawesomeIcon :size="iconSize" icon="plane" rotate="90" />
         </div>
-        <div class="size-16 flex items-center justify-center bg-gray-200 rounded">
+        <div
+          class="size-16 flex items-center justify-center bg-gray-200 dark:bg-neutral-800 rounded"
+        >
           <BsFontawesomeIcon :size="iconSize" icon="plane" rotate="180" />
         </div>
-        <div class="size-16 flex items-center justify-center bg-gray-200 rounded">
+        <div
+          class="size-16 flex items-center justify-center bg-gray-200 dark:bg-neutral-800 rounded"
+        >
           <BsFontawesomeIcon :size="iconSize" icon="plane" rotate="270" />
         </div>
       </div>

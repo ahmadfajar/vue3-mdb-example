@@ -1,2 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 @source "../../components/ShoutBox.vue";
+
+@custom-variant dark (&:is(.dark *));

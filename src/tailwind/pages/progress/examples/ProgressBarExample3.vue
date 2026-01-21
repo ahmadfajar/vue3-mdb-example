@@ -10,7 +10,7 @@ const singapore = ref(61);
 <template>
   <BsCard class="w-full max-w-100 shadow">
     <BsCardHeader class="flex items-center bg-indigo-700 text-white">
-      <div class="text-xl">Revenue</div>
+      <div class="text-2xl font-weight-normal">Revenue</div>
       <BsSpacer />
       <BsButton color="light" flat icon="more_vert" mode="icon" />
     </BsCardHeader>

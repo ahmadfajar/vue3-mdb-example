@@ -11,7 +11,7 @@ const iconSize = 36;
         <div
           v-for="name in icons"
           :key="name"
-          class="size-16 flex items-center justify-center bg-gray-200 rounded"
+          class="size-16 flex items-center justify-center bg-gray-200 dark:bg-neutral-800 rounded"
         >
           <BsIcon :icon="name" :size="iconSize" />
         </div>
@@ -21,7 +21,7 @@ const iconSize = 36;
         <div
           v-for="name in icons"
           :key="name"
-          class="size-16 flex items-center justify-center bg-gray-200 rounded"
+          class="size-16 flex items-center justify-center bg-gray-200 dark:bg-neutral-800 rounded"
         >
           <BsIcon :icon="`${name}_rounded`" :size="iconSize" />
         </div>
@@ -31,7 +31,7 @@ const iconSize = 36;
         <div
           v-for="name in icons"
           :key="name"
-          class="size-16 flex items-center justify-center bg-gray-200 rounded"
+          class="size-16 flex items-center justify-center bg-gray-200 dark:bg-neutral-800 rounded"
         >
           <BsIcon :icon="`${name}_sharp`" :size="iconSize" />
         </div>
@@ -43,7 +43,7 @@ const iconSize = 36;
         <div
           v-for="name in icons"
           :key="name"
-          class="size-16 flex items-center justify-center bg-gray-200 rounded"
+          class="size-16 flex items-center justify-center bg-gray-200 dark:bg-neutral-800 rounded"
         >
           <BsIcon :icon="`${name}_outlined_filled`" :size="iconSize" />
         </div>
@@ -53,7 +53,7 @@ const iconSize = 36;
         <div
           v-for="name in icons"
           :key="name"
-          class="size-16 flex items-center justify-center bg-gray-200 rounded"
+          class="size-16 flex items-center justify-center bg-gray-200 dark:bg-neutral-800 rounded"
         >
           <BsIcon :icon="`${name}_rounded_filled`" :size="iconSize" />
         </div>
@@ -63,7 +63,7 @@ const iconSize = 36;
         <div
           v-for="name in icons"
           :key="name"
-          class="size-16 flex items-center justify-center bg-gray-200 rounded"
+          class="size-16 flex items-center justify-center bg-gray-200 dark:bg-neutral-800 rounded"
         >
           <BsIcon :icon="`${name}_sharp_filled`" :size="iconSize" />
         </div>

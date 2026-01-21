@@ -162,7 +162,9 @@ onBeforeUnmount(() => {
         <div
           :class="[
             ...contentCls,
-            btnColor === 'light' && btnState !== 'disabled' ? 'bg-gray-800' : '',
+            btnColor === 'light' && btnState !== 'disabled'
+              ? 'bg-gray-800 dark:bg-neutral-900'
+              : '',
           ]"
         >
           <BsButton

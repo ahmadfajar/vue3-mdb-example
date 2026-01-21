@@ -5,13 +5,16 @@ import {
   stripAndBeautifyTemplate,
 } from '@shares/sharedApi.ts';
 import {
+  changeComponentColor,
   dsComponentStatesRD,
+  dsContextColors,
   schemaConfigDefinition,
   useWatcherDefaultValue,
 } from '@shares/showcaseDataApi.ts';
 import { nextTick, onBeforeUnmount, ref, type Ref, watch, watchEffect } from 'vue';
 import {
   BsArrayStore,
+  type TButtonColor,
   type TButtonSize,
   type TDataSource,
   type TIconFlip,
@@ -333,6 +336,7 @@ declare type ToggleButtonOverviewResult = {
   fmtVueTsc: Ref<string | undefined>;
   btnVariant: Ref<string | undefined>;
   btnShape: Ref<string | undefined>;
+  btnColor: Ref<TButtonColor | undefined>;
   btnSize: Ref<string | undefined>;
   btnState: Ref<string | undefined>;
   btnElevated: Ref<boolean>;
@@ -345,6 +349,7 @@ declare type ToggleButtonOverviewResult = {
   drinkSrc2Ref: Ref<TInputOptionItem[]>;
   btnVariantSrc: TDataSource;
   btnShapeSrc: TDataSource;
+  btnColorSrc: TDataSource;
   btnSizeSrc: TDataSource;
   btnStateSrc: TDataSource;
 };
@@ -359,6 +364,7 @@ export function setupToggleButtonOverview(
   const rawTemplate = ref<string>();
   const btnVariant = ref<string | undefined>('filled');
   const btnShape = ref<string | undefined>('pill');
+  const btnColor = ref<TButtonColor>('default');
   const btnSize = ref<string | undefined>('md');
   const btnState = ref<string>();
   const btnElevated = ref(false);
@@ -375,12 +381,14 @@ export function setupToggleButtonOverview(
     useWatcherDefaultValue(
       { refObj: btnVariant, default: 'filled' },
       { refObj: btnShape, default: 'pill' },
+      { refObj: btnColor, default: 'default' },
       { refObj: iconPosition, default: 'left' }
     );
   } else {
     useWatcherDefaultValue(
       { refObj: btnVariant, default: 'filled' },
-      { refObj: btnShape, default: 'pill' }
+      { refObj: btnShape, default: 'pill' },
+      { refObj: btnColor, default: 'default' }
     );
   }
 
@@ -421,6 +429,10 @@ export function setupToggleButtonOverview(
 
     rawCode = changeButtonVariant(btnVariant, rawTemplate.value);
     rawCode = changeButtonShape(btnShape, rawCode);
+    if (rawCode) {
+      rawCode = changeComponentColor(btnColor, rawCode);
+    }
+
     rawCode = changeButtonSize(btnSize as Ref<TButtonSize | undefined>, rawCode);
     rawCode = changeButtonState(btnState, rawCode);
     rawCode = changeButtonElevated(btnElevated, rawCode);
@@ -444,6 +456,7 @@ export function setupToggleButtonOverview(
 
   const btnVariantSrc = dsToggleButtonVariants();
   const btnShapeSrc = dsButtonShapes();
+  const btnColorSrc = dsContextColors(['dark', 'light']);
   const btnSizeSrc = dsButtonSizes();
   const btnStateSrc = dsComponentStatesRD();
 
@@ -453,6 +466,7 @@ export function setupToggleButtonOverview(
   onBeforeUnmount(() => {
     btnVariantSrc.proxy.destroy();
     btnShapeSrc.proxy.destroy();
+    btnColorSrc.proxy.destroy();
     btnSizeSrc.proxy.destroy();
     btnStateSrc.proxy.destroy();
   });
@@ -462,6 +476,7 @@ export function setupToggleButtonOverview(
     fmtVueTsc,
     btnVariant,
     btnShape,
+    btnColor,
     btnSize,
     btnState,
     btnElevated,
@@ -474,6 +489,7 @@ export function setupToggleButtonOverview(
     drinkSrc2Ref,
     btnVariantSrc,
     btnShapeSrc,
+    btnColorSrc,
     btnSizeSrc,
     btnStateSrc,
   };
@@ -484,12 +500,14 @@ declare type ToggleButtonCheckedIconResult = {
   fmtVueTsc: Ref<string | undefined>;
   btnVariant: Ref<string | undefined>;
   btnShape: Ref<string | undefined>;
+  btnColor: Ref<TButtonColor | undefined>;
   btnState: Ref<string | undefined>;
   btnElevated: Ref<boolean>;
   showIcon: Ref<boolean>;
   iconPosition: Ref<TIconPosition>;
   btnVariantSrc: TDataSource;
   btnShapeSrc: TDataSource;
+  btnColorSrc: TDataSource;
   btnStateSrc: TDataSource;
   iconPositionSrc: TRadioInputProps[];
 };
@@ -503,6 +521,7 @@ export function setupToggleButtonCheckedIcon(
   const rawTemplate = ref<string>();
   const btnVariant = ref<string | undefined>('filled');
   const btnShape = ref<string | undefined>('pill');
+  const btnColor = ref<TButtonColor | undefined>('default');
   const btnState = ref<string>();
   const btnElevated = ref(false);
   const showIcon = ref(false);
@@ -510,7 +529,8 @@ export function setupToggleButtonCheckedIcon(
 
   useWatcherDefaultValue(
     { refObj: btnVariant, default: 'filled' },
-    { refObj: btnShape, default: 'pill' }
+    { refObj: btnShape, default: 'pill' },
+    { refObj: btnColor, default: 'default' }
   );
 
   watch(showIcon, (value) => {
@@ -526,6 +546,10 @@ export function setupToggleButtonCheckedIcon(
 
     rawCode = changeButtonVariant(btnVariant, rawTemplate.value);
     rawCode = changeButtonShape(btnShape, rawCode);
+    if (rawCode) {
+      rawCode = changeComponentColor(btnColor, rawCode);
+    }
+
     rawCode = changeButtonState(btnState, rawCode);
     rawCode = changeButtonElevated(btnElevated, rawCode);
 
@@ -542,12 +566,14 @@ export function setupToggleButtonCheckedIcon(
 
   const btnVariantSrc = dsToggleButtonVariants();
   const btnShapeSrc = dsButtonShapes();
+  const btnColorSrc = dsContextColors(['dark', 'light']);
   const btnStateSrc = dsComponentStatesRD();
   const iconPositionSrc = buttonIconPositions();
 
   onBeforeUnmount(() => {
     btnVariantSrc.proxy.destroy();
     btnShapeSrc.proxy.destroy();
+    btnColorSrc.proxy.destroy();
     btnStateSrc.proxy.destroy();
   });
 
@@ -556,12 +582,14 @@ export function setupToggleButtonCheckedIcon(
     fmtVueTsc,
     btnVariant,
     btnShape,
+    btnColor,
     btnState,
     btnElevated,
     showIcon,
     iconPosition,
     btnVariantSrc,
     btnShapeSrc,
+    btnColorSrc,
     btnStateSrc,
     iconPositionSrc,
   };
@@ -572,6 +600,7 @@ declare type ToggleButtonMultiSelectResult = {
   fmtVueTsc: Ref<string | undefined>;
   btnVariant: Ref<string | undefined>;
   btnShape: Ref<string | undefined>;
+  btnColor: Ref<TButtonColor | undefined>;
   btnState: Ref<string | undefined>;
   btnElevated: Ref<boolean>;
   useCheckedMark: Ref<boolean>;
@@ -579,6 +608,7 @@ declare type ToggleButtonMultiSelectResult = {
   iconPosition: Ref<TIconPosition>;
   btnVariantSrc: TDataSource;
   btnShapeSrc: TDataSource;
+  btnColorSrc: TDataSource;
   btnStateSrc: TDataSource;
   iconPositionSrc: TRadioInputProps[];
 };
@@ -594,6 +624,7 @@ export function setupToggleButtonMultiSelect(
   const rawTemplate = ref<string>();
   const btnVariant = ref<string | undefined>('filled');
   const btnShape = ref<string | undefined>('pill');
+  const btnColor = ref<TButtonColor | undefined>('default');
   const btnState = ref<string>();
   const btnElevated = ref(false);
   const showIcon = ref(false);
@@ -602,7 +633,8 @@ export function setupToggleButtonMultiSelect(
 
   useWatcherDefaultValue(
     { refObj: btnVariant, default: 'filled' },
-    { refObj: btnShape, default: 'pill' }
+    { refObj: btnShape, default: 'pill' },
+    { refObj: btnColor, default: 'default' }
   );
 
   watchEffect(() => {
@@ -620,6 +652,10 @@ export function setupToggleButtonMultiSelect(
 
     rawCode = changeButtonVariant(btnVariant, rawTemplate.value);
     rawCode = changeButtonShape(btnShape, rawCode);
+    if (rawCode) {
+      rawCode = changeComponentColor(btnColor, rawCode);
+    }
+
     rawCode = changeButtonState(btnState, rawCode);
     rawCode = changeButtonElevated(btnElevated, rawCode);
 
@@ -634,12 +670,14 @@ export function setupToggleButtonMultiSelect(
 
   const btnVariantSrc = dsToggleButtonVariants();
   const btnShapeSrc = dsButtonShapes();
+  const btnColorSrc = dsContextColors(['dark', 'light']);
   const btnStateSrc = dsComponentStatesRD();
   const iconPositionSrc = buttonIconPositions();
 
   onBeforeUnmount(() => {
     btnVariantSrc.proxy.destroy();
     btnShapeSrc.proxy.destroy();
+    btnColorSrc.proxy.destroy();
     btnStateSrc.proxy.destroy();
   });
 
@@ -648,6 +686,7 @@ export function setupToggleButtonMultiSelect(
     fmtVueTsc,
     btnVariant,
     btnShape,
+    btnColor,
     btnState,
     btnElevated,
     useCheckedMark,
@@ -655,6 +694,7 @@ export function setupToggleButtonMultiSelect(
     iconPosition,
     btnVariantSrc,
     btnShapeSrc,
+    btnColorSrc,
     btnStateSrc,
     iconPositionSrc,
   };

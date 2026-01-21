@@ -216,7 +216,7 @@ onBeforeUnmount(() => {
           :class="[
             'h-full min-h-40 flex items-center justify-center px-6 py-8 md:rounded-lg',
             btnColor === 'light' && btnVariant !== 'filled' && btnState !== 'disabled'
-              ? 'bg-gray-800'
+              ? 'bg-gray-800 dark:bg-neutral-900'
               : '',
           ]"
         >

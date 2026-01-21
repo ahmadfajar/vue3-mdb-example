@@ -7,7 +7,7 @@ const activeTab = ref(0);
 <template>
   <BsCard shadow>
     <BsApp style="min-height: 380px">
-      <BsAppbar class="bg-violet-800">
+      <BsAppbar class="bg-indigo-700">
         <BsButton color="light" flat icon="menu" mode="icon" />
         <BsAppbarTitle class="text-white" title="Page Title" />
         <BsSpacer />
@@ -21,7 +21,7 @@ const activeTab = ref(0);
         {$tabs_alignment}
         {$tabs_position}
         {$tabs_variant}
-        color="bg-violet-800"
+        color="bg-indigo-700"
         content-class="flex-grow"
       >
       <BsTab {$tab_icon1} {$tab_label1}>

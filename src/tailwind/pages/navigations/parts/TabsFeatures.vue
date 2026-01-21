@@ -81,7 +81,7 @@ const tabsAlignmentSrc = dsTabAlignments();
 const tabsPlacementSrc = dsTabPositions();
 const tabsIconPositionSrc = dsTabPositions();
 const tabsIconAndLabelSrc = dsTabIconAndLabel();
-const contentCls = ['h-full min-h-40 flex items-center', 'p-4 md:p-6'];
+const contentCls = ['h-full min-h-40 flex', 'p-4 md:p-6'];
 
 onBeforeUnmount(() => {
   tabsVariantSrc.proxy.destroy();
@@ -126,9 +126,9 @@ onBeforeUnmount(() => {
 
       <template #content>
         <div :class="contentCls">
-          <BsCard v-if="['modern', 'material'].includes(tabVariant)" class="shadow">
-            <BsApp style="min-height: 380px">
-              <BsAppbar class="bg-violet-800">
+          <BsApp v-if="['modern', 'material'].includes(tabVariant)" class="rounded-2xl p-1">
+            <BsCard class="shadow">
+              <BsAppbar class="bg-indigo-700">
                 <BsButton color="light" flat icon="menu" mode="icon" />
                 <BsAppbarTitle class="text-white" title="Page Title" />
                 <BsSpacer />
@@ -141,7 +141,7 @@ onBeforeUnmount(() => {
                 :inner-class="innerClass"
                 :tab-position="tabPlacement"
                 :variant="tabVariant"
-                color="bg-violet-800"
+                color="bg-indigo-700"
                 content-class="flex-grow"
               >
                 <BsTab
@@ -163,8 +163,8 @@ onBeforeUnmount(() => {
                   {{ etsyMixtapeText }}
                 </BsTab>
               </BsTabs>
-            </BsApp>
-          </BsCard>
+            </BsCard>
+          </BsApp>
           <BsCard v-else shadow>
             <BsTabs
               v-model="activeTab"

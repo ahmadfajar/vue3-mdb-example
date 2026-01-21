@@ -10,11 +10,15 @@ const styles = {
   '--appbar-background': 'var(--color-purple-800)',
   '--appbar-foreground': 'oklch(1 0 89.876)',
   '--sidedrawer-background': 'oklch(1 0 89.876)',
+  '--sidedrawer-foreground': 'oklch(0.259 0.006 258.36)',
+  '--sidedrawer-item-foreground': 'oklch(0.219 0.004 286.076)',
+  '--sidedrawer-item-active-foreground': 'oklch(0.219 0.004 286.076)',
+  '--sidedrawer-item-active-foreground-secondary': 'oklch(0.592 0.012 261.776)',
 };
 </script>
 
 <template>
-  <BsApp :style="styles" class="md-shadow-2 rounded-lg">
+  <BsApp :style="styles" class="bg-light md-shadow-2 rounded">
     <BsAppbar clipped-left shadow>
       <BsButton
         color="light"

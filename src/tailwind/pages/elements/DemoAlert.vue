@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { contextColors } from '@shares/themeColors.ts';
-import { computed, ref, watch } from 'vue';
 import { IconBullhorn, IconCircleNodes } from '@shares/sharedApi.ts';
+import { contextColorsLight } from '@shares/themeColors.ts';
+import { computed, ref, watch } from 'vue';
 
 // prettier-ignore
 const content = 'Aww yeah, you successfully read this alert message. This is an example how to construct';
@@ -46,7 +46,7 @@ function closeAlert() {
   <div class="docs-body container-lg mx-auto">
     <h2>Basic Examples</h2>
     <DemoBlock class="mt-3">
-      <template v-for="(_color, name) in contextColors" :key="_color">
+      <template v-for="(_color, name) in contextColorsLight" :key="_color">
         <BsAlert :color="name">
           Simple alert with <span class="font-weight-semibold">{{ name }} color</span>
         </BsAlert>
@@ -55,7 +55,7 @@ function closeAlert() {
 
     <h2 class="mt-5">Solid Fill Style</h2>
     <DemoBlock class="mt-3">
-      <template v-for="(_color, name) in contextColors" :key="_color">
+      <template v-for="(_color, name) in contextColorsLight" :key="_color">
         <BsAlert :color="name" filled>
           Solid alert with <span class="font-weight-semibold">{{ name }} color</span>
         </BsAlert>
@@ -64,7 +64,7 @@ function closeAlert() {
 
     <h2 class="mt-5">Outline Style</h2>
     <DemoBlock class="mt-3">
-      <template v-for="(_color, name) in contextColors" :key="_color">
+      <template v-for="(_color, name) in contextColorsLight" :key="_color">
         <BsAlert :color="name" outlined>
           Outlined alert with <span class="font-weight-semibold">{{ name }} color</span>
         </BsAlert>

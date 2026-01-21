@@ -1,8 +1,8 @@
 <script setup lang="ts">
+import { IconBullhorn } from '@shares/sharedApi.ts';
+import { contextColorsLight } from '@shares/themeColors.ts';
 import { reactive, ref } from 'vue';
 import { StringHelper } from 'vue-mdbootstrap';
-import { contextColorsLight } from '@shares/themeColors.ts';
-import { IconBullhorn } from '@shares/sharedApi.ts';
 
 const chipState = reactive<Record<string, boolean>>({
   default: false,
@@ -30,21 +30,9 @@ function toggleDismissibleChip() {
   <div class="docs-body container-lg mx-auto">
     <h2 id="overview">Basic Examples</h2>
     <DemoBlock class="docs-demo-ctrl mt-4">
-      <BsChip> Chip Example </BsChip>
       <div class="flex flex-wrap">
         <template v-for="(_color, name) in contextColorsLight" :key="_color">
           <BsChip :color="name">
-            {{ StringHelper.titleCase(name) }}
-          </BsChip>
-        </template>
-      </div>
-    </DemoBlock>
-
-    <h2 class="mt-5" id="href-element">Element Type</h2>
-    <DemoBlock class="docs-demo-ctrl mt-4">
-      <div class="flex flex-wrap">
-        <template v-for="(_color, name) in contextColorsLight" :key="_color">
-          <BsChip :color="name" href="javascript:void(0)">
             {{ StringHelper.titleCase(name) }}
           </BsChip>
         </template>
@@ -73,6 +61,24 @@ function toggleDismissibleChip() {
       </div>
     </DemoBlock>
 
+    <h2 class="mt-5" id="href-element">Element Type</h2>
+    <DemoBlock class="docs-demo-ctrl mt-4">
+      <div class="flex flex-wrap">
+        <template v-for="(_color, name) in contextColorsLight" :key="_color">
+          <BsChip :color="name" href="javascript:void(0)">
+            {{ StringHelper.titleCase(name) }}
+          </BsChip>
+        </template>
+      </div>
+      <div class="flex flex-wrap">
+        <template v-for="(_color, name) in contextColorsLight" :key="_color">
+          <BsChip :color="name" href="javascript:void(0)" outlined>
+            {{ StringHelper.titleCase(name) }}
+          </BsChip>
+        </template>
+      </div>
+    </DemoBlock>
+
     <h2 class="mt-5" id="chip-states">Chip States</h2>
     <DemoBlock class="docs-demo-ctrl mt-4">
       <div class="h6 mt-3">Disabled</div>
@@ -89,14 +95,21 @@ function toggleDismissibleChip() {
         </template>
       </div>
       <div class="h6 mt-3">Active</div>
-      <div class="flex flex-wrap">
+      <div class="flex flex-wrap mb-2">
         <template v-for="(_color, name) in contextColorsLight" :key="_color">
           <BsChip :color="name" active>
             {{ StringHelper.titleCase(name) }}
           </BsChip>
         </template>
       </div>
-      <hr />
+      <div class="flex flex-wrap mb-4">
+        <template v-for="(_color, name) in contextColorsLight" :key="_color">
+          <BsChip :color="name">
+            {{ StringHelper.titleCase(name) }}
+          </BsChip>
+        </template>
+      </div>
+      <BsDivider style="margin: 2px -1.5rem" />
       <div class="h6 mt-4">Outlined Disabled</div>
       <div class="flex">
         <BsChip color="primary" disabled outlined> Primary </BsChip>

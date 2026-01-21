@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { initializeTheme } from '@shares/themeApi.ts';
 import AppNavbar from '@tw/AppNavbar.vue';
 import type { TMainNavigation } from '@tw/router/navigation';
 import { menuNavs } from '@tw/router/navigation';
@@ -13,7 +14,7 @@ provide('MyApp', provider as IMyAppProvider);
 
 function onScroll(target: Element | Window) {
   if ((target as Window).scrollY >= 60) {
-    provider.appbarClass = ['md-shadow'];
+    provider.appbarClass = ['border-b shadow'];
   } else {
     provider.appbarClass = ['border-b'];
   }
@@ -45,6 +46,7 @@ function compareFn(a: TMainNavigation, b: TMainNavigation) {
 const routeNavA = menuNavs.filter((it) => it.group === 'Components').sort(compareFn);
 const routeNavB = menuNavs.filter((it) => it.group === 'Reference').sort(compareFn);
 resizeHandler();
+initializeTheme();
 
 onMounted(async () => {
   await createShikiInstance();
@@ -65,8 +67,8 @@ onBeforeUnmount(() => {
           <img alt="Vue logo" src="/assets/logo.png" style="width: 96px" />
         </RouterLink>
       </div>
-      <BsDivider dark />
-      <BsListView item-border-variant="left" item-rounded space-around="both">
+      <BsDivider class="mt-4!" />
+      <BsListView class="pt-0" item-border-variant="left" item-rounded space-around="both">
         <BsListNav>
           <BsListNavItem v-for="navItem in routeNavA" :key="navItem.text" :label="navItem.text">
             <BsListNav child>
@@ -80,7 +82,7 @@ onBeforeUnmount(() => {
             </BsListNav>
           </BsListNavItem>
         </BsListNav>
-        <BsDivider class="my-2" />
+        <BsDivider class="my-2!" />
         <BsListNav>
           <template v-for="navItem in routeNavB" :key="navItem.path || navItem.text">
             <BsListNavItem
@@ -108,8 +110,9 @@ onBeforeUnmount(() => {
 @use 'vue-mdbootstrap/scss/color_vars' as colors;
 @use 'vue-mdbootstrap/scss/variables' as vars;
 
-// Page animation transition
-//---------------------------
+/*
+ * Page animation transition
+ */
 .fade-fast-enter-active,
 .fade-fast-leave-active {
   transition: opacity 0.2s ease;
@@ -121,20 +124,23 @@ onBeforeUnmount(() => {
 }
 
 // Override UI aspect global css variables
-//-----------------------------------------
+//----------------------------------------
 :root {
-  --background: oklch(0.976 0 89.876);
-  --appbar-background: oklch(1 0 0);
-  --appbar-height: 4rem;
-  --sidedrawer-background: oklch(0.921 0.009 264.52);
+  &:not(.dark) {
+    --background: oklch(0.976 0 89.876);
+    --appbar-background: oklch(1 0 0);
+    --appbar-height: 4rem;
+    --sidedrawer-background: oklch(0.921 0.009 264.52);
+  }
 }
 
 // Customize side-drawer menu styles
 //-----------------------------------
-.md-side-drawer {
-  .md-nav-item:not(.md-expanded) {
-    &.active > .md-nav-border-left > .md-ripple:before {
-      --md-tile-indicator-border-width: 5px;
+.#{vars.$prefix}side-drawer {
+  .#{vars.$prefix}nav-item:not(.#{vars.$prefix}expanded) {
+    &.active > .#{vars.$prefix}nav-border-left > .#{vars.$prefix}ripple:before {
+      --#{vars.$prefix}tile-indicator-border-width: 5px;
+
       height: 70%;
       top: 15%;
       border-radius: 12px;
@@ -150,7 +156,7 @@ onBeforeUnmount(() => {
 
     &:hover {
       ::-webkit-scrollbar-track {
-        background: var(--md-sidedrawer-background);
+        background: var(--#{vars.$prefix}sidedrawer-background);
       }
 
       ::-webkit-scrollbar-thumb {
@@ -165,24 +171,24 @@ onBeforeUnmount(() => {
   }
 }
 
-body {
-  // Change floating sidebar background to white
-  > .md-side-drawer {
-    --sidedrawer-background: oklch(1 0 0);
+// Change floating sidebar background to white
+:not(.dark) {
+  body {
+    > .#{vars.$prefix}side-drawer {
+      --sidedrawer-background: oklch(1 0 0);
+    }
   }
 }
 
 // Application layout and styles
 //-------------------------------
 #app {
-  .md-content-wrap {
+  .#{vars.$prefix}content-wrap {
     padding-bottom: vars.$padding-xl;
   }
 }
 
-.md-appbar {
-  --border-translucent: oklch(87.2% 0.01 258.338deg);
-
+.#{vars.$prefix}appbar {
   a.menu-item {
     color: var(--foreground);
     font-weight: var(--font-weight-medium);
@@ -194,15 +200,15 @@ body {
   }
 }
 
-.md-card {
-  > .md-application-wrap:first-child {
+.#{vars.$prefix}card {
+  > .#{vars.$prefix}application-wrap:first-child {
     @include borders.radius(inherit);
   }
 
-  .md-appbar:first-child {
+  .#{vars.$prefix}appbar:first-child {
     @include borders.top-radius(inherit);
 
-    + .md-tabs {
+    + .#{vars.$prefix}tabs {
       @include borders.top-radius(0);
     }
   }
@@ -239,19 +245,19 @@ body {
     padding-left: vars.$padding-sm;
   }
 
-  .md-list {
-    --md-tile-minheight: 1.5rem;
-    --md-tile-padding-x: #{vars.$padding-sm};
-    --md-tile-padding-y: #{vars.$padding-xs};
+  .#{vars.$prefix}list {
+    --#{vars.$prefix}tile-minheight: 1.5rem;
+    --#{vars.$prefix}tile-padding-x: #{vars.$padding-sm};
+    --#{vars.$prefix}tile-padding-y: #{vars.$padding-xs};
 
-    .md-list-tile {
+    .#{vars.$prefix}list-tile {
       border-radius: vars.$radius-sm;
 
       &.active {
         font-weight: var(--font-weight-semibold);
       }
 
-      + .md-list-tile {
+      + .#{vars.$prefix}list-tile {
         margin-top: 3px;
       }
     }
@@ -259,7 +265,7 @@ body {
 
   h6 {
     font-weight: var(--font-weight-semibold);
-    padding-left: var(--md-tile-padding-x);
+    padding-left: var(--#{vars.$prefix}tile-padding-x);
   }
 }
 
@@ -318,12 +324,6 @@ body {
   }
 }
 
-//.demo-block-content {
-//  .md-breadcrumb {
-//    --md-breadcrumb-padding-x: 0;
-//  }
-//}
-
 // Utilities
 //----------
 .section-content {
@@ -363,6 +363,30 @@ body {
     display: block;
     position: absolute;
     pointer-events: none;
+  }
+}
+
+.dark {
+  .#{vars.$prefix}side-drawer {
+    @media (min-width: calc(50rem + 1px)) {
+      &:hover {
+        ::-webkit-scrollbar-thumb {
+          background: oklch(0.344 0.01 260.718);
+
+          &:hover {
+            background: oklch(0.492 0.007 264.503);
+          }
+        }
+      }
+    }
+  }
+
+  .#{vars.$prefix}appbar {
+    a.menu-item {
+      &:hover {
+        color: colors.$blue-accent-3;
+      }
+    }
   }
 }
 </style>

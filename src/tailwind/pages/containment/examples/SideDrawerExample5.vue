@@ -2,7 +2,11 @@
 import { ref } from 'vue';
 
 const navPillCls = ['flex flex-col list-none'];
-const navItemCls = ['flex px-2 py-2 rounded-lg', 'not-[.active]:hover:bg-blue-100'];
+const navItemCls = [
+  'flex px-2 py-2 rounded',
+  'not-[.active]:hover:bg-blue-100',
+  'dark:not-[.active]:hover:bg-blue-100/10',
+];
 
 const sideDrawerOpen = ref(true);
 
@@ -12,7 +16,7 @@ function toggleSideDrawer(value: boolean) {
 </script>
 
 <template>
-  <BsApp class="bg-gray-400 md-shadow-2 rounded-lg">
+  <BsApp class="bg-gray-400 dark:bg-neutral-800 md-shadow-2 rounded">
     <BsAppbar shadow>
       <BsButton
         color="dark"
@@ -28,7 +32,7 @@ function toggleSideDrawer(value: boolean) {
         <BsButton color="dark" flat icon="notifications" mode="icon" />
       </BsAppbarItems>
     </BsAppbar>
-    <BsSideDrawer v-model:open="sideDrawerOpen" class="border-e" clipped>
+    <BsSideDrawer v-model:open="sideDrawerOpen" clipped>
       <div class="p-2">
         <ul :class="navPillCls">
           <li class="nav-item">
@@ -54,7 +58,7 @@ function toggleSideDrawer(value: boolean) {
         </ul>
       </div>
     </BsSideDrawer>
-    <BsContainer app class="h-[280px]">
+    <BsContainer app class="h-70">
       <div class="flex justify-center items-center"></div>
     </BsContainer>
   </BsApp>

@@ -15,7 +15,9 @@ fmtVueTpl.value = parseVueTemplateTag(Example);
     </div>
     <ShoutBox :tpl="fmtVueTpl">
       <template #content>
-        <div class="h-full flex items-center justify-center bg-gray-800 px-6 py-8 md:rounded-lg">
+        <div
+          class="h-full flex items-center justify-center bg-gray-800 dark:bg-neutral-900 px-6 py-8 md:rounded-lg"
+        >
           <ButtonExample5 />
         </div>
       </template>

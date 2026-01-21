@@ -14,6 +14,7 @@ const {
   fmtVueTsc,
   btnVariant,
   btnShape,
+  btnColor,
   btnSize,
   btnState,
   btnElevated,
@@ -23,6 +24,7 @@ const {
   drinkSrc2Ref,
   btnVariantSrc,
   btnShapeSrc,
+  btnColorSrc,
   btnSizeSrc,
   btnStateSrc,
 } = setupToggleButtonOverview('ToggleButton', Example1, Example2);
@@ -30,7 +32,7 @@ const {
 const selectedDrink = ref<string>();
 const drinkSrc1 = dsFavoriteDrinks();
 const iconPositionSrc = buttonIconPositions();
-const contentCls = ['h-full min-h-40', 'flex items-center', 'py-8'];
+const contentCls = ['h-full min-h-40 rounded', 'flex items-center', 'py-8'];
 </script>
 
 <template>
@@ -47,6 +49,9 @@ const contentCls = ['h-full min-h-40', 'flex items-center', 'py-8'];
         </BsCombobox>
         <BsCombobox v-model="btnShape" :data-source="btnShapeSrc" filled floating-label>
           <label>Shape:</label>
+        </BsCombobox>
+        <BsCombobox v-model="btnColor" :data-source="btnColorSrc" filled floating-label>
+          <label>Color:</label>
         </BsCombobox>
         <BsCombobox v-model="btnSize" :data-source="btnSizeSrc" filled floating-label>
           <label>Size:</label>
@@ -78,13 +83,14 @@ const contentCls = ['h-full min-h-40', 'flex items-center', 'py-8'];
       </template>
 
       <template #content>
-        <div :class="showIcon ? contentCls.concat('px-3 lg:px-6') : contentCls.concat('px-8')">
+        <div :class="showIcon ? contentCls.concat(['px-3 lg:px-6']) : contentCls.concat(['px-8'])">
           <div class="row gy-2">
             <div class="sm:w-33 pt-2 font-weight-medium">Favorite Drink</div>
             <div class="col-sm">
               <BsToggleButton
                 v-if="showIcon"
                 v-model="selectedDrink"
+                :color="btnColor"
                 :disabled="btnState === 'disabled'"
                 :icon-position="iconPosition"
                 :icon-size="iconSize"
@@ -100,6 +106,7 @@ const contentCls = ['h-full min-h-40', 'flex items-center', 'py-8'];
               <BsToggleButton
                 v-else
                 v-model="selectedDrink"
+                :color="btnColor"
                 :disabled="btnState === 'disabled'"
                 :icon-position="iconPosition"
                 :icon-size="iconSize"

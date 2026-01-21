@@ -46,8 +46,8 @@ function toggleShow(state: boolean): void {
     </div>
     <BsDivider />
     <div class="flex justify-end md-gap-1 p-3">
-      <BsButton color="primary" size="sm" @click="show = false"> Save </BsButton>
       <BsButton color="primary" flat size="sm" @click="show = false"> Cancel </BsButton>
+      <BsButton color="primary" size="sm" @click="show = false"> Save </BsButton>
     </div>
   </BsPopover>
 </template>

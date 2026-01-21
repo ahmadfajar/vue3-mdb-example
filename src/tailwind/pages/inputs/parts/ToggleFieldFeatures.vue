@@ -14,6 +14,7 @@ const {
   fmtVueTsc,
   btnVariant,
   btnShape,
+  btnColor,
   btnSize,
   btnState,
   btnElevated,
@@ -26,6 +27,7 @@ const {
   drinkSrc2Ref,
   btnVariantSrc,
   btnShapeSrc,
+  btnColorSrc,
   btnSizeSrc,
   btnStateSrc,
 } = setupToggleButtonOverview('ToggleField', Example1, Example2);
@@ -44,7 +46,7 @@ const contentCls = ['h-full min-h-40', 'flex items-center', 'py-8'];
     </div>
     <ShoutBox :tpl="fmtVueTpl" :tsc="fmtVueTsc">
       <template #side-panel>
-        <div class="min-h-116">
+        <div class="min-h-134">
           <h5 class="mt-2">Configuration Options:</h5>
 
           <BsTabs v-model="tabIndex" class="-mx-3 mt-2" variant="md3">
@@ -52,6 +54,11 @@ const contentCls = ['h-full min-h-40', 'flex items-center', 'py-8'];
               <div class="mb-4">
                 <BsCombobox v-model="btnVariant" :data-source="btnVariantSrc" filled floating-label>
                   <label>Variant:</label>
+                </BsCombobox>
+              </div>
+              <div class="mb-4">
+                <BsCombobox v-model="btnColor" :data-source="btnColorSrc" filled floating-label>
+                  <label>Color:</label>
                 </BsCombobox>
               </div>
               <div class="mb-4">
@@ -117,6 +124,7 @@ const contentCls = ['h-full min-h-40', 'flex items-center', 'py-8'];
           <BsToggleField
             v-if="showIcon"
             v-model="selectedDrink"
+            :color="btnColor"
             :disabled="btnState === 'disabled'"
             :help-text="showHelpText && !!helpText ? helpText : undefined"
             :icon-position="iconPosition"
@@ -136,6 +144,7 @@ const contentCls = ['h-full min-h-40', 'flex items-center', 'py-8'];
           <BsToggleField
             v-else
             v-model="selectedDrink"
+            :color="btnColor"
             :disabled="btnState === 'disabled'"
             :help-text="showHelpText && !!helpText ? helpText : undefined"
             :icon-position="iconPosition"

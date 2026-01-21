@@ -1,9 +1,30 @@
 <script setup lang="ts">
 import type { IMyAppProvider } from '@shares/provider.ts';
-import { inject, ref } from 'vue';
+import { themeNameFrom, useTheme } from '@shares/themeApi.ts';
+import { inject, ref, watchEffect } from 'vue';
 
+const { theme, saveTheme } = useTheme();
 const provider = inject('MyApp') as IMyAppProvider;
 const menuOpen = ref(false);
+const icon = ref('dark_mode');
+const color = ref('dark');
+
+function changeTheme() {
+  const value = themeNameFrom(theme.value) === 'light' ? 'dark' : 'light';
+  saveTheme(value);
+}
+
+watchEffect(() => {
+  const name = themeNameFrom(theme.value);
+
+  if (name === 'dark') {
+    icon.value = 'light_mode';
+    color.value = 'light';
+  } else {
+    icon.value = 'dark_mode';
+    color.value = 'dark';
+  }
+});
 </script>
 
 <template>
@@ -19,7 +40,7 @@ const menuOpen = ref(false);
   >
     <BsButton
       :class="provider.linksCount > 0 ? ['hidden lg:inline'] : undefined"
-      color="dark"
+      :color="color"
       flat
       icon="menu"
       mode="icon"
@@ -42,8 +63,8 @@ const menuOpen = ref(false);
       <div class="hidden md:block mx-2 border-s" style="width: 1px; height: 26px"></div>
       <div class="flex">
         <BsButton
+          :color="color"
           class="md:hidden"
-          color="dark"
           flat
           icon="home_rounded"
           mode="icon"
@@ -51,7 +72,7 @@ const menuOpen = ref(false);
           @click="async () => await $router.push({ name: 'home' })"
         />
         <BsButton
-          color="dark"
+          :color="color"
           flat
           href="https://github.com/ahmadfajar/vue3-mdb-example"
           mode="icon"
@@ -62,7 +83,7 @@ const menuOpen = ref(false);
             <BsFontawesomeIcon icon="github" mode="icon" variant="brands" />
           </template>
         </BsButton>
-        <BsButton color="dark" flat icon="dark_mode" mode="icon" />
+        <BsButton :color="color" :icon="icon" flat mode="icon" @click="changeTheme()" />
       </div>
     </BsAppbarItems>
   </BsAppbar>
@@ -74,7 +95,7 @@ const menuOpen = ref(false);
     ]"
   >
     <BsButton
-      color="dark"
+      :color="color"
       flat
       icon="menu_open"
       mode="icon"

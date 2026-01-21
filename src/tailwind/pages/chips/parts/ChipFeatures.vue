@@ -139,13 +139,7 @@ onBeforeUnmount(() => {
       <template #side-panel>
         <h5 class="mt-2">Configuration Options:</h5>
 
-        <BsCombobox
-          v-if="!showIcon && !showAvatar"
-          v-model="chipColor"
-          :data-source="chipColorSrc"
-          filled
-          floating-label
-        >
+        <BsCombobox v-model="chipColor" :data-source="chipColorSrc" filled floating-label>
           <label>Color:</label>
         </BsCombobox>
         <BsCombobox
@@ -214,17 +208,11 @@ onBeforeUnmount(() => {
       </template>
 
       <template #content>
-        <div
-          :class="[
-            'h-full min-h-40 flex items-center justify-center py-6 px-3 md:rounded-lg',
-            chipColor === 'light' && (['active', 'readonly'].includes(chipState!) || !chipState)
-              ? 'bg-gray-800'
-              : '',
-          ]"
-        >
+        <div class="h-full min-h-40 flex items-center justify-center py-6 px-3 md:rounded-lg">
           <div v-if="showIcon" class="flex flex-col gap-y-4 items-center">
             <BsChip
               :active="chipState === 'active'"
+              :color="chipColor"
               :disabled="chipState === 'disabled'"
               :icon="chipIcon"
               :icon-flip="iconFlip"
@@ -235,13 +223,13 @@ onBeforeUnmount(() => {
               :outlined="chipVariant === 'outlined'"
               :pill="chipShape === 'pill'"
               :readonly="chipState === 'readonly'"
-              color="default"
               size="sm"
             >
               Chip Example
             </BsChip>
             <BsChip
               :active="chipState === 'active'"
+              :color="chipColor"
               :disabled="chipState === 'disabled'"
               :icon="chipIcon"
               :icon-flip="iconFlip"
@@ -252,12 +240,12 @@ onBeforeUnmount(() => {
               :outlined="chipVariant === 'outlined'"
               :pill="chipShape === 'pill'"
               :readonly="chipState === 'readonly'"
-              color="primary"
             >
               Chip Example
             </BsChip>
             <BsChip
               :active="chipState === 'active'"
+              :color="chipColor"
               :disabled="chipState === 'disabled'"
               :icon="chipIcon"
               :icon-flip="iconFlip"
@@ -268,7 +256,6 @@ onBeforeUnmount(() => {
               :outlined="chipVariant === 'outlined'"
               :pill="chipShape === 'pill'"
               :readonly="chipState === 'readonly'"
-              color="danger"
               size="lg"
             >
               Chip Example
@@ -277,6 +264,7 @@ onBeforeUnmount(() => {
           <div v-else-if="showAvatar" class="flex flex-col gap-y-4 items-center">
             <BsChip
               :active="chipState === 'active'"
+              :color="chipColor"
               :disabled="chipState === 'disabled'"
               :img-circle="avatarRounded"
               :img-padding-off="avatarPaddingOff"
@@ -284,13 +272,13 @@ onBeforeUnmount(() => {
               :outlined="chipVariant === 'outlined'"
               :pill="chipShape === 'pill'"
               :readonly="chipState === 'readonly'"
-              color="default"
               size="sm"
             >
               Chip Example
             </BsChip>
             <BsChip
               :active="chipState === 'active'"
+              :color="chipColor"
               :disabled="chipState === 'disabled'"
               :img-circle="avatarRounded"
               :img-padding-off="avatarPaddingOff"
@@ -298,12 +286,12 @@ onBeforeUnmount(() => {
               :outlined="chipVariant === 'outlined'"
               :pill="chipShape === 'pill'"
               :readonly="chipState === 'readonly'"
-              color="primary"
             >
               Chip Example
             </BsChip>
             <BsChip
               :active="chipState === 'active'"
+              :color="chipColor"
               :disabled="chipState === 'disabled'"
               :img-circle="avatarRounded"
               :img-padding-off="avatarPaddingOff"
@@ -311,7 +299,6 @@ onBeforeUnmount(() => {
               :outlined="chipVariant === 'outlined'"
               :pill="chipShape === 'pill'"
               :readonly="chipState === 'readonly'"
-              color="danger"
               size="lg"
             >
               Chip Example

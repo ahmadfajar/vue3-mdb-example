@@ -14,7 +14,7 @@ const rawTemplate = parseVueTemplateTag(Example);
 const { itemBorderVariant, spaceAroundSrc, borderVariantSrc, itemStyleSrc } =
   setupListViewNavigation(rawTemplate, fmtVueTpl, spaceAround, borderVariant, itemStyle);
 
-const contentCls = ['min-h-40 p-3 lg:px-8 md:rounded-lg text-bg-surface'];
+const contentCls = ['min-h-40 p-3 md:p-8 md:rounded-lg text-bg-surface'];
 </script>
 
 <template>
@@ -70,21 +70,21 @@ const contentCls = ['min-h-40 p-3 lg:px-8 md:rounded-lg text-bg-surface'];
                 <BsListNav>
                   <BsListNavItem
                     badge="102"
-                    badge-color="bg-gray-400"
+                    badge-color="bg-gray-400 dark:bg-neutral-700"
                     badge-type="pill"
                     icon="email"
                     label="All Mail"
                   />
                   <BsListNavItem
                     badge="25"
-                    badge-color="bg-gray-400"
+                    badge-color="bg-gray-400 dark:bg-neutral-700"
                     badge-type="pill"
                     icon="gpp_maybe"
                     label="Spam"
                   />
                   <BsListNavItem
                     badge="12"
-                    badge-color="bg-gray-400"
+                    badge-color="bg-gray-400 dark:bg-neutral-700"
                     badge-type="pill"
                     icon="delete"
                     label="Trash"

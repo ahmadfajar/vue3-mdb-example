@@ -87,7 +87,7 @@ const contentCls = ['min-h-40 py-8 px-3 lg:px-8 md:rounded-lg text-bg-surface'];
                     <BsListTileTitle>All Mail</BsListTileTitle>
                   </BsListTileContent>
                   <BsListTileAction center>
-                    <BsBadge color="bg-gray-400" type="pill"> 102 </BsBadge>
+                    <BsBadge color="bg-gray-400 dark:bg-neutral-700" type="pill"> 102 </BsBadge>
                   </BsListTileAction>
                 </BsListTile>
                 <BsListTile navigable>
@@ -96,7 +96,7 @@ const contentCls = ['min-h-40 py-8 px-3 lg:px-8 md:rounded-lg text-bg-surface'];
                     <BsListTileTitle>Spam</BsListTileTitle>
                   </BsListTileContent>
                   <BsListTileAction center>
-                    <BsBadge color="bg-gray-400" type="pill"> 12 </BsBadge>
+                    <BsBadge color="bg-gray-400 dark:bg-neutral-700" type="pill"> 12 </BsBadge>
                   </BsListTileAction>
                 </BsListTile>
                 <BsListTile navigable>
@@ -105,7 +105,7 @@ const contentCls = ['min-h-40 py-8 px-3 lg:px-8 md:rounded-lg text-bg-surface'];
                     <BsListTileTitle>Trash</BsListTileTitle>
                   </BsListTileContent>
                   <BsListTileAction center>
-                    <BsBadge color="bg-gray-400" type="pill"> 8 </BsBadge>
+                    <BsBadge color="bg-gray-400 dark:bg-neutral-700" type="pill"> 8 </BsBadge>
                   </BsListTileAction>
                 </BsListTile>
               </BsListView>

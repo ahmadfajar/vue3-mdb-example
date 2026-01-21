@@ -88,7 +88,7 @@ function toggleTonalState(name: string, state: boolean) {
         </template>
       </div>
     </DemoBlock>
-    <h4 class="mt-5">Rectangle</h4>
+    <h4 class="mt-8">Rectangle</h4>
     <DemoBlock class="docs-demo-ctrl mt-4">
       <div class="flex flex-wrap md-gap-x-3 md-gap-y-4 mb-2">
         <template v-for="(_color, name) in contextColorsLightDark" :key="_color">
@@ -98,7 +98,7 @@ function toggleTonalState(name: string, state: boolean) {
         </template>
       </div>
     </DemoBlock>
-    <h4 class="mt-5">Elevated</h4>
+    <h4 class="mt-8">Elevated</h4>
     <DemoBlock class="docs-demo-ctrl mt-4">
       <div class="flex flex-wrap md-gap-x-3 md-gap-y-4 mb-2">
         <template v-for="(_color, name) in contextColorsLightDark" :key="_color">
@@ -108,7 +108,7 @@ function toggleTonalState(name: string, state: boolean) {
         </template>
       </div>
     </DemoBlock>
-    <h4 class="mt-5">Outlined</h4>
+    <h4 class="mt-8">Outlined</h4>
     <DemoBlock class="docs-demo-ctrl mt-4">
       <div class="flex flex-wrap md-gap-x-3 md-gap-y-4 mb-2">
         <template v-for="(_color, name) in contextColorsLightDark" :key="_color">
@@ -123,7 +123,7 @@ function toggleTonalState(name: string, state: boolean) {
         </template>
       </div>
     </DemoBlock>
-    <h4 class="mt-5">Flat</h4>
+    <h4 class="mt-8">Flat</h4>
     <DemoBlock class="docs-demo-ctrl mt-4">
       <div class="flex flex-wrap md-gap-x-3 md-gap-y-4 mb-2">
         <template v-for="(_color, name) in contextColorsLightDark" :key="_color">
@@ -138,7 +138,7 @@ function toggleTonalState(name: string, state: boolean) {
         </template>
       </div>
     </DemoBlock>
-    <h4 class="mt-5">Tonal</h4>
+    <h4 class="mt-8">Tonal</h4>
     <DemoBlock class="docs-demo-ctrl mt-4">
       <div class="flex flex-wrap md-gap-x-3 md-gap-y-4 mb-2">
         <template v-for="(_color, name) in contextColorsLightDark" :key="_color">
@@ -154,9 +154,9 @@ function toggleTonalState(name: string, state: boolean) {
       </div>
     </DemoBlock>
 
-    <h2 class="mt-5">Button Size</h2>
+    <h2 class="mt-8">Button Size</h2>
     <DemoBlock class="mt-4">
-      <div class="row row-cols-2 row-cols-md-4 items-center gy-4">
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 items-center gy-4 text-center">
         <div class="col">
           <BsButton size="xs"> Extra Small Button </BsButton>
         </div>
@@ -184,7 +184,7 @@ function toggleTonalState(name: string, state: boolean) {
       </div>
     </DemoBlock>
 
-    <h2 class="mt-5">Button with Icon</h2>
+    <h2 class="mt-6">Button with Icon</h2>
     <DemoBlock class="mt-4">
       <div class="row row-cols-1 row-cols-sm-2 row-cols-xl-4 gy-4 text-center">
         <div class="col">
@@ -217,6 +217,8 @@ function toggleTonalState(name: string, state: boolean) {
         <div class="col">
           <BsButton icon="shopping_cart" icon-rotation="270"> Rotate 270&deg; </BsButton>
         </div>
+      </div>
+      <div class="row row-cols-1 row-cols-sm-2 gy-4 text-center mt-1">
         <div class="col">
           <BsButton icon="rotate_right" icon-spin> Spin Animation </BsButton>
         </div>
@@ -312,7 +314,7 @@ function toggleTonalState(name: string, state: boolean) {
       </div>
     </DemoBlock>
 
-    <h4 class="mt-5" id="button-toolbar">Button Toolbar</h4>
+    <h4 class="mt-8" id="button-toolbar">Button Toolbar</h4>
     <DemoBlock class="mt-4">
       <div class="md-button-toolbar md-gap-3" role="toolbar">
         <div class="inline-flex" role="group">
@@ -413,7 +415,7 @@ function toggleTonalState(name: string, state: boolean) {
 
     <h4 class="mt-5" id="fab-extended">Extended FAB</h4>
     <DemoBlock class="mt-4">
-      <div class="flex items-center md-gap-4 mb-4">
+      <div class="flex flex-wrap items-center md-gap-4 mb-4">
         <BsButton icon="navigation_filled" icon-size="18" mode="fab" size="xs"> Navigate </BsButton>
         <BsButton icon="navigation_filled" icon-size="24" mode="fab" size="sm"> Navigate </BsButton>
         <BsButton icon="navigation_outlined" icon-size="28" mode="fab"> Navigate </BsButton>
@@ -421,7 +423,7 @@ function toggleTonalState(name: string, state: boolean) {
           Navigate
         </BsButton>
       </div>
-      <div class="flex items-center md-gap-4">
+      <div class="flex flex-wrap items-center md-gap-4">
         <BsButton
           color="success"
           icon="navigation_filled"

@@ -1,43 +1,15 @@
-<template>
-  <div class="demo-block">
-    <div class="demo-block-tools">
-      <div class="inner-tools bg-gray-200">
-        <button
-          ref="pickerBtn"
-          :style="{ color: pickerColor }"
-          class="btn-color-picker"
-          role="button"
-          title="Change background color"
-          type="button"
-          @click="pickerShow = !pickerShow"
-        />
-        <BsButton color="dark" flat icon="invert_colors" mode="icon" @click="darkenOrLighten" />
-      </div>
-    </div>
-    <div :class="cssClasses" :style="styles">
-      <slot />
-    </div>
-    <BsColorPicker
-      ref="picker"
-      v-model="pickerColor"
-      v-model:mode="pickerMode"
-      v-model:open="pickerShow"
-      :activator="pickerBtn"
-      class="shadow"
-      hide-alpha
-      placement="bottom-right"
-    />
-  </div>
-</template>
-
 <script setup lang="ts">
-import { reactive, ref, watch } from 'vue';
+import { themeNameFrom, useTheme } from '@shares/themeApi.ts';
+import { reactive, ref, watch, watchEffect } from 'vue';
 import type { BsColorPickerInstance, TColorPickerMode } from 'vue-mdbootstrap';
 import { Color } from 'vue-mdbootstrap';
 
+const { theme } = useTheme();
+const bgLight = '#f3f3f3';
+const bgDark = '#191919';
 const picker = ref<BsColorPickerInstance>();
 const pickerBtn = ref();
-const pickerColor = ref('#f2f5f8');
+const pickerColor = ref(bgLight);
 const pickerMode = ref<TColorPickerMode>('HEX');
 const pickerShow = ref(false);
 const step = ref(-10);
@@ -48,18 +20,10 @@ const styles = reactive<Record<string, string>>({
 });
 
 watch(
-  () => pickerColor.value,
-  (value) => {
-    styles.backgroundColor =
-      pickerMode.value === 'HEX' ? value.toLowerCase() : picker.value!.hex().toLowerCase();
-  }
-);
-watch(
   () => styles.backgroundColor,
   (value) => {
     const textColor = contrastTextColor(value!);
     styles.color = textColor;
-    // styles['--md-field-button-color'] = textColor;
 
     if (textColor === '#fafafa') {
       styles['--md-field-active-indicator'] = 'var(--md-field-accent-indicator)';
@@ -75,6 +39,23 @@ watch(
     }
   }
 );
+watchEffect(() => {
+  if (pickerColor.value) {
+    styles.backgroundColor =
+      pickerMode.value === 'HEX'
+        ? pickerColor.value.toLowerCase()
+        : picker.value!.hex().toLowerCase();
+  }
+
+  const themeName = themeNameFrom(theme.value);
+  if (themeName === 'dark' && pickerColor.value.toLowerCase() === bgLight) {
+    pickerColor.value = bgDark;
+    styles.backgroundColor = pickerColor.value;
+  } else if (themeName === 'light' && pickerColor.value.toLowerCase() === bgDark) {
+    pickerColor.value = bgLight;
+    styles.backgroundColor = pickerColor.value;
+  }
+});
 
 const contrastTextColor = (color: string) => {
   const yiq = Color.brightnessLevel(Color.hexToRgba(color));
@@ -102,6 +83,44 @@ const darkenOrLighten = () => {
 };
 </script>
 
+<template>
+  <div class="demo-block">
+    <div class="demo-block-tools">
+      <div class="inner-tools">
+        <button
+          ref="pickerBtn"
+          :style="{ color: pickerColor }"
+          class="btn-color-picker"
+          role="button"
+          title="Change background color"
+          type="button"
+          @click="pickerShow = !pickerShow"
+        />
+        <BsButton
+          color="secondary"
+          flat
+          icon="invert_colors"
+          mode="icon"
+          @click="darkenOrLighten"
+        />
+      </div>
+    </div>
+    <div :class="cssClasses" :style="styles">
+      <slot />
+    </div>
+    <BsColorPicker
+      ref="picker"
+      v-model="pickerColor"
+      v-model:mode="pickerMode"
+      v-model:open="pickerShow"
+      :activator="pickerBtn"
+      class="shadow"
+      hide-alpha
+      placement="bottom-right"
+    />
+  </div>
+</template>
+
 <style lang="scss">
 @use 'vue-mdbootstrap/scss/mixins/css3/borders';
 
@@ -119,6 +138,7 @@ $radius: 0.75rem;
   > .inner-tools {
     @include borders.radius($radius $radius 0 0);
     background-color: oklch(0.942 0.005 247.879);
+    border: 1px solid var(--border-translucent);
     display: inline-flex;
     justify-content: center;
     align-items: center;
@@ -129,6 +149,7 @@ $radius: 0.75rem;
 
 .demo-block-content {
   @include borders.radius($radius 0 $radius $radius);
+  border: 1px solid var(--border-translucent);
   padding: 24px 24px 20px;
   position: relative;
 }
@@ -143,7 +164,7 @@ $radius: 0.75rem;
   // prettier-ignore
   background-position: 0 0, 4px 4px;
   background-size: 8px 8px;
-  border: 0;
+  border: 1px solid oklch(0.493 0 89.876);
   padding: 0;
   overflow: hidden;
   position: relative;
@@ -169,5 +190,13 @@ $radius: 0.75rem;
   width: 28px;
   height: 28px;
   cursor: pointer;
+}
+
+.dark {
+  .demo-block-tools {
+    > .inner-tools {
+      background-color: oklch(0.2 0 89.876);
+    }
+  }
 }
 </style>

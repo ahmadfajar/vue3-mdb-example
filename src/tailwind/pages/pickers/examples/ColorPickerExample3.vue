@@ -12,7 +12,7 @@ const activator = useTemplateRef<ComponentPublicInstance>('activator');
   <div>
     <BsButton
       ref="activator"
-      color="info"
+      color="secondary"
       dropdown-toggle
       title="Click to display color picker"
       @click="show = !show"
