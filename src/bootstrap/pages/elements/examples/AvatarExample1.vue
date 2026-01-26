@@ -21,7 +21,7 @@
       {$font_size}
       {$shapes}
       {$sizes}
-      class="bg-gray-500 text-white"
+      class="bg-gray-600 text-white"
       text="MD"
     />
   </div>

@@ -13,7 +13,7 @@ const favoriteFruits = [
 
 <template>
   <BsRadioGroup v-model="selectedFruit" :items="favoriteFruits" color="primary" column="2">
-    <label class="col-sm-3 col-form-label">Single Color</label>
+    <label class="col-form-label">Single Color</label>
   </BsRadioGroup>
   <div class="mt-3">
     Selected value: <b>{{ selectedFruit }}</b>

@@ -88,8 +88,8 @@ const showDialog = ref(false);
       nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.
     </p>
     <template #footer>
-      <BsButton color="primary" style="width: 103px" @click="showDialog = false">OK</BsButton>
       <BsButton color="primary" outlined @click="showDialog = false">Cancel</BsButton>
+      <BsButton color="primary" style="width: 103px" @click="showDialog = false">OK</BsButton>
     </template>
   </BsModal>
 </template>

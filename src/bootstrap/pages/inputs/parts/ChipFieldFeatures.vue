@@ -82,7 +82,7 @@ watchEffect(() => {
 });
 
 const variantSrc = dsFieldStyleVariants(['filled rounded', 'outlined rounded']);
-const chipColorSrc = dsContextColors(['dark', 'light']);
+const chipColorSrc = dsContextColors(['dark']);
 const iconPlacementSrc = dsFieldIconPlacements();
 const stateSrc = dsComponentStatesRD();
 const contentCls = ['h-full min-h-40 flex flex-col justify-center', 'p-3 p-md-5'];

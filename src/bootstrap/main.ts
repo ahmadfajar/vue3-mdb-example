@@ -8,6 +8,8 @@ import router from './router';
 import 'vue-mdbootstrap/styles';
 import 'vue-mdbootstrap/styles-color';
 import 'vue-mdbootstrap/theme-light';
+// prettier-ignore
+import 'vue-mdbootstrap/theme-dark';
 
 createVueMdb(App)
   // .component('DemoBlock', DemoBlock)

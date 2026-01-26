@@ -15,7 +15,7 @@ const dummyItems = [
 
 <template>
   <BsRadioGroup v-model="selectedItem" :items="dummyItems" column="2">
-    <label class="col-sm-3 col-form-label">Multiple Colors</label>
+    <label class="col-form-label">Multiple Colors</label>
   </BsRadioGroup>
   <div class="mt-3">
     Selected value: <b>{{ selectedItem }}</b>

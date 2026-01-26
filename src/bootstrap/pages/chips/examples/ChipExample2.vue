@@ -4,6 +4,7 @@
       {$avatar}
       {$avatarCircle}
       {$avatarPadding}
+      {$colorName}
       {$icon}
       {$iconAnimation}
       {$iconFlip}
@@ -15,7 +16,6 @@
       {$sizes}
       {$states}
       {$variants}
-      color="default"
       size="sm"
     >
       Chip Example
@@ -24,6 +24,7 @@
       {$avatar}
       {$avatarCircle}
       {$avatarPadding}
+      {$colorName}
       {$icon}
       {$iconAnimation}
       {$iconFlip}
@@ -35,7 +36,6 @@
       {$sizes}
       {$states}
       {$variants}
-      color="primary"
     >
       Chip Example
     </BsChip>
@@ -43,6 +43,7 @@
       {$avatar}
       {$avatarCircle}
       {$avatarPadding}
+      {$colorName}
       {$icon}
       {$iconAnimation}
       {$iconFlip}
@@ -54,7 +55,6 @@
       {$sizes}
       {$states}
       {$variants}
-      color="danger"
       size="lg"
     >
       Chip Example

@@ -79,9 +79,17 @@ onBeforeUnmount(() => {
           <label>State:</label>
         </BsCombobox>
         <div class="ps-2">
-          <BsCheckbox v-model="thumbIcon" :disabled="variant === 'default'" :value="true">
+          <BsSwitch
+            v-model="thumbIcon"
+            :disabled="variant === 'default'"
+            :value="true"
+            checked-icon
+            inset-outlined
+            label-class="flex-fill"
+            label-position="left"
+          >
             Show thumb icon
-          </BsCheckbox>
+          </BsSwitch>
         </div>
       </template>
 

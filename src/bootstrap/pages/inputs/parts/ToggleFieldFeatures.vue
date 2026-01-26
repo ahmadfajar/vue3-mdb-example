@@ -14,6 +14,7 @@ const {
   fmtVueTsc,
   btnVariant,
   btnShape,
+  btnColor,
   btnSize,
   btnState,
   btnElevated,
@@ -26,6 +27,7 @@ const {
   drinkSrc2Ref,
   btnVariantSrc,
   btnShapeSrc,
+  btnColorSrc,
   btnSizeSrc,
   btnStateSrc,
 } = setupToggleButtonOverview('ToggleField', Example1, Example2);
@@ -49,22 +51,19 @@ const contentCls = ['h-full min-h-40', 'flex items-center', 'py-4 py-md-5 px-3']
 
           <BsTabs v-model="tabIndex" class="mt-2" style="margin-inline: -16px" variant="md3">
             <BsTab label="General">
-              <div class="mb-3">
+              <div class="flex flex-col md-gap-y-4">
                 <BsCombobox v-model="btnVariant" :data-source="btnVariantSrc" filled floating-label>
                   <label>Variant:</label>
                 </BsCombobox>
-              </div>
-              <div class="mb-3">
+                <BsCombobox v-model="btnColor" :data-source="btnColorSrc" filled floating-label>
+                  <label>Color:</label>
+                </BsCombobox>
                 <BsCombobox v-model="btnShape" :data-source="btnShapeSrc" filled floating-label>
                   <label>Shape:</label>
                 </BsCombobox>
-              </div>
-              <div class="mb-3">
                 <BsCombobox v-model="btnSize" :data-source="btnSizeSrc" filled floating-label>
                   <label>Size:</label>
                 </BsCombobox>
-              </div>
-              <div class="mb-3">
                 <BsCombobox v-model="btnState" :data-source="btnStateSrc" filled floating-label>
                   <label>State:</label>
                 </BsCombobox>
@@ -117,6 +116,7 @@ const contentCls = ['h-full min-h-40', 'flex items-center', 'py-4 py-md-5 px-3']
           <BsToggleField
             v-if="showIcon"
             v-model="selectedDrink"
+            :color="btnColor"
             :disabled="btnState === 'disabled'"
             :help-text="showHelpText && !!helpText ? helpText : undefined"
             :icon-position="iconPosition"
@@ -137,6 +137,7 @@ const contentCls = ['h-full min-h-40', 'flex items-center', 'py-4 py-md-5 px-3']
           <BsToggleField
             v-else
             v-model="selectedDrink"
+            :color="btnColor"
             :disabled="btnState === 'disabled'"
             :help-text="showHelpText && !!helpText ? helpText : undefined"
             :icon-position="iconPosition"

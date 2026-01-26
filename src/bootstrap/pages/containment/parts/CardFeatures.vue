@@ -92,7 +92,7 @@ onBeforeUnmount(() => {
               </BsCardContent>
               <div
                 v-if="!showFooter && !showHeader && !backgroundColor"
-                class="flex md-gap-x-1 mt-4"
+                class="flex md-gap-x-2 mt-4"
               >
                 <BsButton color="primary">Action 1</BsButton>
                 <BsButton color="primary" outlined>Action 2</BsButton>

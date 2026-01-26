@@ -14,8 +14,8 @@ const showDialog = ref(false);
   >
     You can only close me by clicking the button below or press ESC.
     <template #footer>
-      <BsButton color="primary" style="width: 103px" @click="showDialog = false">OK</BsButton>
       <BsButton color="primary" outlined @click="showDialog = false">Cancel</BsButton>
+      <BsButton color="primary" style="width: 103px" @click="showDialog = false">OK</BsButton>
     </template>
   </BsModal>
 </template>

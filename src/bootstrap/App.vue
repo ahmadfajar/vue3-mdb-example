@@ -4,6 +4,7 @@ import type { TMainNavigation } from '@bs/router/navigation';
 import { menuNavs } from '@bs/router/navigation';
 import { type IMyAppProvider, MyAppProvider } from '@shares/provider.ts';
 import { createShikiInstance, disposeShiki } from '@shares/shikiApi.ts';
+import { initializeTheme } from '@shares/themeApi.ts';
 import { onBeforeUnmount, onMounted, provide } from 'vue';
 import { StringHelper, useBreakpointMin } from 'vue-mdbootstrap';
 
@@ -13,7 +14,7 @@ provide('MyApp', provider as IMyAppProvider);
 
 function onScroll(target: Element | Window) {
   if ((target as Window).scrollY >= 60) {
-    provider.appbarClass = ['md-shadow'];
+    provider.appbarClass = ['border-b', 'md-shadow'];
   } else {
     provider.appbarClass = ['border-b'];
   }
@@ -45,6 +46,7 @@ function compareFn(a: TMainNavigation, b: TMainNavigation) {
 const routeNavA = menuNavs.filter((it) => it.group === 'Components').sort(compareFn);
 const routeNavB = menuNavs.filter((it) => it.group === 'Reference').sort(compareFn);
 resizeHandler();
+initializeTheme();
 
 onMounted(async () => {
   await createShikiInstance();
@@ -65,7 +67,7 @@ onBeforeUnmount(() => {
           <img alt="Vue logo" src="/assets/logo.png" style="width: 96px" />
         </RouterLink>
       </div>
-      <BsDivider dark />
+      <BsDivider class="mt-4" />
       <BsListView item-border-variant="left" item-rounded space-around="both">
         <BsListNav>
           <BsListNavItem v-for="navItem in routeNavA" :key="navItem.text" :label="navItem.text">
@@ -103,6 +105,7 @@ onBeforeUnmount(() => {
 </template>
 
 <style lang="scss">
+@use 'sass:color';
 @use 'vue-mdbootstrap/scss/mixins/css3/borders';
 @use 'vue-mdbootstrap/scss/mixins/css3/breakpoints' as media;
 @use 'vue-mdbootstrap/scss/color_vars' as colors;
@@ -123,10 +126,12 @@ onBeforeUnmount(() => {
 // Override UI aspect global css variables
 //-----------------------------------------
 :root {
-  --background: oklch(0.976 0 89.876);
-  --appbar-background: oklch(1 0 0);
-  --appbar-height: 4rem;
-  --sidedrawer-background: oklch(0.921 0.009 264.52);
+  &:not(.dark) {
+    --background: oklch(0.976 0 89.876);
+    --appbar-background: oklch(1 0 0);
+    --appbar-height: 4rem;
+    --sidedrawer-background: oklch(0.921 0.009 264.52);
+  }
 }
 
 // Customize side-drawer menu styles
@@ -165,10 +170,12 @@ onBeforeUnmount(() => {
   }
 }
 
-body {
-  // Change floating sidebar background to white
-  > .md-side-drawer {
-    --sidedrawer-background: oklch(1 0 0);
+// Change floating sidebar background to white
+:not(.dark) {
+  body {
+    > .md-side-drawer {
+      --sidedrawer-background: oklch(1 0 0);
+    }
   }
 }
 
@@ -181,7 +188,7 @@ body {
 }
 
 .md-appbar {
-  --border-translucent: oklch(87.2% 0.01 258.338deg);
+  //--border-translucent: oklch(87.2% 0.01 258.338deg);
 
   a.menu-item {
     color: var(--foreground);
@@ -217,6 +224,11 @@ body {
     }
   }
 }
+.md-card-header {
+  .h4 {
+    font-weight: var(--font-weight-normal);
+  }
+}
 
 .header-navbar {
   background-color: var(--appbar-background);
@@ -231,6 +243,8 @@ body {
 }
 
 .local-navbar-menu {
+  font-size: 0.9rem;
+
   &.active,
   &:hover {
     font-weight: var(--font-weight-medium);
@@ -268,8 +282,10 @@ body {
   }
 
   h6 {
+    font-size: 0.9rem;
     font-weight: var(--font-weight-semibold);
     padding-left: var(--md-tile-padding-x);
+    margin-bottom: 0;
   }
 }
 
@@ -322,6 +338,11 @@ body {
   }
 }
 
+.table {
+  --bs-table-color: var(--foreground);
+  --bs-table-bg: inherit;
+}
+
 .picked-color {
   @include borders.radius(50%);
   background-image:
@@ -349,6 +370,41 @@ body {
     display: block;
     position: absolute;
     pointer-events: none;
+  }
+}
+
+.dark {
+  .#{vars.$prefix}side-drawer {
+    @media (min-width: calc(50rem + 1px)) {
+      &:hover {
+        ::-webkit-scrollbar-thumb {
+          background: oklch(0.344 0.01 260.718);
+
+          &:hover {
+            background: oklch(0.492 0.007 264.503);
+          }
+        }
+      }
+    }
+  }
+
+  .#{vars.$prefix}appbar {
+    a.menu-item {
+      &:hover {
+        color: colors.$blue-accent-3;
+      }
+    }
+  }
+
+  :not(.color-table-body) {
+    > .bg-blue-grey-800 {
+      background-color: color.change(colors.$blue-grey-darken-4, $alpha: 0.15);
+    }
+
+    > .bg-gray-200,
+    > .bg-gray-400 {
+      background-color: color.change(colors.$gray-700, $alpha: 0.3);
+    }
   }
 }
 </style>

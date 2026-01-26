@@ -13,7 +13,7 @@ const favoriteFruits = [
 
 <template>
   <BsCheckboxGroup v-model="selectedFruits" :items="favoriteFruits" color="primary" column="2">
-    <label class="col-form-label md:w-35">Single Color</label>
+    <label class="col-form-label">Single Color</label>
   </BsCheckboxGroup>
   <div class="mt-3">
     Selected values: <b>{{ selectedFruits }}</b>

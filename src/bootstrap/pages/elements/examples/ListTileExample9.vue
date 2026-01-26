@@ -42,7 +42,7 @@
             <BsListTileTitle>All Mail</BsListTileTitle>
           </BsListTileContent>
           <BsListTileAction center>
-            <BsBadge color="bg-gray-400" type="pill"> 102 </BsBadge>
+            <BsBadge color="bg-gray-500" type="pill"> 102 </BsBadge>
           </BsListTileAction>
         </BsListTile>
         <BsListTile navigable>
@@ -51,7 +51,7 @@
             <BsListTileTitle>Spam</BsListTileTitle>
           </BsListTileContent>
           <BsListTileAction center>
-            <BsBadge color="bg-gray-400" type="pill"> 12 </BsBadge>
+            <BsBadge color="bg-gray-500" type="pill"> 12 </BsBadge>
           </BsListTileAction>
         </BsListTile>
         <BsListTile navigable>
@@ -60,7 +60,7 @@
             <BsListTileTitle>Trash</BsListTileTitle>
           </BsListTileContent>
           <BsListTileAction center>
-            <BsBadge color="bg-gray-400" type="pill"> 8 </BsBadge>
+            <BsBadge color="bg-gray-500" type="pill"> 8 </BsBadge>
           </BsListTileAction>
         </BsListTile>
       </BsListView>

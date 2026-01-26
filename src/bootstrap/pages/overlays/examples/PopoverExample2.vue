@@ -137,7 +137,7 @@ onBeforeUnmount(() => {
           </BsListTile>
         </BsListView>
         <BsDivider />
-        <div class="px-3">
+        <div class="p-3">
           <BsSwitch
             v-model="item.enableMessage"
             :value="true"

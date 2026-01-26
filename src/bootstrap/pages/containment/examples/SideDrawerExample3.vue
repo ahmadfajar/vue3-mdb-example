@@ -6,7 +6,7 @@ const miniOpen = ref(false);
 
 <template>
   <BsApp class="md-shadow-2 rounded-3">
-    <BsSideDrawer v-model:open="miniOpen" mini>
+    <BsSideDrawer v-model:open="miniOpen" class="border-e" mini>
       <div class="flex flex-row p-2" style="width: 250px">
         <img
           alt="image"

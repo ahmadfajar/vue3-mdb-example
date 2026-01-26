@@ -10,11 +10,15 @@ const styles = {
   '--appbar-background': 'oklch(0.449 0.15 276.24)',
   '--appbar-foreground': 'oklch(1 0 89.876)',
   '--sidedrawer-background': 'oklch(1 0 89.876)',
+  '--sidedrawer-foreground': 'oklch(0.259 0.006 258.36)',
+  '--sidedrawer-item-foreground': 'oklch(0.219 0.004 286.076)',
+  '--sidedrawer-item-active-foreground': 'oklch(0.219 0.004 286.076)',
+  '--sidedrawer-item-active-foreground-secondary': 'oklch(0.592 0.012 261.776)',
 };
 </script>
 
 <template>
-  <BsApp :style="styles" class="md-shadow-2 rounded-3">
+  <BsApp :style="styles" class="bg-light md-shadow-2 rounded-3">
     <BsAppbar clipped-left shadow>
       <BsButton
         color="light"
@@ -68,7 +72,7 @@ const styles = {
             <BsListTileTitle>All Mail</BsListTileTitle>
           </BsListTileContent>
           <BsListTileAction center>
-            <BsBadge color="gray-400" type="pill"> 102 </BsBadge>
+            <BsBadge color="bg-gray-500" type="pill"> 102 </BsBadge>
           </BsListTileAction>
         </BsListTile>
         <BsListTile navigable>
@@ -77,7 +81,7 @@ const styles = {
             <BsListTileTitle>Spam</BsListTileTitle>
           </BsListTileContent>
           <BsListTileAction center>
-            <BsBadge color="bg-gray-400" type="pill"> 22 </BsBadge>
+            <BsBadge color="bg-gray-500" type="pill"> 22 </BsBadge>
           </BsListTileAction>
         </BsListTile>
         <BsListTile navigable>
@@ -86,7 +90,7 @@ const styles = {
             <BsListTileTitle>Trash</BsListTileTitle>
           </BsListTileContent>
           <BsListTileAction center>
-            <BsBadge color="bg-gray-400" type="pill"> 8 </BsBadge>
+            <BsBadge color="bg-gray-500" type="pill"> 8 </BsBadge>
           </BsListTileAction>
         </BsListTile>
       </BsListView>

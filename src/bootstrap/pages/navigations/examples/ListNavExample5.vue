@@ -10,11 +10,15 @@ const styles = {
   '--appbar-background': 'var(--bs-purple)',
   '--appbar-foreground': 'oklch(1 0 89.876)',
   '--sidedrawer-background': 'oklch(1 0 89.876)',
+  '--sidedrawer-foreground': 'oklch(0.259 0.006 258.36)',
+  '--sidedrawer-item-foreground': 'oklch(0.219 0.004 286.076)',
+  '--sidedrawer-item-active-foreground': 'oklch(0.219 0.004 286.076)',
+  '--sidedrawer-item-active-foreground-secondary': 'oklch(0.592 0.012 261.776)',
 };
 </script>
 
 <template>
-  <BsApp :style="styles" class="md-shadow-2 rounded-3">
+  <BsApp :style="styles" class="bg-light md-shadow-2 rounded-3">
     <BsAppbar clipped-left shadow>
       <BsButton
         color="light"
@@ -59,21 +63,21 @@ const styles = {
         <BsListNav>
           <BsListNavItem
             badge="102"
-            badge-color="bg-gray-400"
+            badge-color="bg-gray-500"
             badge-type="pill"
             icon="email"
             label="All Mail"
           />
           <BsListNavItem
             badge="25"
-            badge-color="bg-gray-400"
+            badge-color="bg-gray-500"
             badge-type="pill"
             icon="gpp_maybe"
             label="Spam"
           />
           <BsListNavItem
             badge="12"
-            badge-color="bg-gray-400"
+            badge-color="bg-gray-500"
             badge-type="pill"
             icon="delete"
             label="Trash"

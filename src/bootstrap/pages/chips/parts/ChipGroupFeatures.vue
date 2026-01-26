@@ -242,12 +242,7 @@ onBeforeUnmount(() => {
       </template>
 
       <template #content>
-        <div
-          :class="[
-            'h-full flex items-center justify-center min-h-40 py-4 px-3 rounded-3',
-            chipColor === 'light' ? 'bg-gray-700' : '',
-          ]"
-        >
+        <div class="h-full flex items-center justify-center min-h-40 py-4 px-3">
           <BsChipGroup
             v-if="multiSelection"
             v-model="selectedChips"

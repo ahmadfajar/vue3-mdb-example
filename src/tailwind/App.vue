@@ -227,6 +227,8 @@ onBeforeUnmount(() => {
 }
 
 .local-navbar-menu {
+  font-size: 0.9rem;
+
   &.active,
   &:hover {
     font-weight: var(--font-weight-medium);

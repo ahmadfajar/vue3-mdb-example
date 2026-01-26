@@ -104,7 +104,7 @@ const contentCls = [
             :rounded="shape === 'rounded'"
             :size="sizeDebounced || 48"
             :style="!fontSize || fontSize === 100 ? undefined : { 'font-size': `${fontSize}%` }"
-            class="bg-gray-500 text-white"
+            class="bg-gray-600 text-white"
             text="MD"
           />
         </div>

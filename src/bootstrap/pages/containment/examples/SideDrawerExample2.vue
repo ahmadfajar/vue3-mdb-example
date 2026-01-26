@@ -10,7 +10,7 @@ function toggleSideDrawer(value: boolean) {
 
 <template>
   <BsApp class="md-shadow-2 rounded-4">
-    <BsSideDrawer v-model:open="sideDrawerOpen" position="right" shadow>
+    <BsSideDrawer v-model:open="sideDrawerOpen" class="border-s" position="right">
       <div class="p-3">
         <img
           alt="image"

@@ -123,14 +123,6 @@ async function copyToClipboard() {
             : props.styl && !props.tpl && !props.tsc
               ? props.styl
               : props.tpl;
-  // const text =
-  //   templateActive.value && props.tpl
-  //     ? props.tpl
-  //     : scriptActive.value && props.tsc
-  //       ? props.tsc
-  //       : props.tpl && !props.tsc
-  //         ? props.tpl
-  //         : props.tsc;
 
   if (text) {
     try {
@@ -337,7 +329,7 @@ onBeforeUnmount(() => {
           aria-label="Copy code"
           @click="copyToClipboard()"
         />
-        <div class="md:rounded-lg rounded-3 p-1">
+        <div class="md:rounded-lg rounded-3 p-1 pt-0">
           <Transition mode="out-in" name="fade-fast">
             <div v-if="styleActive" v-html="fmtStyle" class="text-sm"></div>
             <div v-else-if="scriptActive" v-html="fmtCodeTsc" class="text-sm"></div>

@@ -137,7 +137,7 @@ watchEffect(() => {
 });
 
 const variantSrc = dsFieldStyleVariants(['filled rounded', 'outlined rounded']);
-const chipColorSrc = dsContextColors(['dark', 'light']);
+const chipColorSrc = dsContextColors(['dark']);
 const checkboxColorSrc = dsContextColors(['dark', 'light']);
 const checkboxPositionSrc = dsListboxCheckboxPositions();
 const iconPlacementSrc = dsFieldIconPlacements();

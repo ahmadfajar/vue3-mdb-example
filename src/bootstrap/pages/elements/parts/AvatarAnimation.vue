@@ -39,7 +39,7 @@ const contentCls = ['h-full min-h-40 flex items-center justify-center', 'p-3 p-m
             :icon-pulse="animation === 'pulse'"
             :icon-spin="animation === 'spin'"
             circle
-            class="bg-gray-500 text-white"
+            class="bg-gray-600 text-white"
             icon="cached"
             size="64"
           />

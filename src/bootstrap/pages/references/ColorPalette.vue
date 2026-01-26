@@ -1,17 +1,16 @@
 <script setup lang="ts">
-import { fullColors } from '@shares/fullColors.ts';
+import { type ColorName, fullColors } from '@shares/fullColors.ts';
 import { textCssFromOklchColor } from '@shares/sharedApi.ts';
 import {
   contextColorsLightDark,
   materialColors,
   themeColors,
-  useMainColorClasses,
   useMaterialColorInfo,
 } from '@shares/themeColors.ts';
 import { reactive } from 'vue';
 import { Helper, StringHelper, type TRecord } from 'vue-mdbootstrap';
 
-defineProps<{ palette: string }>();
+defineProps<{ palette: string; colorNames?: string[] }>();
 
 const colorFulls = reactive<TRecord>({});
 const colorAccents = reactive<TRecord>({});
@@ -38,12 +37,9 @@ Object.entries(fullColors).forEach(([key, value]) => {
 <template>
   <div class="docs-color-table">
     <div v-if="palette === 'contextual'" class="row gy-4">
-      <div v-for="(value, key) in contextColorsLightDark" :key="key" class="col-md-6 col-xl-4">
-        <div :class="useMainColorClasses(key)" class="p-4 lh-1 relative md-shadow-1">
-          <div class="font-weight-semibold">{{ key }}</div>
-          <div class="opacity-75 absolute" style="font-size: 13px; bottom: 10px; right: 10px">
-            {{ value }}
-          </div>
+      <div v-for="(_value, key) in contextColorsLightDark" :key="key" class="col-6 col-md-4">
+        <div :class="['p-4 lh-1 md-shadow-1', `text-bg-${key}`]">
+          <div class="font-weight-medium text-center">{{ key }}</div>
         </div>
       </div>
     </div>
@@ -51,8 +47,11 @@ Object.entries(fullColors).forEach(([key, value]) => {
     <div v-else-if="palette === 'primary'" class="row gy-4">
       <div v-for="(value, key) in themeColors" :key="value" class="col-6 col-md-4 col-xl-3">
         <div
-          :class="useMainColorClasses(key)"
-          class="flex items-center justify-center px-3 md-shadow-1"
+          :class="[
+            'flex items-center justify-center px-3 md-shadow-1',
+            `bg-${key}`,
+            textCssFromOklchColor(value),
+          ]"
           style="height: 64px"
         >
           <span class="font-weight-medium">{{ key }}</span>
@@ -61,7 +60,7 @@ Object.entries(fullColors).forEach(([key, value]) => {
     </div>
 
     <div v-else-if="palette === 'material'" class="row gy-4">
-      <div v-for="(item, key) in materialColors" :key="key" class="col-md-6 col-xl-3">
+      <div v-for="(item, key) in materialColors" :key="key" class="col-sm-6 col-xl-3">
         <div class="md-shadow-2">
           <div
             :class="[
@@ -117,17 +116,30 @@ Object.entries(fullColors).forEach(([key, value]) => {
     </div>
 
     <div v-else-if="palette === 'accentColor'" class="row gy-4">
-      <div v-for="(items, key) in colorAccents" :key="key" class="col-6 col-md-4 col-xl-3">
+      <div v-for="(items, key) in colorAccents" :key="key" class="col-6 col-md-3">
         <template v-if="!['midnight-haze', 'blue-grey', 'gray', 'neutral'].includes(key)">
           <div class="px-2 mb-2 font-weight-semibold">{{ StringHelper.titleCase(key) }}</div>
           <div class="md-shadow">
             <template v-for="(value, prop) in items" :key="key + prop">
-              <div :class="[`bg-${key}-${prop}`, textCssFromOklchColor(value)]" class="p-3 flex">
-                <span class="flex-grow">{{ prop }}</span>
+              <div :class="['p-3', `bg-${key}-${prop}`, textCssFromOklchColor(value)]">
+                {{ prop }}
               </div>
             </template>
           </div>
         </template>
+      </div>
+    </div>
+
+    <div v-else-if="palette === 'testColor'" class="row gy-4">
+      <div v-for="name in colorNames" :key="name" class="col-6 col-md-3">
+        <div class="px-2 mb-2 font-weight-semibold">{{ StringHelper.titleCase(name) }}</div>
+        <div class="md-shadow">
+          <template v-for="(value, prop) in fullColors[name as ColorName]" :key="name + prop">
+            <div :class="['p-3', `bg-${name}-${prop}`, textCssFromOklchColor(value)]">
+              {{ prop }}
+            </div>
+          </template>
+        </div>
       </div>
     </div>
   </div>

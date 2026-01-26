@@ -13,12 +13,14 @@ const {
   fmtVueTsc,
   btnVariant,
   btnShape,
+  btnColor,
   btnState,
   btnElevated,
   showIcon,
   iconPosition,
   btnVariantSrc,
   btnShapeSrc,
+  btnColorSrc,
   btnStateSrc,
   iconPositionSrc,
 } = setupToggleButtonCheckedIcon(Example1, Example2);
@@ -40,6 +42,9 @@ const contentCls = ['h-full min-h-40', 'flex items-center', 'py-4 py-md-5 px-3 p
 
         <BsCombobox v-model="btnVariant" :data-source="btnVariantSrc" filled floating-label>
           <label>Variant:</label>
+        </BsCombobox>
+        <BsCombobox v-model="btnColor" :data-source="btnColorSrc" filled floating-label>
+          <label>Color:</label>
         </BsCombobox>
         <BsCombobox v-model="btnShape" :data-source="btnShapeSrc" filled floating-label>
           <label>Shape:</label>
@@ -77,6 +82,7 @@ const contentCls = ['h-full min-h-40', 'flex items-center', 'py-4 py-md-5 px-3 p
             <div class="col-md-9 col-xl-8">
               <BsToggleButton
                 v-model="selectedDrink"
+                :color="btnColor"
                 :disabled="btnState === 'disabled'"
                 :icon-position="iconPosition"
                 :items="showIcon ? drinkSrc2 : drinkSrc1"

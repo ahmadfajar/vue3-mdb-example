@@ -26,7 +26,7 @@ function doCustomSearch() {
 </script>
 
 <template>
-  <div class="w-full bg-gray-600 p-4 rounded">
+  <div class="w-full bg-indigo p-4 rounded">
     <BsSearchField
       v-model="fieldValue"
       :popover-open="panelOpen"

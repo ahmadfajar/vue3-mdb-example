@@ -1,7 +1,7 @@
 <template>
   <BsCard
     border-off
-    class="bg-yellow-50"
+    class="bg-yellow-50 text-dark"
     img-top-src="https://ahmadfajar.github.io/img/pork-buns.jpg"
     style="max-width: 400px"
   >

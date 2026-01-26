@@ -21,14 +21,14 @@ const enableHints = ref(false);
           </BsListTile>
         </BsListView>
         <BsDivider />
-        <div class="px-3 py-2">
+        <div class="flex flex-col md-gap-y-3 p-3">
           <BsSwitch v-model="enableMessage" :value="true"> Enable Messages </BsSwitch>
-          <bs-switch v-model="enableHints" :value="true">Enable Hints</bs-switch>
+          <BsSwitch v-model="enableHints" :value="true">Enable Hints</BsSwitch>
         </div>
         <BsDivider />
         <div class="flex justify-end md-gap-x-2 p-3">
-          <BsButton color="primary" size="sm" @click="show1 = false">Save</BsButton>
           <BsButton color="primary" flat size="sm" @click="show1 = false">Cancel</BsButton>
+          <BsButton color="primary" size="sm" @click="show1 = false">Save</BsButton>
         </div>
       </template>
     </BsDropdownMenu>

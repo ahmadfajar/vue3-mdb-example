@@ -11,8 +11,8 @@ const showDialog = ref(false);
     <div>You can click outside area or press ESC to close me.</div>
 
     <template #footer>
-      <BsButton color="primary" style="width: 103px" @click="showDialog = false">OK</BsButton>
       <BsButton color="primary" outlined @click="showDialog = false">Cancel</BsButton>
+      <BsButton color="primary" style="width: 103px" @click="showDialog = false">OK</BsButton>
     </template>
   </BsModal>
 </template>

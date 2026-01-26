@@ -15,7 +15,7 @@ const dummyItems = [
 
 <template>
   <BsCheckboxGroup v-model="selectedItems" :items="dummyItems" column="2">
-    <label class="col-form-label md:w-35">Multiple Colors</label>
+    <label class="col-form-label">Multiple Colors</label>
   </BsCheckboxGroup>
   <div class="mt-3">
     Selected values: <b>{{ selectedItems }}</b>

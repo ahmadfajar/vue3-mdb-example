@@ -27,21 +27,21 @@
         <BsListNav>
           <BsListNavItem
             badge="102"
-            badge-color="bg-gray-400"
+            badge-color="bg-gray-500"
             badge-type="pill"
             icon="email"
             label="All Mail"
           />
           <BsListNavItem
             badge="25"
-            badge-color="bg-gray-400"
+            badge-color="bg-gray-500"
             badge-type="pill"
             icon="gpp_maybe"
             label="Spam"
           />
           <BsListNavItem
             badge="12"
-            badge-color="bg-gray-400"
+            badge-color="bg-gray-500"
             badge-type="pill"
             icon="delete"
             label="Trash"

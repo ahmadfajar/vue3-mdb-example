@@ -18,10 +18,12 @@ import {
   dsContextColors,
   useWatcherDefaultValue,
 } from '@shares/showcaseDataApi.ts';
+import { themeNameFrom, useTheme } from '@shares/themeApi.ts';
 import { nextTick, onBeforeUnmount, type Ref, ref, watch, watchEffect } from 'vue';
 import { type TButtonColor, type TButtonSize, type TIconPosition } from 'vue-mdbootstrap';
 import Example from '../examples/ButtonExample1.vue?raw';
 
+const { theme } = useTheme();
 const fmtVueTpl = ref<string>();
 const iconName = 'settings';
 const tabIndex = ref(0);
@@ -124,6 +126,7 @@ const btnVariants = dsButtonVariants();
 const btnShapes = dsButtonShapes();
 const btnSizes = dsButtonSizes();
 const btnStates = dsComponentStates();
+const contentCls = 'h-full min-h-40 flex items-center justify-center px-6 py-8 rounded-3';
 
 onBeforeUnmount(() => {
   btnColors.proxy.destroy();
@@ -214,9 +217,12 @@ onBeforeUnmount(() => {
       <template #content>
         <div
           :class="[
-            'h-full min-h-40 flex items-center justify-center px-6 py-8 rounded-3',
-            btnColor === 'light' && btnVariant !== 'filled' && btnState !== 'disabled'
-              ? 'bg-gray-700'
+            contentCls,
+            themeNameFrom(theme) === 'light' &&
+            btnColor === 'light' &&
+            btnVariant !== 'filled' &&
+            btnState !== 'disabled'
+              ? 'bg-gray-800'
               : '',
           ]"
         >

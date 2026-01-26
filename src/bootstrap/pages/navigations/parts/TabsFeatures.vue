@@ -81,7 +81,7 @@ const tabsAlignmentSrc = dsTabAlignments();
 const tabsPlacementSrc = dsTabPositions();
 const tabsIconPositionSrc = dsTabPositions();
 const tabsIconAndLabelSrc = dsTabIconAndLabel();
-const contentCls = ['h-full min-h-40 flex items-center', 'p-3 p-md-4'];
+const contentCls = ['h-full min-h-40', 'p-3 p-md-4'];
 
 onBeforeUnmount(() => {
   tabsVariantSrc.proxy.destroy();

@@ -60,6 +60,7 @@ const contentCls = [
         <div
           :class="contentCls"
           style="
+            --appbar-background: var(--background-secondary);
             --sidedrawer-background: var(--background-secondary);
             --md-border-color: var(--border-translucent);
           "
