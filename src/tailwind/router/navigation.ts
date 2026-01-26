@@ -64,11 +64,11 @@ export const menuNavs: TMainNavigation[] = [
         hidden: true,
         view: () => import('@tw/pages/buttons/ButtonPage.vue'),
       },
-      {
-        text: 'Button Example',
-        path: '/buttons/button-example',
-        view: () => import('@tw/pages/buttons/DemoButton.vue'),
-      },
+      // {
+      //   text: 'Button Example',
+      //   path: '/buttons/button-example',
+      //   view: () => import('@tw/pages/buttons/DemoButton.vue'),
+      // },
       {
         text: 'Toggle Button',
         path: '/buttons/toggle-button',
@@ -99,11 +99,11 @@ export const menuNavs: TMainNavigation[] = [
         hidden: true,
         view: () => import('@tw/pages/chips/ChipPage.vue'),
       },
-      {
-        text: 'Chip Example',
-        path: '/chips/chip-example',
-        view: () => import('@tw/pages/chips/DemoChip.vue'),
-      },
+      // {
+      //   text: 'Chip Example',
+      //   path: '/chips/chip-example',
+      //   view: () => import('@tw/pages/chips/DemoChip.vue'),
+      // },
       {
         text: 'Chip Group',
         path: '/chips/chip-group',
@@ -176,11 +176,11 @@ export const menuNavs: TMainNavigation[] = [
         hidden: true,
         view: () => import('@tw/pages/elements/AlertPage.vue'),
       },
-      {
-        text: 'Alert Example',
-        path: '/elements/alert-example',
-        view: () => import('@tw/pages/elements/DemoAlert.vue'),
-      },
+      // {
+      //   text: 'Alert Example',
+      //   path: '/elements/alert-example',
+      //   view: () => import('@tw/pages/elements/DemoAlert.vue'),
+      // },
       {
         text: 'Avatar',
         path: '/elements/avatar',

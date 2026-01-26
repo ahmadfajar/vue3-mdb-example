@@ -15,12 +15,6 @@ import ColorPalette from '@bs/pages/references/ColorPalette.vue';
       <ColorPalette class="pt-2" palette="fullColor" />
       <h4 class="mt-5">Accent Colors</h4>
       <ColorPalette class="pt-2" palette="accentColor" />
-      <h4 class="mt-5">Test Colors</h4>
-      <ColorPalette
-        :color-names="['yellow', 'lime', 'light-green', 'green']"
-        class="pt-2"
-        palette="testColor"
-      />
     </main>
   </BsContent>
 </template>

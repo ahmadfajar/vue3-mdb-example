@@ -9,7 +9,6 @@ import 'vue-mdbootstrap/styles';
 import 'vue-mdbootstrap/theme-light';
 // prettier-ignore
 import 'vue-mdbootstrap/theme-dark';
-// import './assets/_theme-dark.scss';
 import './assets/main.css';
 
 createVueMdb(App)
