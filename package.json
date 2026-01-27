@@ -1,6 +1,6 @@
 {
   "name": "vue3-mdb-example",
-  "description": "Vue MDBootstrap v2.2 Examples",
+  "description": "Vue MDBootstrap Examples",
   "version": "2.0.0",
   "private": true,
   "author": {
@@ -62,7 +62,6 @@
     "terser": "^5.46.0",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.53.1",
-    "vite-plugin-vue-devtools": "^8.0.5",
     "vue-eslint-parser": "^10.2.0",
     "vue-tsc": "^3.2.2"
   },

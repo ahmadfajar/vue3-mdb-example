@@ -1,13 +1,19 @@
 # Vue MDBootstrap Examples
 
-This repository contains examples on how to use the Vue MDBootstrap v2.2 components,
-and integrate Bootstrap v5 or TailwindCss v4 framework.
+This repository contains demos and/or examples on how to use the **Vue MDBootstrap** v2.2 components,
+and integrate Bootstrap v5 or TailwindCSS v4 framework.
 
-## Recommended IDE Setup
+The example pages is separated in two parts:
+1. `src/bootstrap`, which shows how to leverage the Bootstrap v5 css framework 
+2. `src/tailwind`, which shows how to leverage the TailwindCSS v4 css framework 
+
+## IDE Setup
+
+### Recommended Setup
 
 [VSCode](https://code.visualstudio.com/) + [Vue - Official](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
 
-## Type Support for `.vue` Imports in TS
+### Type Support for `.vue` Imports in TS
 
 TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` 
 CLI with `vue-tsc` for type checking. In editors, we need [Vue - Official](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the 
@@ -21,11 +27,9 @@ implemented a [Take-Over Mode](https://github.com/johnsoncodehk/volar/discussion
     2) Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
 2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
 
-## Customize configuration
+## Quick Start
 
-See [Vite Configuration Reference](https://vite.dev/config/).
-
-## Project Setup
+### Project setup
 
 Clone this repository and runs command below.
 
@@ -36,6 +40,10 @@ npm install
 # with yarn
 yarn install
 ```
+
+### Customize the configuration
+
+See [Vite Configuration Reference](https://vite.dev/config/).
 
 ### Compile and Hot-Reload for Development
 
