@@ -1,0 +1,71 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "lib": [
+      "ES2024",
+      "DOM",
+      "DOM.Iterable",
+      "ESNext.Array",
+      "ESNext.Collection",
+      "ESNext.Promise",
+      "ESNext.String",
+      "ESNext.Symbol"
+    ],
+    "paths": {
+      "@bs/*": [
+        "./src/bootstrap/*"
+      ],
+      "@tw/*": [
+        "./src/tailwind/*"
+      ],
+      "@shares/*": [
+        "./src/shares/*"
+      ]
+    },
+    "verbatimModuleSyntax": true,
+    "useDefineForClassFields": true,
+    "forceConsistentCasingInFileNames": true,
+    "libReplacement": false,
+    "skipLibCheck": true,
+    
+    /* Bundler mode */
+    "noEmit": true,
+    "moduleResolution": "bundler",
+    "moduleDetection": "force",
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+
+    /* Required in Vue projects */
+    "jsx": "preserve",
+    "jsxImportSource": "vue",
+    "composite": true,
+    "removeComments": true,
+    "sourceMap": false,
+
+    /* Linting */
+    "strict": true,
+    "noImplicitThis": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noUncheckedIndexedAccess": true,
+    "noFallthroughCasesInSwitch": true
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.vue",
+    "src/**/*.d.ts",
+    "vite-env.d.ts"
+  ],
+  "exclude": [
+    "../vue-mdbootstrap/dist/*",
+    "src/**/__tests__/*",
+    "node_modules"
+  ],
+  "references": [
+    {
+      "path": "./tsconfig.node.json"
+    }
+  ]
+}
