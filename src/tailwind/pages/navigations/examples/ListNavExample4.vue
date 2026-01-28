@@ -3,9 +3,9 @@
 <template>
   <BsApp class="p-2">
     <BsCard class="w-full max-w-100 mx-auto" shadow>
-      <BsAppbar class="bg-purple-800" shadow>
+      <BsAppbar class="bg-violet-800" shadow>
         <BsButton color="light" flat icon="menu" mode="icon" />
-        <BsAppbarTitle class="text-white" title="Mail" />
+        <BsAppbarTitle class="text-light" title="Mail" />
         <BsSpacer />
         <BsButton color="light" flat icon="more_vert" mode="icon" />
       </BsAppbar>

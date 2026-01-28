@@ -43,7 +43,7 @@ const contentCls = ['min-h-40 py-8 px-3 lg:px-8 md:rounded-lg text-bg-surface'];
             <BsCard class="w-full max-w-100 mx-auto" shadow>
               <BsAppbar class="bg-indigo-700" clipped-left>
                 <BsButton color="light" flat icon="menu" mode="icon" />
-                <BsAppbarTitle class="text-white" title="Menus" />
+                <BsAppbarTitle class="text-light" title="Menus" />
                 <BsSpacer />
                 <BsAppbarItems>
                   <BsButton color="light" flat icon="search" mode="icon" />

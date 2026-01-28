@@ -27,7 +27,7 @@ const swatches = [
 
 <template>
   <div>
-    <BsColorPicker v-model="color" v-model:mode="mode" :swatches="swatches" class="border shadow" />
+    <BsColorPicker v-model="color" v-model:mode="mode" :swatches="swatches" class="md-shadow" />
     <table class="text-sm mt-3">
       <thead>
         <tr class="*:px-2 text-left">

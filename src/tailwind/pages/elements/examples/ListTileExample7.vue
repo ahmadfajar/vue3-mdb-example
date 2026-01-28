@@ -41,7 +41,7 @@ const listItems = ref([
     <BsCard class="w-full max-w-100 mx-auto" shadow>
       <BsAppbar class="bg-indigo-700">
         <BsButton color="light" flat icon="menu" mode="icon" />
-        <BsAppbarTitle class="text-white" title="My Recipes" />
+        <BsAppbarTitle class="text-light" title="My Recipes" />
         <BsSpacer />
         <BsButton color="light" flat icon="search" mode="icon" />
       </BsAppbar>

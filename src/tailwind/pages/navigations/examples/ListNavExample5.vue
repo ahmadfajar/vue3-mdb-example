@@ -12,6 +12,7 @@ const styles = {
   '--sidedrawer-background': 'oklch(1 0 89.876)',
   '--sidedrawer-foreground': 'oklch(0.259 0.006 258.36)',
   '--sidedrawer-item-foreground': 'oklch(0.219 0.004 286.076)',
+  '--sidedrawer-item-active-background': 'oklch(0.65 0.13 294.86 / 0.3)',
   '--sidedrawer-item-active-foreground': 'oklch(0.219 0.004 286.076)',
   '--sidedrawer-item-active-foreground-secondary': 'oklch(0.592 0.012 261.776)',
 };

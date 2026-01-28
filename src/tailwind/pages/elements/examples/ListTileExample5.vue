@@ -25,7 +25,7 @@ function toggleEnableWidget() {
     <BsCard class="w-full max-w-100 mx-auto" shadow>
       <BsAppbar class="bg-indigo-700">
         <BsButton color="light" flat icon="arrow_back" mode="icon"></BsButton>
-        <BsAppbarTitle class="text-white" title="Setting"></BsAppbarTitle>
+        <BsAppbarTitle class="text-light" title="Setting"></BsAppbarTitle>
       </BsAppbar>
       <BsListView individual-state>
         <BsSubheader>User Controls</BsSubheader>
