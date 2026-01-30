@@ -11,7 +11,9 @@ The example pages is separated in two parts:
 
 ### Recommended Setup
 
-[VSCode](https://code.visualstudio.com/) + [Vue - Official](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+[VSCode](https://code.visualstudio.com/) + [Vue - Official](https://marketplace.visualstudio.com/items?itemName=Vue.volar). 
+
+Learn more about the recommended Project Setup and IDE Support in the [Vue Docs TypeScript Guide](https://vuejs.org/guide/typescript/overview.html#project-setup).
 
 ### Type Support for `.vue` Imports in TS
 
@@ -19,12 +21,20 @@ TypeScript cannot handle type information for `.vue` imports by default, so we r
 CLI with `vue-tsc` for type checking. In editors, we need [Vue - Official](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the 
 TypeScript language service aware of `.vue` file types.
 
-If the standalone TypeScript plugin doesn't feel fast enough to you, _Vue - Official_ has also 
-implemented a [Take-Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
+
+## Configuration Adjustment
+
+See [Vite Configuration Reference](https://vite.dev/config/).
+
+
+## Components Documentation
+
+For full documentation, please visit [Vue MDBootstrap](https://ahmadfajar.github.io/) website.
+
 
 ## Quick Start
 
-### Project setup
+### Project Setup
 
 Clone this repository and runs command below.
 
@@ -35,10 +45,6 @@ npm install
 # with yarn
 yarn install
 ```
-
-### Customize the configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
 
 ### Compile and Hot-Reload for Development
 

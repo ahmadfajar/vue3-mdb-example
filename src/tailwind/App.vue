@@ -275,31 +275,6 @@ onBeforeUnmount(() => {
   padding-top: vars.$padding-xl;
   max-width: 100%;
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    font-weight: var(--font-weight-medium);
-  }
-
-  h2 {
-    font-size: calc(1.325rem + 0.9vw);
-  }
-
-  h3 {
-    font-size: calc(1.3rem + 0.6vw);
-  }
-
-  h4 {
-    font-size: calc(1.275rem + 0.3vw);
-  }
-
-  h5 {
-    font-size: 1.25rem;
-  }
-
   // screen: 801px
   @include media.breakpoint-up(md) {
     padding-left: 1.5rem;
