@@ -1,7 +1,7 @@
 # Vue MDBootstrap Examples
 
 This repository contains demos and/or examples on how to use the **Vue MDBootstrap** v2.2 components,
-and integrate Bootstrap v5 or TailwindCSS v4 framework.
+and integrate Bootstrap v5 or TailwindCSS v4 CSS framework.
 
 The example pages is separated in two parts:
 1. `src/bootstrap`, which shows how to leverage the Bootstrap v5 CSS framework 
@@ -58,7 +58,7 @@ npm run bootstrap:dev
 yarn bootstrap:dev
 ```
 
-**Running examples with Tailwind v4 CSS framework.**
+**Running examples with TailwindCSS v4 CSS framework.**
 
 ```sh
 # with npm
@@ -82,7 +82,7 @@ npm run bootstrap:prod
 yarn bootstrap:prod
 ```
 
-**Build examples with Tailwind v4 CSS framework.**
+**Build examples with TailwindCSS v4 CSS framework.**
 
 ```sh
 # with npm

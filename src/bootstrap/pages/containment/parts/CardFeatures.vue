@@ -92,10 +92,10 @@ onBeforeUnmount(() => {
               </BsCardContent>
               <div
                 v-if="!showFooter && !showHeader && !backgroundColor"
-                class="flex md-gap-x-2 mt-4"
+                class="flex justify-end md-gap-x-2 mt-4"
               >
-                <BsButton color="primary">Action 1</BsButton>
-                <BsButton color="primary" outlined>Action 2</BsButton>
+                <BsButton color="primary" outlined>Action 1</BsButton>
+                <BsButton color="primary">Action 2</BsButton>
               </div>
             </BsCardBody>
             <BsCardFooter v-if="showFooter">Card Footer</BsCardFooter>

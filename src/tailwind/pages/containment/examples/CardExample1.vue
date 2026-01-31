@@ -10,9 +10,9 @@
       <BsCardContent class="mt-2">
         <small class="text-subtle-secondary">Last updated 3 mins ago</small>
       </BsCardContent>
-      <div class="flex md-gap-x-2 mt-4">
-        <BsButton color="primary">Action 1</BsButton>
-        <BsButton color="primary" outlined>Action 2</BsButton>
+      <div class="flex justify-end md-gap-x-2 mt-4">
+        <BsButton color="primary" outlined>Action 1</BsButton>
+        <BsButton color="primary">Action 2</BsButton>
       </div>
     </BsCardBody>
   </BsCard>

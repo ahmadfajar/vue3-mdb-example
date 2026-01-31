@@ -50,7 +50,7 @@ export const themeColors: StringRecord = {
   cyan: fullColors.cyan['500']!,
   'light-blue': fullColors['light-blue']['500']!,
   blue: fullColors.blue['500']!,
-  'dark-blue': fullColors.blue['900']!,
+  'dark-blue': 'oklch(0.422 0.157 259.913)',
   indigo: fullColors.indigo['500']!,
   'deep-purple': fullColors['deep-purple']['500']!,
   purple: fullColors.purple['500']!,

@@ -585,13 +585,13 @@ export const menuNavs: TMainNavigation[] = [
       },
       {
         text: 'Date Picker',
-        path: '/pickers/datepicker',
+        path: '/pickers/date-picker',
         view: () => import('@tw/pages/pickers/DatePickerPage.vue'),
       },
       {
         text: 'Date Picker',
         name: 'date-picker-id',
-        path: '/pickers/datepicker/:id',
+        path: '/pickers/date-picker/:id',
         hidden: true,
         view: () => import('@tw/pages/pickers/DatePickerPage.vue'),
       },
@@ -611,10 +611,10 @@ export const menuNavs: TMainNavigation[] = [
     hidden: true,
     view: () => import('@tw/pages/references/ShadowPage.vue'),
   },
-  {
-    text: 'Color Sample',
-    group: 'Reference',
-    path: '/reference/colors',
-    view: () => import('@tw/pages/references/DemoColorPage.vue'),
-  },
+  // {
+  //   text: 'Color Sample',
+  //   group: 'Reference',
+  //   path: '/reference/colors',
+  //   view: () => import('@tw/pages/references/DemoColorPage.vue'),
+  // },
 ];
