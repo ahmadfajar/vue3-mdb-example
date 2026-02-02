@@ -105,13 +105,6 @@ const contentCls = ['h-full min-h-40 flex items-center justify-center', 'py-8 px
               purple-600
             </BsBadge>
             <BsBadge
-              :color="outlined ? 'text-fuchsia-600' : 'bg-fuchsia-600'"
-              :outlined="outlined"
-              :type="badgeType"
-            >
-              fuchsia-600
-            </BsBadge>
-            <BsBadge
               :color="outlined ? 'text-pink-600' : 'bg-pink-600'"
               :outlined="outlined"
               :type="badgeType"

@@ -84,10 +84,14 @@ watch(btnSize, async (value) => {
     });
   }
 
-  if (showIcon.value) {
+  const showIconOrg = showIcon.value;
+  if (showIconOrg) {
+    showIcon.value = false;
     btnIcon.value = undefined;
+
     await nextTick(() => {
       btnIcon.value = iconName;
+      showIcon.value = showIconOrg;
     });
   }
 });

@@ -6,7 +6,7 @@ const activeTab = ref(0);
 
 <template>
   <BsCard shadow>
-    <BsApp style="min-height: 380px">
+    <BsApp style="background-color: inherit; min-height: 380px">
       <BsAppbar class="bg-indigo-600">
         <BsButton color="light" flat icon="menu" mode="icon" />
         <BsAppbarTitle class="text-white" title="Page Title" />
