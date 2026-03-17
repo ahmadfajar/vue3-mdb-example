@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { onBeforeUnmount } from 'vue';
-import { BsArrayStore, type IBsModel, useGenerateId } from 'vue-mdbootstrap';
+import { BsArrayStore, type IBsModel, type TPopoverPosition, useGenerateId } from 'vue-mdbootstrap';
 
 function toggleShow(item: IBsModel, state: boolean): void {
   item.show = !state;
@@ -121,8 +121,8 @@ onBeforeUnmount(() => {
         {{ item.label }}
       </BsButton>
       <BsPopover
-        v-model:open="item.show"
-        :placement="item.value"
+        v-model:open="item.show as boolean"
+        :placement="item.value as TPopoverPosition"
         :trigger="`#${item.id}`"
         class="md-shadow-1"
         space="3"

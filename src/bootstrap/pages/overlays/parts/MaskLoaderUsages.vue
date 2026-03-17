@@ -13,13 +13,14 @@ import { loremIpsumText } from '@shares/showcaseDataApi.ts';
 import { ref, watchEffect } from 'vue';
 import Example1 from '../examples/MaskLoaderExample1.vue?raw';
 import Example2 from '../examples/MaskLoaderExample2.vue?raw';
+import type { TMaskLoaderVariant } from 'vue-mdbootstrap';
 
 const props = defineProps<{ section?: string }>();
 
 const rawTemplate = ref<string>();
 const fmtVueTpl = ref<string>();
 const fmtVueTsc = ref<string>();
-const maskLoaderType = ref<string>('linear');
+const maskLoaderType = ref<TMaskLoaderVariant>('linear');
 const showLoader = ref<boolean>(false);
 const pageTitle = ref('Overview');
 
