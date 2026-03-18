@@ -16,6 +16,7 @@ import {
 import { onBeforeUnmount, ref, watchEffect } from 'vue';
 import Example1 from '../examples/ProgressExample1.vue?raw';
 import Example2 from '../examples/ProgressExample2.vue?raw';
+import type { TProgressControlMode } from 'vue-mdbootstrap';
 
 const props = defineProps<{ section?: string }>();
 
@@ -31,7 +32,7 @@ if (props.section === 'spinner') {
 
 const fmtVueTpl = ref<string>();
 
-const mode = ref('indeterminate');
+const mode = ref<TProgressControlMode>('indeterminate');
 const color = ref('default');
 const thickness = ref(5);
 const diameter = ref(60);
