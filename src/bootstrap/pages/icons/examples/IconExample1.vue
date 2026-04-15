@@ -4,10 +4,10 @@ const iconSize = 36;
 </script>
 
 <template>
-  <div class="w-full row row-cols-1 row-cols-md-2 gy-3 gx-5">
+  <div class="row row-cols-1 row-cols-md-2 gy-3 gx-5">
     <div class="col">
       <div class="font-weight-semibold mb-3">Outlined</div>
-      <div class="flex flex-wrap md-gap-3 mb-4">
+      <div class="flex flex-wrap md-gap-3 mb-3">
         <div
           v-for="name in icons"
           :key="name"
@@ -18,7 +18,7 @@ const iconSize = 36;
         </div>
       </div>
       <div class="font-weight-semibold mb-3">Rounded</div>
-      <div class="flex flex-wrap md-gap-3 mb-4">
+      <div class="flex flex-wrap md-gap-3 mb-3">
         <div
           v-for="name in icons"
           :key="name"
@@ -29,7 +29,7 @@ const iconSize = 36;
         </div>
       </div>
       <div class="font-weight-semibold mb-3">Sharp</div>
-      <div class="flex flex-wrap md-gap-3">
+      <div class="flex flex-wrap md-gap-3 mb-3">
         <div
           v-for="name in icons"
           :key="name"
@@ -42,7 +42,7 @@ const iconSize = 36;
     </div>
     <div class="col">
       <div class="font-weight-semibold mb-3">Outlined Filled</div>
-      <div class="flex flex-wrap md-gap-3 mb-4">
+      <div class="flex flex-wrap md-gap-3 mb-3">
         <div
           v-for="name in icons"
           :key="name"
@@ -53,7 +53,7 @@ const iconSize = 36;
         </div>
       </div>
       <div class="font-weight-semibold mb-3">Rounded Filled</div>
-      <div class="flex flex-wrap md-gap-3 mb-4">
+      <div class="flex flex-wrap md-gap-3 mb-3">
         <div
           v-for="name in icons"
           :key="name"
@@ -64,7 +64,7 @@ const iconSize = 36;
         </div>
       </div>
       <div class="font-weight-semibold mb-3">Sharp Filled</div>
-      <div class="flex flex-wrap md-gap-3">
+      <div class="flex flex-wrap md-gap-3 mb-3">
         <div
           v-for="name in icons"
           :key="name"

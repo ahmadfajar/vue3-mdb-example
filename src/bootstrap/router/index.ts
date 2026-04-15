@@ -38,6 +38,7 @@ const router = createRouter({
 });
 
 router.beforeEach((to, _from, next) => {
+  // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
   document.title = `${to.meta.title} | Vue MDBootstrap Examples`;
   next();
 });

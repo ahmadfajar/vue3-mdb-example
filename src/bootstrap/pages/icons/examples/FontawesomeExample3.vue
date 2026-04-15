@@ -6,7 +6,7 @@ const iconSize = 36;
   <div class="row row-cols-1 row-cols-md-2 gy-3 gx-5">
     <div class="col">
       <div class="font-weight-semibold mb-3">Flip</div>
-      <div class="flex flex-wrap md-gap-3">
+      <div class="flex flex-wrap md-gap-3 mb-3">
         <div
           class="flex items-center justify-center bg-gray-200 rounded"
           style="width: 64px; height: 64px"
@@ -29,7 +29,7 @@ const iconSize = 36;
     </div>
     <div class="col">
       <div class="font-weight-semibold mb-3">Rotate</div>
-      <div class="flex flex-wrap md-gap-3">
+      <div class="flex flex-wrap md-gap-3 mb-3">
         <div
           class="flex items-center justify-center bg-gray-200 rounded"
           style="width: 64px; height: 64px"

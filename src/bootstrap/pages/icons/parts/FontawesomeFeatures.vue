@@ -32,7 +32,7 @@ if (props.section === 'styling') {
   fmtVueTsc.value = parseVueScriptTag(Example1);
 }
 
-const contentCls = ['h-full min-h-40 flex justify-center', 'p-2 p-md-5'];
+const contentCls = ['h-full min-h-40 flex justify-center', 'p-4 p-md-5'];
 </script>
 
 <template>
