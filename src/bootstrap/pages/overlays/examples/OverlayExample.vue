@@ -9,7 +9,7 @@ function hideOverlay() {
 </script>
 
 <template>
-  <BsButton @click="showOverlay = true"> Show Overlay </BsButton>
+  <BsButton color="primary" @click="showOverlay = true"> Show Overlay </BsButton>
   <Teleport to="body">
     <BsOverlay :show="showOverlay" @click="hideOverlay" />
   </Teleport>

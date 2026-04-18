@@ -66,6 +66,6 @@ const miniOpen = ref(false);
         </ul>
       </div>
     </BsSideDrawer>
-    <BsContainer app class="bg-blue-grey-800" style="height: 280px" />
+    <BsContainer app class="bg-gray-400" style="height: 280px" />
   </BsApp>
 </template>

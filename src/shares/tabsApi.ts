@@ -147,3 +147,29 @@ export function changeTabIconLabel(
 
   return tmp;
 }
+
+export function changeTabStyles(
+  variant: Ref<TTabsVariant | undefined>,
+  iconLabel: Ref<string | undefined>,
+  iconPosition: Ref<TPlacementPosition | undefined>,
+  data?: string
+): string | undefined {
+  const styles1 = 'style="--md-tab-modern-border-radius: 1rem"';
+  const styles2 = 'style="--md-tab-modern-border-radius: 1.25rem"';
+  let tmp;
+
+  if (variant.value === 'modern' && iconLabel.value === 'icon') {
+    tmp = data?.replace('{$tab_style}', styles1);
+  } else if (
+    variant.value === 'modern' &&
+    iconLabel.value === 'both' &&
+    iconPosition.value &&
+    ['top', 'bottom'].includes(iconPosition.value)
+  ) {
+    tmp = data?.replace('{$tab_style}', styles2);
+  } else {
+    tmp = data;
+  }
+
+  return tmp;
+}

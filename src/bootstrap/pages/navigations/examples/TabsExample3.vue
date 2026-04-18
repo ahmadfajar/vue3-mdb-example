@@ -36,7 +36,7 @@ const activeTab = ref(0);
           mlkshk vice blog.
         </BsTab>
         <template #append-header>
-          <BsButton class="me-3" color="light" flat icon="favorite_filled" mode="icon" />
+          <BsButton class="me-3" color="light" flat icon="add" mode="icon" />
         </template>
       </BsTabs>
     </BsApp>

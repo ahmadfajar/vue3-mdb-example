@@ -18,7 +18,7 @@
     "bootstrap:prod": "run-p type-check bootstrap:build",
     "bootstrap:build": "vite build --config vite.config.bs.mts",
     "bootstrap:preview": "vite preview --config vite.config.bs.mts",
-    "tailwind:dev": "vite --config vite.config.tw.mts --port 5175",
+    "tailwind:dev": "vite --config vite.config.tw.mts",
     "tailwind:prod": "run-p type-check tailwind:build",
     "tailwind:build": "vite build --config vite.config.tw.mts",
     "tailwind:preview": "vite preview --config vite.config.tw.mts",
@@ -38,7 +38,7 @@
     "tailwindcss": "^4.2.2",
     "vite": "^8.0.8",
     "vue": "^3.5.32",
-    "vue-mdbootstrap": "^2.2.1",
+    "vue-mdbootstrap": "^2.2.2",
     "vue-router": "^5.0.4"
   },
   "devDependencies": {
@@ -71,5 +71,5 @@
     "not dead",
     "not ie <= 11"
   ],
-  "packageManager": "yarn@4.13.0"
+  "packageManager": "yarn@4.14.0"
 }

@@ -6,6 +6,7 @@ import { defineConfig } from 'vite';
 
 export default defineConfig({
   root: path.resolve(__dirname, 'src/tailwind'),
+  cacheDir: path.resolve(__dirname, 'node_modules/.vite/tailwind'),
   plugins: [tailwindcss(), vue()],
   resolve: {
     alias: {

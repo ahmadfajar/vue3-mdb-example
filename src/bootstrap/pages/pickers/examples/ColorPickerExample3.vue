@@ -31,6 +31,7 @@ const activator = useTemplateRef<ComponentPublicInstance>('activator');
       v-model:open="show"
       :activator="activator?.$el"
       class="md-shadow-1"
+      mode-button-tonal
     />
   </div>
 </template>

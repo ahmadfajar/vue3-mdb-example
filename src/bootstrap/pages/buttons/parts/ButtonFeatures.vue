@@ -210,7 +210,7 @@ onBeforeUnmount(() => {
                 </div>
               </div>
               <div class="d-grid mt-4">
-                <BsButton :disabled="!hasAnimation" @click="stopAnimation()">
+                <BsButton :disabled="!hasAnimation" color="primary" @click="stopAnimation()">
                   Stop Animation
                 </BsButton>
               </div>

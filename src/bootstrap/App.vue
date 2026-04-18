@@ -108,7 +108,7 @@ onBeforeUnmount(() => {
 @use 'sass:color';
 @use 'vue-mdbootstrap/scss/mixins/css3/borders';
 @use 'vue-mdbootstrap/scss/mixins/css3/breakpoints' as media;
-@use 'vue-mdbootstrap/scss/color_vars' as colors;
+@use 'vue-mdbootstrap/scss/color-vars' as colors;
 @use 'vue-mdbootstrap/scss/variables' as vars;
 
 // Page animation transition
@@ -363,20 +363,14 @@ onBeforeUnmount(() => {
   @media (min-width: 83rem) {
     padding-left: 1rem;
     padding-right: 1rem;
-    max-width: 56.25rem; //900px;
+    max-width: 56.25rem; // 900px;
   }
 }
-
-//.demo-block-content {
-//  .md-breadcrumb {
-//    --md-breadcrumb-padding-x: 0;
-//  }
-//}
 
 // Utilities
 //----------
 .min-h-40 {
-  min-height: 10rem; // 160px
+  min-height: 10rem;
 }
 
 .decoration-none {

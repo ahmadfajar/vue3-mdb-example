@@ -15,6 +15,7 @@ import {
   changeTabsAlignment,
   changeTabsIconPosition,
   changeTabsPosition,
+  changeTabStyles,
   changeTabsVariant,
   dsTabAlignments,
   dsTabIconAndLabel,
@@ -22,7 +23,7 @@ import {
   dsTabVariants,
 } from '@shares/tabsApi.ts';
 import { computed, onBeforeUnmount, ref, watchEffect } from 'vue';
-import type { TAlignment, TPlacementPosition, TTabsVariant } from 'vue-mdbootstrap';
+import type { TAlignment, TPlacementPosition, TStringRecord, TTabsVariant } from 'vue-mdbootstrap';
 import Example1 from '../examples/TabsExample1.vue?raw';
 import Example2 from '../examples/TabsExample2.vue?raw';
 
@@ -33,6 +34,7 @@ const activeTab = ref(0);
 const tabVariant = ref<TTabsVariant>('tabs');
 const tabAlignment = ref<TAlignment>('start');
 const tabPlacement = ref<TPlacementPosition>('top');
+const tabStyles = ref<TStringRecord>();
 const iconPosition = ref<TPlacementPosition>('left');
 const iconLabel = ref<string>('both');
 
@@ -70,6 +72,19 @@ watchEffect(() => {
   rawCode = changeTabsPosition(tabPlacement, tabVariant, rawCode);
   rawCode = changeTabsIconPosition(iconPosition, rawCode);
   rawCode = changeTabIconLabel(iconLabel, rawCode);
+  rawCode = changeTabStyles(tabVariant, iconLabel, iconPosition, rawCode);
+
+  if (tabVariant.value === 'modern' && iconLabel.value === 'icon') {
+    tabStyles.value = { '--md-tab-modern-border-radius': '1rem' };
+  } else if (
+    tabVariant.value === 'modern' &&
+    iconLabel.value === 'both' &&
+    ['top', 'bottom'].includes(iconPosition.value)
+  ) {
+    tabStyles.value = { '--md-tab-modern-border-radius': '1.25rem' };
+  } else {
+    tabStyles.value = undefined;
+  }
 
   if (rawCode) {
     fmtVueTpl.value = stripAndBeautifyTemplate(rawCode);
@@ -139,6 +154,7 @@ onBeforeUnmount(() => {
                 :alignment="tabAlignment"
                 :icon-position="iconPosition"
                 :inner-class="innerClass"
+                :style="tabStyles"
                 :tab-position="tabPlacement"
                 :variant="tabVariant"
                 color="bg-indigo-600"

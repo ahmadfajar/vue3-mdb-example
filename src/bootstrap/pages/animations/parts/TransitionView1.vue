@@ -46,7 +46,7 @@ const content = "Some quick example text to build on the card title and make up 
     <ShoutBox :tpl="fmtVueTpl" :tsc="fmtVueTsc">
       <template #content>
         <div class="px-3 py-4 p-md-5 overflow-hidden" style="min-height: 18rem">
-          <BsButton class="mb-4" @click="active = !active"> Click Me</BsButton>
+          <BsButton class="mb-4" color="primary" @click="active = !active"> Click Me</BsButton>
           <transition :name="transition || 'fade'">
             <BsCard v-if="active" shadow style="max-width: 500px">
               <BsCardBody>

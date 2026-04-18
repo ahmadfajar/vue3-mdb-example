@@ -6,10 +6,11 @@ import {
 } from '@shares/sharedApi.ts';
 import { ref, watchEffect } from 'vue';
 import Example from '../examples/DatePickerExample3.vue?raw';
+import type { TDateTimePickerMode } from 'vue-mdbootstrap';
 
 const fmtVueTpl = ref<string>();
 const fmtVueTsc = ref<string>();
-const mode = ref('date');
+const mode = ref<TDateTimePickerMode>('date');
 const picker1 = ref<string>();
 
 fmtVueTsc.value = parseVueScriptTag(Example);

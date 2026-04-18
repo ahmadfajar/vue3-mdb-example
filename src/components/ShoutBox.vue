@@ -344,7 +344,7 @@ onBeforeUnmount(() => {
 <style lang="scss">
 @use 'sass:color';
 @use 'vue-mdbootstrap/scss/mixins/css3/breakpoints' as media;
-@use 'vue-mdbootstrap/scss/color_vars' as colors;
+@use 'vue-mdbootstrap/scss/color-vars' as colors;
 @use 'vue-mdbootstrap/scss/variables' as vars;
 
 .shoutbox-container {

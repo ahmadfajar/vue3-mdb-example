@@ -7,8 +7,8 @@ const show2 = ref(false);
 
 <template>
   <div class="flex flex-col items-center flex-sm-row justify-around md-gap-y-3">
-    <BsDropdownMenu v-model:open="show1" space="2">
-      <BsButton dropdown-toggle>Dropdown</BsButton>
+    <BsDropdownMenu v-model:open="show1" space="3">
+      <BsButton color="primary" dropdown-toggle>Dropdown</BsButton>
       <template #content>
         <BsListView>
           <BsListTile navigable>
@@ -31,7 +31,7 @@ const show2 = ref(false);
       </template>
     </BsDropdownMenu>
     <BsDropdownMenu v-model:open="show2" cover>
-      <BsButton dropdown-toggle>Cover Dropdown</BsButton>
+      <BsButton color="primary" dropdown-toggle>Cover Dropdown</BsButton>
       <template #content>
         <BsListView>
           <BsListNav>

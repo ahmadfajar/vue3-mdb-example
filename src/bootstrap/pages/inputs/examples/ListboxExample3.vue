@@ -45,7 +45,7 @@ onBeforeUnmount(() => {
 
 <style lang="scss">
 @use 'vue-mdbootstrap/scss/mixins/listview';
-@use 'vue-mdbootstrap/scss/color_vars' as colors;
+@use 'vue-mdbootstrap/scss/color-vars' as colors;
 
 @include listview.make-listview-variant('info-color-dark', colors.$info-color-dark);
 </style>

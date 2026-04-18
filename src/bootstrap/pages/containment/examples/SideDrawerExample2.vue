@@ -46,7 +46,7 @@ function toggleSideDrawer(value: boolean) {
         </ul>
       </div>
     </BsSideDrawer>
-    <BsContainer app class="bg-blue-grey-800" style="height: 280px">
+    <BsContainer app class="bg-gray-400" style="height: 280px">
       <div class="h-full flex justify-center items-center">
         <BsButton @click="toggleSideDrawer(sideDrawerOpen)"> TOGGLE </BsButton>
       </div>

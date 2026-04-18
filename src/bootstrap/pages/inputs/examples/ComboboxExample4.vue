@@ -113,7 +113,7 @@ onBeforeUnmount(() => {
 
 <template>
   <BsCard class="w-full mx-auto" shadow style="max-width: 400px">
-    <BsCardHeader class="flex items-center bg-indigo py-3">
+    <BsCardHeader class="flex items-center bg-default-color py-3">
       <BsButton color="light" flat icon="arrow_back" mode="icon" />
       <span class="h4 mb-0 text-white ps-3">Contact Details</span>
       <BsSpacer />

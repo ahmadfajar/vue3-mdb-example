@@ -58,6 +58,8 @@ npm run bootstrap:dev
 yarn bootstrap:dev
 ```
 
+Then open your browser and point to: http://localhost:5175/ 
+
 **Running examples with TailwindCSS v4 CSS framework.**
 
 ```sh
@@ -68,7 +70,7 @@ npm run tailwind:dev
 yarn tailwind:dev
 ```
 
-Then open your browser and point to: http://localhost:5175/ 
+Then open your browser and point to: http://localhost:5173/ 
 
 ### Type-Check, Compile and Minify for Production
 

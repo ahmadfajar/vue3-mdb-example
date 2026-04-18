@@ -117,7 +117,12 @@ onBeforeUnmount(() => {
       :key="item.value as string"
       class="col flex justify-center"
     >
-      <BsButton :id="item.id" dropdown-toggle @click="toggleShow(item, item.show as boolean)">
+      <BsButton
+        :id="item.id"
+        color="primary"
+        dropdown-toggle
+        @click="toggleShow(item, item.show as boolean)"
+      >
         {{ item.label }}
       </BsButton>
       <BsPopover

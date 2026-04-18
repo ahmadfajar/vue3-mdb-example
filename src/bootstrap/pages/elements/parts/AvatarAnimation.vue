@@ -30,7 +30,7 @@ const contentCls = ['h-full min-h-40 flex items-center justify-center', 'p-3 p-m
         <BsRadioGroup v-model="animation" :items="iconAnimations" column="2">
           <div class="col-form-label">Animation</div>
         </BsRadioGroup>
-        <BsButton @click="animation = undefined">Stop Animation</BsButton>
+        <BsButton color="primary" @click="animation = undefined">Stop Animation</BsButton>
       </template>
 
       <template #content>

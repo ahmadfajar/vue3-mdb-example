@@ -80,7 +80,9 @@ const contentCls = ['h-full min-h-40 flex items-center justify-center', 'p-3 p-m
                 spinner-diameter="60"
               />
             </BsCard>
-            <BsButton class="mt-3" @click="showLoader = !showLoader"> Toggle Loader</BsButton>
+            <BsButton color="primary" class="mt-3" @click="showLoader = !showLoader"> 
+              Toggle Loader
+            </BsButton>
           </div>
           <div v-else>
             <BsCard class="overflow-hidden" shadow style="max-width: 480px">
@@ -92,7 +94,9 @@ const contentCls = ['h-full min-h-40 flex items-center justify-center', 'p-3 p-m
               </BsCardBody>
               <BsMaskLoader v-model:show="showLoader" :type="maskLoaderType" />
             </BsCard>
-            <BsButton class="mt-3" @click="showLoader = !showLoader"> Toggle Loader</BsButton>
+            <BsButton color="primary" class="mt-3" @click="showLoader = !showLoader"> 
+              Toggle Loader
+            </BsButton>
           </div>
         </div>
       </template>

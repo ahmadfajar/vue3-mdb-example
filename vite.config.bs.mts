@@ -8,6 +8,7 @@ export default defineConfig({
   root: path.resolve(__dirname, 'src/bootstrap'),
   assetsInclude: ['**/*.tpl'],
   // plugins: [vue(), vueDevTools()],
+  cacheDir: path.resolve(__dirname, 'node_modules/.vite/bootstrap'),
   plugins: [vue()],
   resolve: {
     alias: {

@@ -12,7 +12,9 @@ function toggleShow(state: boolean): void {
 </script>
 
 <template>
-  <BsButton ref="activator" dropdown-toggle @click="toggleShow(show)"> Button Dropdown </BsButton>
+  <BsButton ref="activator" color="primary" dropdown-toggle @click="toggleShow(show)">
+    Button Dropdown
+  </BsButton>
   <BsPopover v-model:open="show" :trigger="activator?.$el" class="md-shadow-1" space="3">
     <BsListView>
       <BsListTile>

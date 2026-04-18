@@ -6,8 +6,8 @@ const show1 = ref(false);
 
 <template>
   <div class="flex flex-col flex-sm-row items-center justify-around md-gap-y-3">
-    <BsDropdownMenu v-model:open="show1" open-on-hover space="2">
-      <BsButton dropdown-toggle>Dropdown</BsButton>
+    <BsDropdownMenu v-model:open="show1" open-on-hover space="3">
+      <BsButton color="primary" dropdown-toggle>Dropdown</BsButton>
       <template #content>
         <BsListView>
           <div class="dropdown-menu">

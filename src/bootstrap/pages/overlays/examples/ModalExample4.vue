@@ -5,7 +5,7 @@ const showDialog = ref(false);
 </script>
 
 <template>
-  <BsButton @click="showDialog = true">Open Dialog</BsButton>
+  <BsButton color="primary" @click="showDialog = true">Open Dialog</BsButton>
   <BsModal v-model:open="showDialog" :overlay="false" max-width="85%" title="Dialog Title">
     You can close me by clicking the outside area or press ESC.
     <template #footer>
