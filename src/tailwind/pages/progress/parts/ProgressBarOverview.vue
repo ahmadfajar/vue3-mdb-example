@@ -15,6 +15,7 @@ import {
 } from '@shares/showcaseDataApi.ts';
 import { onBeforeUnmount, ref, watchEffect } from 'vue';
 import Example from '../examples/ProgressBarExample1.vue?raw';
+import type { TProgressBarValuePosition } from 'vue-mdbootstrap';
 
 const fmtVueTpl = ref<string>();
 const tabIndex = ref(0);
@@ -23,7 +24,7 @@ const variant = ref('default');
 const color = ref('primary');
 const thickness = ref<number>();
 const showValue = ref(false);
-const valuePosition = ref('inside');
+const valuePosition = ref<TProgressBarValuePosition>('inside');
 const rawTemplate = parseVueTemplateTag(Example);
 
 useWatcherDefaultValue(

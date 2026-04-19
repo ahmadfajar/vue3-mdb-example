@@ -25,45 +25,43 @@ const listChat2 = [{ fullName: 'Travis Howard', avatar: 'https://ahmadfajar.gith
 </script>
 
 <template>
-  <BsApp class="p-2">
-    <BsCard class="w-full max-w-100 mx-auto" shadow>
-      <BsAppbar class="bg-indigo-700">
-        <BsButton color="light" flat icon="arrow_back" mode="icon" />
-        <BsAppbarTitle class="text-white" title="Chats" />
-        <BsSpacer />
-        <BsButton color="light" flat icon="search" mode="icon" />
-      </BsAppbar>
-      <BsListView>
-        <BsSubheader>Recent Chats</BsSubheader>
-        <template v-for="item in listChat1" :key="item.fullName">
-          <BsListTile>
-            <BsListTileLeading :img-src="item.avatar" circle />
-            <BsListTileContent>
-              <BsListTileTitle class="font-weight-semibold">
-                {{ item.fullName }}
-              </BsListTileTitle>
-            </BsListTileContent>
-            <BsListTileAction center>
-              <BsIcon :class="{ 'text-info': item.active }" icon="chat_bubble" />
-            </BsListTileAction>
-          </BsListTile>
-        </template>
-        <BsDivider class="mt-3" />
-        <BsSubheader>Previous Chats</BsSubheader>
-        <template v-for="item in listChat2" :key="item.fullName">
-          <BsListTile>
-            <BsListTileLeading :img-src="item.avatar" circle />
-            <BsListTileContent>
-              <BsListTileTitle class="font-weight-semibold">
-                {{ item.fullName }}
-              </BsListTileTitle>
-            </BsListTileContent>
-            <BsListTileAction center>
-              <BsIcon icon="chat_bubble" />
-            </BsListTileAction>
-          </BsListTile>
-        </template>
-      </BsListView>
-    </BsCard>
-  </BsApp>
+  <BsCard class="w-full max-w-100 mx-auto" shadow>
+    <BsCardHeader class="bg-indigo-500 flex items-center py-3">
+      <BsButton color="light" flat icon="arrow_back" mode="icon" />
+      <span class="h4 font-weight-normal text-white ps-3">Chats</span>
+      <BsSpacer />
+      <BsButton color="light" flat icon="search" mode="icon" />
+    </BsCardHeader>
+    <BsListView>
+      <BsSubheader>Recent Chats</BsSubheader>
+      <template v-for="item in listChat1" :key="item.fullName">
+        <BsListTile>
+          <BsListTileLeading :img-src="item.avatar" circle />
+          <BsListTileContent>
+            <BsListTileTitle class="font-weight-semibold">
+              {{ item.fullName }}
+            </BsListTileTitle>
+          </BsListTileContent>
+          <BsListTileAction center>
+            <BsIcon :class="{ 'text-info': item.active }" icon="chat_bubble" />
+          </BsListTileAction>
+        </BsListTile>
+      </template>
+      <BsDivider class="mt-3" />
+      <BsSubheader>Previous Chats</BsSubheader>
+      <template v-for="item in listChat2" :key="item.fullName">
+        <BsListTile>
+          <BsListTileLeading :img-src="item.avatar" circle />
+          <BsListTileContent>
+            <BsListTileTitle class="font-weight-semibold">
+              {{ item.fullName }}
+            </BsListTileTitle>
+          </BsListTileContent>
+          <BsListTileAction center>
+            <BsIcon icon="chat_bubble" />
+          </BsListTileAction>
+        </BsListTile>
+      </template>
+    </BsListView>
+  </BsCard>
 </template>

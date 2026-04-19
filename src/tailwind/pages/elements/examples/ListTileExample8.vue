@@ -43,38 +43,36 @@ const listItems = ref([
 </script>
 
 <template>
-  <BsApp class="p-2">
-    <BsCard class="w-full max-w-100 mx-auto" shadow>
-      <BsAppbar class="bg-indigo-700">
-        <BsButton color="light" flat icon="menu" mode="icon" />
-        <BsAppbarTitle class="text-light" title="My Recipes" />
-        <BsSpacer />
-        <BsButton color="light" flat icon="search" mode="icon" />
-      </BsAppbar>
-      <BsListView individual-state>
-        <BsSubheader>Summer Recipes</BsSubheader>
-        <template v-for="(item, index) in listItems" :key="item.title">
-          <BsListTile v-model:active="item.active" :disabled="item.disabled" navigable>
-            <BsListTileLeading :img-src="item.avatar" :size="{ height: 56, width: 85 }" />
-            <BsListTileContent multi-line>
-              <BsListTileTitle class="font-weight-semibold">
-                {{ item.title }}
-              </BsListTileTitle>
-              <BsListTileSubtitle>
-                {{ item.text }}
-              </BsListTileSubtitle>
-            </BsListTileContent>
-            <BsListTileAction style="font-weight: 300; font-size: 120%">
-              0{{ index + 1 }}
-            </BsListTileAction>
-          </BsListTile>
-          <BsDivider
-            v-if="index + 1 < listItems.length"
-            :key="item.title + index"
-            left-indent="118"
-          />
-        </template>
-      </BsListView>
-    </BsCard>
-  </BsApp>
+  <BsCard class="w-full max-w-100 mx-auto" shadow>
+    <BsCardHeader class="bg-indigo-500 flex items-center py-3">
+      <BsButton color="light" flat icon="arrow_back" mode="icon" />
+      <span class="h4 font-weight-normal text-white ps-3">My Recipes</span>
+      <BsSpacer />
+      <BsButton color="light" flat icon="search" mode="icon" />
+    </BsCardHeader>
+    <BsListView individual-state>
+      <BsSubheader>Summer Recipes</BsSubheader>
+      <template v-for="(item, index) in listItems" :key="item.title">
+        <BsListTile v-model:active="item.active" :disabled="item.disabled" navigable>
+          <BsListTileLeading :img-src="item.avatar" :size="{ height: 56, width: 85 }" />
+          <BsListTileContent multi-line>
+            <BsListTileTitle class="font-weight-semibold">
+              {{ item.title }}
+            </BsListTileTitle>
+            <BsListTileSubtitle>
+              {{ item.text }}
+            </BsListTileSubtitle>
+          </BsListTileContent>
+          <BsListTileAction style="font-weight: 300; font-size: 120%">
+            0{{ index + 1 }}
+          </BsListTileAction>
+        </BsListTile>
+        <BsDivider
+          v-if="index + 1 < listItems.length"
+          :key="item.title + index"
+          left-indent="118"
+        />
+      </template>
+    </BsListView>
+  </BsCard>
 </template>

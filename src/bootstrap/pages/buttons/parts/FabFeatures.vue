@@ -6,6 +6,7 @@ import {
   changeIconAnimation,
   dsButtonSizes,
   dsFabButtonVariants,
+  iconAnimationVariants,
 } from '@shares/buttonApi.ts';
 import { parseVueTemplateTag, stripAndBeautifyTemplate } from '@shares/sharedApi.ts';
 import {
@@ -110,6 +111,8 @@ const btnVariants = dsFabButtonVariants();
 const btnColors = dsContextColors();
 const btnSizes = dsButtonSizes();
 const btnStates = dsComponentStates();
+const iconAnimationSrc = iconAnimationVariants();
+
 const contentCls = ['h-full min-h-40 flex items-center justify-center px-6 py-8 rounded-3'];
 
 onBeforeUnmount(() => {
@@ -143,15 +146,9 @@ onBeforeUnmount(() => {
         </BsCombobox>
 
         <div class="ps-2">
-          <div class="mt-3 mb-1 select-none font-weight-medium">Animation:</div>
-          <div class="row row-cols-2">
-            <div class="col">
-              <BsRadio v-model="iconAnimation" value="spin"> Spin </BsRadio>
-            </div>
-            <div class="col">
-              <BsRadio v-model="iconAnimation" value="pulse"> Pulse </BsRadio>
-            </div>
-          </div>
+          <BsRadioGroup v-model="iconAnimation" :items="iconAnimationSrc" column="2">
+            <div class="col-form-label select-none">Animation:</div>
+          </BsRadioGroup>
         </div>
         <div class="d-grid mb-2">
           <BsButton :disabled="!hasAnimation" color="primary" @click="stopAnimation()">

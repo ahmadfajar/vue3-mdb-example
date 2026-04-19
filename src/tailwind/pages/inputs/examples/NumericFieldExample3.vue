@@ -119,8 +119,7 @@ function clear() {
   <BsCard class="w-full max-w-100 mx-auto" shadow>
     <BsCardHeader class="flex items-center bg-violet-800 py-3">
       <BsButton color="light" flat icon="arrow_back" mode="icon" />
-      <span class="text-xl text-white ps-3">Contact Details</span>
-      <BsSpacer />
+      <div class="h4 font-weight-normal text-white flex-fill ps-3">Contact Details</div>
       <BsButton color="light" flat icon="more_vert" mode="icon" />
     </BsCardHeader>
     <BsCardBody class="border-b">

@@ -11,7 +11,7 @@ const navItemCls = [
 const sideDrawerOpen = ref(true);
 
 function toggleSideDrawer(value: boolean) {
-  sideDrawerOpen.value = value;
+  sideDrawerOpen.value = !value;
 }
 </script>
 
@@ -54,7 +54,7 @@ function toggleSideDrawer(value: boolean) {
     </BsSideDrawer>
     <BsContainer app class="bg-slate-400 dark:bg-gray-800 h-70">
       <div class="h-full flex justify-center items-center">
-        <BsButton @click="toggleSideDrawer(!sideDrawerOpen)"> TOGGLE </BsButton>
+        <BsButton @click="toggleSideDrawer(sideDrawerOpen)"> TOGGLE </BsButton>
       </div>
     </BsContainer>
   </BsApp>

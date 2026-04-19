@@ -210,7 +210,7 @@ onBeforeUnmount(() => {
 
       <template #content>
         <div class="h-full min-h-40 flex items-center justify-center py-4 px-3">
-          <div v-if="showIcon" class="flex flex-col gap-y-4 items-center">
+          <div v-if="showIcon" class="flex flex-col md-gap-y-3 items-center">
             <BsChip
               :active="chipState === 'active'"
               :color="chipColor"
@@ -262,7 +262,7 @@ onBeforeUnmount(() => {
               Chip Example
             </BsChip>
           </div>
-          <div v-else-if="showAvatar" class="flex flex-col gap-y-4 items-center">
+          <div v-else-if="showAvatar" class="flex flex-col md-gap-y-3 items-center">
             <BsChip
               :active="chipState === 'active'"
               :color="chipColor"

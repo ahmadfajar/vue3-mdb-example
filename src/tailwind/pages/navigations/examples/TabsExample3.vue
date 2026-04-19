@@ -7,13 +7,13 @@ const activeTab = ref(0);
 <template>
   <BsApp class="rounded-2xl p-1">
     <BsCard shadow>
-      <BsAppbar class="bg-indigo-700">
+      <BsAppbar class="bg-violet-800">
         <BsButton color="light" flat icon="menu" mode="icon" />
         <BsAppbarTitle class="text-white" title="Page Title" />
         <BsSpacer />
         <BsButton color="light" flat icon="more_vert" mode="icon" />
       </BsAppbar>
-      <BsTabs v-model="activeTab" color="bg-indigo-700" variant="material">
+      <BsTabs v-model="activeTab" color="bg-violet-800" variant="material">
         <BsTab label="Home">
           Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown
           aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan
@@ -36,7 +36,7 @@ const activeTab = ref(0);
           mlkshk vice blog.
         </BsTab>
         <template #append-header>
-          <BsButton class="me-3" color="light" flat icon="favorite_filled" mode="icon" />
+          <BsButton class="me-3" color="light" flat icon="add" mode="icon" />
         </template>
       </BsTabs>
     </BsCard>

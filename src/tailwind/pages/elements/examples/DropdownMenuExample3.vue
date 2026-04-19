@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { onBeforeUnmount } from 'vue';
-import { BsArrayStore } from 'vue-mdbootstrap';
+import { BsArrayStore, type TPopoverPosition } from 'vue-mdbootstrap';
 
 const placementSrc = new BsArrayStore([
   { value: 'left-top', label: 'Left Top', show: false },
@@ -29,8 +29,12 @@ onBeforeUnmount(() => {
       :key="item.value as string"
       class="col flex justify-center"
     >
-      <BsDropdownMenu v-model:open="item.show" :placement="item.value" space="2">
-        <BsButton dropdown-toggle>{{ item.label }}</BsButton>
+      <BsDropdownMenu
+        v-model:open="item.show as boolean"
+        :placement="item.value as TPopoverPosition"
+        space="2"
+      >
+        <BsButton color="primary" dropdown-toggle>{{ item.label }}</BsButton>
         <template #content>
           <BsListView>
             <div class="dropdown-menu">

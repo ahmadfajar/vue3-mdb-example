@@ -62,13 +62,13 @@ onBeforeUnmount(() => {
   <BsApp viewport-height>
     <AppNavbar />
     <BsSideDrawer v-model:open="provider.sidebar.open" class="border-e" fixed-layout>
-      <div class="flex justify-center mt-4">
+      <div class="flex justify-center mt-6">
         <RouterLink to="/home">
           <img alt="Vue logo" src="/assets/logo.png" style="width: 96px" />
         </RouterLink>
       </div>
-      <BsDivider class="mt-4!" />
-      <BsListView class="pt-0" item-border-variant="left" item-rounded space-around="both">
+      <BsDivider class="mt-6!" />
+      <BsListView item-border-variant="left" item-rounded space-around="both">
         <BsListNav>
           <BsListNavItem v-for="navItem in routeNavA" :key="navItem.text" :label="navItem.text">
             <BsListNav child>
@@ -107,7 +107,7 @@ onBeforeUnmount(() => {
 <style lang="scss">
 @use 'vue-mdbootstrap/scss/mixins/css3/borders';
 @use 'vue-mdbootstrap/scss/mixins/css3/breakpoints' as media;
-@use 'vue-mdbootstrap/scss/color_vars' as colors;
+@use 'vue-mdbootstrap/scss/color-vars' as colors;
 @use 'vue-mdbootstrap/scss/variables' as vars;
 
 /*

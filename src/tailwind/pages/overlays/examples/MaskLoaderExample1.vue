@@ -14,7 +14,7 @@ const showLoader = ref(false);
     </BsCardBody>
     <BsMaskLoader v-model:show="showLoader" {$types} />
   </BsCard>
-  <BsButton class="mt-3" @click="showLoader = !showLoader">
+  <BsButton class="mt-3" color="primary" @click="showLoader = !showLoader">
     Toggle Loader
   </BsButton>
 </template>

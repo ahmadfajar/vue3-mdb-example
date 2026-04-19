@@ -7,6 +7,7 @@ import {
   changeIconAnimation,
   dsButtonSizes,
   dsButtonVariants,
+  iconAnimationVariants,
 } from '@shares/buttonApi.ts';
 import { parseVueTemplateTag, stripAndBeautifyTemplate } from '@shares/sharedApi.ts';
 import { dsComponentStates, useWatcherDefaultValue } from '@shares/showcaseDataApi.ts';
@@ -85,6 +86,7 @@ watchEffect(() => {
 const btnVariants = dsButtonVariants();
 const btnSizes = dsButtonSizes();
 const btnStates = dsComponentStates();
+const iconAnimationSrc = iconAnimationVariants();
 
 onBeforeUnmount(() => {
   btnVariants.proxy.destroy();
@@ -120,18 +122,14 @@ onBeforeUnmount(() => {
           >
             Elevated
           </BsCheckbox>
-          <div class="mt-3 mb-1 select-none font-weight-medium">Animation:</div>
-          <div class="row row-cols-2">
-            <div class="col">
-              <BsRadio v-model="iconAnimation" value="spin"> Spin </BsRadio>
-            </div>
-            <div class="col">
-              <BsRadio v-model="iconAnimation" value="pulse"> Pulse </BsRadio>
-            </div>
-          </div>
+          <BsRadioGroup v-model="iconAnimation" :items="iconAnimationSrc" column="2">
+            <div class="col-form-label select-none">Animation:</div>
+          </BsRadioGroup>
         </div>
         <div class="grid mb-4">
-          <BsButton :disabled="!hasAnimation" @click="stopAnimation()"> Stop Animation </BsButton>
+          <BsButton :disabled="!hasAnimation" color="primary" @click="stopAnimation()">
+            Stop Animation
+          </BsButton>
         </div>
       </template>
 

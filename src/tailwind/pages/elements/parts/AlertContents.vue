@@ -103,7 +103,7 @@ onBeforeUnmount(() => {
               Aww yeah, you successfully read this alert message. This is an example how to
               construct <b>Alert</b> with additional contents.
             </p>
-            <hr class="my-3" />
+            <hr class="my-5 opacity-35" />
             <ul class="list-disc ms-4">
               <li>This is just example bullet list.</li>
               <li>

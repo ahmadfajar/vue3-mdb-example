@@ -11,7 +11,7 @@ const navItemCls = [
 const sideDrawerOpen = ref(true);
 
 function toggleSideDrawer(value: boolean) {
-  sideDrawerOpen.value = value;
+  sideDrawerOpen.value = !value;
 }
 </script>
 
@@ -23,7 +23,7 @@ function toggleSideDrawer(value: boolean) {
         flat
         icon="menu"
         mode="icon"
-        @click="toggleSideDrawer(!sideDrawerOpen)"
+        @click="toggleSideDrawer(sideDrawerOpen)"
       />
       <BsAppbarTitle title="Page Title" />
       <BsSpacer />

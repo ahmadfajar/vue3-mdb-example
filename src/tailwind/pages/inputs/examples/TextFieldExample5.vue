@@ -106,10 +106,9 @@ function submit(notification: INotificationProvider) {
 
 <template>
   <BsCard class="w-full max-w-100 mx-auto" shadow>
-    <BsCardHeader class="flex items-center bg-indigo-700 py-3">
+    <BsCardHeader class="flex items-center bg-violet-800 py-3">
       <BsButton color="light" flat icon="arrow_back" mode="icon" />
-      <span class="text-2xl font-weight-normal text-white ps-3">Sign Up</span>
-      <BsSpacer />
+      <div class="h4 font-weight-normal text-white flex-fill ps-3">Sign Up</div>
       <BsButton color="light" flat icon="more_vert" mode="icon" />
     </BsCardHeader>
     <BsCardBody>

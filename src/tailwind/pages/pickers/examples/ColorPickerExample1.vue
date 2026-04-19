@@ -10,7 +10,13 @@ const colorPicker = useTemplateRef<BsColorPickerInstance>('colorPicker');
 <template>
   <div class="w-full max-w-110">
     <div class="text-center md:text-left">
-      <BsColorPicker ref="colorPicker" v-model="color" v-model:mode="mode" class="md-shadow" />
+      <BsColorPicker
+        ref="colorPicker"
+        v-model="color"
+        v-model:mode="mode"
+        class="md-shadow"
+        mode-button-tonal
+      />
     </div>
     <table class="w-full text-sm mt-4">
       <thead>

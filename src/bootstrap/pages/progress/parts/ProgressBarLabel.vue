@@ -14,13 +14,14 @@ import {
 } from '@shares/showcaseDataApi.ts';
 import { onBeforeUnmount, ref, watchEffect } from 'vue';
 import Example from '../examples/ProgressBarExample2.vue?raw';
+import type { TProgressBarLabelPosition, TTextLabelAlignment } from 'vue-mdbootstrap';
 
 const fmtVueTpl = ref<string>();
 const progress1 = ref(50);
 const color = ref('primary');
 const textLabel = ref('Marketing Performance');
-const labelAlignment = ref('center');
-const labelPosition = ref('top');
+const labelAlignment = ref<TTextLabelAlignment>('center');
+const labelPosition = ref<TProgressBarLabelPosition>('top');
 const rawTemplate = parseVueTemplateTag(Example);
 
 useWatcherDefaultValue(

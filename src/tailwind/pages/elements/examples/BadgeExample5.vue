@@ -28,7 +28,7 @@
     <div class="relative">
       <BsButton flat icon="notifications_filled" mode="icon" />
       <BsBadge
-        class="absolute left-[65%] top-1 rounded-circle p-2"
+        class="absolute left-[50%] rounded-circle p-2"
         style="transform: translateY(-50%)"
         variant="danger"
       />

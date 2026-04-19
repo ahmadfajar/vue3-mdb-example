@@ -1,5 +1,6 @@
 <script setup lang="ts">
 const icons = ['house', 'circle-user', 'envelope', 'gift'];
+const regulars = ['house', 'circle-user', 'envelope', 'thumbs-up'];
 const iconSize = 36;
 </script>
 
@@ -21,7 +22,7 @@ const iconSize = 36;
       <div class="font-weight-semibold mb-3">Regular</div>
       <div class="flex flex-wrap md-gap-3 mb-4">
         <div
-          v-for="name in icons"
+          v-for="name in regulars"
           :key="name"
           class="size-16 flex items-center justify-center bg-gray-200 dark:bg-neutral-800 rounded"
         >

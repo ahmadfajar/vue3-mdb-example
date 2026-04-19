@@ -39,60 +39,57 @@ const contentCls = ['min-h-40 p-2 p-md-5 rounded-3 text-bg-surface'];
 
       <template #content>
         <div :class="contentCls">
-          <BsApp class="p-2">
-            <BsCard class="w-full mx-auto" shadow style="max-width: 400px">
-              <BsAppbar class="bg-indigo" shadow>
-                <BsButton color="light" flat icon="menu" mode="icon" />
-                <BsAppbarTitle class="text-white" title="Menus" />
-                <BsSpacer />
-                <BsButton color="light" flat icon="more_vert" mode="icon" />
-              </BsAppbar>
-              <BsListView
-                :item-border-variant="itemBorderVariant"
-                :item-rounded="itemStyle === 'rounded'"
-                :item-rounded-pill="itemStyle === 'rounded-pill'"
-                :space-around="spaceAround"
-              >
-                <BsListNav>
-                  <BsListNavItem icon="inbox" label="Inbox">
-                    <BsListNav child>
-                      <BsListNavItem label="Primary" />
-                      <BsListNavItem label="Social" />
-                      <BsListNavItem label="Promotions" />
-                      <BsListNavItem label="Updates" />
-                    </BsListNav>
-                  </BsListNavItem>
-                  <BsListNavItem icon="bookmarks" label="Important" />
-                  <BsListNavItem icon="send" label="Sent" />
-                  <BsListNavItem icon="description" label="Drafts" />
-                </BsListNav>
-                <BsDivider />
-                <BsListNav>
-                  <BsListNavItem
-                    badge="102"
-                    badge-color="bg-gray-400"
-                    badge-type="pill"
-                    icon="email"
-                    label="All Mail"
-                  />
-                  <BsListNavItem
-                    badge="25"
-                    badge-color="bg-gray-400"
-                    badge-type="pill"
-                    icon="gpp_maybe"
-                    label="Spam"
-                  />
-                  <BsListNavItem
-                    badge="12"
-                    badge-color="bg-gray-400"
-                    badge-type="pill"
-                    icon="delete"
-                    label="Trash"
-                  />
-                </BsListNav>
-              </BsListView>
-            </BsCard>
-          </BsApp>
+          <BsCard class="w-full mx-auto" shadow style="max-width: 400px">
+            <BsCardHeader class="flex items-center bg-purple-600 py-3">
+              <BsButton color="light" flat icon="menu" mode="icon" />
+              <div class="h4 text-white flex-fill mb-0 ps-3">Menus</div>
+              <BsButton color="light" flat icon="more_vert" mode="icon" />
+            </BsCardHeader>
+            <BsListView
+              :item-border-variant="itemBorderVariant"
+              :item-rounded="itemStyle === 'rounded'"
+              :item-rounded-pill="itemStyle === 'rounded-pill'"
+              :space-around="spaceAround"
+            >
+              <BsListNav>
+                <BsListNavItem icon="inbox" label="Inbox">
+                  <BsListNav child>
+                    <BsListNavItem label="Primary" />
+                    <BsListNavItem label="Social" />
+                    <BsListNavItem label="Promotions" />
+                    <BsListNavItem label="Updates" />
+                  </BsListNav>
+                </BsListNavItem>
+                <BsListNavItem icon="bookmarks" label="Important" />
+                <BsListNavItem icon="send" label="Sent" />
+                <BsListNavItem icon="description" label="Drafts" />
+              </BsListNav>
+              <BsDivider />
+              <BsListNav>
+                <BsListNavItem
+                  badge="102"
+                  badge-color="bg-gray-400"
+                  badge-type="pill"
+                  icon="email"
+                  label="All Mail"
+                />
+                <BsListNavItem
+                  badge="25"
+                  badge-color="bg-gray-400"
+                  badge-type="pill"
+                  icon="gpp_maybe"
+                  label="Spam"
+                />
+                <BsListNavItem
+                  badge="12"
+                  badge-color="bg-gray-400"
+                  badge-type="pill"
+                  icon="delete"
+                  label="Trash"
+                />
+              </BsListNav>
+            </BsListView>
+          </BsCard>
         </div>
       </template>
     </ShoutBox>

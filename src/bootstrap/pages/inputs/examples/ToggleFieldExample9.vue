@@ -104,8 +104,7 @@ function submit(notification: INotificationProvider) {
   <BsCard class="w-full mx-auto" shadow style="max-width: 400px">
     <BsCardHeader class="flex items-center bg-default-color py-3">
       <BsButton color="light" flat icon="arrow_back" mode="icon" />
-      <span class="h4 text-white mb-0 ps-3">Survey Form</span>
-      <BsSpacer />
+      <div class="h4 text-white flex-fill mb-0 ps-3">Survey Form</div>
       <BsButton color="light" flat icon="more_vert" mode="icon" />
     </BsCardHeader>
     <BsCardBody>

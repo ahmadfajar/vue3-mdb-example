@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import {
+  buttonIconPositions,
   changeButtonElevated,
   changeButtonShape,
   changeButtonSize,
@@ -10,6 +11,7 @@ import {
   dsButtonShapes,
   dsButtonSizes,
   dsButtonVariants,
+  iconAnimationVariants,
 } from '@shares/buttonApi.ts';
 import { parseVueTemplateTag, stripAndBeautifyTemplate } from '@shares/sharedApi.ts';
 import {
@@ -128,6 +130,8 @@ const btnVariants = dsButtonVariants();
 const btnShapes = dsButtonShapes();
 const btnSizes = dsButtonSizes();
 const btnStates = dsComponentStates();
+const iconPositionSrc = buttonIconPositions();
+const iconAnimationSrc = iconAnimationVariants();
 
 onBeforeUnmount(() => {
   btnColors.proxy.destroy();
@@ -181,32 +185,26 @@ onBeforeUnmount(() => {
                   <BsCheckbox v-model="showIcon" :value="true">Show Icon</BsCheckbox>
                 </div>
 
-                <div class="mt-3 mb-1 select-none font-weight-medium">Icon Position:</div>
-                <div class="row row-cols-2">
-                  <div class="col">
-                    <BsRadio v-model="iconPosition" value="left"> Left </BsRadio>
-                  </div>
-                  <div class="col">
-                    <BsRadio v-model="iconPosition" value="right"> Right </BsRadio>
-                  </div>
-                </div>
+                <BsRadioGroup
+                  v-model="iconPosition"
+                  :disabled="!showIcon"
+                  :items="iconPositionSrc"
+                  column="2"
+                >
+                  <div class="col-form-label select-none">Icon Position:</div>
+                </BsRadioGroup>
 
-                <div class="mt-3 mb-1 select-none font-weight-medium">Animation:</div>
-                <div class="row row-cols-2">
-                  <div class="col">
-                    <BsRadio v-model="iconAnimation" :disabled="!showIcon" value="spin">
-                      Spin
-                    </BsRadio>
-                  </div>
-                  <div class="col">
-                    <BsRadio v-model="iconAnimation" :disabled="!showIcon" value="pulse">
-                      Pulse
-                    </BsRadio>
-                  </div>
-                </div>
+                <BsRadioGroup
+                  v-model="iconAnimation"
+                  :disabled="!showIcon"
+                  :items="iconAnimationSrc"
+                  column="2"
+                >
+                  <div class="col-form-label select-none">Animation:</div>
+                </BsRadioGroup>
               </div>
               <div class="grid mt-5">
-                <BsButton :disabled="!hasAnimation" @click="stopAnimation()">
+                <BsButton :disabled="!hasAnimation" color="primary" @click="stopAnimation()">
                   Stop Animation
                 </BsButton>
               </div>

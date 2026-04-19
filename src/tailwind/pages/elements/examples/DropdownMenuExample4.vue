@@ -26,7 +26,7 @@ const show1 = ref(false);
 
 <style lang="scss">
 @use 'vue-mdbootstrap/scss/mixins/dropdown-menu' as dropdown;
-@use 'vue-mdbootstrap/scss/color_vars' as colors;
+@use 'vue-mdbootstrap/scss/color-vars' as colors;
 
 @include dropdown.make-dropdown-menu-variant('info-color-dark', colors.$info-color-dark);
 </style>

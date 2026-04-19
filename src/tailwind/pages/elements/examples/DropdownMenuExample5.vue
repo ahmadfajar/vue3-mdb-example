@@ -9,7 +9,7 @@ const enableHints = ref(false);
 <template>
   <div class="flex justify-center">
     <BsDropdownMenu v-model:open="show1" :content-click-close="false" space="4">
-      <BsButton dropdown-toggle>Dropdown</BsButton>
+      <BsButton color="primary" dropdown-toggle>Dropdown</BsButton>
       <template #content>
         <BsListView>
           <BsListTile>

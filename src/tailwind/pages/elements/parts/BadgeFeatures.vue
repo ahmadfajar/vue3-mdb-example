@@ -77,42 +77,42 @@ const contentCls = ['h-full min-h-40 flex items-center justify-center', 'py-8 px
         <div :class="contentCls">
           <div v-if="customColor" class="flex flex-wrap md-gap-x-1 md-gap-y-2">
             <BsBadge
-              :color="outlined ? 'text-gray-800' : 'bg-gray-800'"
+              color="gray-500"
               :outlined="outlined"
               :type="badgeType"
             >
-              gray-800
+              gray-500
             </BsBadge>
             <BsBadge
-              :color="outlined ? 'text-slate-600' : 'bg-slate-600'"
+              color="slate-600"
               :outlined="outlined"
               :type="badgeType"
             >
               slate-600
             </BsBadge>
             <BsBadge
-              :color="outlined ? 'text-violet-800' : 'bg-violet-800'"
+              color="violet-800"
               :outlined="outlined"
               :type="badgeType"
             >
               violet-800
             </BsBadge>
             <BsBadge
-              :color="outlined ? 'text-purple-600' : 'bg-purple-600'"
+              color="purple-600"
               :outlined="outlined"
               :type="badgeType"
             >
               purple-600
             </BsBadge>
             <BsBadge
-              :color="outlined ? 'text-pink-600' : 'bg-pink-600'"
+              color="pink-600"
               :outlined="outlined"
               :type="badgeType"
             >
               pink-600
             </BsBadge>
             <BsBadge
-              :color="outlined ? 'text-red-700' : 'bg-red-700'"
+              color="red-700"
               :outlined="outlined"
               :type="badgeType"
             >

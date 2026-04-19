@@ -19,7 +19,7 @@ const showLoader = ref(false);
       spinner-diameter="60" 
       {$spinner_thickness} {$types} />
   </BsCard>
-  <BsButton class="mt-3" @click="showLoader = !showLoader">
+  <BsButton class="mt-3" color="primary" @click="showLoader = !showLoader">
     Toggle Loader
   </BsButton>
 </template>
