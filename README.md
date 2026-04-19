@@ -48,7 +48,7 @@ yarn install
 
 ### Compile and Hot-Reload for Development
 
-**Running examples with Bootstrap v5 CSS framework.**
+#### Running examples with Bootstrap v5 CSS framework
 
 ```sh
 # with npm
@@ -60,7 +60,7 @@ yarn bootstrap:dev
 
 Then open your browser and point to: http://localhost:5175/ 
 
-**Running examples with TailwindCSS v4 CSS framework.**
+#### Running examples with TailwindCSS v4 CSS framework
 
 ```sh
 # with npm
@@ -74,7 +74,7 @@ Then open your browser and point to: http://localhost:5173/
 
 ### Type-Check, Compile and Minify for Production
 
-**Build examples with Bootstrap v5 CSS framework.**
+#### Build examples with Bootstrap v5 CSS framework
 
 ```sh
 # with npm
@@ -84,7 +84,7 @@ npm run bootstrap:prod
 yarn bootstrap:prod
 ```
 
-**Build examples with TailwindCSS v4 CSS framework.**
+#### Build examples with TailwindCSS v4 CSS framework
 
 ```sh
 # with npm
